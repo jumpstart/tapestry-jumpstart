@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<t:content>
+
+	<div class="selectPersons">
+	
+		<table>
+			<tr t:type="loop" t:source="persons" t:value="person" t:formstate="ITERATION">
+				<td>
+					<input t:type="checkbox" type="checkbox" t:id="person" value="personChosen" t:disabled="prop:disabled"/>
+				</td>
+				<td>
+					${person.firstName}&nbsp;${person.lastName}
+				</td>
+			</tr>
+		</table>
+			
+	</div>
+ 	
+</t:content>
+</html>

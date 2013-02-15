@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Forms (1)</h1>
+	
+	Submitting a <strong>Form</strong> sends a <strong>component event request</strong>, which contains your input data, 
+	to its server-side counterpart.<br/><br/>
+	
+	Here is a basic Form:
+	
+	<div class="eg">
+		<form t:type="Form" t:id="names">
+			<t:errors/>
+			<table>
+				<tr>
+					<td>First Name:</td>
+					<td><input t:type="TextField" t:id="firstName"/></td>
+				</tr>
+				<tr>
+					<td>Last Name:</td>
+					<td><input t:type="TextField" t:id="lastName"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Display"/></td>
+				</tr>
+			</table>
+		</form>
+	 </div>
+
+ 	The request is an HTTP POST with a URL like this: <code>http://myhost/jumpstart/examples/input/forms1.names</code><br/><br/>
+
+	Server-side, Form "bubbles up" several events: <em>prepareForSubmit</em>, <em>validate</em>, <em>success</em> 
+	(or <em>failure</em>), and others.<br/>
+	This page has handlers for two of those events: <em>onValidateFromNames()</em> and <em>onSuccess()</em>.<br/><br/>
+	
+	Why do we use the long method name <em>onValidateFromNames()</em> instead of just <em>onValidate()</em>? <br/>
+	Because this handler is for handling <em>Validate</em> from the Form, 
+	not <em>validate</em> from its TextFields (firstName and lastName) which also bubble up <em>validate</em>.<br/>
+	The page's <em>onSuccess()</em> method returns page 2, which tells Tapestry what to show next.<br/><br/>
+
+	However, Tapestry does not immediately render page 2 and return it. Why not? Because Tapestry uses the 
+	<a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get</a> pattern: it 
+	generates a <strong>page render request</strong> URL to the next page and returns it to the browser as a redirect, an 
+	<a href="http://en.wikipedia.org/wiki/HTTP_302">HTTP 302</a>. So when the next page shows, its URL will NOT be the URL 
+	that triggered the event.  Instead, it will be a URL that is safe to reload, or bookmark, or return to with the Back button. 
+	The cost is 2 trips to the server, but it's worth it.<br/><br/>
+
+	References: <a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
+	<a href="http://tapestry.apache.org/forms-and-validation.html#FormsandValidation-Formcomponent">Form Component</a>,  
+	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>, 
+	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
+	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

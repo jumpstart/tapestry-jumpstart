@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"> 
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Web Services More</h1>
+	
+	Some more examples of Tapestry pages acting as a REST-like web service.<br/>
+	
+	<div class="eg">
+		<a t:type="pagelink" t:page="examples/ws/PersonsFind" href="#">PersonsFind</a><br/>
+		<!-- We use an href next because PageLink doesn't have a way to specify a query string -->
+	 	<a href="personsfind?namefilter=a">PersonsFind?namefilter=a</a><br/>
+	</div>
+	
+	For a more RESTful implementation try <a href="http://tynamo.org/tapestry-resteasy+guide">tapestry-resteasy</a>.<br/><br/>
+
+	References: 
+	<a href="http://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding">JAXB</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Response.html">Response</a>,
+	<a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServicesMore.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServicesMore.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonsFind.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/ws/Persons01.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/ws/Person01.java"/>
+</body>
+</html>

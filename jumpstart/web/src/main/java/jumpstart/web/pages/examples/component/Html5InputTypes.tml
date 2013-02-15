@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<style type="text/css">
+		form		{ text-align: center; }
+		table		{ font-family: Arial, Helvetica, sans-serif;  font-size: 13px; font-weight: normal; margin: auto; }
+		th			{ background-color: #bee; text-align: center; padding: 10px 10px; }
+		td			{ background-color: #eeb; text-align: left; padding: 10px 10px; }
+		td.name		{ text-align: right; vertical-align: top; }
+		td input	{ width: 180px; }
+		div.t-palette { width: 460px; }
+		.datePicker td .topLabel { color:black; }
+	</style>
+</head>
+<body>
+	<h1>HTML5 Input Types</h1>
+	
+	The HTML5 doctype <code>&lt;!DOCTYPE html></code> is valid in Tapestry, and TextField supports any HTML5 input type.<br/><br/>
+	
+	However, <a href="http://www.wufoo.com/html5/">not all browsers support all HTML5 input types</a>. 
+	Test <a href="http://miketaylr.com/code/input-type-attr.html">your browser here</a>.
+	
+	<div class="eg">
+		<form t:type="form" t:id="inputs">
+			<table>
+				<tr>
+					<th>HTML5 input type</th>
+					<th>Use them and press Submit</th>
+					<th>Submitted Value</th>
+				</tr>
+				<tr>
+					<td class="name">search:</td>
+					<td><input t:type="TextField" t:id="searchValue" type="search"/></td>
+					<td>${searchValue}</td>
+				</tr>
+				<tr>
+					<td class="name">url:</td>
+					<td><input t:type="TextField" t:id="urlValue" type="url"/></td>
+					<td>${urlValue}</td>
+				</tr>
+				<tr>
+					<td class="name">tel:</td>
+					<td><input t:type="TextField" t:id="telValue" type="tel"/></td>
+					<td>${telValue}</td>
+				</tr>
+				<tr>
+					<td class="name">email:</td>
+					<td><input t:type="TextField" t:id="emailValue" type="email"/></td>
+					<td>${emailValue}</td>
+				</tr>
+				<tr>
+					<td class="name">datetime:</td>
+					<td><input t:type="TextField" t:id="datetimeValue" type="datetime"/></td>
+					<td>${datetimeValue}</td>
+				</tr>
+				<tr>
+					<td class="name">date:</td>
+					<td><input t:type="TextField" t:id="dateValue" type="date"/></td>
+					<td>${dateValue}</td>
+				</tr>
+				<tr>
+					<td class="name">month:</td>
+					<td><input t:type="TextField" t:id="monthValue" type="month"/></td>
+					<td>${monthValue}</td>
+				</tr>
+				<tr>
+					<td class="name">week:</td>
+					<td><input t:type="TextField" t:id="weekValue" type="week"/></td>
+					<td>${weekValue}</td>
+				</tr>
+				<tr>
+					<td class="name">time:</td>
+					<td><input t:type="TextField" t:id="timeValue" type="time"/></td>
+					<td>${timeValue}</td>
+				</tr>
+				<tr>
+					<td class="name">datetimelocal:</td>
+					<td><input t:type="TextField" t:id="datetimelocalValue" type="datetimelocal"/></td>
+					<td>${datetimelocalValue}</td>
+				</tr>
+				<tr>
+					<td class="name">number:</td>
+					<td><input t:type="TextField" t:id="numberValue" type="number"/></td>
+					<td>${numberValue}</td>
+				</tr>
+				<tr>
+					<td class="name">range:</td>
+					<td><input t:type="TextField" t:id="rangeValue" type="range"/></td>
+					<td>${rangeValue}</td>
+				</tr>
+				<tr>
+					<td class="name">color:</td>
+					<td><input t:type="TextField" t:id="colorValue" type="color"/></td>
+					<td>${colorValue}</td>
+				</tr>
+			</table><br/>
+			
+			<input type="submit" value="Submit"/>
+		</form>
+	</div>
+	
+	All the fields above are String, but TextField can be used with any class that has a Translator. See the Translator examples.<br/><br/> 
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	References:
+	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-TemplateDoctypes">Template Doctypes</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.<br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/Html5InputTypes.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/Html5InputTypes.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

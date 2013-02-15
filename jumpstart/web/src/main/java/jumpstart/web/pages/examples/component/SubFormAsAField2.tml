@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<style type="text/css">
+		h3				{ margin-top: 0; }
+		.invitation		{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
+		.noInvitation	{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
+		.review th		{ font-weight: normal; text-align: left; vertical-align: top; }
+		.selectPersons	{ padding: 15px; border: 2px solid #dddddd; background-color: #e4e4e4; width: 250px; }
+	</style>
+</head>
+<body>
+	<h1>Sub-Form As a Field (2)</h1>
+	
+	Here is the new invitation. We have reused the sub-form SelectPersonsField, this time with disabled="literal:true".<br/><br/>
+	
+	Note that in a real application we wouldn't receive the invitation and hold it with @Persist - instead we would <br/>
+	receive the invitation's id and use it as the activation context with onPassivate() and onActivate(), and in setupRender() <br/>
+	we would get the invitation from the database.<br/> 
+
+	<t:if t:test="invitation">
+		<div class="eg invitation">
+			<!-- A form is needed so that the checkbox in SelectPersons works OK. -->
+			<form t:type="form" t:id="form">
+				<h3>Invitation</h3>
+	
+			 	<table class="review">
+			 		<tr>
+			 			<th>Event Description:</th>
+			 			<td>${invitation.eventDescription}</td>
+			 		</tr>
+			 		<tr>
+			 			<th>Invited People:</th>
+			 			<td><t:examples.component.SelectPersonsField t:id="invitedPersons" t:persons="allPersons" 
+			 				t:chosen="invitation.invitedPersons" t:disabled="true">[List here]
+			 				</t:examples.component.SelectPersonsField></td>
+			 		</tr>
+			 	</table>
+				
+			</form>
+		</div>
+	</t:if>
+	<t:if t:test="invitation" t:negate="true">
+		<div class="eg noInvitation">
+			No invitation found.
+		</div>
+	</t:if>
+	 
+	<a t:type="pagelink" t:page="examples/component/SubFormAsAField1" href="#">Return</a><br/><br/>
+
+	References: 
+	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/components/RadioGroup.java?view=markup">RadioGroup.java</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Field.html">Field</a>, 
+	<a href="http://tapestry.apache.org/environmental-services.html">Environmental Services</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ValidationTracker.html">ValidationTracker</a>, 
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField2.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField2.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>AJAX Loading Spinner</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	This example displays an "AJAX loading spinner" while a Zone request is in progress.<br/>
+	It uses JavaScript to detect any Form or link request that involves a Zone update, then overlays the Zone.<br/>
+	When the Zone update returns from the server it replaces the Zone completely, without the overlay. 
+
+	<div class="eg">
+		<a t:type="eventlink" t:event="showThings" t:zone="thingsZone" href="#">Show things, with a delay...</a><br/><br/>
+		
+		<t:zone t:id="thingsZone" id="thingsZone" style="width: 140px; min-height: 80px;">
+			<div t:type="Loop" t:source="things" t:value="thing">
+				${thing}
+			</div>
+		</t:zone>
+		
+	</div>	
+	
+	It uses just a bit of JavaScript, css, and an animated GIF.<br/>
+	You could make this available to all pages by adding it to a Layout component - see The Layout Component example.<br/><br/>
+
+	This solution has limitations which are described in the original article 
+	<a href="http://java.dzone.com/articles/adding-ajax-throbbers-zone">Adding 'Ajax Throbbers' to Zone updates</a>.<br/><br/>
+	
+	For a mixin, have a look at the ZoneLoadingSpinner in Lenny's <a href="http://code.google.com/p/flowlogix/">FlowLogix</a>.<br/><br/>
+	
+	References: 
+	<a href="http://java.dzone.com/articles/adding-ajax-throbbers-zone">Adding 'Ajax Throbbers'</a>, 
+	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>, 
+	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>.<br/><br/> 
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxLoadingSpinner.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxLoadingSpinner.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/js/zone-overlay.js"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/zone-overlay.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/zone-overlay-ie.css"/>
+</body>
+</html>

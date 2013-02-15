@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Return Types (1)</h1>
+	
+	Event handler methods control what is displayed next by what they return. <br/>
+	The following EventLinks demonstrate all the return types that Tapestry allows:
+	<div class="eg">
+		<a t:type="eventlink" t:event="returnvoid" href="#">void</a> - redisplay the same page.<br/>
+		<a t:type="eventlink" t:event="returnnull" href="#">null</a> - redisplay the same page.<br/>
+		<a t:type="eventlink" t:event="returnclass" href="#">Class (must be a page class)</a> - go to new page.<br/>
+		<a t:type="eventlink" t:event="returnstring" href="#">String (must be a logical page name)</a> - go to new page.<br/>
+		<a t:type="eventlink" t:event="returnpageobject" href="#">page object</a> - go to new page, with the option of setting up its parameters first.<br/>
+		<a t:type="eventlink" t:event="returnlink" href="#">Link</a> - go to new page, with the option of setting up a context first.<br/>
+		<a t:type="eventlink" t:event="returnstreamresponse" href="#">StreamResponse</a> - used by pages or components to return images, PDFs, XML, etc.<br/>
+		<a t:type="eventlink" t:event="returnurl" href="#">URL</a> - go to a java.net.URL of an external page.<br/>
+		<a t:type="eventlink" t:event="returntrue" href="#">true</a> - redisplay same page, aborting event bubbling (see Event Bubbling example).<br/>
+		<a t:type="eventlink" t:event="returnfalse" href="#">false</a> - same as returning null.<br/>
+		
+		<t:if t:test="message">
+			<br/>
+			<span style="color:red;">${message}</span>
+		</t:if>
+	</div>
+
+	References: 
+	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">Component Event Requests</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Link.html">Link</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>, 
+	the Streaming Data section of <a href="http://wiki.apache.org/tapestry/Tapestry5HowTos#Streaming_Data">Tapestry 5 How Tos</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnTypes1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnTypes1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/text/examples/ReturnTypeText.txt"/>
+</body>
+</html>

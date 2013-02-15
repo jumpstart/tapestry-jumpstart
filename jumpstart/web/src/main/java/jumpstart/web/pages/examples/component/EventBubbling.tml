@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Event Bubbling</h1>
+	If a component's event handler method returns <em>true</em>, the handling of that event is aborted. Otherwise, the event "bubbles up".<br/><br/>
+
+	"Bubbling up" means that if there are no more matching event handlers in the component (see the Multiple Method Matches example) 
+	then the component will trigger the same event in its containing component. The containing component in this example is the page.<br/><br/>
+
+	Here we have 4 instances of MyComponent. MyComponent renders an EventLink with the event name we give. We give 4 event names: EventA, EventB, EventC, and EventD.<br/><br/>
+	Server-side, MyComponent handles 3 events: EventA, EventB, and EventC; and the page handles 6 events: EventA, EventB, EventC, EventD, EventE, and EventX.<br/>
+
+	<div class="eg">
+		<t:if t:test="pageMessage">
+			<span style="color:red;">${pageMessage}<br/><br/></span>
+		</t:if>
+
+		<a t:type="examples/component/mycomponent" t:eventname="EventA" href="#">EventA</a><br/>
+		<a t:type="examples/component/mycomponent" t:eventname="EventB" href="#">EventB</a><br/>
+		<a t:type="examples/component/mycomponent" t:eventname="EventC" href="#">EventC</a><br/>
+		<a t:type="examples/component/mycomponent" t:eventname="EventD" href="#">EventD</a><br/>
+	</div>
+	
+	References: 
+	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-EventBubbling">Event Bubbling</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/EventBubbling.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/EventBubbling.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/MyComponent.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/MyComponent.java"/>
+</body>
+</html>

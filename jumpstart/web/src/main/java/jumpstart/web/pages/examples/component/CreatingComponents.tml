@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Creating Components</h1>
+
+	Components must reside under the <code>components</code> package.<br/><br/>
+
+	This page shows how simple it can be to create a component.<br/><br/>
+	
+	Components have a lot in common with pages:<br/>
+	<ul>
+		<li>A component <em>must</em> have a 
+		<a href="http://tapestry.apache.org/component-classes.html">Class</a>.</li>
+		<li>A component <em>may</em> have a 
+		<a href="http://tapestry.apache.org/component-templates.html">Template</a>.</li>
+		<li>A component has the same 
+		<a href="http://tapestry.apache.org/component-rendering.html">Rendering phases</a>
+		as a page.</li>
+		<li>A component can have embedded components.</li>
+	</ul>
+	
+	Instead of rendering from a <em>template</em>, a page or component can render a DOM directly with 
+	Tapestry's <em>MarkupWriter</em>. For more, see the MarkupWriter example.<br/><br/> 
+		
+	Components have some differences to pages:<br/>
+	<ul>
+		<li>They reside under the <code>components</code> package, not the <code>pages</code> package.</li>
+		<li>They can receive 
+		<a href="http://tapestry.apache.org/component-parameters.html">Parameters</a>. 
+		Actually, parameters are bi-directional - they are shared with the container and changes made by one are visible to the other.</li>
+		<li>They don't receive <em>activate</em> and <em>passivate</em> events.</li>
+	</ul>
+
+	<h3>An example</h3>
+		  
+	We have created a simple component called <strong>BoldItalicDisplay</strong>. Its job is to receive 
+	a String parameter and render it in bold and italics within a border.
+
+	<div class="eg">
+		<t:examples.component.bolditalicdisplay value="message"/>
+	</div>
+	
+	<t:pagelink t:page="examples/component/CreatingComponents" href="#">Refresh</t:pagelink><br/><br/>
+	
+	You can see from the source code below that BoldItalicDisplay consists of a class and a template.<br/>
+	The BoldItalicDisplay class declares a parameter and a getter.  
+	The BoldItalicDisplay template describes how to render it.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/CreatingComponents.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/CreatingComponents.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplay.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplay.java"/>
+</body>
+</html>

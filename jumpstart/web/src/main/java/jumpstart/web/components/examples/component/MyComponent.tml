@@ -1,0 +1,6 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<t:content>
+	<a t:type="eventlink" t:event="prop:eventname" href="#"><t:body/></a>
+	<span style="color:red">${message}</span>
+</t:content>
+</html>

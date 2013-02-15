@@ -1,0 +1,57 @@
+body			{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: normal; color: #333;					line-height: 17px; }h1				{ font-size: 26px; line-height: 20px; }	/* For IE 7 */.eg				{ margin: 20px 0; padding: 20px; 					border: 1px solid #ddd; border-radius: 4px; -webkit-border-radius: 4px; -mox-border-radius: 4px; }a				{ text-decoration: none; color: #3D69B6; }a:hover			{ text-decoration: underline; }/*
+	The following entries are to make a Grid previewable. They have been copied from Tapestry's default.css.
+*/
+
+TABLE.t-data-grid THEAD TR {
+    color: white;
+    background-color: #809FFF;
+}
+
+TABLE.t-data-grid THEAD TR TH {
+    text-align: left;
+    padding: 3px;
+    white-space: nowrap;
+    border-right: 1px solid silver;
+    border-bottom: 1px solid silver;
+}
+
+TABLE.t-data-grid {
+    border-collapse: collapse;
+    border-left: 1px solid silver;
+}
+
+TABLE.t-data-grid TBODY TR TD {
+    border-right: 1px solid silver;
+    border-bottom: 1px solid silver;
+    padding: 2px;
+}
+
+DIV.t-data-grid {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+DIV.t-data-grid-pager {
+    margin: 8px 0px;
+}
+
+DIV.t-data-grid-pager A, DIV.t-data-grid-pager SPAN.current {
+    text-decoration: none;
+    color: black;
+    padding: 2px 5px;
+    font-size: medium;
+    border: 1px solid silver;
+    margin-right: 5px;
+}
+
+DIV.t-data-grid-pager A:hover {
+    border: 1px solid black;
+}
+
+DIV.t-data-grid-pager SPAN.current {
+    color: white;
+    background-color: #809FFF;
+}
+
+TABLE.t-data-grid TR TH A {
+    color: white;
+}

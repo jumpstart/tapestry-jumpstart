@@ -1,0 +1,304 @@
+<project name="business" default="get-dependent-files" basedir=".">
+
+	<property file="../build.properties" />
+
+	<property name="project.dir" value="${basedir}/.." />
+
+	<property name="java.main.dir" value="src/main/java" />
+	<property name="java.tests.dir" value="src/test/java" />
+	<property name="resources.main.dir" value="src/main/resources" />
+
+	<property name="target.dir" value="target" />
+	<property name="target.classes.dir" value="${target.dir}/classes" />
+	<property name="target.test-classes.dir" value="${target.dir}/test-classes" />
+	<property name="target.package.dir" value="${target.dir}/package" />
+
+	<property name="lib.compile.dir" value="src/main/lib-compile" />
+	<property name="lib.provided.dir" value="src/main/lib-provided" />
+	<property name="lib.runtime.dir" value="src/main/lib-runtime" />
+	<property name="lib.test.dir" value="src/test/lib-test" />
+	<property name="lib.test.hibernate.dir" value="src/test/lib-test-hibernate" />
+
+	<property name="conf.test.jboss.remote.dir" value="src/test/conf-remote-jboss" />
+	<property name="conf.test.tomcat.remote.dir" value="src/test/conf-remote-tomcat" />
+	<property name="conf.test.glassfish.remote.dir" value="src/test/conf-remote-glassfish" />
+
+	<property name="deployment.persistence.descriptor.file" value="${basedir}/src/main/resources/persistence-descriptor/${deployment.persistence.descriptor}" />
+
+	<property name="debug" value="on" />
+
+	<property name="jar.file" value="${target.package.dir}/${app.name}.jar" />
+
+	<path id="classpath.compile">
+		<fileset dir="${lib.compile.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${lib.provided.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="classpath.unit.test">
+		<pathelement location="${target.test-classes.dir}" />
+		<pathelement location="${target.classes.dir}" />
+		<fileset dir="${lib.compile.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${lib.provided.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${lib.runtime.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${lib.test.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="clean" description="Deletes the target directory">
+		<delete dir="${target.dir}" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${target.classes.dir}" />
+		<mkdir dir="${target.test-classes.dir}" />
+		<mkdir dir="${target.package.dir}" />
+	</target>
+
+	<target name="compile" depends="init" description="Compiles main source, output goes to the target/classes dir.">
+		<javac source="1.6" target="1.6" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
+
+		<copy todir="${target.classes.dir}">
+			<fileset dir="${java.main.dir}" includes="**/*.properties" />
+		</copy>
+	</target>
+
+	<target name="test-compile" depends="init" description="Compiles test source, output goes to the target/test-classes dir.">
+		<javac source="1.6" target="1.6" srcdir="${java.tests.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
+	</target>
+
+	<target name="test">
+		<mkdir dir="test-results" />
+		<junit printsummary="yes" fork="off" timeout="10">
+			<test name="jumpstart.business.BusinessUnitTestSuite" haltonfailure="yes">
+				<formatter type="plain" usefile="false" />
+			</test>
+			<classpath refid="classpath.unit.test" />
+		</junit>
+	</target>
+
+	<target name="package" depends="init" description="">
+		<available type="file" file="${deployment.persistence.descriptor.file}" property="dep.pers.desc.exists" />
+		<fail unless="dep.pers.desc.exists" message="*** File specified by deployment.persistence.descriptor does not exist: ${deployment.persistence.descriptor.file}" />
+
+		<delete file="${jar.file}" />
+		<jar destfile="${jar.file}" manifest="${resources.main.dir}/META-INF/MANIFEST.MF">
+			<zipfileset dir="${target.classes.dir}" />
+			<zipfileset file="${deployment.persistence.descriptor.file}" fullpath="META-INF/persistence.xml" />
+		</jar>
+	</target>
+
+	<!-- For tips on how to use the integration tests see http://jumpstart.doublenegative.com.au/tips.html -->
+
+	<target name="integration-test" depends="set-classpath-integration-test-remote">
+		<echo message="Running integration tests of jumpstart business tier."/>
+
+		<echo message="classpath.integration.test.remote = ${toString:classpath.integration.test.remote}"/>
+
+		<mkdir dir="test-results" />
+		<junit printsummary="yes" fork="off" timeout="10">
+			<test name="jumpstart.business.BusinessIntegrationTestSuite" haltonfailure="yes">
+				<formatter type="plain" usefile="false" />
+			</test>
+			<classpath refid="classpath.integration.test.remote" />
+		</junit>
+	</target>
+
+	<target name="set-classpath-integration-test-remote" depends="set-vars-if-jboss7,set-vars-if-tomcat7,set-vars-if-glassfish3">
+		<path id="classpath.integration.test.remote">
+			<pathelement location="${conf.test.remote.dir}" />
+			<pathelement location="${target.test-classes.dir}" />
+			<pathelement location="${target.classes.dir}" />
+			<path path="${classpath.client.lib.as.property}" />
+			<fileset dir="${lib.compile.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${lib.runtime.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${lib.test.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+	</target>
+
+	<target name="install" description="">
+		<echo message="There is no local repository to install the JAR in." />
+	</target>
+
+	<target name="delete-dependent-files" description="">
+		<delete dir="${lib.compile.dir}" includes="*" />
+		<delete dir="${lib.provided.dir}" includes="*" />
+		<delete dir="${lib.runtime.dir}" includes="*" />
+		<delete dir="${lib.test.dir}" includes="*" />
+		<delete dir="${lib.test.hibernate.dir}" includes="*" />
+		<delete dir="${lib.data.dir}" includes="*" />
+	</target>
+
+	<!--
+		Get the files that our project depends on. They are 3rd-party jars.
+		Each tier (business, web, enterprise) gets its own set.  Some files appear in more than one tier and that's OK.
+		It allows different tiers to use different versions, which is sometimes necessary.
+	-->
+
+	<target name="get-dependent-files">
+		<setproxy>
+		</setproxy>
+		<fail unless="maven.repo.root" message="*** Specify maven.repo.root in the project's build.properties." />
+
+		<!-- compile-time jars - needed for compiling and will be put in the package for runtime -->
+
+		<mkdir dir="${lib.compile.dir}" />
+		<get dest="${lib.compile.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
+
+		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. JBoss -->
+
+		<mkdir dir="${lib.provided.dir}" />
+		<get dest="${lib.provided.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
+		<!-- TODO: modify BaseEntity so it is not dependent on Hibernate. -->
+		<get dest="${lib.provided.dir}/hibernate-core-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar" />
+		<get dest="${lib.provided.dir}/slf4j-api-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
+
+		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
+
+		<mkdir dir="${lib.runtime.dir}" />
+
+		<!-- testing jars - needed for compiling and running tests -->
+
+		<mkdir dir="${lib.test.dir}" />
+		<!-- For jndi lookup -->
+		<get dest="${lib.test.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
+		<get dest="${lib.test.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
+		<get dest="${lib.test.dir}/junit-4.11.jar" usetimestamp="true" src="${maven.repo.root}/junit/junit/4.11/junit-4.11.jar" />
+		<get dest="${lib.test.dir}/hamcrest-core-1.3.jar" usetimestamp="true" src="${maven.repo.root}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
+		<get dest="${lib.test.dir}/log4j-1.2.16.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.16/log4j-1.2.16.jar" />
+		<get dest="${lib.test.dir}/slf4j-api-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
+		<get dest="${lib.test.dir}/slf4j-log4j12-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar" />
+
+		<!-- testing openejb local jars - needed when running tests with openejb locally, ie. in-line. -->
+
+		<mkdir dir="${lib.test.hibernate.dir}" />
+		<!-- For Hibernate -->
+		<get dest="${lib.test.hibernate.dir}/antlr-3.1.1.jar" usetimestamp="true" src="${maven.repo.root}/org/antlr/antlr/3.1.1/antlr-3.1.1.jar" />
+		<get dest="${lib.test.hibernate.dir}/hibernate-core-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/hibernate-commons-annotations-4.0.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/hibernate-entitymanager-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-entitymanager/4.1.9.Final/hibernate-entitymanager-4.1.9.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/jboss-logging-3.1.1.GA.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging/3.1.1.GA/jboss-logging-3.1.1.GA.jar" />
+		<get dest="${lib.test.hibernate.dir}/jboss-logging-processor-1.0.3.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging-processor/1.0.3.Final/jboss-logging-processor-1.0.3.Final.jar" />
+	</target>
+	
+	<target name="set-vars-if-jboss7" if="deployment.server.type.is.jboss7" depends="interpret-server-type">
+		<property name="conf.test.remote.dir" value="${conf.test.jboss.remote.dir}" />
+
+		<path id="classpath.jboss7.client.lib">
+			<fileset dir="${project.dir}/${deployment.server.dir}/../bin/client">
+				<include name="jboss-client.jar" />
+			</fileset>
+			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/org/hibernate/main">
+				<include name="hibernate-commons-annotations-4.*.jar" />
+				<include name="hibernate-core-4.*.jar" />
+				<include name="hibernate-entitymanager-4.*.jar" />
+			</fileset>
+			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/org/javassist/main">
+				<include name="javassist-3.*.jar" />
+			</fileset>
+			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/org/jboss/logging/main">
+				<include name="jboss-logging-3.*.jar" />
+			</fileset>
+			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/com/h2database/h2/main">
+				<include name="h2-1.*.jar" />
+			</fileset>
+			<!--
+			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/com/mysql/main">
+				<include name="mysql-connector-java-*.jar" />
+			</fileset>
+			-->
+		</path>
+
+		<property name="classpath.client.lib.as.property" refid="classpath.jboss7.client.lib"/>
+	</target>
+
+	<target name="set-vars-if-tomcat7" if="deployment.server.type.is.tomcat7" depends="interpret-server-type">
+		<property name="conf.test.remote.dir" value="${conf.test.tomcat.remote.dir}" />
+		
+		<path id="classpath.tomcat7.client.lib">
+			<fileset dir="${project.dir}/${deployment.server.dir}/lib">
+				<include name="openejb-client-4.*.jar" />
+				<include name="hibernate-commons-annotations-4.*.jar" />
+				<include name="hibernate-core-4.*.jar" />
+				<include name="hibernate-entitymanager-4.*.jar" />
+				<include name="javassist-3.*.jar" />
+				<include name="jboss-logging-3.*.jar" />
+				<include name="jboss-logging-processor-1.*.jar" />
+				<!--
+				<include name="mysql-connector-java-*.jar" />
+				-->
+			</fileset>
+		</path>
+
+		<property name="classpath.client.lib.as.property" refid="classpath.tomcat7.client.lib"/>
+	</target>
+
+	<target name="set-vars-if-glassfish3" if="deployment.server.type.is.glassfish3" depends="interpret-server-type">
+		<property name="conf.test.remote.dir" value="${conf.test.glassfish.remote.dir}" />
+
+		<path id="classpath.glassfish3.client.lib">
+			<fileset dir="${project.dir}/${deployment.server.dir}/../../lib">
+				<include name="gf-client.jar" />
+			</fileset>
+			<fileset dir="${project.dir}/${deployment.server.dir}/lib">
+				<include name="hibernate-commons-annotations-4.*.jar" />
+				<include name="hibernate-core-4.*.jar" />
+				<include name="hibernate-entitymanager-4.*.jar" />
+				<include name="javassist-3.*.jar" />
+				<include name="jboss-logging-3.*.jar" />
+				<include name="jboss-logging-processor-1.*.jar" />
+				<!--
+				<include name="mysql-connector-java-*.jar" />
+				-->
+			</fileset>
+			<fileset dir="${project.dir}/${deployment.server.dir}/../../../javadb/lib">
+				<include name="derbyclient.jar" />
+			</fileset>
+		</path>
+
+		<property name="classpath.client.lib.as.property" refid="classpath.glassfish3.client.lib"/>
+	</target>
+
+	<target name="interpret-server-type">
+
+		<!-- Validate the deployment.server.type -->
+		
+		<condition property="deployment.server.type.valid">
+			<or>
+				<equals arg1="${deployment.server.type}" arg2="jboss7"/>
+				<equals arg1="${deployment.server.type}" arg2="tomcat7"/>
+				<equals arg1="${deployment.server.type}" arg2="glassfish3"/>
+			</or>
+		</condition>
+		<fail unless="deployment.server.type.valid" message="*** Please specify a valid deployment.server.type. Expected tomcat7, jboss7, or glassfish3.  Found ${deployment.server.type}." />
+		
+		<!-- Set some boolean properties based on the deployment.server.type -->
+		
+		<condition property="deployment.server.type.is.jboss7">
+			<equals arg1="${deployment.server.type}" arg2="jboss7"/>
+		</condition>
+		<condition property="deployment.server.type.is.tomcat7">
+			<equals arg1="${deployment.server.type}" arg2="tomcat7"/>
+		</condition>
+		<condition property="deployment.server.type.is.glassfish3">
+			<equals arg1="${deployment.server.type}" arg2="glassfish3"/>
+		</condition>
+	</target>
+
+</project>

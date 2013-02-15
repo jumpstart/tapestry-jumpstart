@@ -1,0 +1,34 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<style type="text/css">
+		body	{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; }
+		.eg		{ margin: 20px 0; padding: 20px; color: olive; border: 1px solid #ddd; }
+	</style>
+</head>
+<body>
+	<h1>Output</h1>
+
+	<div class="eg">
+		${message}
+	</div>
+
+	If you look in the source code below you will see &#36;<code>{message}</code> in Output.tml and <code>getMessage()</code> in Output.java.<br/>
+	When Tapestry parsed Output.tml into HTML, it reached &#36;<code>{message}</code>, called <code>getMessage()</code>, 
+	and replaced &#36;<code>{message}</code> with the result.<br/><br/>
+
+	That's the general pattern for output in Tapestry: the class exposes named properties (ie. public getters) and the template references them.<br/><br/>
+
+	The reference &#36;<code>{message}</code> is called an 
+	<em><a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">expansion</a></em>.<br/><br/> 
+
+	<t:pagelink t:page="examples/output/Output" href="#">Refresh</t:pagelink><br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">Expansions</a>.<br/><br/>
+
+	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/Output.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/Output.java"/>
+</body>
+</html>

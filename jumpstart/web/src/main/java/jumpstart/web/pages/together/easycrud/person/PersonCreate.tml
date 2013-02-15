@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/together/easycrudedit.css}"/>
+</head>
+<body>
+	<h1>Create</h1>
+	
+	<div class="eg">
+		<t:beaneditform t:id="personForm" object="person" include="firstName,lastName,region,startDate" submitLabel="Save"/><br/>
+
+		<a t:type="pageLink" t:page="together/easycrud/Persons" href="#">Cancel</a>
+	</div>
+	
+	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+
+	The source for PersonManagerService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonCreate.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonCreate.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/easycrudedit.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

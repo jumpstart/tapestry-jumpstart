@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Delegate and Blocks</h1>
+
+	When a template becomes complex or cluttered in a way that makes its structure or sequence of elements difficult, consider using Delegate and Blocks.
+
+	<div class="eg">
+		<t:delegate to="block:blockA"/>
+		<t:delegate to="block:blockB"/>
+		<t:delegate to="block:blockC"/>
+		<t:delegate to="block:blockB"/>
+		<t:delegate to="block:blockA"/>
+	</div>
+
+	They provide great flexibility in how and what gets rendered, especially when combined with If and Loop.<br/><br/>
+
+	<t:block id="blockA">
+		<div style="margin: 2px; padding: 10px; background-color: #f8f8f8;">
+			This is block A.
+		</div>
+	</t:block>
+	<t:block id="blockB">
+		<div style="margin: 2px; padding: 10px; background-color: #f0f0f0;">
+			This is block B.
+		</div>
+	</t:block>
+	<t:block id="blockC">
+		<div style="margin: 2px; padding: 10px; background-color: #e8e8e8;">
+			This is block C.
+		</div>
+	</t:block>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
+	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Ablock%3EElement">t:block</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
+	<a href="http://tapestry.apache.org/switching-cases.html">Switching Cases</a>, 
+	<a href="http://tapestry.apache.org/principles.html#Principles-Principle1StaticStructure%2CDynamicBehavior">Principle 1 - Static Structure, Dynamic Behavior</a>.<br/><br/>
+
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateAndBlocks.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateAndBlocks.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

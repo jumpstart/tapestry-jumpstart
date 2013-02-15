@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/together/gracefulajaxcomponentscrud.css}"/>
+</head>
+<body>
+	<h1>Graceful AJAX Components CRUD</h1>
+	
+	This example builds on <em>AJAX Components CRUD</em>, modifying it to handle when JavaScript support has been turned off in 
+	the browser.<br/>
+
+	<div class="eg">
+		<form t:type="form" t:id="preferencesForm">
+			<noscript class="js-recommended">
+				${message:javascript_recommended}
+			</noscript> 	
+			Highlight zone updates? 
+			 <input t:type="checkbox" t:id="highlightZoneUpdates" value="highlightZoneUpdates" onclick="this.form.submit()"/>
+			This shows you which zones are updated by the Ajax response.
+		</form><br/>
+	
+	 	<a t:type="eventLink" t:event="toCreate" t:zone="editorZone" href="#">Create...</a><br/>
+	 	
+		<table id="listAndEditor">
+			<tbody>
+				<tr>
+	
+					<!-- This is the left side of the table: a list of Persons -->
+	
+					<td id="listCell">
+						<t:zone t:id="listZone" id="listZone" t:update="prop:zoneUpdateFunction">
+							<t:together.gracefulajaxcomponentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
+						</t:zone>
+					</td>
+					
+					<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
+			
+					<td id="editorCell">
+						<t:zone t:id="editorZone" id="editorZone" t:update="prop:zoneUpdateFunction">
+							<t:together.gracefulajaxcomponentscrud.PersonEditor t:id="editor" mode="editorMode" personId="editorPersonId"/>
+						</t:zone>
+					</td>
+					
+				</tr>
+			</tbody>
+	 	</table>
+	</div>
+ 	
+ 	All the comments made in <em>AJAX Components CRUD</em> apply to this example too.<br/><br/>
+ 	
+ 	References: 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+ 	
+	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
+	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/gracefulajaxcomponentscrud/Persons.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/gracefulajaxcomponentscrud/Persons.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/gracefulajaxcomponentscrud/PersonList.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/gracefulajaxcomponentscrud/PersonList.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/gracefulajaxcomponentscrud/PersonEditor.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/gracefulajaxcomponentscrud/PersonEditor.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/gracefulajaxcomponentscrud/PersonEditor.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/gracefulajaxcomponentscrud.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/together/PersonFilteredDataSource.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

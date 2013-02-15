@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<style type="text/css">
+		h3				{ margin-top: 0; }
+		.invitation		{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
+		.edit th		{ font-weight: normal; text-align: left; vertical-align: top; }
+		.selectPersons	{ padding: 15px; border: 2px solid #dddddd; background-color: #e4e4e4; width: 250px; }
+		.error-label-c	{ color: red; } 
+		.error-msg-c	{ color: red; } 
+	</style>
+</head>
+<body>
+	<h1>Sub-Form Component (1)</h1>
+	
+	We will use an invented term, "sub-form", to mean a component that contains input components. It will be put in a Form.<br/>
+	In this example we have a sub-form called SelectPersons which the page uses to edit <em>invitation.invitedPersons</em>.<br/>
+	On submit, the page validates <em>invitation.invitedPersons</em>.<br/>
+	
+	<div class="eg invitation">
+		
+		<form t:type="CustomForm" t:id="form">
+			<h3>Create Invitation</h3>
+
+		 	<table class="edit">
+		 		<tr>
+		 			<th><t:label for="eventDescription"/>:</th>
+		 			<td><input t:type="TextField" t:id="eventDescription" value="invitation.eventDescription" 
+						t:validate="required, maxLength=50" size="50"/><br/>
+						<t:CustomError for="eventDescription">Error message</t:CustomError></td>
+		 		</tr>
+		 		<tr>
+		 			<th>People to Invite:</th>
+		 			<td><t:examples.component.SelectPersons t:id="invitedPersons" t:persons="allPersons" 
+		 				t:chosen="invitation.invitedPersons">[List here]
+		 				</t:examples.component.SelectPersons></td>
+		 		</tr>
+		 	</table>
+
+			<t:errors/><br/>
+			
+			<input t:type="Submit" t:id="done" value="Save"/>
+		</form>
+	</div>
+
+	There is a reason we cannot do validation in our sub-form: our sub-form doesn't know when the form has been submitted.<br/>
+	When the CustomForm triggers events like SUBMIT and VALIDATE they bubble up to its container which is this page.<br/>
+	The sub-form does not receive the events.<br/><br/>
+	
+	And yet, every input component that we put in a sub-form <em>can</em> do validation. That is because they have some <br/>
+	extra plumbing. We will add that plumbing to our sub-forms in the next couple of examples...<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
+	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+</body>
+</html>

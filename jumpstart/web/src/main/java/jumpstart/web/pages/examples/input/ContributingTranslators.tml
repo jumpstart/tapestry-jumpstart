@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Contributing Translators</h1>
+
+	Here we create a Translator and make it available to the whole application <strong>by name</strong>.<br/><br/>
+
+	The translator converts a Boolean, server-side, to "yes" or "no", client-side; <br/>
+	and it parses "y", "n", "yes", and "no" (ignoring case), client-side, to Boolean, server-side.<br/><br/>
+	
+	Its name is <em>yesno</em> and its class is <em>YesNoTranslator</em>.<br/>
+	We made it available to the whole application by contributing it to the <em>TranslatorAlternatesSource</em> service - see AppModule source below.
+
+	<div class="eg">
+		<form t:type="form" t:id="inputs">
+			<t:errors/>
+			<table>
+				<tr>
+					<td><t:label for="newToTapestry">Q: Are you new to Tapestry?</t:label></td>
+					<td><input t:type="TextField" t:id="newToTapestry" t:translate="yesno" t:validate="required"/></td>
+					<td>${newToTapestry}</td>
+				</tr>
+				<tr>
+					<td><t:label for="newToJava">Q: Are you new to Java?</t:label></td>
+					<td><input t:type="TextField" t:id="newToJava" t:translate="yesno" t:validate="required"/></td>
+					<td>${newToJava}</td>
+				</tr>
+				<tr> 
+					<td></td>
+					<td><input type="submit" value="Submit"/></td>
+					<td></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	Alternatively, a translator can be made available to the whole application and selected <strong>automatically</strong> based on the type 
+	that it translates, by contributing it to the <em>TranslatorSource</em> service.<br/><br/>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/TranslatorSource.html">TranslatorSource</a>,  
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/TranslatorAlternatesSource.html">TranslatorAlternatesSource</a>,  
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/messages/ComponentMessagesSource.html">ComponentMessagesSource</a>, 
+	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IoC Services</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+		
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/YesNoTranslator.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/TranslationMessages.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+</body>
+</html>

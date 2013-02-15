@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Component Around Content</h1>
+
+	A component can have content between its start and end tags. The component outputs that content when it reaches a 
+	<em>t:body</em> directive in its template.
+	
+	<div class="eg">
+		<t:examples.component.bolditalicdisplaywithcontent value="message">
+			I am content surrounded by component <code>examples.component.bolditalicdisplaywithcontent</code>.<br/>
+			I was rendered when it reached a <code>t:body</code> directive in its template.<br/>
+		</t:examples.component.bolditalicdisplaywithcontent>
+	</div>
+	
+	<t:pagelink t:page="examples/component/ComponentAroundContent" href="#">Refresh</t:pagelink><br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Abody%3EElement">t:body</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/ComponentAroundContent.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/ComponentAroundContent.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.java"/>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/together/easycrudedit.css}"/>
+</head>
+<body>
+	<h1>Update</h1>
+	
+	<div class="eg">
+		<t:if test="person">
+			<t:beaneditform t:id="personForm" object="person" submitLabel="Save">[BeanEditForm here]
+				<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
+				<p:version>
+					<t:hidden value="person.version"/>
+				</p:version>
+		 	</t:beaneditform><br/>
+		</t:if>
+		<t:if negate="true" test="person">
+			Person ${personId} does not exist.<br/><br/>
+		</t:if>
+	
+		<a t:type="pageLink" t:page="together/easycrud/Persons" href="#">Cancel</a>
+	</div>
+
+	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonUpdate.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonUpdate.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/easycrudedit.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

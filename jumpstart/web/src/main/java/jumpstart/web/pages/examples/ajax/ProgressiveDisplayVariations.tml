@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>ProgressiveDisplay Variations</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	More than one ProgressiveDisplay can be used on a page.
+
+	<div class="eg">
+		<t:ProgressiveDisplay t:id="showOne">
+			Operation One has ended.
+	 	</t:ProgressiveDisplay><br/>
+	
+		<t:ProgressiveDisplay t:id="showTwo">
+			Operation Two has ended.
+	 	</t:ProgressiveDisplay>
+	</div>
+
+	ProgressiveDisplay can have a context.
+
+	<div class="eg">
+		<t:ProgressiveDisplay t:id="showThree" t:context="literal:3000">
+			Operation Three slept ${sleepTimeMillis} milliseconds.
+	 	</t:ProgressiveDisplay>
+	 </div>
+
+	ProgressiveDisplay can display something other than "Loading...".
+
+	<div class="eg">
+		<t:ProgressiveDisplay t:id="showFour" t:initial="block:loadingBlock">
+			Operation Four has ended.
+	 	</t:ProgressiveDisplay>
+	</div>
+
+	You can replace the yellow "highlight" effect with "show", "fade", "slidedown", or "slideup".<br/>
+	FYI, they are the names of the functions in Tapestry.ElementEffect which is found in Tapestry's javascript file, tapestry.js.
+
+	<div class="eg">
+		<t:ProgressiveDisplay t:id="showFive" t:update="slidedown">
+			Operation Five has ended.<br/>
+			Operation Five has ended.<br/>
+			Operation Five has ended.<br/>
+			Operation Five has ended.<br/>
+			Operation Five has ended.
+	 	</t:ProgressiveDisplay>
+	 </div>
+
+	ProgressiveDisplay does not have to wrap the eventual output - the event handler can return a renderable object instead.
+ 	
+	<div class="eg">
+		<t:ProgressiveDisplay t:id="showSix"/>
+	</div>
+	
+ 	<t:block t:id="loadingBlock">
+ 		<div style="font-weight: bold; text-decoration: blink;">
+	 		Please wait for operation four to end...
+ 		</div>
+ 	</t:block>
+
+ 	<t:block t:id="resultSixBlock">
+ 		Operation Six has ended.
+ 	</t:block>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/ProgressiveDisplay.html">ProgressiveDisplay</a>,
+	<a href="http://tapestry.apache.org/injection.html">Injection with Components</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>.<br/><br/> 
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ProgressiveDisplayVariations.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ProgressiveDisplayVariations.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+</body>
+</html>

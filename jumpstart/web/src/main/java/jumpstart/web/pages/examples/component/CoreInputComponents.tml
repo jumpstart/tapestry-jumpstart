@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<style type="text/css">
+		form		{ text-align: center; }
+		table		{ font-family: Arial, Helvetica, sans-serif;  font-size: 13px; font-weight: normal; margin: auto; }
+		th			{ background-color: #bee; text-align: center; padding: 10px 10px; }
+		td			{ background-color: #eeb; text-align: left; padding: 10px 10px; }
+		td.name		{ text-align: right; vertical-align: top; }
+		div.t-palette { width: 460px; }
+		.datePicker td .topLabel { color:black; }
+	</style>
+</head>
+<body>
+	<h1>Core Input Components</h1>
+	
+	This page demonstrates Tapestry's core input components.
+	
+	<div class="eg">
+		<form t:type="form" t:id="inputs">
+			<table>
+				<tr>
+					<th>Component Name</th>
+					<th>Use them and press Submit</th>
+					<th>Submitted Value</th>
+				</tr>
+				<tr>
+					<td class="name">Checkbox:</td>
+					<!-- We include type only to make it previewable. -->
+					<td><input t:type="checkbox" t:id="checkboxValue" type="checkbox"/></td>
+					<td>${checkboxValue}</td>
+				</tr>
+				<tr>
+					<td class="name">Checklist:</td>
+					<td><input t:type="Checklist" t:id="checklist" t:model="stationery" t:selected="checklistSelectedValues" t:encoder="stringValueEncoder"/></td>
+					<td>${checklistSelectedValues}</td>
+				</tr>
+				<tr>
+					<td class="name">DateField:</td>
+					<td><input t:type="DateField" t:id="dateValue" t:format="prop:dateInFormatStr"/> (${dateInFormatStr})</td>
+					<!-- We include ${datetimeOutFormatStr} only to make it previewable. -->
+					<td><t:output value="dateValue" format="prop:datetimeOutFormatStr">${datetimeOutFormatStr}</t:output></td>
+				</tr>
+				<tr>
+					<td class="name">Palette:</td>
+					<td><input t:type="Palette" t:id="palette" t:model="pets" t:selected="paletteSelectedValues" t:encoder="stringValueEncoder"/></td>
+					<td>${paletteSelectedValues}</td>
+				</tr>
+				<tr>
+					<td class="name">PasswordField:</td>
+					<!-- We include type only to make it previewable. -->
+					<td><input t:type="PasswordField" t:id="passwordValue" type="password"/></td>
+					<td>${passwordValue}</td>
+				</tr>
+				<tr>
+					<td class="name">RadioGroup,<br/> Radio,<br/> and Label:</td>
+					<td>
+						<t:RadioGroup value="radioSelectedValue">
+							<!-- We include type and name only to make it previewable. -->
+							<input t:type="radio" t:id="radioH" value="literal:H" label="High" type="radio" name="group"/><t:label for="radioH"/><br/>
+							<input t:type="radio" t:id="radioM" value="literal:M" label="Medium" type="radio" name="group"/><t:label for="radioM"/><br/>
+							<input t:type="radio" t:id="radioL" value="literal:L" label="Low" type="radio" name="group"/><t:label for="radioL"/>
+						</t:RadioGroup>
+					</td>
+					<td>${radioSelectedValue}</td>
+				</tr>
+				<tr>
+					<td class="name">Select:</td>
+					<td><select t:type="Select" t:id="select" t:model="literal:Ms,Mrs,Mr,Dr,Prof" t:value="selectedValue"/></td>
+					<td>${selectedValue}</td>
+				</tr>
+				<tr>
+					<td class="name">TextArea:</td>
+					<td><textarea t:type="TextArea" t:id="textAreaValue"></textarea></td>
+					<!-- We include ${textAreaValue} only to make it previewable. -->
+					<td><t:textoutput value="textAreaValue">${textAreaValue}</t:textoutput></td>
+				</tr>
+				<tr>
+					<td class="name">TextField:</td>
+					<td><input t:type="TextField" t:id="textValue"/></td>
+					<td>${textValue}</td>
+				</tr>
+			</table><br/>
+			
+			<input type="submit" value="Submit"/>
+			
+		</form>
+	</div>
+	
+	Examples of components that are not part of core are Kaptcha and Upload. They are in later examples.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	References:
+	<a href="http://tapestry.apache.org/component-reference.html#ComponentReference-FormComponents">Form Components</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Checkbox.html">Checkbox</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Checklist.html">Checklist</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Palette.html">Palette</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/RadioGroup.html">RadioGroup</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Radio.html">Radio</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Label.html">Label</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/CoreInputComponents.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/CoreInputComponents.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

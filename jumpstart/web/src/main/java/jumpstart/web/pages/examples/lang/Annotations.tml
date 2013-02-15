@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/simple.css}"/>
+</head>
+<body>
+	<h1>Annotations</h1> 
+	
+	Tapestry doesn't just look for particular method names, it also looks for particular annotations. Here are some useful ones...<br/>
+
+	<ul>
+		<li><strong>@Property.</strong> If you put this annotation on a field then Tapestry will invisibly provide 
+			a getter and setter for the field.<br/>  
+			You can make the property read-only or write-only - 
+			see <a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.<br/><br/></li>
+
+		<li><strong>@OnEvent(value = EventConstants.ACTIVATE).</strong> You can put this annotation on a method instead of naming 
+			the method <em>onActivate</em>.<br/><br/></li>
+			
+		<li><strong>@SetupRender.</strong> You can put this annotation on a method instead of naming the method 
+			<em>setupRender</em>.<br/><br/></li>
+			
+		<li><strong>@CleanupRender.</strong> You can put this annotation on a method instead of naming the method 
+			<em>cleanupRender</em>.<br/><br/></li>
+			
+		<li><strong>@Log.</strong> If you put this annotation on a method then Tapestry will write to the log, at DEBUG level, 
+			as it enters and exits the method. Parameter values and the method's return value are logged too.<br/></li>
+	</ul>
+	
+	Here is a demonstration:<br/>
+	
+	<div class="eg">
+		message: "${message}".
+	</div>
+
+	References: 
+	<a href="http://tapestry.apache.org/annotations.html">Annotations</a>, 
+	<a href="http://tapestry.apache.org/logging.html">Logging</a>, 
+	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">Rendering Phases</a>, 
+	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
+	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-CleanupRender">CleanupRender</a>.<br/><br/>
+
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Annotations.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Annotations.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/simple.css"/>
+</body>
+</html>

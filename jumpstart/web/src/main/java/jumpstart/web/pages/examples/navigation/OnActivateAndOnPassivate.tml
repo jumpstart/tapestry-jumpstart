@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>onActivate and onPassivate</h1>
+	
+	<h3>Rule of Thumb</h3>
+
+	A good "rule of thumb" is to use onActivate(...) and onPassivate() for no more than receiving and returning the 
+	activation context.<br/>
+	In this page, for example, onActivate(...) receives a person id and onPassivate() returns a person id.<br/><br/>
+
+	It can be tempting to put setup code into onActivate(...) but avoid this because onActivate(...) is called very often. 
+	There are better places:<br/>
+	<ul>
+	<li>
+		<strong>setupRender()</strong> is ideal for setting up objects and fields for display-only because Tapestry 
+		calls it only during a <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">
+ 		page render request</a>.
+	</li>
+	<li>
+		<strong>onPrepare()</strong> is ideal for setting up objects and fields that can be edited in a Form because it 
+		is triggered during form rendering and form submission but it isn't triggered by other 
+		<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">component event requests</a>. 
+		If there's more than one form then use more than one onPrepare, eg. onPrepareFromFormX(), onPrepareFromFormY().
+	</li>
+	<li>
+		<strong>getter methods</strong> <em>can</em> be used for setting up objects and fields, but exercise caution 
+		because they can be called more often than you expect. In this situation consider lazy-loading.
+	</li>
+	</ul>
+	
+	We <em>could</em> put code in onActivate(...) to validate access to the page, but there are better ways - see 
+	the Protecting Pages example.<br/>
+	
+	<h3>When is onActivate(...) called?</h3>
+	
+	The short answer is: whenever Tapestry gets a page. 
+	It can be in response to a browser request. It can be when one page's java uses another.<br/><br/>
+	
+	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">page render request</a> 
+	can provide an activation context for the new page. 
+	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">component 
+	event request</a> provides the activation context of the page it came from. 
+	When one page's java uses another, no activation context is provided.<br/>
+
+	<h3>When is onPassivate() called?</h3>
+	
+	The purpose of onPassivate() is to return the activation context of the page instance. Tapestry calls onPassivate() in 
+	these situations:
+	<ol>
+		<li>when rendering a PageLink that does not specify a context.</li>
+		<li>when generating a render request to return as part of Post/Redirect/Get (see Forms example).</li>
+	</ol>
+	Neither situation applies to this page, so onPassivate() is unnecessary in this page.  However, by providing it we are  
+	preparing the page for those two situations. (Maybe this is violating the 
+	<a href="http://en.wikipedia.org/wiki/YAGNI">YAGNI</a> principle, but in practice it can prevent confusion later).<br/>
+
+	<h3>Why are they package scoped?</h3>
+	
+	This is just a personal style choice. Strictly speaking, onActivate(...) and onPassivate(..) should be private scoped 
+	because only Tapestry should call them, but then the compiler generates warnings that the methods are "unused".  Rather 
+	than clutter the code with @SuppressWarnings("unused") annotations on the methods, in JumpStart we have taken the easy 
+	way out and used package scope for these methods. This is a common convention in Tapestry for event handler methods too.<br/><br/>
+	
+	For completeness, here is the Person specified by the activation context given to this page:
+	
+	<div class="eg">
+		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+	</div>
+
+	References:	
+	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
+	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/OnActivateAndOnPassivate.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/OnActivateAndOnPassivate.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

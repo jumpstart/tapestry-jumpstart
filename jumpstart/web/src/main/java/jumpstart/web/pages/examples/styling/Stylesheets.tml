@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/stylesheets.css}"/>
+</head>
+<body>
+	<h1>Stylesheets</h1>
+
+	This page is styled by a stylesheet, <em>css/examples/stylesheets.css</em>. 
+
+	<div class="eg">
+		${message}
+	</div>	
+
+	To specify which stylesheet to use we put a &lt;link> tag in the template (see the source code below).<br/>
+	Tapestry replaces <em>context:</em>, during render, with the right path to your web app context.<br/><br/> 
+	
+	A second way to specify which stylesheet to use is with the @Import annotation in the page class, eg. <code>@Import(stylesheet="context:css/examples/forms.css")</code><br/><br/>
+	
+	Tapestry has a default stylesheet, called <em>default.css</em>, which provides default style information for many of Tapestry's components <br/>
+	including Grid, BeanDisplay, BeanEdit, and Errors. The style names in the Tapestry components all start with <em>t-</em>, eg. <em>t-error</em>. <br/><br/>
+	
+	As Tapestry renders the page, it outputs a link to the default stylesheet before it outputs links to yours, so yours can override the defaults.<br/><br/>
+	
+	Tapestry can automatically load an alternative stylesheet for Internet Explorer. For more information see the references.<br/><br/>
+	
+	References: 
+	<a href="http://www.w3.org/Style/CSS/">Cascading Style Sheet</a>, 
+	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/Stylesheets.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/Stylesheets.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/stylesheets.css"/>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>Robust JavaScript</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	A more robust solution is to tell the Tapestry.Initializer to instantiate our JavaScript classes.
+	Tapestry.Initializer runs in the browser and brings the benefit of exception catching and reporting if initialization fails.
+	It also ensures things will work correctly not just in a full page render, but also during an AJAX partial page render.<br/>
+	
+	<div class="eg">
+		<form t:type="form" t:autofocus="false">
+			<input t:type="TextField" t:id="firstName" t:clientid="prop:firstNameId"/>
+			<input t:type="TextField" t:id="lastName" t:clientid="prop:lastNameId"/><br/>
+	 	</form>
+	</div>
+
+ 	Another improvement we have made here is to ensure the client ids really are what we think they are: "firstName" and "lastName". 
+ 	There are situations in which the default client id can be a surprise, particularly within a Loop or a Zone.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.<br/><br/>  
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/RobustJavaScript.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/RobustJavaScript.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/js/robust_textbox_hint.js"/>
+</body>
+</html>

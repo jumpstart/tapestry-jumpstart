@@ -1,0 +1,17 @@
+<t:container xml:space="default" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+	<t:block id="dateMidnight">
+		<t:label for="dateMidnight"/>
+		<input t:id="dateMidnight" t:type="DateField" value="context.propertyValue" label="prop:context.label" 
+			format="prop:dateInputFormat" translate="prop:dateMidnightTranslator" validate="prop:dateMidnightValidator" 
+			clientId="prop:context.propertyId" annotationProvider="context"/>
+	</t:block>
+	
+	<t:block id="localDate">
+		<t:label for="localDate"/>
+		<input t:id="localDate" t:type="DateField" value="context.propertyValue" label="prop:context.label" 
+			format="prop:dateInputFormat" translate="prop:localDateTranslator" validate="prop:localDateValidator" 
+			clientId="prop:context.propertyId" annotationProvider="context"/>
+	</t:block>
+
+</t:container>

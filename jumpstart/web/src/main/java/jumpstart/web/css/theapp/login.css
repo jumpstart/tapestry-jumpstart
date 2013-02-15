@@ -1,0 +1,34 @@
+body			{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; margin: 0; width: 100%; }
+
+a				{ text-decoration: none; color: #3D69B6; }
+a:hover			{ text-decoration: underline; }
+
+#page			{ margin: 0 auto; background-color: #f8f8f8; 
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ffffff'); /* for IE */
+					background: -webkit-gradient(linear, left top, left bottom, from(#eaeaea), to(#ffffff)); /* for webkit browsers */
+					background: -moz-linear-gradient(top, #f2f2f2, #ffffff); /* for firefox 3.6+ */; }
+
+#titlesbar		{ padding: 16px 0; }
+#titlesbar h1	{ font-size: 22px; margin: 0px auto 6px; text-align: center; color: #444; }	
+
+#instructions	{ padding: 80px 0 24px; text-align: center; color: #666; }
+
+#login				{ display: table; margin: auto; text-align: center; padding: 8px 10px; background-color: #fff; width: 280px; font-size: 14px; 
+						border: 1px solid #ddd; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px;
+						box-shadow: 0 1px 4px rgba(0, 0, 0, .065); -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .065); -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .065); }
+#login .title	 	{ margin: auto; padding: 10px; color: #333; font-size: 16px; font-weight: bold; }
+#login table		{ border-collapse: collapse; border-spacing: 0; width: 100%; }
+#login th			{ color: #666; font-size: 14px; font-weight:normal; text-align: right; }
+#login td			{ width: 60%; padding: 4px; color: #666; font-size: 14px; font-weight: bold; text-align: left; }
+#login td.buttons	{ padding: 8px 2px; margin: auto; text-align: left; font-weight: normal; }
+#login td.buttons a	{ padding-top: 20px; }
+
+#errors		{ }
+#errors div.t-error				{ margin: 0; border: none; }
+#errors div.t-error div.t-banner	{ display: none; }
+#errors div.t-error ul			{ color: inherit; background-color: inherit; list-style: none; margin: 0; }
+#errors div.t-error li			{ color: red; background-color: inherit; text-align: center; font-weight: normal; }
+
+#secure		{ padding: 80px 0; text-align: center; color: #666; }
+
+#source		{ padding: 8px; background-color: #fff; }

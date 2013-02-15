@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>Autocomplete Mixin</h1>
+	
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	This page demonstrates the Autocomplete Mixin.  It has been mixed into an ordinary TextField component.<br/> 
+	As you type, Autocomplete issues <em>providecompletions</em> events which we handle by returning a list of partial matches.
+
+	<div class="eg">
+		<form t:type="form">
+			Type in a country name:
+			<input t:id="countryName" t:type="TextField" t:mixins="autocomplete"/>
+		</form>
+	</div>
+	
+	Looking at the source of 
+	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/mixins/Autocomplete.java?view=markup">Autocomplete.java</a> and 
+	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/resources/org/apache/tapestry5/corelib/mixins/autocomplete.js?view=markup">autocomplete.js</a> 
+	you will find that what it does is quite simple - <br/>
+	it adds a short piece of javascript to the page, which instantiates a script.aculo.us <a href="http://madrobby.github.com/scriptaculous/ajax-autocompleter/">Ajax.Autocompleter</a>:
+	
+	<div style="padding: 14px;">
+		<code>new Ajax.Autocompleter(id_of_component, id_of_div_to_populate, url, options);</code>
+	</div>
+	
+	<strong>URL:</strong> The mixin populates the url with an event link to itself. The event is "autocomplete". <br/>
+	When the mixin handles the event, it bubbles up the <em>provideCompletions</em> event.<br/>
+	Your handler for <em>provideCompletions</em> returns a list, which the mixin returns to the client's Autocompleter.<br/><br/>
+
+	<strong>Options:</strong> The mixin lets you control some options through its parameters (frequency, minChars, tokens).<br/>
+	To control other options, create your own mixin - a subclass of <em>Autocomplete</em> - and override <em>configure(JSONObject config)</em>.<br/><br/>
+
+	<strong>Server return:</strong> Ajax.Autocompleter requires the server to return an unordered list, which the mixin does like this: 
+
+	<div style="padding: 14px;">
+		<code>&lt;ul>&lt;li>AUSTRALIA&lt;/li>&lt;li>AUSTRIA&lt;/li>&lt;/ul></code>
+	</div>
+
+	You are allowed to put additional information in the "server return" (see <a href="http://madrobby.github.com/scriptaculous/ajax-autocompleter/">Ajax.Autocompleter</a>). <br/>
+	To do so, create your own mixin - a sublcass of <em>Autocomplete</em> - and override <em>generateResponseMarkup(MarkupWriter writer, List matches)</em>.<br/>
+	But to make use of the information you may need to add some javascript and an <em>afterUpdateElement</em> option that references the javascript.<br/><br/>
+	
+	For a multi-value autocomplete, try 
+	<a href="http://tawus.wordpress.com/2011/12/28/multivalue-autocomplete-for-tapestry/">Multivalue Autocomplete for Tapestry</a>. 
+	It uses jQuery, so refer to JumpStart's jQuery example.<br/><br/>
+
+	References: 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html#AjaxandZones-autocomplete">Autocomplete Mixin</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete API</a>, 
+	<a href="http://madrobby.github.com/scriptaculous/ajax-autocompleter/">Ajax.Autocompleter</a>, 
+	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
+	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AutocompleteMixin.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AutocompleteMixin.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/CountryNames.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+</body>
+</html>

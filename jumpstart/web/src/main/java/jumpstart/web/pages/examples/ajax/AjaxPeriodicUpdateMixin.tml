@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>AJAX Periodic Update Mixin</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	Here we have moved the "AJAX periodic update" functionality into a mixin that can be used with any Zone.
+
+	<div class="eg">
+		<t:zone t:id="timeZone" id="timeZone" t:mixins="ZonePeriodicUpdater" t:event="refreshTimeZone" t:frequencySecs="3" t:maxUpdates="4">
+			serverTime:  ${serverTime}
+		</t:zone>
+	</div>
+	
+	The ZonePeriodicUpdater mixin on this page has a maxUpdates parameter. If we didn't need that parameter then we could use Tapestry's 
+	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/mixins/ZoneRefresh.html">ZoneRefresh</a> mixin instead.<br/><br/>
+
+	References: 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
+	<a href="http://api.prototypejs.org/language/PeriodicalExecuter/">PeriodicalExecuter</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+ 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ClientElement.html">ClientElement</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectContainer.html">@InjectContainer</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxPeriodicUpdateMixin.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxPeriodicUpdateMixin.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ZonePeriodicUpdater.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ZonePeriodicUpdater.js"/>
+</body>
+</html>

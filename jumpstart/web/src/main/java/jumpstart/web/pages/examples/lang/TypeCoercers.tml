@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Type Coercers</h1>
+	
+	This example demonstrates adding your own type coercers.<br/><br/>
+
+	Type coercion allows you to pass a value of the wrong type to a component's parameter. Tapestry will see it and ask its TypeCoercer 
+	service to "coerce" it to the right type.<br/><br/>
+	
+	This enables passing a Long to an Integer parameter, a String to a Boolean parameter, a BigDecimal to a Double parameter, and so on. 
+	<a href="http://tapestry.apache.org/typecoercer-service.html">The full list is here.</a><br/><br/>
+
+	Tapestry's DateField works with java.util.Date. Let's say you also wanted it to work with Joda Time's DateMidnight and LocalDate.<br/>
+	To achieve this, we have contributed 4 type coercers. You can see the contribution in AppModule, below.<br/>
+
+	<div class="eg">
+		<form t:type="form" t:id="dates">
+			<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
+	 		<t:hidden value="datesExample.version"/>
+	
+			<!-- In future I'd like to add t:validate="date,minDate=${minDate},maxDate=${maxDate}" to this input... -->
+			
+			<input t:type="datefield" value="datesExample.aDateMidnight" t:format="prop:dateFieldFormat"/>&nbsp;
+			org.joda.time.DateMidnight<br/><br/>
+	
+			<input t:type="datefield" value="datesExample.aLocalDate" t:format="prop:dateFieldFormat"/>&nbsp;
+			org.joda.time.LocalDate<br/><br/>
+	
+	 		<t:errors/>
+			<input t:type="submit" value="Save"/>
+		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
+		</form>
+	</div>
+	
+	To help you debug coercions, you can ask the TypeCoercer service to 
+	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ioc/services/TypeCoercer.html#explain(java.lang.Class, java.lang.Class)">explain</a> 
+	how it will coerce one type to another.
+	
+	<div class="eg">
+		Explain Long to Integer: ${explainLongToInteger}<br/>
+		Explain String to Integer: ${explainStringToInteger}<br/>
+		Explain Date to DateMidnight: ${explainDateToDateMidnight}
+	</div> 
+			
+	References: 
+	<a href="http://tapestry.apache.org/type-coercion.html">Type Coercion</a>, 
+	<a href="http://tapestry.apache.org/typecoercer-service.html">TypeCoercer Service</a>, 
+	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ioc/services/TypeCoercer.html">TypeCoercer</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://joda-time.sourceforge.net/">Joda Time</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/JodaTimeUtil.java"/>
+</body>
+</html>

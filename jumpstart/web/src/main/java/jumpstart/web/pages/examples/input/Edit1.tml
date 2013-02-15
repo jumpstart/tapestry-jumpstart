@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Edit (Using BeanEditForm) (1)</h1> 
+	
+	The BeanEditForm component is great for rapid prototyping. It inserts a Form for editing a bean.<br/>
+	In this example we are using it to edit a Person from the database.<br/>
+
+	<div class="eg">
+		<t:beaneditform t:id="personForm" object="person" submitLabel="Save">[BeanEditForm here]
+			<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
+			<p:version>
+				<t:hidden value="person.version"/>
+			</p:version>
+	 	</t:beaneditform><br/>
+	 	
+		<a t:type="eventlink" t:event="refresh" href="#">Refresh</a>
+	</div>
+
+	Person is a JPA Entity Bean, retrieved from the database by PersonFinderService, which is an EJB3 Session Bean.<br/><br/>
+	
+	BeanEditForm automatically creates an "editor", ie. a label and an input field; for each property of the bean.<br/> 
+	<strong>But where is Person's <code>id</code> property?</strong> BeanEditForm automatically hides properties annotated with <code>@Id</code>.<br/>
+	<strong>And where is Person's <code>version</code> property?</strong> We provided a <code>p:version</code> block which BeanEditForm used instead.<br/><br/>
+	
+	BeanEditForm is great for rapid prototyping:
+	<ul>
+		<li>Its parameters allow you to exclude fields, include fields, reorder fields, etc.</li>
+		<li>Its styling can be overridden with CSS.</li>
+		<li>Its editors can be overridden as we did above to hide <code>version</code>. See also the Property Editors example.</li>
+		<li>It automatically hides properties annotated with <code>@NonVisual</code>, but read the Caution below.</li>
+	</ul>
+	
+	Naturally, BeanEditForm has limitations. The alternatives include:
+	<ul>
+		<li>Use what BeanEditForm uses: Form and BeanEditor. See the More Control Edit (Using BeanEditor) example.</li>
+		<li>Use a Form and all the usual input components. See the Total Control Edit example.</li>
+		<li>Build components, like BeanEditForm, that suit your needs. See the Component examples and the Tapestry source for BeanEditForm.</li>
+	</ul>
+	
+	<strong>Caution: @NonVisual and Optimistic Locking</strong><br/> 
+	Never use <code>@NonVisual</code> on a version field - it will mess up optimistic locking. The problem is that when BeanEditForm renders 
+	its form, it excludes <code>@NonVisual</code> fields. Therefore, the form has no record of the version. Here is the resulting sequence:
+	<ol>
+		<li>We get the person from the database.</li>
+		<li>The page is rendered and sent to the browser. With @NonVisual, version will not be in the form.</li>
+		<li>User makes changes and submits the form.</li>
+		<li>We get the person from the database. We now have the latest version.</li>
+		<li>Tapestry reads the fields from the form and overwrites the fields in person. With @NonVisual, version will not be in the form.</li>
+		<li>We save the person. Optimistic locking exception will be thrown if the version in the database is different.</li>
+	</ol>
+	With @NonVisual, step 6 will fail if someone else has updated the person since step 4. This is not useful.<br/>
+	Without @NonVisual, step 6 will fail if someone else has updated the person since step 1. This is proper optimistic locking.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/BeanEditForm.html">BeanEditForm</a>, 
+	<a href="http://tapestry.apache.org/beaneditform-guide.html">Using BeanEditForm</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/beaneditor/package-summary.html">beaneditor package</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Hidden.html">Hidden</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Edit1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Edit1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html t:type="together/Layout1" t:title="literal:With Layout: Components CRUD" t:chosenOption="literal:Components CRUD"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+
+	<t:remove>
+		<!-- At runtime the stylesheet will be provided by the Layout. The link here is only to enable preview. -->
+	 	<link rel="stylesheet" type="text/css" href="../../../../css/together/layout.css"/>
+	</t:remove>
+
+ 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>
+ 	
+	<table id="listAndEditor">
+		<tbody>
+			<tr>
+
+				<!-- This is the left side of the table: a list of Persons -->
+
+				<td id="listCell">
+					<t:together.componentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
+				</td>
+				
+				<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
+		
+				<td id="editorCell">
+					<t:together.componentscrud.PersonEditor t:id="editor" mode="editorMode" personId="editorPersonId"/>
+				</td>
+				
+			</tr>
+		</tbody>
+ 	</table>
+
+	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/withlayout/componentscrud/Persons.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/layout1.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/Menu.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/MenuOption.java"/>
+</html>

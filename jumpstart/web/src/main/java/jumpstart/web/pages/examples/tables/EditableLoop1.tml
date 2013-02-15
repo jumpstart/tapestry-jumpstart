@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/editableloop.css}"/>
+</head>
+<body>
+	<h1>Editable Loop (1)</h1>
+
+	A table built with a Form around a Loop to allow creation of up to ${LIST_SIZE} persons.<br/><br/>
+	
+	To demonstrate a server-side validation error, leave one or more fields of a person empty.<br/>
+	
+	<div class="eg">
+		<form t:type="form" t:id="personsCreate">
+			<t:errors/>
+			<table class="grid">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Region</th>
+						<th>Start Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr t:type="Loop" t:source="persons" t:value="person" t:formstate="ITERATION" class="prop:evenodd.next">
+						<td><input t:type="TextField" t:id="firstName" t:value="person.firstName" t:validate="maxlength=10" size="10"/></td>
+						<td><input t:type="TextField" t:id="lastName" t:value="person.lastName" t:validate="maxlength=10" size="10"/></td>
+						<td><input t:type="Select" t:id="region" value="person.region"/></td>
+						<td><input t:type="DateField" t:id="startDate" t:value="person.startDate" t:format="prop:dateFormat" size="14"/></td>
+					</tr>
+				</tbody>
+		 	</table><br/>
+		 	<input type="submit" value="Save"/>
+		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
+		 </form>
+	</div>
+
+	Features:<br/>
+	<ul>
+	<li>The technique in this example is simple, but sufficient when you are sure the corresponding server-side list will not be changed 
+		by other processes between your render and your submit.</li>
+	<li>On error, we redisplay the list. Tapestry redirects the browser to redisplay the page.</li>
+	<li>Your input values are redisplayed correctly because a feature of Form is that it carries them through the redirect and redisplays them.</li>
+	</ul>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/LoopFormState.html">LoopFormState</a>,
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/editableloop.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/styledgrid.css}"/>
+</head>
+<body>
+	<h1>Grid With Delete Column (1)</h1>
+		
+	A table built with the Grid component, including only the Person columns we want, and adding a Delete column.<br/><br/>
+	
+	To demonstrate a server-side error, try to delete a person whose First Name is <em>${BAD_NAME}</em>.<br/>
+
+	<div class="eg">
+		<form t:type="form" t:id="deletables">
+			<t:errors/>
+			<table t:type="grid" t:source="persons" t:row="person" t:encoder="personEncoder" 
+				t:include="id,firstname,lastname,startdate" t:add="delete">[Persons Grid here]
+				<p:deleteCell>
+					<input t:type="checkbox" t:id="delete" value="delete"/>
+
+					<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
+					<t:hidden value="person.firstName"/>
+					<t:hidden value="person.lastName"/>
+					<t:hidden value="person.startDate" t:encoder="dateEncoder"/>
+					
+					<!-- If optimistic locking is not needed then comment out this next line. -->
+					<t:hidden value="person.version"/>
+				</p:deleteCell>
+		 	</table><br/>
+		 	<input t:type="submit"/>
+		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
+		</form>
+	</div>
+
+	This example works very much like the Editable Grid For Update example.<br/><br/>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridWithDeleteColumn1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridWithDeleteColumn1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/styledgrid.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+</body>
+</html>

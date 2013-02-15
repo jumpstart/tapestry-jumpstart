@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<body>
+	<h1>Bootstrap Styling</h1>
+
+	<a href="http://twitter.github.com/bootstrap/">Bootstrap</a> integration is provided by a third-party project, 
+	<a href="https://github.com/trsvax/tapestry-bootstrap">tapestry-bootstrap</a>.<br/>
+	It adds a parameter, <code>fwtype</code>, to all existing components. <code>fwtype</code> is where you specify 
+	<a href="http://twitter.github.com/bootstrap/base-css.html#forms">Bootstrap styles</a>.<br/>
+	Here we demonstrate the effect on BeanEditForm and EventLink.<br/>
+	
+	<div class="eg">
+		<t:beaneditform t:id="personForm" object="person" submitLabel="Save" fwtype="form-horizontal well well-small">[BeanEditForm here]
+			<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
+			<p:version>
+				<t:hidden value="person.version"/>
+			</p:version>
+	 	</t:beaneditform>
+	 	
+		<a t:type="eventlink" t:event="refresh" fwtype="btn btn-inverse" href="#">Refresh</a>
+	</div>
+	
+	You could make Bootstrap available to all pages by adding the stylesheets and javascript to a Layout component - see The Layout Component example.<br/><br/>
+	
+	Bootstrap requires jQuery - see the jQuery example.<br/>
+	The date picker you see above is from Prototype, not jQuery, because we set SUPPRESS_PROTOTYPE to false - see the jQuery example.<br/><br/>
+
+	To use tapestry-bootstrap, add the following jar to the classpath:
+	<ul>
+		<li>tapestry-bootstrap-2.1.3.jar, at compile and runtime. <br/>
+			It is available from the maven central repositories
+			<a href="http://repo1.maven.org/maven2/com/trsvax/tapestry-bootstrap/">
+				http://repo1.maven.org/maven2/com/trsvax/tapestry-bootstrap/
+			</a> 
+		</li>
+	</ul>
+	
+	Bootstrap is being added to by third parties libraries such as <a href="http://vitalets.github.com/x-editable/">X-Editable</a> 
+	(formerly <a href="http://vitalets.github.com/bootstrap-editable/">Editable for Bootstrap</a>). <br/>
+	It's easy to create Text, TextArea, and Select components that output the necessary HTML, as shown by Taha in 
+	<a href="http://tawus.wordpress.com/2012/11/25/tapestry-and-editable-for-bootstrap/">Tapestry and 'Editable for Bootstrap'</a>.<br/><br/>
+	
+	References: 
+	<a href="https://github.com/trsvax/tapestry-bootstrap">tapestry-bootstrap</a>, 
+	<a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, 
+	<a href="http://www.adobe.com/devnet/html5/articles/twitter-bootstrap.html">Styling your apps with Twitter Bootstrap</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/BootstrapStyling.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/BootstrapStyling.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/bootstrap_styling.css"/>
+</body>
+</html>

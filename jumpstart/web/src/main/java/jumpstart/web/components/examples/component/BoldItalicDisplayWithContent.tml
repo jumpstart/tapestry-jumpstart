@@ -1,0 +1,9 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<t:content>
+	<div style="border: 20px solid #f5f5dc;">
+		<!-- t:body is a directive that says "output the content that I surround". -->
+		<t:body/>
+		<strong><em>${value}</em></strong>
+	</div>
+</t:content>
+</html>

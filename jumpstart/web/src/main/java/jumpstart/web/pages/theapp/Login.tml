@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+<head>
+	<title>Log In</title>
+	<link rel="stylesheet" type="text/css" href="${context:css/theapp/login.css}"/>
+	<t:remove>
+		<!-- This link allows previewability -->
+		<link rel="stylesheet" type="text/css" href="../css/theapp/login.css"/>
+	</t:remove>
+</head>
+
+<body>
+<div id="page">
+
+	<div id="titlesbar">
+		<h1>Example App</h1>
+	</div>
+
+	<div id="instructions">
+		Initially, the available login IDs are admin, secofr, and john, <br/>
+		and the passwords are the same as the login ID.
+	</div>
+
+	<form t:type="form" t:id="login">
+		<div class="title">
+			Log In
+		</div>
+		<table>
+			<tr>
+				<th><t:label for="loginId"/>:</th>
+				<td><input t:type="TextField" t:id="loginId" size="15" maxLength="12" t:validate="required, maxLength=15"/></td>
+			</tr>
+			<tr>
+				<th><t:label for="password"/>:</th>
+				<td><input t:type="PasswordField" t:id="password" size="15" maxLength="12" t:validate="required, maxLength=15"/></td>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<td class="buttons">
+					<input type="submit" value="Login"/>&nbsp;
+					<a t:type="eventlink" t:event="GoHome" href="#">Home</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">			
+					<div id="errors">
+						<t:errors/>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+	<div id="secure">
+		A page can be made secure, ie. accessible only by HTTPS, by annotating the page's class with <code>@Secure</code>.<br/>
+		You will also have to enable HTTPS on your web server, which may require some configuration.<br/>
+		References:
+		<a href="http://tapestry.apache.org/https.html">Securing your application with HTTPS</a>, 
+		<a href="http://roneiv.wordpress.com/2008/01/03/jboss-tutorial-how-to-enable-ssl-https-on-jboss-as-well-as-other-nice-to-know-configurations/">How to enable SSL on JBoss</a>.
+	</div>
+</div>
+
+<div id="source">
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/theapp/Login.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/theapp/Login.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/IIntermediatePage.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/theapp/login.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/theapp/Visit.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/base/theapp/SimpleBasePage.java"/>
+</div>
+
+</body>
+</html>

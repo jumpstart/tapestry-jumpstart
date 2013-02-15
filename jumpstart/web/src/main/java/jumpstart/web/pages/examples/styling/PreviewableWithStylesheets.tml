@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/stylesheets.css}"/>
+	<t:remove>
+		<!-- A stylesheet link that enables preview but cannot be guaranteed to work at runtime. -->
+	 	<link rel="stylesheet" type="text/css" href="../../../css/examples/stylesheets.css"/>
+	 </t:remove>
+</head>
+<body>
+	<h1>Previewable With Stylesheets</h1>
+
+	This page is like the Stylesheets example, except that this page can be previewed directly in a web browser 
+	or WYSIWYG editor because we added a second stylesheet link that uses a relative path instead of context.<br/><br/>
+	
+	To see what a difference "previewability" makes, use Firefox to open Stylesheets.tml and PreviewableWithStylesheets.tml 
+	and compare them.
+	
+	<div class="eg">
+		${message}
+	</div>	
+	
+	References:
+	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/PreviewableWithStylesheets.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/PreviewableWithStylesheets.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/stylesheets.css"/>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Skinning/Theming</h1>
+
+	You can skin and/or theme your pages and components, as described in this 
+	<a href="http://blog.tapestry5.de/index.php/2011/06/24/template-skinning/">blog entry</a> and in the  
+	<a href="http://tapestry.apache.org/release-notes-53.html#ReleaseNotes5.3-Skinning%2FThemingSupport">release notes</a>.<br/><br/>
+	 
+	References:  
+	<a href="http://tapestry.apache.org/injection-in-detail.html#InjectioninDetail-CommonResourcesInjectionProvider">CommonResources InjectionProvider</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/pageload/ComponentResourceSelector.html">ComponentResourceSelector</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/pageload/ComponentRequestSelectorAnalyzer.html">ComponentRequestSelectorAnalyzer</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Dynamic.html">Dynamic</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/SkinningTheming.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/SkinningTheming.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

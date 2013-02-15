@@ -1,0 +1,17 @@
+/bin
+/business/src/main/lib*
+/business/src/test/lib*
+/business/target*
+/business/test-results*
+/collapsed
+/enterprise/src/main/lib*
+/enterprise/src/test/lib*
+/enterprise/target*
+/logs*
+/tools/lib*
+/tmp*
+/web/src/main/lib*
+/web/src/test/lib*
+/web/target*
+*.DS_Store
+*.class

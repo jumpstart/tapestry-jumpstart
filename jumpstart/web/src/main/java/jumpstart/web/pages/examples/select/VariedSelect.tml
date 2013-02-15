@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Varied Select</h1>
+	
+	<div class="eg">
+		This example demonstrates labelling the blank option.<br/><br/>
+		
+		<form t:type="form">
+			<t:label for="color0"/>:
+			<select t:type="select" t:id="color0" t:model="literal:Red,Yellow,Blue" t:blankLabel="Choose..."></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color0}
+		</form>
+	</div>
+	<div class="eg">
+		This example demonstrates labelling the blank option using the page's properties file.<br/><br/>
+		
+		<form t:type="form">
+			<t:label for="color1"/>:
+			<select t:type="select" t:id="color1" t:model="literal:Red,Yellow,Blue"></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color1}
+		</form>
+	</div>
+	<div class="eg">
+		This example demonstrates making it mandatory to make a choice.<br/><br/>
+		
+		<form t:type="form">
+			<t:label for="color2"/>:
+			<select t:type="select" t:id="color2" t:model="literal:Red,Yellow,Blue" t:validate="required"></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color2}
+		</form>
+	</div>
+	<div class="eg">
+		This example demonstrates making it mandatory to make a choice - but it also has a blank option.<br/><br/>
+		
+		<form t:type="form">
+			<t:label for="color3"/>:
+			<select t:type="select" t:id="color3" t:model="literal:Red,Yellow,Blue" t:validate="required" t:blankOption="ALWAYS"></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color3}
+		</form>
+	</div>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/VariedSelect.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/VariedSelect.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/VariedSelect.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

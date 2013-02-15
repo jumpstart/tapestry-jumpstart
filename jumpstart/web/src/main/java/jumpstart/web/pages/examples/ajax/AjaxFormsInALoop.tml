@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/ajaxformsinaloop.css}"/>
+</head>
+<body>
+	<h1>Ajax Forms in a Loop</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+	
+	To demonstrate a server-side error, change any First Name to <em>${BAD_NAME}</em>.
+
+	<div class="eg">
+	
+		<form t:type="form" t:id="preferencesForm">
+			Highlight zone updates? 
+			 <input t:type="checkbox" t:id="highlightZoneUpdates" value="highlightZoneUpdates" onclick="this.form.submit()"/>
+			This shows you which zones are updated by the Ajax response. <br/>
+			Note that it upsets our hover highlighting due to <a href="https://issues.apache.org/jira/browse/TAP5-2014">TAP5-2014</a>.
+		</form><br/>
+	
+		<table id="personsTable" class="outer">
+			<thead>
+				<tr>
+					<th>
+						<table class="inner">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Region</th>
+									<th>Start Date</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+						</table>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<t:Loop t:source="persons" t:value="person">
+					<tr t:type="Zone" t:id="rowZone" id="prop:currentRowZoneId" class="prop:evenodd.next" t:update="prop:zoneUpdateFunction">
+						<td>
+							<form t:id="personForm" t:type="form" t:context="person.id" t:zone="^" t:clientValidation="false">
+								<table class="inner">
+									<tbody>
+										<tr>
+											<td>
+												<span t:type="any" id="personId">${person.id}</span>
+
+												<!-- If optimistic locking is not needed then comment out this next line. -->
+												<t:hidden value="person.version"/>
+											</td>
+											<td>
+												<t:if test="!editing">
+													${person.firstName}
+												</t:if>
+												<t:if test="editing">
+													<input t:type="TextField" t:id="firstName" value="person.firstName" t:validate="required, maxlength=10" size="10"/>
+												</t:if>
+											</td>
+											<td>
+												${person.lastName}
+
+												<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
+												<t:hidden value="person.lastName"/>
+											</td>
+											<td>
+												<t:if test="!editing">
+													${personRegion}
+												</t:if>
+												<t:if test="editing">
+													<input t:type="Select" t:id="region" value="person.region"/>
+												</t:if>
+											</td>
+											<td>
+												<t:if test="!editing">
+													<t:output t:value="person.startDate" t:format="prop:dateFormat"/>
+												</t:if>
+												<t:if test="editing">
+													<input t:type="DateField" t:id="startDate" t:value="person.startDate" t:format="prop:dateFormat" size="10"/>
+												</t:if>
+											</td>
+											<td>
+												<t:if test="!editing">
+											 		<input t:type="submit" t:id="edit" value="Edit" t:mode="cancel"/>
+												</t:if>
+												<t:if test="editing">
+											 		<input t:type="submit" t:id="save" value="Save"/>
+											 		<input t:type="submit" t:id="cancel" value="Cancel" t:mode="cancel"/>
+												</t:if>
+											</td>
+										</tr>
+										<t:if test="personFormHasErrors">
+											<tr>
+												<td colspan="6">
+													<t:errors/>
+												</td>
+											</tr>
+										</t:if>
+									</tbody>
+								</table>
+							</form>
+						</td>
+					</tr>
+				</t:Loop>
+			</tbody>
+ 		</table>
+
+	</div>
+
+	Here's the sequence when you Edit, Save, or Cancel: 
+	<ul>
+	    <li>In comes an AJAX component event request: a submit from a Form.</li>
+    	<li>- Form bubbles up <em>prepareForSubmit</em>. It has a context.</li>
+    	<li>- Submit bubbles up <em>selected</em>.</li>
+    	<li>- Form bubbles up <em>validate</em>.</li>
+    	<li>- Form bubbles up <em>success</em> or <em>failure</em>. Our event handlers nominate which Zone to render.</li>
+    	<li>Tapestry renders the Zone...</li>
+    	<li>- Form bubbles up <em>prepareForRender</em>. It has a context.</li>
+    	<li>Out goes an AJAX response with Zone content which includes the Form.</li>
+	</ul>
+
+	Notes: 
+	<ul>
+		<li>This example does not cope with choosing Edit, Save, or Cancel on an entity that no longer exists,<br/> 
+			so it suits applications that use "soft" delete (ie. that update the entity to a "deleted" state rather than actually deleting it).</li>
+		<li>Not tested with IE7 or earlier.</li>
+	</ul>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormsInALoop.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormsInALoop.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormsInALoop.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/ajaxformsinaloop.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/EvenOdd.java"/>
+</body>
+</html>

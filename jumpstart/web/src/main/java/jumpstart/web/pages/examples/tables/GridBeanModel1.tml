@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/linkinggrid.css}"/>
+</head>
+<body>
+	<h1>Grid BeanModel (1)</h1>
+	
+	We can take more control of the Grid when we provide the BeanModel ourselves.  It is a model that defines how 
+	data will be mapped into the grid.  It does not contain the data.
+
+	<div class="eg">
+		<table t:type="grid" t:source="persons" t:row="person" t:model="mymodel" t:rowsPerPage="4" t:pagerPosition="top">[Grid here]
+			<p:actionCell>
+				<a t:type="pagelink" t:page="examples/tables/GridBeanModel2" t:context="person.firstName" href="#">View</a>
+			</p:actionCell>
+	 	</table>
+	 </div>
+
+	To see manipulation of the BeanModel by a mixin, go to the Creating Mixins example.<br/><br/>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-CustomizingtheBeanModel">Customizing the BeanModel</a>, 
+	<a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-ProvidingtheBeanModel">Providing the BeanModel</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/BeanModelSource.html">BeanModelSource</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/linkinggrid.css"/>
+</body>
+</html>

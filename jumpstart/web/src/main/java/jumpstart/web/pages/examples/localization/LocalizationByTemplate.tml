@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/localization.css}"/>
+</head>
+<body>
+	<h1>Localization By Template</h1>
+	
+	This page demonstrates localization by "localized component template".  
+	There are two templates for this page:
+
+	<ul>
+		<li><strong>LocalizationByMessageCatalog_fr.tml</strong> provides a French page (actually, only parts of it are in French).</li>
+		<li><strong>LocalizationByMessageCatalog.tml</strong> provides a default page, which is English.</li>
+	</ul>
+
+	<div class="eg">
+		The current template is the second one.	Using the current locale, we get:<br/><br/>
+	
+		<table>
+			<tr>
+				<th>Locale code:</th><td>${currentLocale.toString()}</td>
+			</tr>
+			<tr>
+				<th>Locale name:</th><td>${currentLocale.getDisplayName()}</td>
+			</tr>
+			<tr>
+				<th>A date:</th><td><t:output value="date" format="prop:dateFormat"/></td>
+			</tr>
+			<tr>
+				<th>A number:</th><td><t:output value="number" format="prop:numberFormat"/></td>
+			</tr>
+	 	</table><br/>
+
+		The supported locales are defined in AppModule.  Our AppModule has ${supportedLocales.size()}.<br/><br/>
+	
+		Choose one: 
+		<t:loop source="supportedLocales" value="supportedLocale" index="var:index">
+			<t:if test="var:index">, </t:if>
+			<a href="#" t:type="eventlink" t:event="switchLocale" t:context="supportedLocale.toString()">${supportedLocale.getDisplayName()}</a>
+		</t:loop>.
+	</div>	
+	
+	<strong>UTF-8 File Encoding</strong><br/>
+	For a seamless experience when working with non-ASCII characters in properties files, it's probably best to set the file to UTF-8 encoded.<br/>
+	In Eclipse, right-click on the file, choose Properties > Resource > Text file encoding > Other > UTF-8.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/localization.html">Localization</a>, 
+	<a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/LocalizationSetter.html">LocalizationSetter</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/services/ThreadLocale.html">ThreadLocale</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/PersistentLocale.html">PersistentLocale</a>, 
+	<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html">Locale</a>, 
+	<a href="http://docs.oracle.com/javase/6/docs/api/java/text/DateFormat.html">DateFormat</a>, 
+	<a href="http://docs.oracle.com/javase/6/docs/api/java/text/NumberFormat.html">NumberFormat</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Rendervariables">Render Variables</a>.<br/><br/>
+	
+	<a t:type="PageLink" page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate_fr.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/localization.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/LocalesUtil.java"/>
+</body>
+</html> 

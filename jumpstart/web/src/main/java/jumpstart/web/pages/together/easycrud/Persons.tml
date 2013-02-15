@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/together/easycrud.css}"/>
+</head>
+<body>
+	<h1>Easy CRUD</h1>
+	
+	This example demonstrates how Tapestry can handle CRUD (Create, Review, Update, Delete) with ease.<br/>
+	It uses the Grid, BeanEditor, and BeanDisplay components which are especially great for prototyping.
+
+	<div class="eg">
+		<a t:type="pageLink" t:page="together/easycrud/person/PersonCreate" href="#">Create...</a><br/><br/>
+	
+		<t:if test="errorMessage">
+			<span style="color:red">${errorMessage}</span><br/><br/>
+		</t:if>
+	
+		<table t:type="grid" t:source="persons" t:row="person" include="id,firstName,lastName,region,startDate" t:add="action">[Grid here]
+			<p:actionCell>
+				<a t:type="pageLink" t:page="together/easycrud/person/PersonReview" t:context="person.id" href="#">Review</a>
+				<a t:type="pageLink" t:page="together/easycrud/person/PersonUpdate" t:context="person.id" href="#">Update</a>
+				<a t:type="eventLink" t:event="Delete" t:context="[person.id,person.version]" 
+					t:mixins="Confirm" t:message="Delete ${person.firstName} ${person.lastName}?">Delete</a>
+			</p:actionCell>
+		</table>
+	</div>
+
+	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/easycrud.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

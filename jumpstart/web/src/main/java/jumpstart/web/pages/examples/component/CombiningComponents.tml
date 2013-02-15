@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Combining Components</h1>
+
+	This page demonstrates how components can be combined to create new components.<br/><br/>
+
+	In this example we have created a component called <em>SlidingBoldItalicDisplayWithContent</em> that wraps a 
+	<em>SlidingPanel</em> around a <em>BoldItalicDisplayWithContent</em>.<br/>
+	Here are 3 examples of it being used.
+
+	<div class="eg">
+		<t:examples.component.slidingbolditalicdisplaywithcontent panelTitle="Content and Value" value="message" closed="false">
+			I am content surrounded by component <code>examples.component.slidingbolditalicdisplaywithcontent</code>.<br/>
+			I was rendered when it reached a <code>t:body</code> directive in its template.<br/>
+		</t:examples.component.slidingbolditalicdisplaywithcontent>
+	
+		<t:examples.component.slidingbolditalicdisplaywithcontent panelTitle="Content Only" options="{duration:0.2}">
+			I am content surrounded by component <code>examples.component.slidingbolditalicdisplaywithcontent</code>.<br/>
+			I was rendered when it reached a <code>t:body</code> directive in its template.<br/>
+		</t:examples.component.slidingbolditalicdisplaywithcontent>
+	
+		<t:examples.component.slidingbolditalicdisplaywithcontent panelTitle="Value Only" value="message"/>
+	</div>
+
+	For more components see <a href="http://tapestry.apache.org/third-party-modules.html">Third Party Modules</a>
+	and <em>Components</em> on <a href="http://wiki.apache.org/tapestry/Tapestry5HowTos#Components">Tapestry 5 How Tos</a>.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
+	<a href="http://tapestry.apache.org/component-classes.html">Component Classes</a>,
+	<a href="http://tapestry.apache.org/component-templates.html">Component Templates</a>,
+	<a href="http://tapestry.apache.org/component-parameters.html">Component Parameters</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/CombiningComponents.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/CombiningComponents.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SlidingBoldItalicDisplayWithContent.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SlidingBoldItalicDisplayWithContent.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.java"/>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+
+	<h1>@Component</h1>
+	
+	Template files can get cluttered when the components and all their parameter bindings are added.<br/>
+	Tapestry provides an alternative.  Instead of this...
+	<pre><code>	&lt;a t:type="pagelink" t:page="Index" href="#"&gt;Home&lt;/a&gt;</code></pre>
+
+	...you provide only an id for the component, like this... 
+	<pre><code>	&lt;a t:id="home" href="#"&gt;Home&lt;/a&gt;</code></pre>
+
+	...and provide the parameter bindings in the class by using <code>@Component</code> on a variable 
+	in the class, like this...<br/>
+	<pre><code>	@Component(id = "home", parameters = {"page=Index"})
+	private PageLink index;</code></pre>
+
+	The component id ties them together.  Here it is in action:
+				
+	<div class="eg">
+		<a t:id="home" href="#">Home</a>
+	</div>
+	
+	Note: parameter bindings specified in the annotation take precedence over the template.  In this example we specified 
+	a binding for the <code>page</code> parameter, so we do not specify it in the template too. Bindings specified 
+	in the template are ignored if they conflict (case insensitive) with bindings from @Component.<br/><br/>
+
+	<strong>Which is best?</strong>  Once again, the choice is yours. The first style keeps the component and parameter 
+	information together in one place, which programmers may prefer. The second style removes clutter from the template,
+	which web designers may prefer.<br/><br/>
+
+	In JumpStart we use the first style.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/component-classes.html#ComponentClasses-EmbeddedComponents">Embedded Components</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>.
+	<br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/AtComponent.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/AtComponent.java"/>
+</body>
+</html>

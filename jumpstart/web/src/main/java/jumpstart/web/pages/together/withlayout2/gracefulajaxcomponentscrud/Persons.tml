@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html t:type="together/Layout2" t:title="literal:With Layout 2: Graceful AJAX Filter CRUD" t:chosenOption="literal:Graceful AJAX Components CRUD"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	
+	<t:remove>
+		<!-- At runtime the stylesheet will be provided by the Layout. The link here is only to enable preview. -->
+	 	<link rel="stylesheet" type="text/css" href="../../../../css/together/layout2.css"/>
+	</t:remove>
+
+	<form t:type="form" t:id="preferencesForm">
+		<noscript class="js-recommended">
+			${message:javascript_recommended}
+		</noscript> 	
+		Highlight zone updates? 
+		 <input t:type="checkbox" t:id="highlightZoneUpdates" value="highlightZoneUpdates" onclick="this.form.submit()"/>
+		This shows you which zones are updated by the Ajax response.
+	</form><br/>
+
+ 	<a t:type="eventLink" t:event="toCreate" t:zone="editorZone" href="#">Create...</a><br/>
+ 	
+	<table id="listAndEditor">
+		<tbody>
+			<tr>
+
+				<!-- This is the left side of the table: a list of Persons -->
+
+				<td id="listCell">
+					<t:zone t:id="listZone" id="listZone" t:update="prop:zoneUpdateFunction">
+						<t:together.gracefulajaxcomponentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
+					</t:zone>
+				</td>
+				
+				<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
+		
+				<td id="editorCell">
+					<t:zone t:id="editorZone" id="editorZone" t:update="prop:zoneUpdateFunction">
+						<t:together.gracefulajaxcomponentscrud.PersonEditor t:id="editor" mode="editorMode" personId="editorPersonId"/>
+					</t:zone>
+				</td>
+				
+			</tr>
+		</tbody>
+ 	</table>
+ 	
+	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/withlayout2/gracefulajaxcomponentscrud/Persons.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout2.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout2.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/layout2.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/Menu.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/MenuOption.java"/>
+</html>

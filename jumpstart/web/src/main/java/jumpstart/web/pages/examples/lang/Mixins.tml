@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>Mixins</h1>
+	
+	<noscript class="js-recommended">
+		${message:javascript_recommended}
+	</noscript> 	
+
+	Mixins, also known as Component Mixins, add behaviour to components. Tapestry has several built-in mixins.<br/>
+	Here we use the built-in mixin  
+	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/mixins/OverrideFieldFocus.html">OverrideFieldFocus</a> 
+	to add behaviour to a TextField.
+
+	<div class="eg">
+		<form t:type="Form" t:id="names">
+			<t:errors/>
+			<table>
+				<tr>
+					<td>First Name:</td>
+					<td><input t:type="TextField" t:id="firstName"/></td>
+				</tr>
+				<tr>
+					<td>Last Name:</td>
+					<td><input t:type="TextField" t:id="lastName" t:mixins="OverrideFieldFocus"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Display"/></td>
+				</tr>
+			</table>
+		</form>
+	 </div>
+
+	To create your own mixins see the next example.<br/><br/>
+
+	References: 
+	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
+	<a href="http://tapestry.apache.org/built-in-mixins.html">Built-in Mixins</a>, 
+	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/mixins/OverrideFieldFocus.html">OverrideFieldFocus</a>.<br/><br/> 
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Mixins.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Mixins.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/GridSortingDisabler.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

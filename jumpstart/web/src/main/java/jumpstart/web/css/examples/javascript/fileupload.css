@@ -1,0 +1,23 @@
+body, td		{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: normal; color: #333;
+					line-height: 17px; }
+h1				{ font-size: 26px; line-height: 20px; }	/* For IE 7 */
+
+.eg				{ margin: 20px 0; padding: 20px; 
+					border: 1px solid #ddd; border-radius: 4px; -webkit-border-radius: 4px; -mox-border-radius: 4px; }
+.eg form		{ margin: 0; }
+
+a				{ text-decoration: none; color: #3D69B6; }
+a:hover			{ text-decoration: underline; }
+
+.js-required	{ color: red; display: block; margin-bottom: 14px; }
+
+#notes				{ margin: 0 0 10px 0; color: gray; }
+input[type="file"]	{ color: gray; font-size: 13px; }
+#result				{ margin: 10px 0 0 0; }
+#success			{ color: green; }
+.error-msg			{ color: red; }
+#progress			{ margin: 10px 0 0 0; padding: 5px 10px; display: inline-block;
+						background-color: #999; color: white; font-weight: bold; }
+.cancel				{ margin-left: 5px; }
+#demo-mode			{ margin: 0 0 10px 0; color: red; }
+

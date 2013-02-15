@@ -1,0 +1,15 @@
+<html t:type="together/Layout1" t:title="literal:With Layout: Hello World" t:chosenOption="literal:Hello World"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	
+	<h1>Hello World!</h1>
+	 	
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/withlayout/HelloWorld.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/withlayout/HelloWorld.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/Menu.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/MenuOption.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/layout1.css"/>
+</html>

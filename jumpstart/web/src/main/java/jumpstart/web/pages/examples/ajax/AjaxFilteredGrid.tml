@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/ajax_filtered_grid.css}"/>
+</head>
+<body>
+	<h1>AJAX Filtered Grid</h1>
+	
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript>
+	
+	Here we filter, sort, and page a Grid with AJAX requests.<br/>
+	The 3 filter Selects trigger an AJAX Form submit that updates a zone containing the Grid.<br/>
+	The sorting and paging links of the Grid send AJAX requests because we specified <em>t:inplace="true"</em>.
+	
+	<div class="eg">
+		<form t:type="form" t:id="filterCriteria" t:zone="personsZone" class="filter">
+		
+			<!-- On change of a Select, we do an javascript click of an invisible submit button.
+				Note: do not use "this.form.performSubmit()" because on an AJAX Form it fails in Firefox. -->
+	
+			<t:label for="firstInitial"/>: 
+			<select t:type="select" t:id="firstInitial" t:model="firstInitials" 
+				onchange="document.getElementById('filterSubmit').click()"/>
+	
+			<t:label for="lastInitial"/>: 
+			<select t:type="select" t:id="lastInitial" t:model="lastInitials" 
+				onchange="document.getElementById('filterSubmit').click()"/>
+	
+			<t:label for="region"/>: 
+			<select t:type="select" t:id="region" 
+				onchange="document.getElementById('filterSubmit').click()"/>
+	
+			<input type="submit" id="filterSubmit" style="display: none;"/>
+		</form>
+
+		<div>
+			<t:zone t:id="personsZone" id="personsZone">
+				<table t:type="grid" id="grid" t:source="persons" t:rowsPerPage="4" t:pagerPosition="bottom" t:inplace="true">[Grid here]</table>
+			</t:zone>
+		</div>
+	</div>
+
+	The challenge is to make the filter values available server-side for a sorting or paging request without using <em>@Persist</em>.<br/>
+	Unfortunately, Grid's sorting and paging links don't carry a context, so we can't pass the filter values that way.<br/>
+	Instead, we persist the filter values in the generated URLs by using <em>@ActivationRequestParameter</em>.<br/><br/>
+	
+	References:
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFilteredGrid.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFilteredGrid.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFilteredGrid.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/ajax_filtered_grid.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/ajax/PersonFilteredDataSource.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"> 
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Select</h1>
+	The <strong>Select</strong> component displays a list of <strong>options</strong> in a drop-down box, allowing
+	you to choose one.<br/>
+	The options are held in a <strong>model</strong> which can be specified in many different ways, as these examples demonstrate.<br/>
+	Each option has a <strong>label</strong>, which is what you see displayed in the list.<br/>
+	Each option also has a <strong>value</strong>, which uniquely identifies it to the server.
+	If the value is not a string, then an <strong>encoder</strong> must be provided.<br/>
+	Each <strong>t:label</strong> component in these examples is providing a label next to its corresponding Select component. 
+	They do not affect the Select's option labels.<br/><br/>
+
+	The Select component expects you to provide a SelectModel, but to keep things simple it will also accept enums and lists of strings 
+	as the following examples show.
+	
+	<div class="eg">
+		In this example we provide the <strong>strings</strong> right in the template. Each option label and value is the same as the string.<br/><br/>
+			
+		<form t:type="form">
+			<t:label for="color0"/>:
+			<select t:type="select" t:id="color0" t:model="literal:Red,Yellow,Blue"></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color0}
+		</form>
+	</div>
+	<div class="eg">
+		In this example the model is an <strong>enum</strong>, which Select infers from color1's type.  The option labels are produced by "humanising" the enum values.<br/><br/>
+			
+		<form t:type="form">
+			<t:label for="color1"/>:
+			<select t:type="select" t:id="color1"></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color1}
+		</form>
+	</div>
+	<div class="eg">
+		In this example we provide a <strong>map of strings</strong> right in the template.  The mapped key and value become the option value and label, respectively.<br/><br/>
+			
+		<form t:type="form">
+			<t:label for="color2"/>:
+			<select t:type="select" t:id="color2" t:model="literal:R=Red,G=Green,B=Blue"></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color2}
+		</form>
+	</div>
+	<div class="eg">
+		In this example the model is an <strong>enum plus properties</strong>.  The option labels come from the page's properties file if there's a matching entry in it.<br/><br/>
+			
+		<form t:type="form">
+			<t:label for="color3"/>:
+			<select t:type="select" t:id="color3"></select>
+			<input type="submit" value="Submit"/>
+			You chose: ${color3}
+		</form>
+	</div>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/Select.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/Select.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/Select.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

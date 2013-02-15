@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>Zone Without Yellow Highlight</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	This page demonstrates how to eliminate the yellow "highlight" effect that occurs when a Zone updates.
+
+	<div class="eg">
+		<a t:type="eventlink" t:event="refreshPage" href="#">Refresh whole page - this ActionLink is not AJAX-enabled</a><br/>
+		<a t:type="eventlink" t:event="refreshZone" href="#" t:zone="time2Zone">Refresh serverTime2 only - this ActionLink is AJAX-enabled</a><br/><br/>
+
+		serverTime1:  ${serverTime1}
+		<t:zone t:id="time2Zone" id="time2Zone" t:update="show">
+			serverTime2:  ${serverTime2}
+		</t:zone>
+	</div>
+	
+	The solution is to set the <code>update</code> parameter of Zone to <code>"show"</code>.  Its default value is <code>"highlight"</code>.<br/>
+	Other possible values are <code>"fade"</code>, <code>"slidedown"</code>, and <code>"slideup"</code>.<br/>
+	FYI, they are the functions of Tapestry.ElementEffect which is found in Tapestry's javascript file, tapestry.js.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ZoneWithoutYellowHighlight.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ZoneWithoutYellowHighlight.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+</body>
+</html>

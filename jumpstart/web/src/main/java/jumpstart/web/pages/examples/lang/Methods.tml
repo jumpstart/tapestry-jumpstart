@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/simple.css}"/>
+</head>
+<body>
+	<h1>Methods</h1> 
+	
+	To do more you need to know about <strong>the methods that Tapestry looks for in each page</strong>.
+	Here are the most useful ones...<br/>
+
+	<ul>
+		<li><strong>onActivate()</strong> If your page has an <em>onActivate</em> method then Tapestry will call it when a request 
+		from a browser involves your page. <br/>
+		Behind the scenes, what happens is that Tapestry gets an instance of the page and triggers <em>activate</em> on it.<br/><br/></li>
+	
+		<li><strong>setupRender()</strong> If your page has a <em>setupRender</em> method then Tapestry will call it right 
+		before it starts rendering.<br/><br/></li>
+	
+		<li><strong>cleanupRender()</strong> If your page has a <em>cleanupRender</em> method then Tapestry will call it right 
+		after all the rendering has been done.<br/></li>
+	</ul>
+	
+	Here is a demonstration:<br/>
+	
+	<div class="eg">
+		message: "${message}".
+	</div>
+
+	Notice that the last string in the message is "getMessage() called... ". The message does not mention "cleanupRender()" 
+	because cleanupRender() is called AFTER the page has been rendered, but you will see "cleanupRender() called... " in the log.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">Rendering Phases</a>, 
+	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
+	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-CleanupRender">CleanupRender</a>.<br/><br/>
+
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Methods.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Methods.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/simple.css"/>
+</body>
+</html>

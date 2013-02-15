@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<style type="text/css">
+		.eg				{ background: #eee; }
+		.eg table		{ border-collapse: collapse; width: 40%; font-size: 13px; }
+		.eg table th	{ padding: 2px 5px; text-align: right; width: 35%; color: #999; }
+		.eg table td	{ padding: 2px 5px; text-align: left; }
+	</style>
+</head>
+<body>
+	<h1>Total Control Output</h1>
+	
+	This page demonstrates how to display an object without using BeanDisplay.  On the minus side, it takes more lines of 
+	template code.  On the plus side, you have total control of the	content, layout and style.
+
+	<div class="eg">
+		<table>
+			<tr>
+				<th>Id:</th>
+				<td>${person.id}</td>
+			</tr>
+			<tr>
+				<th>Version:</th>
+				<td>${person.version}</td>
+			</tr>
+			<tr>
+				<th>Name:</th>
+				<td>${person.lastName}, ${person.firstName}</td>
+			</tr>
+			<tr>
+				<th>Region:</th>
+				<td>${personRegion}</td>
+			</tr>
+			<tr>
+				<th>Start Date:</th>
+				<td><t:output t:value="person.startDate" format="startDateFormat"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	Person is an EJB3 Entity Bean, PersonFinderService is an EJB3 Stateless Session Bean.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Output.html">Output component</a>.<br/><br/>	
+	
+	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

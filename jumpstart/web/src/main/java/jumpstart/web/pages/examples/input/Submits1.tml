@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Submits (1)</h1>
+	
+	The Submit component generates a submit button/image.<br/> 
+	Use it when the server-side needs to know which submit button/image submitted the Form, or when you need to ignore validation.<br/><br/>
+	
+	In this example we use Submit to generate the 2nd and 3rd buttons.
+
+	<div class="eg">
+		<form t:type="form" t:id="search">
+			<t:errors/>
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td><input t:type="TextField" t:id="name" t:validate="required, maxlength=10" size="10"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="Search Customers"/>
+						<input t:type="Submit" t:id="suppliers" value="Search Suppliers"/>
+						<input t:type="Submit" t:id="cancel" value="Cancel" mode="CANCEL"/>
+					</td>
+				</tr>
+			</table>
+	 	</form>
+	</div>
+
+	If "Search Suppliers" is clicked, server-side the Form will notify the "suppliers" Submit component which will "bubble up" the SELECTED event.<br/>
+	If "Cancel" is clicked, server-side the Form will notify the "cancel" Submit component which will ""bubble up" the SELECTED event.<br/><br/>
+
+	The request from either button is an HTTP POST with a URL like this: <code>http://myhost/jumpstart/examples/input/submits1.search</code><br/><br/>
+
+	References: <a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
+	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

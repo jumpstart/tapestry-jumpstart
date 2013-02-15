@@ -1,0 +1,78 @@
+<project name="enterprise" basedir=".">
+
+	<property file="../build.properties" />
+
+	<property name="project.dir" value="${basedir}/.." />
+
+	<property name="business.lib.compile.dir" value="${project.dir}/${business.dir}/src/main/lib-compile" />
+	<property name="business.lib.runtime.dir" value="${project.dir}/${business.dir}/src/main/lib-runtime" />
+	<property name="business.target.package.dir" value="${project.dir}/${business.dir}/target/package" />
+	<property name="business.jar.file" value="${business.target.package.dir}/${app.name}.jar" />
+	<property name="web.target.package.dir" value="${project.dir}/${web.dir}/target/package" />
+	<property name="web.war.file" value="${web.target.package.dir}/${app.name}.war" />
+
+	<property name="resources.main.dir" value="src/main/resources" />
+
+	<property name="target.dir" value="target" />
+	<property name="target.classes.dir" value="${target.dir}/classes" />
+	<property name="target.package.dir" value="${target.dir}/package" />
+
+	<property name="ear.file" value="${target.package.dir}/${app.name}.ear" />
+
+	<target name="clean" description="Deletes the target directory">
+		<delete dir="${target.dir}" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${target.package.dir}" />
+	</target>
+
+	<target name="package" depends="init" description="">
+		<delete file="${ear.file}" />
+
+		<ear destfile="${ear.file}" manifest="${resources.main.dir}/META-INF/MANIFEST.MF" appxml="${resources.main.dir}/META-INF/application.xml">
+			<zipfileset file="${business.jar.file}" />
+			<zipfileset file="${web.war.file}" />
+			<zipfileset dir="${business.lib.compile.dir}" includes="*.jar" prefix="lib" />
+			<zipfileset dir="${business.lib.runtime.dir}" includes="*.jar" prefix="lib" />
+		</ear>
+	</target>
+
+	<target name="deploy-ear-to-server-jboss7">
+		<available type="dir" file="${project.dir}/${deployment.server.dir}/deployments" property="deployment.deploy.dir.exists"/>
+		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${project.dir}/${deployment.server.dir}/deployments."/>
+
+		<!-- There is no datasource descriptor to copy to jboss7 - datasources are added via the admin console web page. -->
+
+		<copy todir="${project.dir}/${deployment.server.dir}/deployments" file="${ear.file}"/>
+	</target>
+
+	<target name="deploy-ear-to-server-glassfish3">
+		<available type="dir" file="${project.dir}/${deployment.server.dir}/autodeploy" property="deployment.deploy.dir.exists" />
+		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${project.dir}/${deployment.server.dir}/autodeploy." />
+
+		<!-- There is no datasource descriptor to copy to glassfish3 - datasources are added via the admin console web page. -->
+		
+		<copy todir="${project.dir}/${deployment.server.dir}/autodeploy" file="${ear.file}" />
+	</target>
+
+	<target name="integration-test" description="">
+		<echo message="There are no integration tests in jumpstart enterprise tier." />
+	</target>
+
+	<target name="install" description="">
+		<echo message="There is no local repository to install the EAR in." />
+	</target>
+
+	<target name="deploy" description="">
+	</target>
+
+	<target name="delete-dependent-files" description="">
+		<echo message="There are no dependent files in jumpstart enterprise tier." />
+	</target>
+
+	<target name="get-dependent-files">
+		<echo message="There are no dependent files in jumpstart enterprise tier." />
+	</target>
+
+</project>

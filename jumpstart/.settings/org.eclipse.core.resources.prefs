@@ -1,0 +1,25 @@
+#Sat Jul 28 17:16:14 EST 2012
+eclipse.preferences.version=1
+encoding//business/src/test/conf-remote-glassfish/jndi.properties=UTF-8
+encoding//business/src/test/conf-remote-glassfish/log4j.properties=UTF-8
+encoding//business/src/test/conf-remote-jboss/jboss-ejb-client.properties=UTF-8
+encoding//business/src/test/conf-remote-jboss/jndi.properties=UTF-8
+encoding//business/src/test/conf-remote-jboss/log4j.properties=UTF-8
+encoding//business/src/test/conf-remote-tomcat/jndi.properties=UTF-8
+encoding//business/src/test/conf-remote-tomcat/log4j.properties=UTF-8
+encoding//business/src/test/conf/jndi.properties=UTF-8
+encoding//business/src/test/conf/log4j.properties=UTF-8
+encoding//business/src/test/conf/openejb.xml=UTF-8
+encoding//business/src/test/data/drop_tables.sql=UTF-8
+encoding//business/src/test/data/initial_data.sql=UTF-8
+encoding//web/src/main/java/jumpstart/web/WEB-INF/app.properties=UTF-8
+encoding//web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.properties=UTF-8
+encoding//web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.tml=UTF-8
+encoding//web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog_fr.properties=UTF-8
+encoding//web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate.tml=UTF-8
+encoding//web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate_fr.tml=UTF-8
+encoding//web/src/main/java/jumpstart/web/translators/TranslationMessages.properties=UTF-8
+encoding//web/src/main/java/jumpstart/web/translators/TranslationMessages_fr.properties=UTF-8
+encoding//web/src/main/java/jumpstart/web/validators/ValidationMessages.properties=UTF-8
+encoding//web/src/main/java/jumpstart/web/validators/ValidationMessages_fr.properties=UTF-8
+encoding/<project>=UTF-8

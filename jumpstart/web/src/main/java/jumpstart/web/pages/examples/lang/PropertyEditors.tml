@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Property Editors</h1>
+	
+	This example demonstrates adding your own property editors, allowing Grid, BeanDisplay, and BeanEditor to display/edit unusual property types.<br/><br/>
+	
+	A property editor is made up of two parts:
+	<ol>
+		<li>A <strong>data type analyzer</strong>, able to recognise when a property is of a type that the editor can handle.</li>
+		<li>A <strong>display block</strong> and/or <strong>edit block</strong>, to display and/or edit the property.</li>
+	</ol>
+	
+	As Grid or BeanDisplay tries to render each <strong>readable property</strong> of an object, it analyzes the property's data type, then renders the 
+	corresponding <strong>display block</strong> if one exists. <br/>
+	Tapestry comes with display blocks for enum, date, calendar, password, and more. 
+	See <a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-SupportedTypes">here</a>.<br/><br/>
+	
+	As Grid or BeanEditor tries to render each <strong>read-write property</strong> of an object, it analyzes the property's data type, then renders the 
+	corresponding <strong>edit block</strong> if one exists. <br/>
+	Tapestry comes with edit blocks for text, number, enum, date, and more. 
+	See <a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-SupportedTypes">here</a>.<br/><br/>
+
+	In JumpStart we have added to the list of supported types by contributing property editors for certain Joda Time properties:
+	<ol>
+		<li>We contributed <strong>DataTypeAnalyzers</strong> to detect 5 types: DateTime, DateMidnight, LocalDateTime, LocalDate, and LocalTime.</li>
+		<li>We contributed BeanBlockSource <strong>display blocks</strong> for all 5 types and <strong>edit blocks</strong> for 2 of them: DateMidnight and LocalDate.</li>
+	</ol>
+	You can see the contributions in AppModule, below.<br/><br/>
+	
+	Here is what BeanDisplay can do with a DatesExample object. It makes use of our 5 contributed display blocks. 
+		
+	<div class="eg">
+		<t:beandisplay object="datesExample" 
+			include="id,version,adatetime,adatemidnight,alocaldatetime,alocaldate,alocaltimeastime">[BeanDisplayForm here]</t:beandisplay>
+	</div>
+			
+	Here is what BeanEditForm can do with the same DatesExample object. It makes use of our 2 contributed edit blocks.
+	
+	<div class="eg">	
+		<t:beaneditform t:id="updateDates" object="datesExample" submitLabel="Save"
+			include="adatemidnight,alocaldate">[BeanEditForm here]</t:beaneditform>
+	</div>
+ 		
+	References: 
+	<a href="http://tapestry.apache.org/beaneditform-guide.html">BeanEditForm Guide</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/DataTypeAnalyzer.html">DataTypeAnalyzer</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/BeanBlockSource.html">BeanBlockSource</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/DisplayBlockContribution.html">DisplayBlockContribution</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/EditBlockContribution.html">EditBlockContribution</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/PropertyOutputContext.html">PropertyOutputContext</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/PropertyEditContext.html">PropertyEditContext</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
+	<a href="http://joda-time.sourceforge.net/">Joda Time</a>.<br/><br/>
+ 	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
+</body>
+</html>

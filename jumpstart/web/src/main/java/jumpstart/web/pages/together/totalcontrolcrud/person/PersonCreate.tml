@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/together/totalcontrolcrudedit.css}"/>
+</head>
+<body>
+	<h1>Create</h1>
+	
+	<div class="eg">
+		<form t:type="CustomForm" t:id="personForm" class="input">
+			<t:errors/>
+	
+			<table class="edit">
+				<tr>
+					<th><t:label for="firstName"/>:</th>
+					<td><input t:type="TextField" t:id="firstName" value="person.firstName" t:validate="required, maxlength=10" size="10"/></td>
+					<td>(required)</td>
+				</tr>
+				<tr class="err">
+					<th></th>
+					<td colspan="2"><t:CustomError for="firstName"/></td>
+				</tr>
+				<tr>
+					<th><t:label for="lastName"/>:</th>
+					<td><input t:type="TextField" t:id="lastName" value="person.lastName" t:validate="required, maxlength=10" size="10"/></td>
+					<td>(required)</td>
+				</tr>
+				<tr class="err">
+					<th></th>
+					<td colspan="2"><t:CustomError for="lastName"/></td>
+				</tr>
+				<tr>
+					<th><t:label for="region"/>:</th>
+					<td><input t:type="Select" t:id="region" value="person.region" t:validate="required" t:blankOption="ALWAYS"/></td>
+					<td>(required)</td>
+				</tr>
+				<tr class="err">
+					<th></th>
+					<td colspan="2"><t:CustomError for="region"/></td>
+				</tr>
+				<tr>
+					<th><t:label for="startDate"/>:</th>
+					<td><input t:type="DateField" t:id="startDate" value="person.startDate" t:format="dd/MM/yyyy" t:validate="required" size="10"/></td>
+					<td>(required, dd/mm/yyyy)</td>
+				</tr>
+				<tr class="err">
+					<th></th>
+					<td colspan="2"><t:CustomError for="startDate"/></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td colspan="2">
+						<input type="submit" value="Save"/>&nbsp;
+						<a t:type="pagelink" t:page="together/totalcontrolcrud/Persons" href="#">Cancel</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/totalcontrolcrudedit.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

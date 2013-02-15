@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/ajaxformloop.css}"/>
+</head>
+<body>
+	<h1>AjaxFormLoop With Holders (1)</h1>
+	
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	This example of AjaxFormLoop operates directly on Person entities instead of DTOs and it works around <a href="https://issues.apache.org/jira/browse/TAP5-1896">TAP5-1896</a>.<br/>
+	The changes are not persisted to the database until the Save button is pressed.<br/><br/>
+
+	To demonstrate a server-side error, change any First Name to <em>${BAD_NAME}</em>.<br/><br/>
+	
+	It uses a "PersonHolder" so that it can easily differentiate between rows added, rows removed, and rows that others have deleted.<br/>
+	
+	<div class="eg" t:type="Zone" t:id="personsEditZone" id="personsEditZone">
+		<form t:type="form" t:id="personsEdit" t:zone="^">
+			<t:errors/>
+			
+			<t:hidden value="personsDisplayed" encoder="personsDisplayedEncoder"/>
+			
+			<table class="grid">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Region</th>
+						<th>Start Date</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr t:type="AjaxFormLoop" t:source="personHolders" t:value="personHolder" t:encoder="personHolderEncoder">
+						<t:submitnotifier>
+							<td style="${hideIfRemoved}">${personHolder.id}</td>
+							<td style="${hideIfRemoved}"><input t:type="TextField" t:id="firstName" t:value="personHolder.person.firstName" t:validate="required, maxlength=10" size="10"/></td>
+							<td style="${hideIfRemoved}"><input t:type="TextField" t:id="lastName" t:value="personHolder.person.lastName" t:validate="required, maxlength=10" size="10"/></td>
+							<td style="${hideIfRemoved}"><input t:type="Select" t:id="region" t:value="personHolder.person.region" t:validate="required"/></td>
+							<td style="${hideIfRemoved}"><input t:type="DateField" t:id="startDate" t:value="personHolder.person.startDate" t:format="prop:dateFormat" t:validate="required" size="10"/></td>
+
+							<td style="${hideIfRemoved}"><t:removerowlink>remove</t:removerowlink></td>
+
+							<t:hidden value="personHolder.removed"/>
+							<!-- If optimistic locking is not needed then comment out this next bit. -->
+							<t:hidden value="personHolder.version"/>
+							<t:hidden value="personHolder.person.version"/>
+						</t:submitnotifier>
+						<p:addRow>
+							<td colspan="6" style="text-align: right">
+								<t:addrowlink>Add a row</t:addrowlink>
+							</td>
+						</p:addRow>
+					</tr>
+				</tbody>
+		 	</table><br/>
+		 	<input t:type="submit" value="Save"/>
+		 	<a t:type="eventlink" t:event="refresh" t:zone="^" href="#" style="margin-left: 5px;">Refresh</a>
+		</form>
+	</div>
+
+	Features:
+	<ul>
+	<li>Similar technique to Editable Loop For Update, but this time all interaction with the server is via AJAX.</li>
+	<li>Avoids <a href="https://issues.apache.org/jira/browse/TAP5-1896">TAP5-1896</a> which corrupts the list on redisplay because, it seems, 
+		Form's Validation Tracker is unaware that rows have been removed.
+		<ul>
+		<li>We work around this by reconstructing the original list, plus additions, on submit, flagging removed rows, and hiding them on redisplay.</li>
+		</ul>
+	</li> 
+	<li>No need for FLASH persistence because there are no redirects - instead, responses are AJAX-delivered Zone updates.</li>
+	<li>If another process creates a person by the time you submit, we ignore it. The encoder ensures we target the submitted persons only.</li>
+	<li>If another process updates a person by the time you submit, your update will be rejected by the business layer (optimistic locking exception).</li>
+	<li>If another process deletes a person by the time you submit, we treat it as an error.</li>
+	<li>On error, we redisplay the list with the same persons and values you submitted.</li>
+	</ul>
+
+	Notes:
+	<ul>
+	<li>There have been reports of "Add a row" failing following inactivity (see <a href="https://issues.apache.org/jira/browse/TAP5-733">TAP5-733</a>), 
+	and in another circumstance that might involve cookies (discussed
+	<a href="http://tapestry.1045711.n5.nabble.com/Is-AjaxFormLoop-example-working-for-you-td2422439.html">here</a>).</li>
+	<li>During development: if you modify the template, the page sometimes fails with a type coercion problem. 
+		The problem should clear if you use the browser's reload button once or twice.</li> 
+	</ul>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/AjaxFormLoop.html">AjaxFormLoop</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/AddRowLink">AddRowLink</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/RemoveRowLink.html">RemoveRowLink</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/ajaxformloop.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/encoders/examples/IdVersionsEncoder.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/IdVersion.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

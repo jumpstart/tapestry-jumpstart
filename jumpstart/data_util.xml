@@ -1,0 +1,137 @@
+<project name="data_util" basedir=".">
+
+	<property file="build.properties" />
+	<property file="data_util.properties" />
+
+	<property name="lib.tools.dir" value="${tools.dir}/lib" />
+
+	<path id="classpath.tools.and.drivers">
+		<fileset dir="${lib.tools.dir}">
+			<include name="sqltool*.jar" />
+		</fileset>
+		<fileset dir="${lib.tools.dir}">
+			<include name="hsqldb*.jar" />
+		</fileset>
+	</path>
+	
+	<scriptdef name="substring" language="javascript">
+		<attribute name="text" />
+		<attribute name="start" />
+		<attribute name="end" />
+		<attribute name="property" />
+		<![CDATA[
+			var text = attributes.get("text");
+			var start = attributes.get("start");
+			var end = attributes.get("end") || text.length();
+			project.setProperty(attributes.get("property"), text.substring(start, end));
+		]]>
+	</scriptdef>
+	
+	<target name="start-hsqldb-manager" description="" depends="gracefully-check-database-available">
+		<java classname="org.hsqldb.util.DatabaseManagerSwing" fork="true">
+			<classpath refid="classpath.tools.and.drivers" />
+			<arg value="-url" />
+			<arg value="${database.url}" />
+			<arg value="-user" />
+			<arg value="${database.userid}" />
+		</java>
+	</target>
+	
+	<target name="repopulate-database-prompted" description="" depends="check-properties, gracefully-check-database-available">
+		<input message="Are you sure you want to reset the data in ${database.url} (y/n)?" validargs="y,n" addproperty="do.reset.hsqldb.data" />
+		<condition property="do.abort">
+			<equals arg1="n" arg2="${do.reset.hsqldb.data}" />
+		</condition>
+		<fail if="do.abort">Reset has been aborted by user.</fail>
+		
+		<antcall target="repopulate-database"/>
+	</target>
+
+	<target name="repopulate-database">
+		<property name="script" value="${initial.data.script}"/>
+		
+		<!-- Append hsqldb command "shutdown;" to the script so that it saves the data to its data files. -->
+		<tempfile property="preparedScript" suffix="sql" deleteonexit="true"/>
+		<copy file="${script}" tofile="${preparedScript}"/>
+		<concat append="true" destfile="${preparedScript}">shutdown;</concat> 
+
+		<antcall target="run-prepared-script"/>
+	</target>
+
+	<target name="run-prepared-script" depends="gracefully-check-database-available">
+		<java classname="org.hsqldb.cmdline.SqlTool" fork="true" failonerror="true">
+			<classpath refid="classpath.tools.and.drivers" />
+			<arg value="--inlineRC" />
+			<arg value="url=${database.url},user=${database.userid},password=" />
+			<arg value="${preparedScript}" />
+		</java>
+
+		<echo message="Script ${script} has been run in ${database.url}."/>
+	</target>
+
+	<target name="gracefully-check-database-available" depends="interpret-database-type">
+		<antcall target="gracefully-check-database-available-if-hsqldb-files"/>
+		<antcall target="gracefully-check-database-available-if-hsqldb-server"/>
+	</target>
+	
+	<target name="gracefully-check-database-available-if-hsqldb-files" if="database.is.hsqldb.files">
+		<substring text="${database.url}" start="17" property="hsqldb.files.root"/>
+		<available type="file" file="${hsqldb.files.root}.lck" property="hsqldb.lck.exists"/>
+
+		<fail if="hsqldb.lck.exists" message="*** The HSQLDB files appear to be in use - found lock file ${hsqldb.files.root}.lck."/>
+	</target>
+	
+	<target name="gracefully-check-database-available-if-hsqldb-server" if="database.is.hsqldb.server">
+		<echo message="in gracefully-check-database-available-if-hsqldb-server"/>
+		<java classname="org.hsqldb.cmdline.SqlTool" fork="true" failonerror="true">
+			<classpath refid="classpath.tools.and.drivers" />
+			<arg value="--inlineRC" />
+			<arg value="url=${database.url},user=${database.userid},password=${database.password}" />
+			<arg value="--sql" />
+			<arg value="select * from Person;" />
+		</java>
+	</target>
+	
+	<target name="check-properties">
+		<fail unless="initial.data.script" message="*** Please specify initial.data.script in data_util.properties." />
+	</target>
+	
+	<target name="interpret-database-type">
+		<condition property="database.is.hsqldb.files">
+			<contains string="${database.url}" substring="jdbc:hsqldb:file:" casesensitive="false" />
+		</condition>
+		<condition property="database.is.hsqldb.server">
+			<contains string="${database.url}" substring="jdbc:hsqldb:hsql:" casesensitive="false" />
+		</condition>
+		<condition property="database.type.is.not.handled">
+			<and>
+				<isfalse value="${database.is.hsqldb.files}"/>
+				<isfalse value="${database.is.hsqldb.server}"/>
+			</and>
+		</condition>
+
+		<fail if="database.type.is.not.handled" message="*** Database type is not handled. URL is ${database.url}."/>
+	</target>
+	
+	<target name="add-hibernate-to-a-server" description="">
+		<fail unless="add.hibernate.to.dir" message="*** Please specify add.hibernate.to.dir in data_util.properties." />
+		<available type="dir" file="${add.hibernate.to.dir}" property="add.hibernate.to.dir.exists"/>
+		<fail unless="add.hibernate.to.dir.exists" message="*** Cannot copy hibernate jars because target directory does not exist at: ${add.hibernate.to.dir} ." />
+
+		<get dest="${add.hibernate.to.dir}/antlr-3.1.1.jar" usetimestamp="true" src="${maven.repo.root}/org/antlr/antlr/3.1.1/antlr-3.1.1.jar"/>
+		<get dest="${add.hibernate.to.dir}/commons-collections-3.2.jar" usetimestamp="true" src="${maven.repo.root}/commons-collections/commons-collections/3.2/commons-collections-3.2.jar"/>
+		<get dest="${add.hibernate.to.dir}/commons-logging-1.1.jar" usetimestamp="true" src="${maven.repo.root}/commons-logging/commons-logging/1.1/commons-logging-1.1.jar"/>
+		<get dest="${add.hibernate.to.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+		<get dest="${add.hibernate.to.dir}/hibernate-commons-annotations-4.0.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar" />
+		<get dest="${add.hibernate.to.dir}/hibernate-core-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar" />
+	 	<get dest="${add.hibernate.to.dir}/hibernate-ehcache-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-ehcache/4.1.9.Final/hibernate-ehcache-4.1.9.Final.jar"/>
+		<get dest="${add.hibernate.to.dir}/hibernate-entitymanager-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-entitymanager/4.1.9.Final/hibernate-entitymanager-4.1.9.Final.jar" />
+		<get dest="${add.hibernate.to.dir}/javassist-3.15.0-GA.jar" usetimestamp="true" src="${maven.repo.root}/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar" />
+		<get dest="${add.hibernate.to.dir}/jboss-logging-3.1.1.GA.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging/3.1.1.GA/jboss-logging-3.1.1.GA.jar" />
+		<get dest="${add.hibernate.to.dir}/jboss-logging-processor-1.0.3.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging-processor/1.0.3.Final/jboss-logging-processor-1.0.3.Final.jar" />
+		<get dest="${add.hibernate.to.dir}/slf4j-api-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
+  		<get dest="${add.hibernate.to.dir}/slf4j-log4j12-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar" />
+		<get dest="${add.hibernate.to.dir}/log4j-1.2.16.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.16/log4j-1.2.16.jar"/>
+	</target>
+
+</project>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<style type="text/css">
+		form	{ background-color: #eee; padding: 14px; }
+	</style>
+</head>
+<body>
+	<h1>Multiple Forms (1)</h1>
+	
+	This page demonstrates how to handle a page with more than one Form.
+	
+	<div class="eg">
+		<form t:type="form" t:id="searchcustomers">
+			<t:errors/>
+			Customer Name: 
+			<input t:type="TextField" t:id="customerName" t:validate="required, maxlength=10" size="10"/> 
+			<input type="submit" value="Search Customers"/>
+	 	</form><br/>
+	 	
+		<form t:type="form" t:id="searchsuppliers">
+			<t:errors/>
+			Supplier Name: 
+			<input t:type="TextField" t:id="supplierName" t:validate="required, maxlength=10" size="10"/> 
+			<input type="submit" value="Search Suppliers"/>
+	 	</form>
+	</div>
+	
+	To help us determine which Form has been submitted we give each Form a component id.<br/>
+	In this example the ids are "searchcustomers" and "searchsuppliers".<br/>
+	We include the id in their event handler method names: onSuccessFromSearchCustomers() and onSuccessFromSearchSuppliers().<br/><br/>
+
+	References: <a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
+	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/OnEvent.html">@OnEvent</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleForms1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleForms1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

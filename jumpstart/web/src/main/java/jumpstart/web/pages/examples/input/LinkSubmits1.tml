@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Link Submits (1)</h1>
+	
+	The LinkSubmit component generates a link that submits its enclosing Form.
+	
+	<div class="eg">
+		<form t:type="form" t:id="names">
+			<t:errors/>
+			<table>
+				<tr>
+					<td>First Name:</td>
+					<td><input t:type="TextField" t:id="firstName" t:validate="required"/></td>
+				</tr>
+				<tr>
+					<td>Last Name:</td>
+					<td><input t:type="TextField" t:id="lastName" t:validate="required"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><a t:type="LinkSubmit" t:id="newlinksubmit" href="#">Display</a></td>
+				</tr>
+			</table>
+	 	</form>
+	</div>
+ 	
+ 	The request is an HTTP POST with a URL like this: <code>http://myhost/jumpstart/examples/input/linksubmits1.names</code><br/><br/>
+
+	References:	
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/LinkSubmit.html">LinkSubmit</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>, 
+	<a href="http://tapestry.apache.org/forms-and-validation.html#FormsandValidation-Formcomponent">Form Component</a>,  
+	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>, 
+	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
+	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/LinkSubmits1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/LinkSubmits1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

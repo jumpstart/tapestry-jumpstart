@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Return To Page (2)</h1>
+	
+	This page doesn't presume to know which page, or pages, can call it, so it requires the caller to give it a link back to the caller.<br/>
+	This is useful in situations where a page can be reached from more than one other page.
+	
+	<div class="eg">
+		_messageFromCaller = <strong>"${messageFromCaller}"</strong>.<br/>
+		_linkBackToCaller = <strong>${linkBackToCaller}</strong><br/><br/>
+	
+		<a t:type="eventlink" t:event="return" href="#">Return</a>
+	</div>
+
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Link.html">Link</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>.<br/><br/>
+	
+	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage2.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage2.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

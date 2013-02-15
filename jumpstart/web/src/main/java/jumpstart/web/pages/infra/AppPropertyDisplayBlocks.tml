@@ -1,0 +1,23 @@
+<t:container xml:space="default" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+	<t:block id="dateTime">
+		<t:jodatimeoutput value="context.propertyValue" style="LL"/>
+	</t:block>
+
+	<t:block id="dateMidnight">
+		<t:jodatimeoutput value="context.propertyValue" style="L-"/>
+	</t:block>
+
+	<t:block id="localDateTime">
+		<t:jodatimeoutput value="context.propertyValue" style="LL"/>
+	</t:block>
+
+	<t:block id="localDate">
+		<t:jodatimeoutput value="context.propertyValue" style="L-"/>
+	</t:block>
+
+	<t:block id="localTime">
+		<t:jodatimeoutput value="context.propertyValue" style="-L"/>
+	</t:block>
+
+</t:container>

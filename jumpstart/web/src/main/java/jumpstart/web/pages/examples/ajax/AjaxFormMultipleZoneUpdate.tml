@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>AJAX Form Multiple Zone Update</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	This page demonstrates an AJAX-enabled Form that also updates another zone on success.
+	
+	<div class="eg">
+		<t:zone t:id="formZone" id="formZone">
+			<form t:id="ajaxForm" t:type="form" t:zone="^">
+			
+				First Name: <input t:type="TextField" t:id="firstName"/><br/>
+				Last Name: <input t:type="TextField" t:id="lastName"/><br/>
+				Birthday: <input t:type="datefield" t:id="birthday"/><br/><br/>
+				
+				<input type="submit" value="Accept"/><br/><br/>
+				
+				<t:errors/>
+	
+				Welcome ${name}.
+				
+		 	</form>
+	 	</t:zone>
+	</div>
+	<div class="eg">
+	 	<t:zone t:id="outZone" id="outZone">
+			Welcome ${name}. Your birthday is ${birthday}
+		</t:zone>
+	</div>
+ 	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>.<br/><br/> 
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormMultipleZoneUpdate.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormMultipleZoneUpdate.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+</body>
+</html>

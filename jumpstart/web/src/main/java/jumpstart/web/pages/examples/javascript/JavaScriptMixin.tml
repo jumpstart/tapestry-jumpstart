@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>JavaScript Mixin</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	We can make JavaScript even easier to reuse by packaging it as a Tapestry mixin. Here we have turned the "textbox hint" into a mixin 
+	and applied it to the firstName and lastName fields. The page no longer mentions JavaScript, the mixin does it all.
+	
+	<div class="eg">
+		<form t:type="form" t:autofocus="false">
+			<input t:type="TextField" t:id="firstName" t:mixins="TextboxHint" t:hintText="Enter First Name" t:hintColor="#808080"/>
+			<input t:type="TextField" t:id="lastName" t:mixins="TextboxHint" t:hintText="Enter Last Name" t:hintColor="#808080"/><br/>
+	 	</form>
+	</div>
+	
+	Mixin location is important.  Mixins must be put in a package called <code>mixins</code>.  Tapestry gives this package 
+	special treatment.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
+	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>,
+	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>.<br/><br/> 
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScriptMixin.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScriptMixin.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/TextboxHint.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/TextboxHint.js"/>
+</body>
+</html>

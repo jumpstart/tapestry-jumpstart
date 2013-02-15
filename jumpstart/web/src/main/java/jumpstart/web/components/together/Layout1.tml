@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+<head>
+	<title>${title}</title>
+	<link rel="stylesheet" type="text/css" href="${context:css/together/layout1.css}"/>
+</head>
+
+<body>
+
+	<table id="page">
+		<tr>
+			<td id="top">
+				<div id="banner">
+					<h1>With Layout</h1>
+			
+					<div class="bannerText">
+						In this example we show 3 pages that have the same layout: a gray margin, a title, this text, 
+						a menu, and the page's content. The Tapestry way to output all that stuff is to write a 
+						component to do it and use that component as your page's outermost tag. In this example the 
+						component is called <em>together/Layout1</em> and you can see it being used in the outermost 
+						tag of all 3 pages.<br/>
+					</div><br/>
+				</div>
+
+				<!-- Menu style is based on an example at http://www.dynamicdrive.com/dynamicindex1/ddtabmenu.htm -->
+				<div id="menubar">
+					<ul>
+						<li t:type="Loop" t:source="menu.menuoptions" t:value="menuoption">
+							<a t:type="pagelink" t:page="prop:menuoption.page" class="prop:menuOptionCSSClass">
+								<span>${menuoption.label}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="menubarline"/>
+			</td>
+		</tr>
+
+		<tr>
+			<td id="content">
+				<!-- t:body is a directive that says "output the content that I surround". -->
+				<t:body/>
+			</td>
+		</tr>
+		
+	</table>
+
+</body>
+
+</html>

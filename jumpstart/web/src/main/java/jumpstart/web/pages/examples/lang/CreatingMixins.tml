@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/plain.css}"/>
+</head>
+<body>
+	<h1>Creating Mixins</h1>
+	
+	Mixins must reside under the <code>mixins</code> package.<br/><br/>
+
+	Here is a mixin called GridSortingDisabler. Created to mix in with a Grid, it turns off the sorting of every column.<br/>
+	It works by modifying its Grid's BeanModel - after the Grid has prepared it but before the Grid is rendered.
+	
+	<div class="eg">
+		<table t:type="grid" t:source="persons" t:rowsPerPage="4" t:pagerPosition="top" t:mixins="GridSortingDisabler">[Grid here]</table>
+	</div>
+	
+	A mixin can work in many ways, for example:<br/>
+	<ul>
+		<li>A mixin can manipulate its component's properties, like GridSortingDisabler which manipulates its Grid's BeanModel.</li>
+		<li>A mixin can manipulate the DOM, like Tapestry's 
+		<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/mixins/RenderDisabled.java?view=markup">RenderDisabled</a> 
+		and 
+		<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/mixins/NotEmpty.java?view=markup">NotEmpty</a>, 
+		and nillehammer's 
+		<a href="http://tapestry.1045711.n5.nabble.com/Snippet-T5-A-mixin-to-rewrite-the-markup-of-element-td4479439.html#a4481772">MarkupChanger</a>.</li>
+		<li>A mixin can bubble up events, like Tapestry's 
+		<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/mixins/RenderNotification.java?view=markup">RenderNotification</a>.</li>
+		<li>A mixin can attach javascript, like the later examples "Create Mixins: ClickOnce", "AJAX Periodic Update Mixin" and "AJAX On Event: ZoneUpdater".</li>
+	</ul>
+
+	References: 
+	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Mixin.html">@Mixin</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/MixinAfter.html">@MixinAfter</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>, 
+	<a href="http://tapestry.apache.org/dom.html">DOM</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/dom/Element.html">Element</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/CreatingMixins.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/CreatingMixins.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/plain.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/GridSortingDisabler.java"/>
+</body>
+</html>

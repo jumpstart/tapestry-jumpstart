@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>AJAX Multiple Zone Update</h1>
+	
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	This page demonstrates how multiple zones can be updated simultaneously by using the AjaxResponseRenderer service.
+	
+	<div class="eg">
+		<form t:type="form">
+	
+			<t:zone t:id="nameZone1" id="nameZone1">
+				Welcome ${name}.
+			</t:zone><br/>
+	
+			First Name: 
+			<input t:type="TextField" t:id="firstName" t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="firstNameChanged" t:zone="nameZone1"/><br/>
+			Last Name: 
+			<input t:type="TextField" t:id="lastName" t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="lastNameChanged" t:zone="nameZone1"/><br/><br/>
+	
+			<t:zone t:id="nameZone2" id="nameZone2">
+				Welcome ${upperCaseName}.
+			</t:zone><br/>
+	
+			Note that the following time field does not update because it's not in the zone:  ${time}<br/>
+			
+	 	</form>
+	</div>
+ 	
+	References: 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
+	<a href="http://tinybits.blogspot.com/2010/03/new-and-better-zoneupdater.html">Inge's Zone Updater</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+ 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
+ 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>.<br/><br/> 
+
+	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.js"/>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<!-- Based on org.apache.tapestry5.integration.app1.pages.TreeDemo -->
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Tree Browse</h1>
+	
+	Here we demonstrate Tapestry's Tree component.
+	
+	<div class="eg">
+		<a t:type="eventlink" t:event="clearExpansions">Clear Expansions</a><br/><br/>
+		<t:tree t:id="tree" model="stuffModel"/><br/>
+		<a t:type="pagelink" t:page="examples/component/TreeBrowse" href="#">Refresh</a>
+	</div> 
+	
+	For an example of a tree with more capabilities, see the example Tree From Database, With Zones.<br/>
+	For an example of a file system browser, try the Tree section of 
+	<a href="http://tawus.wordpress.com/2011/08/24/tapestry53/">Java Magic: Tapestry 5.3+ : New Features</a>.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Tree.html">Tree</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/tree/TreeModel.html">TreeModel</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/tree/DefaultTreeModel.html">DefaultTreeModel</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/tree/TreeModelAdapter.html">TreeModelAdapter</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+
+	<a t:type="eventlink" t:event="Home" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/TreeBrowse.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/TreeBrowse.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/tree/StuffTreeModelAdapter.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/tree/Stuff.java"/>
+</body>
+</html>

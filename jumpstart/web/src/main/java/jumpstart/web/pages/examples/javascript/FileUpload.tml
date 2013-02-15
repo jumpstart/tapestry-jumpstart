@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/javascript/fileupload.css}"/>
+</head>
+<body>
+	<h1>File Upload</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+	
+	This example demonstrates Tapestry's Upload component for uploading files. <br/><br/>
+	
+	To improve the user experience, we've added some JavaScript. It hides stale results messages, shows a progress message, 
+	and enables cancel during long uploads.<br/><br/>
+	
+	To keep the page class simple, we've moved all file handling into a service that we've called Filer.<br/>
+	
+	<div class="eg">
+		<form t:type="CustomForm" t:id="uploadForm">
+
+			<div id="notes">
+				${fileSizeMaxMessage} 
+			</div>
+
+			<input t:type="Upload" t:id="file" t:clientid="prop:fileId" t:validate="required" onClick="fileUpload.hideResults();" t:disabled="demoMode"/><br/>
+			<input t:type="Submit" t:id="upload" value="Upload" onClick="fileUpload.showProgress();" t:disabled="demoMode"/><br/>
+
+			<div id="${progressId}" style="display: none;">
+				${message:progress}
+				<button t:type="chenillekit/Button" class="cancel" type="button" t:pageName="prop:thisPageName" 
+					title="Cancel" onClick="this.form.reset(); return true;">Cancel</button>
+			</div>
+
+			<div id="${resultId}">
+				<t:customerror for="file"/>
+				<div id="success">
+					${successMessage}
+				</div>
+				<t:errors />
+			</div>
+		
+			<t:if test="demoMode">
+				<div id="demo-mode">Sorry, but this function is not allowed in Demo mode.</div>
+			</t:if>
+
+		</form>
+	</div>
+	
+	The symbols <em>jumpstart.upload-path</em> and <em>upload.filesize-max</em> were provided at runtime as Java options, 
+	eg. <code>-Dupload.filesize-max=${fileSizemax}</code><br/><br/>
+
+	The Upload component is NOT part of Tapestry's corelib. To use it, put the following jars in the classpath:
+	<ul>
+		<li>tapestry-upload-5.3.n.jar, at compile and runtime.</li>
+		<li>commons-fileupload-1.2.2.jar, at compile and runtime.</li>
+		<li>commons-io-2.0.1.jar, at runtime.</li>
+	</ul>
+	
+	For an AJAX uploader try <a href="http://tawus.wordpress.com/2011/06/25/ajax-upload-for-tapestry/">Ajax Upload for Tapestry</a>.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/uploading-files.html">Uploading Files</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/upload/components/Upload.html">Upload</a>,
+	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>.<br/><br/> 
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.js"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/javascript/fileupload.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/Filer.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+</body>
+</html>

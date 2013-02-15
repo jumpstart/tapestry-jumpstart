@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/plain.css}"/>
+</head>
+<body>
+	<h1>Grid</h1>
+	
+	A table built with with the Grid component: just one line of code in the template and no grid-specific css.
+
+	<div class="eg">
+		<table t:type="grid" t:source="persons" t:rowsPerPage="4" t:pagerPosition="top">[Grid here]</table>
+	</div>
+
+	Grid is great for rapid prototyping:
+	<ul>
+		<li>Its parameters allow you to exclude columns, add columns, reorder columns, etc.</li>
+		<li>Its styling can be overridden with CSS.</li>
+		<li>Its editors can be overridden by property blocks. See also the Property Editors example.</li>
+		<li>Its bean model can be configured or overridden to include columns, exclude columns, add columns, and reorder columns.</li>
+		<li>Its sort model can be configured or overridden to control sorting.</li>
+		<li>Its data source can be configured or overridden to take control of caching and paginated retrieval of data.</li>
+	</ul>
+	
+	Naturally, Grid has limitations. The alternatives include:
+	<ul>
+		<li>Use what Grid uses: the Loop component. See the Loop examples.</li>
+		<li>Build components, like Grid, that suit your needs. See the Component examples and the Tapestry source for Grid.</li>
+	</ul>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/Grid.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/Grid.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/plain.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a DOCTYPE to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	 <link rel="stylesheet" type="text/css" href="${context:css/examples/layout.css}"/>
+</head>
+<body>
+
+	<div class="header">
+		<h1>The Layout Component</h1>
+		Here we show 2 pages that have the same layout: a colored margin, this text, some PageLinks, and the page's content.<br/> 
+		The way to do such a layout is to write a component to do it and have each page surround all their content with the<br/>
+		component. In this example the "layout component" is called <em>examples.component.Layout</em> and you can see it is <br/>
+		used by both pages in their outermost tag.<br/><br/>
+		
+		<div class="nav">
+			<a t:type="pagelink" t:page="examples/component/TheLayoutComponent1">Page 1</a>
+			<a t:type="pagelink" t:page="examples/component/TheLayoutComponent2">Page 2</a>
+		</div>
+	</div>
+	
+	<table class="middle">
+		<tr>
+			<td class="left">
+				Left
+			</td>
+			<td class="content">
+				<!-- t:body is a directive that says "output the content that I surround". -->
+				<t:body/>
+			</td>
+			<td class="right">
+				Right
+			</td>
+		</tr>
+	</table>
+	
+	<div class="footer">
+		Footer
+	</div>
+
+</body>
+</html>

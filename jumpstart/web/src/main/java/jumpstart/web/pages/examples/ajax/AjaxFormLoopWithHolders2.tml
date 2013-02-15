@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/ajaxformloop.css}"/>
+</head>
+<body>
+	<h1>AjaxFormLoop With Holders (2)</h1>
+
+	<div class="eg">
+		Here is the result of your changes.  It has not been saved to the database.<br/><br/>
+	
+		<table class="grid">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Region</th>
+					<th>Start Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr t:type="Loop" t:source="persons" t:value="person">
+					<td>${person.id}</td>
+					<td>${person.firstName}</td>
+					<td>${person.lastName}</td>
+					<td>${personRegion}</td>
+					<td><t:output value="person.startDate" format="dateFormat"/></td>
+				</tr>
+			</tbody>
+	 	</table><br/>
+
+		Here is what you asked to be deleted.  It has not been deleted from the database.<br/><br/>
+	
+		<table class="grid">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Version</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr t:type="Loop" t:source="personsDeleted" t:value="personDeleted">
+					<td>${personDeleted.id}</td>
+					<td>${personDeleted.version}</td>
+				</tr>
+			</tbody>
+	 	</table><br/>
+	
+		<a t:type="pagelink" t:page="examples/ajax/AjaxFormLoopWithHolders1" href="#">Return</a>
+	</div>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/ajaxformloop.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/IdVersion.java"/>
+</body>
+</html>

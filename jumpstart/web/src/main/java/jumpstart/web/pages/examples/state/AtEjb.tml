@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+
+	<h1>@EJB</h1>
+	
+	Reaching Java EE session beans is simply a matter of creating an "EJB annotation worker" service and registering 
+	it as a Tapestry service. Then we can use the @EJB annotation in pages and components to inject session beans. 
+	The properties of detached entity beans can be used directly - output and input - in Tapestry pages.<br/><br/>
+	
+	In this example we inject a local session bean, personFinderService, which we use to find this entity, Person 1:<br/>
+	
+	<div class="eg">
+		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+	</div>
+
+	References: <a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Tapestry IoC Services</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/transform/ComponentClassTransformWorker2.html">
+	ComponentClassTransformWorker2</a>, 
+	"Why EJB3?" in <a href="http://jumpstart.doublenegative.com.au/faq.html">JumpStart FAQ</a>.<br/><br/>
+	
+	For those of you who do not want to use session beans and do not mind the open-session-in-view pattern, Tapestry has 
+	<a href="http://tapestry.apache.org/hibernate.html">Hibernate Integration</a> 
+	and <a href="http://tapestry.apache.org/integrating-with-jpa.html">JPA Integration</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/ValidationException.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceLocal.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceRemote.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceLocal.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceRemote.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/EJBAnnotationWorker.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/client/BusinessServicesLocator.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/client/IBusinessServicesLocator.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/jndi/JNDIObjectLocator.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/EJBProviderEnum.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/EJBProviderUtil.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/exception/SystemUnavailableException.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+</body>
+</html>

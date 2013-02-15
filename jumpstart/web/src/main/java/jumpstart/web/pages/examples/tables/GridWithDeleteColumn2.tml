@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/styledgrid.css}"/>
+</head>
+<body>
+	<h1>Grid With Delete Column (2)</h1>
+	
+	Here is what you asked to delete.  The deletions have not been persisted to the database.<br/>
+
+	<div class="eg">
+		<table t:type="grid" t:source="persons">[Persons Grid here]</table><br/>
+	 
+		<a t:type="pagelink" t:page="examples/tables/GridWithDeleteColumn1" href="#">Return</a>
+	</div>
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridWithDeleteColumn2.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridWithDeleteColumn2.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/styledgrid.css"/>
+</body>
+</html>

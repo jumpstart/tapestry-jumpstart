@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+<head>
+	<title>JumpStart Home</title>
+	<link rel="stylesheet" type="text/css" href="${context:css/index.css}"/>
+</head>
+
+<body>
+
+	<table id="page" cellpadding="0" cellspacing="0">
+	<tr>
+	<td>
+		<div id="navbar"> 
+			<a href="http://jumpstart.doublenegative.com.au/home.html">What's This?</a>
+			<a href="http://jumpstart.doublenegative.com.au/download.html">Download</a>
+			<a href="http://jumpstart.doublenegative.com.au/installation.html">Installation</a>
+			<a href="http://jumpstart.doublenegative.com.au/orientation.html">Orientation</a>
+			<a href="http://jumpstart.doublenegative.com.au/tips.html">Tips</a>
+			<a href="http://jumpstart.doublenegative.com.au/troubleshooting.html">Troubleshooting</a>
+			<a href="http://jumpstart.doublenegative.com.au/faq.html">FAQ</a>
+			<a href="http://jumpstart.doublenegative.com.au/bugs_enhancements.html">Bugs and Enhancements</a>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<div id="titlesbar">
+			<div id="titles">
+				<h1>JumpStart 6.6.5</h1>
+				<h2>For Tapestry 5.3.6</h2>
+			</div>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<div id="topics">
+			<table id="topicstable">
+				<tr>
+					<td class="col">
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/start/HelloWorld" href="#">Hello World</a><br/>
+							<a t:type="pagelink" t:page="examples/start/HelloWorldExplained" href="#">Hello World Explained</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/output/Output" href="#">Output</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/styling/Stylesheets" href="#">Stylesheets</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/Methods" href="#">Methods</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/Annotations" href="#">Annotations</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/output/Better" href="#">Better Output</a><br/>
+							<a t:type="pagelink" t:page="examples/output/Easy" href="#">Easy Output (Using BeanDisplay)</a><br/>
+							<a t:type="pagelink" t:page="examples/output/TotalControl" href="#">Total Control Output</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/lang/PreviewableTemplates" href="#">Previewable Templates</a><br/>
+							<a t:type="pagelink" t:page="examples/styling/PreviewableWithStylesheets" href="#">Previewable With Stylesheets</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/AtComponent" href="#">@Component</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/navigation/PageLinks1" href="#">PageLinks</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/navigation/ActivationContext1" href="#">Activation Context</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/input/Input" href="#">Input</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/input/EventLinks" href="#">EventLinks</a><br/>
+							<a t:type="pagelink" t:page="examples/input/AtOnEvent" href="#">@OnEvent</a><br/>
+							<a t:type="pagelink" t:page="examples/input/ActionLinks" href="#">ActionLinks</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/input/Forms1" href="#">Forms</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/styling/LinksAndSubmits1" href="#">Styling Links and Submits</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/navigation/WhatIsCalledAndWhen" href="#">What is Called and When</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/navigation/ReturnTypes1" href="#">Return Types</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/navigation/MultipleMethodMatches" href="#">Multiple Method Matches</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/state/PassingDataBetweenPages" href="#">Passing Data Between Pages</a><br/>
+							<a t:type="pagelink" t:page="examples/state/StoringDataInAPage" href="#">Storing Data in a Page</a><br/>
+							<a t:type="pagelink" t:page="examples/state/SharingAcrossMultiplePages1" href="#">Sharing Across Multiple Pages</a><br/>
+							<a t:type="pagelink" t:page="examples/state/SharingAcrossTheApplication" href="#">Sharing Across the Application</a><br/>
+						</div>
+					</td>
+					<td class="col">
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/input/Translators" href="#">Translators</a><br/>
+							<a t:type="pagelink" t:page="examples/input/PrimitivesTranslators" href="#">Primitives Translators</a><br/>
+							<a t:type="pagelink" t:page="examples/input/AugmentingTranslators" href="#">Augmenting Translators</a><br/>
+							<a t:type="pagelink" t:page="examples/input/ContributingTranslators" href="#">Contributing Translators</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/input/Validators" href="#">Validators</a><br/>
+							<a t:type="pagelink" t:page="examples/input/MixedValidation" href="#">Mixed Validation</a><br/>
+							<a t:type="pagelink" t:page="examples/input/MoreValidation" href="#">More Validation</a><br/>
+							<a t:type="pagelink" t:page="examples/input/ContributingValidators" href="#">Contributing Validators</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/input/NoValidationBubbles" href="#">No Validation Bubbles</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/input/Edit1" t:context="literal:1" href="#">Edit (Using BeanEditForm)</a><br/>
+							<a t:type="pagelink" t:page="examples/input/Create1" href="#">Create (Using BeanEditForm)</a><br/>
+							<a t:type="pagelink" t:page="examples/input/MoreControlEdit1" t:context="literal:1" href="#">More Control Edit (Using BeanEditor)</a><br/>
+							<a t:type="pagelink" t:page="examples/input/TotalControlEdit1" t:context="literal:1" href="#">Total Control Edit</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/navigation/OnActivateAndOnPassivate" t:context="literal:3" href="#">onActivate and onPassivate</a><br/>
+							<a t:type="pagelink" t:page="examples/infrastructure/HandlingABadContext" t:context="literal:1" href="#">Handling a Bad Context</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/infrastructure/ExceptionReportPage" href="#">Exception Report Page</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/component/CoreInputComponents" href="#">Core Input Components</a><br/>
+							<a t:type="pagelink" t:page="examples/component/Html5InputTypes" href="#">HTML5 Input Types</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/component/Kaptcha1" href="#">Kaptcha</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/select/Select" href="#">Select</a><br/>
+							<a t:type="pagelink" t:page="examples/select/VariedSelect" href="#">Varied Select</a><br/>
+							<a t:type="pagelink" t:page="examples/select/EasyObjectSelect" href="#">Easy Object Select</a><br/>
+							<a t:type="pagelink" t:page="examples/select/TotalControlObjectSelect" href="#">Total Control Object Select</a><br/>
+							<a t:type="pagelink" t:page="examples/select/IdSelect" href="#">Id Select</a><br/>
+							<a t:type="pagelink" t:page="examples/select/EasyIdSelect" href="#">Easy Id Select</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/component/Alerts" href="#">Alerts</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/component/TreeBrowse" href="#">Tree Browse</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/input/Submits1" href="#">Submits</a><br/>
+							<a t:type="pagelink" t:page="examples/input/LinkSubmits1" href="#">LinkSubmits</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/input/MultipleForms1" href="#">Multiple Forms</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/navigation/ReturnToPage1" t:context="literal:abc" href="#">Return to Page</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/state/AtEjb" href="#">@EJB</a><br/>
+						</div>
+					</td>
+					<td class="col">
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/tables/Grid" href="#">Grid</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/PreviewableGrid" href="#">Previewable Grid</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/StyledGrid" href="#">Styled Grid</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/SortedGrid" href="#">Sorted Grid</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/LinkingGrid1" href="#">Linking Grid</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/AlternatingGrid" href="#">Alternating Grid</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/AddAndRemoveColumns1" href="#">Add And Remove Columns</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/GridBeanModel1" href="#">Grid BeanModel</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/GridDataSources" href="#">Grid Data Sources</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/tables/Loop" href="#">Loop</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/LinkingLoop1" href="#">Linking Loop</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/AlternatingLoop" href="#">Alternating Loop</a><br/>
+						</div>
+						<div class="group">
+							<div class="together">Putting It All Together</div>
+							<a t:type="pagelink" t:page="together/easycrud/Persons" href="#">Easy CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/totalcontrolcrud/Persons" href="#">Total Control CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/onepagecrud/Persons" href="#">One Page CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/filtercrud/Persons" href="#">Filter CRUD</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/tables/EditableGrid1" href="#">Editable Grid</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/EditableGridForUpdate1" href="#">Editable Grid For Update</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/GridWithDeleteColumn1" href="#">Grid With Delete Column</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/tables/EditableLoop1" href="#">Editable Loop</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/EditableLoopForUpdate1" href="#">Editable Loop For Update</a><br/>
+							<a t:type="pagelink" t:page="examples/tables/LoopWithDeleteColumn1" href="#">Loop With Delete Column</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/lang/DelegateAndBlocks" href="#">Delegate and Blocks</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/IfNotNegateSwitchElseUnless" href="#">If, Not, Negate, Switch, Else, Unless</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/infrastructure/ProtectingPages" href="#">Protecting Pages</a><br/>
+							<a t:type="pagelink" t:page="examples/infrastructure/ProtectingAssets" href="#">Protecting Assets</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/state/DisplaySessionContents" href="#">Display Session Contents</a><br/>
+							<a t:type="pagelink" t:page="pagecatalog" href="#">Display Page Catalog (localhost only)</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/infrastructure/Services" href="#">Services</a><br/>
+							<a t:type="pagelink" t:page="servicestatus" href="#">Display All Services Status</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/localization/LocalizationByMessageCatalog" href="#">Localization By Message Catalog</a><br/>
+							<a t:type="pagelink" t:page="examples/localization/LocalizationByTemplate" href="#">Localization By Template</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/styling/SwitchableStylesheets" href="#">Switchable Stylesheets</a><br/>
+							<a t:type="pagelink" t:page="examples/styling/SkinningTheming" href="#">Skinning/Theming</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/styling/BootstrapStyling" t:context="literal:1" href="#">Bootstrap Styling</a><br/>
+						</div>
+					</td>
+					<td class="col">
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/component/CreatingComponents" href="#">Creating Components</a><br/>
+							<a t:type="pagelink" t:page="examples/component/ComponentAroundContent" href="#">Component Around Content</a><br/>
+							<a t:type="pagelink" t:page="examples/component/TheLayoutComponent1" href="#">The Layout Component</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/component/ThirdPartyComponents" href="#">Third-Party Components</a><br/>
+							<a t:type="pagelink" t:page="examples/component/CombiningComponents" href="#">Combining Components</a><br/>
+							<a t:type="pagelink" t:page="examples/component/WrappingTapestryComponents" href="#">Wrapping Tapestry Components</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/component/EventBubbling" href="#">Event Bubbling</a><br/>
+						</div>
+						<div class="group">
+							<div class="together">Putting It All Together</div>
+							<a t:type="pagelink" t:page="together/componentscrud/Persons" href="#">Components CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/withlayout/HelloWorld" href="#">With Layout</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="theapp/Login" href="#">Example App</a> 
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/component/SubFormComponent1" href="#">Sub-Form Component</a><br/>
+							<a t:type="pagelink" t:page="examples/component/SubFormValidation1" href="#">Sub-Form Validation</a><br/>
+							<a t:type="pagelink" t:page="examples/component/SubFormAsAField1" href="#">Sub-Form As a Field</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/component/MarkupWriter" href="#">MarkupWriter</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/lang/Mixins" href="#">Mixins</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/CreatingMixins" href="#">Creating Mixins</a><br/>
+						</div>
+						<div class="group">
+			 				<a t:type="pagelink" t:page="examples/jodatime/jodatime" href="#">Joda Time</a><br/>
+			 			</div>
+						<div class="group">
+			 				<a t:type="pagelink" t:page="examples/lang/TypeCoercers" href="#">Type Coercers</a><br/>
+			 				<a t:type="pagelink" t:page="examples/lang/PropertyEditors" href="#">Property Editors</a><br/>
+			 			</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/wizard/WizardUsingFormFragments" href="#">Wizard Using Form Fragments</a><br/>
+							<a t:type="pagelink" t:page="examples/wizard/WizardUsingPages1" href="#">Wizard Using Pages</a><br/>
+							<a t:type="pagelink" t:page="examples/wizard/ConversationsList" href="#">Conversations List</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/ws/WebServices" href="#">Web Services</a><br/>
+							<a t:type="pagelink" t:page="examples/ws/WebServicesMore" href="#">Web Services More</a><br/>
+							<a t:type="pagelink" t:page="examples/ws/WebServicesVersioned" href="#">Web Services Versioned</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/ajax/AjaxEventLink" href="#">AJAX EventLink</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxActionLink" href="#">AJAX ActionLink</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/ZoneWithoutYellowHighlight" href="#">Zone Without Yellow Highlight</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/ZoneWithBackgroundColor" href="#">Zone With Background Color</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxForm" href="#">AJAX Form</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxFormMultipleZoneUpdate" href="#">AJAX Form Multiple Zone Update</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxSelect1" href="#">AJAX Select</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxSelectMore1" href="#">AJAX Select More</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxSelectDependency1" href="#">AJAX Select Dependency</a><br/>
+						</div>
+					</td>
+					<td class="col">
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/ajax/AjaxEventLinksInALoop" href="#">AJAX EventLinks in a Loop</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxFormsInALoop" href="#">AJAX Forms in a Loop</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxFormsInALoopWithDEH" href="#">AJAX Forms in a Loop (With DEH)</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxFilteredGrid" href="#">AJAX Filtered Grid</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/ajax/AutocompleteMixin" href="#">Autocomplete Mixin</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/ajax/TreeFromDatabaseWithZones" href="#">Tree From Database, With Zones</a><br/> 
+							<br/>
+							<a t:type="pagelink" t:page="examples/ajax/ProgressiveDisplay" href="#">ProgressiveDisplay</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/ProgressiveDisplayVariations" href="#">ProgressiveDisplay Variations</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxFormLoop1" href="#">AjaxFormLoop</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxFormLoopWithHolders1" href="#">AjaxFormLoop With Holders</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxFormLoopTailored1" href="#">AjaxFormLoop Tailored</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/ajax/AjaxWhatIsCalledAndWhen" href="#">AJAX: What is Called and When</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/javascript/JavaScript" href="#">JavaScript</a><br/>
+							<a t:type="pagelink" t:page="examples/javascript/ReusableJavaScript" href="#">Reusable JavaScript</a><br/>
+							<a t:type="pagelink" t:page="examples/javascript/RobustJavaScript" href="#">Robust JavaScript</a><br/>
+							<a t:type="pagelink" t:page="examples/javascript/JavaScriptMixin" href="#">JavaScript Mixin</a><br/>
+							<a t:type="pagelink" t:page="examples/javascript/CreatingMixins1" href="#">Creating Mixins: ClickOnce</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/javascript/Scriptaculous" href="#">script.aculo.us</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/javascript/JQuery" href="#">jQuery</a><br/>
+							<a t:type="pagelink" t:page="examples/javascript/JQueryDataTables" href="#">jQuery DataTables</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/javascript/FileUpload" href="#">File Upload</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/ajax/AjaxLoadingSpinner" href="#">AJAX Loading Spinner</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxPeriodicUpdate" href="#">AJAX Periodic Update</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxPeriodicUpdateMixin" href="#">AJAX Periodic Update Mixin</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxOnEvent" href="#">AJAX On Event: ZoneUpdater</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxMultipleZoneUpdate" href="#">AJAX Multiple Zone Update</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxComponents1" href="#">AJAX Components</a><br/>
+							<a t:type="pagelink" t:page="examples/ajax/AjaxValidators1" href="#">AJAX Validators</a><br/>
+						</div>
+						<div class="group">
+							<div class="together">Putting It All Together</div>
+							<a t:type="pagelink" t:page="together/ajaxfiltercrud/Persons" href="#">AJAX Filter CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/gracefulajaxfiltercrud/Persons" href="#">Graceful AJAX Filter CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/ajaxcomponentscrud/Persons" href="#">AJAX Components CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/gracefulajaxcomponentscrud/Persons" href="#">Graceful AJAX Components CRUD</a><br/>
+							<a t:type="pagelink" t:page="together/withlayout2/gracefulajaxfiltercrud/Persons" href="#">With Layout</a><br/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<div id="feedback">
+			Found a bug? Please 
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 6.6.5">report it</a>.<br/>
+			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 6.6.5">me</a>.<br/>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<div id="acknowledgement">
+			I am obliged to include the following link because I made some buttons there (in a hurry)... <br/><br/>
+			<A HREF="http://www.buttongenerator.com/">
+				<IMG SRC="http://www.buttongenerator.com/ima/link.gif" WIDTH="88" HEIGHT="31" BORDER="0" ALT="ButtonGenerator.com"/>
+			</A>
+		</div>
+	</td>
+	</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Activation Context (1)</h1>
+
+	A page can receive parameters just by specifying them in the method signature of its <em>activate</em> event handler. For example:
+	
+	<code><pre>
+	void onActivate(Long personId) {
+		this.personId = personId;
+	}</pre></code>
+	
+	Tapestry calls these parameters the <strong>activation context</strong>.<br/><br/> 
+
+	Here is a PageLink passing an activation context of <em>1</em>: 
+	
+  	<div class="eg">
+		<a t:type="pagelink" t:page="examples/navigation/ActivationContext2" t:context="literal:1" href="#">Show Person 1</a><br/>
+	</div>
+	
+	The request is an HTTP GET with a URL like this: 
+	<code>http://myhost/jumpstart/examples/navigation/activationcontext2/1</code><br/>
+	PageLink extends the URL path with <em>/1</em>.<br/><br/>
+	
+	References:	
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Page Render Requests</a>, 
+	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>, 
+	list in <a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Property Expression Grammar</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

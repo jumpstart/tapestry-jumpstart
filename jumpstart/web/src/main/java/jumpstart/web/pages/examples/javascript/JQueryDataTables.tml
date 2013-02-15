@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<body>
+	<h1>JQuery DataTables</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+	
+	A table built with Tapestry5-jQuery's DataTable component.<br/>
+	DataTable wraps the DataTables plug-in for jQuery and supports the same parameters as Tapestry's Grid component.<br/>	
+
+	<div class="eg">
+		<table t:type="jquery/datatable" t:id="personsdt" t:source="persons" t:row="person"
+			t:rowsPerPage="4" t:options="options">[Grid here]
+			<p:regionCell>
+				${personRegion}
+			</p:regionCell>
+			<p:startDateCell>
+				<t:output value="person.startDate" format="dateFormat"/>
+			</p:startDateCell>
+		</table>
+	</div>
+
+	References: 
+	<a href="http://tapestry5-jquery.com/components/docsdatatables">DataTables Component</a>, 
+	<a href="http://www.datatables.net">DataTables Plug-in</a>, 
+	<a href="http://www.datatables.net/ref">DataTables Reference</a>, 
+	<a href="http://www.codeproject.com/Articles/194916/Enhancing-HTML-tables-using-a-JQuery-DataTables-pl">Enhancing</a>.<br/><br/>  
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQueryDataTables.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQueryDataTables.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQueryDataTables.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/jquerydatatables.css"/>
+</body>
+</html>

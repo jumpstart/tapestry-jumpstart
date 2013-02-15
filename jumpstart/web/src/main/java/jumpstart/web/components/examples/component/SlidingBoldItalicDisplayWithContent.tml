@@ -1,0 +1,13 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<t:content>
+
+	<t:chenillekit.SlidingPanel t:id="slidingPanel">
+		<div>
+			<t:examples.component.bolditalicdisplaywithcontent value="value">
+				<t:body/>
+			</t:examples.component.bolditalicdisplaywithcontent>
+		</div>
+	</t:chenillekit.SlidingPanel>
+
+</t:content>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Passing Data Between Pages: by Query String</h1>
+
+	<div class="eg">
+		Welcome ${name}!
+	</div>
+
+	This page used a <strong>query string</strong> to pass its data through the redirection. A query string is 
+	a series of name-value pairs that get included in the URL following a question mark.
+	The <strong>@ActivationRequestParameter</strong> annotation tells Tapestry to put a field in the query string.<br/><br/>
+	
+	This technique may be the most appropriate way to pass <strong>filter criteria</strong> because, 
+	arguably, it produces the most RESTful URL in that situation. Note that the URL can be bookmarked.<br/><br/>
+
+	References: 
+	<a href="http://blpsilva.wordpress.com/2008/04/05/query-strings-in-restful-web-services/">
+		Query strings in RESTful Web Services</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/PageRenderLinkSource.html">PageRenderLinkSource</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="examples/state/PassingDataBetweenPages" href="#">Return</a><br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

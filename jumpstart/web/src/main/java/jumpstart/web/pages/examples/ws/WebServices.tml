@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"> 
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Web Services</h1>
+	
+	Here we have a link to a Tapestry page that acts as a REST-like web service.<br/>
+
+	<div class="eg">
+		<a t:type="pagelink" t:page="examples/ws/PersonFind" t:context="literal:1" href="#">PersonFind/1</a>
+	</div>	
+	
+	The page gets the Person, copies the data wanted from Person into a Person01 object, uses Java's JAXB to marshal 
+	the Person01 into XML, and returns the XML as a StreamResponse. Easy!<br/><br/>
+
+	References: 
+	<a href="http://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding">JAXB</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>,
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/Response.html">Response</a>,
+	<a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonFind.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/ws/Person01.java"/>
+</body>
+</html>

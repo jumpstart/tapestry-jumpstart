@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/together/componentscrud.css}"/>
+</head>
+<body>
+	<h1>Components CRUD</h1>
+	
+	This example is based on the <em>Filter CRUD</em> example, replacing the list and the editor with two custom components: 
+	PersonList and PersonEditor.<br/>
+
+	<div class="eg">
+	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>
+	 	
+		<table id="listAndEditor">
+			<tbody>
+				<tr>
+	
+					<!-- This is the left side of the table: a list of Persons -->
+	
+					<td id="listCell">
+						<t:together.componentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
+					</td>
+					
+					<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
+			
+					<td id="editorCell">
+						<t:together.componentscrud.PersonEditor t:id="editor" mode="editorMode" personId="editorPersonId"/>
+					</td>
+					
+				</tr>
+			</tbody>
+	 	</table>
+	</div>
+
+	Like all good components, PersonList and PersonEditor do not know about each other. They handle their own events, 
+	then bubble them up to their container which in this case is the page. The container is responsible for coordinating its components. 
+	For example, when you click on a person in the list, PersonList bubbles an event up to the page and the page decides what to tell 
+	the PersonEditor.<br/><br/>
+	 
+	A component can include data within an event that it bubbles up, which is what PersonList and PersonEditor do, but take note that a 
+	component can also return data in its parameters - the container can read the data because component parameters are bi-directional.<br/><br/>
+
+	Splitting the page into custom components like PersonList and PersonEditor is very appealing because it provides a clear and very 
+	natural separation of concerns, but just be aware that it doesn't come for free: you have to put in a bit of extra effort to get 
+	the event handling right.<br/><br/>
+
+ 	References: 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
+
+	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/componentscrud.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/together/PersonFilteredDataSource.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+</body>
+</html>

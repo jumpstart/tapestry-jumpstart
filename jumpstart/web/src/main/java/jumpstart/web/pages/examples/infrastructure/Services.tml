@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<style type="text/css">
+		ul	{ padding: 14px; margin: 0; margin-left: 14px; list-style-type: none; }
+	</style>
+</head>
+<body>
+
+	<h1>Services</h1>
+	
+	Tapestry has a wealth of services, but they lack a good user guide. Here, as a temporary measure, is a list that  
+	<a href="http://tapestry.1045711.n5.nabble.com/is-there-a-doc-describing-Tapestry-built-in-services-tt5717518.html">Bob Harner put together</a>.<br/><br/>
+
+	You can <strong>use</strong> Tapestry services in pages, components, mixins, and other services.<br/>
+	You can modify the behaviour of Tapestry services by <strong>contributing configuration</strong> to them or <strong>overriding</strong> them, in your application's module class.
+
+	<ul>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/package-summary.html">Core Services</a>&nbsp;
+			eg. we <strong>use</strong> SelectModelFactory in the "Easy Object Select" example, and <strong>contribute configuration</strong> to RequestHandler in the "Protecting Assets" example.</li> 
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/ajax/package-summary.html">AJAX Services</a>&nbsp;
+			eg. we use AjaxResponseRenderer in many of our AJAX examples.</li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/assets/package-summary.html">Asset Services</a></li> 
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/dynamic/package-summary.html">Dynamic Component Services</a></li> 
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/package-summary.html">JavaScript Services</a>&nbsp;
+			eg. we use JavaScriptSupport in our JavaScript examples.</li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/linktransform/package-summary.html">Link Transformation Services</a></li> 
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/messages/package-summary.html">Message Services</a>&nbsp;
+			eg. we contribute configuration to ComponentMessagesSource. See the "Creating Validators" and "Creating Translators" examples.</li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/meta/package-summary.html">Component MetaData Services</a></li> 
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/pageload/package-summary.html">Page Loading Services</a></li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/security/package-summary.html">Security Services</a>&nbsp;
+			eg. we contribute configuration to ClientWhitelist to protect pages annotated with @WhitelistAccessOnly. See AppModule source below.</li> 
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/templates/package-summary.html">Template Services</a></li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/transform/package-summary.html">Class Transformation Services</a>&nbsp;
+			eg. we contribute configuration to ComponentClassTransformWorker to provide @EJB injection. See the "@EJB" example.</li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/services/package-summary.html">IoC Services</a>&nbsp;
+			eg. we <strong>override</strong> the ClasspathURLConverter service to handle the JBoss 7 Virtual File System. See AppModule source below.</li> 
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/services/cron/package-summary.html">IoC Cron Services</a></li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/kaptcha/services/package-summary.html">Kaptcha Services</a></li>
+		<li><a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/upload/services/package-summary.html">File Upload Services</a>&nbsp;
+			eg. we use UploadedFile in the "File Upload" example.</li>
+	</ul>
+	
+	You can <strong>add</strong> services. In JumpStart we add our own:
+	
+	<ul>
+		<li>CountryNames: see the "Sharing Across the Application" and "Autocomplete Mixin" examples.</li>
+		<li>SelectIdModelFactory: see the "Easy Id Select" example.</li>
+		<li>Filer: see the "File Upload" example.</li>
+	</ul> 
+
+	References: 
+	<a href="http://tapestry.apache.org/configuration.html#Configuration-YourApplication%2527sModuleClass">Your Application's Module Class</a>, 
+	<a href="http://tapestry.apache.org/tapestry-ioc-configuration.html">Tapestry IoC Configuration</a>, 
+	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>, 
+	<a href="http://tapestry.apache.org/ioc.html">Tapestry IoC</a>, 
+	<a href="http://tapestry.apache.org/request-processing.html#RequestProcessing-Overview">Request Processing diagram</a>,<br/>
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Symbol.html">@Symbol</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Property.html">@Property</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Primary.html">@Primary</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/EagerLoad.html">@EagerLoad</a>, <br/> 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/ServiceBinder.html">ServiceBinder</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/MappedConfiguration.html">MappedConfiguration</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/OrderedConfiguration.html">OrderedConfiguration</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/Configuration.html">Configuration</a>.<br/><br/>
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/Services.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/Services.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+</body>
+</html>

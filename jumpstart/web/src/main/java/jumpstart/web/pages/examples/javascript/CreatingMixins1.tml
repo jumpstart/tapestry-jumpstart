@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+</head>
+<body>
+	<h1>Creating Mixins: ClickOnce (1)</h1>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	This page demonstrates another custom Mixin.  It's a Mixin that tackles a classic problem on the web: how to 
+	prevent <strong>duplicate submissions</strong> caused by additional clicks after a page has been submitted and before 
+	the response has come back.  The ClickOnce mixin can be mixed in to the Submit, EventLink, and ActionLink components.<br/><br/>
+	
+	<strong>Without the ClickOnce Mixin.</strong> Here's an example of the duplicate submissions  problem.<br/>
+	See how you can easily order more than 1 item by clicking impatiently on any or all of these elements...
+
+	<div class="eg">
+		<form t:type="form" t:id="plainForm">
+			<input t:type="submit" value="Order 1 Apple"/>&nbsp;&nbsp;&nbsp;
+			<a t:type="eventlink" t:event="orderOneOrange" href="#">Order 1 Orange</a>&nbsp;&nbsp;&nbsp;
+			<a t:type="actionlink" t:id="orderOneBanana" href="#">Order 1 Banana</a>
+		</form>
+	</div>
+
+	<strong>With the ClickOnce Mixin.</strong>  The Mixin uses JavaScript to ignore clicks after the first one.<br/> 
+	See how the mixin prevents ordering more than 1 item...<br/><br/>
+	
+	<strong>WARNING: </strong>This solution has problems. It might not work on the submit button in some versions of Internet Explorer, 
+	and it may have problems when used in a form that has validated fields and client-side validation enabled.
+	See <a href="http://tapestry.1045711.n5.nabble.com/Prevent-double-submission-w-linkSubmit-tt3291904.html">
+	http://tapestry.1045711.n5.nabble.com/Prevent-double-submission-w-linkSubmit-tt3291904.html</a> . 
+
+	<div class="eg">
+		<form t:type="form" t:id="mixinForm" t:clientValidation="blur">
+			<input t:type="submit" value="Order 1 Apple" t:mixins="clickonce"/>&nbsp;&nbsp;&nbsp;
+			<a t:type="eventlink" t:event="orderOneOrange" t:mixins="clickonce" href="#">Order 1 Orange</a>&nbsp;&nbsp;&nbsp;
+			<a t:type="actionlink" t:id="orderOneBananaWithMixin" t:mixins="clickonce" href="#">Order 1 Banana</a>
+		</form>
+	</div>
+	
+	Mixin location is important.  Mixins must be put in a package called <code>mixins</code> because Tapestry gives it 
+	special treatment.<br/><br/>
+	
+	References: 
+	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
+	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/CreatingMixins1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/CreatingMixins1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.js"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/examples/javascript/MyOrder.java"/>
+</body>
+</html>

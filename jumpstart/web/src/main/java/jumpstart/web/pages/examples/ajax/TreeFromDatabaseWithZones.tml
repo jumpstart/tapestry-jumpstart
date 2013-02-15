@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<!-- Based on an example kindly provided by George Christman and Lance Java. -->
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+	<style type="text/css">
+		#treeSide		{ width: 50%; background-color: #eee; padding: 20px; }
+		#treeZone		{ background-color: #eee; }
+
+		.t-tree-label 	{ color: #444; }
+		.t-tree-label a	{ text-decoration: none; cursor: pointer; color: #444; }
+		div.t-tree-container li.t-last	{ background-color: #eee; } /* Without this the last label will be white. */
+		.selected		{ font-weight: bold; }
+
+		#selectedSide	{ width: 50%; background-color: #eee; padding: 20px; vertical-align: top; color: #444; }
+		#selectedZone	{ padding: 30px; background-color: #eee; }
+	</style>
+</head>
+<body>
+	<h1>Tree From Database, With Zones</h1>
+	
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	Here we demonstrate Tapestry's Tree component built from data in the database. When you click on a leaf, its info is displayed in a Zone.<br/><br/>
+	
+	The data is a partial list of the <a href="http://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes">Dewey Decimal Classifications</a>. 
+	It is stored in table Classification. <br/>
+	Each Classification can have "child" Classifications. By definition, the leaf Classifications have no children, and the root Classifications have no parent.<br/>
+	ClassificationNode is a convenience wrapper around a Classification, summarising whether it has children or is instead a leaf.
+	
+	<div class="eg">
+		<table>
+		<tr>
+		<td id="treeSide">
+			<t:if test="hasResults">
+				<a t:type="EventLink" t:event="clearExpansions" t:zone="treeZone" href="#">Clear Expansions</a><br/><br/>
+				<t:zone t:id="treeZone" id="treeZone">
+					<t:tree t:id="Tree" t:model="treeModel" t:node="treeNode" t:value="classificationNode">
+						<p:label>
+							<t:if test="treeNode.leaf">
+								<a t:type="EventLink" t:event="leafSelected" t:context="classificationNode.classification.id" 
+									t:zone="selectedZone" class="prop:leafClass" href="#">
+									${treeNode.label}
+								</a>
+							</t:if>
+							<t:if test="!treeNode.leaf">
+								${treeNode.label}
+							</t:if>
+						</p:label>
+					</t:tree>
+				</t:zone><br/>
+				<a t:type="EventLink" t:event="refresh" t:zone="treeZone" href="#">Refresh</a>
+			</t:if>
+			<t:if test="!hasResults">
+				<span style="color: red;">Database data has not been set up!</span>
+			</t:if>
+		</td>
+		<td id="selectedSide">
+			<t:zone t:id="selectedZone" id="selectedZone">
+				<t:if test="selectedClassification">
+					You selected:<br/>
+					${selectedClassification.label}
+				</t:if>
+			</t:zone>
+		</td>
+		</tr>
+		</table>
+	</div>
+	
+	Tree is actually an AJAX component. When you expand or collapse a node it sends event EXPAND_CHILDREN or MARK_COLLAPSED via AJAX.<br/>
+	If you have provided a selectionModel (we have not), when you click a leaf the Tree sends event NODE_SELECTED or NODE_UN_SELECTED.<br/>
+	These events bubble up, so you can add your own event handlers for them.<br/><br/>
+	
+	In this example we did not use a selectionModel. Instead, we overrode the label block with our own and embedded an AJAX EventLink because:<br/>
+	<ul>
+		<li>EventLink renders returned Zones, whereas Tree ignores Zones returned from NODE_SELECTED and NODE_UN_SELECTED.</li>
+		<li>Tree's selectionModel enables multiple nodes to be selected. Its purpose seems to be to gather your selections until a submit.</li>
+	</ul> 
+	
+	References: 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Tree.html">Tree</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/tree/TreeModel.html">TreeModel</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/tree/DefaultTreeModel.html">DefaultTreeModel</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/tree/TreeModelAdapter.html">TreeModelAdapter</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.<br/><br/> 
+
+	<a t:type="eventlink" t:event="Home" href="#">Home</a><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/TreeFromDatabaseWithZones.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/TreeFromDatabaseWithZones.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/tree/ClassificationTreeModelAdapter.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/dewey/iface/ClassificationNode.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/dewey/DeweyFinderService.java"/>
+	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/dewey/Classification.java"/>
+</body>
+</html>
