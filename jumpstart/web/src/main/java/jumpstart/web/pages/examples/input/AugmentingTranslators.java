@@ -170,7 +170,6 @@ public class AugmentingTranslators {
 			if (ch == minusSign) {
 				canonical.append("-");
 			}
-			//
 			else if (ch == groupingSeparator) {
 				continue;
 			}
@@ -184,7 +183,7 @@ public class AugmentingTranslators {
 				canonical.append(ch);
 			}
 			else {
-				System.out.println("ch = " + (int) ch + ", groupingSeparator = " + (int) groupingSeparator + ".");
+				// System.out.println("ch = " + (int) ch + ", groupingSeparator = " + (int) groupingSeparator + ".");
 				throw new ParseException(
 						"Contains character other than digit, minus sign, grouping separator, or decimal separator", -1);
 			}

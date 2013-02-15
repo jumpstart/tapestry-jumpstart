@@ -51,7 +51,6 @@ public class Alerts {
 	}
 
 	void onValidateFromForm() {
-		System.out.println("Duration = " + duration);
 		for (int i = 0; i < quantity; i++) {
 			alertManager.alert(duration, severity, "Here is a " + duration + ", " + severity + " alert.");
 		}

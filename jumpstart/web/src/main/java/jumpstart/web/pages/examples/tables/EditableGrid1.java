@@ -137,8 +137,8 @@ public class EditableGrid1 {
 		}
 
 		try {
-			// In a real application you would persist them to the database instead of printing them
 			System.out.println(">>> personsToCreate = " + personsToCreate);
+			// In a real application you would persist them to the database instead of printing them
 			// personManagerService.createPersons(personsToCreate);
 		}
 		catch (Exception e) {

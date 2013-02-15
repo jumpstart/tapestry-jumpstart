@@ -141,9 +141,9 @@ public class GridWithDeleteColumn1 {
 		}
 
 		try {
-			// In a real application you would persist them to the database instead of printing them
 			System.out.println(">>> personsSubmitted = " + personsSubmitted);
 			System.out.println(">>> personsToDelete = " + personsToDelete);
+			// In a real application you would persist them to the database instead of printing them
 			// personManagerService.bulkEditPersons(new ArrayList<Person>(), new ArrayList<Person>(), personsToDelete);
 		}
 		catch (Exception e) {
