@@ -105,7 +105,7 @@
 		</war>
 	</target>
 
-	<!-- Add source code to the WAR - you wouldn't normally do this - this is only for jumpstart! -->
+	<!-- Add source code to the WAR - we wouldn't normally do this - this is only for jumpstart! -->
 
 	<target name="add-sourcecode-if-required" if="add.source.to.war">
 		<war destfile="${war.file}" update="true">

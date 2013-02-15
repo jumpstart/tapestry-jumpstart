@@ -66,7 +66,7 @@ public class SubFormComponent1 {
 		// Create the invitation
 
 		try {
-			// In a real application you would persist the invitation to the database
+			// In a real application we would persist the invitation to the database
 			// personManagerService.createInvitation(invitation.eventDescription, invitation.invitedPersons);
 		}
 		catch (Exception e) {
@@ -77,7 +77,7 @@ public class SubFormComponent1 {
 	}
 
 	Object onSuccess() {
-		// In a real application you would pass the invitation id instead of the invitation.
+		// In a real application we would pass the invitation id instead of the invitation.
 		page2.set(invitation);
 		return page2;
 	}

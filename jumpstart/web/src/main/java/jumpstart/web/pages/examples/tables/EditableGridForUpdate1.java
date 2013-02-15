@@ -130,7 +130,7 @@ public class EditableGridForUpdate1 {
 
 		try {
 			System.out.println(">>> personsSubmitted = " + personsSubmitted);
-			// In a real application you would persist them to the database instead of printing them
+			// In a real application we would persist them to the database instead of printing them
 			// personManagerService.changePersons(personsSubmitted);
 		}
 		catch (Exception e) {

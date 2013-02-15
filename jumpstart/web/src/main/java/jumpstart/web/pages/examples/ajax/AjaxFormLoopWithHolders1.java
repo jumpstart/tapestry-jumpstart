@@ -257,7 +257,7 @@ public class AjaxFormLoopWithHolders1 {
 			System.out.println(">>> personsToCreate = " + personsToCreate);
 			System.out.println(">>> personsToChange = " + personsToChange);
 			System.out.println(">>> personsToDelete = " + personsToDelete);
-			// In a real application you would persist them to the database instead of printing them.
+			// In a real application we would persist them to the database instead of printing them.
 			// personManagerService.bulkEditPersons(personsToCreate, personsToChange, personsToDelete);
 		}
 		catch (Exception e) {
