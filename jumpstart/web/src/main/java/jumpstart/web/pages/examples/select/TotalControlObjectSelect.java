@@ -28,8 +28,6 @@ public class TotalControlObjectSelect {
 	@Property
 	private Person person;
 
-	private PersonEncoder personEncoder;
-
 	// Generally useful bits and pieces
 
 	@EJB
@@ -72,7 +70,7 @@ public class TotalControlObjectSelect {
 	}
 
 	public PersonEncoder getPersonEncoder() {
-		return personEncoder == null ? new PersonEncoder(personFinderService) : personEncoder;
+		return new PersonEncoder(personFinderService);
 	}
 
 }

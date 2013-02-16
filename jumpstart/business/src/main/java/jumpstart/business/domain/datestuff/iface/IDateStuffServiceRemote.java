@@ -2,10 +2,8 @@ package jumpstart.business.domain.datestuff.iface;
 
 import jumpstart.business.domain.datestuff.DatesExample;
 
-
 /**
- * The <code>IDateStuffServiceRemote</code> bean exposes the business methods
- * in the interface.
+ * The <code>IDateStuffServiceRemote</code> bean exposes the business methods in the interface.
  */
 public interface IDateStuffServiceRemote {
 
@@ -13,6 +11,6 @@ public interface IDateStuffServiceRemote {
 
 	DatesExample findDatesExample(Long id);
 
-	void changeDatesExample(DatesExample datesExample);
+	DatesExample changeDatesExample(DatesExample datesExample);
 
 }

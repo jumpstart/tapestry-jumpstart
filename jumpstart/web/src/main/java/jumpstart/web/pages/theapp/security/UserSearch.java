@@ -29,7 +29,7 @@ import org.apache.tapestry5.services.PageRenderLinkSource;
 
 @ProtectedPage
 public class UserSearch extends SimpleBasePage {
-	static private final DateFormat ISO_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+	static private final String ISO_DATE_PATTERN = "yyyy-MM-dd";
 
 	// The options for userSearchFields.active are null, true, and false but we have to present them using
 	// String[] instead of Boolean[] because the inbuilt type coercer coerces null to false.
@@ -207,12 +207,14 @@ public class UserSearch extends SimpleBasePage {
 	}
 
 	private String toString(Date value) {
-		return value == null ? null : ISO_DATE_FORMAT.format(value);
+		DateFormat isoDateFormat = new SimpleDateFormat(ISO_DATE_PATTERN);
+		return value == null ? null : isoDateFormat.format(value);
 	}
 
 	private Date toDate(String value) {
 		try {
-			return value == null ? null : ISO_DATE_FORMAT.parse(value);
+			DateFormat isoDateFormat = new SimpleDateFormat(ISO_DATE_PATTERN);
+			return value == null ? null : isoDateFormat.parse(value);
 		}
 		catch (ParseException e) {
 			return null;

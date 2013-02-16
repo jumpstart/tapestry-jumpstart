@@ -29,8 +29,6 @@ public class EasyObjectSelect {
 	@Property
 	private Person person;
 
-	private PersonEncoder personEncoder;
-
 	// Generally useful bits and pieces
 
 	@Inject
@@ -54,7 +52,7 @@ public class EasyObjectSelect {
 	void onPrepareForRender() {
 		// Get all persons - ask business service to find them (from the database)
 		List<Person> persons = personFinderService.findPersons(MAX_RESULTS);
-		
+
 		if (personId != null) {
 			person = findPersonInList(personId, persons);
 		}
@@ -76,7 +74,7 @@ public class EasyObjectSelect {
 	}
 
 	public PersonEncoder getPersonEncoder() {
-		return personEncoder == null ? new PersonEncoder(personFinderService) : personEncoder;
+		return new PersonEncoder(personFinderService);
 	}
 
 }

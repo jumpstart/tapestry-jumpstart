@@ -31,8 +31,6 @@ public class MyPreferencesEdit extends SimpleBasePage {
 	@Persist(PersistenceConstants.FLASH)
 	private String message;
 
-	private EnumValueEncoder<PageStyle> pageStyleEncoder;
-
 	// Work fields
 
 	// This carries version through the redirect that follows a server-side validation failure.
@@ -111,7 +109,6 @@ public class MyPreferencesEdit extends SimpleBasePage {
 	}
 
 	public EnumValueEncoder<PageStyle> getPageStyleEncoder() {
-		return pageStyleEncoder == null ? new EnumValueEncoder<PageStyle>(typeCoercer, User.PageStyle.class)
-				: pageStyleEncoder;
+		return new EnumValueEncoder<PageStyle>(typeCoercer, User.PageStyle.class);
 	}
 }

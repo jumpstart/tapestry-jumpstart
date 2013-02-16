@@ -21,8 +21,9 @@ import org.junit.Test;
 
 public class UserPasswordTest extends BaseTest {
 	static private Long johnId;
-	private static User john = null;
-	private static User mrDeleteMe = null;
+	
+	private User john = null;
+	private User mrDeleteMe = null;
 
 	@BeforeClass
 	static public void setUpBeforeClass() throws Exception {
@@ -94,7 +95,7 @@ public class UserPasswordTest extends BaseTest {
 		User newUser = new User();
 
 		newUser.setLoginId("DeleteMe");
-		newUser.setSalutation(john.getSalutation());
+		newUser.setSalutation("Mr");
 		newUser.setFirstName("Delete");
 		newUser.setLastName("Me");
 		newUser.setActive(true);

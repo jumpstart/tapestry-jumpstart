@@ -1,0 +1,21 @@
+<FindBugsFilter>
+
+	<!-- Fields with @SessionState can appear always null to findbugs but in fact they're set up elsewhere. -->
+
+	<Match>
+		<Class name="jumpstart.web.base.examples.wizard.WizardConversationalPage"/>
+		<Bug pattern="UWF_NULL_FIELD"/>
+	</Match>
+	
+	<!-- Null is a valid (and important) state for these Booleans. -->
+
+	<Match>
+		<Class name="jumpstart.util.properties.PropertiesLoader"/>
+		<Bug pattern="NP_BOOLEAN_RETURN_NULL"/>
+	</Match>
+	<Match>
+		<Class name="jumpstart.web.translators.YesNoTranslator"/>
+		<Bug pattern="NP_BOOLEAN_RETURN_NULL"/>
+	</Match>
+
+</FindBugsFilter>

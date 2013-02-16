@@ -21,8 +21,8 @@ public class DateStuffService implements IDateStuffServiceLocal, IDateStuffServi
 		return em.find(DatesExample.class, id);
 	}
 
-	public void changeDatesExample(DatesExample datesExample) {
-		datesExample = em.merge(datesExample);
+	public DatesExample changeDatesExample(DatesExample datesExample) {
+		return em.merge(datesExample);
 	}
 
 }
