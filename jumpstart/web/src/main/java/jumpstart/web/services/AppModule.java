@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import jumpstart.util.JodaTimeUtil;
+import jumpstart.web.translators.MoneyTranslator;
 import jumpstart.web.translators.YesNoTranslator;
 import jumpstart.web.validators.Letters;
 
@@ -70,6 +71,7 @@ public class AppModule {
 	@SuppressWarnings("rawtypes")
 	public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration) {
 		configuration.add("yesno", new YesNoTranslator());
+		configuration.add("money", new MoneyTranslator());
 	}
 
 	@SuppressWarnings("rawtypes")

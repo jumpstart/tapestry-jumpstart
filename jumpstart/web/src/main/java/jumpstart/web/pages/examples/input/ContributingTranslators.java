@@ -1,5 +1,7 @@
 package jumpstart.web.pages.examples.input;
 
+import java.math.BigDecimal;
+
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
@@ -14,6 +16,6 @@ public class ContributingTranslators {
 
 	@Property
 	@Persist(PersistenceConstants.FLASH)
-	private Boolean newToJava;
+	private BigDecimal price;
 
 }

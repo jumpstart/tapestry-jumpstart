@@ -9,27 +9,31 @@
 <body>
 	<h1>Contributing Translators</h1>
 
-	Here we create a Translator and make it available to the whole application <strong>by name</strong>.<br/><br/>
+	Here we create two Translators and make them available to the whole application <strong>by name</strong>.<br/><br/>
 
-	The translator converts a Boolean, server-side, to "yes" or "no", client-side; <br/>
+	The first translator is called <em>yesno</em> and its class is <em>YesNoTranslator</em>.<br/>
+	It converts a Boolean, server-side, to "yes" or "no", client-side; 
 	and it parses "y", "n", "yes", and "no" (ignoring case), client-side, to Boolean, server-side.<br/><br/>
-	
-	Its name is <em>yesno</em> and its class is <em>YesNoTranslator</em>.<br/>
-	We made it available to the whole application by contributing it to the <em>TranslatorAlternatesSource</em> service - see AppModule source below.
+
+	The second translator is called <em>money</em> and its class is <em>MoneyTranslator</em>.<br/>
+	It converts a BigDecimal, server-side, to money in the local currency as a String, client-side; and vice-versa.<br/><br/>
+
+	We made both translators available to the whole application by contributing them to the <em>TranslatorAlternatesSource</em> 
+	service - see AppModule source below.
 
 	<div class="eg">
 		<form t:type="form" t:id="inputs">
 			<t:errors/>
 			<table>
 				<tr>
-					<td><t:label for="newToTapestry">Q: Are you new to Tapestry?</t:label></td>
+					<td><t:label for="newToTapestry">Are you new to Tapestry?</t:label></td>
 					<td><input t:type="TextField" t:id="newToTapestry" t:translate="yesno" t:validate="required"/></td>
 					<td>${newToTapestry}</td>
 				</tr>
 				<tr>
-					<td><t:label for="newToJava">Q: Are you new to Java?</t:label></td>
-					<td><input t:type="TextField" t:id="newToJava" t:translate="yesno" t:validate="required"/></td>
-					<td>${newToJava}</td>
+					<td><t:label for="price">Price of product X:</t:label></td>
+					<td><input t:type="TextField" t:id="price" t:translate="money" t:validate="required"/></td>
+					<td>${price}</td>
 				</tr>
 				<tr> 
 					<td></td>
@@ -57,6 +61,8 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/YesNoTranslator.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/TranslationMessages.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/TranslationMessages_fr.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/MoneyTranslator.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
 </body>
 </html>
