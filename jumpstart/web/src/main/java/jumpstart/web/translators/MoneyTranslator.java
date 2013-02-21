@@ -35,7 +35,7 @@ public class MoneyTranslator implements Translator<BigDecimal> {
 		}
 		else {
 			try {
-				// Due to some over looked situations such as negatives or values submitted without a $ but with a
+				// Due to some overlooked situations such as negatives or values submitted without a $ but with a
 				// comma, regular expressions are the better choice than parsing with NumberFormat.
 				clientValue = clientValue.replaceAll("[^\\d\\-\\.]", "");
 				return new BigDecimal(clientValue.toString());
