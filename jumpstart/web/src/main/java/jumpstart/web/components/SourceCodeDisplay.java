@@ -26,6 +26,8 @@ public class SourceCodeDisplay {
 
 	static private String STYLE_NOT_FOUND = "margin: 10px 0; font-family: Arial, Helvetica, sans-serif; "
 			+ "font-size: 12px; font-weight: normal; text-align: left; color: red;";
+	
+	static private int TAB_STOPS_WIDTH = 4;
 
 	// The source file path from the project root eg. "/web/src/main/jumpstart/web/pages/Start.java"
 	@Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
@@ -127,6 +129,7 @@ public class SourceCodeDisplay {
 					String s;
 					try {
 						while ((s = sourceReader.readLine()) != null) {
+							s = replaceTabsWithSpaces(s);
 							writer.write(s);
 							writer.write(LINE_SEPARATOR);
 						}
@@ -151,5 +154,26 @@ public class SourceCodeDisplay {
 			writer.write("The file was not found. Path given was " + resourcePath);
 		}
 		writer.end();
+	}
+	
+	private String replaceTabsWithSpaces(String s) {
+		StringBuilder sb = new StringBuilder();
+		char c;
+		int column = 1;
+		
+		for (int i = 0; i < s.length(); i++, column++) {
+			if ((c = s.charAt(i)) == '\t') {
+				sb.append(' ');
+				while (column % TAB_STOPS_WIDTH != 0) {
+					sb.append(' ');
+					column++;
+				}
+			}
+			else {
+				sb.append(c);
+			}
+		}
+		
+		return sb.toString();
 	}
 }
