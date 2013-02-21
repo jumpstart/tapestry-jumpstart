@@ -26,13 +26,13 @@
 			<t:errors/>
 			<table>
 				<tr>
-					<td><t:label for="newToTapestry">Are you new to Tapestry?</t:label></td>
-					<td><input t:type="TextField" t:id="newToTapestry" t:translate="yesno" t:validate="required"/></td>
+					<td><t:label for="newToTapestry"/></td>
+					<td><input t:type="TextField" t:id="newToTapestry" t:translate="yesno"/></td>
 					<td>${newToTapestry}</td>
 				</tr>
 				<tr>
-					<td><t:label for="price">Price of product X:</t:label></td>
-					<td><input t:type="TextField" t:id="price" t:translate="money" t:validate="required"/></td>
+					<td><t:label for="price"/>:</td>
+					<td><input t:type="TextField" t:id="price" t:translate="money"/></td>
 					<td>${price}</td>
 				</tr>
 				<tr> 
@@ -46,6 +46,8 @@
 	
 	Alternatively, a translator can be made available to the whole application and selected <strong>automatically</strong> based on the type 
 	that it translates, by contributing it to the <em>TranslatorSource</em> service.<br/><br/>
+	
+	This example has also used localization, which is explained later in the Localization examples.<br/><br/> 
 
 	References: 
 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
@@ -57,6 +59,8 @@
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 		
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.properties"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators_fr.properties"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/YesNoTranslator.java"/>
