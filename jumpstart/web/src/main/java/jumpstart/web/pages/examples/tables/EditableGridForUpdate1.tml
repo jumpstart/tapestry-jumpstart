@@ -21,7 +21,7 @@
 			<table t:type="Grid" t:source="persons" t:row="person" t:encoder="personEncoder" 
 				t:include="id,firstname,lastname,startdate">[Persons Grid here]
 				<p:firstNameCell>
-					<input t:type="TextField" t:value="person.firstName" t:validate="required, maxlength=10" size="10"/>
+					<input t:id="firstName" t:type="TextField" t:value="person.firstName" t:validate="required, maxlength=10" size="10"/>
 
 					<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
 					<t:hidden value="person.lastName"/>
@@ -61,6 +61,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableGridForUpdate1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableGridForUpdate1.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/styledgrid.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

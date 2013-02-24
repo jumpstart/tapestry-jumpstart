@@ -41,8 +41,6 @@
 
 	Features:<br/>
 	<ul>
-	<li>The technique in this example is simple, but sufficient when you are sure the corresponding server-side list will not be changed 
-		by other processes between your render and your submit.</li>
 	<li>On error, we redisplay the list. Tapestry redirects the browser to redisplay the page.</li>
 	<li>Your input values are redisplayed correctly because a feature of Form is that it carries them through the redirect and redisplays them.</li>
 	</ul>
@@ -59,6 +57,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/editableloop.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>

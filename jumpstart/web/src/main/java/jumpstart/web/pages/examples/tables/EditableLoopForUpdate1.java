@@ -4,8 +4,10 @@ import java.text.DateFormat;
 import java.text.Format;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.ejb.EJB;
 
@@ -13,14 +15,18 @@ import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.util.ExceptionUtil;
 import jumpstart.web.commons.EvenOdd;
+import jumpstart.web.commons.FieldCopy;
 
+import org.apache.tapestry5.Field;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 public class EditableLoopForUpdate1 {
@@ -58,6 +64,9 @@ public class EditableLoopForUpdate1 {
 	@Persist(PersistenceConstants.FLASH)
 	private List<Person> personsSubmittedFlash;
 
+	private int rowNum;
+	private Map<Integer, FieldCopy> firstNameCopyByRowNum;
+
 	// Other pages
 
 	@InjectPage
@@ -67,6 +76,9 @@ public class EditableLoopForUpdate1 {
 
 	@Component(id = "personsEdit")
 	private Form form;
+
+	@InjectComponent
+	private TextField firstName;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
@@ -114,6 +126,16 @@ public class EditableLoopForUpdate1 {
 
 		// Get all persons - ask business service to find them (from the database)
 		personsInDB = personFinderService.findPersons(MAX_RESULTS);
+
+		// Prepare to take a copy of each editable field.
+		
+		rowNum = 0;
+		firstNameCopyByRowNum = new HashMap<Integer, FieldCopy>();
+	}
+
+	void onValidateFromFirstName() {
+		rowNum++;
+		firstNameCopyByRowNum.put(rowNum, new FieldCopy(firstName));
 	}
 
 	void onValidateFromPersonsEdit() {
@@ -134,9 +156,17 @@ public class EditableLoopForUpdate1 {
 
 		// Simulate a server-side validation error: return error if anyone's first name is BAD_NAME.
 
+		rowNum = 0;
+
 		for (Person personSubmitted : personsSubmitted) {
+			rowNum++;
+
 			if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
-				form.recordError("First name cannot be " + BAD_NAME + ".");
+				// Unfortunately, at this point the field firstName is from the final row of the Loop.
+				// Fortunately, we have a copy of the correct field, so we can record the error with that.
+
+				Field field = firstNameCopyByRowNum.get(rowNum);
+				form.recordError(field, "First name cannot be " + BAD_NAME + ".");
 				return;
 			}
 		}

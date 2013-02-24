@@ -32,7 +32,7 @@
 						<td>${person.firstName}</td>
 						<td>${person.lastName}</td>
 						<td><t:output value="person.startDate" format="dateFormat"/></td>
-						<td><input t:type="checkbox" t:id="delete" value="delete"/></td>
+						<td><input t:id="delete" t:type="checkbox" value="delete"/></td>
 						
 						<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
 						<t:hidden value="person.firstName"/>
@@ -63,6 +63,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/loopwithdeletecolumn.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 </body>
 </html>

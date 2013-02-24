@@ -30,7 +30,7 @@
 				<tbody>
 					<tr t:type="Loop" t:source="persons" t:value="person" t:encoder="personEncoder" class="prop:evenodd.next">
 	 					<td>${person.id}</td>
-						<td><input t:type="TextField" t:id="firstName" t:value="person.firstName" t:validate="required, maxlength=10" size="10"/></td>
+						<td><input t:id="firstName" t:type="TextField" t:value="person.firstName" t:validate="required, maxlength=10" size="10"/></td>
 						<td>${person.lastName}</td>
 						<td><t:output value="person.startDate" format="dateFormat"/></td>
 
@@ -73,6 +73,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/editableloop.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

@@ -2,7 +2,9 @@ package jumpstart.web.pages.examples.tables;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJB;
 
@@ -10,13 +12,17 @@ import jumpstart.business.commons.IdVersion;
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.util.ExceptionUtil;
+import jumpstart.web.commons.FieldCopy;
 
+import org.apache.tapestry5.Field;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Checkbox;
 import org.apache.tapestry5.corelib.components.Form;
 
 public class GridWithDeleteColumn1 {
@@ -53,6 +59,9 @@ public class GridWithDeleteColumn1 {
 	@Persist(PersistenceConstants.FLASH)
 	private List<Person> personsSubmittedFlash;
 
+	private int rowNum;
+	private Map<Integer, FieldCopy> deleteCopyByRowNum;
+
 	// Other pages
 
 	@InjectPage
@@ -62,6 +71,9 @@ public class GridWithDeleteColumn1 {
 
 	@Component(id = "deletables")
 	private Form form;
+
+	@InjectComponent
+	private Checkbox delete;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
@@ -104,6 +116,17 @@ public class GridWithDeleteColumn1 {
 
 		// Get all persons - ask business service to find them (from the database)
 		personsInDB = personFinderService.findPersons(MAX_RESULTS);
+
+		// Prepare to take a copy of each editable field.
+
+		rowNum = 0;
+		deleteCopyByRowNum = new HashMap<Integer, FieldCopy>();
+	}
+
+	void onValidateFromDelete() {
+		// Unfortunately, this method is never called because Checkbox doesn't bubble up VALIDATE. It's a shame because
+		// this would be the perfect place to validate whether deleting is OK, or to put an entry in deleteCopyByRowNum.
+		// Please vote for https://issues.apache.org/jira/browse/TAP5-2075 .
 	}
 
 	void onValidateFromDeletables() {
@@ -126,12 +149,20 @@ public class GridWithDeleteColumn1 {
 		// Also, simulate a server-side validation error: return error if deleting a person with first name BAD_NAME.
 
 		for (IdVersion personToDelete : personsToDelete) {
+			rowNum = 0;
+
 			for (Person p : personsSubmitted) {
+				rowNum++;
+
 				if (p.getId() != null && p.getId().equals(personToDelete.getId())) {
 					personToDelete.setVersion(p.getVersion());
 
 					if (p.getFirstName() != null && p.getFirstName().equals(BAD_NAME)) {
-						form.recordError("Cannot delete " + BAD_NAME + ".");
+						// Unfortunately, at this point the field "delete" is from the final row of the Loop.
+						// Fortunately, we have a copy of the correct field, so we can record the error with that.
+
+						Field field = deleteCopyByRowNum.get(rowNum);
+						form.recordError(field, "Cannot delete " + BAD_NAME + ".");
 						return;
 					}
 
@@ -224,6 +255,8 @@ public class GridWithDeleteColumn1 {
 
 	// The Loop component will automatically call this for every row on submit.
 	public void setDelete(boolean delete) {
+		rowNum++;
+		deleteCopyByRowNum.put(rowNum, new FieldCopy(this.delete));
 
 		if (inFormSubmission) {
 			if (delete) {
