@@ -31,8 +31,6 @@ public class UserCreate extends SimpleBasePage {
 	@Property
 	private String confirmPassword;
 
-	private EnumValueEncoder<PageStyle> pageStyleEncoder;
-
 	// Other pages
 
 	@InjectPage
@@ -109,7 +107,6 @@ public class UserCreate extends SimpleBasePage {
 	}
 
 	public EnumValueEncoder<PageStyle> getPageStyleEncoder() {
-		return pageStyleEncoder == null ? new EnumValueEncoder<PageStyle>(typeCoercer, User.PageStyle.class)
-				: pageStyleEncoder;
+		return new EnumValueEncoder<PageStyle>(typeCoercer, User.PageStyle.class);
 	}
 }

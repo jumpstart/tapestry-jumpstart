@@ -1,4 +1,4 @@
-package jumpstart.web.commons;
+package jumpstart.web.model;
 
 import java.util.HashMap;
 import java.util.Iterator;

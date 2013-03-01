@@ -3,8 +3,8 @@ package jumpstart.web.pages.examples.wizard;
 import java.util.Collection;
 
 import jumpstart.web.base.examples.wizard.WizardConversationalPage;
-import jumpstart.web.commons.Conversation;
-import jumpstart.web.commons.Conversations;
+import jumpstart.web.model.Conversation;
+import jumpstart.web.model.Conversations;
 
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;

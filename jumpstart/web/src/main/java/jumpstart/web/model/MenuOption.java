@@ -1,4 +1,4 @@
-package jumpstart.web.commons;
+package jumpstart.web.model;
 
 /**
  * MenuOption holds a label to display and a logical page name, eg. "Hello World" and "previews/withlayout/HelloWorld".

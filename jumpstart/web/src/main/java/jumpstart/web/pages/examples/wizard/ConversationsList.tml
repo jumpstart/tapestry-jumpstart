@@ -35,7 +35,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/ConversationsList.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/ConversationsList.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/conversationslist.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/Conversation.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/Conversations.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Conversation.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Conversations.java"/>
 </body>
 </html>
