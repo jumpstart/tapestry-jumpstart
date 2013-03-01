@@ -60,9 +60,13 @@
 			You chose: ${color3}
 		</form>
 	</div>
+	
+	The blank option appears because Select has a parameter <em>blankOption</em> with a default value of <em>AUTO</em> whose meaning 
+	is <a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/data/BlankOption.html">here</a>.<br/><br/> 
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/data/BlankOption.html">BlankOption</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	

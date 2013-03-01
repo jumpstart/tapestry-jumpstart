@@ -10,7 +10,7 @@
 	<h1>Varied Select</h1>
 	
 	<div class="eg">
-		This example demonstrates labelling the blank option.<br/><br/>
+		This example demonstrates labelling the blank option by setting the parameter <em>blankLabel</em>.<br/><br/>
 		
 		<form t:type="form">
 			<t:label for="color0"/>:
@@ -20,7 +20,7 @@
 		</form>
 	</div>
 	<div class="eg">
-		This example demonstrates labelling the blank option using the page's properties file.<br/><br/>
+		This example demonstrates labelling the blank option by providing a property in the page's properties file.<br/><br/>
 		
 		<form t:type="form">
 			<t:label for="color1"/>:
@@ -30,7 +30,7 @@
 		</form>
 	</div>
 	<div class="eg">
-		This example demonstrates making it mandatory to make a choice.<br/><br/>
+		This example demonstrates removing the blank option by setting the parameter <em>validate</em> to <em>required</em>.<br/><br/>
 		
 		<form t:type="form">
 			<t:label for="color2"/>:
@@ -40,7 +40,7 @@
 		</form>
 	</div>
 	<div class="eg">
-		This example demonstrates making it mandatory to make a choice - but it also has a blank option.<br/><br/>
+		This example demonstrates keeping the blank option while also setting the parameter <em>validate</em> to <em>required</em>.<br/><br/>
 		
 		<form t:type="form">
 			<t:label for="color3"/>:
@@ -51,7 +51,8 @@
 	</div>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>, 
+	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/data/BlankOption.html">BlankOption</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
