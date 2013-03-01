@@ -45,8 +45,9 @@
 			<t:label for="firstName"/>:&nbsp;
 			<input t:type="TextField" t:id="firstName" t:validate="required"/>&nbsp;
 			<input type="submit" value="Display"/>&nbsp;
+			<button t:type="chenillekit/Button" type="submit">Display</button>&nbsp;
 			<input type="submit" value=" " class="nextimage"/>&nbsp;
-			<button t:type="chenillekit/Button" type="submit">Display</button>
+			<input type="image" src="${nextImage}" style="vertical-align: middle;"/>
 		</form>
 	</div>
 	

@@ -25,11 +25,6 @@ public class StylingLinksAndSubmits1 {
 
 	// The code
 	
-	Object onSuccess() {
-		page2.set(firstName);
-		return page2;
-	}
-
 	Object onNextPage(String context) {
 		page2.set(context);
 		return page2;
@@ -42,6 +37,11 @@ public class StylingLinksAndSubmits1 {
 
 	Object onActionFromAL2(String context) {
 		page2.set(context);
+		return page2;
+	}
+
+	Object onSuccess() {
+		page2.set(firstName);
 		return page2;
 	}
 
