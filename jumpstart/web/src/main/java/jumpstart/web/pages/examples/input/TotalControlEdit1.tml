@@ -4,18 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-	<style type="text/css">
-		.eg				{ background: #eee; }
-		.edit			{ border-collapse: collapse; border-spacing: 0; width: 60%; }
-		.edit th		{ padding: 1px 5px; text-align: right; width: 35%; }
-		.edit td		{ padding: 1px 5px; text-align: left; }
-		.edit tr.err th		{ padding: 0; }
-		.edit tr.err td		{ padding: 0; }
-		.edit tr.err td.error-msg-c	{ padding: 0 0 4px 7px; font-size: 11px; color: red; } 
-		
-		.error		{ text-align: center; padding-bottom: 13px; color: red; }
-	</style>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/totalcontroledit.css}"/>
 </head>
 <body>
 	<h1>Total Control Edit (1)</h1>
@@ -92,7 +81,7 @@
 	
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/totalcontroledit.css"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
