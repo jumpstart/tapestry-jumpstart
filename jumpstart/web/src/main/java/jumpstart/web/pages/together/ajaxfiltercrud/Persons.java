@@ -152,7 +152,7 @@ public class Persons {
 		}
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
-			createForm.recordError("Sorry, but Create is not allowed in Demo editorMode.");
+			createForm.recordError("Sorry, but Create is not allowed in Demo mode.");
 			return;
 		}
 
@@ -307,7 +307,7 @@ public class Persons {
 		boolean successfulDelete = false;
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
-			deleteMessage = "Sorry, but Delete is not allowed in Demo editorMode.";
+			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
 		}
 		else {
 
