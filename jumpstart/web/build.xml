@@ -130,11 +130,11 @@
 	</target>
 
 	<target name="deploy-war-to-server-tomcat7">
-		<available type="dir" file="${project.dir}/${deployment.server.dir}/webapps" property="deployment.server.dir.exists" />
-		<fail unless="deployment.server.dir.exists" message="*** Deployment server directory does not exist. Tried ${project.dir}/${deployment.server.dir}/webapps." />
+		<available type="dir" file="${deployment.server.dir}/webapps" property="deployment.server.dir.exists" />
+		<fail unless="deployment.server.dir.exists" message="*** Deployment server directory does not exist. Tried ${deployment.server.dir}/webapps." />
 
 		<!-- The WAR is in "collapsed EAR" format. -->
-		<copy todir="${project.dir}/${deployment.server.dir}/webapps" file="${war.file}" />
+		<copy todir="${deployment.server.dir}/webapps" file="${war.file}" />
 		<!-- There is no datasource descriptor to copy to tomcat - datasource is set up in Tomcat's conf/openejb.xml.-->
 	</target>
 

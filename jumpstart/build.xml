@@ -235,8 +235,8 @@
 
 		<!-- Validate deployment.server.dir. -->
 
-		<available type="dir" file="${project.dir}/${deployment.server.dir}" property="deployment.server.exists" />
-		<fail unless="deployment.server.exists" message="*** Integration test server directory does not exist. Tried ${project.dir}/${deployment.server.dir}." />
+		<available type="dir" file="${deployment.server.dir}" property="deployment.server.exists" />
+		<fail unless="deployment.server.exists" message="*** Integration test server directory does not exist. Tried ${deployment.server.dir}." />
 
 	</target>
 

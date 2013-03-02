@@ -201,25 +201,25 @@
 		<property name="conf.test.remote.dir" value="${conf.test.jboss.remote.dir}" />
 
 		<path id="classpath.jboss7.client.lib">
-			<fileset dir="${project.dir}/${deployment.server.dir}/../bin/client">
+			<fileset dir="${deployment.server.dir}/../bin/client">
 				<include name="jboss-client.jar" />
 			</fileset>
-			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/org/hibernate/main">
+			<fileset dir="${deployment.server.dir}/../modules/org/hibernate/main">
 				<include name="hibernate-commons-annotations-4.*.jar" />
 				<include name="hibernate-core-4.*.jar" />
 				<include name="hibernate-entitymanager-4.*.jar" />
 			</fileset>
-			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/org/javassist/main">
+			<fileset dir="${deployment.server.dir}/../modules/org/javassist/main">
 				<include name="javassist-3.*.jar" />
 			</fileset>
-			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/org/jboss/logging/main">
+			<fileset dir="${deployment.server.dir}/../modules/org/jboss/logging/main">
 				<include name="jboss-logging-3.*.jar" />
 			</fileset>
-			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/com/h2database/h2/main">
+			<fileset dir="${deployment.server.dir}/../modules/com/h2database/h2/main">
 				<include name="h2-1.*.jar" />
 			</fileset>
 			<!--
-			<fileset dir="${project.dir}/${deployment.server.dir}/../modules/com/mysql/main">
+			<fileset dir="${deployment.server.dir}/../modules/com/mysql/main">
 				<include name="mysql-connector-java-*.jar" />
 			</fileset>
 			-->
@@ -232,7 +232,7 @@
 		<property name="conf.test.remote.dir" value="${conf.test.tomcat.remote.dir}" />
 		
 		<path id="classpath.tomcat7.client.lib">
-			<fileset dir="${project.dir}/${deployment.server.dir}/lib">
+			<fileset dir="${deployment.server.dir}/lib">
 				<include name="openejb-client-4.*.jar" />
 				<include name="hibernate-commons-annotations-4.*.jar" />
 				<include name="hibernate-core-4.*.jar" />
@@ -253,10 +253,10 @@
 		<property name="conf.test.remote.dir" value="${conf.test.glassfish.remote.dir}" />
 
 		<path id="classpath.glassfish3.client.lib">
-			<fileset dir="${project.dir}/${deployment.server.dir}/../../lib">
+			<fileset dir="${deployment.server.dir}/../../lib">
 				<include name="gf-client.jar" />
 			</fileset>
-			<fileset dir="${project.dir}/${deployment.server.dir}/lib">
+			<fileset dir="${deployment.server.dir}/lib">
 				<include name="hibernate-commons-annotations-4.*.jar" />
 				<include name="hibernate-core-4.*.jar" />
 				<include name="hibernate-entitymanager-4.*.jar" />
@@ -267,7 +267,7 @@
 				<include name="mysql-connector-java-*.jar" />
 				-->
 			</fileset>
-			<fileset dir="${project.dir}/${deployment.server.dir}/../../../javadb/lib">
+			<fileset dir="${deployment.server.dir}/../../../javadb/lib">
 				<include name="derbyclient.jar" />
 			</fileset>
 		</path>
