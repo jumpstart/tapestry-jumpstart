@@ -23,6 +23,7 @@ import org.apache.tapestry5.ioc.annotations.Symbol;
 import org.apache.tapestry5.ioc.services.ClasspathURLConverter;
 import org.apache.tapestry5.ioc.services.Coercion;
 import org.apache.tapestry5.ioc.services.CoercionTuple;
+import org.apache.tapestry5.ioc.services.ThreadLocale;
 import org.apache.tapestry5.services.BeanBlockContribution;
 import org.apache.tapestry5.services.ComponentRequestFilter;
 import org.apache.tapestry5.services.DisplayBlockContribution;
@@ -69,9 +70,10 @@ public class AppModule {
 	// service, and ComponentMessagesSource service.
 
 	@SuppressWarnings("rawtypes")
-	public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration) {
-		configuration.add("yesno", new YesNoTranslator());
-		configuration.add("money", new MoneyTranslator());
+	public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration,
+			ThreadLocale threadLocale) {
+		configuration.add("yesno", new YesNoTranslator("yesno"));
+		configuration.add("money2", new MoneyTranslator("money2", 2, threadLocale));
 	}
 
 	@SuppressWarnings("rawtypes")

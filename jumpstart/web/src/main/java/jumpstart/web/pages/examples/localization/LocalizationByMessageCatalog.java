@@ -22,7 +22,7 @@ public class LocalizationByMessageCatalog {
 	private Date date;
 
 	@Property
-	private double number = 1234.56;
+	private double number = -1234.56;
 
 	@Property
 	private DateFormat dateFormat;

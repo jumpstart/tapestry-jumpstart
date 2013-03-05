@@ -12,11 +12,10 @@
 	Here we create two Translators and make them available to the whole application <strong>by name</strong>.<br/><br/>
 
 	The first translator is called <em>yesno</em> and its class is <em>YesNoTranslator</em>.<br/>
-	It converts a Boolean, server-side, to "yes" or "no", client-side; 
-	and it parses "y", "n", "yes", and "no" (ignoring case), client-side, to Boolean, server-side.<br/><br/>
+	It parses "y", "n", "yes", and "no" (ignoring case), client-side, to Boolean, server-side, and back to "yes" or "no", client-side.<br/><br/>
 
-	The second translator is called <em>money</em> and its class is <em>MoneyTranslator</em>.<br/>
-	It converts a BigDecimal, server-side, to money in the local currency as a String, client-side; and vice-versa.<br/><br/>
+	The second translator is called <em>money2</em> and its class is <em>MoneyTranslator</em>.<br/>
+	It parses a String, client-side, to a BigDecimal with maximum of 2 decimal places, server-side, and vice-versa.<br/><br/>
 
 	We made both translators available to the whole application by contributing them to the <em>TranslatorAlternatesSource</em> 
 	service - see AppModule source below.
@@ -32,7 +31,7 @@
 				</tr>
 				<tr>
 					<td><t:label for="price"/>:</td>
-					<td><input t:type="TextField" t:id="price" t:translate="money"/></td>
+					<td><input t:type="TextField" t:id="price" t:translate="money2"/></td>
 					<td>${price}</td>
 				</tr>
 				<tr> 

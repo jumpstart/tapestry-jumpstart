@@ -11,8 +11,8 @@ public class YesNoTranslator implements Translator<Boolean> {
 	private final Class<Boolean> type;
 	private final String messageKey;
 
-	public YesNoTranslator() {
-		this.name = "yesno";
+	public YesNoTranslator(String name) {
+		this.name = name;
 		this.type = Boolean.class;
 		this.messageKey = "yesno-format-exception";
 	}
