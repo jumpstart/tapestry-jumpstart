@@ -78,7 +78,7 @@ public class Room extends BaseEntity {
 		return (obj == this) || (obj instanceof Room) && id != null && id.equals(((Room) obj).getId());
 	}
 
-	// The need for an equals() method is discussed at http://www.hibernate.org/109.html
+	// The need for a hashCode() method is discussed at http://www.hibernate.org/109.html
 
 	@Override
 	public int hashCode() {

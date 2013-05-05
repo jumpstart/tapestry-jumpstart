@@ -27,12 +27,12 @@
 				<tr>
 					<td><t:label for="newToTapestry"/></td>
 					<td><input t:type="TextField" t:id="newToTapestry" t:translate="yesno"/></td>
-					<td>${newToTapestry}</td>
+					<td>${newToTapestry} (y, n, yes, no)</td>
 				</tr>
 				<tr>
 					<td><t:label for="price"/>:</td>
 					<td><input t:type="TextField" t:id="price" t:translate="money2"/></td>
-					<td>${price}</td>
+					<td>${price} (maximum 2 decimal places)</td>
 				</tr>
 				<tr> 
 					<td></td>
