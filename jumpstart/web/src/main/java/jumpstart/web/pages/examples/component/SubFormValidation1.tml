@@ -50,8 +50,8 @@
 
 	References: 
 	<a href="http://tapestry.apache.org/environmental-services.html">Environmental Services</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ValidationTracker.html">ValidationTracker</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/ValidationTracker.html">ValidationTracker</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

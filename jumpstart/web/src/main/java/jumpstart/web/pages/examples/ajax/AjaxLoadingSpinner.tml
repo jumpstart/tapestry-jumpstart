@@ -39,8 +39,8 @@
 	References: 
 	<a href="http://java.dzone.com/articles/adding-ajax-throbbers-zone">Adding 'Ajax Throbbers'</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
 	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>, 
 	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>.<br/><br/> 
 	

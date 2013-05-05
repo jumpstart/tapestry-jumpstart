@@ -29,7 +29,7 @@
 	References: 
 	<a href="http://tapestry.apache.org/component-templates.html">Component Templates</a>, 
 	<a href="http://tapestry.apache.org/component-classes.html">Component Classes</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 

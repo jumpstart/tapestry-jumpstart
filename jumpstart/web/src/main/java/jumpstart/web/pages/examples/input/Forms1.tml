@@ -52,9 +52,9 @@
 	that triggered the event.  Instead, it will be a URL that is safe to reload, or bookmark, or return to with the Back button. 
 	The cost is 2 trips to the server, but it's worth it.<br/><br/>
 
-	References: <a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
+	References: <a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
 	<a href="http://tapestry.apache.org/forms-and-validation.html#FormsandValidation-Formcomponent">Form Component</a>,  
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 

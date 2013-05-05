@@ -22,7 +22,7 @@
 	let you exclude fields, include fields, reorder fields, etc. Its styling can be overridden with CSS.<br/><br/> 
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
 	<a href="http://tapestry.apache.org/beaneditform-guide.html">Using BeanEditForm (sic)</a>.<br/><br/>
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>

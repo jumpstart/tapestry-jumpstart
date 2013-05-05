@@ -43,8 +43,8 @@
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUsePersistentFieldStrategy">How To Use Persistent Field Strategy</a>.<br/><br/> 
 	
 	References: <a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Persist.html">@Persist</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/PersistenceConstants.html">PersistenceConstants</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/Persist.html">@Persist</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/PersistenceConstants.html">PersistenceConstants</a>, 
 	<a href="http://tapestry.apache.org/persistent-page-data.html#PersistentPageData-ClusteringIssues">Clustering Issues</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUsePersistentFieldStrategy">How To Use Persistent Field Strategy</a>.<br/><br/>
 	

@@ -29,7 +29,7 @@
 	PageLink extends the URL path with <em>/1</em>.<br/><br/>
 	
 	References:	
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Page Render Requests</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>, 
 	list in <a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Property Expression Grammar</a>.<br/><br/>

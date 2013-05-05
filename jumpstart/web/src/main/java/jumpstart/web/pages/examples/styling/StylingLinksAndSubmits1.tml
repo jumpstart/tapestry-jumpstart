@@ -55,12 +55,12 @@
 	<a href="https://jira.codehaus.org/browse/CHEN-52">CHEN-52</a>.<br/><br/> 
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
 	<a href="http://www.chenillekit.org/demo/tapcomp/buttondemo">chenillekit/Button</a>, 
 	<a href="http://www.chenillekit.org/">chenillekit</a>,  
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 

@@ -55,7 +55,7 @@
 			The client-side translator will not let you leave the field empty because it knows that server-side is a <em>long</em>.</li>
 		<li>(2) Uses <em>toClient</em> to translate <em>null</em> server-side to <em>"0"</em> client-side. 
 			Notice that if you empty it, <em>parseClient</em> will NOT bubble up.</li>
-		<li>(3) Uses <a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a> 
+		<li>(3) Uses <a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a> 
 			which translates <em>null</em> server-side to <em>"0"</em> client-side, and empty field client-side to <em>0</em> server-side.</li>
 		<li>(4) Uses <em>parseClient</em> to translate shorthand input into numerics (eg. <em>"2k"</em> client-side to <em>2000</em> server-side).</li>
 		<li>(4) Also uses a <em>mixin</em>, to disable the client-side translator which would prevent non-numeric input. 
@@ -65,14 +65,14 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/forms-and-validation.html#FormsandValidation-OverridingtheTranslatorwithEvents">Overriding the Translator with Events</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/NullFieldStrategy.html">NullFieldStrategy</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/internal/DefaultNullFieldStrategy.html">DefaultNullFieldStrategy</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a>.
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/NullFieldStrategy.html">NullFieldStrategy</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/internal/DefaultNullFieldStrategy.html">DefaultNullFieldStrategy</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a>.
 	<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

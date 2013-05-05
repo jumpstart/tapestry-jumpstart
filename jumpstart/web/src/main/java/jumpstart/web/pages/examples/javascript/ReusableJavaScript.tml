@@ -26,8 +26,8 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
 	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

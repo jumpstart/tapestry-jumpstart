@@ -47,7 +47,7 @@
 
 	References: 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>,
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToAddValidators">How To Add Validators</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IoC Services</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">JavaScript</a>.<br/><br/>

@@ -26,15 +26,15 @@
 
 	References: 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
 	<a href="http://api.prototypejs.org/language/PeriodicalExecuter/">PeriodicalExecuter</a>, 
- 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
- 	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+ 	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
  	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ClientElement.html">ClientElement</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectContainer.html">@InjectContainer</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/InjectContainer.html">@InjectContainer</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	

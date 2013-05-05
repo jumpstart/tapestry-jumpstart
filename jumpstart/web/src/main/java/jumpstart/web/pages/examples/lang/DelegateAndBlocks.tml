@@ -38,9 +38,9 @@
 	</t:block>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Ablock%3EElement">t:block</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
 	<a href="http://tapestry.apache.org/switching-cases.html">Switching Cases</a>, 
 	<a href="http://tapestry.apache.org/principles.html#Principles-Principle1StaticStructure%2CDynamicBehavior">Principle 1 - Static Structure, Dynamic Behavior</a>.<br/><br/>
 

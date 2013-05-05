@@ -52,8 +52,8 @@
 	This example works very much like the Editable Loop For Update example.<br/><br/>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

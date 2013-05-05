@@ -95,12 +95,12 @@
 	</t:block>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Ablock%3EElement">t:block</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
 	<a href="http://tapestry.apache.org/switching-cases.html">Switching Cases</a>, 
-	<a href="http://tapestry.apache.org/5.3.6/apidocs/org/apache/tapestry5/corelib/components/Unless.html">Unless</a>, 
+	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Unless.html">Unless</a>, 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Radio.html">Radio</a>, 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/RadioGroup.html">Radio Group</a>, 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>.<br/><br/>
