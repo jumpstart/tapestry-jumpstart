@@ -30,8 +30,8 @@
 	To use Tapestry5-jQuery, add the following jar to the classpath:
 	<ul>
 		<li>tapestry5-jquery-3.3.4.jar, at compile and runtime. 
-			(Warning: 3.3.5 seems to disrupt Tapestry's javascript when tapestry.production-mode=true.)<br/>
-			It is available from 
+			(Warning: 3.3.5 and 3.3.6 seem to disrupt Tapestry's javascript when tapestry.production-mode=true.)<br/>
+			The jar is available from 
 			<a href="http://nexus.devlab722.net/nexus/content/repositories/releases/org/got5/tapestry5-jquery/">
 				http://nexus.devlab722.net/nexus/content/repositories/releases/org/got5/tapestry5-jquery/
 			</a> 
