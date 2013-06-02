@@ -5,8 +5,8 @@ import org.apache.tapestry5.upload.services.UploadedFile;
 
 public interface IFiler {
 
-	public abstract String save(UploadedFile uploadedFile, Messages messages) throws Exception;
+	String save(UploadedFile uploadedFile, Messages messages) throws Exception;
 
-	public abstract long getFileSizeMax();
+	long getFileSizeMax();
 
 }
