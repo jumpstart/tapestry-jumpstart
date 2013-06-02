@@ -39,6 +39,10 @@ public class JodaTimeOutput {
 	@Parameter(required = false, defaultPrefix = BindingConstants.LITERAL)
 	private String style;
 
+	/** The format to be applied to the object. */
+	@Parameter(required = false, defaultPrefix = BindingConstants.LITERAL)
+	private String pattern;
+
 	/** This is declared so we catch slip-ups - an error will point the developer to formatter instead. */
 	@Parameter(required = false, defaultPrefix = BindingConstants.LITERAL)
 	private Format format;
@@ -64,13 +68,25 @@ public class JodaTimeOutput {
 
 		if (format != null) {
 			throw new IllegalArgumentException(
-					"JodaTimeOutput does not allow \"format\" parameter.  Valid parameters are \"style\" and \"formatter\".  Formatter type is DateTimeFormatter.");
+					"JodaTimeOutput does not allow \"format\" parameter.  Valid parameters are \"style\", \"formatter\", and \"pattern\".  Formatter type is DateTimeFormatter.");
 		}
 
-		if ((style != null) && (formatter != null)) {
+		int formatParams = 0;
+
+		if (style != null) {
+			formatParams += 1;
+		}
+		if (formatter != null) {
+			formatParams += 1;
+		}
+		if (pattern != null) {
+			formatParams += 1;
+		}
+
+		if (formatParams > 1) {
 			throw new IllegalArgumentException(
-					"JodaTimeOutput can optionally receive \"style\" parameter or \"formatter\" parameter, but not both.  Received style=\""
-							+ style + "\" and formatter=" + formatter + ".");
+					"JodaTimeOutput can optionally receive \"style\" parameter, \"formatter\" parameter, or \"pattern\" parameter, but no more than one of them.  Received  "
+							+ formatParams + " of them.");
 		}
 
 	}
@@ -110,6 +126,9 @@ public class JodaTimeOutput {
 				else if (formatter != null) {
 					formatted = ai.toString(formatter);
 				}
+				else if (pattern != null) {
+					formatted = DateTimeFormat.forPattern(pattern).print(ai);
+				}
 				else {
 					formatted = value.toString();
 				}
@@ -125,6 +144,9 @@ public class JodaTimeOutput {
 				}
 				else if (formatter != null) {
 					formatted = ap.toString(formatter);
+				}
+				else if (pattern != null) {
+					formatted = DateTimeFormat.forPattern(pattern).print(ap);
 				}
 				else {
 					formatted = value.toString();
@@ -145,10 +167,12 @@ public class JodaTimeOutput {
 
 	// For testing.
 
-	void setup(Object value, DateTimeFormatter formatter, String style, String elementName, ComponentResources componentResources) {
+	void setup(Object value, String style, DateTimeFormatter formatter, String pattern, String elementName,
+			ComponentResources componentResources) {
 		this.value = value;
-		this.formatter = formatter;
 		this.style = style;
+		this.formatter = formatter;
+		this.pattern = pattern;
 		this.elementName = elementName;
 		this.componentResources = componentResources;
 	}

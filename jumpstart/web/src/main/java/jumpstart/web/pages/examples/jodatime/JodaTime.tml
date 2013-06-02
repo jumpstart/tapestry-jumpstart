@@ -53,6 +53,10 @@
 				<td><t:jodatimeoutput value="datesExample.aDateMidnight" formatter="ISODate"/></td>
 				<td>&lt;t:jodatimeoutput value="datesExample.aDateMidnight" formatter="ISODate"/></td>
 			</tr>
+			<tr>
+				<td><t:jodatimeoutput value="datesExample.aDateMidnight" pattern="dd MMM yyyy"/></td>
+				<td>&lt;t:jodatimeoutput value="datesExample.aDateMidnight" pattern="dd MMM yyyy"/></td>
+			</tr>
 		</table>
 	</div>
 
@@ -65,6 +69,9 @@
 		Style</a> pattern.</li>
 		<li><strong>formatter</strong> is any joda-time
 		<a href="http://joda-time.sourceforge.net/api-release/org/joda/time/format/DateTimeFormatter.html">DateTimeFormatter</a>.</li>
+		<li><strong>pattern</strong> is any joda-time
+		<a href="http://joda-time.sourceforge.net/api-release/org/joda/time/format/DateTimeFormat.html#forPattern(java.lang.String)">
+		Pattern</a> string.</li>
 	</ul>
 
 	JodaTimeOutput can render any DateTime, DateMidnight, LocalDateTime, LocalDate, or LocalTime object. Here is a demonstration:<br/>
