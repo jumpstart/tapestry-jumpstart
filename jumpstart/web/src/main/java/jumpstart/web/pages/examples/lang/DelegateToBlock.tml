@@ -7,9 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
 </head>
 <body>
-	<h1>Delegate and Blocks</h1>
+	<h1>Delegate to Block</h1>
 
-	When a template becomes complex or cluttered in a way that makes its structure or sequence of elements difficult, consider using Delegate and Blocks.
+	When a template becomes complex or cluttered in a way that makes its structure or sequence of elements difficult, consider using Delegate and Block.
 
 	<div class="eg">
 		<t:delegate to="block:blockA"/>

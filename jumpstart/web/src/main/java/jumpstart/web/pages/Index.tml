@@ -179,7 +179,7 @@
 							<a t:type="pagelink" t:page="examples/tables/LoopWithDeleteColumn1" href="#">Loop With Delete Column</a><br/>
 						</div>
 						<div class="group">
-							<a t:type="pagelink" t:page="examples/lang/DelegateAndBlocks" href="#">Delegate and Blocks</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/DelegateToBlock" href="#">Delegate to Block</a><br/>
 							<a t:type="pagelink" t:page="examples/lang/IfNotNegateSwitchElseUnless" href="#">If, Not, Negate, Switch, Else, Unless</a><br/>
 						</div>
 						<div class="group">
@@ -229,6 +229,7 @@
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/component/MarkupWriter" href="#">MarkupWriter</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/DelegateToRenderable" href="#">Delegate to Renderable</a><br/>
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/lang/Mixins" href="#">Mixins</a><br/>
