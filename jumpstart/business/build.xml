@@ -66,7 +66,7 @@
 	</target>
 
 	<target name="compile" depends="init" description="Compiles main source, output goes to the target/classes dir.">
-		<javac source="1.6" target="1.6" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
+		<javac source="1.7" target="1.7" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
 
 		<copy todir="${target.classes.dir}">
 			<fileset dir="${java.main.dir}" includes="**/*.properties" />
@@ -74,7 +74,7 @@
 	</target>
 
 	<target name="test-compile" depends="init" description="Compiles test source, output goes to the target/test-classes dir.">
-		<javac source="1.6" target="1.6" srcdir="${java.tests.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
+		<javac source="1.7" target="1.7" srcdir="${java.tests.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
 	</target>
 
 	<target name="test">
@@ -119,7 +119,6 @@
 			<pathelement location="${conf.test.remote.dir}" />
 			<pathelement location="${target.test-classes.dir}" />
 			<pathelement location="${target.classes.dir}" />
-			<path path="${classpath.client.lib.as.property}" />
 			<fileset dir="${lib.compile.dir}">
 				<include name="**/*.jar" />
 			</fileset>
@@ -129,6 +128,7 @@
 			<fileset dir="${lib.test.dir}">
 				<include name="**/*.jar" />
 			</fileset>
+			<path path="${classpath.client.lib.as.property}" />
 		</path>
 	</target>
 
@@ -160,6 +160,8 @@
 
 		<mkdir dir="${lib.compile.dir}" />
 		<get dest="${lib.compile.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
+		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
+		<get dest="${lib.compile.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. JBoss -->
 
@@ -176,14 +178,15 @@
 		<!-- testing jars - needed for compiling and running tests -->
 
 		<mkdir dir="${lib.test.dir}" />
-		<!-- For jndi lookup -->
-		<get dest="${lib.test.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
 		<get dest="${lib.test.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
 		<get dest="${lib.test.dir}/junit-4.11.jar" usetimestamp="true" src="${maven.repo.root}/junit/junit/4.11/junit-4.11.jar" />
 		<get dest="${lib.test.dir}/hamcrest-core-1.3.jar" usetimestamp="true" src="${maven.repo.root}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
 		<get dest="${lib.test.dir}/log4j-1.2.16.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.16/log4j-1.2.16.jar" />
 		<get dest="${lib.test.dir}/slf4j-api-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
 		<get dest="${lib.test.dir}/slf4j-log4j12-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar" />
+
+		<!-- For jndi lookup -->
+		<get dest="${lib.test.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
 
 		<!-- testing openejb local jars - needed when running tests with openejb locally, ie. in-line. -->
 
