@@ -155,9 +155,9 @@ public class AppModule {
 	// PageCatalog.
 	// The default WhitelistAnalyzer allows localhost only and only in non-production mode.
 	// Our aim is to make the servicestatus page available to ALL clients when not in production mode.
-	// We do this by contributing our own WhitelistAnalyzer to Tapestry's ClientWhiteList service.
+	// We do this by contributing our own WhitelistAnalyzer to Tapestry's ClientWhitelist service.
 
-	public static void contributeClientWhiteList(OrderedConfiguration<WhitelistAnalyzer> configuration) {
+	public static void contributeClientWhitelist(OrderedConfiguration<WhitelistAnalyzer> configuration) {
 		if (!productionMode) {
 			configuration.add("NonProductionWhitelistAnalyzer", new WhitelistAnalyzer() {
 				@Override
@@ -243,7 +243,7 @@ public class AppModule {
 
 	// Tell Tapestry how its BeanDisplay and BeanEditor can handle the JodaTime types.
 	// We do this by contributing configuration to Tapestry's DefaultDataTypeAnalyzer and BeanBlockSource services.
-	// - Based on http://tapestry.apache.org/tapestry5/guide/beaneditform.html .
+	// - Based on http://tapestry.apache.org/beaneditform-guide.html .
 
 	public static void contributeDefaultDataTypeAnalyzer(
 			@SuppressWarnings("rawtypes") MappedConfiguration<Class, String> configuration) {

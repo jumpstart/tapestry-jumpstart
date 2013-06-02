@@ -39,21 +39,21 @@
 	</target>
 
 	<target name="deploy-ear-to-server-jboss7">
-		<available type="dir" file="${project.dir}/${deployment.server.dir}/deployments" property="deployment.deploy.dir.exists"/>
-		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${project.dir}/${deployment.server.dir}/deployments."/>
+		<available type="dir" file="${deployment.server.dir}/deployments" property="deployment.deploy.dir.exists"/>
+		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${deployment.server.dir}/deployments."/>
 
 		<!-- There is no datasource descriptor to copy to jboss7 - datasources are added via the admin console web page. -->
 
-		<copy todir="${project.dir}/${deployment.server.dir}/deployments" file="${ear.file}"/>
+		<copy todir="${deployment.server.dir}/deployments" file="${ear.file}"/>
 	</target>
 
 	<target name="deploy-ear-to-server-glassfish3">
-		<available type="dir" file="${project.dir}/${deployment.server.dir}/autodeploy" property="deployment.deploy.dir.exists" />
-		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${project.dir}/${deployment.server.dir}/autodeploy." />
+		<available type="dir" file="${deployment.server.dir}/autodeploy" property="deployment.deploy.dir.exists" />
+		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${deployment.server.dir}/autodeploy." />
 
 		<!-- There is no datasource descriptor to copy to glassfish3 - datasources are added via the admin console web page. -->
 		
-		<copy todir="${project.dir}/${deployment.server.dir}/autodeploy" file="${ear.file}" />
+		<copy todir="${deployment.server.dir}/autodeploy" file="${ear.file}" />
 	</target>
 
 	<target name="integration-test" description="">
