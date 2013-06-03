@@ -23,12 +23,12 @@
 	To see manipulation of the BeanModel by a mixin, go to the Creating Mixins example.<br/><br/>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
 	<a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-CustomizingtheBeanModel">Customizing the BeanModel</a>, 
 	<a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-ProvidingtheBeanModel">Providing the BeanModel</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/BeanModelSource.html">BeanModelSource</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/BeanModelSource.html">BeanModelSource</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	

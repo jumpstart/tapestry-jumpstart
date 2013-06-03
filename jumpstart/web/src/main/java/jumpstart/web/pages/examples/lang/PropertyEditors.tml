@@ -52,15 +52,15 @@
  		
 	References: 
 	<a href="http://tapestry.apache.org/beaneditform-guide.html">BeanEditForm Guide</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/DataTypeAnalyzer.html">DataTypeAnalyzer</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/BeanBlockSource.html">BeanBlockSource</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/DisplayBlockContribution.html">DisplayBlockContribution</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/EditBlockContribution.html">EditBlockContribution</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/PropertyOutputContext.html">PropertyOutputContext</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/PropertyEditContext.html">PropertyEditContext</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/DataTypeAnalyzer.html">DataTypeAnalyzer</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/BeanBlockSource.html">BeanBlockSource</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/DisplayBlockContribution.html">DisplayBlockContribution</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/EditBlockContribution.html">EditBlockContribution</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/PropertyOutputContext.html">PropertyOutputContext</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/PropertyEditContext.html">PropertyEditContext</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
 	<a href="http://joda-time.sourceforge.net/">Joda Time</a>.<br/><br/>
  	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

@@ -21,7 +21,7 @@
 	</div>
 
 	References: <a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Tapestry IoC Services</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/transform/ComponentClassTransformWorker2.html">
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/transform/ComponentClassTransformWorker2.html">
 	ComponentClassTransformWorker2</a>, 
 	"Why EJB3?" in <a href="http://jumpstart.doublenegative.com.au/faq.html">JumpStart FAQ</a>.<br/><br/>
 	

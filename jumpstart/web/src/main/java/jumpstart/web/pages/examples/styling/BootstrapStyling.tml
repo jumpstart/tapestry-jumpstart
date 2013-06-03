@@ -47,7 +47,7 @@
 	<a href="https://github.com/trsvax/tapestry-bootstrap">tapestry-bootstrap</a>, 
 	<a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, 
 	<a href="http://www.adobe.com/devnet/html5/articles/twitter-bootstrap.html">Styling your apps with Twitter Bootstrap</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	

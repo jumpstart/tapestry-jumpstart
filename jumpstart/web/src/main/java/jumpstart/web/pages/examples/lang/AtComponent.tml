@@ -40,7 +40,7 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-classes.html#ComponentClasses-EmbeddedComponents">Embedded Components</a>,
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>.
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>.
 	<br/><br/>
 	
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/AtComponent.tml"/>

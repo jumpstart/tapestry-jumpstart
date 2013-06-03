@@ -20,8 +20,8 @@
 
 	References: 
 	<a href="http://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding">JAXB</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>,
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/Response.html">Response</a>,
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>,
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Response.html">Response</a>,
 	<a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

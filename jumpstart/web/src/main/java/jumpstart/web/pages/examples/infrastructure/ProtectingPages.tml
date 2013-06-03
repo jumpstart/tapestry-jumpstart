@@ -32,8 +32,8 @@
 	References: 
 	<a href="http://tapestry.apache.org/request-processing.html#RequestProcessing-Overview">Request Processing diagram</a>, 
 	<a href="http://tapestryjava.blogspot.com/2009/12/securing-tapestry-pages-with.html">Securing Tapestry Pages with Annotations</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/ComponentRequestFilter.html">ComponentRequestFilter</a>, 
- 	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/ComponentRequestFilter.html">ComponentRequestFilter</a>, 
+ 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	

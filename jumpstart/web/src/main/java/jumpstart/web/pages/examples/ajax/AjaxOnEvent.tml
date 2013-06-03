@@ -36,8 +36,8 @@
 	References: 
 	<a href="http://tinybits.blogspot.com/2010/03/new-and-better-zoneupdater.html">Inge's Zone Updater</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
- 	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+ 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
 
 	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
 

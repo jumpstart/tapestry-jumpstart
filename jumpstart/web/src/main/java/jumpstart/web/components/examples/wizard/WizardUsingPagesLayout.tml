@@ -20,7 +20,7 @@
 	So which approach is best for writing wizards? Pages or form fragments? The choice is yours.<br/><br/>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

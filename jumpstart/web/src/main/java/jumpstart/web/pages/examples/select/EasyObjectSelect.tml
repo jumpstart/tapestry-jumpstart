@@ -27,12 +27,12 @@
 	Note that PersonEncoder goes to the database when it converts an id to a Person, but this happens only on submit, and only for the chosen person.<br/><br/>
 
 	References:
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
 	<a href="http://tapestry.apache.org/using-select-with-a-list.html">Using Select with a List</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/SelectModel.html">SelectModel</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/SelectModelFactory.html">SelectModelFactory</a>,  
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>,  
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/SelectModel.html">SelectModel</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/SelectModelFactory.html">SelectModelFactory</a>,  
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>,  
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowtoSelectWithObjects">How To Select With Objects</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

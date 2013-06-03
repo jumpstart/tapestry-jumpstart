@@ -39,10 +39,10 @@
 
 	The request from either button is an HTTP POST with a URL like this: <code>http://myhost/jumpstart/examples/input/submits1.search</code><br/><br/>
 
-	References: <a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>,
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>,
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>,
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
+	References: <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>,
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>,
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>,
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

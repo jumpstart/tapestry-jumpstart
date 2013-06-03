@@ -23,8 +23,8 @@
 	</div>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/Link.html">Link</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/services/PageRenderLinkSource.html">PageRenderLinkSource</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Link.html">Link</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/PageRenderLinkSource.html">PageRenderLinkSource</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 

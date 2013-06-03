@@ -57,7 +57,7 @@
 
 	References: 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html#AjaxandZones-autocomplete">Autocomplete Mixin</a>,
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete API</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete API</a>, 
 	<a href="http://madrobby.github.com/scriptaculous/ajax-autocompleter/">Ajax.Autocompleter</a>, 
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>.<br/><br/>

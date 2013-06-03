@@ -51,9 +51,9 @@
 	The result is that errors are displayed in the same style regardless of whether the validator or the page class found the error.<br/><br/>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/ClientValidation.html">ClientValidation</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/ClientValidation.html">ClientValidation</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

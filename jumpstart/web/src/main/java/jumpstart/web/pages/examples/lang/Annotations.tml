@@ -15,7 +15,7 @@
 		<li><strong>@Property.</strong> If you put this annotation on a field then Tapestry will invisibly provide 
 			a getter and setter for the field.<br/>  
 			You can make the property read-only or write-only - 
-			see <a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.<br/><br/></li>
+			see <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.<br/><br/></li>
 
 		<li><strong>@OnEvent(value = EventConstants.ACTIVATE).</strong> You can put this annotation on a method instead of naming 
 			the method <em>onActivate</em>.<br/><br/></li>

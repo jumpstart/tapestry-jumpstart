@@ -71,10 +71,10 @@
  	</t:block>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/corelib/components/ProgressiveDisplay.html">ProgressiveDisplay</a>,
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/ProgressiveDisplay.html">ProgressiveDisplay</a>,
 	<a href="http://tapestry.apache.org/injection.html">Injection with Components</a>, 
- 	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
-	<a href="http://tapestry.apache.org/5.3.7/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>.<br/><br/> 
+ 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
