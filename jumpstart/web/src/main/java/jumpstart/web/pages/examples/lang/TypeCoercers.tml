@@ -27,11 +27,11 @@
 	
 			<!-- In future I'd like to add t:validate="date,minDate=${minDate},maxDate=${maxDate}" to this input... -->
 			
-			<input t:type="datefield" value="datesExample.aDateMidnight" t:format="prop:dateFieldFormat"/>&nbsp;
-			org.joda.time.DateMidnight<br/><br/>
+			<input t:type="datefield" value="datesExample.aDateMidnight" t:format="prop:dateFieldFormat" t:validate="required"/>&nbsp;
+				org.joda.time.DateMidnight<br/><br/>
 	
-			<input t:type="datefield" value="datesExample.aLocalDate" t:format="prop:dateFieldFormat"/>&nbsp;
-			org.joda.time.LocalDate<br/><br/>
+			<input t:type="datefield" value="datesExample.aLocalDate" t:format="prop:dateFieldFormat" t:validate="required"/>&nbsp;
+				org.joda.time.LocalDate<br/><br/>
 	
 	 		<t:errors/>
 			<input t:type="submit" value="Save"/>

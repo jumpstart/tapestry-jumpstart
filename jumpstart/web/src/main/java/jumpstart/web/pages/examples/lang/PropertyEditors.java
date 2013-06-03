@@ -37,6 +37,10 @@ public class PropertyEditors {
 
 	void onValidateFromUpdateDates() {
 		try {
+			if (datesExample.getADateMidnight() == null || datesExample.getALocalDate() == null) {
+				form.recordError("Both dates are required.");
+				return;
+			}
 			dateStuffService.changeDatesExample(datesExample);
 		}
 		catch (Exception e) {
