@@ -115,16 +115,17 @@
 
 	</div>
 
-	Here's the sequence when you Edit, Save, or Cancel: 
+	Each row is a Zone around a Form. Here's the sequence when you click an Edit, Save, or Cancel: 
 	<ul>
-	    <li>In comes an AJAX component event request: a submit from a Form.</li>
+	    <li>tapestry.js on the client submits the form as an AJAX component event request. It reaches the corresponding Form on the server and...</li>
     	<li>- Form bubbles up <em>prepareForSubmit</em>. It has a context.</li>
     	<li>- Submit bubbles up <em>selected</em>.</li>
     	<li>- Form bubbles up <em>validate</em>.</li>
     	<li>- Form bubbles up <em>success</em> or <em>failure</em>. Our event handlers nominate which Zone to render.</li>
-    	<li>Tapestry renders the Zone...</li>
+    	<li>Tapestry renders the Zone, during which...</li>
     	<li>- Form bubbles up <em>prepareForRender</em>. It has a context.</li>
-    	<li>Out goes an AJAX response with Zone content which includes the Form.</li>
+    	<li>Tapestry returns the fresh Zone contents to the client in an AJAX response.</li>
+    	<li>tapestry.js on the client puts the Zone contents in the right place on the page.</li>
 	</ul>
 
 	Notes: 
