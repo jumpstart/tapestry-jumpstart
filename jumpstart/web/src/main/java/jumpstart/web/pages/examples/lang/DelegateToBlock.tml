@@ -19,7 +19,8 @@
 		<t:delegate to="block:blockA"/>
 	</div>
 
-	They provide great flexibility in how and what gets rendered, especially when combined with If and Loop.<br/><br/>
+	They provide great flexibility in how and what gets rendered, especially when combined with If and Loop. <br/>
+	For a more programmatic approach, see the later example Delegate to Renderable.<br/><br/>
 
 	<t:block id="blockA">
 		<div style="margin: 2px; padding: 10px; background-color: #f8f8f8;">

@@ -52,7 +52,8 @@
 	
 	For a multi-value autocomplete, try 
 	<a href="http://tawus.wordpress.com/2011/12/28/multivalue-autocomplete-for-tapestry/">Multivalue Autocomplete for Tapestry</a>. 
-	It uses jQuery, so refer to JumpStart's jQuery example.<br/><br/>
+	It uses jQuery, so refer to JumpStart's jQuery example.<br/>
+	For tips on styling Autocomplete, see this <a href="http://web.archiveorange.com/archive/v/NzHgI7qCz2F9Gt8grftw">mailing list thread</a>.<br/><br/>
 
 	References: 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html#AjaxandZones-autocomplete">Autocomplete Mixin</a>,
