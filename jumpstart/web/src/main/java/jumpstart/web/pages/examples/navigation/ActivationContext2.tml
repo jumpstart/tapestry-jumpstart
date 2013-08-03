@@ -24,8 +24,8 @@
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="examples/navigation/ActivationContext1" href="#">Return</a><br/><br/>
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="examples/navigation/ActivationContext1">Return</t:pagelink><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext2.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext2.java"/>

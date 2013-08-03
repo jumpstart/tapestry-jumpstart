@@ -10,15 +10,14 @@
 
 	<h1>@Component</h1>
 	
-	Template files can get cluttered when the components and all their parameter bindings are added.<br/>
+	Working with a web designer, you may prefer to provide them a template without all the Tapestry parameter bindings.<br/>
 	Tapestry provides an alternative.  Instead of this...
 	<pre><code>	&lt;a t:type="pagelink" t:page="Index" href="#"&gt;Home&lt;/a&gt;</code></pre>
 
-	...you provide just the id for the component, like this... 
+	...you can provide just the component id, like this... 
 	<pre><code>	&lt;a t:id="home" href="#"&gt;Home&lt;/a&gt;</code></pre>
 
-	...and provide the parameter bindings in the class by using <code>@Component</code> on a variable 
-	in the class, like this...<br/>
+	...and put the parameter bindings in the class instead, by using <code>@Component</code>, like this...<br/>
 	<pre><code>	@Component(id = "home", parameters = {"page=Index"})
 	private PageLink index;</code></pre>
 

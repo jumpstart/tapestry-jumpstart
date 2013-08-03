@@ -9,9 +9,8 @@
 <body>
 	<h1>Translators</h1>
 	A Translator converts between a value on the server-side and its string representation on the client side.<br/>
-	This example demonstrates all of Tapestry's built-in translators.<br/><br/>
-
-	TextField, PasswordField, and TextArea all use a Translator.<br/><br/>
+	This example demonstrates TextField's use of Tapestry's built-in translators. 
+	TextField, PasswordField, and TextArea all use them.
 	
 	<div class="eg">
 		<form t:type="form" t:id="inputs">

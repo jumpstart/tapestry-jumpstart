@@ -21,7 +21,7 @@
 	Here is a PageLink passing an activation context of <em>1</em>: 
 	
   	<div class="eg">
-		<a t:type="pagelink" t:page="examples/navigation/ActivationContext2" t:context="literal:1" href="#">Show Person 1</a><br/>
+		<t:pagelink t:page="examples/navigation/ActivationContext2" t:context="literal:1">Show Person 1</t:pagelink><br/>
 	</div>
 	
 	The request is an HTTP GET with a URL like this: 
@@ -34,7 +34,7 @@
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>, 
 	list in <a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Property Expression Grammar</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.java"/>

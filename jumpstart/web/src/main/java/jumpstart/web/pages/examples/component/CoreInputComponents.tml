@@ -21,7 +21,7 @@
 	This page demonstrates Tapestry's core input components.
 	
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
+		<t:Form t:id="inputs">
 			<table>
 				<tr>
 					<th>Component Name</th>
@@ -31,29 +31,29 @@
 				<tr>
 					<td class="name">Checkbox:</td>
 					<!-- We include type only to make it previewable. -->
-					<td><input t:type="checkbox" t:id="checkboxValue" type="checkbox"/></td>
+					<td><t:Checkbox t:id="checkboxValue" type="checkbox"/></td>
 					<td>${checkboxValue}</td>
 				</tr>
 				<tr>
 					<td class="name">Checklist:</td>
-					<td><input t:type="Checklist" t:id="checklist" t:model="stationery" t:selected="checklistSelectedValues" t:encoder="stringValueEncoder"/></td>
+					<td><t:Checklist t:id="checklist" t:model="stationery" t:selected="checklistSelectedValues" t:encoder="stringValueEncoder"/></td>
 					<td>${checklistSelectedValues}</td>
 				</tr>
 				<tr>
 					<td class="name">DateField:</td>
-					<td><input t:type="DateField" t:id="dateValue" t:format="prop:dateInFormatStr"/> (${dateInFormatStr})</td>
+					<td><t:DateField t:id="dateValue" t:format="prop:dateInFormatStr"/> (${dateInFormatStr})</td>
 					<!-- We include ${datetimeOutFormatStr} only to make it previewable. -->
 					<td><t:output value="dateValue" format="prop:datetimeOutFormatStr">${datetimeOutFormatStr}</t:output></td>
 				</tr>
 				<tr>
 					<td class="name">Palette:</td>
-					<td><input t:type="Palette" t:id="palette" t:model="pets" t:selected="paletteSelectedValues" t:encoder="stringValueEncoder"/></td>
+					<td><t:Palette t:id="palette" t:model="pets" t:selected="paletteSelectedValues" t:encoder="stringValueEncoder"/></td>
 					<td>${paletteSelectedValues}</td>
 				</tr>
 				<tr>
 					<td class="name">PasswordField:</td>
 					<!-- We include type only to make it previewable. -->
-					<td><input t:type="PasswordField" t:id="passwordValue" type="password"/></td>
+					<td><t:PasswordField t:id="passwordValue" type="password"/></td>
 					<td>${passwordValue}</td>
 				</tr>
 				<tr>
@@ -61,39 +61,39 @@
 					<td>
 						<t:RadioGroup value="radioSelectedValue">
 							<!-- We include type and name only to make it previewable. -->
-							<input t:type="radio" t:id="radioH" value="literal:H" label="High" type="radio" name="group"/><t:label for="radioH"/><br/>
-							<input t:type="radio" t:id="radioM" value="literal:M" label="Medium" type="radio" name="group"/><t:label for="radioM"/><br/>
-							<input t:type="radio" t:id="radioL" value="literal:L" label="Low" type="radio" name="group"/><t:label for="radioL"/>
+							<t:Radio t:id="radioH" value="literal:H" label="High" type="radio" name="group"/><t:label for="radioH"/><br/>
+							<t:Radio t:id="radioM" value="literal:M" label="Medium" type="radio" name="group"/><t:label for="radioM"/><br/>
+							<t:Radio t:id="radioL" value="literal:L" label="Low" type="radio" name="group"/><t:label for="radioL"/>
 						</t:RadioGroup>
 					</td>
 					<td>${radioSelectedValue}</td>
 				</tr>
 				<tr>
 					<td class="name">Select:</td>
-					<td><select t:type="Select" t:id="select" t:model="literal:Ms,Mrs,Mr,Dr,Prof" t:value="selectedValue"/></td>
+					<td><t:Select t:id="select" t:model="literal:Ms,Mrs,Mr,Dr,Prof" t:value="selectedValue"/></td>
 					<td>${selectedValue}</td>
 				</tr>
 				<tr>
 					<td class="name">TextArea:</td>
-					<td><textarea t:type="TextArea" t:id="textAreaValue"></textarea></td>
+					<td><t:TextArea t:id="textAreaValue"></t:TextArea></td>
 					<!-- We include ${textAreaValue} only to make it previewable. -->
 					<td><t:textoutput value="textAreaValue">${textAreaValue}</t:textoutput></td>
 				</tr>
 				<tr>
 					<td class="name">TextField:</td>
-					<td><input t:type="TextField" t:id="textValue"/></td>
+					<td><t:TextField t:id="textValue"/></td>
 					<td>${textValue}</td>
 				</tr>
 			</table><br/>
 			
 			<input type="submit" value="Submit"/>
 			
-		</form>
+		</t:Form>
 	</div>
 	
 	Examples of components that are not part of core are Kaptcha and Upload. They are in later examples.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
 	References:
 	<a href="http://tapestry.apache.org/component-reference.html#ComponentReference-FormComponents">Form Components</a>, 

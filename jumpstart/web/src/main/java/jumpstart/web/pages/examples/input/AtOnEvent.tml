@@ -13,16 +13,16 @@
 
 	<div class="eg"> 
 		Count = ${count}.<br/> 
-		<a t:type="eventlink" t:event="add" t:context="literal:1" href="#">Add 1</a><br/> 
-		<a t:type="eventlink" t:event="add" t:context="literal:2" href="#">Add 2</a><br/>
-		<a t:type="eventlink" t:event="clear" href="#">Clear</a>
+		<t:eventlink t:event="add" t:context="literal:1">Add 1</t:eventlink><br/> 
+		<t:eventlink t:event="add" t:context="literal:2">Add 2</t:eventlink><br/>
+		<t:eventlink t:event="clear">Clear</t:eventlink>
 	</div>	  
 
 	References:	
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/OnEvent.html">@OnEvent</a>, 
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/AtOnEvent.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/AtOnEvent.java"/>

@@ -42,7 +42,7 @@
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Input.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Input.java"/>

@@ -20,9 +20,9 @@
 		
 	<div class="eg"> 
 		Count = ${count}. <br/>
-		<a t:type="actionlink" t:id="addX" t:context="literal:1" href="#">Add 1</a><br/> 
-		<a t:type="actionlink" t:id="addY" t:context="literal:2" href="#">Add 2</a><br/>  
-		<a t:type="actionlink" t:id="clear" href="#">Clear</a>
+		<t:actionlink t:id="addX" t:context="literal:1">Add 1</t:actionlink><br/> 
+		<t:actionlink t:id="addY" t:context="literal:2">Add 2</t:actionlink><br/>  
+		<t:actionlink t:id="clear">Clear</t:actionlink>
 	</div>	  
 
 	Their requests are sent as HTTP GETs and they look like this:<br/><br/>
@@ -52,7 +52,7 @@
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ActionLinks.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ActionLinks.java"/>

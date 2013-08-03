@@ -15,23 +15,23 @@
 	Here is a basic Form:
 	
 	<div class="eg">
-		<form t:type="Form" t:id="names">
+		<t:form t:id="names">
 			<t:errors/>
 			<table>
 				<tr>
 					<td>First Name:</td>
-					<td><input t:type="TextField" t:id="firstName"/></td>
+					<td><t:textfield t:id="firstName"/></td>
 				</tr>
 				<tr>
 					<td>Last Name:</td>
-					<td><input t:type="TextField" t:id="lastName"/></td>
+					<td><t:textfield t:id="lastName"/></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td><input type="submit" value="Display"/></td>
 				</tr>
 			</table>
-		</form>
+		</t:form>
 	 </div>
 
  	The request is an HTTP POST with a URL like this: <code>http://myhost/jumpstart/examples/input/forms1.names</code><br/><br/>
@@ -60,7 +60,7 @@
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms1.java"/>

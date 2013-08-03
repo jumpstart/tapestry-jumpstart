@@ -21,9 +21,9 @@
 	page, it needed this page's activation context. It got it by triggering the <em>passivate</em> event on this page and it is the duty 
 	of a <em>passivate</em> event handler to return the activation context, which our <em>onPassivate()</em> does.<br/><br/>
 	
-	<a t:type="pagelink" t:page="examples/input/Forms1" href="#">Return</a><br/><br/>
+	<t:pagelink t:page="examples/input/Forms1">Return</t:pagelink><br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms2.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms2.java"/>

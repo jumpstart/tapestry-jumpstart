@@ -30,7 +30,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 6.9.1</h1>
+				<h1>JumpStart 6.9.2</h1>
 				<h2>For Tapestry 5.3.7</h2>
 			</div>
 		</div>
@@ -56,10 +56,6 @@
 							<a t:type="pagelink" t:page="examples/output/Better" href="#">Better Output</a><br/>
 							<a t:type="pagelink" t:page="examples/output/Easy" href="#">Easy Output (Using BeanDisplay)</a><br/>
 							<a t:type="pagelink" t:page="examples/output/TotalControl" href="#">Total Control Output</a><br/>
-							<br/>
-							<a t:type="pagelink" t:page="examples/lang/PreviewableTemplates" href="#">Previewable Templates</a><br/>
-							<a t:type="pagelink" t:page="examples/styling/PreviewableWithStylesheets" href="#">Previewable With Stylesheets</a><br/>
-							<a t:type="pagelink" t:page="examples/lang/AtComponent" href="#">@Component</a><br/>
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/navigation/PageLinks1" href="#">PageLinks</a><br/>
@@ -74,11 +70,20 @@
 							<a t:type="pagelink" t:page="examples/input/ActionLinks" href="#">ActionLinks</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/input/Forms1" href="#">Forms</a><br/>
-							<br/>
-							<a t:type="pagelink" t:page="examples/styling/LinksAndSubmits1" href="#">Styling Links and Submits</a><br/>
 						</div>
 						<div class="group">
-							<a t:type="pagelink" t:page="examples/navigation/WhatIsCalledAndWhen" href="#">What is Called and When</a><br/>
+							<a t:type="pagelink" t:page="examples/state/StoringDataInAPage" href="#">Storing Data in a Page</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/component/CoreInputComponents" href="#">Core Input Components</a><br/>
+							<a t:type="pagelink" t:page="examples/component/Html5InputTypes" href="#">HTML5 Input Types</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/lang/PreviewableTemplates" href="#">Previewable Templates</a><br/>
+							<a t:type="pagelink" t:page="examples/styling/PreviewableWithStylesheets" href="#">Previewable With Stylesheets</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/AtComponent" href="#">@Component</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/styling/LinksAndSubmits1" href="#">Styling Links and Submits</a><br/>
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/navigation/ReturnTypes1" href="#">Return Types</a><br/>
@@ -86,9 +91,11 @@
 							<a t:type="pagelink" t:page="examples/navigation/MultipleMethodMatches" href="#">Multiple Method Matches</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/state/PassingDataBetweenPages" href="#">Passing Data Between Pages</a><br/>
-							<a t:type="pagelink" t:page="examples/state/StoringDataInAPage" href="#">Storing Data in a Page</a><br/>
 							<a t:type="pagelink" t:page="examples/state/SharingAcrossMultiplePages1" href="#">Sharing Across Multiple Pages</a><br/>
 							<a t:type="pagelink" t:page="examples/state/SharingAcrossTheApplication" href="#">Sharing Across the Application</a><br/>
+						</div>
+						<div class="group">
+							<a t:type="pagelink" t:page="examples/navigation/WhatIsCalledAndWhen" href="#">What is Called and When</a><br/>
 						</div>
 					</td>
 					<td class="col">
@@ -117,9 +124,6 @@
 							<a t:type="pagelink" t:page="examples/infrastructure/ExceptionReportPage" href="#">Exception Report Page</a><br/>
 						</div>
 						<div class="group">
-							<a t:type="pagelink" t:page="examples/component/CoreInputComponents" href="#">Core Input Components</a><br/>
-							<a t:type="pagelink" t:page="examples/component/Html5InputTypes" href="#">HTML5 Input Types</a><br/>
-							<br/>
 							<a t:type="pagelink" t:page="examples/component/Kaptcha1" href="#">Kaptcha</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/select/Select" href="#">Select</a><br/>
@@ -328,9 +332,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 6.9.1">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 6.9.2">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 6.9.1">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 6.9.2">me</a>.<br/>
 		</div>
 	</td>
 	</tr>

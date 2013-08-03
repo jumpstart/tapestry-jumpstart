@@ -22,7 +22,7 @@
 	Test <a href="http://miketaylr.com/code/input-type-attr.html">your browser here</a>.
 	
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
+		<t:form t:id="inputs">
 			<table>
 				<tr>
 					<th>HTML5 input type</th>
@@ -31,78 +31,78 @@
 				</tr>
 				<tr>
 					<td class="name">search:</td>
-					<td><input t:type="TextField" t:id="searchValue" type="search"/></td>
+					<td><t:textfield t:id="searchValue" type="search"/></td>
 					<td>${searchValue}</td>
 				</tr>
 				<tr>
 					<td class="name">url:</td>
-					<td><input t:type="TextField" t:id="urlValue" type="url"/></td>
+					<td><t:textfield t:id="urlValue" type="url"/></td>
 					<td>${urlValue}</td>
 				</tr>
 				<tr>
 					<td class="name">tel:</td>
-					<td><input t:type="TextField" t:id="telValue" type="tel"/></td>
+					<td><t:textfield t:id="telValue" type="tel"/></td>
 					<td>${telValue}</td>
 				</tr>
 				<tr>
 					<td class="name">email:</td>
-					<td><input t:type="TextField" t:id="emailValue" type="email"/></td>
+					<td><t:textfield t:id="emailValue" type="email"/></td>
 					<td>${emailValue}</td>
 				</tr>
 				<tr>
 					<td class="name">datetime:</td>
-					<td><input t:type="TextField" t:id="datetimeValue" type="datetime"/></td>
+					<td><t:textfield t:id="datetimeValue" type="datetime"/></td>
 					<td>${datetimeValue}</td>
 				</tr>
 				<tr>
 					<td class="name">date:</td>
-					<td><input t:type="TextField" t:id="dateValue" type="date"/></td>
+					<td><t:textfield t:id="dateValue" type="date"/></td>
 					<td>${dateValue}</td>
 				</tr>
 				<tr>
 					<td class="name">month:</td>
-					<td><input t:type="TextField" t:id="monthValue" type="month"/></td>
+					<td><t:textfield t:id="monthValue" type="month"/></td>
 					<td>${monthValue}</td>
 				</tr>
 				<tr>
 					<td class="name">week:</td>
-					<td><input t:type="TextField" t:id="weekValue" type="week"/></td>
+					<td><t:textfield t:id="weekValue" type="week"/></td>
 					<td>${weekValue}</td>
 				</tr>
 				<tr>
 					<td class="name">time:</td>
-					<td><input t:type="TextField" t:id="timeValue" type="time"/></td>
+					<td><t:textfield t:id="timeValue" type="time"/></td>
 					<td>${timeValue}</td>
 				</tr>
 				<tr>
 					<td class="name">datetimelocal:</td>
-					<td><input t:type="TextField" t:id="datetimelocalValue" type="datetimelocal"/></td>
+					<td><t:textfield t:id="datetimelocalValue" type="datetimelocal"/></td>
 					<td>${datetimelocalValue}</td>
 				</tr>
 				<tr>
 					<td class="name">number:</td>
-					<td><input t:type="TextField" t:id="numberValue" type="number"/></td>
+					<td><t:textfield t:id="numberValue" type="number"/></td>
 					<td>${numberValue}</td>
 				</tr>
 				<tr>
 					<td class="name">range:</td>
-					<td><input t:type="TextField" t:id="rangeValue" type="range"/></td>
+					<td><t:textfield t:id="rangeValue" type="range"/></td>
 					<td>${rangeValue}</td>
 				</tr>
 				<tr>
 					<td class="name">color:</td>
-					<td><input t:type="TextField" t:id="colorValue" type="color"/></td>
+					<td><t:textfield t:id="colorValue" type="color"/></td>
 					<td>${colorValue}</td>
 				</tr>
 			</table><br/>
 			
 			<input type="submit" value="Submit"/>
-		</form>
+		</t:form>
 	</div>
 	
 	All the fields above are String, but TextField can be used with any class that has a Translator. See the Translator examples.<br/><br/> 
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
 	References:
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-TemplateDoctypes">Template Doctypes</a>, 
