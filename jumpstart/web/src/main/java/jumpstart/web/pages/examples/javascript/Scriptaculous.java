@@ -22,7 +22,7 @@ public class Scriptaculous {
 
 	// The code
 
-	public void setupRender() {
+	public void afterRender() {
 
 		// Add some JavaScript to the page to "grow" the element called "expando". It will run when the DOM has been
 		// fully loaded.

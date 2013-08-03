@@ -9,8 +9,8 @@
 <body>
 	<h1>Total Control Output</h1>
 	
-	This page demonstrates how to display an object without using BeanDisplay.  On the minus side, it takes more lines of 
-	template code.  On the plus side, you have total control of the	content, layout and style.
+	When you reach the limitations of BeanDisplay you can instead code up the template yourself. 
+	Now you have total control of the content, layout and style.  
 
 	<div class="eg">
 		<table>

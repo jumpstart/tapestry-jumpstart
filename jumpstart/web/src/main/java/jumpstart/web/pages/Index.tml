@@ -43,8 +43,8 @@
 				<tr>
 					<td class="col">
 						<div class="group">
-							<a t:type="pagelink" t:page="examples/start/HelloWorld" href="#">Hello World</a><br/>
-							<a t:type="pagelink" t:page="examples/start/HelloWorldExplained" href="#">Hello World Explained</a><br/>
+							<a t:type="pagelink" t:page="HelloWorld" href="#">Hello, World</a><br/>
+							<a t:type="pagelink" t:page="HelloWorldExplained" href="#">"Hello, World" Explained</a><br/>
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/output/Output" href="#">Output</a><br/>

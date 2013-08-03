@@ -33,12 +33,6 @@ public class Submits1 {
 	void onActivate() {
 		searchType = SearchType.CUSTOMERS;
 	}
-	
-	void onValidateFromSearch() {
-		if (searchType == SearchType.CANCEL) {
-			search.clearErrors();
-		}
-	}
 
 	void onSelectedFromSuppliers() {
 		searchType = SearchType.SUPPLIERS;
@@ -46,6 +40,12 @@ public class Submits1 {
 
 	void onSelectedFromCancel() {
 		searchType = SearchType.CANCEL;
+	}
+	
+	void onValidateFromSearch() {
+		if (searchType == SearchType.CANCEL) {
+			search.clearErrors();
+		}
 	}
 	
 	Object onSuccess() {

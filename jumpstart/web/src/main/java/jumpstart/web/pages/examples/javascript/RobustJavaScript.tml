@@ -13,20 +13,20 @@
 		${message:javascript_required}
 	</noscript> 	
 
-	A more robust solution is to tell the Tapestry.Initializer to instantiate our JavaScript classes.
+	To make a more robust solution, ask the Tapestry.Initializer to instantiate the JavaScript classes.
 	Tapestry.Initializer runs in the browser and brings the benefit of exception catching and reporting if initialization fails.
-	It also ensures things will work correctly not just in a full page render, but also during an AJAX partial page render.<br/>
+	It also ensures things will work correctly not just in a full page render, but also during an AJAX partial page render.<br/><br/>
+	
+ 	To make it even more robust, pass the <em>actual</em> client ids that Tapestry assigned to the 2 fields. 
+ 	There are situations in which the client id can be a surprise, particularly within a Loop or a Zone.
 	
 	<div class="eg">
 		<form t:type="form" t:autofocus="false">
-			<input t:type="TextField" t:id="firstName" t:clientid="prop:firstNameId"/>
-			<input t:type="TextField" t:id="lastName" t:clientid="prop:lastNameId"/><br/>
+			<input t:type="TextField" t:id="firstName"/>
+			<input t:type="TextField" t:id="lastName"/><br/>
 	 	</form>
 	</div>
 
- 	Another improvement we have made here is to ensure the client ids really are what we think they are: "firstName" and "lastName". 
- 	There are situations in which the default client id can be a surprise, particularly within a Loop or a Zone.<br/><br/>
-	
 	References: 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 

@@ -27,7 +27,7 @@ public class AjaxPeriodicUpdate {
 
 	// The code
 
-	public void setupRender() {
+	public void afterRender() {
 		javaScriptSupport.addInitializerCall("periodicTimeZoneUpdater", new JSONObject());
 	}
 

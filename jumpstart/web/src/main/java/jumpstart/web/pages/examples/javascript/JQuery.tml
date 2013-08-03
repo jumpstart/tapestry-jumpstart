@@ -22,8 +22,8 @@
 
 	<div class="eg">
 		<form t:type="form" t:autofocus="false">
-			<input t:type="TextField" t:id="firstName" t:clientid="prop:firstNameId"/>
-			<input t:type="TextField" t:id="lastName" t:clientid="prop:lastNameId"/><br/>
+			<input t:type="TextField" t:id="firstName"/>
+			<input t:type="TextField" t:id="lastName"/><br/>
 	 	</form>
 	 </div>
 

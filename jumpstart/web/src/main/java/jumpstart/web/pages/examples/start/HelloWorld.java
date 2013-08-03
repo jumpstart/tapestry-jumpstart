@@ -1,4 +1,10 @@
 package jumpstart.web.pages.examples.start;
 
-public class HelloWorld { 
+@Deprecated
+public class HelloWorld {
+
+	Object onActivate() {
+		return jumpstart.web.pages.HelloWorld.class;
+	}
+
 }

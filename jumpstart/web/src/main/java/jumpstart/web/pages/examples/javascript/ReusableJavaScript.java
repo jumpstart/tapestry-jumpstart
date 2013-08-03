@@ -24,7 +24,7 @@ public class ReusableJavaScript {
 
 	// The code
 
-	public void setupRender() {
+	public void afterRender() {
 
 		// Add some JavaScript to the page to instantiate a TextboxHint, twice. It will run when the DOM has been fully
 		// loaded.

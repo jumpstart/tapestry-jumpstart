@@ -12,14 +12,10 @@
 		${message}
 	</div>
 
-	If you look in the source code below you will see &#36;<code>{message}</code> in Output.tml and <code>getMessage()</code> in Output.java.<br/>
-	When Tapestry parsed Output.tml into HTML, it reached &#36;<code>{message}</code>, called <code>getMessage()</code>, 
-	and replaced &#36;<code>{message}</code> with the result.<br/><br/>
+	The general pattern for output in Tapestry is this: the class exposes named properties (ie. public getters), eg. <code>getMessage()</code>, 
+	and the template references them, eg. &#36;<code>{message}</code>.<br/><br/>
 
-	That's the general pattern for output in Tapestry: the class exposes named properties (ie. public getters) and the template references them.<br/><br/>
-
-	The reference &#36;<code>{message}</code> is called an 
-	<em><a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">expansion</a></em>.<br/><br/> 
+	The reference &#36;<code>{message}</code> is called an <em>expansion</em>.<br/><br/> 
 
 	<t:pagelink t:page="examples/output/Output" href="#">Refresh</t:pagelink><br/><br/>
 	

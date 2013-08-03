@@ -9,8 +9,8 @@
 <body>
 	<h1>Better Output</h1>
 
-	In the Output example, as Tapestry renders the template it calls <em>getMessage()</em> which generates a value "on the fly".<br/>
-	A more usual technique is to set up all property values once, before rendering, in the SetupRender phase.
+	The method <em>setupRender()</em> is a good place to set up page's output properties.<br/> 
+	In previous examples we set up <em>message</em> in <em>getMessage()</em>. Now we set it up once, in <em>setupRender()</em>.
 
 	<div class="eg">
 		${message}<br/>

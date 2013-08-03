@@ -9,19 +9,16 @@
 <body>
 	<h1>Methods</h1> 
 	
-	To do more you need to know about <strong>the methods that Tapestry looks for in each page</strong>.
+	As a page renders, it goes through phases. You can provide methods that Tapestry will call in those phases.  
 	Here are the most useful ones...<br/>
 
 	<ul>
-		<li><strong>onActivate()</strong> If your page has an <em>onActivate</em> method then Tapestry will call it when a request 
-		from a browser involves your page. <br/>
+		<li><strong>onActivate()</strong> Tapestry will call it when a request from a browser involves your page. <br/>
 		Behind the scenes, what happens is that Tapestry gets an instance of the page and triggers <em>activate</em> on it.<br/><br/></li>
 	
-		<li><strong>setupRender()</strong> If your page has a <em>setupRender</em> method then Tapestry will call it right 
-		before it starts rendering.<br/><br/></li>
+		<li><strong>setupRender()</strong> Tapestry will call it right before it starts rendering.<br/><br/></li>
 	
-		<li><strong>cleanupRender()</strong> If your page has a <em>cleanupRender</em> method then Tapestry will call it right 
-		after all the rendering has been done.<br/></li>
+		<li><strong>cleanupRender()</strong> Tapestry will call it immediately after all the rendering has been done.<br/></li>
 	</ul>
 	
 	Here is a demonstration:<br/>
@@ -30,8 +27,8 @@
 		message: "${message}".
 	</div>
 
-	Notice that the last string in the message is "getMessage() called... ". The message does not mention "cleanupRender()" 
-	because cleanupRender() is called AFTER the page has been rendered, but you will see "cleanupRender() called... " in the log.<br/><br/>
+	Why is "cleanupRender() called..." missing from the message? Because the message is rendered BEFORE cleanupRender() is called.<br/> 
+	However, "cleanupRender() called..." will be in the log.<br/><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">Rendering Phases</a>, 

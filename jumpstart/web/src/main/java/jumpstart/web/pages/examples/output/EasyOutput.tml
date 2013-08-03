@@ -9,8 +9,9 @@
 <body>
 	<h1>Easy Output (Using BeanDisplay)</h1>
 	
-	With just one line of code in the template the <strong>BeanDisplay</strong> component displays all the properties 
-	of a bean. Here it is displaying Person 1 from the database.
+	Tapestry has a really quick and easy way to output a bean: the <strong>BeanDisplay</strong> component. <br/><br/>
+	
+	Here is BeanDisplay showing us Person 1 from the database. 
 	
 	<div class="eg">
 		<t:beandisplay object="person"/>

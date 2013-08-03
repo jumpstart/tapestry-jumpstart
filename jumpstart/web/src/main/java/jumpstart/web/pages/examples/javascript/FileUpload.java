@@ -7,14 +7,17 @@ import jumpstart.web.services.IFiler;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Any;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
+import org.apache.tapestry5.upload.components.Upload;
 import org.apache.tapestry5.upload.services.UploadedFile;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
@@ -32,15 +35,6 @@ public class FileUpload {
 	@Persist(PersistenceConstants.FLASH)
 	private String successMessage;
 
-	@Property
-	private String fileId;
-
-	@Property
-	private String progressId;
-
-	@Property
-	private String resultId;
-
 	// Generally useful bits and pieces.
 	
 	@Inject
@@ -57,22 +51,25 @@ public class FileUpload {
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
+	
+	@Component(id = "file")
+	private Upload fileField;
+
+	@Component
+	private Any progress;
+
+	@Component
+	private Any result;
 
 	// The code
 	
-	void setupRender() {
-		fileId = "file";
-		progressId = "progress";
-		resultId = "result";
-	}
-
 	void afterRender() {
 		// Tell Tapestry to add some javascript that sets up our event handling.
 		// Tapestry will put it at the end of the page in a section that runs once the DOM has been loaded.
 		JSONObject spec = new JSONObject();
-		spec.put("fileId", fileId);
-		spec.put("progressId", progressId);
-		spec.put("resultId", resultId);
+		spec.put("fileId", fileField.getClientId());
+		spec.put("progressId", progress.getClientId());
+		spec.put("resultId", result.getClientId());
 		javaScriptSupport.addInitializerCall("fileUpload", spec);
 	}
 

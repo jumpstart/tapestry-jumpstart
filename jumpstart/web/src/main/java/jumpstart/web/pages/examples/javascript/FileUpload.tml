@@ -27,16 +27,16 @@
 				${fileSizeMaxMessage} 
 			</div>
 
-			<input t:type="Upload" t:id="file" t:clientid="prop:fileId" t:validate="required" onClick="fileUpload.hideResults();" t:disabled="demoMode"/><br/>
+			<input t:type="Upload" t:id="file" t:validate="required" onClick="fileUpload.hideResults();" t:disabled="demoMode"/><br/>
 			<input t:type="Submit" t:id="upload" value="Upload" onClick="fileUpload.showProgress();" t:disabled="demoMode"/><br/>
 
-			<div id="${progressId}" style="display: none;">
+			<div t:type="any" t:id="progress" style="display: none;">
 				${message:progress}
 				<button t:type="chenillekit/Button" class="cancel" type="button" t:pageName="prop:thisPageName" 
 					title="Cancel" onClick="this.form.reset(); return true;">Cancel</button>
 			</div>
 
-			<div id="${resultId}">
+			<div t:type="any" t:id="result">
 				<t:customerror for="file"/>
 				<div id="success">
 					${successMessage}

@@ -9,27 +9,25 @@
 <body>
 	<h1>Stylesheets</h1>
 
-	This page is styled by a stylesheet, <em>css/examples/stylesheets.css</em>. 
+	To specify stylesheet(s) for the page, use <code>&lt;link></code> tags in the template (see the source code below).<br/>
+	Use <em>context:</em> to mean the path of an asset relative to the root of the web application context.
 
 	<div class="eg">
 		${message}
 	</div>	
 
-	To specify which stylesheet to use we put a &lt;link> tag in the template (see the source code below).<br/>
-	Tapestry replaces <em>context:</em>, during render, with the right path to your web app context.<br/><br/> 
+	Tapestry has a default stylesheet which it slots into the output ahead of yours. This lets your styles add to the defaults and override them.<br/><br/>
+	
+	Tapestry's default stylesheet is called <em>default.css</em>.<br/><br/>
 	
 	A second way to specify which stylesheet to use is with the @Import annotation in the page class, eg. <code>@Import(stylesheet="context:css/examples/forms.css")</code><br/><br/>
-	
-	Tapestry has a default stylesheet, called <em>default.css</em>, which provides default style information for many of Tapestry's components <br/>
-	including Grid, BeanDisplay, BeanEdit, and Errors. The style names in the Tapestry components all start with <em>t-</em>, eg. <em>t-error</em>. <br/><br/>
-	
-	As Tapestry renders the page, it outputs a link to the default stylesheet before it outputs links to yours, so yours can override the defaults.<br/><br/>
 	
 	Tapestry can automatically load an alternative stylesheet for Internet Explorer. For more information see the references.<br/><br/>
 	
 	References: 
 	<a href="http://www.w3.org/Style/CSS/">Cascading Style Sheet</a>, 
 	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>, 
+	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Context%3ABindings">Context: Bindings</a>, 
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

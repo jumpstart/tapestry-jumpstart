@@ -9,14 +9,9 @@
 <body>
 	<h1>Annotations</h1> 
 	
-	Tapestry doesn't just look for particular method names, it also looks for particular annotations. Here are some useful ones...<br/>
+	Tapestry doesn't just look for particular method names, it also looks for particular method annotations. Here are some for phases:<br/>
 
 	<ul>
-		<li><strong>@Property.</strong> If you put this annotation on a field then Tapestry will invisibly provide 
-			a getter and setter for the field.<br/>  
-			You can make the property read-only or write-only - 
-			see <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.<br/><br/></li>
-
 		<li><strong>@OnEvent(value = EventConstants.ACTIVATE).</strong> You can put this annotation on a method instead of naming 
 			the method <em>onActivate</em>.<br/><br/></li>
 			
@@ -24,10 +19,18 @@
 			<em>setupRender</em>.<br/><br/></li>
 			
 		<li><strong>@CleanupRender.</strong> You can put this annotation on a method instead of naming the method 
-			<em>cleanupRender</em>.<br/><br/></li>
-			
-		<li><strong>@Log.</strong> If you put this annotation on a method then Tapestry will write to the log, at DEBUG level, 
-			as it enters and exits the method. Parameter values and the method's return value are logged too.<br/></li>
+			<em>cleanupRender</em>.<br/></li>
+	</ul>
+	
+	Here are some other useful annotations:<br/>
+
+	<ul>
+		<li><strong>@Property.</strong> A field annotation. Tapestry will invisibly provide a getter and setter for the field.<br/> 
+			You can make the property read-only or write-only - 
+			see <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.<br/><br/></li>
+
+		<li><strong>@Log.</strong> A method annotation. Tapestry will write to the log, at DEBUG level, as it enters and exits the method.<br/> 
+			Tapestry will also log the parameter values and the method's return value.<br/></li>
 	</ul>
 	
 	Here is a demonstration:<br/>
