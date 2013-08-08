@@ -9,7 +9,7 @@
 <body>
 	<h1>Page Links (2)</h1>
 	
-	Look at the URL of this page. It is the page render request from the PageLink.<br/>
+	Look at the URL of this page. It is the request from the PageLink - a <em>page render request</em>.<br/>
 	A page render request asks Tapestry to get an instance of a particular page, activate it, render the output and return it.<br/><br/>
 
 	References:	

@@ -9,7 +9,7 @@
 <body>
 	<h1>Page Links (1)</h1>
 	
-	Clicking on a <strong>PageLink</strong> sends a <strong>page render request</strong>, which is a request to output a particular page.<br/><br/> 
+	To output a link to another page, use <strong>PageLink</strong>. It sends a <strong>page render request</strong>, which is a request to output a particular page.<br/><br/> 
   	
 	Here is a PageLink:
 	  

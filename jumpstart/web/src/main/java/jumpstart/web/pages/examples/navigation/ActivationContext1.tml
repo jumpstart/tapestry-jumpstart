@@ -9,7 +9,7 @@
 <body>
 	<h1>Activation Context (1)</h1>
 
-	A page can receive parameters just by specifying them in the method signature of its <em>activate</em> event handler. For example:
+	A page can receive parameters. Specify the parameters in the method signature of the <em>activate</em> event handler. For example:
 	
 	<code><pre>
 	void onActivate(Long personId) {

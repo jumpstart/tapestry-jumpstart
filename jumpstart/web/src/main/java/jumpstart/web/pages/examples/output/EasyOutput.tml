@@ -9,26 +9,26 @@
 <body>
 	<h1>Easy Output (Using BeanDisplay)</h1>
 	
-	Tapestry has a really quick and easy way to output a bean: the <strong>BeanDisplay</strong> component. <br/><br/>
-	
-	Here is BeanDisplay showing us Person 1 from the database. 
+	To display a <a href="http://en.wikipedia.org/wiki/JavaBeans">JavaBean</a> quickly and easily, use the <strong>BeanDisplay</strong> component. <br/><br/>
 	
 	<div class="eg">
 		<t:beandisplay object="person"/>
 	</div>
 	
-	Person is a JPA Entity Bean, retrieved from the database by PersonFinderService, which is an EJB3 Session Bean.<br/><br/>
-	
-	BeanDisplay is great for rapid prototyping, but it can be used for more than that because its parameters 
-	let you exclude fields, include fields, reorder fields, etc. Its styling can be overridden with CSS.<br/><br/> 
+	Shown above is a Person, which is a JPA Entity Bean. Person 1 was retrieved from the database by PersonFinderService.<br/><br/>
+
+	2 new things:
+	<ul>
+		<li><em>BeanDisplay</em>  A component which is great for rapid prototyping, but it can be used for more than that because
+			its parameters let you exclude fields, include fields, reorder fields, etc. Its styling can be overridden with CSS.</li>
+		<li><em>@EJB</em>  A JumpStart annotation which identifies Session Beans. It is explained later in the @EJB example.</li>
+	</ul>	
 	
 	References: 
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
 	<a href="http://tapestry.apache.org/beaneditform-guide.html">Using BeanEditForm (sic)</a>.<br/><br/>
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
-	
-	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutput.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutput.java"/>
