@@ -4,6 +4,7 @@ package jumpstart.web.services;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
 
@@ -35,13 +36,20 @@ import org.slf4j.Logger;
 /**
  * A service that protects pages annotated with {@link jumpstart.web.annotation.ProtectedPage}. It examines each
  * {@link org.apache.tapestry5.services.Request} and redirects it to the login page if the request is for a
- * ProtectedPage and the user is not logged in.
+ * ProtectedPage and the user is not logged in. If the page also has the {@link javax.annotation.security.RolesAllowed}
+ * annotation then the user must belong to one of the listed roles.
  * <p>
  * To use this filter, contribute it to Tapestry's ComponentRequestHandler service as we do in AppModule.
  * 
  */
 public class PageProtectionFilter implements ComponentRequestFilter {
+	private static final String COMPONENT_PARAM_PREFIX = "t:";
+
 	private final String autoLoginStr = System.getProperty("jumpstart.auto-login");
+
+	private enum AuthCheckResult {
+		AUTHORISED, DENIED, RELOAD_XHR, AUTHENTICATE;
+	}
 
 	private final PageRenderLinkSource pageRenderLinkSource;
 	private final ComponentSource componentSource;
@@ -53,7 +61,7 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 
 	/**
 	 * Receive all the services needed as constructor arguments. When we bind this service, T5 IoC will provide all the
-	 * services!
+	 * services.
 	 */
 	public PageProtectionFilter(PageRenderLinkSource pageRenderLinkSource, ComponentSource componentSource,
 			Request request, Response response, ApplicationStateManager asm, Logger logger) {
@@ -66,33 +74,76 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		this.businessServicesLocator = null;
 	}
 
+	@Override
 	public void handlePageRender(PageRenderRequestParameters parameters, ComponentRequestHandler handler)
 			throws IOException {
 
-		if (isAuthorisedToPage(parameters.getLogicalPageName(), parameters.getActivationContext())) {
+		AuthCheckResult result = checkAuthorityToPage(parameters.getLogicalPageName());
+
+		if (result == AuthCheckResult.AUTHORISED) {
 			handler.handlePageRender(parameters);
 		}
-		else {
-			// The method will have redirected us to the Login page or the PageDenied page
+		else if (result == AuthCheckResult.DENIED) {
+			// The method will have set the response to redirect to the PageDenied page.
 			return;
+		}
+		else if (result == AuthCheckResult.AUTHENTICATE) {
+
+			// Redirect to the Login page, with memory of the request.
+
+			Link requestedPageLink = createLinkToRequestedPage(parameters.getLogicalPageName(),
+					parameters.getActivationContext());
+			Link loginPageLink = createLoginPageLinkWithMemory(requestedPageLink);
+
+			response.sendRedirect(loginPageLink);
+		}
+		else {
+			throw new IllegalStateException(result.toString());
 		}
 
 	}
 
+	@Override
 	public void handleComponentEvent(ComponentEventRequestParameters parameters, ComponentRequestHandler handler)
 			throws IOException {
 
-		if (isAuthorisedToPage(parameters.getActivePageName(), parameters.getEventContext())) {
+		AuthCheckResult result = checkAuthorityToPage(parameters.getActivePageName());
+
+		if (result == AuthCheckResult.AUTHORISED) {
 			handler.handleComponentEvent(parameters);
 		}
-		else {
-			// The method will have redirected us to the Login page or the PageDenied page
+		else if (result == AuthCheckResult.DENIED) {
+			// The method will have set the response to redirect to the PageDenied page.
 			return;
+		}
+		else if (result == AuthCheckResult.RELOAD_XHR) {
+			
+			// Return an AJAX response that reloads the page.
+			
+			Link requestedPageLink = createLinkToRequestedPage(parameters.getActivePageName(),
+					parameters.getPageActivationContext());
+			OutputStream os = response.getOutputStream("application/json;charset=UTF-8");
+			os.write(("{\"redirectURL\":\"" + requestedPageLink.toAbsoluteURI() + "\"}").getBytes());
+			os.close();
+			return;
+		}
+		else if (result == AuthCheckResult.AUTHENTICATE) {
+
+			// Redirect to the Login page, with memory of the request.
+
+			Link requestedPageLink = createLinkToRequestedPage(parameters.getActivePageName(),
+					parameters.getPageActivationContext());
+			Link loginPageLink = createLoginPageLinkWithMemory(requestedPageLink);
+
+			response.sendRedirect(loginPageLink);
+		}
+		else {
+			throw new IllegalStateException(result.toString());
 		}
 
 	}
 
-	public boolean isAuthorisedToPage(String requestedPageName, EventContext eventContext) throws IOException {
+	public AuthCheckResult checkAuthorityToPage(String requestedPageName) throws IOException {
 
 		// Does the page have security annotations @ProtectedPage or @RolesAllowed?
 
@@ -110,58 +161,40 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		// If page is public (ie. not protected), then everyone is authorised to it so allow access
 
 		if (!protectedPage) {
-			return true;
+			return AuthCheckResult.AUTHORISED;
 		}
 
-		// Else if request is AJAX with no session, return an AJAX response that forces reload of the page
+		// If request is AJAX with no session, return an AJAX response that forces reload of the page
 
-		else if (request.isXHR() && request.getSession(false) == null) {
-			OutputStream os = response.getOutputStream("application/json;charset=UTF-8");
-			os.write("{\"script\":\"window.location.reload();\"}".getBytes());
-			os.flush();
-			return false;
+		if (request.isXHR() && request.getSession(false) == null) {
+			return AuthCheckResult.RELOAD_XHR;
 		}
 
-		// Else if user has already been authenticated (ie. already logged in)...
+		// If user has not been authenticated, disallow.
 
-		else if (isAuthenticated()) {
-
-			// If user is authorised to the page, then all is well so allow access
-
-			if (isAuthorised(rolesAllowed)) {
-				return true;
-			}
-
-			// Else, redirect to the PageDenied page
-
-			else {
-				Link pageProtectedLink = pageRenderLinkSource.createPageRenderLinkWithContext(PageDenied.class,
-						requestedPageName);
-				response.sendRedirect(pageProtectedLink);
-				return false;
-			}
+		if (!isAuthenticated()) {
+			return AuthCheckResult.AUTHENTICATE;
 		}
 
-		// Else... go to the Login page
+		// If user is authorised to the page, then all is well.
 
-		else {
-
-			// Get the Login page, give it a link to the requested page, and redirect to Login
-
-			IIntermediatePage loginPage = (IIntermediatePage) componentSource.getPage(Login.class);
-
-			Link requestedPageLink = makeLinkToRequestedPage(requestedPageName, eventContext);
-			loginPage.setNextPageLink(requestedPageLink);
-
-			Link loginPageLink = pageRenderLinkSource.createPageRenderLink(Login.class);
-			response.sendRedirect(loginPageLink);
-
-			return false;
+		if (isAuthorised(rolesAllowed)) {
+			return AuthCheckResult.AUTHORISED;
 		}
+
+		// Fell through, so redirect to the PageDenied page.
+
+		Link pageProtectedLink = pageRenderLinkSource.createPageRenderLinkWithContext(PageDenied.class,
+				requestedPageName);
+		response.sendRedirect(pageProtectedLink);
+		return AuthCheckResult.DENIED;
 
 	}
 
-	private Link makeLinkToRequestedPage(String requestedPageName, EventContext eventContext) {
+	private Link createLinkToRequestedPage(String requestedPageName, EventContext eventContext) {
+
+		// Create a link to the page you wanted.
+
 		Link linkToRequestedPage;
 
 		if (eventContext instanceof EmptyEventContext) {
@@ -173,6 +206,17 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 				args[i] = eventContext.get(String.class, i);
 			}
 			linkToRequestedPage = pageRenderLinkSource.createPageRenderLinkWithContext(requestedPageName, args);
+		}
+
+		// Add any activation request parameters (AKA query parameters).
+
+		List<String> parameterNames = request.getParameterNames();
+
+		for (String parameterName : parameterNames) {
+			linkToRequestedPage.removeParameter(parameterName);
+			if (!parameterName.startsWith(COMPONENT_PARAM_PREFIX)) {
+				linkToRequestedPage.addParameter(parameterName, request.getParameter(parameterName));
+			}
 		}
 
 		return linkToRequestedPage;
@@ -260,6 +304,15 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		catch (Exception e) {
 			throw new IllegalStateException(e);
 		}
+	}
+
+	private Link createLoginPageLinkWithMemory(Link requestedPageLink) {
+
+		IIntermediatePage loginPage = (IIntermediatePage) componentSource.getPage(Login.class);
+		loginPage.setNextPageLink(requestedPageLink);
+		Link loginPageLink = pageRenderLinkSource.createPageRenderLink(Login.class);
+
+		return loginPageLink;
 	}
 
 	private ISecurityFinderServiceLocal getSecurityFinderService() {

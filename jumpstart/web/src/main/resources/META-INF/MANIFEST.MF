@@ -4,8 +4,8 @@ Created-By: 1.5.0_05-48 ("Apple Computer, Inc.")
 Package: jumpstart.web
 Extension-Name: jumpstart
 Specification-Title: jumpstart
-Specification-Version: 6.10.0
+Specification-Version: 6.10.1
 Specification-Vendor: JumpStart
 Implementation-Title: jumpstart
-Implementation-Version: 6.10.0
+Implementation-Version: 6.10.1
 Implementation-Vendor: JumpStart
