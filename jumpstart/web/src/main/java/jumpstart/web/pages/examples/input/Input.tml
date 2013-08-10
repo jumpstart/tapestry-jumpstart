@@ -9,7 +9,7 @@
 <body>
 	<h1>Input</h1>
 
-	The previous examples have been about <strong>output</strong>, usually in response to a <strong>page render request</strong>.<br/>
+	The previous examples have been about <strong>output</strong>, usually in response to a <strong>render request</strong>.<br/>
 	Your page can handle these requests by providing <em>setupRender()</em>, <em>cleanupRender()</em>, <em>onPassivate()</em>, etc.<br/><br/> 
 	
 	Now we look at <strong>input</strong>. In Tapestry, input is sent to the server in a <strong>component event request</strong>.<br/>

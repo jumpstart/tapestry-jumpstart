@@ -41,10 +41,11 @@
 
 	References: 
 	<a href="http://tapestry.apache.org/annotations.html">Annotations</a>, 
-	<a href="http://tapestry.apache.org/logging.html">Logging</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">Rendering Phases</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
-	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-CleanupRender">CleanupRender</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-CleanupRender">CleanupRender</a>, 
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
+	<a href="http://tapestry.apache.org/logging.html">Logging</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

@@ -2,7 +2,7 @@ package jumpstart.web.pages.examples.state;
 
 /**
  * This page demonstrates using the activation context to remember data through the redirect.
- * The data will be appended to the page render request URL.
+ * The data will be appended to the render request URL.
  */
 public class PassingByActivationContext {
 

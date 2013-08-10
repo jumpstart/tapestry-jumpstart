@@ -7,7 +7,7 @@ import org.apache.tapestry5.services.PageRenderLinkSource;
 
 /**
  * This page demonstrates using a query string to remember data through the redirect. The data will be appended to
- * the page render request URL as a query string.
+ * the render request URL as a query string.
  */
 public class PassingByQueryString {
 

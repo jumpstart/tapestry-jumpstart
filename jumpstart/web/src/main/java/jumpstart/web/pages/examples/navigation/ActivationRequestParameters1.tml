@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Activation Request Parameters (1)</h1>
+
+	A render request can include query parameters in key=value fashion. To make a PageLink include query parameters, use its <code>parameters</code> parameter.
+	
+  	<div class="eg">
+		<t:pagelink t:page="examples/navigation/ActivationRequestParameters2" t:parameters="queryParams">Show Person ${personId}</t:pagelink><br/>
+	</div>
+	
+	That link will have a URL like this: <code>http://thehost/jumpstart/examples/navigation/activationrequestparameters2?personid=1</code><br/><br/>
+	
+	Click the link above to learn more.<br/><br/>
+	
+	References:	
+	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+    <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Render Requests</a>, 
+	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>.<br/><br/>
+
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters1.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters1.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

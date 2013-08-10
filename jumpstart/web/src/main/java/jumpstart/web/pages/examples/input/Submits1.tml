@@ -37,7 +37,7 @@
 	If "Search Suppliers" is clicked, server-side the Form will notify the "suppliers" Submit component which will "bubble up" the SELECTED event.<br/>
 	If "Cancel" is clicked, server-side the Form will notify the "cancel" Submit component which will ""bubble up" the SELECTED event.<br/><br/>
 
-	The request from either button is an HTTP POST with a URL like this: <code>http://myhost/jumpstart/examples/input/submits1.search</code><br/><br/>
+	The request from either button is an HTTP POST with a URL like this: <code>http://thehost/jumpstart/examples/input/submits1.search</code><br/><br/>
 
 	References: <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>,
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>,

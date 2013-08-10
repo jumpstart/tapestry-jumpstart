@@ -13,7 +13,7 @@
 	<h1>Passing Data Between Pages</h1>
 	
 	Tapestry's policy of doing <a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get</a> can make it a 
-	bit tricky for a page to pass data to the next page.<br/>	
+	bit tricky for an event request to result in data being passed to the next page.<br/>	
 	Here are 5 ways to do it:<br/>
 
 	<ul>

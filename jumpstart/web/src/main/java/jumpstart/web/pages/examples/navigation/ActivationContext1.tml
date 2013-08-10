@@ -9,30 +9,25 @@
 <body>
 	<h1>Activation Context (1)</h1>
 
-	A page can receive parameters. Specify the parameters in the method signature of the <em>activate</em> event handler. For example:
-	
-	<code><pre>
-	void onActivate(Long personId) {
-		this.personId = personId;
-	}</pre></code>
-	
-	Tapestry calls these parameters the <strong>activation context</strong>.<br/><br/> 
-
-	Here is a PageLink passing an activation context of <em>1</em>: 
+	A render request can include parameters. To make a PageLink include parameters, use its <code>context</code> parameter.<br/>
 	
   	<div class="eg">
-		<t:pagelink t:page="examples/navigation/ActivationContext2" t:context="literal:1">Show Person 1</t:pagelink><br/>
+		<t:pagelink t:page="examples/navigation/ActivationContext2" t:context="personId">Show Person ${personId}</t:pagelink><br/>
 	</div>
 	
-	The request is an HTTP GET with a URL like this: 
-	<code>http://myhost/jumpstart/examples/navigation/activationcontext2/1</code><br/>
-	PageLink extends the URL path with <em>/1</em>.<br/><br/>
+	That link will have a URL like this: <code>http://thehost/jumpstart/examples/navigation/activationcontext2/1</code> .<br/> 
+	The parameter is at the end.<br/><br/>
+	
+	To pass a list of parameters, use square brackets and commas. For example <code>t:context="[personId,literal:view]"</code>.<br/>
+	The URL would be like this: <code>http://thehost/jumpstart/examples/navigation/activationcontext2/1/view</code> .<br/><br/>
+	
+	Click the link above to learn more.<br/><br/>
 	
 	References:	
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
-	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Page Render Requests</a>, 
-	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>, 
-	list in <a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Property Expression Grammar</a>.<br/><br/>
+    <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Render Requests</a>, 
+	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>, 
+	<a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Grammar</a>.<br/><br/>
 
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	

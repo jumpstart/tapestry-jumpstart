@@ -39,11 +39,12 @@
 
 	4 new things:
 	<ul>
-		<li><em>Property expressions</em> Used in property expansions and component parameters. 
+		<li><em>Property expressions</em> Used in expansions and component parameters. 
 			For example, <code>person.id</code> is equivalent to <code>getPerson().getId()</code>.</li>
 		<li><em>Output</em> A component for formatting output.</li>
-		<li><em>@Inject</em> A field-level annotation. We use it ask Tapestry to inject its Messages service at runtime.</li>
-		<li><em>Messages</em> A service that provides access to properties files. We use it to find <em>TotalControlOutput.properties</em> to convert enums to text.</li>
+		<li><em>@Inject</em> A field annotation. We use it ask Tapestry to inject its Messages service at runtime.</li>
+		<li><em>Messages</em> A service that provides access to properties files. We use it to convert the enum to a message. 
+			It looks first for <em>TotalControlOutput.properties</em> and finds it.</li>
 	</ul>	
 	
 	References: 

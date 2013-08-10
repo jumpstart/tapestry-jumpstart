@@ -9,16 +9,18 @@
 <body>
 	<h1>Page Links (1)</h1>
 	
-	To output a link to another page, use <strong>PageLink</strong>. It sends a <strong>page render request</strong>, which is a request to output a particular page.<br/><br/> 
+	To output a link to another page, use <strong>PageLink</strong>. It will produce the HTML for a link with the correct URL.<br/><br/>
   	
-	Here is a PageLink:
+	Here is the output of a PageLink:
 	  
   	<div class="eg">
-		<t:pagelink page="examples/navigation/PageLinks2">Go to the page called PageLinks2</t:pagelink><br/>
+		<t:pagelink page="examples/navigation/PageLinks2">A link to examples/navigation/PageLinks2</t:pagelink><br/>
 	</div>
 	
-	The request is an HTTP GET with a URL like this: 
-	<code>http://myhost/jumpstart/examples/navigation/pagelinks2</code><br/><br/>
+	That link will have a URL like this: <code>http://thehost/jumpstart/examples/navigation/pagelinks2</code> .<br/>
+	When clicked it will send an HTTP GET. <br/><br/>
+	
+	Click it to learn more.<br/><br/>
 
 	References:	
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 

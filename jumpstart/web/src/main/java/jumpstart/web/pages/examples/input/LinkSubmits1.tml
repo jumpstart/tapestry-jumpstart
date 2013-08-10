@@ -31,7 +31,7 @@
 	 	</form>
 	</div>
  	
- 	The request is an HTTP POST with a URL like this: <code>http://myhost/jumpstart/examples/input/linksubmits1.names</code><br/><br/>
+ 	The request is an HTTP POST with a URL like this: <code>http://thehost/jumpstart/examples/input/linksubmits1.names</code><br/><br/>
 
 	References:	
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/LinkSubmit.html">LinkSubmit</a>, 

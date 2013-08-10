@@ -60,6 +60,7 @@
 							<a t:type="pagelink" t:page="examples/navigation/PageLinks1" href="#">PageLinks</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/navigation/ActivationContext1" href="#">Activation Context</a><br/>
+							<a t:type="pagelink" t:page="examples/navigation/ActivationRequestParameters1" href="#">Activation Request Parameters</a><br/>
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/input/Input" href="#">Input</a><br/>

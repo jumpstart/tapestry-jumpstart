@@ -13,11 +13,11 @@
 		Welcome ${name}!
 	</div>	
 		
-	Look at the URL of this page. It is the page render request we have been redirected to, rather than the component event 
+	Look at the URL of this page. It is the render request we have been redirected to, rather than the component event 
 	request from the Form.<br/>
 	That means it is safe to refresh, bookmark, or return to this page with the Back button - the event won't be sent again.<br/><br/>
 	
-	Why do we have an <em>onPassivate()</em> method? Well, when Tapestry generated a <em>page render request</em> from Forms1 to this 
+	Why do we have an <em>onPassivate()</em> method? Well, when Tapestry generated a <em>render request</em> from Forms1 to this 
 	page, it needed this page's activation context. It got it by triggering the <em>passivate</em> event on this page and it is the duty 
 	of a <em>passivate</em> event handler to return the activation context, which our <em>onPassivate()</em> does.<br/><br/>
 	

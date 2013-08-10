@@ -22,8 +22,8 @@
 	3 new things in this example, and which you will see often in Tapestry pages:
 	<ul>
 		<li><em>setupRender()</em>  A method which, if present, will be called by Tapestry during its <em>SetupRender</em> phase.</li>
-		<li><em>@Property</em>  A field-level annotation that creates getter and setter methods at runtime.</li>
-		<li><em>context:</em>  In an expansion, Tapestry replaces it with the path to the root of the web application context.</li> 
+		<li><em>@Property</em>  A field annotation that creates getter and setter methods at runtime.</li>
+		<li><em>context:</em>  Used in expansions and component parameters, Tapestry replaces it with the path to the root of the web application context.</li> 
 	</ul>	
 	
 	<t:pagelink t:page="examples/output/BetterOutput" href="#">Refresh</t:pagelink><br/><br/>
@@ -31,7 +31,9 @@
 	References: 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
-    <a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Context%3ABindings">Context: Bindings</a>.<br/><br/>
+    <a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Context%3ABindings">Context: Bindings</a>, 
+    <a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">Expansions</a>, 
+    <a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-bindingexpressions">Binding Expressions</a>.<br/><br/>
 	
 	<t:pagelink page="Index" href="#">Home</t:pagelink><br/><br/>
 
