@@ -33,8 +33,8 @@
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Input.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Input.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
 </body>
 </html>
