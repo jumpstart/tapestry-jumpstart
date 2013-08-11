@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+</head>
+<body>
+	<h1>Input and Events</h1>
+	
+	Input to the page, such as submitting a form, is sent to the server as a <strong>component event request</strong>.<br/><br/>
+
+	The 2 most used components for sending component event requests are:<br/>
+
+	<ul>
+		<li><strong>Form</strong>  When submitted, the request carries your input to the corresponding Form on the server.</li>
+		<li><strong>EventLink</strong>  When clicked, the request carries an event name and parameters to the corresponding EventLink on the server.</li>
+	</ul>
+
+	Others include ActionLink and GridPager.<br/><br/>
+	
+	When we use <strong>Ajax</strong>, things are different: <strong><em>every</em> component can send a component event request!</strong> We'll look at Ajax later.<br/><br/>
+	
+	<strong>What handles the requests?</strong><br/>
+	This is key: Tapestry directs component event requests back to <em>the same</em> page class and component class <em>that rendered</em> the page and component.<br/>
+	The result is that it's very easy to understand and manage how a Tapestry application fits together.<br/><br/>
+	
+	References:	
+	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
+	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax</a>.<br/><br/>
+	
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
+
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Input.tml"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Input.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+</body>
+</html>

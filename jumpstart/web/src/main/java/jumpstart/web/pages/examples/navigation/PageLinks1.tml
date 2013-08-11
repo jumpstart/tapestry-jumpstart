@@ -20,7 +20,7 @@
 	That link will have a URL like this: <code>http://thehost/jumpstart/examples/navigation/pagelinks2</code> .<br/>
 	When clicked it will send an HTTP GET. <br/><br/>
 	
-	Click it to learn more.<br/><br/>
+	We call this form of request a <strong>render request</strong>. Click the link above to learn more.<br/><br/>
 
 	References:	
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 

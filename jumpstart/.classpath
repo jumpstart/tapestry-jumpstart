@@ -19,7 +19,7 @@
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-bootstrap-2.1.3.jar" sourcepath="web/src/main/lib-compile/tapestry-bootstrap-2.1.3.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/plastic-5.3.7.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-beanvalidator-5.3.7.jar"/>
-	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-core-5.3.7.jar"/>
+	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-core-5.3.7.jar" sourcepath="/devel/apache-tapestry-5.3.7-sources.zip"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-func-5.3.7.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-ioc-5.3.7.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-json-5.3.7.jar"/>

@@ -14,9 +14,12 @@
 	probably not needed any more</a>, but 
 	<a href="http://tapestry.1045711.n5.nabble.com/EventLInk-vs-ActionLink-td3390203.html">ActionLink is still supported</a>, so here we go...<br/><br/>
 	
-	Clicking on an <strong>ActionLink</strong> sends a <strong>component event request</strong> that asks its server-side 
-	counterpart to "bubble" up the event <em>action</em>.<br/>
-	Here is an example with 3 ActionLinks:<br/>
+	The first big difference between ActionLink and EventLink is:
+	<ul>
+		<li>Every ActionLink sends its id, not an event name.</li>
+	</ul>
+
+	Here are 3 ActionLinks that have ids <em>addX</em>, <em>addY</em>, and <em>clear</em>:
 		
 	<div class="eg"> 
 		Count = ${count}. <br/>
@@ -25,27 +28,18 @@
 		<t:actionlink t:id="clear">Clear</t:actionlink>
 	</div>	  
 
-	Their requests are sent as HTTP GETs and they look like this:<br/><br/>
-	 
-	<code>http://thehost/jumpstart/examples/input/actionlinks:addx/1?t:ac=n</code><br/>
-	<code>http://thehost/jumpstart/examples/input/actionlinks:addy/2?t:ac=n</code><br/>
-	<code>http://thehost/jumpstart/examples/input/actionlinks:clear?t:ac=n</code><br/><br/>
-
-	The server-side ActionLink "bubbles up" the event <em>action</em>, which we handle with <em>onActionFromAddX()</em>, etc.<br/>
-	The handlers return void which means stay on this page. There are alternatives that we will show later.<br/><br/>
-
-	Now, what happens next may surprise you. Tapestry does not then render the page and return it. Why not? Because Tapestry 
-	uses the <a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get</a> pattern: it generates a 
-	<strong>render request</strong> URL to the next page and returns it to the browser as a redirect, an 
-	<a href="http://en.wikipedia.org/wiki/HTTP_302">HTTP 302</a>. So when the next page shows, its URL will NOT be the URL 
-	that triggered the event.  Instead, it will be a URL that is safe to reload, or bookmark, or return to with the Back button. 
-	The cost is 2 trips to the server, but it's worth it.<br/><br/>
+	The links above have URLs like these:
+	<ul>
+		<li><code>http://thehost/jumpstart/examples/input/actionlinks:addx/1?t:ac=n</code></li>
+		<li><code>http://thehost/jumpstart/examples/input/actionlinks:addy/2?t:ac=n</code></li>
+		<li><code>http://thehost/jumpstart/examples/input/actionlinks:clear?t:ac=n</code></li>
+	</ul>
 	
-	Actually, clicking on an ActionLink link sends a GET, not a POST, so it's actually a Get/Redirect/Get!<br/><br/> 
-	
-	Why do we have an <em>onPassivate()</em> method? Well, for Tapestry to generate a <em>render request</em> (see above) 
-	it needs the page's activation context. It gets it by triggering the <em>passivate</em> event on the page and it expects 
-	the <em>passivate</em> event handler to return the activation context, which our <em>onPassivate()</em> does.<br/><br/>
+	Two other big differences between ActionLink and EventLink are:
+	<ul>
+		<li>When one of these URLs reaches the server-side, ActionLink "bubbles up" the event <em>Action</em>.</li>
+		<li>To distinguish between <em>action</em> events, a handler must specify the originating component name, eg. <em>onActionFromAddX</em>.</li>
+	</ul>
 
 	References:	
 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
