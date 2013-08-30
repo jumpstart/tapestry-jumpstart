@@ -2,7 +2,7 @@
 <!-- We need a doctype to allow us to use special characters like &nbsp; 
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
-<html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:User" t:title="literal:View User" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:User" t:title="literal:View User" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <div class="contentblock">
 	<h1>View User</h1>
 	<t:if test="user">

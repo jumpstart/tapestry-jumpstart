@@ -5,6 +5,7 @@ import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.ValidationException;
 import org.apache.tapestry5.ioc.MessageFormatter;
 import org.apache.tapestry5.services.FormSupport;
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.validator.AbstractValidator;
 
 /**
@@ -12,8 +13,8 @@ import org.apache.tapestry5.validator.AbstractValidator;
  */
 public class Letters extends AbstractValidator<Void, String> {
 
-	public Letters() {
-		super(null, String.class, "validate-letters");
+	public Letters(JavaScriptSupport javaScriptSupport) {
+		super(null, String.class, "validate-letters", javaScriptSupport);
 	}
 
 	/**

@@ -1,4 +1,4 @@
-<html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:Role" t:title="literal:Edit Role" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:Role" t:title="literal:Edit Role" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <div class="contentblock">
 	<h1>Edit Role</h1>
 	<form t:type="form" t:id="form">

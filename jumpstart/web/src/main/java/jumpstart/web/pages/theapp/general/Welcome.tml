@@ -1,4 +1,4 @@
-<html t:type="theapp/layout" title="literal:Welcome" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html t:type="theapp/layout" title="literal:Welcome" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 	<t:remove>
 	 	<link rel="stylesheet" type="text/css" href="../../../css/theapp/global.css"/>
 	</t:remove>

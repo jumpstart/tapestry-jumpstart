@@ -2,7 +2,7 @@
 <!-- We need a doctype to allow us to use special characters like &nbsp; 
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
 	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/loopwithdeletecolumn.css}"/>
 </head>

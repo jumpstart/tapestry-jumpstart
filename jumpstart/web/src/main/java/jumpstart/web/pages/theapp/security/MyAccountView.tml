@@ -1,4 +1,4 @@
-<html t:type="theapp/layout" t:tab="literal:NONE" t:title="literal:View User" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html t:type="theapp/layout" t:tab="literal:NONE" t:title="literal:View User" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <div class="contentblock">
 	<h1>View My Account</h1>
 	<table class="recordblock" border="0" cellspacing="0" cellpadding="0">

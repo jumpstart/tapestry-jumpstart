@@ -2,17 +2,17 @@
 <!-- We need a doctype to allow us to use special characters like &nbsp; 
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
 	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
 </head>
-<body>
+<body class="container">
 	<h1>Easy Output (Using BeanDisplay)</h1>
 	
-	To display a <a href="http://en.wikipedia.org/wiki/JavaBeans">JavaBean</a> quickly and easily, use the <strong>BeanDisplay</strong> component. <br/><br/>
+	To display a <a href="http://en.wikipedia.org/wiki/JavaBeans">JavaBean</a> with minimal effort, use the <strong>BeanDisplay</strong> component. <br/>
 	
 	<div class="eg">
-		<t:beandisplay object="person"/>
+		<t:beandisplay object="person" class="dl-horizontal"/>
 	</div>
 	
 	Shown above is a Person, which is a JPA Entity Bean. Person 1 was retrieved from the database by PersonFinderService.<br/><br/>

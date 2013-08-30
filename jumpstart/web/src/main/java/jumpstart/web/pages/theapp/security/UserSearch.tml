@@ -3,7 +3,7 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:User" t:title="literal:Search Users" 
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <div class="contentblock">
 	<h1>Search Users</h1>
 	<form t:type="form" t:id="form">

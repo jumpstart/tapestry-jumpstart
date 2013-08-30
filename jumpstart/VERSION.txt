@@ -1,4 +1,4 @@
 JumpStart VERSION
 ~~~~~~~~~~~~~~~~~
 
-Version 6.10.3
+Version 7.0-alpha-1

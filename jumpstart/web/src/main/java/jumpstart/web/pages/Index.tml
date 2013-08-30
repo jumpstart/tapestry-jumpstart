@@ -2,7 +2,7 @@
 <!-- We need a doctype to allow us to use special characters like &nbsp; 
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 
 <head>
 	<title>JumpStart Home</title>
@@ -30,8 +30,8 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 6.10.3</h1>
-				<h2>For Tapestry 5.3.7</h2>
+				<h1>JumpStart 7.0-alpha-1</h1>
+				<h2>For Tapestry 5.4-alpha-15</h2>
 			</div>
 		</div>
 	</td>
@@ -204,7 +204,10 @@
 							<a t:type="pagelink" t:page="examples/styling/SwitchableStylesheets" href="#">Switchable Stylesheets</a><br/>
 							<a t:type="pagelink" t:page="examples/styling/SkinningTheming" href="#">Skinning/Theming</a><br/>
 							<br/>
+							<!-- 
 							<a t:type="pagelink" t:page="examples/styling/BootstrapStyling" t:context="literal:1" href="#">Bootstrap Styling</a><br/>
+							 -->
+							<a href="#">Bootstrap Styling</a><br/>
 						</div>
 					</td>
 					<td class="col">
@@ -300,7 +303,9 @@
 							<a t:type="pagelink" t:page="examples/javascript/Scriptaculous" href="#">script.aculo.us</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/javascript/JQuery" href="#">jQuery</a><br/>
+							<!-- 
 							<a t:type="pagelink" t:page="examples/javascript/JQueryDataTables" href="#">jQuery DataTables</a><br/>
+							 -->
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/javascript/FileUpload" href="#">File Upload</a><br/>
@@ -332,9 +337,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 6.10.3">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0-alpha-1">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 6.10.3">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0-alpha-1">me</a>.<br/>
 		</div>
 	</td>
 	</tr>

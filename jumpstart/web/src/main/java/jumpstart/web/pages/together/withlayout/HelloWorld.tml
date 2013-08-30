@@ -1,5 +1,5 @@
 <html t:type="together/Layout1" t:title="literal:With Layout: Hello World" t:chosenOption="literal:Hello World"
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 	
 	<h1>Hello World!</h1>
 	 	

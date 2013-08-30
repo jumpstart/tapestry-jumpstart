@@ -1,4 +1,4 @@
-<html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:UserRole" t:title="literal:Create User Role" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:UserRole" t:title="literal:Create User Role" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <div class="contentblock">
 	<h1>Add User Role</h1>
 	<form t:type="form" t:id="form">

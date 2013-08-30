@@ -1,4 +1,4 @@
-<html t:type="examples/wizard/WizardUsingPagesLayout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html t:type="examples/wizard/WizardUsingPagesLayout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 
 	<form t:type="form" t:id="form">
 		<h2>Applying for Credit - Step 1: Start</h2>

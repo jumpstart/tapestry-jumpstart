@@ -1,5 +1,5 @@
 <html t:type="theapp/layout" t:tab="literal:Security" t:subtab="literal:Role" t:title="literal:Search Roles" 
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <div class="contentblock">
 	<h1>Roles</h1>
 	<form t:type="form" t:id="form">

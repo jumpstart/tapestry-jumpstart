@@ -4,7 +4,7 @@
 	 
 <!-- Based on org.apache.tapestry5.integration.app1.pages.TreeDemo -->
 
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
 	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
 </head>

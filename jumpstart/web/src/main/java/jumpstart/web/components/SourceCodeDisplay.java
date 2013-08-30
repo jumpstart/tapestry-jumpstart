@@ -8,24 +8,32 @@ import java.net.URL;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.MarkupWriter;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Context;
 
+@Import(stylesheet = "context:css/sourcecodedisplay.css")
 public class SourceCodeDisplay {
 	static private String LINE_SEPARATOR = System.getProperty("line.separator");
 
-	static private String STYLE_BOX = "margin: 10px 0px 0px 0px; background: #adffd6; padding: 8px; "
-			+ "border: 1px solid #ddd; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px;";
-
-	static private String STYLE_TITLE = "margin: -2px 0 0 0; text-align: left; font-family: Arial, Helvetica, sans-serif; "
-			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
-
-	static private String STYLE_SOURCE = "text-align: left; tab-stops: 5px; "
-			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
-
-	static private String STYLE_NOT_FOUND = "margin: 10px 0; font-family: Arial, Helvetica, sans-serif; "
-			+ "font-size: 12px; font-weight: normal; text-align: left; color: red;";
+//	static private String STYLE_BOX = "margin: 10px 0px 0px 0px; background: #adffd6; padding: 8px; "
+//			+ "border: 1px solid #ddd; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px;";
+//
+//	static private String STYLE_TITLE = "margin: -2px 0 0 0; text-align: left; font-family: Arial, Helvetica, sans-serif; "
+//			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
+//
+//	static private String STYLE_SOURCE = "text-align: left; tab-stops: 5px; "
+//			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
+//
+//	static private String STYLE_NOT_FOUND = "margin: 10px 0; font-family: Arial, Helvetica, sans-serif; "
+//			+ "font-size: 12px; font-weight: normal; text-align: left; color: red;";
+	
+	static private String STYLE_SOURCECODEDISPLAY = "sourcecodedisplay";
+	static private String STYLE_BOX = "box";
+	static private String STYLE_TITLE = "title";
+	static private String STYLE_SOURCE = "source";
+	static private String STYLE_NOT_FOUND = "not-found";
 	
 	static private int TAB_STOPS_WIDTH = 4;
 
@@ -47,10 +55,11 @@ public class SourceCodeDisplay {
 
 		// Print a div with style info to make a pretty block
 
-		writer.element("div", "style", STYLE_BOX);
+		writer.element("div", "class", STYLE_SOURCECODEDISPLAY);
+		writer.element("div", "class", STYLE_BOX);
 		writer.write(LINE_SEPARATOR);
 		{
-			writer.element("div", "style", STYLE_TITLE);
+			writer.element("div", "class", STYLE_TITLE);
 			writer.write(LINE_SEPARATOR);
 			{
 				writer.write(extractSimpleName(src));
@@ -71,6 +80,7 @@ public class SourceCodeDisplay {
 		// Print end of div
 
 		writer.write(LINE_SEPARATOR);
+		writer.end();
 		writer.end();
 
 		// Print end of source block
@@ -117,7 +127,7 @@ public class SourceCodeDisplay {
 	}
 
 	private void printSource(MarkupWriter writer, BufferedReader sourceReader) {
-		writer.element("div", "style", STYLE_SOURCE);
+		writer.element("div", "class", STYLE_SOURCE);
 		{
 			writer.element("pre", "style", "margin: 0;");
 			{
@@ -149,7 +159,7 @@ public class SourceCodeDisplay {
 	}
 
 	private void printResourceNotFound(MarkupWriter writer, String resourcePath) {
-		writer.element("div", "style", STYLE_NOT_FOUND);
+		writer.element("div", "class", STYLE_NOT_FOUND);
 		{
 			writer.write("The file was not found. Path given was " + resourcePath);
 		}

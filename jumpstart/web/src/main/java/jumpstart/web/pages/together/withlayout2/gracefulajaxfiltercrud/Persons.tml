@@ -3,7 +3,7 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html t:type="together/Layout2" t:title="literal:With Layout 2: Graceful AJAX Filter CRUD" t:chosenOption="literal:Graceful AJAX Filter CRUD"
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 	
 	<t:remove>
 		<!-- At runtime the stylesheet will be provided by the Layout. The link here is only to enable preview. -->

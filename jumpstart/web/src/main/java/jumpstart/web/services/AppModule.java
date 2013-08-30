@@ -31,10 +31,11 @@ import org.apache.tapestry5.services.EditBlockContribution;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.services.security.WhitelistAnalyzer;
 import org.apache.tapestry5.services.transform.ComponentClassTransformWorker2;
 import org.apache.tapestry5.upload.services.UploadSymbols;
-import org.got5.tapestry5.jquery.JQuerySymbolConstants;
+//import org.got5.tapestry5.jquery.JQuerySymbolConstants;
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
@@ -77,8 +78,9 @@ public class AppModule {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static void contributeFieldValidatorSource(MappedConfiguration<String, Validator> configuration) {
-		configuration.add("letters", new Letters());
+	public static void contributeFieldValidatorSource(MappedConfiguration<String, Validator> configuration,
+			JavaScriptSupport javaScriptSupport) {
+		configuration.add("letters", new Letters(javaScriptSupport));
 	}
 
 	public void contributeComponentMessagesSource(OrderedConfiguration<String> configuration) {
@@ -101,11 +103,11 @@ public class AppModule {
 	public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration) {
 		configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en_US,en_GB,fr");
 		// We have Tapestry5jQuery installed. Tell it we don't want it to suppress Prototype and Scriptaculous.
-		configuration.add(JQuerySymbolConstants.SUPPRESS_PROTOTYPE, "false");
+		// configuration.add(JQuerySymbolConstants.SUPPRESS_PROTOTYPE, "false");
 		// We don't use $j in our javascript - instead we use function scoping (see
 		// http://api.jquery.com/jQuery.noConflict/)
 		// but we need this next line to keep Tapestry happy (since Tapestry 5.3.4).
-		configuration.add(JQuerySymbolConstants.JQUERY_ALIAS, "$j");
+		// configuration.add(JQuerySymbolConstants.JQUERY_ALIAS, "$j");
 	}
 
 	// Tell Tapestry how to block access to WEB-INF/, META-INF/, and assets that are not in our assets "whitelist".
