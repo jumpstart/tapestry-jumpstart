@@ -47,6 +47,10 @@ public class MoneyTranslator implements Translator<BigDecimal> {
 		Locale locale = threadLocale.getLocale();
 		DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
 		
+		// ...with the right number of decimal places...
+		
+		decimalFormat.setMaximumFractionDigits(maxDecimalPlaces);
+
 		// ...without a currency symbol
 		
 		DecimalFormatSymbols decimalFormatSymbols = decimalFormat.getDecimalFormatSymbols();
