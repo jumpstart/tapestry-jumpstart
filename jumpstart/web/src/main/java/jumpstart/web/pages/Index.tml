@@ -48,10 +48,12 @@
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/styling/BootstrapStyling" href="#">Bootstrap Styling</a><br/>
 							<a t:type="pagelink" t:page="examples/styling/Stylesheets" href="#">Stylesheets</a><br/>
-							<br/>
+						</div>
+						<div class="group">
 							<a t:type="pagelink" t:page="examples/output/Output" href="#">Output</a><br/>
 							<a t:type="pagelink" t:page="examples/output/Better" href="#">Better Output</a><br/>
 							<a t:type="pagelink" t:page="examples/output/Easy" href="#">Easy Output (Using BeanDisplay)</a><br/>
+							<a t:type="pagelink" t:page="examples/output/EasyOutputEntityBean" href="#">Easy Output (Entity Bean)</a><br/>
 							<a t:type="pagelink" t:page="examples/output/TotalControl" href="#">Total Control Output</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/lang/Methods" href="#">Methods</a><br/>
@@ -83,7 +85,8 @@
 							<a t:type="pagelink" t:page="examples/lang/PreviewableTemplates" href="#">Previewable Templates</a><br/>
 							<a t:type="pagelink" t:page="examples/styling/PreviewableWithStylesheets" href="#">Previewable With Stylesheets</a><br/>
 							<a t:type="pagelink" t:page="examples/lang/AtComponent" href="#">@Component</a><br/>
-							<br/>
+						</div>
+						<div class="group">
 							<a t:type="pagelink" t:page="examples/styling/LinksAndSubmits1" href="#">Styling Links and Submits</a><br/>
 						</div>
 						<div class="group">
@@ -192,13 +195,14 @@
 							<a t:type="pagelink" t:page="examples/infrastructure/ProtectingPages" href="#">Protecting Pages</a><br/>
 							<a t:type="pagelink" t:page="examples/infrastructure/ProtectingAssets" href="#">Protecting Assets</a><br/>
 						</div>
+						-->
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/state/DisplaySessionContents" href="#">Display Session Contents</a><br/>
-							<a t:type="pagelink" t:page="pagecatalog" href="#">Display Page Catalog (localhost only)</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/infrastructure/Services" href="#">Services</a><br/>
-							<a t:type="pagelink" t:page="servicestatus" href="#">Display All Services Status</a><br/>
+							<a t:type="pagelink" t:page="core/t5dashboard" href="#">T5 Dashboard (localhost only)</a><br/>
 						</div>
+						<!-- 
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/localization/LocalizationByMessageCatalog" href="#">Localization By Message Catalog</a><br/>
 							<a t:type="pagelink" t:page="examples/localization/LocalizationByTemplate" href="#">Localization By Template</a><br/>

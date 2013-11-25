@@ -4,7 +4,7 @@ import org.apache.tapestry5.annotations.Import;
 
 /**
  * This page demonstrates using the activation context to remember data through the redirect.
- * The data will be appended to the render request URL.
+ * The data will be appended to the page render request URL.
  */
 @Import(stylesheet="css/examples/olive.css")
 public class PassingByActivationContext {

@@ -20,8 +20,8 @@
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	<t:tabGroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/Styling.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/Styling.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/BootstrapStyling.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/BootstrapStyling.java"/>
 	</t:tabGroup>
 </body>
 </html>

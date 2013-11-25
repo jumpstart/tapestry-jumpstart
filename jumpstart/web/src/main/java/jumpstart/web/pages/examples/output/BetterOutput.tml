@@ -6,30 +6,19 @@
 <body class="container">
 	<h3>Better Output</h3>
 
-	The method <code>setupRender()</code> is a good place to set up a page's output properties. 
+	As Tapestry generates, or "renders", a page, Tapestry will call the page's <code>setupRender()</code> method if there is one.<br/>
 	In previous examples we set up <code>message</code> in <code>getMessage()</code>. 
-	Now we set it up once, in <code>setupRender()</code>.
-
+	Now we set it up once, in <code>setupRender()</code>. 
+	
 	<div class="eg">
 		${message}<br/>
 		${message}<br/>
-		${message}
+		${message}<br/><br/>
+		
+		<t:pagelink t:page="examples/output/BetterOutput" href="#">Refresh</t:pagelink>
 	</div>
-	
-	<t:pagelink t:page="examples/output/BetterOutput" href="#">Refresh</t:pagelink><br/><br/>
 
-	There are 2 new things in this example which you will see often in Tapestry pages:<br/><br/>
-	
-	<ul>
-		<li>
-			<code>setupRender()</code>  
-			A method which, if present, will be called by Tapestry during its <em>SetupRender</em> phase.
-		</li>
-		<li>
-			<code>@Property</code>  
-			A field annotation that creates getter and setter methods at runtime.
-		</li>
-	</ul><br/>	
+	Also new in this page is <code>@Property</code>, a field annotation that creates getter and setter methods at runtime.<br/><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 

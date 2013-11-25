@@ -21,7 +21,7 @@
 	
 	But first, a review of what a <strong>page class</strong> can do and how. It can:
 	<ul>
-		<li><span class="what">Control rendering</span> (eg. for a render request) with 
+		<li><span class="what">Control rendering</span> (eg. for a page render request) with 
 			<a class="link" href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">
 			render phase methods</a>, ie. <code>setupRender()</code>, <code>cleanupRender()</code>, etc.</li>
 		<li><span class="what">Handle events</span> (ie. events bubbled up from components) with 
@@ -29,7 +29,7 @@
 			event handler methods</a>, eg. <code>onGoHome(...)</code>, <code>onPrepareForSubmit()</code>.</li>
 		<li><span class="what">Expose data</span> to its template, with 
 			properties, eg. <code>getFirstName()</code>, <code>setFirstName(...)</code>, or <code>@Property</code>.</li>
-		<li><span class="what">Receive its context</span> from a render request or component event request, with an 
+		<li><span class="what">Receive its context</span> from a page render request or component event request, with an 
 			<a class="link" href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">
 			activate event handler</a>, ie. <code>onActivate(...)</code>.</li>
 		<li><span class="what">Return its context</span> which Tapestry uses to generate a request URL to it, with a 
@@ -78,7 +78,7 @@
 	 		</tr>
 	 		<tr>
 	 			<th>
-	 				In response to a <strong>render request</strong>.<br/>
+	 				In response to a <strong>page render request</strong>.<br/>
 	 				Eg. When a PageLink to this page is clicked, <br/>
 	 				or in the redirect that follows an event request.<br/>
 	 				<ul>

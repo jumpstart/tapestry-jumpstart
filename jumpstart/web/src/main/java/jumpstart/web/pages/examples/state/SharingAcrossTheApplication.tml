@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	
-	Tapestry's <a t:type="pagelink" t:page="servicestatus" href="#">Services Status page</a> lists all the 
+	Tapestry's <a href="/jumpstart/core/t5dashboard/services">Services Status page</a> lists all the 
 	services, including CountryNames.<br/><br/>
 	
 	References: 

@@ -51,7 +51,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/StoringDataInAPage.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/StoringDataInAPage.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/state/Count.java"/>
 	</t:tabGroup>
 </body>
 </html>

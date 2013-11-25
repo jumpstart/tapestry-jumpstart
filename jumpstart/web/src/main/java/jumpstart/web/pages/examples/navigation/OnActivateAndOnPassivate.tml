@@ -21,7 +21,7 @@
 	<li>
 		<strong>setupRender()</strong> is ideal for setting up objects and fields for display-only because Tapestry 
 		calls it only during a <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">
- 		render request</a>.
+ 		page render request</a>.
 	</li>
 	<li>
 		<strong>onPrepare()</strong> is ideal for setting up objects and fields that can be edited in a Form because it 
@@ -43,7 +43,7 @@
 	The short answer is: whenever Tapestry gets a page. 
 	It can be in response to a browser request. It can be when one page's java uses another.<br/><br/>
 	
-	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">render request</a> 
+	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">page render request</a> 
 	can provide an activation context for the new page. 
 	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">component 
 	event request</a> provides the activation context of the page it came from. 
@@ -55,7 +55,7 @@
 	these situations:
 	<ol>
 		<li>when rendering a PageLink that does not specify a context.</li>
-		<li>when generating a render request to return as part of Post/Redirect/Get (see Forms example).</li>
+		<li>when generating a page render request to return as part of Post/Redirect/Get (see Forms example).</li>
 	</ol>
 	Neither situation applies to this page, so onPassivate() is unnecessary in this page.  However, by providing it we are  
 	preparing the page for those two situations. (Maybe this is violating the 

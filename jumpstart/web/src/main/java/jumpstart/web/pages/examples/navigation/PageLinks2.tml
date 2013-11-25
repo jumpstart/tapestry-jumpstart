@@ -6,14 +6,15 @@
 <body class="container">
 	<h3>Page Links (2)</h3>
 	
-	Look at the URL of this page. It is the request from the PageLink. We call this simple form of request a <strong>render request</strong>.<br/>
-	When Tapestry receives a render request, it gets an instance of the page, activates it, <em>renders it</em> to HTML, 
-	then streams the HTML back to the client.<br/><br/>
+	Look at the URL of this page. It is the <strong>page render request</strong> from the PageLink.<br/><br/>
+	
+	When Tapestry receives a page render request, it gets an instance of the page, activates it, 
+	<em>renders it</em> to HTML, then streams the HTML back to the client.<br/><br/>
 
 	References:	
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
-    <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Render Requests</a>, 
+    <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Page Render Requests</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>.<br/><br/>
 
 	<t:pagelink t:page="examples/navigation/PageLinks1">Return</t:pagelink><br/><br/>

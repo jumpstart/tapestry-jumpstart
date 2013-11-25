@@ -5,16 +5,16 @@
 <body class="container">
 	<h3>Output</h3>
 
-	The general pattern for output in Tapestry is this: the class exposes named properties (ie. public getters), 
-	eg. <code>getMessage()</code>, and the template references them, eg. <code><![CDATA[${message}]]></code>.
+	The general pattern to produce output with Tapestry is: provide named properties in the class (ie. provide public getters), 
+	eg. <code>getMessage()</code>, and reference them in the template, eg. <code><![CDATA[${message}]]></code>.
 	The reference <code><![CDATA[${message}]]></code> is called an <em>expansion</em>.
 
 	<div class="eg">
-		${message}
+		${message}<br/><br/>
+		
+		<t:pagelink t:page="examples/output/Output" href="#">Refresh</t:pagelink>
 	</div>
 
-	<t:pagelink t:page="examples/output/Output" href="#">Refresh</t:pagelink><br/><br/>
-	
 	References: 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">Expansions</a>.<br/><br/>
 

@@ -6,9 +6,9 @@
 <body class="container">
 	<h3>Action Links</h3>
 	
-	<code>ActionLink</code> is very like <code>EventLink</code> and 
+	ActionLink is very like EventLink, but 
 	<a href="http://tapestry.1045711.n5.nabble.com/What-ist-the-advantage-of-ActionLink-compared-to-EventLink-td2419735.html">
-	probably not needed any more</a>, but 
+	probably no longer needed</a>. However,  
 	<a href="http://tapestry.1045711.n5.nabble.com/EventLInk-vs-ActionLink-td3390203.html">ActionLink is still supported</a>.<br/><br/>
 	
 	The first big difference between ActionLink and EventLink is:
@@ -43,7 +43,7 @@
 	So whereas in the EventLinks example we had event handler <code>onAdd(int count)</code>, 
 	in this page we have event handler <code>onActionFromAddX(int count)</code>.<br/><br/>
 	
-	In the rest of JumpStart we use EventLink, not ActionLink.<br/><br/>
+	In the rest of JumpStart we will use EventLink, not ActionLink.<br/><br/>
 
 	References:	
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 

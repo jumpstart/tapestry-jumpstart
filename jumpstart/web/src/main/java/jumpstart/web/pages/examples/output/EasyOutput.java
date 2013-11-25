@@ -1,30 +1,53 @@
 package jumpstart.web.pages.examples.output;
 
-import javax.ejb.EJB;
-
-import jumpstart.business.domain.person.Person;
-import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
-@Import(stack = "core", stylesheet="css/examples/plain.css")
+@Import(stack = "core", stylesheet = "css/examples/plain.css")
 public class EasyOutput {
 
 	@Property
-	private Person person;
-
-	@EJB
-	private IPersonFinderServiceLocal personFinderService;
+	private Employee employee;
 
 	void setupRender() {
-		
-		// Get person with id 1 - ask business service to find it (from the database)
-		person = personFinderService.findPerson(1L);
+		employee = new Employee();
+		employee.setName("Jane Citizen");
+		employee.setAge(32);
+		employee.setGender(Gender.FEMALE);
+	}
 
-		if (person == null) {
-			throw new IllegalStateException("Database data has not been set up!");
+	public class Employee {
+		private String name;
+		private Integer age;
+		private Gender gender;
+
+		public String getName() {
+			return name;
 		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public Integer getAge() {
+			return age;
+		}
+
+		public void setAge(Integer age) {
+			this.age = age;
+		}
+
+		public Gender getGender() {
+			return gender;
+		}
+
+		public void setGender(Gender gender) {
+			this.gender = gender;
+		}
+	}
+
+	private enum Gender {
+		MALE, FEMALE;
 	}
 
 }

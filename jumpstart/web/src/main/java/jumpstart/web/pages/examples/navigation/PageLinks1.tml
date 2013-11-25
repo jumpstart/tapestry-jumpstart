@@ -6,19 +6,14 @@
 <body class="container">
 	<h3>Page Links (1)</h3>
 	
-	To render a link to another page, use <code>PageLink</code>. 
-	PageLink will determine the URL and render a link to it.<br/><br/>
+	To render a link to another page, use the PageLink component. 
+	It calculates the full URL at runtime and renders a link to it.
   	
-	We used PageLink to render the link in this example:
-	  
   	<div class="eg">
-		<t:pagelink page="examples/navigation/PageLinks2">To Page Links (2)</t:pagelink><br/>
+		<t:pagelink page="examples/navigation/PageLinks2">A page link</t:pagelink><br/>
 	</div>
 
-	The link has a URL similar to this: <em>http://thehost/jumpstart/examples/navigation/pagelinks2</em> .
-	When clicked it will send an HTTP GET.<br/><br/>
-
-	Tapestry calls this form of request a <strong>render request</strong>. Click the link above to learn more.<br/><br/>
+	When clicked it will send a <strong>page render request</strong>. Click the link above to learn more.<br/><br/>
 
 	References:	
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
