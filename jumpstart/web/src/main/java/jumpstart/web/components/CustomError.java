@@ -18,7 +18,7 @@ import org.apache.tapestry5.services.Heartbeat;
  * 
  */
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "CustomError.js")
+@Import(library = "js_imports/components/CustomError.js")
 public class CustomError {
 	
 	// Parameters

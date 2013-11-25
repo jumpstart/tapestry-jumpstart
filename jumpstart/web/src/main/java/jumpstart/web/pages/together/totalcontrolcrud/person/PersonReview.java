@@ -55,7 +55,6 @@ public class PersonReview {
 	}
 
 	public String getPersonRegion() {
-		// Follow the same naming convention that the Select component uses
 		return messages.get(Regions.class.getSimpleName() + "." + person.getRegion().name());
 	}
 

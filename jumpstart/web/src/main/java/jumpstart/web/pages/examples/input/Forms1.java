@@ -1,11 +1,13 @@
 package jumpstart.web.pages.examples.input;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class Forms1 {
 
 	// Screen fields

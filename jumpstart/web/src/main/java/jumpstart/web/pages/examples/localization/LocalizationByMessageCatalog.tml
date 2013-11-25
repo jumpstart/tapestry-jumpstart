@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/localization.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/localization.css}"/>
 </head>
-<body>
-	<h1>Localization By Message Catalog</h1>
+<body class="container">
+	<h3>Localization By Message Catalog</h3>
 	
 	This page demonstrates localization of strings by "component message catalog".  
 	The catalog consists of two files, with names based on the page name:
@@ -51,22 +51,24 @@
 	References: 
 	<a href="http://tapestry.apache.org/localization.html">Localization</a>, 
 	<a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/LocalizationSetter.html">LocalizationSetter</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ioc/services/ThreadLocale.html">ThreadLocale</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/PersistentLocale.html">PersistentLocale</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/LocalizationSetter.html">LocalizationSetter</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/services/ThreadLocale.html">ThreadLocale</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/PersistentLocale.html">PersistentLocale</a>, 
 	<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html">Locale</a>, 
 	<a href="http://docs.oracle.com/javase/6/docs/api/java/text/DateFormat.html">DateFormat</a>, 
 	<a href="http://docs.oracle.com/javase/6/docs/api/java/text/NumberFormat.html">NumberFormat</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
 	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Rendervariables">Render Variables</a>.<br/><br/>
 	
 	<a t:type="PageLink" page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog_fr.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/localization.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog_fr.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.properties"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/localization.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html> 

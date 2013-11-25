@@ -4,14 +4,14 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/stylesheets.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/olive.css}"/>
 	<t:remove>
 		<!-- A stylesheet link that enables preview but cannot be guaranteed to work at runtime. -->
-	 	<link rel="stylesheet" type="text/css" href="../../../css/examples/stylesheets.css"/>
+	 	<link rel="stylesheet" type="text/css" href="../../../assets/css/examples/olive.css"/>
 	 </t:remove>
 </head>
-<body>
-	<h1>Previewable With Stylesheets</h1>
+<body class="container">
+	<h3>Previewable With Stylesheets</h3>
 
 	This page is like the Stylesheets example, except that this page can be previewed directly in a web browser 
 	or WYSIWYG editor because we added a second stylesheet link that uses a relative path instead of context.<br/><br/>
@@ -28,8 +28,10 @@
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/PreviewableWithStylesheets.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/PreviewableWithStylesheets.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/stylesheets.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/PreviewableWithStylesheets.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/PreviewableWithStylesheets.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

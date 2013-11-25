@@ -4,15 +4,15 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
 		.eg 		{ background-color: #fafafa; color: #666; }
 		.eg th		{ padding-left: 12px; text-align: left; }
 		.eg td		{ padding-left: 12px; padding-right: 12px; }
 	</style>
 </head>
-<body>
-	<h1>Joda Time</h1>
+<body class="container">
+	<h3>Joda Time</h3>
 	Many developers prefer to use <a href="http://joda-time.sourceforge.net/">Joda Time</a> instead of Java's date and time classes.<br/><br/>
 	
 	This page demonstrates the <strong>JodaTimeOutput</strong> component. With JodaTimeOutput you can specify a style or a formatter.<br/> 
@@ -129,12 +129,14 @@
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/jodatime/JodaTime.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/jodatime/JodaTime.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/JodaTimeOutput.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/JodaTimeUtil.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/jodatime/JodaTime.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/jodatime/JodaTime.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/JodaTimeOutput.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/JodaTimeUtil.java"/>
+	</t:tabGroup>
 </body>
 </html>

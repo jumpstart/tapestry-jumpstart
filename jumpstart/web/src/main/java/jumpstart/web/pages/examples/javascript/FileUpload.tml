@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/javascript/fileupload.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/javascript/fileupload.css}"/>
 </head>
-<body>
-	<h1>File Upload</h1>
+<body class="container">
+	<h3>File Upload</h3>
 
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -41,7 +41,7 @@
 				<div id="success">
 					${successMessage}
 				</div>
-				<t:errors />
+				<t:errors globalOnly="true"/>
 			</div>
 		
 			<t:if test="demoMode">
@@ -56,29 +56,31 @@
 
 	The Upload component is NOT part of Tapestry's corelib. To use it, put the following jars in the classpath:
 	<ul>
-		<li>tapestry-upload-5.3.n.jar, at compile and runtime.</li>
+		<li>tapestry-upload-5.4.n.jar, at compile and runtime.</li>
 		<li>commons-fileupload-1.2.2.jar, at compile and runtime.</li>
-		<li>commons-io-2.0.1.jar, at runtime.</li>
+		<li>commons-io-2.3.jar, at runtime.</li>
 	</ul>
 	
 	For an AJAX uploader try <a href="http://tawus.wordpress.com/2011/06/25/ajax-upload-for-tapestry/">Ajax Upload for Tapestry</a>.<br/><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/uploading-files.html">Uploading Files</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/upload/components/Upload.html">Upload</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/upload/components/Upload.html">Upload</a>,
 	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>.<br/><br/> 
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.js"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/javascript/fileupload.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/Filer.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/FileUpload.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/javascript/fileupload.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/Filer.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html>

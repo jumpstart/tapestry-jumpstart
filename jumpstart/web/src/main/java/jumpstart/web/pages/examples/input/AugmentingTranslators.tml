@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Augmenting Translators</h1>
+<body class="container">
+	<h3>Augmenting Translators</h3>
 
 	The built-in translators bubble up events <em>toClient</em> and <em>parseClient</em> before doing their translation. <br/>
 	We can handle those events, which allows us to augment, or even override, the translator.
@@ -41,12 +38,12 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="submit" value="Submit"/></td>
+					<td><input type="submit" value="Submit" class="btn btn-primary"/></td>
 					<td></td>
 					<td></td>
 				</tr>
 			</table>
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 		</form>
 	</div>
 	
@@ -55,7 +52,7 @@
 			The client-side translator will not let you leave the field empty because it knows that server-side is a <em>long</em>.</li>
 		<li>(2) Uses <em>toClient</em> to translate <em>null</em> server-side to <em>"0"</em> client-side. 
 			Notice that if you empty it, <em>parseClient</em> will NOT bubble up.</li>
-		<li>(3) Uses <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a> 
+		<li>(3) Uses <a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a> 
 			which translates <em>null</em> server-side to <em>"0"</em> client-side, and empty field client-side to <em>0</em> server-side.</li>
 		<li>(4) Uses <em>parseClient</em> to translate shorthand input into numerics (eg. <em>"2k"</em> client-side to <em>2000</em> server-side).</li>
 		<li>(4) Also uses a <em>mixin</em>, to disable the client-side translator which would prevent non-numeric input. 
@@ -65,22 +62,24 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/forms-and-validation.html#FormsandValidation-OverridingtheTranslatorwithEvents">Overriding the Translator with Events</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/NullFieldStrategy.html">NullFieldStrategy</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/internal/DefaultNullFieldStrategy.html">DefaultNullFieldStrategy</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a>.
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/NullFieldStrategy.html">NullFieldStrategy</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/internal/DefaultNullFieldStrategy.html">DefaultNullFieldStrategy</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/internal/ZeroNullFieldStrategy.html">ZeroNullFieldStrategy</a>.
 	<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 		
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/AugmentingTranslators.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/AugmentingTranslators.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ClientTranslatorDisabler.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ClientTranslatorDisabler.js"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/AugmentingTranslators.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/AugmentingTranslators.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ClientTranslatorDisabler.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/client-translator-disabler.js"/>
+	</t:tabGroup>
 </body>
 </html>

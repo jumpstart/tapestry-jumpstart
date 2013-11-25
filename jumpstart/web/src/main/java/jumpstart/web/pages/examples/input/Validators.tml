@@ -4,20 +4,20 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Validators</h1>
+<body class="container">
+	<h3>Validators</h3>
 	Most input components can use Tapestry validators. Client-side and server-side, validation occurs AFTER translation.<br/><br/>
 	
 	Tapestry has these built-in validators: <em>Email</em>, <em>Max</em>, <em>MaxLength</em>, <em>Min</em>, <em>MinLength</em>, <em>None</em>, <em>Regexp</em>, and <em>Required</em>. 
-	They all implement <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Validator.html">Validator</a>. <br/><br/>
+	They all implement <a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Validator.html">Validator</a>. <br/><br/>
 	
 	In this example the Textfields use <em>Required</em> and <em>MaxLength</em>.
 
 	<div class="eg">
 		<form t:type="form" t:id="inputs">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			<table>
 				<tr>
 					<td><t:label for="firstName"/>:</td>
@@ -46,18 +46,20 @@
 	You can turn off client-side validation programatically with the <code>clientValidation</code> parameter of Form.<br/><br/>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Validator.html">Validator</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Validator.html">Validator</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>.
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>.
 	<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 		
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+	</t:tabGroup>
 </body>
 </html>

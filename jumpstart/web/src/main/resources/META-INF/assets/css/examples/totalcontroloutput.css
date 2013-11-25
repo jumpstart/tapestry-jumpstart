@@ -1,0 +1,1 @@
+.eg {				margin: 20px 0;				padding: 20px;				color: #888;				border: 1px solid #ddd;				border-radius: 4px;				-webkit-border-radius: 4px;				-mox-border-radius: 4px;}.eg .lbl {				font-weight: bold;				color: olive;}@media ( min-width : 768px) {				.eg .lbl {								text-align: right;				}}

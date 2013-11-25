@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
 	<style type="text/css">
 		form				{ background-color: #eee; padding: 14px; }
 		.error-label		{ color: red; }
@@ -13,8 +13,8 @@
 		.error-msg			{ color: red; }
 	</style>
 </head>
-<body>
-	<h1>AJAX Validators (1)</h1>
+<body class="container">
+	<h3>AJAX Validators (1)</h3>
 
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -28,7 +28,7 @@
 
 	<div class="eg">
 		<form t:type="CustomForm" t:id="inputs">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			<table>
 				<tr>
 					<td><t:label for="firstName"/>:</td>
@@ -69,17 +69,19 @@
 	References: 
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
- 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
 	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxValidators1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxValidators1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.js"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxValidators1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxValidators1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.js"/>
+	</t:tabGroup>
 </body>
 </html>

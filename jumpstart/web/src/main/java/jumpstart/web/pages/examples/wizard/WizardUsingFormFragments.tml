@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/wizard.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/wizard.css}"/>
 </head>
-<body>
-	<h1>Wizard Using Form Fragments</h1>
+<body class="container">
+	<h3>Wizard Using Form Fragments</h3>
 
 	This 4 step wizard is done with a single page holding a single form divided into <strong>form fragments</strong>.<br/>
 	The first 3 steps are data entry.  They share a "conversation" during which the browser's Back and Refresh/Reload buttons are allowed.<br/>
@@ -31,7 +31,7 @@
 					<input type="submit" value="Next &gt;"/>
 					<button t:type="chenillekit/Button" type="button" t:event="Quit" class="quit"> Quit </button>
 			
-					<t:errors/>
+					<t:errors globalOnly="true"/>
 				</t:formfragment>
 		
 				<t:formfragment visible="inApplicant">
@@ -48,7 +48,7 @@
 					<input type="submit" value="Next &gt;"/>
 					<button t:type="chenillekit/Button" type="button" t:event="Quit" class="quit"> Quit </button>
 			
-					<t:errors/>
+					<t:errors globalOnly="true"/>
 				</t:formfragment>
 		
 				<t:formfragment visible="inSubmit">
@@ -61,7 +61,7 @@
 					<input type="submit" value="Submit for Credit Check" onclick="displayProcessingMessage()"/>
 					<button t:type="chenillekit/Button" type="button" t:event="Quit" class="quit"> Quit </button>
 			
-					<t:errors/>
+					<t:errors globalOnly="true"/>
 		
 					<div id="processingMessage" style="display:none;">
 						<br/>Processing your application. Please wait...
@@ -90,18 +90,20 @@
 	</div>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/FormFragment.html">FormFragment</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/FormFragment.html">FormFragment</a>, 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingFormFragments.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingFormFragments.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/wizard.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/examples/wizard/CreditRequest.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Conversations.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Conversation.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingFormFragments.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingFormFragments.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/wizard.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/wizard/CreditRequest.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/Conversations.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/Conversation.java"/>
+	</t:tabGroup>
 </body>
 </html>

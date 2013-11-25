@@ -6,7 +6,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "context:js/textbox_hint.js")
+@Import(library = "js/textbox_hint.js")
 public class ReusableJavaScript {
 
 	// Screen fields

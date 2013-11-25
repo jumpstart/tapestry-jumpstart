@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Passing Data Between Pages: by Activation Context</h1>
+<body class="container">
+	<h3>Passing Data Between Pages: by Activation Context</h3>
 
 	<div class="eg">
 		Welcome ${name}!
@@ -25,8 +22,10 @@
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

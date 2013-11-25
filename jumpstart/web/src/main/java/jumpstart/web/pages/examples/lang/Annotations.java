@@ -2,12 +2,14 @@ package jumpstart.web.pages.examples.lang;
 
 import org.apache.tapestry5.EventConstants;
 import org.apache.tapestry5.annotations.CleanupRender;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SetupRender;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.slf4j.Logger;
 
+@Import(stylesheet = "css/examples/olive.css")
 public class Annotations {
 
 	@Property
@@ -17,9 +19,9 @@ public class Annotations {
 	private Logger logger;
 
 	@OnEvent(value = EventConstants.ACTIVATE)
-	void thisPageBeenRequested() {
-		message = "thisPageBeenRequested() called... ";
-		logger.info("thisPageBeenRequested() called... ");
+	void thisPageHasBeenRequested() {
+		message = "thisPageHasBeenRequested() called... ";
+		logger.info("thisPageHasBeenRequested() called... ");
 	}
 
 	@SetupRender

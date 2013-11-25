@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Forms (2)</h1>
+<body class="container">
+	<h3>Forms (2)</h3>
 
 	<div class="eg">
 		Welcome ${name}!
@@ -17,16 +14,18 @@
 	request from the Form.<br/>
 	That means it is safe to refresh, bookmark, or return to this page with the Back button - the event won't be sent again.<br/><br/>
 	
-	Why do we have an <em>onPassivate()</em> method? Well, when Tapestry generated a <em>render request</em> from Forms1 to this 
+	Why do we have an <code>onPassivate()</code> method? Well, when Tapestry generated a <em>render request</em> from Forms1 to this 
 	page, it needed this page's activation context. It got it by triggering the <em>passivate</em> event on this page and it is the duty 
-	of a <em>passivate</em> event handler to return the activation context, which our <em>onPassivate()</em> does.<br/><br/>
+	of a <em>passivate</em> event handler to return the activation context, which our <code>onPassivate()</code> does.<br/><br/>
 	
 	<t:pagelink t:page="examples/input/Forms1">Return</t:pagelink><br/><br/>
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Forms2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

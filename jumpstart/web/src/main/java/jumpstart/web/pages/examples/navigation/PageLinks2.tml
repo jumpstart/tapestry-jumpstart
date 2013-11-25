@@ -3,18 +3,15 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Page Links (2)</h1>
+<body class="container">
+	<h3>Page Links (2)</h3>
 	
 	Look at the URL of this page. It is the request from the PageLink. We call this simple form of request a <strong>render request</strong>.<br/>
 	When Tapestry receives a render request, it gets an instance of the page, activates it, <em>renders it</em> to HTML, 
 	then streams the HTML back to the client.<br/><br/>
 
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
     <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Render Requests</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>.<br/><br/>
@@ -23,8 +20,9 @@
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks2.java"/>
+	</t:tabGroup>
 </body>
 </html>

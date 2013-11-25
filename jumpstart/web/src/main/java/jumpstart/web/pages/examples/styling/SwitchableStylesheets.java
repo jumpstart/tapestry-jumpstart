@@ -26,11 +26,11 @@ public class SwitchableStylesheets {
 	// Generally useful bits and pieces
 
 	@Inject
-	@Path("context:css/examples/examples.css")
+	@Path("css/examples/examples.css")
 	private Asset stylesheet0;
 
 	@Inject
-	@Path("context:css/examples/switched.css")
+	@Path("css/examples/switched.css")
 	private Asset stylesheet1;
 	
 	// The code

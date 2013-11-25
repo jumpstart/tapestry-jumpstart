@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/ajaxformloop.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/ajaxformloop.css}"/>
 </head>
-<body>
-	<h1>AjaxFormLoop With Holders (2)</h1>
+<body class="container">
+	<h3>AjaxFormLoop With Holders (2)</h3>
 
 	<div class="eg">
 		Here is the result of your changes.  It has not been saved to the database.<br/><br/>
@@ -55,10 +55,12 @@
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/ajaxformloop.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/IdVersion.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxformloop.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/commons/IdVersion.java"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
 </head>
-<body>
-	<h1>JavaScript</h1>
+<body class="container">
+	<h3>JavaScript</h3>
 
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -25,15 +25,17 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
 	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.js"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+	</t:tabGroup>
 </body>
 </html>

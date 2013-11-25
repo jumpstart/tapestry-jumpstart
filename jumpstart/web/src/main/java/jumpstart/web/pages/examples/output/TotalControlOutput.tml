@@ -3,64 +3,73 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/totalcontroloutput.css}"/>
-</head>
-<body>
-	<h1>Total Control Output</h1>
+
+<body class="container">
+	<h3>Total Control Output</h3>
 	
-	BeanDisplay and @Property are quick and easy, but limited. When you need total control of the content, layout and style, 
-	you can code up the template yourself and add suitable getters.
+	<code>BeanDisplay</code> and <code>@Property</code> are quick and easy, but limited. 
+	When you need total control of the content, layout and style, you can code up the template 
+	yourself and add suitable properties. Here we are rendering the Person's info ourselves: 
 
 	<div class="eg">
-		<table>
-			<tr>
-				<th>Id:</th>
-				<td>${person.id}</td>
-			</tr>
-			<tr>
-				<th>Version:</th>
-				<td>${person.version}</td>
-			</tr>
-			<tr>
-				<th>Name:</th>
-				<td>${person.lastName}, ${person.firstName}</td>
-			</tr>
-			<tr>
-				<th>Region:</th>
-				<td>${personRegion}</td>
-			</tr>
-			<tr>
-				<th>Start Date:</th>
-				<td><t:output t:value="person.startDate" format="startDateFormat"/></td>
-			</tr>
-		</table>
+		<div class="row">
+			<div class="col-sm-2 lbl">Id:</div>
+			<div class="col-sm-4">${person.id}</div>
+			<div class="col-sm-2 lbl">Version:</div>
+			<div class="col-sm-4">${person.version}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2 lbl">Name:</div>
+			<div class="col-sm-10">${person.lastName}, ${person.firstName}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2 lbl">Region:</div>
+			<div class="col-sm-10">${regionName}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2 lbl">Start Date:</div>
+			<div class="col-sm-10"><t:output value="person.startDate" format="startDateFormat"/></div>
+		</div>
 	</div>
 
-	4 new things:
+	4 new things:<br/><br/>
 	<ul>
-		<li><em>Property expressions</em> Used in expansions and component parameters. 
-			For example, <code>person.id</code> is equivalent to <code>getPerson().getId()</code>.</li>
-		<li><em>Output</em> A component for formatting output.</li>
-		<li><em>@Inject</em> A field annotation. We use it ask Tapestry to inject its Messages service at runtime.</li>
-		<li><em>Messages</em> A service that provides access to properties files. We use it to convert the enum to a message. 
-			It looks first for <em>TotalControlOutput.properties</em> and finds it.</li>
-	</ul>	
+		<li>
+			<strong>Property expressions</strong> 
+			Used in expansions and component parameters. For example, <code>person.id</code> is 
+			equivalent to <code>getPerson().getId()</code>.
+		</li>
+		<li>
+			<code>Output</code>
+			A component for formatting output.
+		</li>
+		<li>
+			<code>@Inject</code>
+			A field annotation. We use it ask Tapestry to inject its Messages service at runtime.
+		</li>
+		<li>
+			<code>Messages</code>
+			A Tapestry service that provides access to properties files. We use it to convert the enum to a message. It looks
+			first for <em>TotalControlOutput.properties</em> and finds it.
+		</li>
+	</ul><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">Expansions</a>, 
 	<a href="http://tapestry.apache.org/property-expressions.html">Property Expressions</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Output.html">Output component</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ioc/Messages.html">Messages</a>.<br/><br/>	
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Output.html">Output component</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/Messages.html">Messages</a>.<br/><br/>	
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/totalcontroloutput.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.properties"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/totalcontroloutput.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -12,7 +12,7 @@ import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "ClickOnce.js")
+@Import(library = "js_imports/mixins/ClickOnce.js")
 public class ClickOnce {
 
 	// Generally useful bits and pieces

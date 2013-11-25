@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
 		.eg		{ margin: 0; border: none; }
 		.kapbox	{ width: 240px; text-align: center; padding: 7px; font-size: 11px; background-color: #eee; }
@@ -12,8 +12,8 @@
 		.kap	{ padding: 4px 0; }
 	</style>
 </head>
-<body>
-	<h1>Kaptcha (1)</h1>
+<body class="container">
+	<h3>Kaptcha (1)</h3>
 	
 	Here we demonstrate 2 Tapestry components, KaptchaField and KaptchaImage, which provide 
 	<a href="http://en.wikipedia.org/wiki/CAPTCHA">CAPTCHA</a>.
@@ -50,13 +50,15 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-reference.html#ComponentReference-FormComponents">Form Components</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaField.html">KaptchaField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaImage.html">KaptchaImage</a>.<br/><br/> 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaField.html">KaptchaField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaImage.html">KaptchaImage</a>.<br/><br/> 
 
 	<a t:type="eventlink" t:event="Home" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+	</t:tabGroup>
 </body>
 </html>

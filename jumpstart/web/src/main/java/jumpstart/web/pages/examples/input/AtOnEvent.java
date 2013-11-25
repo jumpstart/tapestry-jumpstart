@@ -1,9 +1,11 @@
 package jumpstart.web.pages.examples.input;
 
 import org.apache.tapestry5.EventConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet="css/examples/olive.css")
 public class AtOnEvent {
 
 	// Screen fields

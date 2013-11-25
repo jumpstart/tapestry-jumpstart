@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Third Party Components</h1>
+<body class="container">
+	<h3>Third Party Components</h3>
 
 	It's easy to use third-party components.<br/><br/>
 
@@ -39,8 +39,10 @@
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/ThirdPartyComponents.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/ThirdPartyComponents.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/ThirdPartyComponents.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/ThirdPartyComponents.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+	</t:tabGroup>
 </body>
 </html>

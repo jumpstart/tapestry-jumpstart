@@ -10,7 +10,7 @@
 		<input type="submit" value="Submit for Credit Check" onclick="displayProcessingMessage()"/>
 		<button t:type="chenillekit/Button" type="button" t:event="Quit" style="margin-left: 20px;"> Quit </button>
 
-		<t:errors/>
+		<t:errors globalOnly="true"/>
 
 		<div id="processingMessage" style="display:none; color:green; font-weight: bold; ">
 			<br/>Processing your application. Please wait...

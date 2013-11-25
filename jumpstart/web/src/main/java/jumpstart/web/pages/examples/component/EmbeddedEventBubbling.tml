@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-	<h1>Embedded Event Bubbling</h1>
+	<h3>Embedded Event Bubbling</h3>
 	
 	Imagine a component A is embedded in component B which is embedded in page P. If an event from A bubbles up through B to P, 
 	P will see the event as coming from B and NOT from A. This is deliberate, because P should not know what B contains.<br/><br/>
@@ -28,9 +28,11 @@
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/EmbeddedEventBubbling.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/EmbeddedEventBubbling.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/MyActionLink.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/MyActionLink.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/EmbeddedEventBubbling.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/EmbeddedEventBubbling.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/MyActionLink.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/MyActionLink.java"/>
+	</t:tabGroup>
 </body>
 </html>

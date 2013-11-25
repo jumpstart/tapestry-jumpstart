@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
 </head>
-<body>
-	<h1>AJAX EventLink</h1>
+<body class="container">
+	<h3>AJAX EventLink</h3>
 
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -37,20 +37,22 @@
 	The event handler returns a <em>component or block to update</em>.  This involves only 1 round trip to the server.<br/><br/> 
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
 	
 	Some statistics: for this page the AJAX traffic is less than 300 bytes, whereas the non-AJAX traffic is over 9,000 bytes. 
 	The AJAX link generates 1 POST whereas the non-AJAX generates 2 GETs (which is normal for EventLink).<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxEventLink.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxEventLink.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxEventLink.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxEventLink.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+	</t:tabGroup>
 </body>
 </html>

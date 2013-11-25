@@ -74,7 +74,7 @@
 							<h1>Create</h1>
 							
 							<form t:type="CustomForm" t:id="createForm" t:zone="^" >
-								<t:errors/>
+								<t:errors globalOnly="true"/>
 						
 								<table>
 									<tr>
@@ -176,7 +176,7 @@
 							<h1>Update</h1>
 							
 							<form t:type="CustomForm" t:id="updateForm" t:context="editorPersonId" t:zone="^">
-								<t:errors/>
+								<t:errors globalOnly="true"/>
 							
 								<t:if test="editorPerson">
 									<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
@@ -238,7 +238,7 @@
 							<h1>Delete</h1>
 							
 							<form t:type="form" t:id="confirmDeleteForm" t:zone="^">
-								<t:errors/>
+								<t:errors globalOnly="true"/>
 							
 								<t:if test="editorPerson">
 									<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
@@ -278,7 +278,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/withlayout2/gracefulajaxfiltercrud/Persons.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout2.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/layout2.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/layout2.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Menu.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/MenuOption.java"/>
 </html>

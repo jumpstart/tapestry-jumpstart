@@ -3,42 +3,49 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/simple.css}"/>
-</head>
-<body>
-	<h1>Methods</h1> 
+
+<body class="container">
+	<h3>Methods</h3> 
 	
 	As a page renders, it goes through phases. You can provide methods that Tapestry will call in those phases.  
-	Here are the most useful ones...<br/>
+	Here are the most useful ones...<br/><br/>
 
 	<ul>
-		<li><strong>onActivate()</strong> Tapestry will call it when a request from a browser involves your page. <br/>
-		Behind the scenes, what happens is that Tapestry gets an instance of the page and triggers <em>activate</em> on it.<br/><br/></li>
-	
-		<li><strong>setupRender()</strong> Tapestry will call it right before it starts rendering.<br/><br/></li>
-	
-		<li><strong>cleanupRender()</strong> Tapestry will call it immediately after all the rendering has been done.<br/></li>
+		<li>
+			<code>onActivate()</code>
+			Tapestry will call it when a request from a browser involves your page. <br /> Behind the scenes, what happens is
+			that Tapestry gets an instance of the page and triggers <em>activate</em> on it.
+		</li>
+		<li>
+			<code>setupRender()</code>
+			Tapestry will call it right before it starts rendering.
+		</li>
+		<li>
+			<code>cleanupRender()</code>
+			Tapestry will call it immediately after all the rendering has been done.
+		</li>
 	</ul>
-	
-	Here is a demonstration:<br/>
+
+	Here is a demonstration:
 	
 	<div class="eg">
 		message: "${message}".
 	</div>
 
-	Why is "cleanupRender() called..." missing from the message? Because the message is rendered BEFORE cleanupRender() is called.<br/> 
-	However, "cleanupRender() called..." will be in the log.<br/><br/>
+	Why is "cleanupRender() called..." missing from the message? Because the message is rendered BEFORE 
+	<code>cleanupRender()</code> is called. However, "cleanupRender() called..." will be in the log.<br/><br/> 
 	
-	References: 
+	References:
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">Rendering Phases</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-CleanupRender">CleanupRender</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Methods.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Methods.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/simple.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/Methods.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/Methods.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

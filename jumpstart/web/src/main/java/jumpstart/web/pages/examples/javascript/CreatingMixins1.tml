@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
 </head>
-<body>
-	<h1>Creating Mixins: ClickOnce (1)</h1>
+<body class="container">
+	<h3>Creating Mixins: ClickOnce (1)</h3>
 
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -50,17 +50,19 @@
 	References: 
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/CreatingMixins1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/javascript/CreatingMixins1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.js"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/examples/javascript/MyOrder.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/CreatingMixins1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/CreatingMixins1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/javascript/MyOrder.java"/>
+	</t:tabGroup>
 </body>
 </html>

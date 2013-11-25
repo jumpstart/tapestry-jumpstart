@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/js.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
 </head>
-<body>
-	<h1>AJAX Multiple Zone Update</h1>
+<body class="container">
+	<h3>AJAX Multiple Zone Update</h3>
 	
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -38,20 +38,22 @@
  	
 	References: 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
 	<a href="http://tinybits.blogspot.com/2010/03/new-and-better-zoneupdater.html">Inge's Zone Updater</a>, 
- 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
- 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
  	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
  	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>.<br/><br/> 
 
 	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/js.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.js"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.js"/>
+	</t:tabGroup>
 </body>
 </html>

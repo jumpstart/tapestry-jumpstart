@@ -3,48 +3,43 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-	<style type="text/css">
-		.input			{ padding: 10px; background-color: #eee; border: 1px solid #ddd; }
-		.data			{ border-collapse: collapse; border-spacing: 0; width: 70%; background-color: #eee; font-size: 13px; }
-		.data th		{ padding: 2px 5px; text-align: right; width: 35%; font-weight: normal; }
-		.data td		{ padding: 2px 5px; text-align: left; }
-	</style>
-</head>
-<body>
-	<h1>Sharing Across Multiple Pages (1)</h1>
+<body class="container">
+	<h3>Sharing Across Multiple Pages (1)</h3>
 
 	This page demonstrates how to share a bit of data between multiple pages using a Session State Object (an SSO).<br/>
 	SSOs are shared between the pages of your web session only, and not with other sessions using the same application.<br/><br/>
 	
-	To turn a field into an SSO, annotate it with <em>@SessionState</em>.  If any other page or component in your web session 
-	declares a field of the same type and annotates it with <em>@SessionState</em> then it will share the same value.<br/><br/>
+	To turn a field into an SSO, annotate it with <code>@SessionState</code>.  If any other page or component in your web session 
+	declares a field of the same type and annotates it with <code>@SessionState</code> then it will share the same value.<br/><br/>
 	
 	We use the example of a simple ShoppingBasket object, created in this page and displayed in the next page.
 
 	<div class="eg">
-		<form t:type="Form" class="input">
-			<table class="data">
-				<tr>
-					<th><t:label for="applesQuantity"/>:</th>
-					<td><input t:type="TextField" t:id="applesQuantity" value="myBasket.applesQuantity"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="orangesQuantity"/>:</th>
-					<td><input t:type="TextField" t:id="orangesQuantity" value="myBasket.orangesQuantity"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="bananasQuantity"/>:</th>
-					<td><input t:type="TextField" t:id="bananasQuantity" value="myBasket.bananasQuantity"/></td>
-				</tr>
-				<tr>
-					<th>&nbsp;</th>
-					<td><input type="submit" value="Next &gt;"/></td>
-			
-				</tr>
-			</table>
-		</form>
+		<t:form class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="applesQuantity"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="applesQuantity" value="myBasket.applesQuantity"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="orangesQuantity"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="orangesQuantity" value="myBasket.orangesQuantity"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="bananasQuantity"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="bananasQuantity" value="myBasket.bananasQuantity"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-2">
+					<input class="btn btn-primary" type="submit" value="Next &gt;" />
+				</div>
+			</div>
+		</t:form>
 	</div>
 	
 	Tapestry creates this ShoppingBasket object the first time the page uses it.  Other sessions will not see it, 
@@ -61,9 +56,11 @@
 	
 	<a t:type="eventlink" t:event="GoHome" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossMultiplePages1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossMultiplePages1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/examples/state/ShoppingBasket.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossMultiplePages1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossMultiplePages1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/state/ShoppingBasket.java"/>
+	</t:tabGroup>
 </body>
 </html>

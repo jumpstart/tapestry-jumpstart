@@ -3,7 +3,7 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	 <link rel="stylesheet" type="text/css" href="${context:css/examples/layout.css}"/>
+	 <link rel="stylesheet" type="text/css" href="${asset:css/examples/layout.css}"/>
 </head>
 <body>
 

@@ -3,9 +3,11 @@ package jumpstart.web.pages.examples.input;
 import java.math.BigDecimal;
 
 import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet="css/examples/plain.css")
 public class ContributingTranslators {
 
 	// Screen fields

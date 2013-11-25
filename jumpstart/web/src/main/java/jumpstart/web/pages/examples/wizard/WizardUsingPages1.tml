@@ -14,7 +14,7 @@
 		<input type="submit" value="Next &gt;"/>
 		<button t:type="chenillekit/Button" type="button" t:event="Quit" style="margin-left: 20px;"> Quit </button>
 
-		<t:errors/>
+		<t:errors globalOnly="true"/>
 	</form>
 
 </html>

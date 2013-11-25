@@ -26,11 +26,11 @@ public class Layout {
 	private String title = "";
 
 	@Inject
-	@Path("context:css/theapp/global.css")
+	@Path("css/theapp/global.css")
 	private Asset stylesheet1;
 
 	@Inject
-	@Path("context:css/theapp/global_wide.css")
+	@Path("css/theapp/global_wide.css")
 	private Asset stylesheet2;
 
 	@Inject

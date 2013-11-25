@@ -6,7 +6,7 @@
 
 <head>
 	<title>Log In</title>
-	<link rel="stylesheet" type="text/css" href="${context:css/theapp/login.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/theapp/login.css}"/>
 	<t:remove>
 		<!-- This link allows previewability -->
 		<link rel="stylesheet" type="text/css" href="../css/theapp/login.css"/>
@@ -48,7 +48,7 @@
 			<tr>
 				<td colspan="2">			
 					<div id="errors">
-						<t:errors/>
+						<t:errors globalOnly="true"/>
 					</div>
 				</td>
 			</tr>
@@ -68,7 +68,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/theapp/Login.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/theapp/Login.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/IIntermediatePage.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/theapp/login.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/theapp/login.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/theapp/Visit.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/base/theapp/SimpleBasePage.java"/>
 </div>

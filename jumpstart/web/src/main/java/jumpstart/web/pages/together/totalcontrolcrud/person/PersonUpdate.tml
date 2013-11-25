@@ -4,14 +4,14 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/together/totalcontrolcrudedit.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/together/totalcontrolcrudedit.css}"/>
 </head>
 <body>
 	<h1>Update</h1>
 
 	<div class="eg">
 		<form t:type="CustomForm" t:id="personForm" >
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 		
 			<t:if test="person">
 				<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
@@ -76,7 +76,7 @@
 	
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonUpdate.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonUpdate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/totalcontrolcrudedit.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/totalcontrolcrudedit.css"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

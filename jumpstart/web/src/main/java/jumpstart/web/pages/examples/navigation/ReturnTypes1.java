@@ -8,6 +8,7 @@ import java.net.URL;
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.StreamResponse;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
@@ -16,6 +17,7 @@ import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Response;
 
+@Import(stylesheet="css/examples/plain.css")
 public class ReturnTypes1 {
 
 	@Property

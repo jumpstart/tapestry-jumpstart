@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Delegate to Renderable</h1>
+<body class="container">
+	<h3>Delegate to Renderable</h3>
 
 	This is an alternative to the approach in the Delegate to Block example. Here we use MarkupWriter to produce Renderables.
 
@@ -22,16 +22,18 @@
 	This approach gives fine control over what's rendered. However, it cannot make use of informal parameters.<br/><br/>  
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Renderable.html">Renderable</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Renderable.html">Renderable</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>, 
 	<a href="http://tapestry.apache.org/switching-cases.html">Switching Cases</a>, 
 	<a href="http://tapestry.apache.org/principles.html#Principles-Principle1StaticStructure%2CDynamicBehavior">Principle 1 - Static Structure, Dynamic Behavior</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateToRenderable.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateToRenderable.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateToRenderable.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateToRenderable.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>MarkupWriter</h1>
+<body class="container">
+	<h3>MarkupWriter</h3>
 
 	Instead of rendering from a <em>template</em>, a page or component can render a DOM directly with 
 	Tapestry's <em>MarkupWriter</em> as described <a href="http://tapestry.apache.org/dom.html">here</a>.<br/>
@@ -19,18 +19,20 @@
 	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/base/AbstractTextField.java?view=markup">
 	AbstractTextField</a> does most of the work.<br/><br/>
 	
-	Two more examples are JumpStart's SourceCodeDisplay and JodaTimeOutput components. Their source is below.<br/><br/> 
+	Two more examples are JumpStart's sourcecodetab and JodaTimeOutput components. Their source is below.<br/><br/> 
 	 
 	References:  
 	<a href="http://tapestry.apache.org/dom.html">DOM</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/MarkupWriter.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/MarkupWriter.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/SourceCodeDisplay.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/JodaTimeOutput.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/MarkupWriter.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/MarkupWriter.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/sourcecodetab.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/JodaTimeOutput.java"/>
+	</t:tabGroup>
 </body>
 </html>

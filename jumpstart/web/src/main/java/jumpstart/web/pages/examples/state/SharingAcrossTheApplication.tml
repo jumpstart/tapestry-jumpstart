@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Sharing Across the Application</h1>
+<body class="container">
+	<h3>Sharing Across the Application</h3>
 	
 	To share an object across the whole application, register it as a service and inject it into pages that need it.<br/><br/>
 	
@@ -32,10 +29,12 @@
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossTheApplication.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossTheApplication.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/CountryNames.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossTheApplication.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossTheApplication.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/light.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/CountryNames.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html>

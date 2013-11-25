@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Protecting Assets</h1>
+<body class="container">
+	<h3>Protecting Assets</h3>
 	
 	A future release of Tapestry will automatically protect WEB-INF/, META-INF/, and assets that are not in a "whitelist".<br/>
 	The issue is explained here: <a href="https://issues.apache.org/jira/browse/TAP5-815">TAP5-815</a>.<br/>
@@ -15,17 +15,19 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/request-processing.html#RequestProcessing-Overview">Request Processing diagram</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/RequestFilter.html">RequestFilter</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/RequestFilter.html">RequestFilter</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingAssets.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingAssets.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AssetProtectionFilter.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/ResourceUtil.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AccessDenied.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AccessDenied.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingAssets.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingAssets.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AssetProtectionFilter.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/ResourceUtil.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AccessDenied.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AccessDenied.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html>

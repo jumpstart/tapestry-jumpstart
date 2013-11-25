@@ -2,6 +2,7 @@ package jumpstart.web.pages.examples.state;
 
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 
@@ -9,6 +10,7 @@ import org.apache.tapestry5.services.PageRenderLinkSource;
  * This page demonstrates using a query string to remember data through the redirect. The data will be appended to
  * the render request URL as a query string.
  */
+@Import(stylesheet="css/examples/olive.css")
 public class PassingByQueryString {
 
 	// Query string parameters

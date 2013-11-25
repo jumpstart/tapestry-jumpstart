@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"> 
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Web Services</h1>
+<body class="container">
+	<h3>Web Services</h3>
 	
 	Here we have a link to a Tapestry page that acts as a REST-like web service.<br/>
 
@@ -20,16 +20,18 @@
 
 	References: 
 	<a href="http://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding">JAXB</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Response.html">Response</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Response.html">Response</a>,
 	<a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonFind.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/ws/Person01.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonFind.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/Person01.java"/>
+	</t:tabGroup>
 </body>
 </html>

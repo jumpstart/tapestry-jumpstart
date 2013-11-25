@@ -3,13 +3,10 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>@OnEvent</h1>
+<body class="container">
+	<h3>@OnEvent</h3>
 
-	If you prefer, you can annotate event handler methods with <em>@OnEvent</em> rather than use the "on" naming convention.
+	If you prefer, you can annotate event handler methods with <code>@OnEvent</code> rather than use the "on" naming convention.
 
 	<div class="eg"> 
 		Count = ${count}.<br/> 
@@ -19,14 +16,16 @@
 	</div>	  
 
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/OnEvent.html">@OnEvent</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/OnEvent.html">@OnEvent</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>.<br/><br/>
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/AtOnEvent.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/AtOnEvent.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/AtOnEvent.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/AtOnEvent.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>
 

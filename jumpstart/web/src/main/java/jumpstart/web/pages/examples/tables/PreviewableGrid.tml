@@ -4,14 +4,14 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/previewablegrid.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/previewablegrid.css}"/>
 	<t:remove>
 		<!-- A stylesheet link that enables preview but cannot be guaranteed to work at runtime. -->
 	 	<link rel="stylesheet" type="text/css" href="../../../css/examples/tables/previewablegrid.css"/>
 	</t:remove>
 </head>
-<body>
-	<h1>Previewable Grid</h1>
+<body class="container">
+	<h3>Previewable Grid</h3>
 	
 	Here we have made a Grid fairly previewable in a web browser or WYSIWYG editor.<br/><br/>
 	
@@ -43,14 +43,16 @@
 	</div>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/PreviewableGrid.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/PreviewableGrid.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/previewablegrid.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/PreviewableGrid.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/PreviewableGrid.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/previewablegrid.css"/>
+	</t:tabGroup>
 </body>
 </html>

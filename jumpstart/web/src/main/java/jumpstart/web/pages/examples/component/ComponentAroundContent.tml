@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Component Around Content</h1>
+<body class="container">
+	<h3>Component Around Content</h3>
 
 	A component can have content between its start and end tags. The component outputs that content when it reaches a 
 	<em>t:body</em> directive in its template.
@@ -26,10 +26,12 @@
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/ComponentAroundContent.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/ComponentAroundContent.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/ComponentAroundContent.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/ComponentAroundContent.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplayWithContent.java"/>
+	</t:tabGroup>
 </body>
 </html>

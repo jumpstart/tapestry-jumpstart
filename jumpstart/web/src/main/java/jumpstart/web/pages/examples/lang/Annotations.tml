@@ -3,34 +3,41 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/simple.css}"/>
-</head>
-<body>
-	<h1>Annotations</h1> 
+<body class="container">
+	<h3>Annotations</h3> 
 	
-	Tapestry doesn't just look for particular method names, it also looks for particular method annotations. Here are some for phases:<br/>
+	Tapestry doesn't just look for particular method names, it also looks for particular method annotations. Here are some for phases:<br/><br/>
 
 	<ul>
-		<li><strong>@OnEvent(value = EventConstants.ACTIVATE).</strong> You can put this annotation on a method instead of naming 
-			the method <em>onActivate</em>.<br/><br/></li>
-			
-		<li><strong>@SetupRender.</strong> You can put this annotation on a method instead of naming the method 
-			<em>setupRender</em>.<br/><br/></li>
-			
-		<li><strong>@CleanupRender.</strong> You can put this annotation on a method instead of naming the method 
-			<em>cleanupRender</em>.<br/></li>
+		<li>
+			<code>@OnEvent(value = EventConstants.ACTIVATE)</code>
+			You can put this annotation on a method instead of naming the method <em>onActivate</em>.
+		</li>
+		<li>
+			<code>@SetupRender</code>
+			You can put this annotation on a method instead of naming the method <em>setupRender</em>.
+		</li>
+		<li>
+			<code>@CleanupRender</code>
+			You can put this annotation on a method instead of naming the method <em>cleanupRender</em>.
+		</li>
 	</ul>
 	
-	Here are some other useful annotations:<br/>
+	Here are some other useful annotations:<br/><br/>
 
 	<ul>
-		<li><strong>@Property.</strong> A field annotation. Tapestry will invisibly provide a getter and setter for the field.<br/> 
-			You can make the property read-only or write-only - 
-			see <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.<br/><br/></li>
+		<li>
+			<code>@Property</code>
+			A field annotation. Tapestry will invisibly provide a getter and setter for the field. You can make the property
+			read-only or write-only - see <a
+				href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.
+		</li>
 
-		<li><strong>@Log.</strong> A method annotation. Tapestry will write to the log, at DEBUG level, as it enters and exits the method.<br/> 
-			Tapestry will also log the parameter values and the method's return value.<br/></li>
+		<li>
+			<code>@Log</code>
+			A method annotation. Tapestry will write to the log, at DEBUG level, as it enters and exits the method. Tapestry will
+			also log the parameter values and the method's return value.<br />
+		</li>
 	</ul>
 	
 	Here is a demonstration:<br/>
@@ -44,13 +51,15 @@
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">Rendering Phases</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-CleanupRender">CleanupRender</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
 	<a href="http://tapestry.apache.org/logging.html">Logging</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Annotations.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/Annotations.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/simple.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/Annotations.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/Annotations.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

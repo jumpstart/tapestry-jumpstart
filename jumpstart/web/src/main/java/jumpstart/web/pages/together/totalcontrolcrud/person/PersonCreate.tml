@@ -4,14 +4,14 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/together/totalcontrolcrudedit.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/together/totalcontrolcrudedit.css}"/>
 </head>
 <body>
 	<h1>Create</h1>
 	
 	<div class="eg">
 		<form t:type="CustomForm" t:id="personForm" class="input">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 	
 			<table class="edit">
 				<tr>
@@ -68,7 +68,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.properties"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/totalcontrolcrudedit.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/totalcontrolcrudedit.css"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

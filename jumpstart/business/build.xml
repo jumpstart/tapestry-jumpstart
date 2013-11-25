@@ -66,7 +66,7 @@
 	</target>
 
 	<target name="compile" depends="init" description="Compiles main source, output goes to the target/classes dir.">
-		<javac source="1.7" target="1.7" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
+		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
 
 		<copy todir="${target.classes.dir}">
 			<fileset dir="${java.main.dir}" includes="**/*.properties" />
@@ -74,7 +74,7 @@
 	</target>
 
 	<target name="test-compile" depends="init" description="Compiles test source, output goes to the target/test-classes dir.">
-		<javac source="1.7" target="1.7" srcdir="${java.tests.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
+		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${java.tests.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
 	</target>
 
 	<target name="test">
@@ -119,6 +119,7 @@
 			<pathelement location="${conf.test.remote.dir}" />
 			<pathelement location="${target.test-classes.dir}" />
 			<pathelement location="${target.classes.dir}" />
+			<path path="${classpath.client.lib.as.property}" />
 			<fileset dir="${lib.compile.dir}">
 				<include name="**/*.jar" />
 			</fileset>
@@ -128,7 +129,6 @@
 			<fileset dir="${lib.test.dir}">
 				<include name="**/*.jar" />
 			</fileset>
-			<path path="${classpath.client.lib.as.property}" />
 		</path>
 	</target>
 

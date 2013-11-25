@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Contributing Validators</h1>
+<body class="container">
+	<h3>Contributing Validators</h3>
 	
 	Here we create a Validator and make it available to the whole application by name.<br/><br/>
 
@@ -18,7 +18,7 @@
 
 	<div class="eg">
 		<form t:type="form" t:id="inputs">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			<table>
 				<tr>
 					<td><t:label for="firstName"/>:</td>
@@ -47,19 +47,21 @@
 
 	References: 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToAddValidators">How To Add Validators</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IoC Services</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">JavaScript</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/validators/Letters.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/validators/ValidationMessages.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/js/letters.js"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/validators/Letters.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/validators/ValidationMessages.properties"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/js/letters.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -3,21 +3,18 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Primitives Translators</h1>
+<body class="container">
+	<h3>Primitives Translators</h3>
 	Tapestry's built-in translators also translate primitive types, eg. byte, short, int, etc; but because primitives cannot be null:
 	<ul>
-		<li>the default output will be <code>0</code>.</li>
+		<li>the default output will be <em>0</em>.</li>
 		<li>the field will attract cursor focus.</li>
 		<li>you will be <em>required</em> to input a value.</li>
 	</ul>
 	
 	<div class="eg">
 		<form t:type="form" t:id="inputs">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			<table>
 				<tr>
 					<td><t:label for="byteValue"/></td>
@@ -51,7 +48,7 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="submit" value="Submit"/></td>
+					<td><input type="submit" value="Submit" class="btn btn-primary"/></td>
 					<td></td>
 				</tr>
 			</table>
@@ -59,17 +56,19 @@
 	</div>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>.
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>.
 	<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 		
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/PrimitivesTranslators.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/PrimitivesTranslators.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/PrimitivesTranslators.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/PrimitivesTranslators.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+	</t:tabGroup>
 </body>
 </html>

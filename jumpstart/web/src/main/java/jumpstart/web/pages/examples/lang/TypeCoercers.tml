@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Type Coercers</h1>
+<body class="container">
+	<h3>Type Coercers</h3>
 	
 	This example demonstrates adding your own type coercers.<br/><br/>
 
@@ -33,7 +33,7 @@
 			<input t:type="datefield" value="datesExample.aLocalDate" t:format="prop:dateFieldFormat" t:validate="required"/>&nbsp;
 				org.joda.time.LocalDate<br/><br/>
 	
-	 		<t:errors/>
+	 		<t:errors globalOnly="true"/>
 			<input t:type="submit" value="Save"/>
 		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
 		</form>
@@ -53,19 +53,21 @@
 	<a href="http://tapestry.apache.org/type-coercion.html">Type Coercion</a>, 
 	<a href="http://tapestry.apache.org/typecoercer-service.html">TypeCoercer Service</a>, 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ioc/services/TypeCoercer.html">TypeCoercer</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
 	<a href="http://joda-time.sourceforge.net/">Joda Time</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/JodaTimeUtil.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/JodaTimeUtil.java"/>
+	</t:tabGroup>
 </body>
 </html>

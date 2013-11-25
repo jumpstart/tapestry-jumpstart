@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Id Select</h1>
+<body class="container">
+	<h3>Id Select</h3>
 
 	There are times when SelectModelFactory is too much, when you need only an id returned and not a whole object.<br/>
 	In this example we've created PersonIdSelectModel to give us control over the option value, which we set to the id.<br/>
@@ -22,22 +22,24 @@
 	</div>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
 	<a href="http://tapestry.apache.org/using-select-with-a-list.html">Using Select with a List</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/SelectModel.html">SelectModel</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/util/AbstractSelectModel.html">AbstractSelectModel</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>,  
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/SelectModel.html">SelectModel</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/util/AbstractSelectModel.html">AbstractSelectModel</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>,  
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/IdSelect.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/IdSelect.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/select/PersonIdSelectModel.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/IdSelect.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/IdSelect.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/select/PersonIdSelectModel.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	</t:tabGroup>
 </body>
 </html>

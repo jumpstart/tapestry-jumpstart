@@ -4,36 +4,39 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/stylesheets.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/olive.css}"/>
 </head>
-<body>
-	<h1>Stylesheets</h1>
+<body class="container">
+	<h3>Stylesheets</h3>
+	
+	In addition to the Bootstrap stylesheet, Tapestry adds its own stylesheets to style some of its core components.<br/><br/>
 
-	To specify stylesheet(s) for the page, use <code>&lt;link></code> tags in the template (see the source code below).<br/>
-	Use <em>context:</em> to mean the path of an asset relative to the root of the web application context.
+	To add your own stylesheet(s) to the page, use <code>&lt;link></code> tags in the template (see the source code below).<br/>
+	Use <code>asset:</code> to mean the path of an asset within the WAR file's <em>WEB-INF/classes/META-INF/assets/</em>.<br/>
+	Tapestry will slot your stylesheet(s) in after the others. This allows you to add your styles and override the others.<br/><br/>
+
+	In this page we've added a stylesheet with the class <code>eg</code>, which is used here:
 
 	<div class="eg">
-		${message}
-	</div>	
+		Hello, ${username}.
+	</div>
 
-	Tapestry has a default stylesheet which it slots into the output ahead of yours. This lets your styles add to the defaults and override them.<br/><br/>
-	
-	Tapestry's default stylesheet is called <em>default.css</em>.<br/><br/>
-	
-	A second way to specify which stylesheet to use is with the @Import annotation in the page class, eg. <code>@Import(stylesheet="context:css/examples/forms.css")</code><br/><br/>
+	An alternative way to add a stylesheet is with the @Import annotation in the page class, eg. <code>@Import(stylesheet="css/examples/olive.css")</code><br/><br/>
 	
 	Tapestry can automatically load an alternative stylesheet for Internet Explorer. For more information see the references.<br/><br/>
 	
 	References: 
 	<a href="http://www.w3.org/Style/CSS/">Cascading Style Sheet</a>, 
 	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>, 
-	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Context%3ABindings">Context: Bindings</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Asset%3ABindings">Asset: Bindings</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/Stylesheets.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/Stylesheets.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/stylesheets.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/Stylesheets.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/Stylesheets.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

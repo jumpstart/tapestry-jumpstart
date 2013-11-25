@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-	<h1>PageLink Or EventLink?</h1>
+	<h3>PageLink Or EventLink?</h3>
 	
 	There are several criteria to consider when choosing between PageLink and EventLink for a particular job:<br/><br/>
 	
@@ -35,12 +35,14 @@
 	</ul>
 
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinkOrEventLink.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinkOrEventLink.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinkOrEventLink.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinkOrEventLink.java"/>
+	</t:tabGroup>
 </body>
 </html>

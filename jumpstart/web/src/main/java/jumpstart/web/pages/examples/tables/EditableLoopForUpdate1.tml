@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/editableloop.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/editableloop.css}"/>
 </head>
-<body>
-	<h1>Editable Loop For Update (1)</h1>
+<body class="container">
+	<h3>Editable Loop For Update (1)</h3>
 
 	A table built with a Form around a Loop to allow update of persons.<br/>
 	To demonstrate a server-side error, change any First Name to <em>${BAD_NAME}</em>.<br/><br/>
@@ -17,7 +17,7 @@
 	
 	<div class="eg">
 		<form t:type="form" t:id="personsEdit">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			<table class="grid">
 				<thead>
 					<tr>
@@ -62,19 +62,21 @@
 	</ul>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/editableloop.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/editableloop.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

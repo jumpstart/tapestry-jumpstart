@@ -1,21 +1,17 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<style type="text/css">
-		body	{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; }
-		.eg		{ margin: 20px 0; padding: 20px; color: olive; border: 1px solid #ddd; }
-	</style>
-</head>
-<body>
-	<h1>Output</h1>
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+
+<body class="container">
+	<h3>Output</h3>
+
+	The general pattern for output in Tapestry is this: the class exposes named properties (ie. public getters), 
+	eg. <code>getMessage()</code>, and the template references them, eg. <code><![CDATA[${message}]]></code>.
+	The reference <code><![CDATA[${message}]]></code> is called an <em>expansion</em>.
 
 	<div class="eg">
 		${message}
 	</div>
-
-	The general pattern for output in Tapestry is this: the class exposes named properties (ie. public getters), eg. <code>getMessage()</code>, 
-	and the template references them, eg. &#36;<code>{message}</code>.<br/><br/>
-
-	The reference &#36;<code>{message}</code> is called an <em>expansion</em>.<br/><br/> 
 
 	<t:pagelink t:page="examples/output/Output" href="#">Refresh</t:pagelink><br/><br/>
 	
@@ -24,7 +20,10 @@
 
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/Output.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/Output.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/Output.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/Output.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

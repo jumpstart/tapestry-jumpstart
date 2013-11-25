@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/together/onepagecrud.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/together/onepagecrud.css}"/>
 </head>
 <body>
 	<h1>One Page CRUD</h1>
@@ -56,7 +56,7 @@
 							<h1>Create</h1>
 							
 							<form t:type="CustomForm" t:id="createForm" >
-								<t:errors/>
+								<t:errors globalOnly="true"/>
 						
 								<table>
 									<tr>
@@ -153,7 +153,7 @@
 							<h1>Update</h1>
 							
 							<form t:type="CustomForm" t:id="updateForm">
-								<t:errors/>
+								<t:errors globalOnly="true"/>
 							
 								<t:if test="editorPerson">
 									<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
@@ -226,7 +226,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/onepagecrud/Persons.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/onepagecrud/Persons.properties"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/onepagecrud/Persons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/onepagecrud.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/onepagecrud.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/together/PersonPagedDataSource.java"/>

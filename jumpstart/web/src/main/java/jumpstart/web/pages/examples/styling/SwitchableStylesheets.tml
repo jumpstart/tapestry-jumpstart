@@ -6,8 +6,8 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="${stylesheet}"/>
 </head>
-<body>
-	<h1>Switchable Stylesheets</h1>
+<body class="container">
+	<h3>Switchable Stylesheets</h3>
 
 	This page can switch between 2 different stylesheets: <em>css/examples/examples.css</em> and <em>css/switched.css</em>.
 	
@@ -35,9 +35,11 @@
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/SwitchableStylesheets.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/styling/SwitchableStylesheets.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/switched.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/SwitchableStylesheets.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/SwitchableStylesheets.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/switched.css"/>
+	</t:tabGroup>
 </body>
 </html>

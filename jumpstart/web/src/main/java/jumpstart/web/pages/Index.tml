@@ -6,7 +6,6 @@
 
 <head>
 	<title>JumpStart Home</title>
-	<link rel="stylesheet" type="text/css" href="${context:css/index.css}"/>
 </head>
 
 <body>
@@ -31,7 +30,7 @@
 		<div id="titlesbar">
 			<div id="titles">
 				<h1>JumpStart 7.0-alpha-1</h1>
-				<h2>For Tapestry 5.4-alpha-15</h2>
+				<h2>For Tapestry 5.4-alpha-24</h2>
 			</div>
 		</div>
 	</td>
@@ -47,13 +46,15 @@
 							<a t:type="pagelink" t:page="HelloWorldExplained" href="#">"Hello, World" Explained</a><br/>
 						</div>
 						<div class="group">
+							<a t:type="pagelink" t:page="examples/styling/BootstrapStyling" href="#">Bootstrap Styling</a><br/>
+							<a t:type="pagelink" t:page="examples/styling/Stylesheets" href="#">Stylesheets</a><br/>
+							<br/>
 							<a t:type="pagelink" t:page="examples/output/Output" href="#">Output</a><br/>
 							<a t:type="pagelink" t:page="examples/output/Better" href="#">Better Output</a><br/>
 							<a t:type="pagelink" t:page="examples/output/Easy" href="#">Easy Output (Using BeanDisplay)</a><br/>
 							<a t:type="pagelink" t:page="examples/output/TotalControl" href="#">Total Control Output</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/lang/Methods" href="#">Methods</a><br/>
-							<a t:type="pagelink" t:page="examples/styling/Stylesheets" href="#">Stylesheets</a><br/>
 							<a t:type="pagelink" t:page="examples/lang/Annotations" href="#">Annotations</a><br/>
 						</div>
 						<div class="group">
@@ -151,6 +152,7 @@
 						</div>
 					</td>
 					<td class="col">
+						<!-- 
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/tables/Grid" href="#">Grid</a><br/>
 							<a t:type="pagelink" t:page="examples/tables/PreviewableGrid" href="#">Previewable Grid</a><br/>
@@ -203,14 +205,11 @@
 							<br/>
 							<a t:type="pagelink" t:page="examples/styling/SwitchableStylesheets" href="#">Switchable Stylesheets</a><br/>
 							<a t:type="pagelink" t:page="examples/styling/SkinningTheming" href="#">Skinning/Theming</a><br/>
-							<br/>
-							<!-- 
-							<a t:type="pagelink" t:page="examples/styling/BootstrapStyling" t:context="literal:1" href="#">Bootstrap Styling</a><br/>
-							 -->
-							<a href="#">Bootstrap Styling</a><br/>
 						</div>
+						 -->
 					</td>
 					<td class="col">
+						<!-- 
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/component/CreatingComponents" href="#">Creating Components</a><br/>
 							<a t:type="pagelink" t:page="examples/component/ComponentAroundContent" href="#">Component Around Content</a><br/>
@@ -270,8 +269,10 @@
 							<a t:type="pagelink" t:page="examples/ajax/AjaxSelectMore1" href="#">AJAX Select More</a><br/>
 							<a t:type="pagelink" t:page="examples/ajax/AjaxSelectDependency1" href="#">AJAX Select Dependency</a><br/>
 						</div>
+						 -->
 					</td>
 					<td class="col">
+						<!-- 
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/ajax/AjaxEventLinksInALoop" href="#">AJAX EventLinks in a Loop</a><br/>
 							<a t:type="pagelink" t:page="examples/ajax/AjaxFormsInALoop" href="#">AJAX Forms in a Loop</a><br/>
@@ -303,9 +304,11 @@
 							<a t:type="pagelink" t:page="examples/javascript/Scriptaculous" href="#">script.aculo.us</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/javascript/JQuery" href="#">jQuery</a><br/>
+							-->
 							<!-- 
 							<a t:type="pagelink" t:page="examples/javascript/JQueryDataTables" href="#">jQuery DataTables</a><br/>
 							 -->
+							 <!-- 
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/javascript/FileUpload" href="#">File Upload</a><br/>
@@ -327,6 +330,7 @@
 							<a t:type="pagelink" t:page="together/gracefulajaxcomponentscrud/Persons" href="#">Graceful AJAX Components CRUD</a><br/>
 							<a t:type="pagelink" t:page="together/withlayout2/gracefulajaxfiltercrud/Persons" href="#">With Layout</a><br/>
 						</div>
+						 -->
 					</td>
 				</tr>
 			</table>

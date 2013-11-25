@@ -13,7 +13,7 @@ import org.apache.tapestry5.services.javascript.StylesheetLink;
 import org.apache.tapestry5.services.javascript.StylesheetOptions;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "context:js/zone-overlay.js", stylesheet = "context:css/zone-overlay.css")
+@Import(library = "js/zone-overlay.js", stylesheet = "css/zone-overlay.css")
 public class AjaxLoadingSpinner {
 	static final private String[] ALL_THINGS = { "Sugar", "Spice", "All Things Nice" };
 
@@ -37,7 +37,7 @@ public class AjaxLoadingSpinner {
 	private JavaScriptSupport javaScriptSupport;
 
 	@Inject
-	@Path("context:css/zone-overlay-ie.css")
+	@Path("css/zone-overlay-ie.css")
 	private Asset ieCSS;
 
 	// The code

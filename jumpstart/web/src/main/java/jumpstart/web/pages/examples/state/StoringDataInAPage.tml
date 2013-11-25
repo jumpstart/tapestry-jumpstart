@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Storing Data in a Page</h1>
+<body class="container">
+	<h3>Storing Data in a Page</h3>
 	
 	Sometimes there are fields in a page that you want the page to store for use next time you access the page.<br/>
 	To do this, annotate those fields with <em>@Persist</em>.<br/><br/>
@@ -43,16 +40,18 @@
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUsePersistentFieldStrategy">How To Use Persistent Field Strategy</a>.<br/><br/> 
 	
 	References: <a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Persist.html">@Persist</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/PersistenceConstants.html">PersistenceConstants</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Persist.html">@Persist</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/PersistenceConstants.html">PersistenceConstants</a>, 
 	<a href="http://tapestry.apache.org/persistent-page-data.html#PersistentPageData-ClusteringIssues">Clustering Issues</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUsePersistentFieldStrategy">How To Use Persistent Field Strategy</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/StoringDataInAPage.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/StoringDataInAPage.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/examples/state/Count.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/StoringDataInAPage.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/StoringDataInAPage.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/state/Count.java"/>
+	</t:tabGroup>
 </body>
 </html>

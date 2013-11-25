@@ -3,8 +3,10 @@ package jumpstart.web.pages.examples.navigation;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/olive.css")
 public class ActivationRequestParameters1 {
 	
 	@Property

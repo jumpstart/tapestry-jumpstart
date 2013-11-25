@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Delegate to Block</h1>
+<body class="container">
+	<h3>Delegate to Block</h3>
 
 	When a template becomes complex or cluttered in a way that makes its structure or sequence of elements difficult, consider using Delegate and Block.
 
@@ -39,16 +39,18 @@
 	</t:block>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Ablock%3EElement">t:block</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
 	<a href="http://tapestry.apache.org/switching-cases.html">Switching Cases</a>, 
 	<a href="http://tapestry.apache.org/principles.html#Principles-Principle1StaticStructure%2CDynamicBehavior">Principle 1 - Static Structure, Dynamic Behavior</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateAndBlocks.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateAndBlocks.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateAndBlocks.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/DelegateAndBlocks.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+	</t:tabGroup>
 </body>
 </html>

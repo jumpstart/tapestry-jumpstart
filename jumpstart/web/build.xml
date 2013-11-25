@@ -7,10 +7,11 @@
 
 	<property name="java.main.dir" value="src/main/java"/>
 	<property name="java.tests.dir" value="src/test/java"/>
-	<property name="resources.main.dir" value="src/main/resources"/>
+	<property name="webapp.main.dir" value="src/main/webapp"/>
 
 	<property name="target.dir" value="target"/>
 	<property name="target.classes.dir" value="${target.dir}/classes"/>
+	<property name="target.test-classes.dir" value="${target.dir}/test-classes" />
 	<property name="target.package.dir" value="${target.dir}/package"/>
 
 	<property name="lib.compile.dir" value="src/main/lib-compile"/>
@@ -50,12 +51,15 @@
 		<pathelement location="${business.jar.file}"/>
 	</path>
 
-	<path id="classpath.test">
+	<path id="classpath.unit.test">
 		<pathelement location="${conf.test.dir}"/>
 		<pathelement location="${target.test-classes.dir}"/>
 		<pathelement location="${target.classes.dir}"/>
 		<fileset dir="${lib.compile.dir}">
 			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${lib.provided.dir}">
+			<include name="**/*.jar" />
 		</fileset>
 		<fileset dir="${lib.runtime.dir}">
 			<include name="**/*.jar"/>
@@ -63,6 +67,8 @@
 		<fileset dir="${lib.test.dir}">
 			<include name="**/*.jar"/>
 		</fileset>
+		<!-- Needed for its util classes. -->
+		<pathelement location="${business.jar.file}" />
 	</path>
 
 	<target name="clean" description="Deletes the target directory">
@@ -71,6 +77,7 @@
 
 	<target name="init">
 		<mkdir dir="${target.classes.dir}"/>
+		<mkdir dir="${target.test-classes.dir}" />
 		<mkdir dir="${target.package.dir}"/>
 	</target>
 
@@ -78,14 +85,24 @@
 		<available file="${business.jar.file}" property="business.jar.file.exists"/>
 		<fail unless="business.jar.file.exists" message="Business client jar does not exist.  Run the business module's 'package' task before retrying."/>
 
-		<javac source="1.7" target="1.7" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}"/>
+		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
 	</target>
 
 	<target name="test-compile" depends="init" description="Compiles test source, output goes to the target/test-classes dir.">
+		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${java.tests.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
 	</target>
 
 	<target name="test" description="">
+		<!--
 		<echo message="There are no unit tests in jumpstart web tier."/>
+		-->
+		<mkdir dir="test-results" />
+		<junit printsummary="yes" fork="off" timeout="10">
+			<test name="com.goxpro.xpro.web.WebUnitTestSuite" haltonfailure="yes">
+				<formatter type="plain" usefile="false" />
+			</test>
+			<classpath refid="classpath.unit.test" />
+		</junit>
 	</target>
 
 	<target name="package" depends="init" description="">
@@ -96,12 +113,25 @@
 	</target>
 
 	<target name="package-basic-war">
-		<war destfile="${war.file}" manifest="${resources.main.dir}/META-INF/MANIFEST.MF" webxml="${deployment.web.descriptor.file}">
+		<war destfile="${war.file}" manifest="${webapp.main.dir}/META-INF/MANIFEST.MF" webxml="${deployment.web.descriptor.file}">
+			<!--
 			<zipfileset dir="${java.main.dir}/${context.path}" includes="css/**,images/**,js/**,WEB-INF/*.properties" />
 			<zipfileset dir="${target.classes.dir}" prefix="WEB-INF/classes" />
 			<zipfileset dir="${java.main.dir}" prefix="WEB-INF/classes" excludes="**/*.java,${context.path}/css/**,${context.path}/images/**,${context.path}/js/**,${context.path}/WEB-INF/**"/>
 			<zipfileset dir="${lib.compile.dir}" prefix="WEB-INF/lib" />
 			<zipfileset dir="${lib.runtime.dir}" prefix="WEB-INF/lib"/>
+			-->
+			<zipfileset dir="${target.classes.dir}" prefix="WEB-INF/classes"/>
+			<zipfileset dir="${java.main.dir}/${context.path}" includes="WEB-INF/*.properties" />
+			<zipfileset dir="${java.main.dir}" prefix="WEB-INF/classes" excludes="**/*.java,${context.path}/assets/**,${context.path}/js/**,${context.path}/WEB-INF/**" />
+			<!-- Include js folder, because its contents are not RequireJS-style modules. -->
+			<zipfileset dir="${java.main.dir}/${context.path}/assets" prefix="WEB-INF/classes/META-INF/assets" />
+			<zipfileset dir="${java.main.dir}/${context.path}" prefix="WEB-INF/classes/META-INF/assets" includes="**/*.css,js/**/*.js" excludes="assets/**" />
+			<!-- Do not include js/ folder, because its contents are not RequireJS-style modules. -->
+			<zipfileset dir="${java.main.dir}/${context.path}/modules" prefix="WEB-INF/classes/META-INF/modules" />
+			<zipfileset dir="${java.main.dir}/${context.path}" prefix="WEB-INF/classes/META-INF/modules" includes="pages/**/*.js,components/**/*.js,mixins/**/*.js,base/**/*.js" excludes="modules/**" />
+			<zipfileset dir="${lib.compile.dir}" prefix="WEB-INF/lib" />
+			<zipfileset dir="${lib.runtime.dir}" prefix="WEB-INF/lib" />
 		</war>
 	</target>
 
@@ -167,19 +197,19 @@
 		<!-- compile-time jars - needed for compiling and will be put in the package for runtime -->
 
 		<mkdir dir="${lib.compile.dir}"/>
-		<get dest="${lib.compile.dir}/tapestry-core-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-core/5.4-alpha-15/tapestry-core-5.4-alpha-15.jar" />
-		<get dest="${lib.compile.dir}/tapestry-ioc-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-ioc/5.4-alpha-15/tapestry-ioc-5.4-alpha-15.jar" />
-		<get dest="${lib.compile.dir}/tapestry-json-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-json/5.4-alpha-15/tapestry-json-5.4-alpha-15.jar" />			
-		<get dest="${lib.compile.dir}/tapestry-func-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-func/5.4-alpha-15/tapestry-func-5.4-alpha-15.jar" />				
-		<get dest="${lib.compile.dir}/plastic-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/plastic/5.4-alpha-15/plastic-5.4-alpha-15.jar" />
-		<get dest="${lib.compile.dir}/tapestry5-annotations-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry5-annotations/5.4-alpha-15/tapestry5-annotations-5.4-alpha-15.jar" />
+		<get dest="${lib.compile.dir}/tapestry-core-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-core/5.4-alpha-24/tapestry-core-5.4-alpha-24.jar" />
+		<get dest="${lib.compile.dir}/tapestry-ioc-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-ioc/5.4-alpha-24/tapestry-ioc-5.4-alpha-24.jar" />
+		<get dest="${lib.compile.dir}/tapestry-json-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-json/5.4-alpha-24/tapestry-json-5.4-alpha-24.jar" />			
+		<get dest="${lib.compile.dir}/tapestry-func-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-func/5.4-alpha-24/tapestry-func-5.4-alpha-24.jar" />				
+		<get dest="${lib.compile.dir}/plastic-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/plastic/5.4-alpha-24/plastic-5.4-alpha-24.jar" />
+		<get dest="${lib.compile.dir}/tapestry5-annotations-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry5-annotations/5.4-alpha-24/tapestry5-annotations-5.4-alpha-24.jar" />
 		<get dest="${lib.compile.dir}/javax.inject-1.jar" usetimestamp="true" src="${maven.repo.root}/javax/inject/javax.inject/1/javax.inject-1.jar" />
 		<get dest="${lib.compile.dir}/chenillekit-core-1.3.3.jar" usetimestamp="true" src="${maven.repo.root}/org/chenillekit/chenillekit-core/1.3.3/chenillekit-core-1.3.3.jar" />
 		<get dest="${lib.compile.dir}/chenillekit-tapestry-1.3.3.jar" usetimestamp="true" src="${maven.repo.root}/org/chenillekit/chenillekit-tapestry/1.3.3/chenillekit-tapestry-1.3.3.jar" />
 		<!-- For tapestry-kaptcha -->
-		<get dest="${lib.compile.dir}/tapestry-kaptcha-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-kaptcha/5.4-alpha-15/tapestry-kaptcha-5.4-alpha-15.jar" />
+		<get dest="${lib.compile.dir}/tapestry-kaptcha-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-kaptcha/5.4-alpha-24/tapestry-kaptcha-5.4-alpha-24.jar" />
 		<!-- For tapestry-upload -->
-		<get dest="${lib.compile.dir}/tapestry-upload-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-upload/5.4-alpha-15/tapestry-upload-5.4-alpha-15.jar" />
+		<get dest="${lib.compile.dir}/tapestry-upload-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-upload/5.4-alpha-24/tapestry-upload-5.4-alpha-24.jar" />
 		<get dest="${lib.compile.dir}/commons-fileupload-1.2.2.jar" usetimestamp="true" src="${maven.repo.root}/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar" />
 		<!-- For tapestry5-jquery -->
 		<!--
@@ -190,13 +220,12 @@
 		<get dest="${lib.compile.dir}/tapestry-bootstrap-2.1.3.jar" usetimestamp="true" src="${maven.repo.root}/com/trsvax/tapestry-bootstrap/2.1.3/tapestry-bootstrap-2.1.3.jar" />
 		-->
 		<!-- For JSR-303 Bean Validation 1.0 -->
-		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4-alpha-15.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-beanvalidator/5.4-alpha-15/tapestry-beanvalidator-5.4-alpha-15.jar" />				
+		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4-alpha-24.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-beanvalidator/5.4-alpha-24/tapestry-beanvalidator-5.4-alpha-24.jar" />				
 		
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container (eg. JBoss) or the EAR (shared with the business tier) -->
 
 		<mkdir dir="${lib.provided.dir}"/>
 		<get dest="${lib.provided.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
-		<get dest="${lib.provided.dir}/javassist-3.15.0-GA.jar" usetimestamp="true" src="${maven.repo.root}/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar" />
 		<get dest="${lib.provided.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
 		<get dest="${lib.provided.dir}/slf4j-api-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
 		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
@@ -210,13 +239,31 @@
 		<get dest="${lib.runtime.dir}/commons-codec-1.5.jar" usetimestamp="true" src="${maven.repo.root}/commons-codec/commons-codec/1.5/commons-codec-1.5.jar" />
 		<get dest="${lib.runtime.dir}/commons-configuration-1.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar" />
 		<get dest="${lib.runtime.dir}/commons-lang-2.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" />
+		<!-- For tapestry-webresources -->
+		<get dest="${lib.runtime.dir}/tapestry-webresources-5.4-alpha-23.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-webresources/5.4-alpha-23/tapestry-webresources-5.4-alpha-23.jar" />				
+		<get dest="${lib.runtime.dir}/less4j-1.1.2.jar" usetimestamp="true" src="${maven.repo.root}/com/github/sommeri/less4j/1.1.2/less4j-1.1.2.jar" />				
+		<get dest="${lib.runtime.dir}/closure-compiler-v20130722.jar" usetimestamp="true" src="${maven.repo.root}/com/google/javascript/closure-compiler/v20130722/closure-compiler-v20130722.jar" />				
+		<get dest="${lib.runtime.dir}/rhino-1.7R4.jar" usetimestamp="true" src="${maven.repo.root}/org/mozilla/rhino/1.7R4/rhino-1.7R4.jar" />
+			<!-- For closure-compiler -->
+			<!-- Missing anything? See http://central.maven.org/maven2/com/google/javascript/closure-compiler/v20130722/closure-compiler-v20130722.pom -->
+			<get dest="${lib.runtime.dir}/args4j-2.0.16.jar" usetimestamp="true" src="${maven.repo.root}/args4j/args4j/2.0.16/args4j-2.0.16.jar" />				
+			<get dest="${lib.runtime.dir}/guava-14.0.1.jar" usetimestamp="true" src="${maven.repo.root}/com/google/guava/guava/14.0.1/guava-14.0.1.jar" />				
+			<get dest="${lib.runtime.dir}/json-20090211.jar" usetimestamp="true" src="${maven.repo.root}/org/json/json/20090211/json-20090211.jar" />				
+			<!-- For closure-compiler and less4j -->
+			<!--
+			<get dest="${lib.runtime.dir}/protobuf-java-2.4.1.jar" usetimestamp="true" src="${maven.repo.root}/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.jar" />
+			-->				
+			<get dest="${lib.runtime.dir}/protobuf-java-2.5.0.jar" usetimestamp="true" src="${maven.repo.root}/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar" />				
 		<!-- For tapestry-kaptcha -->
 		<!--
 		<get dest="${lib.runtime.dir}/kaptcha-2.3.jar" usetimestamp="true" src="https://nexus.sourcesense.com/nexus/content/repositories/public/com/google/code/kaptcha/2.3/kaptcha-2.3.jar" />				
 		-->
 		<get dest="${lib.runtime.dir}/kaptcha-2.3.jar" usetimestamp="true" src="http://savant.inversoft.org/com/google/code/kaptcha/kaptcha/2.3/kaptcha-2.3.jar" />				
 		<!-- For tapestry-upload -->
+		<!--
 		<get dest="${lib.runtime.dir}/commons-io-2.0.1.jar" usetimestamp="true" src="${maven.repo.root}/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar" />
+		-->
+		<get dest="${lib.runtime.dir}/commons-io-2.3.jar" usetimestamp="true" src="${maven.repo.root}/commons-io/commons-io/2.3/commons-io-2.3.jar" />
 
 		<!-- testing jars - needed for compiling and running tests (but this release has no web tier tests) -->
 

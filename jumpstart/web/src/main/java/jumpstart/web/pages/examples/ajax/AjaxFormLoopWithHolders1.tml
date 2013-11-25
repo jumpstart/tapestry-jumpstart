@@ -2,12 +2,12 @@
 <!-- We need a doctype to allow us to use special characters like &nbsp; 
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/ajaxformloop.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/ajaxformloop.css}"/>
 </head>
-<body>
-	<h1>AjaxFormLoop With Holders (1)</h1>
+<body class="container">
+	<h3>AjaxFormLoop With Holders (1)</h3>
 	
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -22,7 +22,7 @@
 	
 	<div class="eg" t:type="Zone" t:id="personsEditZone" id="personsEditZone">
 		<form t:type="form" t:id="personsEdit" t:zone="^">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			
 			<t:hidden value="personsDisplayed" encoder="personsDisplayedEncoder"/>
 			
@@ -92,26 +92,28 @@
 	</ul>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/AjaxFormLoop.html">AjaxFormLoop</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/AddRowLink">AddRowLink</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/RemoveRowLink.html">RemoveRowLink</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/AjaxFormLoop.html">AjaxFormLoop</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/AddRowLink">AddRowLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/RemoveRowLink.html">RemoveRowLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/ajaxformloop.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/encoders/examples/IdVersionsEncoder.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/IdVersion.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxformloop.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/encoders/examples/IdVersionsEncoder.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/commons/IdVersion.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

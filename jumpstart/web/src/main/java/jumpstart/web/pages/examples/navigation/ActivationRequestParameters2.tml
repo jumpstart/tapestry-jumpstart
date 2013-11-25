@@ -3,42 +3,48 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Activation Request Parameters (2)</h1>
+<body class="container">
+	<h3>Activation Request Parameters (2)</h3>
+
+	Look at the URL of this page. It is the render request from the PageLink,
+	and the <strong>activation request parameters</strong> are at the end.<br/><br/>
+
+	This page receives the activation request parameter(s) by providing annotated field(s):<br/><br/>
 	
-	Look at the URL of this page. The query parameter at the end is called an <strong>activation request parameter</strong>.<br/>
-	To receive activation request parameters, use the <strong>@ActivationRequestParameter</strong> field annotation. For example:<br/>
-	
-	<code><pre>
+	<pre><code>
 	@ActivationRequestParameter(value = "personid")
-	private Long personId;</pre></code>
-	
-	This page has been activated with activation request parameter <em>personid=${personId}</em>. Here is that Person:<br/>
+	private Long personId;
+	</code></pre><br/>
+
+	This page received <em>personid=${personId}</em>. Here is that Person:<br/>
 
 	<div class="eg">
 		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
 	</div>
 
-	When to you use activation request parameters? They are good for <strong>filter criteria</strong> because, arguably, 
-	they produce a more RESTful URL in that situation.<br/>
-	You can use an activation context and activation request parameters together in the same request. <br/><br/>
+	<strong>When to use activation request parameters instead of activation context?</strong> 
+	Activation request parameters are good for <strong>filter criteria</strong> because, arguably, 
+	they produce a more RESTful URL in that situation.<br/><br/>
+
+	A render request can have an activation context AND activation request parameters at the same time.<br/><br/>
 
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
     <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Render Requests</a>, 
-	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>, 
+	<a href="http://blpsilva.wordpress.com/2008/04/05/query-strings-in-restful-web-services/">Query strings in RESTful Web Services</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
 
 	<t:pagelink t:page="examples/navigation/ActivationRequestParameters1">Return</t:pagelink><br/><br/>
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

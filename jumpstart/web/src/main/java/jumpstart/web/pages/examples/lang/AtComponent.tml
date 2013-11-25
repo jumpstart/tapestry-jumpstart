@@ -3,21 +3,21 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
+<body class="container">
 
-	<h1>@Component</h1>
+	<h3>@Component</h3>
 	
 	Working with a web designer, you may prefer to provide them a template without all the Tapestry parameter bindings.<br/>
-	Tapestry provides an alternative.  Instead of this...
+	Tapestry provides an alternative.  Instead of this...<br/><br/>
+	
 	<pre><code>	&lt;a t:type="pagelink" t:page="Index" href="#"&gt;Home&lt;/a&gt;</code></pre>
 
-	...you can provide just the component id, like this... 
+	...you can provide just the component id, like this...<br/><br/> 
+	
 	<pre><code>	&lt;a t:id="home" href="#"&gt;Home&lt;/a&gt;</code></pre>
 
-	...and put the parameter bindings in the class instead, by using <code>@Component</code>, like this...<br/>
+	...and put the parameter bindings in the class instead, by using <code>@Component</code>, like this...<br/><br/>
+	
 	<pre><code>	@Component(id = "home", parameters = {"page=Index"})
 	private PageLink index;</code></pre>
 
@@ -39,10 +39,13 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-classes.html#ComponentClasses-EmbeddedComponents">Embedded Components</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>.
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>.
 	<br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/AtComponent.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/AtComponent.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/AtComponent.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/AtComponent.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

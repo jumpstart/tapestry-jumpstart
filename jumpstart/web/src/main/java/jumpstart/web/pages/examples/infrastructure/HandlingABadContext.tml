@@ -4,11 +4,11 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
+<body class="container">
 
-	<h1>Handling A Bad Context</h1>
+	<h3>Handling A Bad Context</h3>
 	
 	With each page you design it's important to decide how to handle a bad activation context, because 
 	a bad context can occur	in various ways.<br/><br/>
@@ -65,16 +65,18 @@
 	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-InterceptingEventExceptions">Intercepting Event Exceptions</a>, 
 	<a href="http://tapestry.apache.org/overriding-exception-reporting.html">Overriding Exception Reporting</a>, 
 	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-EventContext">EventContext</a>. 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for Person, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/HandlingABadContext.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/HandlingABadContext.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/HandlingABadContext.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/HandlingABadContext.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+	</t:tabGroup>
 </body>
 </html>

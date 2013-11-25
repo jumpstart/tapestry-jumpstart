@@ -13,7 +13,7 @@
 		<table class="recordblock" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
-					<t:errors />
+					<t:errors globalOnly="true"/>
 					<div class="record">
 						<table border="0" cellspacing="0" cellpadding="0">
 							<tr>

@@ -12,7 +12,7 @@
 		<h1>Create</h1>
 		
 		<form t:type="CustomForm" t:id="createForm" t:zone="^">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 	
 			<table>
 				<tr>
@@ -114,7 +114,7 @@
 		<h1>Update</h1>
 		
 		<form t:type="form" t:id="updateForm" t:context="personId" t:zone="^">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 		
 			<t:if test="person">
 				<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
@@ -177,7 +177,7 @@
 		<h1>Delete</h1>
 		
 		<form t:type="form" t:id="confirmDeleteForm" t:zone="^">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 		
 			<t:if test="person">
 				<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->

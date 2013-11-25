@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
 		h3				{ margin-top: 0; }
 		.invitation		{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
@@ -14,8 +14,8 @@
 		.error-msg-c	{ color: red; } 
 	</style>
 </head>
-<body>
-	<h1>Sub-Form Component (1)</h1>
+<body class="container">
+	<h3>Sub-Form Component (1)</h3>
 	
 	We will use an invented term, "sub-form", to mean a component that contains input components. It will be put in a Form.<br/>
 	In this example we have a sub-form called SelectPersons which the page uses to edit <em>invitation.invitedPersons</em>.<br/>
@@ -41,7 +41,7 @@
 		 		</tr>
 		 	</table>
 
-			<t:errors/><br/>
+			<t:errors globalOnly="true"/><br/>
 			
 			<input t:type="Submit" t:id="done" value="Save"/>
 		</form>
@@ -62,11 +62,13 @@
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
 	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+	</t:tabGroup>
 </body>
 </html>

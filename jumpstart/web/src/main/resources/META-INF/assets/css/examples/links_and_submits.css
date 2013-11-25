@@ -1,0 +1,3 @@
+.eg				{ margin: 14px 0; padding: 14px; color: #999;					border: 1px solid #ddd; border-radius: 4px; -webkit-border-radius: 4px; -mox-border-radius: 4px;}.buttonlink		{ text-decoration: none }
+.imagelink		{ text-decoration: none }
+.nextimage		{ background-image: url(../../images/next-button-48.png); background-color: transparent; width: 52px; height: 52px; }

@@ -1,9 +1,12 @@
 package jumpstart.web.pages.examples.state;
 
+import org.apache.tapestry5.annotations.Import;
+
 /**
  * This page demonstrates using the activation context to remember data through the redirect.
  * The data will be appended to the render request URL.
  */
+@Import(stylesheet="css/examples/olive.css")
 public class PassingByActivationContext {
 
 	// The activation context

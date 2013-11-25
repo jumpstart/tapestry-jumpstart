@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/editableloop.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/editableloop.css}"/>
 </head>
-<body>
-	<h1>Editable Loop For Update (2)</h1>
+<body class="container">
+	<h3>Editable Loop For Update (2)</h3>
 
 	Here is the result of your changes.  The changes have not been persisted to the database.
 
@@ -38,12 +38,14 @@
 	</div>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/editableloop.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/editableloop.css"/>
+	</t:tabGroup>
 </body>
 </html>

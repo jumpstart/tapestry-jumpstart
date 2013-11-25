@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Protecting Pages</h1>
+<body class="container">
+	<h3>Protecting Pages</h3>
 	
 	Let's say you would like Tapestry to protect particular pages from being accessed by users who have not logged in...<br/><br/>
 	
@@ -32,21 +32,23 @@
 	References: 
 	<a href="http://tapestry.apache.org/request-processing.html#RequestProcessing-Overview">Request Processing diagram</a>, 
 	<a href="http://tapestryjava.blogspot.com/2009/12/securing-tapestry-pages-with.html">Securing Tapestry Pages with Annotations</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/ComponentRequestFilter.html">ComponentRequestFilter</a>, 
- 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/ComponentRequestFilter.html">ComponentRequestFilter</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/theapp/security/UserView.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/annotation/ProtectedPage.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/PageProtectionFilter.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/PageDenied.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/PageDenied.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/IIntermediatePage.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/theapp/Visit.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/theapp/security/UserView.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/annotation/ProtectedPage.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/PageProtectionFilter.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/PageDenied.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/PageDenied.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/IIntermediatePage.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/theapp/Visit.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html>

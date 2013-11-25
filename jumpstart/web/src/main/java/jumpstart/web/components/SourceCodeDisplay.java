@@ -13,7 +13,7 @@ import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Context;
 
-@Import(stylesheet = "context:css/sourcecodedisplay.css")
+@Import(stylesheet = "css/sourcecodedisplay.css")
 public class SourceCodeDisplay {
 	static private String LINE_SEPARATOR = System.getProperty("line.separator");
 

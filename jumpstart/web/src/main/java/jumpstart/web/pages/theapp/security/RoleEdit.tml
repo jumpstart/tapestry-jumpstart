@@ -2,7 +2,7 @@
 <div class="contentblock">
 	<h1>Edit Role</h1>
 	<form t:type="form" t:id="form">
-		<t:errors />
+		<t:errors globalOnly="true"/>
 
 		<t:if test="role">
 			<!-- Include version in the form to prevent it being updated/refreshed in onActivate(), which would defeat optimistic locking. -->

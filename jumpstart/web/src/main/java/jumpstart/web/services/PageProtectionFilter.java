@@ -48,7 +48,7 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 	private final String autoLoginStr = System.getProperty("jumpstart.auto-login");
 
 	private enum AuthCheckResult {
-		AUTHORISED, DENIED, RELOAD_XHR, AUTHENTICATE;
+		AUTHENTICATE, AUTHORISED, DENY;
 	}
 
 	private final PageRenderLinkSource pageRenderLinkSource;
@@ -83,9 +83,13 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		if (result == AuthCheckResult.AUTHORISED) {
 			handler.handlePageRender(parameters);
 		}
-		else if (result == AuthCheckResult.DENIED) {
-			// The method will have set the response to redirect to the PageDenied page.
-			return;
+		else if (result == AuthCheckResult.DENY) {
+
+			// Redirect to the Denied page.
+
+			Link pageProtectedLink = pageRenderLinkSource.createPageRenderLinkWithContext(PageDenied.class,
+					parameters.getLogicalPageName());
+			response.sendRedirect(pageProtectedLink);
 		}
 		else if (result == AuthCheckResult.AUTHENTICATE) {
 
@@ -112,30 +116,40 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		if (result == AuthCheckResult.AUTHORISED) {
 			handler.handleComponentEvent(parameters);
 		}
-		else if (result == AuthCheckResult.DENIED) {
-			// The method will have set the response to redirect to the PageDenied page.
-			return;
-		}
-		else if (result == AuthCheckResult.RELOAD_XHR) {
-			
-			// Return an AJAX response that reloads the page.
-			
-			Link requestedPageLink = createLinkToRequestedPage(parameters.getActivePageName(),
-					parameters.getPageActivationContext());
-			OutputStream os = response.getOutputStream("application/json;charset=UTF-8");
-			os.write(("{\"redirectURL\":\"" + requestedPageLink.toAbsoluteURI() + "\"}").getBytes());
-			os.close();
-			return;
+		else if (result == AuthCheckResult.DENY) {
+
+			// Redirect to the Denied page.
+
+			Link pageProtectedLink = pageRenderLinkSource.createPageRenderLinkWithContext(PageDenied.class,
+					parameters.getActivePageName());
+			response.sendRedirect(pageProtectedLink);
 		}
 		else if (result == AuthCheckResult.AUTHENTICATE) {
 
-			// Redirect to the Login page, with memory of the request.
+			// If AJAX request, return an AJAX response that reloads the page.
 
-			Link requestedPageLink = createLinkToRequestedPage(parameters.getActivePageName(),
-					parameters.getPageActivationContext());
-			Link loginPageLink = createLoginPageLinkWithMemory(requestedPageLink);
+			if (request.isXHR()) {
+				Link requestedPageLink = createLinkToRequestedPage(parameters.getActivePageName(),
+						parameters.getPageActivationContext());
+				OutputStream os = response.getOutputStream("application/json;charset=UTF-8");
+				// TODO - Using new, longer JSON string until this is fixed:
+				// http://apache-tapestry-mailing-list-archives.1045711.n5.nabble.com/T5-4-cannot-redirect-on-session-timeout-tt5724697.html.
+				// os.write(("{\"redirectURL\":\"" + requestedPageLink.toAbsoluteURI() + "\"}").getBytes());
+				os.write(("{\"_tapestry\" : " + "{\"redirectURL\" : \"" + requestedPageLink.toAbsoluteURI() + "\"}" + " }")
+						.getBytes());
+				os.close();
+				return;
+			}
 
-			response.sendRedirect(loginPageLink);
+			// Else, redirect to the Login page, with memory of the request.
+
+			else {
+				Link requestedPageLink = createLinkToRequestedPage(parameters.getActivePageName(),
+						parameters.getPageActivationContext());
+				Link loginPageLink = createLoginPageLinkWithMemory(requestedPageLink);
+
+				response.sendRedirect(loginPageLink);
+			}
 		}
 		else {
 			throw new IllegalStateException(result.toString());
@@ -153,21 +167,19 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 
 		// If the security annotations on the page conflict in meaning, then error
 
-		if (rolesAllowed != null && !protectedPage) {
+		if (!protectedPage && rolesAllowed != null) {
 			throw new IllegalStateException("Page \"" + requestedPageName
 					+ "\" is annotated with @RolesAllowed but not @ProtectedPage.");
+		}
+		else if (protectedPage && rolesAllowed == null) {
+			// throw new IllegalStateException("Page \"" + requestedPageName
+			// + "\" is annotated with @ProtectedPage but not @RolesAllowed.");
 		}
 
 		// If page is public (ie. not protected), then everyone is authorised to it so allow access
 
 		if (!protectedPage) {
 			return AuthCheckResult.AUTHORISED;
-		}
-
-		// If request is AJAX with no session, return an AJAX response that forces reload of the page
-
-		if (request.isXHR() && request.getSession(false) == null) {
-			return AuthCheckResult.RELOAD_XHR;
 		}
 
 		// If user has not been authenticated, disallow.
@@ -182,12 +194,9 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 			return AuthCheckResult.AUTHORISED;
 		}
 
-		// Fell through, so redirect to the PageDenied page.
+		// Fell through, so not authorised.
 
-		Link pageProtectedLink = pageRenderLinkSource.createPageRenderLinkWithContext(PageDenied.class,
-				requestedPageName);
-		response.sendRedirect(pageProtectedLink);
-		return AuthCheckResult.DENIED;
+		return AuthCheckResult.DENY;
 
 	}
 
@@ -223,6 +232,11 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 	}
 
 	private boolean isAuthenticated() throws IOException {
+
+		// TODO - is this test unnecessary?
+		if (request.getSession(false) == null) {
+			return false;
+		}
 
 		// If a Visit already exists in the session then you have already been authenticated
 

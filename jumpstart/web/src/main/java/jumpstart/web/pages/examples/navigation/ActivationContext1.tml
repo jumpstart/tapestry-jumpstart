@@ -3,36 +3,40 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Activation Context (1)</h1>
+<body class="container">
+	<h3>Activation Context (1)</h3>
 
-	A render request can include parameters. To make a PageLink include parameters, use its <code>context</code> parameter.<br/>
+	A <strong>render request</strong> activates a page. 
+	A render request can include parameters, which Tapestry calls the <strong>activation context</strong>.<br/><br/>
+	
+	To specify an activation context in a PageLink, use the <code>context</code> parameter. 
+	Here we have specified <code>context="personId"</code>:
 	
   	<div class="eg">
-		<t:pagelink t:page="examples/navigation/ActivationContext2" t:context="personId">Show Person ${personId}</t:pagelink><br/>
+		<t:pagelink page="examples/navigation/ActivationContext2" context="personId">Show Person ${personId}</t:pagelink><br/>
 	</div>
 	
-	That link will have a URL like this: <code>http://thehost/jumpstart/examples/navigation/activationcontext2/1</code> .<br/> 
-	The parameter is at the end.<br/><br/>
+	The link has a URL similar to this: <code>http://thehost/jumpstart/examples/navigation/activationcontext2/1</code>.<br/> 
+	See the activation context appended to the end?<br/><br/>
 	
-	To pass a list of parameters, use square brackets and commas. For example <code>t:context="[personId,literal:view]"</code>.<br/>
-	The URL would be like this: <code>http://thehost/jumpstart/examples/navigation/activationcontext2/1/view</code> .<br/><br/>
+	To pass more in the context, use square brackets and commas. For example <code>t:context="[personId,literal:view]"</code> <br/>
+	would render a URL similar to: <code>http://thehost/jumpstart/examples/navigation/activationcontext2/1/view</code>.<br/><br/>
 	
 	Click the link above to learn more.<br/><br/>
 	
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
     <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Render Requests</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>, 
-	<a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Grammar</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Grammar</a>, 
+	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-BindingExpressions">Binding Expressions</a>.<br/><br/>
 
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

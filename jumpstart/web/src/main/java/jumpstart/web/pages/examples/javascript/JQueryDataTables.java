@@ -18,9 +18,9 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
 import org.got5.tapestry5.jquery.ImportJQueryUI;
 
-@Import(stylesheet = { "context:css/examples/jquerydatatables.css" })
+@Import(stylesheet = { "css/examples/jquerydatatables.css" })
 // Apply the "smoothness" theme (downloaded from http://jqueryui.com/themeroller/)
-@ImportJQueryUI(theme = "context:css/examples/jquery/themes/smoothness/jquery-ui-1.8.23.custom.css")
+@ImportJQueryUI(theme = "css/examples/jquery/themes/smoothness/jquery-ui-1.8.23.custom.css")
 public class JQueryDataTables {
 	static private final int MAX_RESULTS = 30;
 
@@ -60,7 +60,6 @@ public class JQueryDataTables {
 	}
 
 	public String getPersonRegion() {
-		// Follow the same naming convention that the Select component uses
 		return messages.get(Regions.class.getSimpleName() + "." + person.getRegion().name());
 	}
 

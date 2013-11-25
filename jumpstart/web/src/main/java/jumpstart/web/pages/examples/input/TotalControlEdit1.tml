@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/totalcontroledit.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/totalcontroledit.css}"/>
 </head>
-<body>
-	<h1>Total Control Edit (1)</h1>
+<body class="container">
+	<h3>Total Control Edit (1)</h3>
 
 	This page demonstrates how to edit an object <em>without</em> using BeanEditForm. <br/>
 	The cost is more lines of code in the template. The benefit is total control of the content, layout and style.
@@ -63,28 +63,30 @@
 					<td></td>
 				</tr>
 			</table>
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 		</form>
 	</div>
 	
 	Person is a JPA Entity Bean and PersonFinderService is an EJB3 Session Bean. <br/><br/>
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Hidden.html">Hidden</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Hidden.html">Hidden</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/>
 	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/totalcontroledit.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/totalcontroledit.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

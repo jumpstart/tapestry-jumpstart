@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Easy Object Select</h1>
+<body class="container">
+	<h3>Easy Object Select</h3>
 	
 	This page demonstrates selecting from a more complex model - a list of objects from the database.<br/>
 	This is easy to achieve using <strong>SelectModelFactory</strong> and a custom <strong>ValueEncoder</strong>, and together <br/>
@@ -27,23 +27,25 @@
 	Note that PersonEncoder goes to the database when it converts an id to a Person, but this happens only on submit, and only for the chosen person.<br/><br/>
 
 	References:
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
 	<a href="http://tapestry.apache.org/using-select-with-a-list.html">Using Select with a List</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/SelectModel.html">SelectModel</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/SelectModelFactory.html">SelectModelFactory</a>,  
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>,  
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/SelectModel.html">SelectModel</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/SelectModelFactory.html">SelectModelFactory</a>,  
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>,  
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowtoSelectWithObjects">How To Select With Objects</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyObjectSelect.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyObjectSelect.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/encoders/examples/PersonEncoder.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyObjectSelect.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyObjectSelect.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/encoders/examples/PersonEncoder.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	</t:tabGroup>
 </body>
 </html>

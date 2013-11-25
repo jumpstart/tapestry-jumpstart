@@ -1,8 +1,10 @@
 package jumpstart.web.pages.examples.state;
 
 import org.apache.tapestry5.Link;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 
+@Import(stylesheet="css/examples/plain.css")
 public class PassingDataBetweenPages {
 
 	@InjectPage

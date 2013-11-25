@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
  		.required-field		{ border-right-color: orange; }
 		.error-label		{ color: red; }
@@ -12,8 +12,8 @@
 		.error-msg			{ color: red; }
 	</style>
 </head>
-<body>
-	<h1>No Validation Bubbles</h1>
+<body class="container">
+	<h3>No Validation Bubbles</h3>
 
 	This example is jumping ahead: it uses custom components and JavaScript, which are not properly introduced until later examples.<br/>
 	You may prefer to come back to this example later.<br/><br/>   
@@ -23,7 +23,7 @@
 	
 	<div class="eg">
 		<form t:type="CustomForm" t:id="names">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			<table>
 				<tr>
 					<td><t:label for="firstName"/>:</td>
@@ -87,24 +87,26 @@
 		How to disable Client-Side-Error-Message-Bubbles</a>, 
 	<a href="http://tapestry.1045711.n5.nabble.com/Example-of-overriding-the-default-ValidationDecorator-td2419072.html">
 		Example of overriding the default ValidationDecorator</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ClientElement.html">ClientElement</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/FormValidationControl.html">FormValidationControl</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Environment.html">Environment</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/BaseValidationDecorator.html">BaseValidationDecorator</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Field.html">Field</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Heartbeat.html">Heartbeat</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/dom/Element.html">Element</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ClientElement.html">ClientElement</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/FormValidationControl.html">FormValidationControl</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Environment.html">Environment</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/BaseValidationDecorator.html">BaseValidationDecorator</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Field.html">Field</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Heartbeat.html">Heartbeat</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/dom/Element.html">Element</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/NoValidationBubbles.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/NoValidationBubbles.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/CustomForm.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/CustomForm.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/CustomValidationDecorator.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/CustomError.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/CustomError.js"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/NoValidationBubbles.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/NoValidationBubbles.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/CustomForm.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/CustomForm.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/CustomValidationDecorator.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/CustomError.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/CustomError.js"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/ajax_select.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/ajax_select.css}"/>
 </head>
-<body>
-	<h1>AJAX Select (1)</h1>
+<body class="container">
+	<h3>AJAX Select (1)</h3>
 	
 	<noscript class="js-required">
 		${message:javascript_required}
@@ -31,25 +31,27 @@
 			Keywords: <input t:type="TextField" t:id="keywords"/> (optional)<br/> 
 	
 			<input type="submit" value="Save"/>
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 	
 		</form>
 	</div>
 
 	References: 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
- 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
-  	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/ajax_select.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajax_select.css"/>
+	</t:tabGroup>
 </body>
 </html>

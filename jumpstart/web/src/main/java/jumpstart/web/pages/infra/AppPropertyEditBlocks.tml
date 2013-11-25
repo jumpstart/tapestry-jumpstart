@@ -1,4 +1,4 @@
-<t:container xml:space="default" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<t:container xml:space="default" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 
 	<t:block id="dateMidnight">
 		<t:label for="dateMidnight"/>

@@ -17,9 +17,9 @@
 		<a t:type="pagelink" t:page="Index">Home</a>
 	</div>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/TheLayoutComponent1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/TheLayoutComponent1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/Layout.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/Layout.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/layout.css"/>
+	<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TheLayoutComponent1.tml"/>
+	<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TheLayoutComponent1.java"/>
+	<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/Layout.tml"/>
+	<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/Layout.java"/>
+	<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/layout.css"/>
 </html>

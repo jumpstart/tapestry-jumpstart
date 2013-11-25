@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/loopwithdeletecolumn.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/loopwithdeletecolumn.css}"/>
 </head>
-<body>
-	<h1>Loop With Delete Column (1)</h1>
+<body class="container">
+	<h3>Loop With Delete Column (1)</h3>
 	
 	A table built with the Loop component, including only the Person columns we want, and adding a Delete column.<br/><br/>
 	
@@ -15,7 +15,7 @@
 
 	<div class="eg">
 		<form t:type="form" t:id="deletables">
-			<t:errors/>
+			<t:errors globalOnly="true"/>
 			<table class="grid">
 				<thead>
 					<tr>
@@ -52,18 +52,20 @@
 	This example works very much like the Editable Loop For Update example.<br/><br/>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/loopwithdeletecolumn.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/loopwithdeletecolumn.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -7,6 +7,7 @@ import java.util.Locale;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValidationException;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.TextField;
@@ -14,6 +15,7 @@ import org.apache.tapestry5.internal.translator.NumericTranslatorSupport;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet="css/examples/plain.css")
 public class AugmentingTranslators {
 	private static final String PARSED = "(parseClient handler was invoked)";
 
@@ -149,7 +151,7 @@ public class AugmentingTranslators {
 	}
 
 	/**
-	 * This is the same pre-processing that Tapestry's client-side translator does (in tapestry.js).
+	 * This is the same pre-processing that Tapestry 5.3's client-side translator does (in tapestry.js).
 	 */
 	private String toCanonical(String s, boolean anInteger) throws ParseException {
 		DecimalFormatSymbols symbols = new DecimalFormatSymbols(locale);

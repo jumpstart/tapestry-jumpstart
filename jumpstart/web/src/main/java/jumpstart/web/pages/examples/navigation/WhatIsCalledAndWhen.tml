@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
 		.eg	{ border: none; margin: 0; color: #333; }
 		tr	{ background-color: rgb(204, 190, 153); border: black 2px outset; padding: 2px; font-family: 'Trebuchet MS'; }
@@ -13,8 +13,8 @@
 		.what	{ font-weight: bold; }
 	</style>
 </head>
-<body style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-	<h1>What is Called and When</h1>
+<body class="container">
+	<h3>What is Called and When</h3>
 	
 	This page demonstrates what methods are called, and when, in various situations.<br/>
 	It does not cover AJAX requests - they are demonstrated in AJAX: What is Called and When.<br/><br/>
@@ -23,31 +23,31 @@
 	<ul>
 		<li><span class="what">Control rendering</span> (eg. for a render request) with 
 			<a class="link" href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">
-			render phase methods</a>, ie. <em>setupRender()</em>, <em>cleanupRender()</em>, etc.</li>
+			render phase methods</a>, ie. <code>setupRender()</code>, <code>cleanupRender()</code>, etc.</li>
 		<li><span class="what">Handle events</span> (ie. events bubbled up from components) with 
 			<a class="link" href="http://tapestry.apache.org/component-events.html#ComponentEvents-EventHandlerMethods">
-			event handler methods</a>, eg. <em>onGoHome(...)</em>, <em>onAction(...)</em>, <em>onPrepareForSubmit()</em>.</li>
+			event handler methods</a>, eg. <code>onGoHome(...)</code>, <code>onPrepareForSubmit()</code>.</li>
 		<li><span class="what">Expose data</span> to its template, with 
-			properties, eg. <em>getFirstName()</em>, <em>setFirstName(...)</em>, or <em>@Property</em>.</li>
+			properties, eg. <code>getFirstName()</code>, <code>setFirstName(...)</code>, or <code>@Property</code>.</li>
 		<li><span class="what">Receive its context</span> from a render request or component event request, with an 
 			<a class="link" href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">
-			activate event handler</a>, ie. <em>onActivate(...)</em>.</li>
+			activate event handler</a>, ie. <code>onActivate(...)</code>.</li>
 		<li><span class="what">Return its context</span> which Tapestry uses to generate a request URL to it, with a 
 			<a class="link" href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">
-			passivate event handler</a>, ie. <em>onPassivate()</em>.</li>
+			passivate event handler</a>, ie. <code>onPassivate()</code>.</li>
 		<li><span class="what">React to its life cycle</span> with 
 			<a class="link" href="http://tapestry.apache.org/page-life-cycle.html#PageLifeCycle-PageLifeCycleMethods">page 
-			life cycle methods</a> (rarely needed), ie. <em>pageLoaded()</em>, <em>pageAttached()</em>, <em>pageDetached</em>.</li>
+			life cycle methods</a> (rarely needed), ie. <code>pageLoaded()</code>, <code>pageAttached()</code>, <code>pageDetached</code>.</li>
 	</ul>
 	
 	And just briefly, a couple of important things a <strong>page template</strong> can do:
 	<ul>
 		<li><span class="what">Render the page's properties and resources</span>, with 
 			<a class="link" href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">
-			expansions</a>, eg. <em>${exampleExpansion1}</em>, <em>${exampleExpansion2}</em>.</li>
+			expansions</a>, eg. <code>${exampleExpansion1}</code>, <code>${exampleExpansion2}</code>.</li>
 		<li><span class="what">Bind the page's properties and resources</span> to components via 
 			<a class="link" href="http://tapestry.apache.org/component-parameters.html">
-			parameters</a>, eg. <em>${exampleParameters1}</em>.</li>
+			parameters</a>, eg. <code>${exampleParameters1}</code>.</li>
 	</ul>
 				
 	OK, back to the demonstration. This page provides, and logs, examples of all the methods we've mentioned. For convenience, <br/>
@@ -181,16 +181,18 @@
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>, 
 	<a href="http://tapestry.apache.org/component-parameters.html">Component Parameters</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
 	<a href="http://tapestry.apache.org/logging.html">Logging</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/WhatIsCalledAndWhen.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/WhatIsCalledAndWhen.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/WhatIsCalledAndWhen.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/WhatIsCalledAndWhen.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -8,7 +8,7 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
-@Import(stack = "core")
+@Import(stack = "core", stylesheet="css/examples/plain.css")
 public class EasyOutput {
 
 	@Property
@@ -18,9 +18,9 @@ public class EasyOutput {
 	private IPersonFinderServiceLocal personFinderService;
 
 	void setupRender() {
-		Long personId = 1L;
-		// Get person - ask business service to find it (from the database)
-		person = personFinderService.findPerson(personId);
+		
+		// Get person with id 1 - ask business service to find it (from the database)
+		person = personFinderService.findPerson(1L);
 
 		if (person == null) {
 			throw new IllegalStateException("Database data has not been set up!");

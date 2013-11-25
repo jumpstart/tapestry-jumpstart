@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/together/filtercrud.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/together/filtercrud.css}"/>
 </head>
 <body>
 	<h1>Filter CRUD</h1>
@@ -64,7 +64,7 @@
 							<h1>Create</h1>
 							
 							<form t:type="CustomForm" t:id="createForm" >
-								<t:errors/>
+								<t:errors globalOnly="true"/>
 						
 								<table>
 									<tr>
@@ -162,7 +162,7 @@
 							<h1>Update</h1>
 							
 							<form t:type="CustomForm" t:id="updateForm">
-								<t:errors/>
+								<t:errors globalOnly="true"/>
 							
 								<t:if test="editorPerson">
 									<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
@@ -229,7 +229,7 @@
 	Also later, the Components CRUD example demonstrates splitting the list and editor out into separate components.<br/><br/>
 	
  	References: 
- 	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
 
 	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
 	
@@ -239,7 +239,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/filtercrud/Persons.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/filtercrud/Persons.properties"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/filtercrud/Persons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/filtercrud.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/filtercrud.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/together/PersonFilteredDataSource.java"/>

@@ -6,15 +6,18 @@
 	<property name="war.dir" value="${project.dir}/${collapsed.dir}/${app.name}.war" />
 	<property name="project.bin.dir" value="${project.dir}/bin"/>
 	
-	<property name="web.java.main.dir" value="${project.dir}/${web.dir}/src/main/java"/>
-	<property name="web.resources.main.dir" value="${project.dir}/${web.dir}/src/main/resources"/>
-	<property name="web.lib.compile.dir" value="${project.dir}/${web.dir}/src/main/lib-compile"/>
-	<property name="web.lib.runtime.dir" value="${project.dir}/${web.dir}/src/main/lib-runtime"/>
+	<property name="project.web.dir" value="${project.dir}/${web.dir}"/>
+	<property name="web.main.java.dir" value="${project.dir}/${web.dir}/src/main/java"/>
+	<property name="web.main.resources.dir" value="${project.dir}/${web.dir}/src/main/resources"/>
+	<property name="web.main.webapp.dir" value="${project.dir}/${web.dir}/src/main/webapp"/>
+	<property name="web.main.lib.compile.dir" value="${project.dir}/${web.dir}/src/main/lib-compile"/>
+	<property name="web.main.lib.runtime.dir" value="${project.dir}/${web.dir}/src/main/lib-runtime"/>
 
-	<property name="business.java.main.dir" value="${project.dir}/${business.dir}/src/main/java"/>
-	<property name="business.lib.compile.dir" value="${project.dir}/${business.dir}/src/main/lib-compile" />
-	<property name="business.lib.runtime.dir" value="${project.dir}/${business.dir}/src/main/lib-runtime" />
-	<property name="business.resources.main.dir" value="${project.dir}/${business.dir}/src/main/resources"/>
+	<property name="project.business.dir" value="${project.dir}/${business.dir}"/>
+	<property name="business.main.java.dir" value="${project.dir}/${business.dir}/src/main/java"/>
+	<property name="business.main.lib.compile.dir" value="${project.dir}/${business.dir}/src/main/lib-compile" />
+	<property name="business.main.lib.runtime.dir" value="${project.dir}/${business.dir}/src/main/lib-runtime" />
+	<property name="business.main.resources.dir" value="${project.dir}/${business.dir}/src/main/resources"/>
 	<property name="business.deployment.persistence.descriptor.file" value="${project.dir}/${business.dir}/src/main/resources/persistence-descriptor/${deployment.persistence.descriptor}" />
 
 	<!-- Make directory for collapsed WAR to sit in --> 
@@ -28,23 +31,24 @@
 	<target name="copy-web-to-collapsed-war" depends="mkdir">
 		
 		<copy todir="${war.dir}">
-			<fileset dir="${web.java.main.dir}/${web.package.path}" 
-				includes="css/**,images/**,js/**,WEB-INF/web.xml,WEB-INF/*.properties" />
+			<fileset dir="${web.main.webapp.dir}" />
 		</copy>
 
-		<copy todir="${war.dir}/WEB-INF/classes/${web.package.path}">
-			<fileset dir="${project.bin.dir}/${web.package.path}" 
-				includes="*.class,*.xml,annotation/**,base/**,commons/**,components/**,encoders/**,mixins/**,model/**,pages/**,services/**,state/**,text/**,translators/**,validators/**" 
-				excludes="**/README.txt"/>
+		<copy todir="${war.dir}/WEB-INF/classes">
+			<!-- Exclude js because by convention it shouldn't be in here. See note below, where I get the js. -->
+			<fileset dir="${project.bin.dir}" includes="${web.package.path}/**" excludes="**/*.js" />
+			<fileset dir="${web.main.resources.dir}" />
+		</copy>
+
+		<!-- Pick up the js that I left out above. By convention js shouldn't be in main/resources/META-INF 
+			but I prefer to keep js that is specific to a page/component/mixin in alongside its java. -->
+		<copy todir="${war.dir}/WEB-INF/classes/META-INF/modules">
+			<fileset dir="${project.bin.dir}/${web.package.path}" includes="**/*.js" />
 		</copy>
 
 		<copy todir="${war.dir}/WEB-INF/lib">
-			<fileset dir="${web.lib.compile.dir}" />
-			<fileset dir="${web.lib.runtime.dir}" />
-		</copy>
-		
-		<copy todir="${war.dir}/META-INF">
-			<fileset file="${web.resources.main.dir}/META-INF/MANIFEST.MF" />
+			<fileset dir="${web.main.lib.compile.dir}" />
+			<fileset dir="${web.main.lib.runtime.dir}" />
 		</copy>
 
 	</target>
@@ -54,7 +58,7 @@
 	<target name="copy-business-to-collapsed-war" depends="mkdir">
 
 		<copy todir="${war.dir}/WEB-INF/classes">
-			<fileset dir="${business.resources.main.dir}" includes="META-INF/ejb-jar.xml" />
+			<fileset dir="${business.main.resources.dir}" includes="META-INF/ejb-jar.xml" />
 		</copy>
 
 		<copy todir="${war.dir}/WEB-INF/classes/${business.package.path}">
@@ -69,11 +73,11 @@
 			<fileset dir="${project.bin.dir}/${util.package.path}"/>
 		</copy>
 
-		<copy tofile="${war.dir}/WEB-INF/classes/META-INF/persistence.xml" file="${business.resources.main.dir}/persistence-descriptor/${collapsed.persistence.descriptor}" />
+		<copy tofile="${war.dir}/WEB-INF/classes/META-INF/persistence.xml" file="${business.main.resources.dir}/persistence-descriptor/${collapsed.persistence.descriptor}" />
 
 		<copy todir="${war.dir}/WEB-INF/lib">
-			<fileset dir="${business.lib.compile.dir}" includes="*.jar" />
-			<fileset dir="${business.lib.runtime.dir}" includes="*.jar" />
+			<fileset dir="${business.main.lib.compile.dir}" includes="*.jar" />
+			<fileset dir="${business.main.lib.runtime.dir}" includes="*.jar" />
 		</copy>
 
 	</target>
@@ -82,14 +86,12 @@
 
 	<target name="copy-src-to-collapsed-war" depends="mkdir" if="add.source.to.war">
 
-		<copy todir="${war.dir}/WEB-INF/sourcecode/business/src/main/java">
-			<fileset dir="${business.java.main.dir}" />
-			<fileset dir="${business.resources.main.dir}" />
+		<copy todir="${war.dir}/WEB-INF/sourcecode/business">
+			<fileset dir="${project.business.dir}" />
 		</copy>
 
-		<copy todir="${war.dir}/WEB-INF/sourcecode/web/src/main/java">
-			<fileset dir="${web.java.main.dir}" />
-			<fileset dir="${web.resources.main.dir}" />
+		<copy todir="${war.dir}/WEB-INF/sourcecode/web">
+			<fileset dir="${project.web.dir}" />
 		</copy>
 
 	</target>

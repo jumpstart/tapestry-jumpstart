@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
-	<h1>Property Editors</h1>
+<body class="container">
+	<h3>Property Editors</h3>
 	
 	This example demonstrates adding your own property editors, allowing Grid, BeanDisplay, and BeanEditor to display/edit unusual property types.<br/><br/>
 	
@@ -52,30 +52,32 @@
  		
 	References: 
 	<a href="http://tapestry.apache.org/beaneditform-guide.html">BeanEditForm Guide</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/DataTypeAnalyzer.html">DataTypeAnalyzer</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/BeanBlockSource.html">BeanBlockSource</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/DisplayBlockContribution.html">DisplayBlockContribution</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/EditBlockContribution.html">EditBlockContribution</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/PropertyOutputContext.html">PropertyOutputContext</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/PropertyEditContext.html">PropertyEditContext</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/DataTypeAnalyzer.html">DataTypeAnalyzer</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/BeanBlockSource.html">BeanBlockSource</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/DisplayBlockContribution.html">DisplayBlockContribution</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/EditBlockContribution.html">EditBlockContribution</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/PropertyOutputContext.html">PropertyOutputContext</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/PropertyEditContext.html">PropertyEditContext</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
 	<a href="http://joda-time.sourceforge.net/">Joda Time</a>.<br/><br/>
  	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -21,7 +21,7 @@ import org.apache.tapestry5.upload.components.Upload;
 import org.apache.tapestry5.upload.services.UploadedFile;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "FileUpload.js")
+@Import(library = "js_imports/pages/examples/javascript/FileUpload.js")
 public class FileUpload {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");

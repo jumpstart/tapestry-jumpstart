@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Multiple Method Matches</h1>
+<body class="container">
+	<h3>Multiple Method Matches</h3>
 	
 	It's possible for multiple event handler methods to match a single event, but it's rarely a facility that you would use. <br/>
 	The rules are described in the 
@@ -21,20 +18,25 @@
 		<a t:type="eventlink" t:event="doSomething" t:id="link2" t:context="literal:Hello" href="#">Link 2</a><br/>
 		
 		<t:if t:test="message">
-			<span style="color:red;">${message}</span>
+			<br/>
+			<div class="alert alert-info">
+				${message}
+			</div>
 		</t:if>
 	</div>
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-MultipleMethodMatches">Multiple Method Matches</a>, 
 	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-EventContext">Event Context</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
 	<a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MultipleMethodMatches.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MultipleMethodMatches.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MultipleMethodMatches.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MultipleMethodMatches.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+	</t:tabGroup>
 </body>
 </html>

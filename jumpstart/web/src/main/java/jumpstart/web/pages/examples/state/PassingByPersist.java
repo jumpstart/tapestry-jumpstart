@@ -4,6 +4,7 @@ import jumpstart.web.pages.Index;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -11,6 +12,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * This page demonstrates using page persistence to remember data through the redirect. The default strategy for Persist is 
  * to save the data in the session, but this can be overridden, eg. we override it to the FLASH strategy.
  */
+@Import(stylesheet="css/examples/olive.css")
 public class PassingByPersist {
 
 	// Work fields

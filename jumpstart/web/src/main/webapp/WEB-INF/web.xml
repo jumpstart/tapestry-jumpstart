@@ -12,14 +12,14 @@
         <param-value>jumpstart.web</param-value> 
     </context-param> 
     
-	<!-- Tell the servlet container that we want a filter called "app" and it will be a TapestryFilter. -->
+	<!-- Tell the servlet container that we want a filter and it will be a TapestryFilter. We'll call it "app". -->
       
     <filter> 
         <filter-name>app</filter-name> 
         <filter-class>org.apache.tapestry5.TapestryFilter</filter-class> 
     </filter> 
     
-	<!-- Tell the servlet container to feed all requests to the "app" filter. -->
+	<!-- Tell the servlet container to feed all requests to the above filter. -->
       
     <filter-mapping> 
         <filter-name>app</filter-name> 

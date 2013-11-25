@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/conversationslist.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/conversationslist.css}"/>
 </head>
-<body>
-	<h1>Conversations List</h1>
+<body class="container">
+	<h3>Conversations List</h3>
 	
 	This page shows which "conversations" are in your session.  The Wizard examples use conversations.<br/>
 	
@@ -32,10 +32,12 @@
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/ConversationsList.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/ConversationsList.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/conversationslist.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Conversation.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Conversations.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/ConversationsList.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/ConversationsList.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/conversationslist.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/Conversation.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/Conversations.java"/>
+	</t:tabGroup>
 </body>
 </html>

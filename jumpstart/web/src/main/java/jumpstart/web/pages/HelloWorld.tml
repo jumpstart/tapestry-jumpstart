@@ -1,10 +1,12 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body>
-	<h1>Hello, ${username}</h1> 
+	<h3>Hello, ${username}</h3> 
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/HelloWorld.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/HelloWorld.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/HelloWorld.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/HelloWorld.java"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -3,26 +3,14 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Contributing Translators</h1>
+<body class="container">
+	<h3>Contributing Translators</h3>
 
-	Here we create two Translators and make them available to the whole application <strong>by name</strong>.<br/><br/>
-
-	The first translator is called <em>yesno</em> and its class is <em>YesNoTranslator</em>.<br/>
-	It parses "y", "n", "yes", and "no" (ignoring case), client-side, to Boolean, server-side, and back to "yes" or "no", client-side.<br/><br/>
-
-	The second translator is called <em>money2</em> and its class is <em>MoneyTranslator</em>.<br/>
-	It parses a String, client-side, to a BigDecimal with maximum of 2 decimal places, server-side, and vice-versa.<br/><br/>
-
-	We made both translators available to the whole application by contributing them to the <em>TranslatorAlternatesSource</em> 
-	service - see AppModule source below.
+	Here we create two Translators and make them available to the whole application <strong>by name</strong>.
 
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
-			<t:errors/>
+		<t:form t:id="inputs">
+			<t:errors globalOnly="true"/>
 			<table>
 				<tr>
 					<td><t:label for="newToTapestry"/></td>
@@ -36,36 +24,47 @@
 				</tr>
 				<tr> 
 					<td></td>
-					<td><input type="submit" value="Submit"/></td>
+					<td><input type="submit" value="Submit" class="btn btn-primary"/></td>
 					<td></td>
 				</tr>
 			</table>
-		</form>
+		</t:form>
 	</div>
 	
+	The first translator is called <em>yesno</em> and its class is <code>YesNoTranslator</code>.<br/>
+	It parses "y", "n", "yes", and "no" (ignoring case), client-side, to Boolean, server-side, and back to "yes" or "no", client-side.<br/><br/>
+
+	The second translator is called <em>money2</em> and its class is <code>MoneyTranslator</code>.<br/>
+	It parses a String, client-side, to a BigDecimal with maximum of 2 decimal places, server-side, and vice-versa.<br/><br/>
+
+	We made both translators available to the whole application by contributing them to the <code>TranslatorAlternatesSource</code> 
+	service - see AppModule source below.
+
 	Alternatively, a translator can be made available to the whole application and selected <strong>automatically</strong> based on the type 
-	that it translates, by contributing it to the <em>TranslatorSource</em> service.<br/><br/>
+	that it translates, by contributing it to the <code>TranslatorSource</code> service.<br/><br/>
 	
 	This example has also used localization, which is explained later in the Localization examples.<br/><br/> 
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/TranslatorSource.html">TranslatorSource</a>,  
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/TranslatorAlternatesSource.html">TranslatorAlternatesSource</a>,  
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/messages/ComponentMessagesSource.html">ComponentMessagesSource</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/TranslatorSource.html">TranslatorSource</a>,  
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/TranslatorAlternatesSource.html">TranslatorAlternatesSource</a>,  
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/messages/ComponentMessagesSource.html">ComponentMessagesSource</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IoC Services</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 		
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators_fr.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/YesNoTranslator.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/TranslationMessages.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/TranslationMessages_fr.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/translators/MoneyTranslator.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators_fr.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/translators/YesNoTranslator.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/translators/TranslationMessages.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/translators/TranslationMessages_fr.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/translators/MoneyTranslator.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html>

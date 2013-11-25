@@ -62,7 +62,7 @@
 						<h1>Create</h1>
 						
 						<form t:type="CustomForm" t:id="createForm" >
-							<t:errors/>
+							<t:errors globalOnly="true"/>
 					
 							<table>
 								<tr>
@@ -165,7 +165,7 @@
 						<h1>Update</h1>
 						
 						<form t:type="CustomForm" t:id="updateForm">
-							<t:errors/>
+							<t:errors globalOnly="true"/>
 					
 							<t:if test="editorPerson">
 								<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
@@ -237,7 +237,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/withlayout/filtercrud/Persons.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout1.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/layout1.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/layout1.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Menu.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/MenuOption.java"/>
 </html>

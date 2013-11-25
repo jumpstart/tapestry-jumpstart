@@ -4,13 +4,12 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
 	<style type="text/css">
 		.noeg		{ padding-bottom: 14px; }
 	</style>
 </head>
-<body>
-	<h1>Passing Data Between Pages</h1>
+<body class="container">
+	<h3>Passing Data Between Pages</h3>
 	
 	Tapestry's policy of doing <a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get</a> can make it a 
 	bit tricky for an event request to result in data being passed to the next page.<br/>	
@@ -23,7 +22,7 @@
 
 			<div class="eg">
 				<form t:type="form" t:id="useactivationcontext">
-					<input type="submit" value="Use Activation Context"/>
+					<input type="submit" value="Use Activation Context" class="btn btn-default"/>
 				</form>
 			</div>
 		</li>
@@ -35,7 +34,7 @@
 
 			<div class="eg">
 				<form t:type="form" t:id="usequerystring">
-					<input type="submit" value="Use Query String"/>
+					<input type="submit" value="Use Query String" class="btn btn-default"/>
 				</form>
 			</div>
 		</li>
@@ -47,7 +46,7 @@
 
 			<div class="eg">
 				<form t:type="form" t:id="usepersist">
-					<input type="submit" value="Use Persist"/>
+					<input type="submit" value="Use Persist" class="btn btn-default"/>
 				</form>
 			</div>
 		</li>
@@ -67,11 +66,13 @@
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByPersist.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByPersist.java"/>
+	</t:tabGroup>
 </body>
 </html>

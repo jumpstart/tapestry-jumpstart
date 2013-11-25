@@ -416,7 +416,6 @@ public class AjaxFormLoopTailored1 {
 			return "";
 		}
 		else {
-			// Follow the same naming convention that the Select component uses
 			return messages.get(Regions.class.getSimpleName() + "." + personHolder.getPerson().getRegion().name());
 		}
 	}

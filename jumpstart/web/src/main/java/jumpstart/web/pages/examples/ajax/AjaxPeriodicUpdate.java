@@ -11,7 +11,7 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "AjaxPeriodicUpdate.js")
+@Import(library = "js_imports/pages/examples/ajax/AjaxPeriodicUpdate.js")
 public class AjaxPeriodicUpdate {
 
 	// Generally useful bits and pieces

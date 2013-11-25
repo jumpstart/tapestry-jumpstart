@@ -4,11 +4,11 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 </head>
-<body>
+<body class="container">
 
-	<h1>@EJB</h1>
+	<h3>@EJB</h3>
 	
 	Reaching Java EE session beans is simply a matter of creating an "EJB annotation worker" service and registering 
 	it as a Tapestry service. Then we can use the @EJB annotation in pages and components to inject session beans. 
@@ -21,7 +21,7 @@
 	</div>
 
 	References: <a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Tapestry IoC Services</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/transform/ComponentClassTransformWorker2.html">
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/transform/ComponentClassTransformWorker2.html">
 	ComponentClassTransformWorker2</a>, 
 	"Why EJB3?" in <a href="http://jumpstart.doublenegative.com.au/faq.html">JumpStart FAQ</a>.<br/><br/>
 	
@@ -31,25 +31,27 @@
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/ValidationException.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceLocal.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceRemote.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceLocal.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceRemote.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/EJBAnnotationWorker.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/client/BusinessServicesLocator.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/client/IBusinessServicesLocator.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/jndi/JNDIObjectLocator.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/EJBProviderEnum.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/EJBProviderUtil.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/commons/exception/SystemUnavailableException.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/ValidationException.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceLocal.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceRemote.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceLocal.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceRemote.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/EJBAnnotationWorker.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/client/BusinessServicesLocator.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/client/IBusinessServicesLocator.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/commons/jndi/JNDIObjectLocator.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/EJBProviderEnum.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/EJBProviderUtil.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/commons/exception/SystemUnavailableException.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+	</t:tabGroup>
 </body>
 </html>

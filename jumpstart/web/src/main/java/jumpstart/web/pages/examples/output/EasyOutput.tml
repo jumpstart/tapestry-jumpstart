@@ -3,39 +3,42 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
 <body class="container">
-	<h1>Easy Output (Using BeanDisplay)</h1>
+	<h3>Easy Output (Using BeanDisplay)</h3>
 	
-	To display a <a href="http://en.wikipedia.org/wiki/JavaBeans">JavaBean</a> with minimal effort, use the <strong>BeanDisplay</strong> component. <br/>
+	To display a <a href="http://en.wikipedia.org/wiki/JavaBeans">JavaBean</a> with very little effort, 
+	use Tapestry's <code>BeanDisplay</code> component. Here it is displaying a JPA Entity Bean:<br/>
 	
 	<div class="eg">
-		<t:beandisplay object="person" class="dl-horizontal"/>
+		<t:beandisplay object="person"/>
 	</div>
 	
-	Shown above is a Person, which is a JPA Entity Bean. Person 1 was retrieved from the database by PersonFinderService.<br/><br/>
+	The bean displayed above is a Person, retrieved from the database by PersonFinderService.<br/><br/>
 
-	2 new things:
+	2 new things:<br/><br/>
 	<ul>
-		<li><em>BeanDisplay</em>  A component which is great for rapid prototyping, but it can be used for more than that because
-			its parameters let you exclude fields, include fields, reorder fields, etc. Its styling can be overridden with CSS.</li>
-		<li><em>@EJB</em>  A field annotation which injects a Java EE Session Bean. In JumpStart, the business logic is in Session and Entity Beans. 
-			An alternative is to use JPA or Hibernate directly, which Tapestry can do. Both approaches are valid, and both have pros and cons. 
-			For more information see the @EJB example later.</li>
+		<li><code>BeanDisplay</code>  A component which is great for rapid prototyping, 
+			and which can be used for more than that because its parameters let you exclude fields, 
+			include fields, reorder fields, etc. Its styling can be overridden with CSS.</li>
+		<li><code>@EJB</code>  A field annotation which injects a Java EE Session Bean. 
+			JumpStart has contributed this annotation to the application. 
+			An alternative is to use JPA or Hibernate directly, which Tapestry can do. 
+			Both approaches are valid, and both have pros and cons. For more information see the @EJB example later.</li>
 	</ul>	
 	
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
 	<a href="http://tapestry.apache.org/beaneditform-guide.html">Using BeanEditForm (sic)</a>.<br/><br/>
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutput.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutput.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutput.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutput.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

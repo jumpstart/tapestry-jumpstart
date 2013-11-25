@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
 		h3				{ margin-top: 0; }
 		.invitation		{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
@@ -14,8 +14,8 @@
 		.error-msg-c	{ color: red; } 
 	</style>
 </head>
-<body>
-	<h1>Sub-Form As a Field (1)</h1>
+<body class="container">
+	<h3>Sub-Form As a Field (1)</h3>
 	
 	The sub-form in this example does its own validation AND it links to its label because it implements <em>Field</em>, <br/>
 	so when there's an error in the sub-form the label will be decorated. Try Save with no people selected.<br/>
@@ -40,7 +40,7 @@
 		 		</tr>
 		 	</table>
 
-			<t:errors/><br/>
+			<t:errors globalOnly="true"/><br/>
 			
 			<input t:type="Submit" t:id="done" value="Save"/>
 		</form>
@@ -48,10 +48,10 @@
 
 	References: 
 	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/components/RadioGroup.java?view=markup">RadioGroup.java</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/Field.html">Field</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Field.html">Field</a>, 
 	<a href="http://tapestry.apache.org/environmental-services.html">Environmental Services</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/ValidationTracker.html">ValidationTracker</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValidationTracker.html">ValidationTracker</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
@@ -59,11 +59,13 @@
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
 	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+	<t:tabGroup>
 </body>
 </html>

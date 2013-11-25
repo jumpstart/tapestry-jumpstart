@@ -21,7 +21,6 @@ import jumpstart.web.commons.FieldCopy;
 
 import org.apache.tapestry5.Field;
 import org.apache.tapestry5.annotations.Component;
-import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
@@ -34,7 +33,6 @@ import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.BeanModelSource;
 
-@Import(stack = "core")
 public class EditableGrid1 {
 	private static final String REQUIRED_MSG_KEY = "required";
 

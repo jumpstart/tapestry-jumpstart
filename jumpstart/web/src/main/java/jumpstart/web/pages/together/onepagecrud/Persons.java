@@ -341,7 +341,6 @@ public class Persons {
 	}
 
 	public String getEditorPersonRegion() {
-		// Follow the same naming convention that the Select component uses
 		return messages.get(Regions.class.getSimpleName() + "." + editorPerson.getRegion().name());
 	}
 

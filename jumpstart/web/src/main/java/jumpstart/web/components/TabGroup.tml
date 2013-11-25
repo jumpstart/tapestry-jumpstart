@@ -1,0 +1,24 @@
+
+<!-- Based on Tapestry Stitch's TabGroup. See http://tapestry-stitch.uklance.cloudbees.net . -->
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<t:content>
+    <noscript>
+    	<div class="alert alert-warning">
+        	${message:javascript_required_for_tabs}
+        </div>
+    </noscript>     
+
+	<t:zone t:id="tabsZone">
+	   <t:body />
+	   <ul class="nav nav-tabs">
+	      <t:loop source="tabModel.names" value="currentName">
+	          <li class="${tabClass}">
+	             <t:eventlink event="tabChange" context="currentName" zone="^">${currentLabel}</t:eventlink>
+	          </li>
+	      </t:loop>
+	   </ul>
+	   <t:delegate to="activeTabBody" />
+	</t:zone>
+</t:content>
+</html>

@@ -3,34 +3,34 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Page Links (1)</h1>
+<body class="container">
+	<h3>Page Links (1)</h3>
 	
-	To output a link to another page, use <strong>PageLink</strong>. It will produce the HTML for a link with the correct URL.<br/><br/>
+	To render a link to another page, use <code>PageLink</code>. 
+	PageLink will determine the URL and render a link to it.<br/><br/>
   	
-	Here is the output of a PageLink:
+	We used PageLink to render the link in this example:
 	  
   	<div class="eg">
-		<t:pagelink page="examples/navigation/PageLinks2">A link to examples/navigation/PageLinks2</t:pagelink><br/>
+		<t:pagelink page="examples/navigation/PageLinks2">To Page Links (2)</t:pagelink><br/>
 	</div>
-	
-	That link will have a URL like this: <code>http://thehost/jumpstart/examples/navigation/pagelinks2</code> .<br/>
-	When clicked it will send an HTTP GET. <br/><br/>
-	
-	We call this form of request a <strong>render request</strong>. Click the link above to learn more.<br/><br/>
+
+	The link has a URL similar to this: <em>http://thehost/jumpstart/examples/navigation/pagelinks2</em> .
+	When clicked it will send an HTTP GET.<br/><br/>
+
+	Tapestry calls this form of request a <strong>render request</strong>. Click the link above to learn more.<br/><br/>
 
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks1.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

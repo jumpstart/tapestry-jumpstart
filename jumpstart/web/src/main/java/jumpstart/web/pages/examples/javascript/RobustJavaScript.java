@@ -9,7 +9,7 @@ import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "context:js/robust_textbox_hint.js")
+@Import(library = "js/robust_textbox_hint.js")
 public class RobustJavaScript {
 
 	// Screen fields

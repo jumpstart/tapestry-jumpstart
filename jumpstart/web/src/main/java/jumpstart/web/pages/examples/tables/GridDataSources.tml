@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/styledgrid.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/styledgrid.css}"/>
 </head>
-<body>
-	<h1>Grid Data Sources</h1>
+<body class="container">
+	<h3>Grid Data Sources</h3>
 	
 	By providing your own GridDataSource you can take control of how the data is retrieved,<br/>
 	In this example we have provided a GridDataSource that is "paged", ie. it retrieves only the Persons needed for the selected page and no more.
@@ -17,21 +17,23 @@
 	</div>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/grid/GridDataSource.html">GridDataSource</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/grid/GridDataSource.html">GridDataSource</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridDataSources.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridDataSources.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/styledgrid.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/tables/PersonPagedDataSource.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/query/SortCriterion.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/util/query/SortDirection.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridDataSources.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridDataSources.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/styledgrid.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/tables/PersonPagedDataSource.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/query/SortCriterion.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/query/SortDirection.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/together/totalcontrolcrudreview.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/together/totalcontrolcrudreview.css}"/>
 </head>
 <body>
 	<h1>Review</h1>
@@ -51,7 +51,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonReview.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonReview.properties"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonReview.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/totalcontrolcrudreview.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/totalcontrolcrudreview.css"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

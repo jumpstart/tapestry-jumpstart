@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
 		h3				{ margin-top: 0; }
 		.invitation		{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
@@ -13,8 +13,8 @@
 		.selectPersons	{ padding: 15px; border: 2px solid #dddddd; background-color: #e4e4e4; width: 250px; }
 	</style>
 </head>
-<body>
-	<h1>Sub-Form Component (2)</h1>
+<body class="container">
+	<h3>Sub-Form Component (2)</h3>
 	
 	Here is the new invitation. We have used the SelectPersons component again but this time we set disabled="literal:true".<br/><br/>
 	
@@ -57,11 +57,13 @@
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/Invitation.java"/>
+	</t:tabGroup>
 </body>
 </html>

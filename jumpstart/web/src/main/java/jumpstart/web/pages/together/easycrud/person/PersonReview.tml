@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/together/easycrudreview.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/together/easycrudreview.css}"/>
 </head>
 <body>
 	<h1>Review</h1>
@@ -26,7 +26,7 @@
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonReview.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonReview.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/easycrudreview.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/easycrudreview.css"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

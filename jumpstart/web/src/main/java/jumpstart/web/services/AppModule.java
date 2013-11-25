@@ -61,9 +61,6 @@ public class AppModule {
 	public static void bind(ServiceBinder binder) {
 		binder.bind(CountryNames.class);
 		binder.bind(SelectIdModelFactory.class, SelectIdModelFactoryImpl.class);
-
-		// This next line addresses an issue affecting GlassFish and JBoss - see http://blog.progs.be/?p=52
-		javassist.runtime.Desc.useContextClassLoader = true;
 	}
 
 	// Tell Tapestry about our custom translators, validators, and their message files.
@@ -108,6 +105,8 @@ public class AppModule {
 		// http://api.jquery.com/jQuery.noConflict/)
 		// but we need this next line to keep Tapestry happy (since Tapestry 5.3.4).
 		// configuration.add(JQuerySymbolConstants.JQUERY_ALIAS, "$j");
+
+		configuration.add(SymbolConstants.JAVASCRIPT_INFRASTRUCTURE_PROVIDER, "jquery");
 	}
 
 	// Tell Tapestry how to block access to WEB-INF/, META-INF/, and assets that are not in our assets "whitelist".
@@ -203,8 +202,7 @@ public class AppModule {
 			}
 		};
 
-		configuration.add(new CoercionTuple<java.util.Date, DateMidnight>(java.util.Date.class, DateMidnight.class,
-				toDateMidnight));
+		configuration.add(new CoercionTuple<>(java.util.Date.class, DateMidnight.class, toDateMidnight));
 
 		// From DateMidnight to java.util.Date
 
@@ -215,8 +213,7 @@ public class AppModule {
 			}
 		};
 
-		configuration.add(new CoercionTuple<DateMidnight, java.util.Date>(DateMidnight.class, java.util.Date.class,
-				fromDateMidnight));
+		configuration.add(new CoercionTuple<>(DateMidnight.class, java.util.Date.class, fromDateMidnight));
 
 		// From java.util.Date to LocalDate
 
@@ -227,8 +224,7 @@ public class AppModule {
 			}
 		};
 
-		configuration.add(new CoercionTuple<java.util.Date, LocalDate>(java.util.Date.class, LocalDate.class,
-				toLocalDate));
+		configuration.add(new CoercionTuple<>(java.util.Date.class, LocalDate.class, toLocalDate));
 
 		// From LocalDate to java.util.Date
 
@@ -239,8 +235,7 @@ public class AppModule {
 			}
 		};
 
-		configuration.add(new CoercionTuple<LocalDate, java.util.Date>(LocalDate.class, java.util.Date.class,
-				fromLocalDate));
+		configuration.add(new CoercionTuple<>(LocalDate.class, java.util.Date.class, fromLocalDate));
 	}
 
 	// Tell Tapestry how its BeanDisplay and BeanEditor can handle the JodaTime types.

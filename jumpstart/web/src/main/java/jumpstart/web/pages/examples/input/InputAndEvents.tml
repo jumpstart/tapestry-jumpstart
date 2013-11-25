@@ -3,15 +3,12 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Input and Events</h1>
+<body class="container">
+	<h3>Input and Events</h3>
 	
 	Input to the page, such as submitting a form, is sent to the server as a <strong>component event request</strong>.<br/><br/>
 
-	The 2 most used components for sending component event requests are:<br/>
+	The 2 most used components for sending component event requests are:<br/><br/>
 
 	<ul>
 		<li><strong>Form</strong>  When submitted, the request carries your input to the corresponding Form on the server.</li>
@@ -24,7 +21,7 @@
 	
 	<strong>What handles the requests?</strong><br/>
 	This is key: Tapestry directs component event requests back to <em>the same</em> page class and component class <em>that rendered</em> the page and component.<br/>
-	The result is that it's very easy to understand and manage how a Tapestry application fits together.<br/><br/>
+	Consequently, it is very easy to understand how a Tapestry application fits together. And it is very easy to manage.<br/><br/>
 	
 	References:	
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
@@ -33,8 +30,9 @@
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.java"/>
+	</t:tabGroup>
 </body>
 </html>

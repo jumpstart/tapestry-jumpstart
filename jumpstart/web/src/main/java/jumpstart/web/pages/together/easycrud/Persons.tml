@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/together/easycrud.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/together/easycrud.css}"/>
 </head>
 <body>
 	<h1>Easy CRUD</h1>
@@ -35,7 +35,7 @@
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/together/easycrud.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/easycrud.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>

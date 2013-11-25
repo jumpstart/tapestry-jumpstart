@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/tables/linkinggrid.css}"/>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/linkinggrid.css}"/>
 </head>
-<body>
-	<h1>Grid BeanModel (1)</h1>
+<body class="container">
+	<h3>Grid BeanModel (1)</h3>
 	
 	We can take more control of the Grid when we provide the BeanModel ourselves.  It is a model that defines how 
 	data will be mapped into the grid.  It does not contain the data.
@@ -23,19 +23,21 @@
 	To see manipulation of the BeanModel by a mixin, go to the Creating Mixins example.<br/><br/>
 
 	References: 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
 	<a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-CustomizingtheBeanModel">Customizing the BeanModel</a>, 
 	<a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-ProvidingtheBeanModel">Providing the BeanModel</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/services/BeanModelSource.html">BeanModelSource</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>, 
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/BeanModelSource.html">BeanModelSource</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>.<br/><br/>
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/tables/linkinggrid.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/linkinggrid.css"/>
+	</t:tabGroup>
 </body>
 </html>

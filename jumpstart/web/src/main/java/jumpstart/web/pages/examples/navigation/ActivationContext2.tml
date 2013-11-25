@@ -3,39 +3,41 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Activation Context (2)</h1>
+<body class="container">
+	<h3>Activation Context (2)</h3>
 	
-	Look at the URL of this page. It is the render request from the PageLink. The parameter at the end is its <strong>activation context</strong>.<br/>
-	The target page can receive the activation context with an <strong>onActivate</strong> method. For example:<br/>
+	Look at the URL of this page. 
+	It is the render request from the PageLink, and the <strong>activation context</strong> is at the end.<br/><br/>
 	
-	<code><pre>
+	This page handles the <em>activate</em> event by providing a method like this:<br/><br/>
+	
+	<pre><code>
 	void onActivate(Long personId) {
 		this.personId = personId;
-	}</pre></code>
+	}
+	</code></pre><br/>
 	
-	This page has been activated with context <em>${personId}</em>. Here is that Person:<br/>
+	The method receives the activation context into <code>personId</code>. Its value is <em>${personId}</em>. Here is that Person:<br/>
 
 	<div class="eg">
 		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
 	</div>
 
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
     <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Render Requests</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>.<br/><br/>
 
 	<t:pagelink t:page="examples/navigation/ActivationContext1">Return</t:pagelink><br/><br/>
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabGroup>
 </body>
 </html>

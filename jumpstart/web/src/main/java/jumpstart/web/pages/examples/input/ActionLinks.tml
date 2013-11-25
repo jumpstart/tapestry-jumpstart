@@ -3,53 +3,59 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${context:css/examples/examples.css}"/>
-</head>
-<body>
-	<h1>Action Links</h1>
+<body class="container">
+	<h3>Action Links</h3>
 	
-	<strong>ActionLink</strong> is very like EventLink and 
+	<code>ActionLink</code> is very like <code>EventLink</code> and 
 	<a href="http://tapestry.1045711.n5.nabble.com/What-ist-the-advantage-of-ActionLink-compared-to-EventLink-td2419735.html">
 	probably not needed any more</a>, but 
-	<a href="http://tapestry.1045711.n5.nabble.com/EventLInk-vs-ActionLink-td3390203.html">ActionLink is still supported</a>, so here we go...<br/><br/>
+	<a href="http://tapestry.1045711.n5.nabble.com/EventLInk-vs-ActionLink-td3390203.html">ActionLink is still supported</a>.<br/><br/>
 	
 	The first big difference between ActionLink and EventLink is:
 	<ul>
-		<li>Every ActionLink sends its id, not an event name.</li>
+		<li>ActionLink sends its id, rather than an event name.</li>
 	</ul>
 
-	Here are 3 ActionLinks that have ids <em>addX</em>, <em>addY</em>, and <em>clear</em>:
+	Here are 3 ActionLinks. They send their ids: <em>addX</em>, <em>addY</em>, and <em>clear</em>:
 		
 	<div class="eg"> 
-		Count = ${count}. <br/>
+		<div class="alert alert-info">
+			Count = ${count}.
+		</div>
+		
 		<t:actionlink t:id="addX" t:context="literal:1">Add 1</t:actionlink><br/> 
 		<t:actionlink t:id="addY" t:context="literal:2">Add 2</t:actionlink><br/>  
 		<t:actionlink t:id="clear">Clear</t:actionlink>
 	</div>	  
 
-	The links above have URLs like these:
+	The links above have URLs like these:<br/><br/>
 	<ul>
 		<li><code>http://thehost/jumpstart/examples/input/actionlinks:addx/1?t:ac=n</code></li>
 		<li><code>http://thehost/jumpstart/examples/input/actionlinks:addy/2?t:ac=n</code></li>
 		<li><code>http://thehost/jumpstart/examples/input/actionlinks:clear?t:ac=n</code></li>
 	</ul>
 	
-	Two other big differences between ActionLink and EventLink are:
+	Two second big differences between ActionLink and EventLink is server-side:
 	<ul>
-		<li>When one of these URLs reaches the server-side, ActionLink "bubbles up" the event <em>Action</em>.</li>
-		<li>To distinguish between <em>action</em> events, a handler must specify the originating component name, eg. <em>onActionFromAddX</em>.</li>
+		<li>ActionLink "bubbles up" the event <em>action</em>, rather than a received event name.</li>
 	</ul>
+	
+	So whereas in the EventLinks example we had event handler <code>onAdd(int count)</code>, 
+	in this page we have event handler <code>onActionFromAddX(int count)</code>.<br/><br/>
+	
+	In the rest of JumpStart we use EventLink, not ActionLink.<br/><br/>
 
 	References:	
-	<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
 
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ActionLinks.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/input/ActionLinks.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/examples.css"/>
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ActionLinks.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ActionLinks.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
 </body>
 </html>

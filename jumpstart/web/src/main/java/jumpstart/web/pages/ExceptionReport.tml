@@ -28,9 +28,11 @@
 		<t:exceptionandsessiondisplay exception="exception"/>
 	</t:if>
 	
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/ExceptionReport.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/ExceptionReport.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/ExceptionAndSessionDisplay.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/ExceptionAndSessionDisplay.java"/>
+	<t:tabGroup>
+		<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/ExceptionReport.tml"/>
+		<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/ExceptionReport.java"/>
+		<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/ExceptionAndSessionDisplay.tml"/>
+		<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/ExceptionAndSessionDisplay.java"/>
+	</t:tabGroup>
 </body>
 </html>
