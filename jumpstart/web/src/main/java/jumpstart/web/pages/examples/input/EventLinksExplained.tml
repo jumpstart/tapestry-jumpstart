@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Event Links Explained</h3>
+
+	EventLink renders a link that sends an event name and parameters in the URL when it is clicked.<br/><br/>
+	
+	Here are 3 EventLinks. The first two send event <em>add</em>, and the third one sends event <em>clear</em>:<br/>
+		
+	<div class="eg"> 
+		<div class="alert alert-info">
+			Count = ${count}.
+		</div>
+		
+		<t:eventlink t:event="add" t:context="literal:1">Add 1</t:eventlink><br/>
+		<t:eventlink t:event="add" t:context="literal:2">Add 2</t:eventlink><br/>  
+		<t:eventlink t:event="clear">Clear</t:eventlink>
+	</div>	  
+
+	The links above have URLs like these:<br/><br/>
+	<ul>
+		<li><code>http://thehost/jumpstart/examples/input/eventlinks:add/1?t:ac=n</code></li>
+		<li><code>http://thehost/jumpstart/examples/input/eventlinks:add/2?t:ac=n</code></li>
+		<li><code>http://thehost/jumpstart/examples/input/eventlinks:clear?t:ac=n</code></li>
+	</ul>
+
+	Clicking a link sends the URL. This is how the server reacts:<br/><br/>
+	<ul>
+		<li>Tapestry activates the page <em>examples/input/eventlinks</em>, and notifies the component, an EventLink.</li>
+		<li>EventLink "bubbles up" the given event, <em>add</em> or <em>clear</em>, and its parameter(s).</li>
+		<li>This page has handlers for the events: <code>onAdd(int count)</code> and <code>onClear()</code>.</li>
+		<li>The handlers return void which means stay on the same page (for alternatives, see the Return Types example). 
+			Tapestry generates a <strong>page render request</strong> to this page and redirects the browser to it.</li>
+	</ul>
+
+	Q: Why would Tapestry <strong>redirect</strong> the browser to this page instead of just rendering and returning this page?<br/>
+	A: Tapestry uses the <a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get</a> pattern. 
+	The benefit is that when the next page shows, its URL will NOT be the URL that triggered the event.  
+	Instead, it will be a URL that is safe to reload, or bookmark, or return to with the Back button. 
+	The cost is 2 trips to the server, but it's worth it.<br/><br/>
+	
+	Actually, clicking on an EventLink link sends a GET, not a POST, so for EventLink it's actually Get/Redirect/Get!<br/><br/> 
+	
+	Q: Why does this page have an <code>onPassivate()</code> method?<br/>
+	A: Well, to generate the <em>page render request</em> Tapestry needed this page's activation context, 
+	which it got by triggering the <em>passivate</em> event on the page. It is the duty of a <em>passivate</em> 
+	event handler to return the page's activation context.<br/><br/>
+
+	References:	
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>,
+	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
+	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
+	
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
+
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/EventLinksExplained.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/EventLinksExplained.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
+</body>
+</html>

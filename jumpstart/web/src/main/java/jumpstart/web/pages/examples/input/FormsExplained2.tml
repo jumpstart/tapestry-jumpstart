@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Forms Explained (2)</h3>
+
+	<div class="eg">
+		Welcome ${name}!
+	</div>	
+		
+	Look at the URL of this page. It is the <strong>page render request</strong> we have been redirected to, 
+	rather than the <strong>component event	request</strong> from the Form.<br/>
+	This URL is safe to refresh, bookmark, or return to with the Back button - the event won't be sent again.<br/><br/>
+	
+	Why does this page have <code>onPassivate()</code>? Well, to generate the <strong>page render request</strong>, 
+	Tapestry needed this page's activation context, which it got by triggering the <em>passivate</em> event on this page. 
+	It is the duty of a <em>passivate</em> event handler to return the page's activation context.<br/><br/>
+	
+	<t:pagelink t:page="examples/input/FormsExplained1">Return</t:pagelink><br/><br/>
+	
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/FormsExplained2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/FormsExplained2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+	</t:tabGroup>
+</body>
+</html>

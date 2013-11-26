@@ -13,7 +13,7 @@
 		<t:pagelink page="examples/navigation/PageLinks2">A page link</t:pagelink><br/>
 	</div>
 
-	When clicked it will send a <strong>page render request</strong>. Click the link above to learn more.<br/><br/>
+	When clicked it sends a <strong>page render request</strong>. Click the link above to learn more.<br/><br/>
 
 	References:	
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 

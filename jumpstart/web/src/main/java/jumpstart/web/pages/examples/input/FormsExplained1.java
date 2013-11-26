@@ -12,24 +12,29 @@ import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
 
 @Import(stylesheet = "css/examples/plain.css")
-public class Forms1 {
+public class FormsExplained1 {
 
 	// Screen fields
 
 	@Property
 	@NotNull
-	@Size(max = 10)
+	@Size(max=10)
+	private String nlahName;
+
+	@Property
+	@NotNull
+	@Size(max=10)
 	private String firstName;
 
 	@Property
 	@NotNull
-	@Size(max = 10)
+	@Size(max=10)
 	private String lastName;
 
 	// Other pages
 
 	@InjectPage
-	private Forms2 page2;
+	private FormsExplained2 page2;
 
 	// Generally useful bits and pieces
 
@@ -42,13 +47,12 @@ public class Forms1 {
 	// The code
 
 	void onValidateFromNames() {
-
+		
 		// Note, this method is triggered even if server-side validation has already found error(s).
 
 		if (firstName != null && firstName.equals("Acme")) {
 			form.recordError(firstNameField, "First Name must not be Acme.");
 		}
-
 	}
 
 	Object onSuccess() {

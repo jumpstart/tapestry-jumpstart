@@ -69,7 +69,9 @@
 							<a t:type="pagelink" t:page="examples/input/InputAndEvents" href="#">Input and Events</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/input/Forms1" href="#">Forms</a><br/>
+							<a t:type="pagelink" t:page="examples/input/FormsExplained1" href="#">Forms Explained</a><br/>
 							<a t:type="pagelink" t:page="examples/input/EventLinks" href="#">EventLinks</a><br/>
+							<a t:type="pagelink" t:page="examples/input/EventLinksExplained" href="#">EventLinks Explained</a><br/>
 							<a t:type="pagelink" t:page="examples/input/ActionLinks" href="#">ActionLinks</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/input/AtOnEvent" href="#">@OnEvent</a><br/>

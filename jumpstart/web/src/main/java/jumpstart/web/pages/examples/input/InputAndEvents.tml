@@ -5,24 +5,22 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
 	<h3>Input and Events</h3>
-	
-	Input to the page, such as submitting a form, is sent to the server as a <strong>component event request</strong>.<br/><br/>
 
-	The 2 most used components for sending component event requests are:<br/><br/>
+	To ask the server to <strong>output</strong> a page, send it a <strong>page render request</strong>. 
+	PageLink does that, as we have seen in previous examples.<br/><br/>
+	
+	To tell the server about an <strong>event</strong> and any <strong>input</strong>, send it a 
+	<strong>component event request</strong>. Form and EvenLink are two common components that do that, 
+	as we will see in the next examples.<br/><br/>
+	
+	When a component event request reaches the server, Tapestry directs it to the <em>same page class and 
+	component class that rendered</em> the page and component in the first place. <strong>This is great news!</strong> 
+	It makes it very easy to understand and manage how a Tapestry application fits together.<br/><br/>  
 
-	<ul>
-		<li><strong>Form</strong>  When submitted, the request carries your input to the corresponding Form on the server.</li>
-		<li><strong>EventLink</strong>  When clicked, the request carries an event name and parameters to the corresponding EventLink on the server.</li>
-	</ul>
+	Some other components also send component event requests, such as GridPager. 
+	And in fact almost every component can send a component event request when the component is 
+	<strong>Ajax</strong>-enabled. We'll look at Ajax later.<br/><br/>
 
-	Others include ActionLink and GridPager.<br/><br/>
-	
-	When we use <strong>Ajax</strong>, things are different: <strong><em>every</em> component can send a component event request!</strong> We'll look at Ajax later.<br/><br/>
-	
-	<strong>What handles the requests?</strong><br/>
-	This is key: Tapestry directs component event requests back to <em>the same</em> page class and component class <em>that rendered</em> the page and component.<br/>
-	Consequently, it is very easy to understand how a Tapestry application fits together. And it is very easy to manage.<br/><br/>
-	
 	References:	
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>, 
