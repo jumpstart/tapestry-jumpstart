@@ -3,16 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-	<style type="text/css">
-		.eg	{ border: none; margin: 0; color: #333; }
-		tr	{ background-color: rgb(204, 190, 153); border: black 2px outset; padding: 2px; font-family: 'Trebuchet MS'; }
-		th	{ width:300px; text-align:left; font-weight: normal; padding: 0.4em; }
-		td	{ width:300px; text-align:left; font-weight: normal; padding: 0.4em; vertical-align: top;}
-		.what	{ font-weight: bold; }
-	</style>
-</head>
 <body class="container">
 	<h3>What is Called and When</h3>
 	
@@ -53,114 +43,120 @@
 	OK, back to the demonstration. This page provides, and logs, examples of all the methods we've mentioned. For convenience, <br/>
 	the following table shows what you would see in the logs if you configured log4j to record this page at debug level:<br/>
 	
-	<div class="eg">
-	 	<table style="border:thin gray 2px;">
-	 		<tr>
-	 			<th>
-	 				When this page is <strong>first instantiated</strong>.
-	 			</th>
-	 			<td>
-					pageLoaded()
-				</td>
-	 		</tr>
-	 		<tr>
-	 			<th>
-	 				When Tapestry creates <strong>a URL to this page</strong>.<br/>
-	 				Eg. when another page renders a PageLink to this page.
-	 			</th>
-	 			<td>
-	 				<em>These are called in this page:</em><br/>
-					pageAttached()<br/>
-					...onPassivate()<br/>
-					<em>...Tapestry creates a URL to this page</em><br/>
-					pageDetached()<br/>
-				</td>
-	 		</tr>
-	 		<tr>
-	 			<th>
-	 				In response to a <strong>page render request</strong>.<br/>
-	 				Eg. When a PageLink to this page is clicked, <br/>
-	 				or in the redirect that follows an event request.<br/>
-	 				<ul>
-						<li>The 3 <em>onPassivate()</em> calls are due to the EventLink, ActionLink, and Form on this page: those 3 components 
-							bubble up <em>passivate</em> before they render themselves. They do it to get the current activation context, which 
-							they put in the URL that they render.</li>
-						<li>The <em>onPrepareForRender()</em> and <em>onPrepare()</em> calls are due to the Form on this page: the Form component 
-							bubbles up <em>prepareForRender</em> and <em>prepare</em> before it renders itself.</li>
-					</ul>
-				</th>
-	 			<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...setupRender()<br/>
-					...beginRender()<br/>
-					...onPassivate()<br/>
-					...onPassivate()<br/>
-					...onPassivate()<br/>
-					...onPrepareForRender()<br/>
-					...onPrepare()<br/>
-					...getName()<br/>
-					...getMessage()<br/>
-					...afterRender()<br/>
-					...cleanupRender()<br/>
-					pageDetached()<br/>
-					<em>Tapestry returns this page to browser</em>
-				</td>
-			</tr>
-			<tr>
-	 			<th>
-	 				In response to an <strong>EventLink</strong> event request.<br/>
-	 				Eg. <a t:type="EventLink" t:event="goHome" href="#">Home</a>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onGoHome()<br/>
-					<em>...Tapestry creates a URL to next page</em><br/>
-					pageDetached()<br/>
-					<em>Tapestry redirects browser to URL of next page</em>
-				</td>
-	 		</tr>
-	 		<tr>
-	 			<th>
-	 				In response to <strong>ActionLink</strong> event request.<br/>
-	 				Eg. <a t:type="ActionLink" t:id="toHome" href="#">Home</a>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onAction()<br/>
-					<em>...Tapestry creates a URL to next page</em><br/>
-					pageDetached()<br/>
-					<em>Tapestry redirects browser to URL of next page</em>
-				</td>
-			</tr>
-	 		<tr>
-	 			<th>
-	 				<form t:type="form" t:id="form">
-						In response to a <strong>Form</strong> event request.<br/>
-						Eg. Name: <input t:type="TextField" t:id="name"/><input t:type="Submit" value="Submit"/>
-					</form>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onPrepareForSubmit()<br/>
-					...onPrepare()<br/>
-					...onValidateFromName()<br/>
-					...setName()<br/>
-					...onSelected()<br/>
-					...onValidateFromForm()<br/>
-					...onSuccess()<br/>
-					...onSubmit()<br/>
-					<em>...Tapestry creates a URL to next page</em><br/>
-					pageDetached()<br/>
-					<em>Tapestry redirects browser to URL of next page</em>
-				</td>
-			</tr>
-		</table><br/>
+	<div class="eg row">
+		<div class="col-sm-9 col-sm-offset-1">
+		 	<table class="table table-bordered">
+		 		<tr>
+		 			<th>
+		 				When this page is <strong>first instantiated</strong>.
+		 			</th>
+		 			<td>
+						pageLoaded()
+					</td>
+		 		</tr>
+		 		<tr>
+		 			<th>
+		 				When Tapestry creates <strong>a URL to this page</strong>.<br/>
+		 				Eg. when another page renders a PageLink to this page.
+		 			</th>
+		 			<td>
+		 				<em>These are called in this page:</em><br/>
+						pageAttached()<br/>
+						...onPassivate()<br/>
+						<em>...Tapestry creates a URL to this page</em><br/>
+						pageDetached()<br/>
+					</td>
+		 		</tr>
+		 		<tr>
+		 			<th>
+		 				In response to a <strong>page render request</strong>.<br/>
+		 				Eg. When a PageLink to this page is clicked, <br/>
+		 				or in the redirect that follows an event request.<br/>
+		 				<ul>
+							<li>The 3 <em>onPassivate()</em> calls are due to the EventLink, ActionLink, and Form on this page: those 3 components 
+								bubble up <em>passivate</em> before they render themselves. They do it to get the current activation context, which 
+								they put in the URL that they render.</li>
+							<li>The <em>onPrepareForRender()</em> and <em>onPrepare()</em> calls are due to the Form on this page: the Form component 
+								bubbles up <em>prepareForRender</em> and <em>prepare</em> before it renders itself.</li>
+						</ul>
+					</th>
+		 			<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...setupRender()<br/>
+						...beginRender()<br/>
+						...onPassivate()<br/>
+						...onPassivate()<br/>
+						...onPassivate()<br/>
+						...onPrepareForRender()<br/>
+						...onPrepare()<br/>
+						...getName()<br/>
+						...getMessage()<br/>
+						...afterRender()<br/>
+						...cleanupRender()<br/>
+						pageDetached()<br/>
+						<em>Tapestry returns this page to browser</em>
+					</td>
+				</tr>
+				<tr>
+		 			<th>
+		 				In response to an <strong>EventLink</strong> event request.<br/>
+		 				Eg. <a t:type="EventLink" t:event="goHome" href="#">Home</a>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onGoHome()<br/>
+						<em>...Tapestry creates a URL to next page</em><br/>
+						pageDetached()<br/>
+						<em>Tapestry redirects browser to URL of next page</em>
+					</td>
+		 		</tr>
+		 		<tr>
+		 			<th>
+		 				In response to <strong>ActionLink</strong> event request.<br/>
+		 				Eg. <a t:type="ActionLink" t:id="toHome" href="#">Home</a>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onAction()<br/>
+						<em>...Tapestry creates a URL to next page</em><br/>
+						pageDetached()<br/>
+						<em>Tapestry redirects browser to URL of next page</em>
+					</td>
+				</tr>
+		 		<tr>
+		 			<th>
+		 				<form t:type="form" t:id="form">
+							In response to a <strong>Form</strong> event request.
+							<div class="form-group">
+								Eg. Name: 
+								<input t:type="TextField" t:id="name"/>
+								<input t:type="Submit" value="Submit"/>
+							</div>
+						</form>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onPrepareForSubmit()<br/>
+						...onPrepare()<br/>
+						...onValidateFromName()<br/>
+						...setName()<br/>
+						...onSelected()<br/>
+						...onValidateFromForm()<br/>
+						...onSuccess()<br/>
+						...onSubmit()<br/>
+						<em>...Tapestry creates a URL to next page</em><br/>
+						pageDetached()<br/>
+						<em>Tapestry redirects browser to URL of next page</em>
+					</td>
+				</tr>
+			</table>
 		
-		message: ${message}
+			message: ${message}
+		</div>
 	</div>
 	
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/annotations/PageAttached.html">PageAttached</a> and 
@@ -192,7 +188,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/WhatIsCalledAndWhen.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/WhatIsCalledAndWhen.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/whatiscalledandwhen.css"/>
 	</t:tabGroup>
 </body>
 </html>

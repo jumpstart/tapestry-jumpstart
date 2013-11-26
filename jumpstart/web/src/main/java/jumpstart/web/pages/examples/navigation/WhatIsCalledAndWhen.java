@@ -6,7 +6,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.slf4j.Logger;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet="css/examples/whatiscalledandwhen.css")
 public class WhatIsCalledAndWhen {
 	
 	// Screen fields
