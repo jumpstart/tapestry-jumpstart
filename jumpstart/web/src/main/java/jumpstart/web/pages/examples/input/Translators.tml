@@ -10,60 +10,94 @@
 	TextField, PasswordField, and TextArea all use them.
 	
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
-			<t:errors globalOnly="true"/>
-			<table>
-				<tr>
-					<td><t:label for="byteValue"/></td>
-					<td><input t:type="TextField" t:id="byteValue"/></td>
-					<td>${byteValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="shortValue"/></td>
-					<td><input t:type="TextField" t:id="shortValue"/></td>
-					<td>${shortValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="integerValue"/></td>
-					<td><input t:type="TextField" t:id="integerValue"/></td>
-					<td>${integerValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="longValue"/></td>
-					<td><input t:type="TextField" t:id="longValue"/></td>
-					<td>${longValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="floatValue"/></td>
-					<td><input t:type="TextField" t:id="floatValue"/></td>
-					<td>${floatValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="doubleValue"/></td>
-					<td><input t:type="TextField" t:id="doubleValue"/></td>
-					<td>${doubleValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="bigIntegerValue"/></td>
-					<td><input t:type="TextField" t:id="bigIntegerValue"/></td>
-					<td>${bigIntegerValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="bigDecimalValue"/></td>
-					<td><input t:type="TextField" t:id="bigDecimalValue"/></td>
-					<td>${bigDecimalValue}</td>
-				</tr>
-				<tr>
-					<td><t:label for="stringValue"/></td>
-					<td><input t:type="TextField" t:id="stringValue"/></td>
-					<td>${stringValue}</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Submit" class="btn btn-primary"/></td>
-					<td></td>
-				</tr>
-			</table>
+		<form t:type="form" t:id="inputs" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2 control-label" for="byteValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="byteValue" class="form-control"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${byteValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="shortValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="shortValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${shortValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="integerValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="integerValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${integerValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="longValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="longValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${longValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="floatValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="floatValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${floatValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="doubleValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="doubleValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${doubleValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="bigIntegerValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="bigIntegerValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${bigIntegerValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="bigDecimalValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="bigDecimalValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${bigDecimalValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="stringValue"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="stringValue"/>
+				</div>
+				<div class="col-sm-2">
+					<p class="form-control-static">${stringValue}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 col-sm-offset-2">
+					<input class="btn btn-primary" type="submit" value="Submit" />
+				</div>
+			</div>
+			 
 		</form>
 	</div>
 	

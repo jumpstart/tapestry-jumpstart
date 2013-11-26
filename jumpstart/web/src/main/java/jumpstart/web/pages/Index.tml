@@ -84,7 +84,7 @@
 							<a t:type="pagelink" t:page="examples/component/Html5InputTypes" href="#">HTML5 Input Types</a><br/>
 						</div>
 						<div class="group">
-							<a t:type="pagelink" t:page="examples/lang/PreviewableTemplates" href="#">Previewable Templates</a><br/>
+							<a t:type="pagelink" t:page="examples/lang/PreviewableTemplates" href="#" style="color: red;">Previewable Templates !!!!!</a><br/>
 							<a t:type="pagelink" t:page="examples/styling/PreviewableWithStylesheets" href="#">Previewable With Stylesheets</a><br/>
 							<a t:type="pagelink" t:page="examples/lang/AtComponent" href="#">@Component</a><br/>
 						</div>

@@ -10,41 +10,67 @@
 	We can handle those events, which allows us to augment, or even override, the translator.
 
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
-			<table>
-				<tr>
-					<td>(1) <t:label for="primitiveWithZeroSuppressed"/></td>
-					<td><input t:type="TextField" t:id="primitiveWithZeroSuppressed"/></td>
-					<td>${primitiveWithZeroSuppressed}</td>
-					<td>${primitiveWithZeroSuppressedMessage}</td>
-				</tr>
-				<tr>
-					<td>(2) <t:label for="objectDisplayingNullAsZero"/></td>
-					<td><input t:type="TextField" t:id="objectDisplayingNullAsZero"/></td>
-					<td>${objectDisplayingNullAsZero}</td>
-					<td>${objectDisplayingNullAsZeroMessage}</td>
-				</tr>
-				<tr>
-					<td>(3) <t:label for="objectUsingZeroNullFieldStrategy">Object Using ZeroNullFieldStrategy</t:label></td>
-					<td><input t:type="TextField" t:id="objectUsingZeroNullFieldStrategy" t:nulls="zero"/></td>
-					<td>${objectUsingZeroNullFieldStrategy}</td>
-					<td>${objectUsingZeroNullFieldStrategyMessage}</td>
-				</tr>
-				<tr>
-					<td>(4) <t:label for="objectAllowingShorthandInput">Object Allowing Shorthand Input</t:label></td>
-					<td><input t:type="TextField" t:id="objectAllowingShorthandInput" t:nulls="zero" t:mixins="ClientTranslatorDisabler"/></td>
-					<td>${objectAllowingShorthandInput}</td>
-					<td>(eg. 2k=2000,5m=5000000)&nbsp;&nbsp;${objectAllowingShorthandInputMessage}</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Submit" class="btn btn-primary"/></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-			<t:errors globalOnly="true"/>
-		</form>
+		<t:form t:id="inputs" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" for="primitiveWithZeroSuppressed"/>
+				<div class="col-sm-2">
+					<t:textfield class="form-control" t:id="primitiveWithZeroSuppressed"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${primitiveWithZeroSuppressed}
+						&nbsp;&nbsp;
+						<span class="text-muted">${primitiveWithZeroSuppressedMessage}</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" for="objectDisplayingNullAsZero"/>
+				<div class="col-sm-2">
+					<t:textfield class="form-control" t:id="objectDisplayingNullAsZero"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${objectDisplayingNullAsZero}
+						&nbsp;&nbsp;
+						<span class="text-muted">${objectDisplayingNullAsZeroMessage}</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" for="objectUsingZeroNullFieldStrategy">
+					Object Using ZeroNullFieldStrategy
+				</t:label>
+				<div class="col-sm-2">
+					<t:textfield class="form-control" t:id="objectUsingZeroNullFieldStrategy" t:nulls="zero"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${objectUsingZeroNullFieldStrategy}
+						&nbsp;&nbsp;
+						<span class="text-muted">${objectUsingZeroNullFieldStrategyMessage}</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" for="objectAllowingShorthandInput"/>
+				<div class="col-sm-2">
+					<t:textfield class="form-control" t:id="objectAllowingShorthandInput" t:nulls="zero" t:mixins="ClientTranslatorDisabler"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${objectAllowingShorthandInput}
+						&nbsp;&nbsp;
+						<span class="text-muted">(eg. 2k=2000,5m=5000000)&nbsp;&nbsp;${objectAllowingShorthandInputMessage}</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 col-sm-offset-4">
+					<input class="btn btn-primary" type="submit" value="Submit" />
+				</div>
+			</div>
+		</t:form>
 	</div>
 	
 	<ul>

@@ -1,4 +1,4 @@
-// For a field, replaces Tapestry's default translator with one that does nothing.
+// For a field, disables the field's default translator assigned by Tapestry.
 
 define(["jquery"], function($) {
 

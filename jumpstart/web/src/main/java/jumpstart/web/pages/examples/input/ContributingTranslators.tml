@@ -9,25 +9,38 @@
 	Here we create two Translators and make them available to the whole application <strong>by name</strong>.
 
 	<div class="eg">
-		<t:form t:id="inputs">
-			<t:errors globalOnly="true"/>
-			<table>
-				<tr>
-					<td><t:label for="newToTapestry"/></td>
-					<td><input t:type="TextField" t:id="newToTapestry" t:translate="yesno"/></td>
-					<td>${newToTapestry} (y, n, yes, no)</td>
-				</tr>
-				<tr>
-					<td><t:label for="price"/>:</td>
-					<td><input t:type="TextField" t:id="price" t:translate="money2"/></td>
-					<td>${price} (maximum 2 decimal places)</td>
-				</tr>
-				<tr> 
-					<td></td>
-					<td><input type="submit" value="Submit" class="btn btn-primary"/></td>
-					<td></td>
-				</tr>
-			</table>
+		<t:form t:id="inputs" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-3 control-label" for="newToTapestry"/>
+				<div class="col-sm-3">
+					<t:textfield class="form-control" t:id="newToTapestry" t:translate="yesno"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${newToTapestry}
+						&nbsp;&nbsp;
+						<span class="text-muted">(y, n, yes, no)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3 control-label" for="price"/>
+				<div class="col-sm-3">
+					<t:textfield class="form-control" t:id="price" t:translate="money2"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${price}
+						&nbsp;&nbsp;
+						<span class="text-muted">(maximum 2 decimal places)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<input class="btn btn-primary" type="submit" value="Submit" />
+				</div>
+			</div>
 		</t:form>
 	</div>
 	

@@ -1,6 +1,6 @@
 /**
  * A simple mixin that can be applied to a field that has a Translator, eg. a TextField, PasswordField, or TextArea. 
- * It replaces the default client-side translator assigned by Tapestry with one that does nothing.
+ * It disables the field's client-side translator assigned by Tapestry.
  */
 package jumpstart.web.mixins;
 
