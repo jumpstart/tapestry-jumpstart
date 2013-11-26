@@ -54,12 +54,12 @@ public class UserRoleEdit extends SimpleBasePage {
 		this.returnTo = returnTo;
 	}
 
-	Long onPassivate() {
-		return userRoleId;
-	}
-
 	void onActivate(Long userRoleId) {
 		this.userRoleId = userRoleId;
+	}
+
+	Long onPassivate() {
+		return userRoleId;
 	}
 
 	void onPrepareForRender() throws Exception {

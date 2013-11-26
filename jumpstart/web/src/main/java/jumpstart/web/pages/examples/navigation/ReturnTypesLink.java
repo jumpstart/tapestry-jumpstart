@@ -13,16 +13,16 @@ public class ReturnTypesLink {
 		this.parameter = parameter;
 	}
 
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
-
-	String onPassivate() {
-		return parameter;
-	}
-
 	// onActivate() is called by Tapestry to pass in the activation context from the URL.
 
 	void onActivate(String parameter) {
 		this.parameter = parameter;
+	}
+
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+
+	String onPassivate() {
+		return parameter;
 	}
 
 	public String getParameter() {

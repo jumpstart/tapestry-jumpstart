@@ -23,17 +23,17 @@ public class MultipleForms2 {
 		this.name = lastName;
 	}
 
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
-
-	Object[] onPassivate() {
-		return new Object[] { searchType, name };
-	}
-
 	// onActivate() is called by Tapestry to pass in the activation context from the URL.
 
 	void onActivate(SearchType searchType, String lastName) {
 		this.searchType = searchType;
 		this.name = lastName;
+	}
+
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+
+	Object[] onPassivate() {
+		return new Object[] { searchType, name };
 	}
 
 	public String getYourSearch() {

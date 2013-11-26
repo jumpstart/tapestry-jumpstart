@@ -24,17 +24,17 @@ public class PassingByActivationContext {
 		this.lastName = lastName;
 	}
 	
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
-	
-	Object[] onPassivate() {
-		return new String[] { firstName, lastName };
-	}
-
 	// onActivate() is called by Tapestry to pass in the activation context from the URL.
 
 	void onActivate(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+	
+	Object[] onPassivate() {
+		return new String[] { firstName, lastName };
 	}
 
 	public String getName() {

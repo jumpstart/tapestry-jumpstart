@@ -55,12 +55,12 @@ public class RoleView extends SimpleBasePage {
 		this.roleId = roleId;
 	}
 
-	Long onPassivate() {
-		return roleId;
-	}
-
 	void onActivate(Long roleId) throws DoesNotExistException {
 		this.roleId = roleId;
+	}
+
+	Long onPassivate() {
+		return roleId;
 	}
 
 	void setupRender() throws BusinessException {

@@ -31,10 +31,9 @@ public class Create2 {
 		this.personId = personId;
 	}
 
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+	// This one's for first time in.
 
-	Long onPassivate() {
-		return personId;
+	void onActivate() {
 	}
 
 	// onActivate() is called by Tapestry to pass in the activation context from the URL.
@@ -45,9 +44,10 @@ public class Create2 {
 		return true;
 	}
 
-	// This one's for first time in.
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
 
-	void onActivate() {
+	Long onPassivate() {
+		return personId;
 	}
 
 	// setupRender() is called by tapestry at the start of rendering - it's good for things that are display only.

@@ -26,12 +26,12 @@ public class HandlingABadContext {
 
 	// The code
 
-	Long onPassivate() {
-		return personId;
-	}
-
 	void onActivate(Long personId) {
 		this.personId = personId;
+	}
+
+	Long onPassivate() {
+		return personId;
 	}
 
 	void setupRender() {

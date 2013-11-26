@@ -11,12 +11,12 @@ public class StylingLinksAndSubmits2 {
 		this.yourChoice = yourChoice;
 	}
 	
-	String onPassivate() {
-		return yourChoice;
-	}
-
 	void onActivate(String yourChoice) {
 		this.yourChoice = yourChoice;
+	}
+
+	String onPassivate() {
+		return yourChoice;
 	}
 
 	public String getYourChoice() {

@@ -115,6 +115,31 @@ public class Persons {
 
 	// The code
 
+	// onActivate() is called by Tapestry to pass in the activation context from the URL.
+
+	void onActivate(EventContext ec) {
+
+		if (request.isXHR()) {
+			editorMode = arpEditorMode;
+			editorPersonId = arpEditorPersonId;
+		}
+		else {
+			if (ec.getCount() == 0) {
+				editorMode = null;
+				editorPersonId = null;
+			}
+			else if (ec.getCount() == 1) {
+				editorMode = ec.get(Mode.class, 0);
+				editorPersonId = null;
+			}
+			else {
+				editorMode = ec.get(Mode.class, 0);
+				editorPersonId = ec.get(Long.class, 1);
+			}
+		}
+
+	}
+
 	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
 
 	Object[] onPassivate() {
@@ -138,31 +163,6 @@ public class Persons {
 			}
 			else {
 				throw new IllegalStateException(editorMode.toString());
-			}
-		}
-
-	}
-
-	// onActivate() is called by Tapestry to pass in the activation context from the URL.
-
-	void onActivate(EventContext ec) {
-
-		if (request.isXHR()) {
-			editorMode = arpEditorMode;
-			editorPersonId = arpEditorPersonId;
-		}
-		else {
-			if (ec.getCount() == 0) {
-				editorMode = null;
-				editorPersonId = null;
-			}
-			else if (ec.getCount() == 1) {
-				editorMode = ec.get(Mode.class, 0);
-				editorPersonId = null;
-			}
-			else {
-				editorMode = ec.get(Mode.class, 0);
-				editorPersonId = ec.get(Long.class, 1);
 			}
 		}
 

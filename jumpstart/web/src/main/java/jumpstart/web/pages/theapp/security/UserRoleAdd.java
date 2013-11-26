@@ -82,13 +82,13 @@ public class UserRoleAdd extends SimpleBasePage {
 		this.returnTo = returnTo;
 	}
 
-	Long[] onPassivate() {
-		return new Long[] { userId, roleId };
-	}
-
 	void onActivate(Long userId, Long roleId) throws DoesNotExistException {
 		this.userId = userId;
 		this.roleId = roleId;
+	}
+
+	Long[] onPassivate() {
+		return new Long[] { userId, roleId };
 	}
 
 	void setupRender() throws DoesNotExistException {

@@ -31,16 +31,16 @@ public class Edit2 {
 		this.personId = personId;
 	}
 
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
-
-	Long onPassivate() {
-		return personId;
-	}
-
 	// onActivate() is called by Tapestry to pass in the activation context from the URL.
 
 	void onActivate(Long personId) {
 		this.personId = personId;
+	}
+
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+
+	Long onPassivate() {
+		return personId;
 	}
 
 	// setupRender() is called by tapestry at the start of rendering - it's good for things that are display only.

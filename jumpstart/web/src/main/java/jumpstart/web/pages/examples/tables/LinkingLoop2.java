@@ -11,11 +11,11 @@ public class LinkingLoop2 {
 	
 	// The code
 	
-	String onPassivate() {
-		return firstName;
-	}
-	
 	void onActivate(String firstName) {
 		this.firstName = firstName;
+	}
+	
+	String onPassivate() {
+		return firstName;
 	}
 }

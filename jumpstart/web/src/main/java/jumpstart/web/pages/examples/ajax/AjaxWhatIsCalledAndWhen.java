@@ -62,12 +62,12 @@ public class AjaxWhatIsCalledAndWhen {
 		logger.debug("pageDetached()");
 	}
 
-	void onPassivate() {
-		logger.debug("...onPassivate()");
-	}
-
 	void onActivate() {
 		logger.debug("...onActivate()");
+	}
+
+	void onPassivate() {
+		logger.debug("...onPassivate()");
 	}
 
 	void setupRender() {

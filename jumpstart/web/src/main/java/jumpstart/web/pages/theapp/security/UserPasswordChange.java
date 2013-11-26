@@ -55,12 +55,12 @@ public class UserPasswordChange extends SimpleBasePage {
 		this.userId = userId;
 	}
 
-	Long onPassivate() {
-		return userId;
-	}
-
 	void onActivate(Long userId) {
 		this.userId = userId;
+	}
+
+	Long onPassivate() {
+		return userId;
 	}
 
 	void onPrepareForRender() throws DoesNotExistException {

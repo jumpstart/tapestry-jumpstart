@@ -64,12 +64,12 @@ public class Login extends SimpleBasePage implements IIntermediatePage {
 		this.nextPageLink = nextPageLink;
 	}
 
-	String onPassivate() {
-		return loginId;
-	}
-
 	void onActivate(String loginId) {
 		this.loginId = loginId;
+	}
+
+	String onPassivate() {
+		return loginId;
 	}
 
 	void onValidateFromLogin() {

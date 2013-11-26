@@ -35,12 +35,12 @@ public class SwitchableStylesheets {
 	
 	// The code
 	
-	int onPassivate() {
-		return styleNum;
-	}
-	
 	void onActivate(int styleNum) {
 		this.styleNum = styleNum;
+	}
+	
+	int onPassivate() {
+		return styleNum;
 	}
 	
 	void onSuccess() {

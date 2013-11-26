@@ -40,12 +40,12 @@ public class UserRoleView extends SimpleBasePage {
 		this.returnTo = returnTo;
 	}
 	
-	Long onPassivate() {
-		return userRoleId;
-	}
-
 	void onActivate(Long userRoleId) {
 		this.userRoleId = userRoleId;
+	}
+
+	Long onPassivate() {
+		return userRoleId;
 	}
 
 	void setupRender() throws DoesNotExistException {

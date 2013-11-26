@@ -23,12 +23,12 @@ public class PageDenied {
 
 	// The code
 
-	String onPassivate() {
-		return urlDenied;
-	}
-
 	void onActivate(String urlDenied) {
 		this.urlDenied = urlDenied;
+	}
+
+	String onPassivate() {
+		return urlDenied;
 	}
 
 	public void setupRender() {

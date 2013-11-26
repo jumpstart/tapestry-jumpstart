@@ -27,25 +27,6 @@ public class Persons {
 
 	// The code
 
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
-
-	Object[] onPassivate() {
-
-		if (editorMode == null) {
-			return null;
-		}
-		else if (editorMode == Mode.CREATE) {
-			return new Object[] { editorMode };
-		}
-		else if (editorMode == Mode.REVIEW || editorMode == Mode.UPDATE) {
-			return new Object[] { editorMode, editorPersonId };
-		}
-		else {
-			throw new IllegalStateException(editorMode.toString());
-		}
-
-	}
-
 	// onActivate() is called by Tapestry to pass in the activation context from the URL.
 
 	void onActivate(EventContext ec) {
@@ -61,6 +42,25 @@ public class Persons {
 		else {
 			editorMode = ec.get(Mode.class, 0);
 			editorPersonId = ec.get(Long.class, 1);
+		}
+
+	}
+
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+
+	Object[] onPassivate() {
+
+		if (editorMode == null) {
+			return null;
+		}
+		else if (editorMode == Mode.CREATE) {
+			return new Object[] { editorMode };
+		}
+		else if (editorMode == Mode.REVIEW || editorMode == Mode.UPDATE) {
+			return new Object[] { editorMode, editorPersonId };
+		}
+		else {
+			throw new IllegalStateException(editorMode.toString());
 		}
 
 	}

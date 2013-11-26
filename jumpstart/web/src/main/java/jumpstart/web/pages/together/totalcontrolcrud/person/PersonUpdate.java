@@ -51,16 +51,16 @@ public class PersonUpdate {
 
 	// The code
 
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
-
-	Long onPassivate() {
-		return personId;
-	}
-
 	// onActivate() is called by Tapestry to pass in the activation context from the URL.
 
 	void onActivate(Long personId) {
 		this.personId = personId;
+	}
+
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+
+	Long onPassivate() {
+		return personId;
 	}
 
 	// PersonForm bubbles up the PREPARE_FOR_RENDER event during form render.

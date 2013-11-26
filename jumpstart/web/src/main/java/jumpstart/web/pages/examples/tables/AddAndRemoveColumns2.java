@@ -10,12 +10,12 @@ public class AddAndRemoveColumns2 {
 	private String firstName;
 	
 	// The code
-	
-	String onPassivate() {
-		return firstName;
-	}
 
 	void onActivate(String firstName) {
 		this.firstName = firstName;
+	}
+	
+	String onPassivate() {
+		return firstName;
 	}
 }

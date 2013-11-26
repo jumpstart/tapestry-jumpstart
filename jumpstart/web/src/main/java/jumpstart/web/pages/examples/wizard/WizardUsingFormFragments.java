@@ -57,10 +57,6 @@ public class WizardUsingFormFragments {
 		this.conversationId = conversationId;
 	}
 
-	Object[] onPassivate() {
-		return new Object[] { step, conversationId };
-	}
-
 	Object onActivate() {
 		if (step == null) {
 			startConversation();
@@ -89,6 +85,10 @@ public class WizardUsingFormFragments {
 		}
 
 		return null;
+	}
+
+	Object[] onPassivate() {
+		return new Object[] { step, conversationId };
 	}
 
 	void onPrepare() {

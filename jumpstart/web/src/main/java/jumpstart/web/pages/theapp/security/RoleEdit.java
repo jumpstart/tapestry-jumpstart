@@ -78,12 +78,12 @@ public class RoleEdit extends SimpleBasePage {
 		this.roleId = roleId;
 	}
 
-	Long onPassivate() {
-		return roleId;
-	}
-
 	void onActivate(Long roleId) {
 		this.roleId = roleId;
+	}
+
+	Long onPassivate() {
+		return roleId;
 	}
 
 	void setupRender() {

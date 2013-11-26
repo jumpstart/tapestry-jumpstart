@@ -64,12 +64,12 @@ public class UserView extends SimpleBasePage {
 		this.userId = userId;
 	}
 
-	Long onPassivate() {
-		return userId;
-	}
-
 	void onActivate(Long userId) {
 		this.userId = userId;
+	}
+
+	Long onPassivate() {
+		return userId;
 	}
 
 	void setupRender() throws BusinessException {

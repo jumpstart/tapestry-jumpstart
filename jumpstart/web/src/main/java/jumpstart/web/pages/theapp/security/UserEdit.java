@@ -94,12 +94,12 @@ public class UserEdit extends SimpleBasePage {
 		userId = id;
 	}
 
-	Long onPassivate() {
-		return userId;
-	}
-
 	void onActivate(Long id) {
 		userId = id;
+	}
+
+	Long onPassivate() {
+		return userId;
 	}
 
 	void setupRender() {

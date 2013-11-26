@@ -25,18 +25,16 @@ public class ReturnToPage1 {
 
 	// The code
 
-	// onPassivate() is called by Tapestry to get the activation context to put
-	// in the URL.
-
-	String onPassivate() {
-		return arg1;
-	}
-
-	// onActivate() is called by Tapestry to pass in the activation context from
-	// the URL.
+	// onActivate() is called by Tapestry to pass in the activation context from the URL.
 
 	void onActivate(String arg1) throws Exception {
 		this.arg1 = arg1;
+	}
+
+	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
+
+	String onPassivate() {
+		return arg1;
 	}
 
 	Object onSuccess() {

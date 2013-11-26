@@ -20,15 +20,15 @@ public class WizardUsingFormFragmentsSuccess {
 		this.approvedApplicantName = approvedApplicantName;
 	}
 
-	Object[] onPassivate() {
-		// In the real world we would typically passivate the credit request's id instead of these fields
-		return new Object[] { approvedAmount, approvedApplicantName };
-	}
-
 	void onActivate(int approvedAmount, String approvedApplicantName) throws Exception {
 		// In the real world we would typically receive the credit request's id instead of these fields
 		this.approvedAmount = approvedAmount;
 		this.approvedApplicantName = approvedApplicantName;
+	}
+
+	Object[] onPassivate() {
+		// In the real world we would typically passivate the credit request's id instead of these fields
+		return new Object[] { approvedAmount, approvedApplicantName };
 	}
 
 	void setupRender() {

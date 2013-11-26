@@ -39,14 +39,14 @@ public class EasyObjectSelect {
 
 	// The code
 
-	Long onPassivate() {
-		return personId;
-	}
-
 	void onActivate(EventContext context) {
 		if (context.getCount() > 0) {
 			personId = context.get(Long.class, 0);
 		}
+	}
+
+	Long onPassivate() {
+		return personId;
 	}
 
 	void onPrepareForRender() {

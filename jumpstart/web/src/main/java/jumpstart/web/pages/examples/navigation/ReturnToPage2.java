@@ -30,12 +30,12 @@ public class ReturnToPage2 {
 		this.linkBackToCaller = linkBackToCaller;
 	}
 
-	String onPassivate() {
-		return messageFromCaller;
-	}
-
 	void onActivate(String messageFromCaller) {
 		this.messageFromCaller = messageFromCaller;
+	}
+
+	String onPassivate() {
+		return messageFromCaller;
 	}
 
 	Link onReturn() {

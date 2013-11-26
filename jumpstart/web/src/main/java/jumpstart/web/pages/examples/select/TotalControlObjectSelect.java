@@ -35,14 +35,14 @@ public class TotalControlObjectSelect {
 
 	// The code
 	
-	Long onPassivate() {
-		return person == null ? null : person.getId();
-	}
-
 	void onActivate(EventContext context) {
 		if (context.getCount() > 0) {
 			personId = context.get(Long.class, 0);
 		}
+	}
+
+	Long onPassivate() {
+		return person == null ? null : person.getId();
 	}
 
 	void onPrepareForRender() {
