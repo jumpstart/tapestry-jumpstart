@@ -10,7 +10,7 @@
 	We can handle those events, which allows us to augment, or even override, the translator.
 
 	<div class="eg">
-		<t:form t:id="inputs" class="form-horizontal">
+		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
 				<t:label class="col-sm-4 control-label" for="primitiveWithZeroSuppressed"/>
 				<div class="col-sm-2">

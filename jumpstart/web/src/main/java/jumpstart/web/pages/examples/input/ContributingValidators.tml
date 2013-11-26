@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Contributing Validators</h3>
 	
@@ -17,29 +14,41 @@
 	We made it available to the whole application by contributing it to the <em>FieldValidatorSource</em> service - see AppModule source below.
 
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
-			<t:errors globalOnly="true"/>
-			<table>
-				<tr>
-					<td><t:label for="firstName"/>:</td>
-					<td><input t:type="TextField" t:id="firstName" t:validate="required, maxlength=10, letters" size="10"/></td>
-					<td>${firstName}</td>
-					<td>(required, maxLength=10, letters only)</td>
-				</tr>
-				<tr>
-					<td><t:label for="lastName"/>:</td>
-					<td><input t:type="TextField" t:id="lastName" t:validate="required, maxLength=10, letters" size="10"/></td>
-					<td>${lastName}</td>
-					<td>(required, maxLength=10, letters only)</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Display"/></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-		</form>
+		<t:form class="form-horizontal" t:id="inputs">
+
+			<div class="form-group">
+				<t:label class="col-sm-3 control-label" for="firstName"/>
+				<div class="col-sm-3">
+					<t:textfield class="form-control" t:id="firstName" t:validate="required, maxlength=10, letters" size="10"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${firstName}
+						&nbsp;&nbsp;
+						<span class="text-muted">(required, maxLength=10, letters only)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3 control-label" for="lastName"/>
+				<div class="col-sm-3">
+					<t:textfield class="form-control" t:id="lastName" t:validate="required, maxlength=10, letters" size="10"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${lastName}
+						&nbsp;&nbsp;
+						<span class="text-muted">(required, maxLength=10, letters only)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<input class="btn btn-primary" type="submit" value="Display" />
+				</div>
+			</div>
+
+		</t:form>
 	</div>
 	
 	It includes a client-side validator in <em>validators.js</em>. 
@@ -57,7 +66,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/validators/Letters.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/validators/ValidationMessages.properties"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/js/letters.js"/>

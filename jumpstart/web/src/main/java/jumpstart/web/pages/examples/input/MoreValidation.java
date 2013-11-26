@@ -3,10 +3,12 @@ package jumpstart.web.pages.examples.input;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValidationException;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 
+@Import(stylesheet="css/examples/plain.css")
 public class MoreValidation {
 
 	// Screen fields
@@ -54,6 +56,10 @@ public class MoreValidation {
 	 * Cross-form validation goes in here.
 	 */
 	void onValidateFromInputs() {
+		
+		if (form.getHasErrors()) {
+			return;
+		}
 
 		// Error if neither chosen.
 

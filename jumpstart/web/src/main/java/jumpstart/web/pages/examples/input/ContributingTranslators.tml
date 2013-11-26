@@ -9,7 +9,7 @@
 	Here we create two Translators and make them available to the whole application <strong>by name</strong>.
 
 	<div class="eg">
-		<t:form t:id="inputs" class="form-horizontal">
+		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
 				<t:label class="col-sm-3 control-label" for="newToTapestry"/>
 				<div class="col-sm-3">

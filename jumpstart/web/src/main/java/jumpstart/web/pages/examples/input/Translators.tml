@@ -10,7 +10,7 @@
 	TextField, PasswordField, and TextArea all use them.
 	
 	<div class="eg">
-		<form t:type="form" t:id="inputs" class="form-horizontal">
+		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
 				<t:label class="col-sm-2 control-label" for="byteValue"/>
 				<div class="col-sm-2">
@@ -98,11 +98,11 @@
 				</div>
 			</div>
 			 
-		</form>
+		</t:form>
 	</div>
 	
 	The built-in translators bubble up events <em>toClient</em> and <em>parseClient</em>, which we do not use in this example. 
-	See the Augmenting Translators example.<br/>
+	See the Augmenting Translators example.<br/><br/>
 	
 	The String translator exists only to bubble up those events. It does not transform the data.<br/><br/>
 	

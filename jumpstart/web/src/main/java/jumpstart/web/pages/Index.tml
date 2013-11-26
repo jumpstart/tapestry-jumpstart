@@ -116,8 +116,6 @@
 							<a t:type="pagelink" t:page="examples/input/MoreValidation" href="#">More Validation</a><br/>
 							<a t:type="pagelink" t:page="examples/input/ContributingValidators" href="#">Contributing Validators</a><br/>
 							<br/>
-							<a t:type="pagelink" t:page="examples/input/NoValidationBubbles" href="#">No Validation Bubbles</a><br/>
-							<br/>
 							<a t:type="pagelink" t:page="examples/input/Edit1" t:context="literal:1" href="#">Edit (Using BeanEditForm)</a><br/>
 							<a t:type="pagelink" t:page="examples/input/Create1" href="#">Create (Using BeanEditForm)</a><br/>
 							<a t:type="pagelink" t:page="examples/input/MoreControlEdit1" t:context="literal:1" href="#">More Control Edit (Using BeanEditor)</a><br/>
