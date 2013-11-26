@@ -13,8 +13,8 @@
 	<strong>component event request</strong>. Form and EvenLink are two common components that do that, 
 	as we will see in the next examples.<br/><br/>
 	
-	When a component event request reaches the server, Tapestry directs it to the <em>same page class and 
-	component class that rendered</em> the page and component in the first place. <strong>This is great news!</strong> 
+	When a component event request reaches the server, Tapestry directs it to <em>the same page and 
+	component classes that rendered</em> the page and component in the first place. <strong>This is great!</strong> 
 	It makes it very easy to understand and manage how a Tapestry application fits together.<br/><br/>  
 
 	Some other components also send component event requests, such as GridPager. 

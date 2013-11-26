@@ -7,10 +7,10 @@
 	<h3>Easy Output (Using BeanDisplay)</h3>
 	
 	Tapestry's BeanDisplay component lets you display a <a href="http://en.wikipedia.org/wiki/JavaBeans">JavaBean</a> 
-	with very little effort.
+	with very little effort. The bean in this example is this page!
 	
 	<div class="eg">
-		<t:beandisplay object="employee"/>
+		<t:beandisplay object="this" reorder="name,age,gender"/>
 	</div>
 	
 	References: 
