@@ -1,10 +1,12 @@
 package jumpstart.web.pages.examples.infrastructure;
 
 import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class ExceptionReportPage {
 
 	// Screen fields

@@ -6,7 +6,6 @@ import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.components.CustomForm;
 
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Component;
@@ -14,9 +13,10 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js/letters.js")
+@Import(stylesheet = "css/examples/plain.css", library = "js/letters.js")
 public class TotalControlEdit1 {
 
 	// The activation context
@@ -42,7 +42,7 @@ public class TotalControlEdit1 {
 	// Generally useful bits and pieces
 
 	@Component(id = "person")
-	private CustomForm form;
+	private Form form;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;

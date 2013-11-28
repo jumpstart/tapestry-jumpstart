@@ -12,9 +12,9 @@
 	<div class="eg">
 		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
-				<t:label class="col-sm-2 control-label" for="byteValue"/>
+				<t:label class="col-sm-2" for="byteValue"/>
 				<div class="col-sm-2">
-					<t:textfield t:id="byteValue" class="form-control"/>
+					<t:textfield t:id="byteValue"/>
 				</div>
 				<div class="col-sm-2">
 					<p class="form-control-static">${byteValue}</p>

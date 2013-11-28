@@ -3,9 +3,11 @@ package jumpstart.web.pages.examples.component;
 import jumpstart.web.pages.Index;
 
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/examples/kaptcha1.css")
 public class Kaptcha1 {
 
 	// Other pages

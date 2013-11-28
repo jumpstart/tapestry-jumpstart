@@ -11,9 +11,9 @@
 	<div class="eg">
 		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
-				<t:label class="col-sm-3 control-label" for="newToTapestry"/>
+				<t:label class="col-sm-3" for="newToTapestry"/>
 				<div class="col-sm-3">
-					<t:textfield class="form-control" t:id="newToTapestry" t:translate="yesno"/>
+					<t:textfield t:id="newToTapestry" t:translate="yesno"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
@@ -24,9 +24,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-3 control-label" for="price"/>
+				<t:label class="col-sm-3" for="price"/>
 				<div class="col-sm-3">
-					<t:textfield class="form-control" t:id="price" t:translate="money2"/>
+					<t:textfield t:id="price" t:translate="money2"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">

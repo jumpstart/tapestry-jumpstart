@@ -3,42 +3,41 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>onActivate and onPassivate</h3>
 	
-	<h3>Rule of Thumb</h3>
+	<h4>Rule of Thumb</h4>
 
 	A good "rule of thumb" is to use onActivate(...) and onPassivate() for no more than receiving and returning the 
 	activation context.<br/>
 	In this page, for example, onActivate(...) receives a person id and onPassivate() returns a person id.<br/><br/>
 
 	It can be tempting to put setup code into onActivate(...) but avoid this because onActivate(...) is called very often. 
-	There are better places:<br/>
+	There are better places:<br/><br/>
 	<ul>
 	<li>
-		<strong>setupRender()</strong> is ideal for setting up objects and fields for display-only because Tapestry 
+		<code>setupRender()</code> is ideal for setting up objects and fields for display-only because Tapestry 
 		calls it only during a <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">
  		page render request</a>.
 	</li>
 	<li>
-		<strong>onPrepare()</strong> is ideal for setting up objects and fields that can be edited in a Form because it 
+		<code>onPrepare()</code> is ideal for setting up objects and fields that can be edited in a Form because it 
 		is triggered during form rendering and form submission but it isn't triggered by other 
 		<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">component event requests</a>. 
 		If there's more than one form then use more than one onPrepare, eg. onPrepareFromFormX(), onPrepareFromFormY().
 	</li>
 	<li>
-		<strong>getter methods</strong> <em>can</em> be used for setting up objects and fields, but exercise caution 
-		because they can be called more often than you expect. In this situation consider lazy-loading.
+		<strong>getters</strong> <em>can</em> be used for setting up objects and fields, but exercise caution 
+		because they can be called more often than you expect. In this situation consider lazy-loading, eg. with 
+		the method-level annotation <code>@Cached</code>. See 
+		<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Cached.html">@Cached</a>.  
 	</li>
 	</ul>
 	
 	We <em>could</em> put code in onActivate(...) to validate access to the page, but there are better ways - see 
 	the Protecting Pages example.<br/>
 	
-	<h3>When is onActivate(...) called?</h3>
+	<h4>When is onActivate(...) called?</h4>
 	
 	The short answer is: whenever Tapestry gets a page. 
 	It can be in response to a browser request. It can be when one page's java uses another.<br/><br/>
@@ -49,7 +48,7 @@
 	event request</a> provides the activation context of the page it came from. 
 	When one page's java uses another, no activation context is provided.<br/>
 
-	<h3>When is onPassivate() called?</h3>
+	<h4>When is onPassivate() called?</h4>
 	
 	The purpose of onPassivate() is to return the activation context of the page instance. Tapestry calls onPassivate() in 
 	these situations:
@@ -61,7 +60,7 @@
 	preparing the page for those two situations. (Maybe this is violating the 
 	<a href="http://en.wikipedia.org/wiki/YAGNI">YAGNI</a> principle, but in practice it can prevent confusion later).<br/>
 
-	<h3>Why are they package scoped?</h3>
+	<h4>Why are they package scoped?</h4>
 	
 	This is just a personal style choice. Strictly speaking, onActivate(...) and onPassivate(..) should be private scoped 
 	because only Tapestry should call them, but then the compiler generates warnings that the methods are "unused".  Rather 
@@ -76,7 +75,8 @@
 
 	References:	
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
-	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Cached.html">@Cached</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
@@ -85,7 +85,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/OnActivateAndOnPassivate.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/OnActivateAndOnPassivate.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

@@ -7,10 +7,12 @@ import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 
+@Import(stylesheet="css/examples/plain.css")
 public class Create1 {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
@@ -42,6 +44,12 @@ public class Create1 {
 	}
 
 	void onValidateFromPersonForm() {
+		
+		if (personForm.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
+		}
+		
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			personForm.recordError("Sorry, but this function is not allowed in Demo mode.");
 			return;

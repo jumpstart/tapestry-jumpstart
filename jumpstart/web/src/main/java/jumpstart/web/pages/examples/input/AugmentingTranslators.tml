@@ -12,9 +12,9 @@
 	<div class="eg">
 		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
-				<t:label class="col-sm-4 control-label" for="primitiveWithZeroSuppressed"/>
+				<t:label class="col-sm-4" for="primitiveWithZeroSuppressed"/>
 				<div class="col-sm-2">
-					<t:textfield class="form-control" t:id="primitiveWithZeroSuppressed"/>
+					<t:textfield t:id="primitiveWithZeroSuppressed"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
@@ -25,9 +25,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-4 control-label" for="objectDisplayingNullAsZero"/>
+				<t:label class="col-sm-4" for="objectDisplayingNullAsZero"/>
 				<div class="col-sm-2">
-					<t:textfield class="form-control" t:id="objectDisplayingNullAsZero"/>
+					<t:textfield t:id="objectDisplayingNullAsZero"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
@@ -38,11 +38,11 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-4 control-label" for="objectUsingZeroNullFieldStrategy">
+				<t:label class="col-sm-4" for="objectUsingZeroNullFieldStrategy">
 					Object Using ZeroNullFieldStrategy
 				</t:label>
 				<div class="col-sm-2">
-					<t:textfield class="form-control" t:id="objectUsingZeroNullFieldStrategy" t:nulls="zero"/>
+					<t:textfield t:id="objectUsingZeroNullFieldStrategy" t:nulls="zero"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
@@ -53,9 +53,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-4 control-label" for="objectAllowingShorthandInput"/>
+				<t:label class="col-sm-4" for="objectAllowingShorthandInput"/>
 				<div class="col-sm-2">
-					<t:textfield class="form-control" t:id="objectAllowingShorthandInput" t:nulls="zero" t:mixins="ClientTranslatorDisabler"/>
+					<t:textfield t:id="objectAllowingShorthandInput" t:nulls="zero" t:mixins="ClientTranslatorDisabler"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">

@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/totalcontroledit.css}"/>
-</head>
 <body class="container">
 	<h3>Total Control Edit (1)</h3>
 
@@ -13,58 +10,64 @@
 	The cost is more lines of code in the template. The benefit is total control of the content, layout and style.
 	
 	<div class="eg">
-		<form t:type="CustomForm" t:id="person" >
+		<t:form class="form-horizontal" t:id="person">
 			<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
 	 		<t:hidden value="person.version"/>
-	
-			<table class="edit">
-				<tr>
-					<th><t:label for="firstName"/>:</th>
-					<td><input t:type="TextField" t:id="firstName" value="person.firstName" t:validate="required, maxlength=10, letters" size="10"/></td>
-					<td>(required, maxLength=10, letters only)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:customerror for="firstName"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="lastName"/>:</th>
-					<td><input t:type="TextField" t:id="lastName" value="person.lastName" t:validate="required, maxlength=10, letters" size="10"/></td>
-					<td>(required, maxLength=10, letters only)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:customerror for="lastName"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="region"/>:</th>
-					<td><input t:type="Select" t:id="region" value="person.region" t:validate="required"/></td>
-					<td>(required)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:customerror for="region"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="startDate"/>:</th>
-					<td><input t:type="DateField" t:id="startDate" value="person.startDate" t:format="dd/MM/yyyy" t:validate="required" size="10"/></td>
-					<td>(required, dd/mm/yyyy)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:customerror for="startDate"/></td>
-				</tr>
-				<tr>
-					<th></th>
-					<td>
-						<input t:type="submit" value="Save"/>&nbsp;
-						<a t:type="eventlink" t:event="refresh" href="#">Refresh</a>
-					</td>
-					<td></td>
-				</tr>
-			</table>
+
+			<div class="form-group">
+				<t:label class="col-sm-3" for="firstName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="firstName" value="person.firstName" validate="required, maxlength=10, letters"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						<span class="text-muted">(required, maxLength=10, letters only)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="lastName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="lastName" value="person.lastName" validate="required, maxlength=10, letters"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						<span class="text-muted">(required, maxLength=10, letters only)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="region"/>
+				<div class="col-sm-3">
+					<t:select t:id="region" value="person.region" validate="required"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						<span class="text-muted">(required)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="startDate"/>
+				<div class="col-sm-3">
+					<t:datefield t:id="startDate" value="person.startDate" format="dd/MM/yyyy" validate="required"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						<span class="text-muted">(required, dd/mm/yyyy)</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<input class="btn btn-primary" type="submit" value="Save" />
+					&nbsp;
+					<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>
+				</div>
+			</div>
+
 			<t:errors globalOnly="true"/>
-		</form>
+		</t:form>
 	</div>
 	
 	Person is a JPA Entity Bean and PersonFinderService is an EJB3 Session Bean. <br/><br/>
@@ -82,7 +85,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/totalcontroledit.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>

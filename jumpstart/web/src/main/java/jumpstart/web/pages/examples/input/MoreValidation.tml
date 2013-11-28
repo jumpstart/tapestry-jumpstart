@@ -23,9 +23,9 @@
 			<div style="padding-bottom: 8px;">Enter your First Name OR your Lucky Number:</div>
 			
 			<div class="form-group">
-				<t:label class="col-sm-3 control-label" for="firstName"/>
+				<t:label class="col-sm-3" for="firstName"/>
 				<div class="col-sm-3">
-					<t:textfield class="form-control" t:id="firstName" t:validate="maxlength=10" size="10"/>
+					<t:textfield t:id="firstName" t:validate="maxlength=10" size="10"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
@@ -36,9 +36,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-3 control-label" for="luckyNumber"/>
+				<t:label class="col-sm-3" for="luckyNumber"/>
 				<div class="col-sm-3">
-					<t:textfield class="form-control" t:id="luckyNumber" t:validate="min=1, max=100" size="10"/>
+					<t:textfield t:id="luckyNumber" t:validate="min=1, max=100" size="10"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">

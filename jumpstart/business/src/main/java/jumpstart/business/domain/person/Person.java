@@ -15,6 +15,8 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 /**
@@ -34,15 +36,21 @@ public class Person implements Serializable {
 	private Integer version;
 
 	@Column(length = 10, nullable = false)
+	@NotNull
+	@Size(max = 10)
 	private String firstName;
 
 	@Column(length = 10, nullable = false)
+	@NotNull
+	@Size(max = 10)
 	private String lastName;
 	
 	@Enumerated(EnumType.STRING)
+	@NotNull
 	private Regions region;
 
 	@Temporal(TemporalType.DATE)
+	@NotNull
 	private Date startDate;
 
 	public String toString() {
@@ -90,24 +98,6 @@ public class Person implements Serializable {
 	@PrePersist
 	@PreUpdate
 	public void validate() throws ValidationException {
-
-		// Validate syntax...
-
-		if ((firstName == null) || (firstName.trim().length() == 0)) {
-			throw new ValidationException("First name is required.");
-		}
-
-		if ((lastName == null) || (lastName.trim().length() == 0)) {
-			throw new ValidationException("Last name is required.");
-		}
-
-		if (region == null) {
-			throw new ValidationException("Region is required.");
-		}
-
-		if (startDate == null) {
-			throw new ValidationException("Start date is required.");
-		}
 
 	}
 

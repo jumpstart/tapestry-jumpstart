@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
+	<style type="text/css">
+		.eg		{ margin: 0; border: none; }
+		.kapbox	{ width: 240px; text-align: center; padding: 7px; font-size: 11px; background-color: #eee; }
+		form	{ margin: 0; }
+		.kap	{ padding: 4px 0; }
+	</style>
+</head>
+<body class="container">
+	<h3>Kaptcha (1)</h3>
+	
+	Here we demonstrate 2 Tapestry components, KaptchaField and KaptchaImage, which provide 
+	<a href="http://en.wikipedia.org/wiki/CAPTCHA">CAPTCHA</a>.
+	
+	<div class="eg">
+		<div class="kapbox">
+			<form t:type="Form" t:id="verify">
+				<div class="kap">
+					<t:KaptchaImage t:id="kaptchaImage"/>
+				</div>
+				<div class="kap">
+					What characters are shown in the box above?
+				</div>
+				<div class="kap">
+					<t:KaptchaField t:image="kaptchaImage" visible="true" label="characters"/>
+				</div> 
+				<div class="kap">
+					<input type="submit"/>
+				</div>
+			</form>
+		</div>
+	</div>
+	 
+	The kaptcha components are NOT part of Tapestry's corelib. To use them, put the following jars in the classpath:
+	<ul>
+		<li>tapestry-kaptcha-5.3.n.jar, at compile and runtime.</li>
+		<li>kaptcha-2.3.jar, at runtime. You can get it from: 
+			<ul>
+			<li>https://nexus.sourcesense.com/nexus/content/repositories/public/com/google/code/kaptcha/2.3/</li> 
+			<li>http://savant.inversoft.org/com/google/code/kaptcha/kaptcha/2.3/</li>
+			</ul>
+		</li>
+	</ul>
+	
+	References: 
+	<a href="http://tapestry.apache.org/component-reference.html#ComponentReference-FormComponents">Form Components</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaField.html">KaptchaField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaImage.html">KaptchaImage</a>.<br/><br/> 
+
+	<a t:type="eventlink" t:event="Home" href="#">Home</a><br/><br/>
+
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+	</t:tabGroup>
+</body>
+</html>

@@ -15,54 +15,54 @@
 	<div class="eg">
 		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
-				<t:label class="col-sm-2 control-label" for="byteValue"/>
+				<t:label class="col-sm-2" for="byteValue"/>
 				<div class="col-sm-2">
-					<t:textfield t:id="byteValue" class="form-control"/>
+					<t:textfield t:id="byteValue"/>
 				</div>
 				<div class="col-sm-2">
 					<p class="form-control-static">${byteValue}</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2 control-label" for="shortValue"/>
+				<t:label class="col-sm-2" for="shortValue"/>
 				<div class="col-sm-2">
-					<t:textfield t:id="shortValue" class="form-control"/>
+					<t:textfield t:id="shortValue"/>
 				</div>
 				<div class="col-sm-2">
 					<p class="form-control-static">${shortValue}</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2 control-label" for="integerValue"/>
+				<t:label class="col-sm-2" for="integerValue"/>
 				<div class="col-sm-2">
-					<t:textfield t:id="integerValue" class="form-control"/>
+					<t:textfield t:id="integerValue"/>
 				</div>
 				<div class="col-sm-2">
 					<p class="form-control-static">${integerValue}</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2 control-label" for="longValue"/>
+				<t:label class="col-sm-2" for="longValue"/>
 				<div class="col-sm-2">
-					<t:textfield t:id="longValue" class="form-control"/>
+					<t:textfield t:id="longValue"/>
 				</div>
 				<div class="col-sm-2">
 					<p class="form-control-static">${longValue}</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2 control-label" for="floatValue"/>
+				<t:label class="col-sm-2" for="floatValue"/>
 				<div class="col-sm-2">
-					<t:textfield t:id="floatValue" class="form-control"/>
+					<t:textfield t:id="floatValue"/>
 				</div>
 				<div class="col-sm-2">
 					<p class="form-control-static">${floatValue}</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2 control-label" for="doubleValue"/>
+				<t:label class="col-sm-2" for="doubleValue"/>
 				<div class="col-sm-2">
-					<t:textfield t:id="doubleValue" class="form-control"/>
+					<t:textfield t:id="doubleValue"/>
 				</div>
 				<div class="col-sm-2">
 					<p class="form-control-static">${doubleValue}</p>
