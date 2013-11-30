@@ -17,9 +17,7 @@
 			<div class="form-group">
 				<t:label for="arg1">Current context</t:label> 
 				<t:textfield t:id="arg1"/>
-			</div>
-			<div class="form-group">
-				<t:submit value="Submit"/>
+				<t:submit/>
 			</div>
 		</t:form> 
 	</div>

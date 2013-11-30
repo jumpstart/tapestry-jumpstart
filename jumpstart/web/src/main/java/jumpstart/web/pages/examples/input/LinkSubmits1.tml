@@ -24,7 +24,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-4 col-sm-offset-2">
-					<t:linksubmit value="Display">Display</t:linksubmit>
+					<t:linksubmit>Submit</t:linksubmit>
 				</div>
 			</div>
 		</t:form>

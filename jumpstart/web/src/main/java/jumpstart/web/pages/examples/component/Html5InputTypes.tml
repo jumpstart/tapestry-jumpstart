@@ -96,7 +96,7 @@
 				</tr>
 			</table><br/>
 			
-			<input type="submit" value="Submit"/>
+			<t:submit/>
 		</t:form>
 	</div>
 	

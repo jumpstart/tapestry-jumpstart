@@ -11,31 +11,31 @@
 	<div class="eg">
 		<strong>Page Links</strong><br/><br/> 
 		
-		<a t:type="pagelink" t:page="examples/styling/LinksAndSubmits2" t:context="literal:PageLink" href="#">
+		<t:pagelink t:page="examples/styling/LinksAndSubmits2" t:context="literal:PageLink" href="#">
 			Next
-		</a> 
-		<a t:type="pagelink" t:page="examples/styling/LinksAndSubmits2" t:context="literal:PageLink with class btn" 
+		</t:pagelink>
+		<t:pagelink t:page="examples/styling/LinksAndSubmits2" t:context="literal:PageLink with class btn" 
 			class="btn btn-default" href="#">
 			Next
-		</a>
-		<a t:type="pagelink" t:page="examples/styling/LinksAndSubmits2" t:context="literal:PageLink with img"
+		</t:pagelink>
+		<t:pagelink t:page="examples/styling/LinksAndSubmits2" t:context="literal:PageLink with img"
 			class="imagelink" href="#"> 
-			<img src="${nextImageVar}" alt="Next" />
-		</a> 
+			<img src="${nextImageAsset}" alt="Next" />
+		</t:pagelink>
 	</div>
 
 	<div class="eg">
 		<strong>Event Links</strong><br/><br/>
 		
-		<a t:type="eventlink" t:event="NextPage" t:context="literal:EventLink" href="#">
+		<t:eventlink t:event="NextPage" t:context="literal:EventLink" href="#">
 			Next
-		</a> 
-		<a t:type="eventlink" t:event="NextPage" t:context="literal:EventLink with class btn" class="btn btn-default">
+		</t:eventlink>
+		<t:eventlink t:event="NextPage" t:context="literal:EventLink with class btn" class="btn btn-default">
 			Next
-		</a>
-		<a t:type="eventlink" t:event="NextPage" t:context="literal:EventLink with img" class="imagelink">
-			<img src="${nextImageVar}" alt="Next"/>
-		</a>
+		</t:eventlink>
+		<t:eventlink t:event="NextPage" t:context="literal:EventLink with img" class="imagelink">
+			<img src="${nextImageAsset}" alt="Next"/>
+		</t:eventlink>
 	</div>
 
 	<div class="eg">
@@ -44,13 +44,17 @@
 		<form t:type="form" t:id="inputs">
 			<div class="form-group">
 				<t:label for="firstName"/>
-				<input t:type="TextField" t:id="firstName" t:validate="required"/>&nbsp;
+				<t:textfield t:id="firstName" t:validate="required"/>&nbsp;
 			</div>
 			<div class="form-group">
 				<input type="submit" value="Display"/>&nbsp;
-				<input type="submit" value="Display" class="btn btn-default"/>&nbsp;
-				<input type="submit" value=" " class="nextimage"/>&nbsp;
-				<input type="image" src="${nextImageVar}" style="vertical-align: middle;"/>
+				<t:submit value="Display"/>&nbsp;
+				<t:submit value="Display" class=""/>&nbsp;
+				<t:submit value="Display" class="btn btn-default"/>&nbsp;
+				<input type="image" src="${nextImageAsset}" style="vertical-align: middle;"/>
+				<t:submit value=" " class="nextimage"/>&nbsp;
+				<t:submit image="asset:images/next-button-48.png"/>&nbsp;
+				<t:submit image="asset:images/next-button-48.png" class="" style="vertical-align: middle;"/>&nbsp;
 			</div>
 		</form>
 	</div>
@@ -59,7 +63,9 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Path.html">Path</a>,  
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Asset.html">Asset</a>.<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 

@@ -128,6 +128,12 @@
 							<a t:type="pagelink" t:page="examples/infrastructure/ExceptionReportPage" href="#">Exception Report Page</a><br/>
 						</div>
 						<div class="group">
+							<a t:type="pagelink" t:page="examples/input/Submits1" href="#">Submits</a><br/>
+							<a t:type="pagelink" t:page="examples/input/LinkSubmits1" href="#">LinkSubmits</a><br/>
+							<br/>
+							<a t:type="pagelink" t:page="examples/input/MultipleForms1" href="#">Multiple Forms</a><br/>
+						</div>
+						<div class="group">
 							<a t:type="pagelink" t:page="examples/component/Kaptcha1" href="#">Kaptcha</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/select/Select" href="#">Select</a><br/>
@@ -140,12 +146,6 @@
 							<a t:type="pagelink" t:page="examples/component/Alerts" href="#">Alerts</a><br/>
 							<br/>
 							<a t:type="pagelink" t:page="examples/component/TreeBrowse" href="#">Tree Browse</a><br/>
-						</div>
-						<div class="group">
-							<a t:type="pagelink" t:page="examples/input/Submits1" href="#">Submits</a><br/>
-							<a t:type="pagelink" t:page="examples/input/LinkSubmits1" href="#">LinkSubmits</a><br/>
-							<br/>
-							<a t:type="pagelink" t:page="examples/input/MultipleForms1" href="#">Multiple Forms</a><br/>
 						</div>
 						<div class="group">
 							<a t:type="pagelink" t:page="examples/navigation/ReturnToPage1" t:context="literal:abc" href="#">Return to Page</a><br/>

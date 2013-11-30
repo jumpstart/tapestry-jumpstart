@@ -25,7 +25,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-4 col-sm-offset-2">
-					<input class="btn btn-primary" type="submit" value="Submit" />
+					<t:submit/>
 				</div>
 			</div>
 		</t:form>
@@ -33,6 +33,7 @@
 	
 	References: <a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
 	<a href="http://tapestry.apache.org/forms-and-validation.html#FormsandValidation-Formcomponent">Form Component</a>,  
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>, 
 	<a href="http://tapestry.apache.org/bean-validation.html">Bean Validation</a>,

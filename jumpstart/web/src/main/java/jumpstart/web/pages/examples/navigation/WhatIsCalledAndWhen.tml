@@ -130,10 +130,10 @@
 		 			<th>
 		 				<form t:type="form" t:id="form">
 							In response to a <strong>Form</strong> event request.
-							<div class="form-group">
+							<div class="form-group form-inline">
 								Eg. Name: 
-								<input t:type="TextField" t:id="name"/>
-								<input t:type="Submit" value="Submit"/>
+								<t:textfield t:id="name"/>
+								<t:submit/>
 							</div>
 						</form>
 		 			</th>

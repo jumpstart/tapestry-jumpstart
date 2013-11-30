@@ -15,9 +15,7 @@
 			<div class="form-group">
 				Person: 
 				<t:select model="personIdsModel" value="personId"/>
-			</div>
-			<div class="form-group">
-				<input type="submit" value="Submit" class="btn btn-default"/>
+				<t:submit/>
 				You chose personId: ${personId}
 			</div>
 		</t:form>

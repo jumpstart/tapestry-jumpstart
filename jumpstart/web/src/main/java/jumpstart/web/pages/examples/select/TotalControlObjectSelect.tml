@@ -10,13 +10,13 @@
 	In this example we've created PersonSelectModel to give us control over the option label, which we set to firstName + lastName.
 
 	<div class="eg">
-		<t:form t:id="form" class="form-inline">
-			<div class="form-group">
+		<t:form t:id="form">
+			<div class="form-group form-inline">
 				Person: 
 				<t:select model="personsModel" value="person" encoder="personEncoder"/>
+				<t:submit/>
 			</div>
 			<div class="form-group">
-				<input type="submit" value="Submit" class="btn btn-default"/>
 				You chose: ${person}
 			</div>
 		</t:form>

@@ -18,7 +18,7 @@ public class StylingLinksAndSubmits1 {
 	@Inject
 	@Path("images/next-button-48.png")
 	@Property
-	private Asset nextImageVar;
+	private Asset nextImageAsset;
 
 	// Other pages
 	

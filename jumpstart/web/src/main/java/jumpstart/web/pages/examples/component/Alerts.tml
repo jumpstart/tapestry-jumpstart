@@ -77,7 +77,7 @@
 			
 			<div class="form-group">
 				<div class="col-sm-6 col-sm-offset-3">
-					<input type="submit" value="Submit" class="btn btn-primary"/> 
+					<t:submit/> 
 				</div>
 			</div>
 		</t:form>

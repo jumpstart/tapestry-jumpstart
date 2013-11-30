@@ -11,7 +11,7 @@
 	Here we have added a "Refresh" link.
 	
 	<div class="eg">
-		<form t:id="personform">
+		<t:form t:id="personform">
 			<t:errors globalOnly="true"/>
 		
 			<div class="t-beaneditor">
@@ -23,11 +23,11 @@
 				</t:beaneditor>
 			
 				<div class="t-beaneditor-row">
-					<input t:type="submit" value="Save"/>&nbsp;
-					<a t:type="eventlink" t:event="refresh" href="#">Refresh</a>&nbsp;
+					<t:submit value="Save"/>&nbsp;
+					<t:eventlink t:event="refresh" href="#">Refresh</t:eventlink>&nbsp;
 				</div>
 			</div>
-	 	</form>
+	 	</t:form>
 	</div>
 
 	References: 

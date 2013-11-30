@@ -38,7 +38,7 @@ public class CoreInputComponents {
 	@Property
 	// We could return a DateFormat, but instead we'll return a String which DateField will coerce into a DateFormat.
 	private String dateInFormatStr = "dd/MM/yyyy";
-	
+
 	@Property
 	// We could return a DateFormat, but instead we'll return a String which DateField will coerce into a DateFormat.
 	private String datetimeOutFormatStr = "yyyy-MM-dd HH:mm:ss z";
@@ -82,12 +82,10 @@ public class CoreInputComponents {
 	@Persist(PersistenceConstants.FLASH)
 	private String textValue;
 
-	/* Life-cycle stuff. Fields that are mutable MUST be initialized here rather than where they are declared. */
+	// DO NOT initialise mutable fields in their declaration because that isn't thread-safe. Initialise them in
+	// life-cycle methods like this one.
 
-	void onPrepareForRender() {
-		if (dateValue == null) {
-			dateValue = new Date(); 
-		}
+	void onPrepare() {
 		if (paletteSelectedValues == null) {
 			paletteSelectedValues = new ArrayList<String>();
 		}
