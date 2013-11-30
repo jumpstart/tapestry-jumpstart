@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"> 
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Select</h3>
 	The <strong>Select</strong> component displays a list of <strong>options</strong> in a drop-down box, allowing
@@ -23,42 +20,58 @@
 	<div class="eg">
 		In this example we provide the <strong>strings</strong> right in the template. Each option label and value is the same as the string.<br/><br/>
 			
-		<form t:type="form">
-			<t:label for="color0"/>:
-			<select t:type="select" t:id="color0" t:model="literal:Red,Yellow,Blue"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color0}
-		</form>
+		<t:form class="form-inline">
+			<div class="form-group">
+				<t:label for="color0"/>:
+				<t:select t:id="color0" model="literal:Red,Yellow,Blue"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color0}
+			</div>
+		</t:form>
 	</div>
 	<div class="eg">
 		In this example the model is an <strong>enum</strong>, which Select infers from color1's type.  The option labels are produced by "humanising" the enum values.<br/><br/>
 			
-		<form t:type="form">
-			<t:label for="color1"/>:
-			<select t:type="select" t:id="color1"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color1}
-		</form>
+		<t:form class="form-inline">
+			<div class="form-group">
+				<t:label for="color1"/>
+				<t:select t:id="color1"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color1}
+			</div>
+		</t:form>
 	</div>
 	<div class="eg">
 		In this example we provide a <strong>map of strings</strong> right in the template.  The mapped key and value become the option value and label, respectively.<br/><br/>
 			
-		<form t:type="form">
-			<t:label for="color2"/>:
-			<select t:type="select" t:id="color2" t:model="literal:R=Red,G=Green,B=Blue"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color2}
-		</form>
+		<t:form class="form-inline">
+			<div class="form-group">
+				<t:label for="color2"/>:
+				<t:select t:id="color2" model="literal:R=Red,G=Green,B=Blue"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color2}
+			</div>
+		</t:form>
 	</div>
 	<div class="eg">
 		In this example the model is an <strong>enum plus properties</strong>.  The option labels come from the page's properties file if there's a matching entry in it.<br/><br/>
 			
-		<form t:type="form">
-			<t:label for="color3"/>:
-			<select t:type="select" t:id="color3"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color3}
-		</form>
+		<t:form class="form-inline">
+			<div class="form-group">
+				<t:label for="color3"/>:
+				<t:select t:id="color3"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color3}
+			</div>
+		</t:form>
 	</div>
 	
 	The blank option appears because Select has a parameter <em>blankOption</em> with a default value of <em>AUTO</em> whose meaning 
@@ -74,7 +87,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/Select.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/Select.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/Select.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/select.css"/>
 	</t:tabGroup>
 </body>
 </html>

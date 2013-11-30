@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Easy Object Select</h3>
 	
@@ -14,11 +11,16 @@
 	they allow us to avoid storing the list of objects in the session and avoid rebuilding the list on submit.
 
 	<div class="eg">
-		<form t:type="form">
-			Person: <select t:type="select" t:model="personsModel" t:value="person" t:encoder="personEncoder"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${person}
-		</form>
+		<t:form t:id="form" class="form-inline">
+			<div class="form-group">
+				Person: 
+				<t:select model="personsModel" value="person" encoder="personEncoder"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${person}
+			</div>
+		</t:form>
 	</div>
 	
 	In this example we feed a list of Persons (from the database) into SelectModelFactory to produce a SelectModel.<br/>
@@ -42,9 +44,8 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyObjectSelect.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyObjectSelect.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/select.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/encoders/examples/PersonEncoder.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	</t:tabGroup>
 </body>

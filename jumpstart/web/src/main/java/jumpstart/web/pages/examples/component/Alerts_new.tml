@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<!-- 
+<head>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
+	<style type="text/css">
+		.eg th			{ text-align: right; padding-right: 14px; font-weight: normal; }
+		.eg .buttons	{ margin-top: 12px; }
+		DIV#alerts		{ margin: auto; width: 500px; }
+		<t:if test="hideDismiss">
+			DIV.t-alert-controls { display: none; }
+		</t:if>
+	</style>
+</head>
+ -->
+<body class="container">
+	<h3>Alerts</h3>
+	
+	Here we demonstrate Tapestry's Alerts component.<br/>
+	You can tailor the appearance of the alerts to suit your needs by overriding CSS classes t-alert-container, t-info, t-warn, t-error, etc.<br/>
+
+	<div class="eg">
+		<t:form class="form-horizontal">
+			<!-- 
+			<table>
+			<tr>
+				<th>
+					<t:label for="duration"/>:
+				</th>
+				<td>
+					<t:RadioGroup t:id="duration" value="duration" validate="required">
+						<t:Radio t:id="durationS" value="Duration.SINGLE" label="Single"/><t:label for="durationS"/>&nbsp;
+						<t:Radio t:id="durationT" value="Duration.TRANSIENT" label="Transient (15 seconds)"/><t:label for="durationT"/>&nbsp;
+						<t:Radio t:id="durationU" value="Duration.UNTIL_DISMISSED" label="Until Dismissed"/><t:label for="durationU"/>&nbsp;
+					</t:RadioGroup><br/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<t:label for="severity"/>:
+				</th>
+				<td>
+					<t:RadioGroup t:id="severity" validate="required">
+						<t:Radio t:id="severityI" value="Severity.INFO" label="Info"/><t:label for="severityI"/>&nbsp;
+						<t:Radio t:id="severityW" value="Severity.WARN" label="Warn"/><t:label for="severityW"/>&nbsp;
+						<t:Radio t:id="severityE" value="Severity.ERROR" label="Error"/><t:label for="severityE"/>&nbsp;
+					</t:RadioGroup><br/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<t:label for="quantity"/>:
+				</th>
+				<td>
+					<t:RadioGroup t:id="quantity" validate="required">
+						<t:Radio t:id="quantity1" value="literal:1" label="1"/><t:label for="quantity1"/>&nbsp;
+						<t:Radio t:id="quantity2" value="literal:2" label="2"/><t:label for="quantity2"/>&nbsp;
+						<t:Radio t:id="quantity3" value="literal:3" label="3"/><t:label for="quantity3"/>&nbsp;
+					</t:RadioGroup><br/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<t:label for="showDismiss"/>:
+				</th>
+				<td>
+					<t:RadioGroup t:id="showDismiss" validate="required">
+						<t:Radio t:id="showDismissY" value="literal:true" label="Yes"/><t:label for="showDismissY"/>&nbsp;
+						<t:Radio t:id="showDismissN" value="literal:false" label="No"/><t:label for="showDismissN"/>&nbsp;
+					</t:RadioGroup><br/>
+				</td>
+			</tr>
+			</table>
+			 -->
+			<div class="form-group">
+				<t:label class="col-sm-3" for="duration"/>:
+				<div class="col-sm-6">
+					<t:RadioGroup t:id="duration" value="duration" validate="required">
+						<t:Radio t:id="durationS" value="Duration.SINGLE" label="Single"/>
+						<t:label for="durationS"/>&nbsp;
+						<t:Radio t:id="durationT" value="Duration.TRANSIENT" label="Transient (15 seconds)"/>
+						<t:label for="durationT"/>&nbsp;
+						<t:Radio t:id="durationU" value="Duration.UNTIL_DISMISSED" label="Until Dismissed"/>
+						<t:label for="durationU"/>&nbsp;
+					</t:RadioGroup><br/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<t:label for="severity"/>:
+				</div>
+				<div class="col-sm-6">
+					<t:RadioGroup t:id="severity" validate="required">
+						<label class="radio-inline">
+							<t:Radio t:id="severityI" value="Severity.INFO" label="Info"/>
+							Info
+						</label>
+						<t:Radio t:id="severityW" value="Severity.WARN" label="Warn"/><t:label for="severityW"/>&nbsp;
+						<t:Radio t:id="severityE" value="Severity.ERROR" label="Error"/><t:label for="severityE"/>&nbsp;
+					</t:RadioGroup><br/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="quantity"/>:
+				<div class="col-sm-6">
+					<t:RadioGroup t:id="quantity" validate="required">
+						<t:label class="radio-inline" for="quantity1">
+							<t:Radio t:id="quantity1" value="literal:1" label="1"/>
+						</t:label>
+						<t:label class="radio-inline" for="quantity2">
+							<t:Radio t:id="quantity2" value="literal:2" label="2"/>
+						</t:label>
+						<t:label class="radio-inline" for="quantity3">
+							<t:Radio t:id="quantity3" value="literal:3" label="3"/>
+						</t:label>
+					</t:RadioGroup><br/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="showDismiss"/>:
+				<div class="col-sm-6">
+					<t:RadioGroup t:id="showDismiss" validate="required">
+						<label class="radio-inline">
+							<t:Radio t:id="showDismissY" value="literal:true" label="Yes"/>
+							<t:label for="showDismissY"/>
+						</label>
+						<label class="radio-inline">
+							<t:Radio t:id="showDismissN" value="literal:false" label="No"/>
+							<t:label for="showDismissN"/>
+						</label>
+					</t:RadioGroup><br/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-6 col-sm-offset-3">
+					<input type="submit" value="Submit" class="btn btn-primary"/> 
+				</div>
+			</div>
+		</t:form>
+
+		<div class="alert-area">
+			<t:alerts/>
+		</div>
+		
+	</div> 
+
+	References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Alerts.html">Alerts</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/alerts/AlertManager.html">AlertManager</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/alerts/Duration.html">Duration</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/alerts/Severity.html">Severity</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>.<br/><br/> 
+
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Alerts.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Alerts.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+	</t:tabGroup>
+</body>
+</html>

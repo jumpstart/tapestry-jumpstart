@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Submits (1)</h3>
 	
@@ -15,23 +12,21 @@
 	In this example we use Submit to generate the 2nd and 3rd buttons.
 
 	<div class="eg">
-		<form t:type="form" t:id="search">
-			<t:errors globalOnly="true"/>
-			<table>
-				<tr>
-					<td>Name:</td>
-					<td><input t:type="TextField" t:id="name" t:validate="required, maxlength=10" size="10"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<input type="submit" value="Search Customers"/>
-						<input t:type="Submit" t:id="suppliers" value="Search Suppliers"/>
-						<input t:type="Submit" t:id="cancel" value="Cancel" mode="CANCEL"/>
-					</td>
-				</tr>
-			</table>
-	 	</form>
+		<t:form class="form-horizontal" t:id="search">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="name"/>
+				<div class="col-sm-2">
+						<t:textfield t:id="name" validate="required, maxlength=10"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 col-sm-offset-2">
+					<t:submit value="Search Customers"/>
+					<t:submit t:id="suppliers" value="Search Suppliers" class="btn btn-default"/>
+					<t:submit t:id="cancel" value="Cancel" mode="CANCEL" class="btn btn-default"/>
+				</div>
+			</div>
+	 	</t:form>
 	</div>
 
 	If "Search Suppliers" is clicked, server-side the Form will notify the "suppliers" Submit component which will "bubble up" the SELECTED event.<br/>
@@ -50,7 +45,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

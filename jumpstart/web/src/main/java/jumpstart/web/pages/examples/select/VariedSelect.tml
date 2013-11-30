@@ -3,50 +3,63 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Varied Select</h3>
 	
 	<div class="eg">
 		This example demonstrates labelling the blank option by setting the parameter <em>blankLabel</em>.<br/><br/>
 		
-		<form t:type="form">
-			<t:label for="color0"/>:
-			<select t:type="select" t:id="color0" t:model="literal:Red,Yellow,Blue" t:blankLabel="Choose..."></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color0}
-		</form>
+		<t:form class="form-inline">
+			<div class="form-group">
+				<t:label for="color0"/>:
+				<t:select t:id="color0" model="literal:Red,Yellow,Blue" blankLabel="Choose..."/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color0}
+			</div>
+		</t:form>
 	</div>
 	<div class="eg">
 		This example demonstrates labelling the blank option by providing a property in the page's properties file.<br/><br/>
 		
-		<form t:type="form">
-			<t:label for="color1"/>:
-			<select t:type="select" t:id="color1" t:model="literal:Red,Yellow,Blue"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color1}
-		</form>
+		<t:form class="form-inline">
+			<div class="form-group">
+				<t:label for="color1"/>:
+				<t:select t:id="color1" model="literal:Red,Yellow,Blue"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color1}
+			</div>
+		</t:form>
 	</div>
 	<div class="eg">
 		This example demonstrates removing the blank option by setting the parameter <em>validate</em> to <em>required</em>.<br/><br/>
 		
-		<form t:type="form">
-			<t:label for="color2"/>:
-			<select t:type="select" t:id="color2" t:model="literal:Red,Yellow,Blue" t:validate="required"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color2}
-		</form>
+		<t:form class="form-inline">
+			<div class="form-group">
+				<t:label for="color2"/>:
+				<t:select t:id="color2" model="literal:Red,Yellow,Blue" validate="required"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color2}
+			</div>
+		</t:form>
 	</div>
 	<div class="eg">
 		This example demonstrates keeping the blank option while also setting the parameter <em>validate</em> to <em>required</em>.<br/><br/>
 		
-		<form t:type="form">
-			<t:label for="color3"/>:
-			<select t:type="select" t:id="color3" t:model="literal:Red,Yellow,Blue" t:validate="required" t:blankOption="ALWAYS"></select>
-			<input type="submit" value="Submit"/>
-			You chose: ${color3}
+		<form t:type="form" class="form-inline">
+			<div class="form-group">
+				<t:label for="color3"/>:
+				<t:select t:id="color3" model="literal:Red,Yellow,Blue" validate="required" blankOption="ALWAYS"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose: ${color3}
+			</div>
 		</form>
 	</div>
 
@@ -60,7 +73,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/VariedSelect.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/VariedSelect.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/VariedSelect.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/select.css"/>
 	</t:tabGroup>
 </body>
 </html>

@@ -3,35 +3,34 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Link Submits (1)</h3>
 	
 	The LinkSubmit component generates a link that submits its enclosing Form.
 	
 	<div class="eg">
-		<form t:type="form" t:id="names">
-			<t:errors globalOnly="true"/>
-			<table>
-				<tr>
-					<td>First Name:</td>
-					<td><input t:type="TextField" t:id="firstName" t:validate="required"/></td>
-				</tr>
-				<tr>
-					<td>Last Name:</td>
-					<td><input t:type="TextField" t:id="lastName" t:validate="required"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><a t:type="LinkSubmit" t:id="newlinksubmit" href="#">Display</a></td>
-				</tr>
-			</table>
-	 	</form>
+		<t:form t:id="names" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="firstName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="firstName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="lastName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="lastName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-2">
+					<t:linksubmit value="Display">Display</t:linksubmit>
+				</div>
+			</div>
+		</t:form>
 	</div>
  	
- 	The request is an HTTP POST with a URL like this: <code>http://thehost/jumpstart/examples/input/linksubmits1.names</code><br/><br/>
+ 	The request that is an HTTP POST with the same URL and content as if it had been triggered by a Submit.<br/><br/>
 
 	References:	
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/LinkSubmit.html">LinkSubmit</a>, 
@@ -49,7 +48,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/LinkSubmits1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/LinkSubmits1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

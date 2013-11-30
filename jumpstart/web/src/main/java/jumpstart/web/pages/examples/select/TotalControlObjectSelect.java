@@ -11,8 +11,10 @@ import jumpstart.web.model.examples.select.PersonSelectModel;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.SelectModel;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/select.css")
 public class TotalControlObjectSelect {
 	static private final int MAX_RESULTS = 30;
 
@@ -45,7 +47,7 @@ public class TotalControlObjectSelect {
 		return person == null ? null : person.getId();
 	}
 
-	void onPrepareForRender() {
+	void onPrepare() {
 		// Get all persons - ask business service to find them (from the database)
 		List<Person> persons = personFinderService.findPersons(MAX_RESULTS);
 		

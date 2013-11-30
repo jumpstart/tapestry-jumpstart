@@ -9,7 +9,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
 @Import(stylesheet = "css/examples/plain.css")
-public class AtEjb {
+public class SessionBeans {
 
 	// Screen fields
 
@@ -22,7 +22,7 @@ public class AtEjb {
 	private IPersonFinderServiceLocal personFinderService;
 
 	// The code
-	
+
 	void setupRender() throws Exception {
 		person = personFinderService.findPerson(1L);
 

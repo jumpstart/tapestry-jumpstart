@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+
+	<h3>Session Beans</h3>
+	
+	In JumpStart, the business logic is in Java EE Session Beans, such as PersonFinderService and PersonManagerService.<br/><br/>
+
+	Here we've used PersonFinderService to find entity Person with id = 1. 
+	The <code>@EJB</code> annotation is explained in the next example.
+
+	<div class="eg">
+		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+	</div>
+
+	For those of you who do not want to use Session Beans, and who do not mind the open-session-in-view pattern, Tapestry has 
+	<a href="http://tapestry.apache.org/integrating-with-jpa.html">JPA Integration</a> and 
+	<a href="http://tapestry.apache.org/hibernate.html">Hibernate Integration</a>.<br/><br/>
+
+	References: <a href="http://jumpstart.doublenegative.com.au/faq.html">"Why EJB3?" in JumpStart FAQ</a>, 
+	<a href="http://docs.oracle.com/javaee/7/tutorial/doc/ejb-intro001.htm#GIPMB">What is an Enterprise Bean?</a>.<br/><br/>
+	
+	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+
+	<t:tabGroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SessionBeans.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SessionBeans.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceLocal.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonFinderServiceRemote.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceLocal.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/iface/IPersonManagerServiceRemote.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/ValidationException.java"/>
+	</t:tabGroup>
+</body>
+</html>

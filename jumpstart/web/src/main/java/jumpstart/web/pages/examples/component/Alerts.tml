@@ -4,6 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
+<!-- 
 	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
 	<style type="text/css">
 		.eg th			{ text-align: right; padding-right: 14px; font-weight: normal; }
@@ -13,71 +14,76 @@
 			DIV.t-alert-controls { display: none; }
 		</t:if>
 	</style>
+ -->
 </head>
 <body class="container">
 	<h3>Alerts</h3>
 	
 	Here we demonstrate Tapestry's Alerts component.<br/>
-	You can tailor the appearance of the alerts to suit your needs by overriding CSS classes t-alert-container, t-info, t-warn, t-error, etc.<br/>
+	You can tailor the appearance of the alerts to suit your needs with CSS.<br/>
 
 	<div class="eg">
-		<form t:type="Form">
-			<table>
-			<tr>
-				<th>
-					<t:label for="duration"/>:
-				</th>
-				<td>
+		<t:form class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-3" for="duration"/>
+				<div class="col-sm-6">
 					<t:RadioGroup t:id="duration" value="duration" validate="required">
-						<t:Radio t:id="durationS" value="Duration.SINGLE" label="Single"/><t:label for="durationS"/>&nbsp;
-						<t:Radio t:id="durationT" value="Duration.TRANSIENT" label="Transient (15 seconds)"/><t:label for="durationT"/>&nbsp;
-						<t:Radio t:id="durationU" value="Duration.UNTIL_DISMISSED" label="Until Dismissed"/><t:label for="durationU"/>&nbsp;
+						<t:Radio t:id="durationS" value="Duration.SINGLE" label="Single"/>
+						<t:label for="durationS" class="label-radio"/>
+						<t:Radio t:id="durationT" value="Duration.TRANSIENT" label="Transient (a few seconds)"/>
+						<t:label for="durationT" class="label-radio"/>
+						<t:Radio t:id="durationU" value="Duration.UNTIL_DISMISSED" label="Until Dismissed"/>
+						<t:label for="durationU" class="label-radio"/>
 					</t:RadioGroup><br/>
-				</td>
-			</tr>
-			<tr>
-				<th>
-					<t:label for="severity"/>:
-				</th>
-				<td>
-					<t:RadioGroup t:id="severity" validate="required">
-						<t:Radio t:id="severityI" value="Severity.INFO" label="Info"/><t:label for="severityI"/>&nbsp;
-						<t:Radio t:id="severityW" value="Severity.WARN" label="Warn"/><t:label for="severityW"/>&nbsp;
-						<t:Radio t:id="severityE" value="Severity.ERROR" label="Error"/><t:label for="severityE"/>&nbsp;
-					</t:RadioGroup><br/>
-				</td>
-			</tr>
-			<tr>
-				<th>
-					<t:label for="quantity"/>:
-				</th>
-				<td>
-					<t:RadioGroup t:id="quantity" validate="required">
-						<t:Radio t:id="quantity1" value="literal:1" label="1"/><t:label for="quantity1"/>&nbsp;
-						<t:Radio t:id="quantity2" value="literal:2" label="2"/><t:label for="quantity2"/>&nbsp;
-						<t:Radio t:id="quantity3" value="literal:3" label="3"/><t:label for="quantity3"/>&nbsp;
-					</t:RadioGroup><br/>
-				</td>
-			</tr>
-			<tr>
-				<th>
-					<t:label for="showDismiss"/>:
-				</th>
-				<td>
-					<t:RadioGroup t:id="showDismiss" validate="required">
-						<t:Radio t:id="showDismissY" value="literal:true" label="Yes"/><t:label for="showDismissY"/>&nbsp;
-						<t:Radio t:id="showDismissN" value="literal:false" label="No"/><t:label for="showDismissN"/>&nbsp;
-					</t:RadioGroup><br/>
-				</td>
-			</tr>
-			</table>
-			
-			<div class="buttons">
-				<input type="submit" value="Submit"/> 
+				</div>
 			</div>
-		</form>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="severity"/>
+				<div class="col-sm-6">
+					<t:RadioGroup t:id="severity" validate="required">
+						<t:Radio t:id="severityI" value="Severity.INFO" label="Info"/>
+						<t:label for="severityI" class="label-radio"/>
+						<t:Radio t:id="severityW" value="Severity.WARN" label="Warn"/>
+						<t:label for="severityW" class="label-radio"/>
+						<t:Radio t:id="severityE" value="Severity.ERROR" label="Error"/>
+						<t:label for="severityE" class="label-radio"/>
+					</t:RadioGroup><br/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="quantity"/>
+				<div class="col-sm-6">
+					<t:RadioGroup t:id="quantity" validate="required">
+						<t:Radio t:id="quantity1" value="literal:1" label="1"/>
+						<t:label for="quantity1" class="label-radio"/>
+						<t:Radio t:id="quantity2" value="literal:2" label="2"/>
+						<t:label for="quantity2" class="label-radio"/>
+						<t:Radio t:id="quantity3" value="literal:3" label="3"/>
+						<t:label for="quantity3" class="label-radio"/>
+					</t:RadioGroup><br/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="showDismissAll"/>
+				<div class="col-sm-6">
+					<t:RadioGroup t:id="showDismissAll" validate="required">
+						<t:Radio t:id="showDismissAllY" value="literal:true" label="Yes"/>
+						<t:label for="showDismissAllY" class="label-radio"/>
+						<t:Radio t:id="showDismissAllN" value="literal:false" label="No"/>
+						<t:label for="showDismissAllN" class="label-radio"/>
+					</t:RadioGroup><br/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-6 col-sm-offset-3">
+					<input type="submit" value="Submit" class="btn btn-primary"/> 
+				</div>
+			</div>
+		</t:form>
 
-		<t:alerts/>
+		<t:alerts showDismissAll="prop:showDismissAll"/>
+		
 	</div> 
 
 	References: 
@@ -92,7 +98,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Alerts.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Alerts.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/alerts.css"/>
 	</t:tabGroup>
 </body>
 </html>

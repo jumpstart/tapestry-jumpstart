@@ -40,9 +40,7 @@
 				</dl>
 			</t:if>
 			<t:if test="hasSession" negate="true">
-				<br/>
 				There is no Session.
-				<br/>
 			</t:if>
 	
 		</div>

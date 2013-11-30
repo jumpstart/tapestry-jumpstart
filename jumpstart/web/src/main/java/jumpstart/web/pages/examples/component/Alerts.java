@@ -4,10 +4,12 @@ import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.alerts.Duration;
 import org.apache.tapestry5.alerts.Severity;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/examples/alerts.css")
 public class Alerts {
 	
 	// Screen fields
@@ -26,7 +28,7 @@ public class Alerts {
 	
 	@Property
 	@Persist(PersistenceConstants.FLASH)
-	private Boolean showDismiss;
+	private Boolean showDismissAll;
 
 	// Generally useful bits and pieces
 
@@ -45,8 +47,8 @@ public class Alerts {
 		if (quantity == 0) {
 			quantity = 1;
 		}
-		if (showDismiss == null) {
-			showDismiss = true;
+		if (showDismissAll == null) {
+			showDismissAll = true;
 		}
 	}
 
@@ -56,7 +58,4 @@ public class Alerts {
 		}
 	}
 
-	public boolean isHideDismiss() {
-		return !showDismiss;
-	}
 }

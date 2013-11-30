@@ -192,6 +192,11 @@ public class PersonFinderService implements IPersonFinderServiceLocal, IPersonFi
 				maxResults, sortCriteria);
 	}
 
+	/**
+	 * Finds persons who match the criteria.
+	 * If counting == true, returns the count of persons found, as a Long.
+	 * Else, returns the persons found, as a List<Person>.
+	 */
 	@SuppressWarnings("unchecked")
 	private Object findPersons(boolean counting, String firstNameStartsWith, String lastNameStartsWith, Regions region,
 			int startIndex, int maxResults, List<SortCriterion> sortCriteria) {

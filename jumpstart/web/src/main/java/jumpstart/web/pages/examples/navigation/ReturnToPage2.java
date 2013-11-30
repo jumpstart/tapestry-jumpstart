@@ -4,9 +4,11 @@ import jumpstart.web.pages.Index;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.Link;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class ReturnToPage2 {
 
 	// The activation context

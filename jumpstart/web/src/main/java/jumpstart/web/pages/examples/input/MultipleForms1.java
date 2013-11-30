@@ -1,18 +1,27 @@
 package jumpstart.web.pages.examples.input;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import jumpstart.web.pages.examples.input.MultipleForms2.SearchType;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/multipleforms1.css")
 public class MultipleForms1 {
 
 	// Screen fields
 
 	@Property
+	@NotNull
+	@Size(max = 10)
 	private String customerName;
 
 	@Property
+	@NotNull
+	@Size(max = 10)
 	private String supplierName;
 
 	// Other pages

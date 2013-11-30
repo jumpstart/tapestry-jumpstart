@@ -1,5 +1,8 @@
 package jumpstart.web.pages.examples.input;
 
+import org.apache.tapestry5.annotations.Import;
+
+@Import(stylesheet = "css/examples/plain.css")
 public class MultipleForms2 {
 
 	// The activation context

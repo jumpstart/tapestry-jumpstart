@@ -3,31 +3,31 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-	<style type="text/css">
-		form	{ background-color: #eee; padding: 14px; }
-	</style>
-</head>
 <body class="container">
 	<h3>Multiple Forms (1)</h3>
 	
 	This page demonstrates how to handle a page with more than one Form.
 	
 	<div class="eg">
-		<form t:type="form" t:id="searchcustomers">
-			<t:errors globalOnly="true"/>
-			Customer Name: 
-			<input t:type="TextField" t:id="customerName" t:validate="required, maxlength=10" size="10"/> 
-			<input type="submit" value="Search Customers"/>
-	 	</form><br/>
+		<t:form class="form-inline" t:id="searchcustomers">
+			<div class="form-group">
+				<t:label for="customerName"/> 
+				<t:textfield t:id="customerName"/>
+			</div> 
+			<div class="form-group">
+				<t:submit value="Search Customers"/>
+			</div>
+	 	</t:form>
 	 	
-		<form t:type="form" t:id="searchsuppliers">
-			<t:errors globalOnly="true"/>
-			Supplier Name: 
-			<input t:type="TextField" t:id="supplierName" t:validate="required, maxlength=10" size="10"/> 
-			<input type="submit" value="Search Suppliers"/>
-	 	</form>
+		<t:form class="form-inline" t:id="searchsuppliers">
+			<div class="form-group">
+				<t:label for="supplierName"/> 
+				<t:textfield t:id="supplierName"/> 
+			</div> 
+			<div class="form-group">
+				<t:submit value="Search Suppliers"/>
+			</div>
+	 	</t:form>
 	</div>
 	
 	To help us determine which Form has been submitted we give each Form a component id.<br/>
@@ -45,7 +45,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleForms1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleForms1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/multipleforms1.css"/>
 	</t:tabGroup>
 </body>
 </html>

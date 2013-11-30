@@ -151,6 +151,7 @@
 							<a t:type="pagelink" t:page="examples/navigation/ReturnToPage1" t:context="literal:abc" href="#">Return to Page</a><br/>
 						</div>
 						<div class="group">
+							<a t:type="pagelink" t:page="examples/state/SessionBeans" href="#">Session Beans</a><br/>
 							<a t:type="pagelink" t:page="examples/state/AtEjb" href="#">@EJB</a><br/>
 						</div>
 					</td>

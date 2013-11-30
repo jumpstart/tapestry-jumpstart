@@ -4,7 +4,7 @@ package jumpstart.web.pages.examples.state;
 public class EJB3 {
 
 	Object onActivate() {
-		return AtEjb.class;
+		return SessionBeans.class;
 	}
 
 }

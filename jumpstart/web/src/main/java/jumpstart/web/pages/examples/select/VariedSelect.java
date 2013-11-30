@@ -1,7 +1,9 @@
 package jumpstart.web.pages.examples.select;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/select.css")
 public class VariedSelect {
 
 	@Property

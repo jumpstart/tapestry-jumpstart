@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Return To Page (1)</h3>
 	
@@ -16,10 +13,15 @@
 	It passes the Link to the next page.
 	
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
-			Current context: <input t:type="TextField" t:id="arg1" t:validate="required"/>
-			<input type="submit" value="Submit"/>
-		</form> 
+		<t:form class="form-inline" t:id="inputs">
+			<div class="form-group">
+				<t:label for="arg1">Current context</t:label> 
+				<t:textfield t:id="arg1"/>
+			</div>
+			<div class="form-group">
+				<t:submit value="Submit"/>
+			</div>
+		</t:form> 
 	</div>
 
 	References: 
@@ -31,7 +33,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/returntopage1.css"/>
 	</t:tabGroup>
 </body>
 </html>

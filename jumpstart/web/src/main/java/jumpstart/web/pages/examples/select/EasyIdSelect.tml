@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Easy Id Select</h3>
 
@@ -13,11 +10,16 @@
 	It's called SelectIdModelFactory and it is almost identical to SelectModelFactory. In AppModule we add it as a service to Tapestry.
 
 	<div class="eg">
-		<form t:type="form">
-			Person: <select t:type="select" t:model="personIdsModel" t:value="personId"></select>
-			<input type="submit" value="Submit"/>
-			You chose personId: ${personId}
-		</form>
+		<t:form t:id="form" class="form-inline">
+			<div class="form-group">
+				Person: 
+				<t:select model="personIdsModel" value="personId"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-default"/>
+				You chose personId: ${personId}
+			</div>
+		</t:form>
 	</div>
 	
 	References: 
@@ -35,11 +37,10 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyIdSelect.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/EasyIdSelect.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/select.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/SelectIdModelFactory.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/SelectIdModelFactoryImpl.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	</t:tabGroup>
 </body>

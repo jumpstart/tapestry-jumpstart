@@ -1,10 +1,11 @@
-// Based on http://wiki.apache.org/tapestry/JEE-Annotation, adapted to EJB 3.0 (from 3.1).
+// Based on http://wiki.apache.org/tapestry/JEE-Annotation.
 
 package jumpstart.web.services;
 
 import javax.ejb.EJB;
 
 import jumpstart.client.BusinessServicesLocator;
+import jumpstart.client.IBusinessServicesLocator;
 import jumpstart.util.StringUtil;
 
 import org.apache.tapestry5.model.MutableComponentModel;
@@ -21,7 +22,7 @@ import org.slf4j.LoggerFactory;
 public class EJBAnnotationWorker implements ComponentClassTransformWorker2 {
 	private static final Logger logger = LoggerFactory.getLogger(EJBAnnotationWorker.class);
 
-	private BusinessServicesLocator locator;
+	private IBusinessServicesLocator locator;
 
 	public EJBAnnotationWorker() {
 		locator = new BusinessServicesLocator(logger);

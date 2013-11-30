@@ -1,16 +1,21 @@
 package jumpstart.web.pages.examples.navigation;
 
+import javax.validation.constraints.NotNull;
+
 import org.apache.tapestry5.Link;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 
+@Import(stylesheet = "css/examples/returntopage1.css")
 public class ReturnToPage1 {
 
 	// The activation context
 
 	@Property
+	@NotNull
 	private String arg1;
 
 	// Other pages

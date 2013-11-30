@@ -10,10 +10,12 @@ import jumpstart.web.encoders.examples.PersonEncoder;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.SelectModel;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.SelectModelFactory;
 
+@Import(stylesheet = "css/examples/select.css")
 public class EasyObjectSelect {
 	static private final int MAX_RESULTS = 30;
 
@@ -49,7 +51,7 @@ public class EasyObjectSelect {
 		return personId;
 	}
 
-	void onPrepareForRender() {
+	void onPrepare() {
 		// Get all persons - ask business service to find them (from the database)
 		List<Person> persons = personFinderService.findPersons(MAX_RESULTS);
 

@@ -1,19 +1,28 @@
 package jumpstart.web.pages.examples.input;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class LinkSubmits1 {
 
 	// Screen fields
 
 	@Property
+	@NotNull
+	@Size(max = 10)
 	private String firstName;
 
 	@Property
+	@NotNull
+	@Size(max = 10)
 	private String lastName;
 
 	// Other pages
@@ -29,18 +38,16 @@ public class LinkSubmits1 {
 	@Component(id = "firstName")
 	private TextField firstNameField;
 
-	@Component(id = "lastName")
-	private TextField lastNameField;
-
 	// The code
 
 	void onValidateFromNames() {
-		if (firstName == null || firstName.trim().equals("")) {
-			form.recordError(firstNameField, "First Name is required.");
+
+		// Note, this method is triggered even if server-side validation has already found error(s).
+
+		if (firstName != null && firstName.equals("Acme")) {
+			form.recordError(firstNameField, "First Name must not be Acme.");
 		}
-		if (lastName == null || lastName.trim().equals("")) {
-			form.recordError(lastNameField, "Last Name is required.");
-		}
+
 	}
 
 	Object onSuccess() {

@@ -1,7 +1,10 @@
 package jumpstart.web.pages.examples.input;
 
+import org.apache.tapestry5.annotations.Import;
+
 import jumpstart.web.pages.examples.input.Submits1.SearchType;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class Submits2 {
 
 	// The activation context
