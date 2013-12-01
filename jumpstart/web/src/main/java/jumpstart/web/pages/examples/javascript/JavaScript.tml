@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>JavaScript</h3>
 
@@ -13,29 +10,39 @@
 		${message:javascript_required}
 	</noscript> 	
 
-	You can write <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> in the template (the .tml file) of your pages and components. 
-	However, Tapestry encourages you to put your JavaScript in a file instead. It reduces template clutter. 
-	Here we show how to do it with some page-specific JavaScript to switch the color of the firstName field.
+	You <em>can</em> write <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> in the template (the .tml file) of your pages 
+	and components, but Tapestry encourages you to write <a href="http://requirejs.org">RequireJS</a> modules instead. 
+	They reside in <em>resources/META-INF/modules</em>.<br/><br/>
+	
+	In this example we have module called <em>first-name-color-switcher</em> which switches the color of the <em>firstName</em> 
+	field as you type. 
+	Our module depends on jQuery. We set Tapestry's JAVASCRIPT_INFRASTRUCTURE_PROVIDER to "jquery" in AppModule. 
 	
 	<div class="eg">
-		<form t:type="form">
-			First name: <input t:type="TextField" t:id="firstName"/><br/>
-	 	</form>
+		<t:form class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="firstName"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="firstName"/>
+				</div>
+			</div>
+	 	</t:form>
 	 </div>
 	
 	References: 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
-	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>.<br/><br/> 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+	<a href="http://requirejs.org">RequireJS</a>, 
+	<a href="http://api.jquery.com">jQuery API</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.js"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScript.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/first-name-color-switcher.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
 	</t:tabGroup>
 </body>
 </html>

@@ -3,42 +3,15 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>Zone Without Yellow Highlight</h3>
 
-	<noscript class="js-required">
-		${message:javascript_required}
-	</noscript> 	
+	<p>This example is deprecated because Zone highlighting was dropped from Tapestry in 5.4.</p>
 
-	This page demonstrates how to eliminate the yellow "highlight" effect that occurs when a Zone updates.
+	<p>References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.</p>
 
-	<div class="eg">
-		<a t:type="eventlink" t:event="refreshPage" href="#">Refresh whole page - this ActionLink is not AJAX-enabled</a><br/>
-		<a t:type="eventlink" t:event="refreshZone" href="#" t:zone="time2Zone">Refresh serverTime2 only - this ActionLink is AJAX-enabled</a><br/><br/>
-
-		serverTime1:  ${serverTime1}
-		<t:zone t:id="time2Zone" id="time2Zone" t:update="show">
-			serverTime2:  ${serverTime2}
-		</t:zone>
-	</div>
+	<p><a t:type="pagelink" t:page="Index" href="#">Home</a></p>
 	
-	The solution is to set the <code>update</code> parameter of Zone to <code>"show"</code>.  Its default value is <code>"highlight"</code>.<br/>
-	Other possible values are <code>"fade"</code>, <code>"slidedown"</code>, and <code>"slideup"</code>.<br/>
-	FYI, they are the functions of Tapestry.ElementEffect which is found in Tapestry's javascript file, tapestry.js.<br/><br/>
-	
-	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
-
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
-	
-	<t:tabGroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ZoneWithoutYellowHighlight.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ZoneWithoutYellowHighlight.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-	</t:tabGroup>
 </body>
 </html>

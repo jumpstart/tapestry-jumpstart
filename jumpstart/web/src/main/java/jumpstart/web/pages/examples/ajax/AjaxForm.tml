@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX Form</h3>
 
@@ -17,19 +14,33 @@
 
 	<div class="eg">
 		<t:zone t:id="formZone" id="formZone">
-			<form t:id="ajaxForm" t:type="form" t:zone="^">
-			
-				First Name: <input t:type="TextField" t:id="firstName"/><br/>
-				Last Name: <input t:type="TextField" t:id="lastName"/><br/>
-				Birthday: <input t:type="datefield" t:id="birthday"/><br/><br/>
-				
-				<input type="submit" value="Accept"/><br/><br/>
-				
-				<t:errors globalOnly="true"/>
+			<t:form t:id="ajaxForm" class="form-horizontal" t:zone="^">
+				<div class="form-group">
+					<t:label class="col-sm-2" for="firstName"/>
+					<div class="col-sm-4">
+						<t:textfield t:id="firstName"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<t:label class="col-sm-2" for="lastName"/>
+					<div class="col-sm-4">
+						<t:textfield t:id="lastName"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<t:label class="col-sm-2" for="birthday"/>
+					<div class="col-sm-4">
+						<t:datefield t:id="birthday"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-4 col-sm-offset-2">
+						<t:submit value="Accept"/>
+					</div>
+				</div>
 	
 				Welcome ${name}. Your birthday is ${birthday}
-				
-		 	</form>
+		 	</t:form>
 	 	</t:zone>
 	</div>	
 

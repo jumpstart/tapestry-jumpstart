@@ -36,8 +36,8 @@ public class Conversation {
 		final String DIVIDER = ", ";
 
 		StringBuilder buf = new StringBuilder();
-		buf.append(this.getClass().getSimpleName() + ": ");
-		buf.append("[");
+		buf.append(this.getClass().getSimpleName() + ":");
+		buf.append(" [");
 		buf.append("id=" + id + DIVIDER);
 		buf.append("objectsByKey=");
 		if (objectsByKey == null) {
@@ -53,7 +53,7 @@ public class Conversation {
 			}
 			buf.append("}");
 		}
-		buf.append("]");
+		buf.append("] ");
 		return buf.toString();
 	}
 }

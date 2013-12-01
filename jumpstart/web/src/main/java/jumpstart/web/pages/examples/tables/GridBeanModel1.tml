@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/linkinggrid.css}"/>
-</head>
 <body class="container">
 	<h3>Grid BeanModel (1)</h3>
 	
@@ -13,11 +10,11 @@
 	data will be mapped into the grid.  It does not contain the data.
 
 	<div class="eg">
-		<table t:type="grid" t:source="persons" t:row="person" t:model="mymodel" t:rowsPerPage="4" t:pagerPosition="top">[Grid here]
+		<t:grid source="persons" row="person" model="mymodel" rowsPerPage="4" pagerPosition="top">
 			<p:actionCell>
-				<a t:type="pagelink" t:page="examples/tables/GridBeanModel2" t:context="person.firstName" href="#">View</a>
+				<t:pagelink page="examples/tables/GridBeanModel2" context="person.firstName">View</t:pagelink>
 			</p:actionCell>
-	 	</table>
+	 	</t:grid>
 	 </div>
 
 	To see manipulation of the BeanModel by a mixin, go to the Creating Mixins example.<br/><br/>
@@ -37,7 +34,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/linkinggrid.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

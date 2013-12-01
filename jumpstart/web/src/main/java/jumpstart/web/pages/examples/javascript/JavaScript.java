@@ -5,8 +5,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-// The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in.
-@Import(library = "js_imports/pages/examples/javascript/JavaScript.js")
+@Import(stylesheet = "css/examples/js.css")
 public class JavaScript {
 
 	// Screen fields
@@ -25,11 +24,7 @@ public class JavaScript {
 	// The code
 
 	public void afterRender() {
-
-		// Add some JavaScript to the page to instantiate a ColorSwitcher. It will run when the DOM has been fully
-		// loaded.
-
-		javaScriptSupport.addScript("new ColorSwitcher();");
+		javaScriptSupport.require("first-name-color-switcher");
 	}
 
 }

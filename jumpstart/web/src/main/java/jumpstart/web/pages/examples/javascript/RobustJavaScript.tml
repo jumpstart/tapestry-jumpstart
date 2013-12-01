@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>Robust JavaScript</h3>
 
@@ -13,34 +10,34 @@
 		${message:javascript_required}
 	</noscript> 	
 
-	To make a more robust solution, ask the Tapestry.Initializer to instantiate the JavaScript classes.
-	Tapestry.Initializer runs in the browser and brings the benefit of exception catching and reporting if initialization fails.
-	It also ensures things will work correctly not just in a full page render, but also during an AJAX partial page render.<br/><br/>
-	
- 	To make it even more robust, pass the <em>actual</em> client ids that Tapestry assigned to the 2 fields. 
+	To make a more robust solution, pass the <em>actual</em> client ids that Tapestry assigned to the 2 fields. 
  	There are situations in which the client id can be a surprise, particularly within a Loop or a Zone.
 	
 	<div class="eg">
-		<form t:type="form" t:autofocus="false">
-			<input t:type="TextField" t:id="firstName"/>
-			<input t:type="TextField" t:id="lastName"/><br/>
-	 	</form>
+		<t:form class="form-inline" autofocus="false">
+			<div class="form-group">
+				<t:textfield t:id="firstName" class="col-sm-2"/>
+			</div>
+			<div class="form-group">
+				<t:textfield t:id="lastName" class="col-sm-2"/>
+			</div>
+		</t:form>
 	</div>
 
 	References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/base/AbstractField.html#getClientId()">getClientId()</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
-	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.<br/><br/>  
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+	<a href="http://requirejs.org">RequireJS</a>, 
+	<a href="http://api.jquery.com">jQuery API</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/RobustJavaScript.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/RobustJavaScript.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/textbox-hint.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/js/robust_textbox_hint.js"/>
 	</t:tabGroup>
 </body>
 </html>

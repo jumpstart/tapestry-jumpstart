@@ -3,21 +3,17 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/linkinggrid.css}"/>
-</head>
 <body class="container">
 	<h3>Linking Grid (1)</h3>
 
 	A table built with the Grid component, with links.
 
 	<div class="eg">
-		<table t:type="grid" t:source="persons" t:row="person" t:exclude="version"
-			t:rowsPerPage="4" t:pagerPosition="top">[Grid here]
+		<t:grid source="persons" row="person" exclude="version" rowsPerPage="4" pagerPosition="top">
 			<p:firstNameCell>
-				<a t:type="pagelink" t:page="examples/tables/LinkingGrid2" t:context="person.firstName" href="#">${person.firstName}</a>
+				<t:pagelink page="examples/tables/LinkingGrid2" context="person.firstName">${person.firstName}</t:pagelink>
 			</p:firstNameCell>
-		</table>
+		</t:grid>
 	</div>
 	
 	References: 
@@ -30,7 +26,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingGrid1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingGrid1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/linkinggrid.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

@@ -8,18 +8,24 @@
 	<h3>@Component</h3>
 	
 	Working with a web designer, you may prefer to provide them a template without the clutter of the Tapestry parameter bindings.<br/>
-	Tapestry provides an alternative.  Instead of this...<br/><br/>
+	Tapestry provides an alternative.  Instead of this...
 	
-	<pre><code>	&lt;a t:type="pagelink" t:page="Index" href="#"&gt;Home&lt;/a&gt;</code></pre>
+	<div class="eg">
+		<code>&lt;t:pagelink page="Index"&gt;Home&lt;/pagelink&gt;</code>
+	</div>
 
-	...you can provide just the component id, like this...<br/><br/> 
+	...you can use invisible instrumentation (explained in the Previewable Templates example) and just the component id, like this... 
 	
-	<pre><code>	&lt;a t:id="home" href="#"&gt;Home&lt;/a&gt;</code></pre>
+	<div class="eg">
+		<code>&lt;a t:id="home" href="#"&gt;Home&lt;/a&gt;</code>
+	</div>
 
-	...and put the parameter bindings in the class instead, by using <code>@Component</code>, like this...<br/><br/>
+	...and move the parameter bindings into the class, with the <code>@Component</code> annotation, like this...
 	
-	<pre><code>	@Component(id = "home", parameters = {"page=Index"})
-	private PageLink index;</code></pre>
+	<div class="eg">
+		<code>@Component(id = "home", parameters = {"page=Index"})</code><br/>
+		<code>private PageLink index;</code>
+	</div>
 
 	The component id ties them together.  Here it is in action:
 				

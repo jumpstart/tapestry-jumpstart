@@ -3,14 +3,21 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+	<t:remove>
+		<link type="text/css" rel="stylesheet" href="jar:file:../../../../../../lib-compile/tapestry-core-5.4-alpha-28.jar!/META-INF/assets/tapestry5/bootstrap-3.0.2/css/bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="jar:file:../../../../../../lib-compile/tapestry-core-5.4-alpha-28.jar!/META-INF/assets/tapestry5/tapestry.css"/>
+		<link type="text/css" rel="stylesheet" href="../../../../../../resources/META-INF/assets/css/examples/olive.css"/>
+	</t:remove>
+</head>
 <body class="container">
 	<h3>Previewable Templates</h3> 
 	
-	A great feature of Tapestry template files is that they can be opened in a web browser or WYSIWYG editor 
-	for "preview". This is great for the web page designer.	
+	Tapestry template files can be opened in a web browser or WYSIWYG editor for "preview". 
+	This can be great for the web page designer. 
 	However, your <em>template coding style</em> will affect <em>how well</em> they "preview".<br/><br/>
 	
-	Tapestry allows 2 different coding styles.  Here is the code for a page link, done in both coding styles:<br/>
+	Tapestry allows 2 different coding styles. Here is the code for a page link, done in both coding styles:<br/>
 
 	<div class="eg">
 		<code>&lt;t:pagelink page="Index"&gt;Home&lt;/t:pagelink&gt;</code> <br/>
@@ -19,19 +26,16 @@
 	
 	The first style uses the component type, <code>t:pagelink</code>, as the element type. The code is short 
 	and easy to read, but it will not preview well. That's because <code>t:pagelink</code> 
-	is not an ordinary HTML element, so the browser will not know what to do with it.<br/><br/>
+	<em>is not an ordinary HTML element</em> - the browser does not know how it should look.<br/><br/>
 	
-	The second style is called <strong>invisible instrumentation</strong>.  It lets us "hide" the component 
-	in an ordinary HTML element, <code>a</code> (an anchor element). 
+	The second style is called <strong>invisible instrumentation</strong>. We have <em>"hidden"</em> the component 
+	<em>in an ordinary HTML element</em>, <code>a</code> (an anchor element). 
 	During preview a web browser will display <em>Home</em> as a hyperlink, which is exactly what we want. 
 	At runtime Tapestry will detect our component (it looks for <code>t:type</code> and/or <code>t:id</code>) 
-	and replace the whole element. <br/><br/>
-	
-	Incidentally, the reason we added <code>href="#"</code> is because it's a required parameter of the 
-	anchor element, and because <code>href=""</code> is not enough to make all browsers show a hyperlink.<br/><br/>
+	and replace the whole element. We added <code>href="#"</code> to satisfy certain browsers.<br/><br/>
 
-	<strong>To see the difference</strong> that invisible instrumentation makes, first copy and paste the 
-	PreviewableTemplates.tml source (see below) into a file or else just find it in the project at:
+	<p><strong>To see the difference</strong> that invisible instrumentation makes, first copy and paste the 
+	PreviewableTemplates.tml source (see below) into a file or else just find it in the project at:</p>
 	<ul>
 		<li>web/src/main/java/jumpstart/web/pages/examples/lang/PreviewableTemplates.tml</li>
 	</ul>
@@ -43,20 +47,24 @@
 		<a t:type="pagelink" t:page="Index" href="#">Home</a>
 	</div>
 	
-	<strong>Which is best?</strong>  The choice is yours.  Invisible instrumentation cannot make every component 
-	preview-able, but at times it may make code more readable and it may also enable better sharing of templates 
-	between developers and web designers.<br/><br/>
-
-	In JumpStart we use invisible instrumentation wherever we think it improves preview-ability.<br/><br/>
+	<strong>Which is best?</strong>  The choice is yours. Invisible instrumentation may make code more readable, 
+	and it may enable better sharing of templates between developers and web designers. <br/><br/>
+	
+	However, preview-ability becomes lost as components become more nested, as Tapestry components (such as Form) emit 
+	CSS classes at runtime, and as AJAX and JavaScript add dynamic behaviour. It may be better to do as many teams do - 
+	give the web designer a development environment where they can edit and interact with the UI live.<br/><br/>
+	
+	In JumpStart we don't use invisible instrumentation except where we feel it improves readability.<br/><br/>
 	
 	References: 
-	<a href="http://tapestry.apache.org/component-templates.html">Component Templates</a>.
+	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-InvisibleInstrumentation">Invisible Instrumentation</a>.
 	<br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PreviewableTemplates.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PreviewableTemplates.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/Remove.java"/>
 	</t:tabGroup>
 </body>
 </html>

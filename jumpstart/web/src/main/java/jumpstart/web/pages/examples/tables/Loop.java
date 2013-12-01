@@ -11,10 +11,12 @@ import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/examples/tables/loop.css")
 public class Loop {
 	static private final int MAX_RESULTS = 30;
 

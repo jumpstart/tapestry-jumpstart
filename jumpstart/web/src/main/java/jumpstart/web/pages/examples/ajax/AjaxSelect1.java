@@ -1,13 +1,19 @@
 package jumpstart.web.pages.examples.ajax;
 
+import javax.validation.constraints.NotNull;
+
+import org.apache.tapestry5.annotations.ActivationRequestParameter;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
+@Import(stylesheet = "css/examples/ajaxselect1.css")
 public class AjaxSelect1 {
 	static final private String MAKE_HONDA = "Honda";
 	static final private String MAKE_TOYOTA = "Toyota";
@@ -22,13 +28,16 @@ public class AjaxSelect1 {
 	@Property
 	private String[] carMakes;
 
+	@ActivationRequestParameter
 	@Property
+	@NotNull
 	private String carMake;
 
 	@Property
 	private String[] carModels;
 
 	@Property
+	@NotNull
 	private String carModel;
 
 	@Property
@@ -44,6 +53,9 @@ public class AjaxSelect1 {
 	@InjectComponent
 	private Zone carModelZone;
 
+	@InjectComponent
+	private Form searchCriteria;
+
 	@Inject
 	private Request request;
 
@@ -51,11 +63,20 @@ public class AjaxSelect1 {
 	private AjaxResponseRenderer ajaxResponseRenderer;
 
 	// The code
-
-	void setupRender() {
-		if (carMakes == null) {
-			carMakes = ALL_MAKES;
-			carModels = NO_MODELS;
+	
+	void onActivate() {
+		carMakes = ALL_MAKES;
+		carModels = NO_MODELS;
+		
+		// Show the models of the chosen make.
+		
+		if (carMake != null) {
+			if (carMake.equals(MAKE_HONDA)) {
+				carModels = HONDA_MODELS;
+			}
+			else if (carMake.equals(MAKE_TOYOTA)) {
+				carModels = TOYOTA_MODELS;
+			}
 		}
 	}
 
@@ -81,8 +102,8 @@ public class AjaxSelect1 {
 			ajaxResponseRenderer.addRender(carModelZone);
 		}
 	}
-
-	Object onSuccess() {
+	
+	Object onSuccessFromSearchCriteria() {
 		page2.set(carMake, carModel, keywords);
 		return page2;
 	}

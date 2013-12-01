@@ -2,10 +2,12 @@ package jumpstart.web.pages.examples.lang;
 
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class IfNotNegateSwitchElseUnless {
 
 	// Screen fields

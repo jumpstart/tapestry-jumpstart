@@ -2,25 +2,28 @@ package jumpstart.web.pages.examples.ajax;
 
 import java.util.Date;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 
+@Import(stylesheet = "css/examples/js.css")
 public class AjaxActionLink {
 
 	// Generally useful bits and pieces
 
 	@Inject
 	private Request request;
-	
+
 	@InjectComponent
 	private Zone time2Zone;
 
 	// The code
-	
+
 	void onActionFromRefreshPage() {
-		// Nothing to do - the page will call getTime1() and getTime2() as it renders.
+		// This method isn't needed, because there's nothing to do - when the page renders it will call getServerTime1()
+		// and getServerTime2().
 	}
 
 	// Isn't called if the link is clicked before the DOM is fully loaded. See

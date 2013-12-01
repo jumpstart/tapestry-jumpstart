@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/ajax_select.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX Select (1)</h3>
 	
@@ -16,24 +13,38 @@
 	This page demonstrates AJAX-enabling the Select component.
 
 	<div class="eg">
-		<form t:type="form" t:id="searchCriteria">
+		<t:form t:id="searchCriteria" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="carMake"/>
+				<div class="col-sm-4">
+					<t:select t:id="carMake" model="carMakes" blankOption="ALWAYS" blankLabel="Choose..." zone="carModelZone"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:zone t:id="carModelZone" id="carModelZone" style="display: inline;">
+					<t:label class="col-sm-2" for="carModel"/>
+					<div class="col-sm-4">
+						<t:select t:id="carModel" model="carModels" blankOption="ALWAYS" blankLabel="Choose..."/>
+					</div>
+				</t:zone>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="keywords"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="keywords"/>
+				</div> 
+				<div class="col-sm-4">
+					(optional)
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 col-sm-offset-2">
+					<t:submit value="Save"/>
+				</div>
+			</div>
 	
-			<t:label for="carMake"/>:
-			<select t:type="select" t:id="carMake" t:model="carMakes" t:zone="carModelZone"
-				t:blankOption="ALWAYS" t:blankLabel="Choose..." t:validate="required"/>
-		
-			<t:zone t:id="carModelZone" id="carModelZone" style="display: inline;">
-				<t:label for="carModel"/>:
-				<select t:type="select" t:id="carModel" t:model="carModels" 
-					t:blankOption="ALWAYS" t:blankLabel="Choose..." t:validate="required"/>
-			</t:zone>
-	
-			Keywords: <input t:type="TextField" t:id="keywords"/> (optional)<br/> 
-	
-			<input type="submit" value="Save"/>
-			<t:errors globalOnly="true"/>
-	
-		</form>
+			<t:errors/>
+		</t:form>
 	</div>
 
 	References: 
@@ -51,7 +62,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajax_select.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxselect1.css"/>
 	</t:tabGroup>
 </body>
 </html>

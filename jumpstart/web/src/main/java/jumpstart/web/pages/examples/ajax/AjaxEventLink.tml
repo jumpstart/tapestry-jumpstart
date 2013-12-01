@@ -44,7 +44,7 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
 	
-	Some statistics: for this page the AJAX traffic is less than 300 bytes, whereas the non-AJAX traffic is over 9,000 bytes. 
+	Some statistics: for this page the AJAX traffic is less than 100 bytes, whereas the non-AJAX traffic is over 10,000 bytes. 
 	The AJAX link generates 1 POST whereas the non-AJAX generates 2 GETs (which is normal for EventLink).<br/><br/>
 
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>

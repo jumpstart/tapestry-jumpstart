@@ -3,16 +3,14 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/styledgrid.css}"/>
-</head>
 <body class="container">
 	<h3>Styled Grid</h3>
 	
-	Grid's style is defined in Tapestry's default.css. Here we have overridden some of its CSS elements in our own stylesheet.
+	By default, Grid emits the BootStrap classes <code>table table-hover table-bordered table-striped</code>. 
+	To override this styling, either override the CSS of those classes or, as we have done here, specify the classes you want.
 
 	<div class="eg">
-		<table t:type="grid" t:source="persons" t:rowsPerPage="4" t:pagerPosition="top">[Grid here]</table>
+		<t:grid source="persons" rowsPerPage="4" pagerPosition="top" class="table table-bordered"/>
 	</div>
 	
 	References: 
@@ -25,7 +23,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/StyledGrid.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/StyledGrid.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/styledgrid.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

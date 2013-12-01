@@ -3,16 +3,13 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/linkingloop.css}"/>
-</head>
 <body class="container">
 	<h3>Linking Loop (1)</h3>
 	
 	A table built with the Loop component, with links.
 
 	<div class="eg">
-		<table class="grid">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -23,7 +20,7 @@
 			<tbody>
 				<tr t:type="Loop" t:source="persons" t:value="person">
 					<td>${person.id}</td>
-					<td><a t:type="pagelink" t:page="examples/tables/LinkingLoop2" t:context="person.firstName" href="#">${person.firstName}</a></td>
+					<td><t:pagelink page="examples/tables/LinkingLoop2" context="person.firstName">${person.firstName}</t:pagelink></td>
 					<td>${person.lastName}</td>
 				</tr>
 			</tbody>
@@ -40,7 +37,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingLoop1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingLoop1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/linkingloop.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

@@ -8,8 +8,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-// The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js/robust_textbox_hint.js")
+@Import(stylesheet = "css/examples/js.css")
 public class RobustJavaScript {
 
 	// Screen fields
@@ -34,21 +33,21 @@ public class RobustJavaScript {
 	// The code
 
 	public void afterRender() {
+		
+		// Give "textbox hints" to the first name and last name fields.
 
-		// Tell the Tapestry.Initializer to do the initializing of our 2 TextboxHints, which it will do when the DOM has
-		// been fully loaded.
+		JSONObject params1 = new JSONObject();
+		params1.put("textboxId", firstNameField.getClientId());
+		params1.put("hintText", "Enter First Name");
+		params1.put("hintColor", "#808080");
+		javaScriptSupport.require("textbox-hint").with(params1);
 
-		JSONObject spec = new JSONObject();
-		spec.put("textboxId", firstNameField.getClientId());
-		spec.put("hintText", "Enter First Name");
-		spec.put("hintColor", "#808080");
-		javaScriptSupport.addInitializerCall("textboxHint", spec);
+		JSONObject params2 = new JSONObject();
+		params2.put("textboxId", lastNameField.getClientId());
+		params2.put("hintText", "Enter Last Name");
+		params2.put("hintColor", "#808080");
+		javaScriptSupport.require("textbox-hint").with(params2);
 
-		JSONObject spec2 = new JSONObject();
-		spec2.put("textboxId", lastNameField.getClientId());
-		spec2.put("hintText", "Enter Last Name");
-		spec2.put("hintColor", "#808080");
-		javaScriptSupport.addInitializerCall("textboxHint", spec2);
 	}
 
 }

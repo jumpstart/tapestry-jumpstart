@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>Reusable JavaScript</h3>
 
@@ -13,30 +10,35 @@
 		${message:javascript_required}
 	</noscript> 	
 
-	Here we demonstrate some reusable javascript that puts a "textbox hint" in a field.<br/>
+	Here we demonstrate some reusable javascript that puts a "textbox hint" in a field. 
+	We could achieve the same effect with HTML's <code>placeholder</code> attribute, but this works across more browsers.<br/>
 	
 	<div class="eg">
-		<form t:type="form" t:autofocus="false">
-			<input t:type="TextField" t:id="firstName"/>
-			<input t:type="TextField" t:id="lastName"/><br/>
-		</form>
+		<t:form class="form-inline" autofocus="false">
+			<div class="form-group">
+				<t:textfield t:id="firstName"/>
+			</div>
+			<div class="form-group">
+				<t:textfield t:id="lastName"/>
+			</div>
+		</t:form>
 	</div>
  	
  	We made it reusable by passing parameters such as the element id to it, and by putting the file in a central place (a folder called "js").<br/><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
-	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>.<br/><br/> 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+	<a href="http://requirejs.org">RequireJS</a>, 
+	<a href="http://api.jquery.com">jQuery API</a>.<br/><br/> 
 	
 	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableJavaScript.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableJavaScript.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/textbox-hint.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/js/textbox_hint.js"/>
 	</t:tabGroup>
 </body>
 </html>

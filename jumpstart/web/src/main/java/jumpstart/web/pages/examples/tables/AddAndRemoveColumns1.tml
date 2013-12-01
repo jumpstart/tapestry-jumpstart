@@ -3,21 +3,17 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/linkinggrid.css}"/>
-</head>
 <body class="container">
 	<h3>Add and Remove Columns (1)</h3>
 	
 	A table built with the Grid component, including only the Person columns we want and adding a column, <em>action</em>.
 
 	<div class="eg">
-		<table t:type="grid" t:source="persons" t:row="person" t:include="firstName,lastName" t:add="action"
-			t:rowsPerPage="4" t:pagerPosition="top">[Grid here]
+		<t:grid source="persons" row="person" include="firstName,lastName" add="action" rowsPerPage="4" pagerPosition="top">
 			<p:actionCell>
-				<a t:type="pagelink" t:page="examples/tables/AddAndRemoveColumns2" t:context="person.firstName" href="#">View</a>
+				<t:pagelink page="examples/tables/AddAndRemoveColumns2" context="person.firstName" href="#">View</t:pagelink>
 			</p:actionCell>
-		</table>
+		</t:grid>
 	</div>
 
 	References: 
@@ -30,7 +26,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/AddAndRemoveColumns1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/AddAndRemoveColumns1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/linkinggrid.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	</t:tabGroup>
 </body>

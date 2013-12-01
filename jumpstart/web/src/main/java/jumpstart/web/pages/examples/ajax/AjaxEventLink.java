@@ -2,11 +2,13 @@ package jumpstart.web.pages.examples.ajax;
 
 import java.util.Date;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 
+@Import(stylesheet = "css/examples/js.css")
 public class AjaxEventLink {
 
 	// Generally useful bits and pieces

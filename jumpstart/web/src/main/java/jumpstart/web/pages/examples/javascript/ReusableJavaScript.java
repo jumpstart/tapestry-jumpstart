@@ -3,10 +3,10 @@ package jumpstart.web.pages.examples.javascript;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-// The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js/textbox_hint.js")
+@Import(stylesheet = "css/examples/js.css")
 public class ReusableJavaScript {
 
 	// Screen fields
@@ -26,13 +26,20 @@ public class ReusableJavaScript {
 
 	public void afterRender() {
 
-		// Add some JavaScript to the page to instantiate a TextboxHint, twice. It will run when the DOM has been fully
-		// loaded.
+		// Give "textbox hints" to the first name and last name fields.
 
-		javaScriptSupport.addScript(String.format("new TextboxHint('%s', '%s', '%s');", "firstName",
-				"Enter First Name", "#808080"));
-		javaScriptSupport.addScript(String.format("new TextboxHint('%s', '%s', '%s');", "lastName", "Enter Last Name",
-				"#808080"));
+		JSONObject params1 = new JSONObject();
+		params1.put("textboxId", "firstName");
+		params1.put("hintText", "Enter First Name");
+		params1.put("hintColor", "#808080");
+		javaScriptSupport.require("textbox-hint").with(params1);
+
+		JSONObject params2 = new JSONObject();
+		params2.put("textboxId", "lastName");
+		params2.put("hintText", "Enter Last Name");
+		params2.put("hintColor", "#808080");
+		javaScriptSupport.require("textbox-hint").with(params2);
+
 	}
 
 }

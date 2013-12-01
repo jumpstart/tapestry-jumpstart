@@ -2,7 +2,11 @@ package jumpstart.web.pages.examples.ajax;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.DateField;
@@ -12,17 +16,22 @@ import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 
+@Import(stylesheet = "css/examples/js.css")
 public class AjaxForm {
 
 	// Screen fields
 
 	@Property
+	@NotNull
 	private String firstName;
 
 	@Property
+	@NotNull
 	private String lastName;
 
 	@Property
+	@NotNull
+	@Past
 	private Date birthday;
 
 	// Generally useful bits and pieces
@@ -52,25 +61,6 @@ public class AjaxForm {
 			firstName = "Humpty";
 			lastName = "Dumpty";
 			birthday = new Date(0);
-		}
-	}
-
-	void onValidateFromAjaxForm() {
-
-		if (firstName == null || firstName.trim().equals("")) {
-			ajaxForm.recordError(firstNameField, "First Name is required.");
-		}
-		if (lastName == null || lastName.trim().equals("")) {
-			ajaxForm.recordError(lastNameField, "Last Name is required.");
-		}
-		if (birthday == null) {
-			ajaxForm.recordError(birthdayField, "Birthday is required.");
-		}
-		else {
-			Date now = new Date();
-			if (birthday.after(now)) {
-				ajaxForm.recordError(birthdayField, "Birthday must be in the past.");
-			}
 		}
 	}
 

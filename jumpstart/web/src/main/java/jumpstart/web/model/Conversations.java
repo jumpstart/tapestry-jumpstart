@@ -94,7 +94,7 @@ public class Conversations {
 
 		StringBuilder buf = new StringBuilder();
 		buf.append(this.getClass().getSimpleName() + ": ");
-		buf.append("[ ");
+		buf.append("[");
 		buf.append("counters=");
 		if (counters == null) {
 			buf.append("null");

@@ -3,16 +3,13 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/alternatingloop.css}"/>
-</head>
 <body class="container">
 	<h3>Alternating Loop</h3>
 
-	This page is like the Loop page, with the added feature of alternating coloured rows thanks to an EvenOdd class.
+	This page is like the Loop page, with the added feature of zebra-striping rows thanks to BootStrap's <code>table-striped</code>.
 
 	<div class="eg">
-		<table class="grid">
+		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -21,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr t:type="Loop" t:source="persons" t:value="person" class="prop:evenodd.next">
+				<tr t:type="Loop" t:source="persons" t:value="person">
 					<td>${person.id}</td>
 					<td>${person.firstName}</td>
 					<td>${person.lastName}</td>
@@ -40,8 +37,7 @@
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/AlternatingLoop.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/AlternatingLoop.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/alternatingloop.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/EvenOdd.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabGroup>
 </body>
 </html>

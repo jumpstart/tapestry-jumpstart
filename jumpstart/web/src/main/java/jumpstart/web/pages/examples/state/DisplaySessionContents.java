@@ -1,5 +1,6 @@
 package jumpstart.web.pages.examples.state;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
@@ -8,7 +9,7 @@ import org.apache.tapestry5.services.Session;
 /**
  * This page is based on the portion of Tapestry's default ExceptionReport page that handles the session.
  */
-
+@Import(stylesheet = "css/examples/displaysessioncontents.css")
 public class DisplaySessionContents {
 
 	// Screen fields

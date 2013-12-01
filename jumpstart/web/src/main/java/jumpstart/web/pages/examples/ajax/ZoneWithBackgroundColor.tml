@@ -3,42 +3,14 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-	<style type="text/css">
-		.eg			{ background-color: #eee; }
-		.t-zone		{ background-color: #eee; }
-	</style>
-</head>
 <body class="container">
 	<h3>Zone With Background Color</h3>
 
-	<noscript class="js-required">
-		${message:javascript_required}
-	</noscript> 	
+	<p>This example is deprecated because Zone now respects the background color.</p>
 
-	By default the zone "highlight" effect ends in white. You can override this by setting the background-color of the <code>t-zone</code> class.
+	<p>References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.</p>
 
-	<div class="eg">
-		<a t:type="eventlink" t:event="refreshPage" href="#">Refresh whole page - this ActionLink is not AJAX-enabled</a><br/>
-		<a t:type="eventlink" t:event="refreshZone" href="#" t:zone="time2Zone">Refresh serverTime2 only - this ActionLink is AJAX-enabled</a><br/><br/>
-
-		serverTime1:  ${serverTime1}
-		<t:zone t:id="time2Zone" id="time2Zone">
-			serverTime2:  ${serverTime2}
-		</t:zone>
-	</div>
-	
-	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
-
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
-	
-	<t:tabGroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ZoneWithBackgroundColor.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ZoneWithBackgroundColor.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-	</t:tabGroup>
+	<p><a t:type="pagelink" t:page="Index" href="#">Home</a></p>
 </body>
 </html>

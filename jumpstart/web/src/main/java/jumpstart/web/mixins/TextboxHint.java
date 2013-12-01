@@ -5,15 +5,12 @@ package jumpstart.web.mixins;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ClientElement;
-import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-// The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js_imports/mixins/TextboxHint.js")
 public class TextboxHint {
 
 	// Parameters
@@ -33,17 +30,17 @@ public class TextboxHint {
 	private ClientElement clientElement;
 
 	// The code
-
+	
 	public void afterRender() {
 
-		// Tell the Tapestry.Initializer to do the initializing of a TextboxHint, which it will do when the DOM has
-		// been fully loaded.
+		// Give a "textbox hint" to the field we're being mixed into.
 
-		JSONObject spec = new JSONObject();
-		spec.put("textboxId", clientElement.getClientId());
-		spec.put("hintText", hintText);
-		spec.put("hintColor", hintColor);
-		javaScriptSupport.addInitializerCall("textboxHint", spec);
+		JSONObject params = new JSONObject();
+		params.put("textboxId", clientElement.getClientId());
+		params.put("hintText", hintText);
+		params.put("hintColor", hintColor);
+		javaScriptSupport.require("textbox-hint").with(params);
+
 	}
 
 }

@@ -5,11 +5,13 @@ import javax.ejb.EJB;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.web.model.examples.tables.PersonPagedDataSource;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Grid;
 import org.apache.tapestry5.grid.GridDataSource;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class GridDataSources {
 
 	// Screen fields

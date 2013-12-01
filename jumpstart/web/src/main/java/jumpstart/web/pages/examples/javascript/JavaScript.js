@@ -1,5 +1,5 @@
 // ColorSwitcher observes the 'firstName' element, switching its color on every keystroke.
-// Written in Protoype style because Tapestry includes the Protoype library (http://www.prototypejs.org/).
+// Written in jQuery style because JumpStart uses jQuery.
 
 ColorSwitcher = Class.create( {
 

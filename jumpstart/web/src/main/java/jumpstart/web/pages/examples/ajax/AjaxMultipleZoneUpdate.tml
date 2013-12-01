@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX Multiple Zone Update</h3>
 	
@@ -16,14 +13,18 @@
 	This page demonstrates how multiple zones can be updated simultaneously by using the AjaxResponseRenderer service.
 	
 	<div class="eg">
-		<form t:type="form">
+		<t:form class="form-horizontal">
 	
 			<t:zone t:id="nameZone1" id="nameZone1">
 				Welcome ${name}.
 			</t:zone><br/>
 	
-			First Name: 
-			<input t:type="TextField" t:id="firstName" t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="firstNameChanged" t:zone="nameZone1"/><br/>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="firstName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="firstName" mixins="zoneUpdater" clientEvent="keyup" event="firstNameChanged" zone="nameZone1"/>
+				</div>
+			</div>
 			Last Name: 
 			<input t:type="TextField" t:id="lastName" t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="lastNameChanged" t:zone="nameZone1"/><br/><br/>
 	
@@ -33,7 +34,7 @@
 	
 			Note that the following time field does not update because it's not in the zone:  ${time}<br/>
 			
-	 	</form>
+	 	</t:form>
 	</div>
  	
 	References: 

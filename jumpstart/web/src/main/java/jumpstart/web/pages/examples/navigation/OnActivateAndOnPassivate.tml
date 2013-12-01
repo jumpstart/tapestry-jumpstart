@@ -12,8 +12,8 @@
 	activation context.<br/>
 	In this page, for example, onActivate(...) receives a person id and onPassivate() returns a person id.<br/><br/>
 
-	It can be tempting to put setup code into onActivate(...) but avoid this because onActivate(...) is called very often. 
-	There are better places:<br/><br/>
+	<p>It can be tempting to put setup code into onActivate(...) but avoid this because onActivate(...) is called very often. 
+	There are better places:</p>
 	<ul>
 	<li>
 		<code>setupRender()</code> is ideal for setting up objects and fields for display-only because Tapestry 
@@ -50,8 +50,8 @@
 
 	<h4>When is onPassivate() called?</h4>
 	
-	The purpose of onPassivate() is to return the activation context of the page instance. Tapestry calls onPassivate() in 
-	these situations:
+	<p>The purpose of onPassivate() is to return the activation context of the page instance. Tapestry calls onPassivate() in 
+	these situations:</p>
 	<ol>
 		<li>when rendering a PageLink that does not specify a context.</li>
 		<li>when generating a page render request to return as part of Post/Redirect/Get (see Forms example).</li>

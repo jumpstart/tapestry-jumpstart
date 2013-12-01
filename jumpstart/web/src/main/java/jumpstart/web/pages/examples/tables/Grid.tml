@@ -3,19 +3,16 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/plain.css}"/>
-</head>
 <body class="container">
 	<h3>Grid</h3>
 	
 	A table built with with the Grid component: just one line of code in the template and no grid-specific css.
 
 	<div class="eg">
-		<table t:type="grid" t:source="persons" t:rowsPerPage="4" t:pagerPosition="top">[Grid here]</table>
+		<t:grid source="persons" rowsPerPage="4" pagerPosition="top"/>
 	</div>
 
-	Grid is great for rapid prototyping:
+	<p>Grid is great for rapid prototyping:</p>
 	<ul>
 		<li>Its parameters allow you to exclude columns, add columns, reorder columns, etc.</li>
 		<li>Its styling can be overridden with CSS.</li>
@@ -25,7 +22,7 @@
 		<li>Its data source can be configured or overridden to take control of caching and paginated retrieval of data.</li>
 	</ul>
 	
-	Naturally, Grid has limitations. The alternatives include:
+	<p>Naturally, Grid has limitations. The alternatives include:</p>
 	<ul>
 		<li>Use what Grid uses: the Loop component. See the Loop examples.</li>
 		<li>Build components, like Grid, that suit your needs. See the Component examples and the Tapestry source for Grid.</li>
