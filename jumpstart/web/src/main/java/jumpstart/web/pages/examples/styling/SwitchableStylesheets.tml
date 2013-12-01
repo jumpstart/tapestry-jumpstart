@@ -33,7 +33,7 @@
 	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>, 
 	<a href="http://tapestry.apache.org/assets.html">Assets</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/SwitchableStylesheets.tml"/>

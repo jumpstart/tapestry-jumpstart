@@ -120,7 +120,7 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/OrderedConfiguration.html">OrderedConfiguration</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/Configuration.html">Configuration</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/Services.tml"/>

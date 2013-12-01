@@ -30,7 +30,7 @@
 			<a href="http://script.aculo.us/">script.aculo.us</a>, 
 			<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>. <br/><br/>
 		
-			<a t:type="pagelink" t:page="Index" href="#">Home</a><br/>
+			<t:pagelink page="Index">Home</t:pagelink><br/>
 		</div>
 
 		<t:tabGroup>

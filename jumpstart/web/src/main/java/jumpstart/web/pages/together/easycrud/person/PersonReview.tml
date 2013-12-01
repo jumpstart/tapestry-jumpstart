@@ -20,7 +20,7 @@
 		<a t:type="pageLink" t:page="together/easycrud/Persons" href="#">Cancel</a>
 	</div>
 	
-	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 

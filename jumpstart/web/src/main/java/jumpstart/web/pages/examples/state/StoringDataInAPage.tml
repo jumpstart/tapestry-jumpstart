@@ -45,7 +45,7 @@
 	<a href="http://tapestry.apache.org/persistent-page-data.html#PersistentPageData-ClusteringIssues">Clustering Issues</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUsePersistentFieldStrategy">How To Use Persistent Field Strategy</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/StoringDataInAPage.tml"/>

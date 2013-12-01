@@ -52,7 +52,7 @@
  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 
  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
 
-	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 

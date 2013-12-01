@@ -26,7 +26,7 @@
 	References: see <em>Event Bubbling</em> in 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/EmbeddedEventBubbling.tml"/>

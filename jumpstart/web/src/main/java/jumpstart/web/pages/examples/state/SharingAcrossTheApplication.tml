@@ -27,7 +27,7 @@
 	<a href="http://tapestry.apache.org/service-status.html">IoC Services Status</a>, 
 	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Rendervariables">Render Variables</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossTheApplication.tml"/>

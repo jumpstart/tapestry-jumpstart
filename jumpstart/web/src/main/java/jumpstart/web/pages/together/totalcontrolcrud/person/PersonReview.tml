@@ -44,7 +44,7 @@
 		</t:if>
 	</div>
 	
-	<a t:type="pageLink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 	

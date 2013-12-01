@@ -45,7 +45,7 @@
 	<a href="http://tapestry.apache.org/built-in-mixins.html">Built-in Mixins</a>, 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/mixins/OverrideFieldFocus.html">OverrideFieldFocus</a>.<br/><br/> 
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 

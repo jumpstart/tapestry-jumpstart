@@ -23,7 +23,7 @@
 	References: <a href="http://jumpstart.doublenegative.com.au/faq.html">"Why EJB3?" in JumpStart FAQ</a>, 
 	<a href="http://docs.oracle.com/javaee/7/tutorial/doc/ejb-intro001.htm#GIPMB">What is an Enterprise Bean?</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SessionBeans.tml"/>

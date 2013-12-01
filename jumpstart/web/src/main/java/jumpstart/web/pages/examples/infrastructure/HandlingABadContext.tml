@@ -83,7 +83,7 @@
 	<br />
 
 	<p>
-		<a t:type="pagelink" t:page="Index" href="#">Home</a>
+		<t:pagelink page="Index">Home</t:pagelink>
 	</p>
 
 	<p>The source for Person, @EJB handling, etc. is shown in the @EJB example.</p>

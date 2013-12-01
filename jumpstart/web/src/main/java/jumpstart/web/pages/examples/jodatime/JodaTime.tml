@@ -125,7 +125,7 @@
 
 	We do more with Joda Time in the <em>Type Coercer</em> and <em>Property Editors</em> examples.<br/><br/>
  	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 

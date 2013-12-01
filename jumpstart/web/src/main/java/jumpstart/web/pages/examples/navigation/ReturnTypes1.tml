@@ -36,7 +36,7 @@
 	the Streaming Data section of <a href="http://wiki.apache.org/tapestry/Tapestry5HowTos#Streaming_Data">Tapestry 5 How Tos</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnTypes1.tml"/>

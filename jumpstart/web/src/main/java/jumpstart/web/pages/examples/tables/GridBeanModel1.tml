@@ -27,7 +27,7 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 

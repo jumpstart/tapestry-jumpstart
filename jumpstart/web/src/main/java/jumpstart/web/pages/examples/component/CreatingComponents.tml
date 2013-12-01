@@ -52,7 +52,7 @@
 	The BoldItalicDisplay class declares a parameter and a getter.  
 	The BoldItalicDisplay template describes how to render it.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/CreatingComponents.tml"/>

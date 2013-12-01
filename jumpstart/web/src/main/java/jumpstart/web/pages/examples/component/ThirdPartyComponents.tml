@@ -37,7 +37,7 @@
 	<a href="http://www.chenillekit.org/demo/tapcomp/slidingpaneldemo">SlidingPanel</a>, 
 	<a href="http://chenillekit.codehaus.org/">ChenilleKit</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/ThirdPartyComponents.tml"/>

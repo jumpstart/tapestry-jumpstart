@@ -12,7 +12,7 @@
 		<a t:type="pagelink" t:page="examples/tables/LinkingLoop1" href="#">Return</a>
 	</div>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingLoop2.tml"/>

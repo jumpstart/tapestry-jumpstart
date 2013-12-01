@@ -17,7 +17,7 @@
 	As we will see later, you can override these styles, or turn off Bootstrap altogether.
 	</p>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/BootstrapStyling.tml"/>

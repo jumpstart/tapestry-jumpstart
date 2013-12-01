@@ -40,7 +40,7 @@
 	<a href="http://tinybits.blogspot.com/2010/03/new-and-better-zoneupdater.html">Inge's Zone Updater</a>, 
  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxComponents1.tml"/>

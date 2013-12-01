@@ -23,7 +23,7 @@
 	ComponentClassTransformWorker2</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Tapestry IoC Services</a>.<br/><br/> 
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabGroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.tml"/>

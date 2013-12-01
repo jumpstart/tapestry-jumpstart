@@ -81,7 +81,7 @@
 	</ul>
 
 	<p>
-		<a t:type="pagelink" t:page="Index" href="#">Home</a>
+		<t:pagelink page="Index">Home</t:pagelink>
 	</p>
 
 	<t:tabGroup>

@@ -31,7 +31,7 @@
 	<a href="http://www.datatables.net/ref">DataTables Reference</a>, 
 	<a href="http://www.codeproject.com/Articles/194916/Enhancing-HTML-tables-using-a-JQuery-DataTables-pl">Enhancing</a>.<br/><br/>  
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 	

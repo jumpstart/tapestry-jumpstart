@@ -11,7 +11,7 @@
 	<p>References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.</p>
 
-	<p><a t:type="pagelink" t:page="Index" href="#">Home</a></p>
+	<p><t:pagelink page="Index">Home</t:pagelink></p>
 	
 </body>
 </html>

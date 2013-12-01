@@ -37,17 +37,13 @@
 	Here is what BeanDisplay can do with a DatesExample object. It makes use of our 5 contributed display blocks. 
 		
 	<div class="eg">
-		<t:beandisplay object="datesExample" include="id,version,adatetime,adatemidnight,alocaldatetime,alocaldate,alocaltimeastime">
-			[BeanDisplayForm here]
-		</t:beandisplay>
+		<t:beandisplay object="datesExample" include="id,version,adatetime,adatemidnight,alocaldatetime,alocaldate,alocaltimeastime"/>
 	</div>
 			
 	Here is what BeanEditForm can do with the same DatesExample object. It makes use of our 2 contributed edit blocks.
 	
 	<div class="eg">	
-		<t:beaneditform t:id="updateDates" object="datesExample" submitLabel="Save" include="adatemidnight,alocaldate">
-			[BeanEditForm here]
-		</t:beaneditform>
+		<t:beaneditform t:id="updateDates" object="datesExample" submitLabel="Save" include="adatemidnight,alocaldate"/>
 	</div>
  		
 	References: 
@@ -63,7 +59,7 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>, 
 	<a href="http://joda-time.sourceforge.net/">Joda Time</a>.<br/><br/>
  	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 

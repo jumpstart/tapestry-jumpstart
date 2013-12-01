@@ -23,7 +23,7 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>
 	
-	<a t:type="pagelink" t:page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/wizard/WizardUsingPagesLayout.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/wizard/WizardUsingPagesLayout.java"/>
