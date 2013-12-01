@@ -11,10 +11,12 @@
 	they allow us to avoid storing the list of objects in the session and avoid rebuilding the list on submit.
 
 	<div class="eg">
-		<t:form t:id="form">
-			<div class="form-group form-inline">
+		<t:form t:id="form" class="form-inline">
+			<div class="form-group">
 				Person: 
 				<t:select model="personsModel" value="person" encoder="personEncoder"/>
+			</div>
+			<div class="form-group">
 				<t:submit/>
 			</div>
 			<div class="form-group">

@@ -45,14 +45,18 @@
 	<div class="eg">
 		This example demonstrates keeping the blank option while also setting the parameter <em>validate</em> to <em>required</em>.<br/><br/>
 		
-		<form t:type="form" class="form-inline">
+		<t:form class="form-inline">
 			<div class="form-group">
 				<t:label for="color3"/>:
 				<t:select t:id="color3" model="literal:Red,Yellow,Blue" validate="required" blankOption="ALWAYS"/>
+			</div>
+			<div class="form-group">
 				<t:submit/>
+			</div>
+			<div class="form-group">
 				You chose: ${color3}
 			</div>
-		</form>
+		</t:form>
 	</div>
 
 	References: 
