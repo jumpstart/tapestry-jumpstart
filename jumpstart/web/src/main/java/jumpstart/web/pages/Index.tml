@@ -303,6 +303,9 @@
 							 -->
 						</div>
 						<div class="group">
+							<t:pagelink page="examples/navigation/Tabs">Tabs</t:pagelink><br/>
+						</div>
+						<div class="group">
 							<t:pagelink page="examples/javascript/FileUpload" t:disabled="true">File Upload</t:pagelink><br/>
 						</div>
 						<div class="group">

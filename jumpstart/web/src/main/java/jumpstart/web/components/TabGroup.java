@@ -1,78 +1,104 @@
-// Based on Tapestry Stitch's TabGroup. See http://tapestry-stitch.uklance.cloudbees.net .
+// Based on Tapestry Stitch's TabGroup (http://tapestry-stitch.uklance.cloudbees.net) 
+// and Java Magic's TabPanel (http://tawus.wordpress.com/2011/07/09/a-tab-panel-for-tapestry) .
 
 package jumpstart.web.components;
 
-import jumpstart.web.model.TabModel;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.inject.Inject;
+
+import jumpstart.web.model.TabTracker;
+
+import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.MarkupWriter;
-import org.apache.tapestry5.annotations.CleanupRender;
-import org.apache.tapestry5.annotations.InjectComponent;
-import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.annotations.SetupRender;
-import org.apache.tapestry5.corelib.components.Zone;
-import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.runtime.RenderCommand;
 import org.apache.tapestry5.runtime.RenderQueue;
-import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.Environment;
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-/**
- * NB: I would have preferred to use an Environmental instead of a request attribute but I can't
- * http://tapestry.1045711.n5.nabble.com/5-4-alpha-2-Environment-cloaked-during-ajax-component-event-td5719496.html
- */
 public class TabGroup {
-	public static final String ATTRIBUTE_TAB_MODEL = TabGroup.class.getName() + ".TAB_MODEL";
+
+	// Screen fields
+
+	@Property
+	private List<String> tabIds;
+
+	@Property
+	private String tabId;
+
+	@Property
+	private int tabNum;
+
+	// Work fields
+
+	private TabTracker tabTracker;
+	private List<String> tabLabels;
+	private List<String> tabMarkups;
+
+	// Generally useful bits and pieces
 
 	@Inject
-	private Request request;
+	private Environment environment;
 
-	@InjectComponent
-	private Zone tabsZone;
+	@Inject
+	private JavaScriptSupport javaScriptSupport;
 
-	@Property
-	private TabModel tabModel;
+	@Inject
+	private ComponentResources componentResources;
 
-	@Parameter
-	private String active;
+	// The code
 
-	@Property
-	private String currentName;
-
-	@SetupRender
-	void setupRender() {
-		// assume first tab is active if active parameter not specified
-		setup();
+	/**
+	 * The tricky part is that we can't render the navbar before we've rendered the body, because we don't know how many
+	 * elements are in the body nor what labels they would like. We solve this by making a TabTracker available to the
+	 * body. They body's Tab components will record in TabTracker the tab labels and markup that they want. Later, in
+	 * afterRenderBody(), we will render the whole TabGroup based on what's in TabTracker.
+	 */
+	void beginRender() {
+		environment.push(TabTracker.class, new TabTracker());
 	}
 
-	void setup() {
-		tabModel = new TabModel(active);
-		request.setAttribute(ATTRIBUTE_TAB_MODEL, tabModel);
+	/**
+	 * By the time this method is called, we expect each Tab in the body of this component to have recorded, in
+	 * TabTracker, the tab labels and markup that it wants, and to have deleted from the DOM any markup it generated.
+	 * Using what's in TabTracker we can now render a navbar with appropriate labels, then render the markups below it.
+	 */
+	void afterRenderBody(MarkupWriter markupWriter) {
+		tabTracker = environment.pop(TabTracker.class);
+
+		tabLabels = tabTracker.getLabels();
+		tabMarkups = tabTracker.getMarkups();
+
+		// Invent unique ids for each tab.
+
+		tabIds = new ArrayList<>();
+
+		for (int i = 0; i < tabLabels.size(); i++) {
+			String id = javaScriptSupport.allocateClientId(componentResources);
+			tabIds.add(id);
+		}
 	}
 
-	@CleanupRender
-	void cleanupRender() {
-		request.setAttribute(ATTRIBUTE_TAB_MODEL, null);
+	void afterRender() {
+		// We depend on http://getbootstrap.com/javascript/#tabs . We use its Markup technique.
+		javaScriptSupport.require("bootstrap/tab");
 	}
 
-	Object onTabChange(String tabName) {
-		active = tabName;
-		setup();
-		return request.isXHR() ? tabsZone.getBody() : null;
+	public String getTabLabel() {
+		return tabLabels.get(tabNum);
 	}
 
-	public String getTabClass() {
-		return tabModel.isActive(currentName) ? "active" : null;
+	public String getActive() {
+		return tabNum == 0 ? "active" : "";
 	}
 
-	public RenderCommand getActiveTabBody() {
+	public RenderCommand getTabMarkup() {
 		return new RenderCommand() {
 			public void render(MarkupWriter writer, RenderQueue queue) {
-				writer.writeRaw(tabModel.getActiveTabBody());
+				writer.writeRaw(tabMarkups.get(tabNum));
 			}
 		};
-	}
-
-	public String getCurrentLabel() {
-		return tabModel.getLabel(currentName);
 	}
 }

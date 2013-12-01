@@ -1,5 +1,5 @@
-
-// Based on Tapestry Stitch's CodeTab. See http://tapestry-stitch.uklance.cloudbees.net .
+// Based on Tapestry Stitch's TabGroup (http://tapestry-stitch.uklance.cloudbees.net) 
+// and Java Magic's TabPanel (http://tawus.wordpress.com/2011/07/09/a-tab-panel-for-tapestry).
 
 package jumpstart.web.components;
 
@@ -9,15 +9,11 @@ import org.apache.tapestry5.annotations.Property;
 
 public class SourceCodeTab {
 
-//	@Parameter(required = true, defaultPrefix = BindingConstants.ASSET)
-//	@Property
-//	private Asset src;
 	@Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
 	@Property
 	private String src;
 
 	public String getName() {
-//		return src.getResource().getFile();
 		return extractSimpleName(src);
 	}
 

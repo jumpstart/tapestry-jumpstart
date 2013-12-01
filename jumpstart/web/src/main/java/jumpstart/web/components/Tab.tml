@@ -3,8 +3,6 @@
 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <t:content>
-	<t:tab label="prop:name">
-		<t:sourcecodedisplay2 src="prop:src" />
-	</t:tab>
+	<t:body/>
 </t:content>
 </html>

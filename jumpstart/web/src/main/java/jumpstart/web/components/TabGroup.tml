@@ -1,24 +1,29 @@
-
-<!-- Based on Tapestry Stitch's TabGroup. See http://tapestry-stitch.uklance.cloudbees.net . -->
+<!-- Based on Tapestry Stitch's TabGroup (http://tapestry-stitch.uklance.cloudbees.net) 
+	and Java Magic's TabPanel (http://tawus.wordpress.com/2011/07/09/a-tab-panel-for-tapestry) . -->
 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <t:content>
-    <noscript>
-    	<div class="alert alert-warning">
-        	${message:javascript_required_for_tabs}
-        </div>
-    </noscript>     
+	<noscript>
+		<div class="alert alert-warning">${message:javascript_required_for_tabs}</div>
+	</noscript>
 
-	<t:zone t:id="tabsZone">
-	   <t:body />
-	   <ul class="nav nav-tabs">
-	      <t:loop source="tabModel.names" value="currentName">
-	          <li class="${tabClass}">
-	             <t:eventlink event="tabChange" context="currentName" zone="^">${currentLabel}</t:eventlink>
-	          </li>
-	      </t:loop>
-	   </ul>
-	   <t:delegate to="activeTabBody" />
-	</t:zone>
+	<t:body />
+
+	<ul class="nav nav-tabs">
+		<t:loop source="tabIds" value="tabId" index="tabNum">
+			<li class="${active}">
+				<a href="#${tabId}" data-toggle="tab">${tabLabel}</a>
+			</li>
+		</t:loop>
+	</ul>
+
+	<div class="tab-content">
+		<t:loop source="tabIds" value="tabId" index="tabNum">
+			<div class="tab-pane ${active}" id="${tabId}">
+				<t:delegate to="tabMarkup" />
+			</div>
+		</t:loop>
+	</div>
+
 </t:content>
 </html>
