@@ -38,11 +38,11 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopTailored2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopTailored2.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopTailored2.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxformloop.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

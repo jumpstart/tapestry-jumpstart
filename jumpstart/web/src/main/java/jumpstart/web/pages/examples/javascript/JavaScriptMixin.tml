@@ -36,12 +36,12 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScriptMixin.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JavaScriptMixin.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/TextboxHint.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/textbox-hint.js"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -10,7 +10,7 @@
 	In this example we have provided a GridDataSource that is "paged", ie. it retrieves only the Persons needed for the selected page and no more.
 
 	<div class="eg">
-		<table t:type="grid" t:source="persons" t:rowsPerPage="4" t:pagerPosition="top">[Grid here]</table>
+		<t:grid source="persons" rowsPerPage="4" pagerPosition="top"/>
 	</div>
 
 	References: 
@@ -21,7 +21,7 @@
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridDataSources.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridDataSources.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
@@ -31,6 +31,6 @@
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

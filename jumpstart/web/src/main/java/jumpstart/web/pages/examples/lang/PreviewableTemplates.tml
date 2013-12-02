@@ -51,20 +51,20 @@
 	and it may enable better sharing of templates between developers and web designers. <br/><br/>
 	
 	However, preview-ability becomes lost as components become more nested, as Tapestry components (such as Form) emit 
-	CSS classes at runtime, and as AJAX and JavaScript add dynamic behaviour. It may be better to do as many teams do - 
-	give the web designer a development environment where they can edit and interact with the UI live.<br/><br/>
+	CSS classes at runtime, and as AJAX and JavaScript add dynamic behaviour. These days it may be better to do what many 
+	teams do: give the web designer a development environment where they can edit and interact with the UI live.<br/><br/>
 	
-	In JumpStart we don't use invisible instrumentation except where we feel it improves readability.<br/><br/>
+	In JumpStart, since v7.0, we don't use invisible instrumentation except in rare cases where we feel it improves readability.<br/><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-InvisibleInstrumentation">Invisible Instrumentation</a>.
 	<br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PreviewableTemplates.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PreviewableTemplates.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/Remove.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -28,7 +28,7 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServicesVersioned.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServicesVersioned.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
@@ -37,6 +37,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/Person01.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/PersonFind01Response.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/PersonsFind01Response.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -21,12 +21,12 @@
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutputEntityBean.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/EasyOutputEntityBean.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -3,14 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<!-- 
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-	<style type="text/css">
-		ul	{ padding: 14px; margin: 0; margin-left: 14px; list-style-type: none; }
-	</style>
-</head>
- -->
 <body class="container">
 
 	<h3>Services</h3>
@@ -122,11 +114,11 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/Services.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/Services.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/services.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

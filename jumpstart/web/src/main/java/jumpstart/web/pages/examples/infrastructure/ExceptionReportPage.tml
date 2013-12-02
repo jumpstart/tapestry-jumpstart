@@ -10,8 +10,8 @@
 		ExceptionReport.</p>
 
 	<div class="eg">
-		To see the <strong>current</strong> "exception report" page in action, click here: <a t:type="eventlink"
-			t:event="throwexception" href="#">I throw an exception!</a>
+		To see the <strong>current</strong> "exception report" page in action, click here:
+		<t:eventlink event="throwexception">I throw an exception!</t:eventlink>
 	</div>
 
 	<p>
@@ -84,10 +84,10 @@
 		<t:pagelink page="Index">Home</t:pagelink>
 	</p>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ExceptionReportPage.tml" />
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ExceptionReportPage.java" />
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css" />
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

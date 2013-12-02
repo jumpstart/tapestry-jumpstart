@@ -28,10 +28,10 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/returntopage1.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

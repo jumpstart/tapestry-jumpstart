@@ -129,7 +129,7 @@
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/jodatime/JodaTime.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/jodatime/JodaTime.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
@@ -137,6 +137,6 @@
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/JodaTimeUtil.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

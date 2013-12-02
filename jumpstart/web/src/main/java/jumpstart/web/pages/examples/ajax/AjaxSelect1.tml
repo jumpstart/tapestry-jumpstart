@@ -59,10 +59,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelect1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxselect1.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

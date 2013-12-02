@@ -15,11 +15,11 @@
 		<div class="kapbox">
 			<t:form t:id="verify">
 				<div class="kap">
-					<t:KaptchaImage t:id="kaptchaImage" />
+					<t:kaptchaimage t:id="kaptchaImage" />
 				</div>
 				<div class="kap">What characters are shown in the box above?</div>
 				<div class="kap">
-					<t:KaptchaField image="kaptchaImage" visible="true" label="characters" />
+					<t:kaptchafield image="kaptchaImage" visible="true" label="characters" />
 				</div>
 				<div class="kap">
 					<t:submit/>
@@ -48,13 +48,13 @@
 	</p>
 
 	<p>
-		<a t:type="eventlink" t:event="Home" href="#">Home</a>
+		<t:eventlink event="Home">Home</t:eventlink>
 	</p>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.tml" />
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Kaptcha1.java" />
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/kaptcha1.css" />
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

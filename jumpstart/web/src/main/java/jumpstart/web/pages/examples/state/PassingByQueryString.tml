@@ -23,14 +23,14 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/PageRenderLinkSource.html">PageRenderLinkSource</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="examples/state/PassingDataBetweenPages" href="#">Return</a><br/><br/>
+	<t:pagelink page="examples/state/PassingDataBetweenPages">Return</t:pagelink><br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

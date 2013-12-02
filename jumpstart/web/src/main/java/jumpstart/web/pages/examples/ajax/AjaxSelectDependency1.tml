@@ -62,10 +62,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelectDependency1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelectDependency1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajax_select.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -19,9 +19,9 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/BootstrapStyling.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/BootstrapStyling.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

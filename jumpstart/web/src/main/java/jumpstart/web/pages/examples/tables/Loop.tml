@@ -20,7 +20,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr t:type="Loop" t:source="persons" t:value="person">
+				<tr t:type="loop" t:source="persons" t:value="person">
 					<td>${person.id}</td>
 					<td>${person.firstName}</td>
 					<td>${person.lastName}</td>
@@ -39,7 +39,7 @@
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/Loop.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/Loop.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/Loop.java"/>
@@ -47,6 +47,6 @@
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

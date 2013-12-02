@@ -14,8 +14,8 @@
 	Here are some examples:
 	
 	<div class="eg">
-		<a t:type="eventlink" t:event="doSomething" t:id="link1" href="#">Link 1</a><br/>
-		<a t:type="eventlink" t:event="doSomething" t:id="link2" t:context="literal:Hello" href="#">Link 2</a><br/>
+		<t:eventlink event="doSomething" t:id="link1">Link 1</t:eventlink><br/>
+		<t:eventlink event="doSomething" t:id="link2" context="literal:Hello">Link 2</t:eventlink><br/>
 		
 		<t:if t:test="message">
 			<br/>
@@ -33,10 +33,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MultipleMethodMatches.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MultipleMethodMatches.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

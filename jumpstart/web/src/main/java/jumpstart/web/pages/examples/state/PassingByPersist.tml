@@ -18,14 +18,14 @@
 	
 	For more information see the Storing Data in a Page example.<br/><br/>
 	 	
-	<a t:type="eventlink" t:event="return" href="#">Return</a><br/><br/>
+	<t:eventlink event="return">Return</t:eventlink><br/><br/>
 
-	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
+	<t:eventlink event="gohome">Home</t:eventlink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByPersist.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByPersist.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -13,8 +13,8 @@
 	ActionLink has the same AJAX capabilities as EventLink.
 
 	<div class="eg">
-		<a t:type="actionlink" t:id="refreshPage" href="#">Refresh whole page - this ActionLink is not AJAX-enabled</a><br/>
-		<a t:type="actionlink" t:id="refreshZone" t:zone="time2Zone" href="#">Refresh only serverTime2 - this ActionLink is AJAX-enabled</a><br/><br/>
+		<t:actionlink t:id="refreshPage">Refresh whole page - this ActionLink is not AJAX-enabled</t:actionlink><br/>
+		<t:actionlink t:id="refreshZone" zone="time2Zone">Refresh only serverTime2 - this ActionLink is AJAX-enabled</t:actionlink><br/><br/>
 
 		serverTime1:  ${serverTime1}
 		<t:zone t:id="time2Zone" id="time2Zone">
@@ -32,10 +32,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxActionLink.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxActionLink.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

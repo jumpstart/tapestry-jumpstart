@@ -29,10 +29,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingFormFragmentsSuccess.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingFormFragmentsSuccess.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/wizard.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

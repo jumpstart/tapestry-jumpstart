@@ -35,11 +35,11 @@
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQueryDataTables.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQueryDataTables.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQueryDataTables.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/jquerydatatables.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

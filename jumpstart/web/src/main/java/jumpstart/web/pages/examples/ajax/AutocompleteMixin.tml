@@ -64,12 +64,12 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AutocompleteMixin.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AutocompleteMixin.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/CountryNames.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

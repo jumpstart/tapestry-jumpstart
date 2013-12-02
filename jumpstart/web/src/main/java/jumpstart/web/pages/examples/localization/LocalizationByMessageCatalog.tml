@@ -62,13 +62,13 @@
 	
 	<a t:type="PageLink" page="Index" href="#">Home</a><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog_fr.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByMessageCatalog.properties"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/localization.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html> 

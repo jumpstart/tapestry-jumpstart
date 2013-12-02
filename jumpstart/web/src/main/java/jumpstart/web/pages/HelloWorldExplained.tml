@@ -29,10 +29,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/HelloWorldExplained.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/HelloWorldExplained.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/WEB-INF/web.xml"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

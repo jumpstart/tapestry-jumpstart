@@ -105,7 +105,7 @@
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoopWithHolders1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxformloop.css"/>
@@ -114,6 +114,6 @@
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

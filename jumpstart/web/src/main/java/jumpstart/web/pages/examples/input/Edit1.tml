@@ -10,14 +10,14 @@
 	In this example we are using it to edit a Person from the database.<br/>
 
 	<div class="eg">
-		<t:beaneditform t:id="personForm" object="person" submitLabel="Save">[BeanEditForm here]
+		<t:beaneditform t:id="personForm" object="person" submitLabel="Save">
 			<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
 			<p:version>
 				<t:hidden value="person.version"/>
 			</p:version>
 	 	</t:beaneditform>
 	 	
-		<a t:type="eventlink" t:event="refresh" href="#">Refresh</a>
+		<t:eventlink event="refresh">Refresh</t:eventlink>
 	</div>
 
 	Person is a JPA Entity Bean, retrieved from the database by PersonFinderService, which is an EJB3 Session Bean.<br/><br/>
@@ -65,7 +65,7 @@
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Edit1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Edit1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
@@ -73,6 +73,6 @@
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

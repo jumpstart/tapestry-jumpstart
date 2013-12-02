@@ -46,12 +46,12 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxLoadingSpinner.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxLoadingSpinner.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/js/zone-overlay.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/zone-overlay.css"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/zone-overlay-ie.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -33,6 +33,16 @@ public class ReturnTypes1 {
 		return null;
 	}
 
+	boolean onReturnFalse() {
+		message = "You chose to return false.";
+		return false;
+	}
+
+	boolean onReturnTrue() {
+		message = "You chose to return true.";
+		return true;
+	}
+
 	Class<ReturnTypesClass> onReturnClass() {
 		return ReturnTypesClass.class;
 	}
@@ -101,15 +111,5 @@ public class ReturnTypes1 {
 
 	URL onReturnURL() throws MalformedURLException {
 		return new URL("http://tapestry.apache.org");
-	}
-
-	boolean onReturnTrue() {
-		message = "You chose to return true.";
-		return true;
-	}
-
-	boolean onReturnFalse() {
-		message = "You chose to return false.";
-		return false;
 	}
 }

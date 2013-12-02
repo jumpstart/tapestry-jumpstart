@@ -3,16 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<!-- 
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-	<style type="text/css">
-		h2			{ margin-top: 0; }
-		.eg dl, 
-		.eg dd		{ color: #888; }
-	</style>
-</head>
- -->
 <body class="container">
 	<h3>Display Session Contents</h3>
 	
@@ -52,12 +42,12 @@
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/RenderObject.html">RenderObject</a>.<br/><br/>
 	
-	<a t:type="pagelink" page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/DisplaySessionContents.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/DisplaySessionContents.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/displaysessioncontents.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

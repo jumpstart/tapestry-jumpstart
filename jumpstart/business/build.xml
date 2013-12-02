@@ -4,9 +4,9 @@
 
 	<property name="project.dir" value="${basedir}/.." />
 
-	<property name="java.main.dir" value="src/main/java" />
-	<property name="java.tests.dir" value="src/test/java" />
-	<property name="resources.main.dir" value="src/main/resources" />
+	<property name="main.java.dir" value="src/main/java" />
+	<property name="main.resources.dir" value="src/main/resources" />
+	<property name="test.java.dir" value="src/test/java" />
 
 	<property name="target.dir" value="target" />
 	<property name="target.classes.dir" value="${target.dir}/classes" />
@@ -19,9 +19,9 @@
 	<property name="lib.test.dir" value="src/test/lib-test" />
 	<property name="lib.test.hibernate.dir" value="src/test/lib-test-hibernate" />
 
-	<property name="conf.test.jboss.remote.dir" value="src/test/conf-remote-jboss" />
-	<property name="conf.test.tomcat.remote.dir" value="src/test/conf-remote-tomcat" />
-	<property name="conf.test.glassfish.remote.dir" value="src/test/conf-remote-glassfish" />
+	<property name="test.conf.jboss.remote.dir" value="src/test/conf-remote-jboss" />
+	<property name="test.conf.tomcat.remote.dir" value="src/test/conf-remote-tomcat" />
+	<property name="test.conf.glassfish.remote.dir" value="src/test/conf-remote-glassfish" />
 
 	<property name="deployment.persistence.descriptor.file" value="${basedir}/src/main/resources/persistence-descriptor/${deployment.persistence.descriptor}" />
 
@@ -66,15 +66,15 @@
 	</target>
 
 	<target name="compile" depends="init" description="Compiles main source, output goes to the target/classes dir.">
-		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${java.main.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
+		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${main.java.dir}" destdir="${target.classes.dir}" classpathref="classpath.compile" includeantruntime="false" debug="${debug}" />
 
 		<copy todir="${target.classes.dir}">
-			<fileset dir="${java.main.dir}" includes="**/*.properties" />
+			<fileset dir="${main.java.dir}" includes="**/*.properties" />
 		</copy>
 	</target>
 
 	<target name="test-compile" depends="init" description="Compiles test source, output goes to the target/test-classes dir.">
-		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${java.tests.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
+		<javac source="${javac.source.version}" target="${javac.target.version}" srcdir="${test.java.dir}" destdir="${target.test-classes.dir}" classpathref="classpath.unit.test" includeantruntime="false" debug="${debug}" />
 	</target>
 
 	<target name="test">
@@ -92,7 +92,7 @@
 		<fail unless="dep.pers.desc.exists" message="*** File specified by deployment.persistence.descriptor does not exist: ${deployment.persistence.descriptor.file}" />
 
 		<delete file="${jar.file}" />
-		<jar destfile="${jar.file}" manifest="${resources.main.dir}/META-INF/MANIFEST.MF">
+		<jar destfile="${jar.file}" manifest="${main.resources.dir}/META-INF/MANIFEST.MF">
 			<zipfileset dir="${target.classes.dir}" />
 			<zipfileset file="${deployment.persistence.descriptor.file}" fullpath="META-INF/persistence.xml" />
 		</jar>
@@ -201,7 +201,7 @@
 	</target>
 	
 	<target name="set-vars-if-jboss7" if="deployment.server.type.is.jboss7" depends="interpret-server-type">
-		<property name="conf.test.remote.dir" value="${conf.test.jboss.remote.dir}" />
+		<property name="conf.test.remote.dir" value="${test.conf.jboss.remote.dir}" />
 
 		<path id="classpath.jboss7.client.lib">
 			<fileset dir="${deployment.server.dir}/../bin/client">
@@ -232,7 +232,7 @@
 	</target>
 
 	<target name="set-vars-if-tomcat7" if="deployment.server.type.is.tomcat7" depends="interpret-server-type">
-		<property name="conf.test.remote.dir" value="${conf.test.tomcat.remote.dir}" />
+		<property name="conf.test.remote.dir" value="${test.conf.tomcat.remote.dir}" />
 		
 		<path id="classpath.tomcat7.client.lib">
 			<fileset dir="${deployment.server.dir}/lib">
@@ -253,7 +253,7 @@
 	</target>
 
 	<target name="set-vars-if-glassfish3" if="deployment.server.type.is.glassfish3" depends="interpret-server-type">
-		<property name="conf.test.remote.dir" value="${conf.test.glassfish.remote.dir}" />
+		<property name="conf.test.remote.dir" value="${test.conf.glassfish.remote.dir}" />
 
 		<path id="classpath.glassfish3.client.lib">
 			<fileset dir="${deployment.server.dir}/../../lib">

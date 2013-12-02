@@ -14,9 +14,9 @@
 	Here we demonstrate Tapestry's Tree component.
 	
 	<div class="eg">
-		<a t:type="eventlink" t:event="clearExpansions">Clear Expansions</a><br/><br/>
+		<t:eventlink event="clearExpansions">Clear Expansions</t:eventlink><br/><br/>
 		<t:tree t:id="tree" model="stuffModel"/><br/>
-		<a t:type="pagelink" t:page="examples/component/TreeBrowse" href="#">Refresh</a>
+		<t:pagelink page="examples/component/TreeBrowse">Refresh</t:pagelink>
 	</div> 
 	
 	For an example of a tree with more capabilities, see the example Tree From Database, With Zones.<br/>
@@ -31,14 +31,14 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
 
-	<a t:type="eventlink" t:event="Home" href="#">Home</a><br/><br/>
+	<t:eventlink event="Home">Home</t:eventlink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TreeBrowse.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TreeBrowse.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/tree/StuffTreeModelAdapter.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/tree/Stuff.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

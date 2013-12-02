@@ -54,13 +54,13 @@
 	References: 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>
 	
-	<a t:type="eventlink" t:event="GoHome" href="#">Home</a><br/><br/>
+	<t:eventlink event="GoHome">Home</t:eventlink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossMultiplePages1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossMultiplePages1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/state/ShoppingBasket.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

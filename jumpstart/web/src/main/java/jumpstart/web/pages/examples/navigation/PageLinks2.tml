@@ -21,9 +21,9 @@
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/PageLinks2.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

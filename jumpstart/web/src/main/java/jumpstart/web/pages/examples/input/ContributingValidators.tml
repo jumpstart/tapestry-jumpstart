@@ -63,7 +63,7 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingValidators.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
@@ -71,6 +71,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/validators/ValidationMessages.properties"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/js/letters.js"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

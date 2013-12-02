@@ -96,7 +96,7 @@
 
 	<a t:type="eventlink" t:event="Home" href="#">Home</a><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/TreeFromDatabaseWithZones.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/TreeFromDatabaseWithZones.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
@@ -104,6 +104,6 @@
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/dewey/iface/ClassificationNode.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/dewey/DeweyFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/dewey/Classification.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

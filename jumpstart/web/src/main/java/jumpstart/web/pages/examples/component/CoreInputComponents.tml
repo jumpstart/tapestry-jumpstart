@@ -109,10 +109,10 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/CoreInputComponents.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/CoreInputComponents.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -76,12 +76,12 @@
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
 	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxValidators1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxValidators1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.js"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

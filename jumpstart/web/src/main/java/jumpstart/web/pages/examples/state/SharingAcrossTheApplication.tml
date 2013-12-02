@@ -29,12 +29,12 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossTheApplication.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/SharingAcrossTheApplication.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/light.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/CountryNames.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

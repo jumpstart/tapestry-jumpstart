@@ -9,16 +9,16 @@
 	Event handler methods control what is displayed next by what they return. <br/>
 	The following EventLinks demonstrate all the return types that Tapestry allows:
 	<div class="eg">
-		<a t:type="eventlink" t:event="returnvoid" href="#">void</a> - redisplay the same page.<br/>
-		<a t:type="eventlink" t:event="returnnull" href="#">null</a> - redisplay the same page.<br/>
-		<a t:type="eventlink" t:event="returnclass" href="#">Class (must be a page class)</a> - go to new page.<br/>
-		<a t:type="eventlink" t:event="returnstring" href="#">String (must be a logical page name)</a> - go to new page.<br/>
-		<a t:type="eventlink" t:event="returnpageobject" href="#">page object</a> - go to new page, with the option of setting up its parameters first.<br/>
-		<a t:type="eventlink" t:event="returnlink" href="#">Link</a> - go to new page, with the option of setting up a context first.<br/>
-		<a t:type="eventlink" t:event="returnstreamresponse" href="#">StreamResponse</a> - used by pages or components to return images, PDFs, XML, etc.<br/>
-		<a t:type="eventlink" t:event="returnurl" href="#">URL</a> - go to a java.net.URL of an external page.<br/>
-		<a t:type="eventlink" t:event="returntrue" href="#">true</a> - redisplay same page, aborting event bubbling (see Event Bubbling example).<br/>
-		<a t:type="eventlink" t:event="returnfalse" href="#">false</a> - same as returning null.<br/>
+		<t:eventlink event="returnvoid">void</t:eventlink> - redisplay the same page.<br/>
+		<t:eventlink event="returnnull">null</t:eventlink> - redisplay the same page.<br/>
+		<t:eventlink event="returnfalse">false</t:eventlink> - same as returning null.<br/>
+		<t:eventlink event="returntrue">true</t:eventlink> - redisplay same page, aborting event bubbling (see Event Bubbling example).<br/>
+		<t:eventlink event="returnclass">Class (must be a page class)</t:eventlink> - go to new page.<br/>
+		<t:eventlink event="returnstring">String (must be a logical page name)</t:eventlink> - go to new page.<br/>
+		<t:eventlink event="returnpageobject">page object</t:eventlink> - go to new page, with the option of setting up its parameters first.<br/>
+		<t:eventlink event="returnlink">Link</t:eventlink> - go to new page, with the option of setting up a context first.<br/>
+		<t:eventlink event="returnstreamresponse">StreamResponse</t:eventlink> - used by pages or components to return images, PDFs, XML, etc.<br/>
+		<t:eventlink event="returnurl">URL</t:eventlink> - go to a java.net.URL of an external page.<br/>
 		
 		<t:if t:test="message">
 			<br/>
@@ -38,11 +38,11 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnTypes1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnTypes1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/text/examples/ReturnTypeText.txt"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -21,9 +21,9 @@
 			The most used technique. Usually employed to pass an <strong>identifier</strong>, eg. productId.
 
 			<div class="eg">
-				<form t:type="form" t:id="useactivationcontext">
-					<input type="submit" value="Use Activation Context" class="btn btn-default"/>
-				</form>
+				<t:form t:id="useactivationcontext">
+					<t:submit value="Use Activation Context" class="btn btn-default"/>
+				</t:form>
 			</div>
 		</li>
 		
@@ -33,9 +33,9 @@
 			arguably, it produces the most RESTful URL in that situation.
 
 			<div class="eg">
-				<form t:type="form" t:id="usequerystring">
-					<input type="submit" value="Use Query String" class="btn btn-default"/>
-				</form>
+				<t:form t:id="usequerystring">
+					<t:submit value="Use Query String" class="btn btn-default"/>
+				</t:form>
 			</div>
 		</li>
 
@@ -45,9 +45,9 @@
 			want to be visible in a URL</strong>
 
 			<div class="eg">
-				<form t:type="form" t:id="usepersist">
-					<input type="submit" value="Use Persist" class="btn btn-default"/>
-				</form>
+				<t:form t:id="usepersist">
+					<t:submit value="Use Persist" class="btn btn-default"/>
+				</t:form>
 			</div>
 		</li>
 
@@ -66,13 +66,13 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByPersist.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

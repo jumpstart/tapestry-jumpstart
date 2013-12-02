@@ -86,10 +86,10 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 		
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/PrimitivesTranslators.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/PrimitivesTranslators.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

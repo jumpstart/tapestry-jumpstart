@@ -18,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr t:type="Loop" t:source="persons" t:value="person">
+				<tr t:type="loop" t:source="persons" t:value="person">
 					<td>${person.id}</td>
 					<td><t:pagelink page="examples/tables/LinkingLoop2" context="person.firstName">${person.firstName}</t:pagelink></td>
 					<td>${person.lastName}</td>
@@ -34,10 +34,10 @@
 	
 	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingLoop1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingLoop1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -62,13 +62,13 @@
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.properties"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/totalcontroloutput.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

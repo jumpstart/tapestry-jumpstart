@@ -41,7 +41,7 @@
 	<div class="eg">
 		<strong>Submit</strong><br/><br/>
 		
-		<form t:type="form" t:id="inputs">
+		<t:form t:id="inputs">
 			<div class="form-group">
 				<t:label for="firstName"/>
 				<t:textfield t:id="firstName" t:validate="required"/>&nbsp;
@@ -56,7 +56,7 @@
 				<t:submit image="asset:images/next-button-48.png"/>&nbsp;
 				<t:submit image="asset:images/next-button-48.png" class="" style="vertical-align: middle;"/>&nbsp;
 			</div>
-		</form>
+		</t:form>
 	</div>
 	
 	References: 
@@ -69,10 +69,10 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/StylingLinksAndSubmits1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/StylingLinksAndSubmits1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/links_and_submits.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

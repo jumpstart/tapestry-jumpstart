@@ -25,7 +25,7 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/AtEjb.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
@@ -37,6 +37,6 @@
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/EJBProviderUtil.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/commons/exception/SystemUnavailableException.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

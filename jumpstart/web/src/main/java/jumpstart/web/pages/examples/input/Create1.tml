@@ -12,7 +12,7 @@
 	
 	<div class="eg">
 		<t:beaneditform t:id="personForm" object="person" include="firstName,lastName,region,startDate" submitLabel="Save"/>
-		<a t:type="eventlink" t:event="refresh" href="#">Refresh</a>
+		<t:eventlink event="refresh">Refresh</t:eventlink>
 	</div>
 
 	References: 
@@ -24,13 +24,13 @@
 	
 	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Create1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Create1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

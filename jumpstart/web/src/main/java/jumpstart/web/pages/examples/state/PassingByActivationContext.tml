@@ -18,14 +18,14 @@
 	References:  
 	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Page Render Requests</a>.<br/><br/>
 
-	<a t:type="pagelink" t:page="examples/state/PassingDataBetweenPages" href="#">Return</a><br/><br/>
+	<t:pagelink page="examples/state/PassingDataBetweenPages">Return</t:pagelink><br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

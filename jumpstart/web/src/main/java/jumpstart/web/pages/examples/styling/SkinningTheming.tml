@@ -21,10 +21,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/SkinningTheming.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/SkinningTheming.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

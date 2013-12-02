@@ -10,14 +10,14 @@
 		You chose an action that returned this page's class.
 	</div>
 	
-	<a t:type="pagelink" t:page="examples/navigation/ReturnTypes1" href="#">Return</a><br/><br/>
+	<t:pagelink page="examples/navigation/ReturnTypes1">Return</t:pagelink><br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnTypesClass.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnTypesClass.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -26,12 +26,12 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServices.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonFind.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/Person01.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

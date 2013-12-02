@@ -42,7 +42,7 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxComponents1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxComponents1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
@@ -50,6 +50,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/ajax/TextEchoer.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.js"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

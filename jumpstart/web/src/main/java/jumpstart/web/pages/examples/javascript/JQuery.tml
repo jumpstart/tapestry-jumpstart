@@ -51,12 +51,12 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQuery.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/JQuery.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/js/jq_robust_textbox_hint.js"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

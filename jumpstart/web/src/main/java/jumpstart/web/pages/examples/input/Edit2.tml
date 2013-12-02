@@ -9,8 +9,8 @@
 	Here's the Person you edited, displayed here with BeanDisplay.
 	
 	<div class="eg">
-		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
-		<a t:type="pagelink" t:page="examples/input/Edit1" t:context="person.id" href="#">Return</a>
+		<t:beandisplay object="person"/>
+		<t:pagelink page="examples/input/Edit1" context="person.id">Return</t:pagelink>
 	</div>
 
 	References: 
@@ -20,12 +20,12 @@
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Edit2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Edit2.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

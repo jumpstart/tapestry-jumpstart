@@ -49,12 +49,12 @@
 
 	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxMultipleZoneUpdate.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.js"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

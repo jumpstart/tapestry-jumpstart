@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX EventLink</h3>
 
@@ -14,13 +11,14 @@
 	</noscript> 	
 
 	This page demonstrates how easily <a href="http://en.wikipedia.org/wiki/AJAX">AJAX</a> behaviour can be given to an EventLink, 
-	without writing any JavaScript.
-	In this demonstration, note how the whole page is refreshed when you click the first link, whereas only time2 is updated when you 
-	click on the second, AJAX-enabled, link.
+	without writing any JavaScript.<br/><br/>
+	
+	In the following example, if you click on the first link then the whole page is refreshed, but if you 
+	click on the second link - the AJAX-enabled link - then only serverTime2 is refreshed.
 
 	<div class="eg">
-		<a t:type="eventlink" t:event="refreshPage" href="#">Refresh whole page - this EventLink is not AJAX-enabled</a><br/>
-		<a t:type="eventlink" t:event="refreshZone" t:zone="time2Zone" href="#">Refresh only server time 2 - this EventLink is AJAX-enabled</a><br/><br/>
+		<t:eventlink event="refreshPage">Refresh whole page - this EventLink is not AJAX-enabled</t:eventlink><br/>
+		<t:eventlink event="refreshZone" zone="time2Zone">Refresh only server time 2 - this EventLink is AJAX-enabled</t:eventlink><br/><br/>
 
 		serverTime1:  ${serverTime1}
 		<t:zone t:id="time2Zone" id="time2Zone">
@@ -49,10 +47,10 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxEventLink.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxEventLink.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

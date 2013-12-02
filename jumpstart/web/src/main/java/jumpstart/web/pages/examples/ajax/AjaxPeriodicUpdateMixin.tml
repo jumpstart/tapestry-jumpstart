@@ -38,12 +38,12 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxPeriodicUpdateMixin.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxPeriodicUpdateMixin.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZonePeriodicUpdater.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZonePeriodicUpdater.js"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

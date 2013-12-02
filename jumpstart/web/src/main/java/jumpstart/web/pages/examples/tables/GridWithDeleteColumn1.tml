@@ -46,12 +46,12 @@
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridWithDeleteColumn1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridWithDeleteColumn1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/styledgrid.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

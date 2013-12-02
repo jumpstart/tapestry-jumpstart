@@ -31,10 +31,10 @@
 	
 	The source for Person, PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/GridBeanModel1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -37,7 +37,7 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
@@ -49,6 +49,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/IIntermediatePage.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/theapp/Visit.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -67,7 +67,7 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 		
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ContributingTranslators_fr.properties"/>
@@ -78,6 +78,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/translators/TranslationMessages_fr.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/translators/MoneyTranslator.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

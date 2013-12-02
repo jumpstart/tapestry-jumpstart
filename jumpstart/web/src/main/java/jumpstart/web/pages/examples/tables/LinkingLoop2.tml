@@ -9,15 +9,15 @@
 	<div class="eg">
 		You chose ${firstName}!<br/><br/>
 		
-		<a t:type="pagelink" t:page="examples/tables/LinkingLoop1" href="#">Return</a>
+		<t:pagelink page="examples/tables/LinkingLoop1">Return</t:pagelink>
 	</div>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingLoop2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LinkingLoop2.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

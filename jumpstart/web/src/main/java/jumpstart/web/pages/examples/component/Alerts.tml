@@ -3,19 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-<!-- 
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-	<style type="text/css">
-		.eg th			{ text-align: right; padding-right: 14px; font-weight: normal; }
-		.eg .buttons	{ margin-top: 12px; }
-		DIV#alerts		{ margin: auto; width: 500px; }
-		<t:if test="hideDismiss">
-			DIV.t-alert-controls { display: none; }
-		</t:if>
-	</style>
- -->
-</head>
 <body class="container">
 	<h3>Alerts</h3>
 	
@@ -95,10 +82,10 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Alerts.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/Alerts.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/alerts.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

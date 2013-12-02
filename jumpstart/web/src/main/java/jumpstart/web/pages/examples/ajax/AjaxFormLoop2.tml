@@ -55,12 +55,12 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoop2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoop2.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormLoop2.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxformloop.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/commons/IdVersion.java"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

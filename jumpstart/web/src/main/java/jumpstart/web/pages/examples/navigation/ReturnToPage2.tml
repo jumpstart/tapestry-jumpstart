@@ -13,19 +13,19 @@
 		_messageFromCaller = <strong>"${messageFromCaller}"</strong>.<br/>
 		_linkBackToCaller = <strong>${linkBackToCaller}</strong><br/><br/>
 	
-		<a t:type="eventlink" t:event="return" href="#">Return</a>
+		<t:eventlink event="return">Return</t:eventlink>
 	</div>
 
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Link.html">Link</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>.<br/><br/>
 	
-	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
+	<t:eventlink event="gohome">Home</t:eventlink><br/><br/>
 
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ReturnToPage2.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </body>
 </html>

@@ -17,11 +17,11 @@
 		<a t:type="pagelink" t:page="Index">Home</a>
 	</div>
 	
-	<t:tabGroup>
+	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TheLayoutComponent2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TheLayoutComponent2.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/Layout.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/Layout.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/layout.css"/>
-	</t:tabGroup>
+	</t:tabgroup>
 </html>
