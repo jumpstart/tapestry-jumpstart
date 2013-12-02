@@ -20,7 +20,7 @@
 	The method receives the activation context into <code>personId</code>. Its value is <em>${personId}</em>. Here is that Person:<br/>
 
 	<div class="eg">
-		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+		<t:beandisplay object="person"/>
 	</div>
 
 	References:	

@@ -15,7 +15,7 @@
 	Here we've injected a local Session Bean, IPersonFinderServiceLocal, to find entity Person with id = 1:<br/>
 	
 	<div class="eg">
-		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+		<t:beandisplay object="person"/>
 	</div>
 
 	References: <a href="http://docs.oracle.com/javaee/6/api/javax/ejb/EJB.html">@EJB</a>, 

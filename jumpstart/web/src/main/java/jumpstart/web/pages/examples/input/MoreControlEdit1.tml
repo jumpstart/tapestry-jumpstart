@@ -15,7 +15,7 @@
 			<t:errors globalOnly="true"/>
 		
 			<div class="t-beaneditor">
-				<t:beaneditor t:id="person" object="person">[BeanEditForm here]
+				<t:beaneditor t:id="person" object="person">
 					<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
 					<p:version>
 						<t:hidden value="person.version"/>

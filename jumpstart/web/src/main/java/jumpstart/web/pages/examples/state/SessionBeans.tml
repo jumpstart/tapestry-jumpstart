@@ -13,7 +13,7 @@
 	The <code>@EJB</code> annotation is explained in the next example.
 
 	<div class="eg">
-		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+		<t:beandisplay object="person"/>
 	</div>
 
 	For those of you who do not want to use Session Beans, and who do not mind the open-session-in-view pattern, Tapestry has 

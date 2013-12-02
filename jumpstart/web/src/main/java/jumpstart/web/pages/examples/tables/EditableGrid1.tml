@@ -17,7 +17,7 @@
 		<form t:type="form" t:id="personsCreate">
 			<t:errors globalOnly="true"/>
 			<table t:type="Grid" t:source="persons" t:row="person" t:model="model" 
-				t:include="firstname,lastname,region,startdate">[Persons Grid here]
+				t:include="firstname,lastname,region,startdate">
 				<p:firstNameCell>
 					<input t:id="firstName" t:type="TextField" t:value="person.firstName" t:validate="maxlength=10" size="10"/>
 				</p:firstNameCell>

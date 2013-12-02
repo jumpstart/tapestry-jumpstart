@@ -15,7 +15,7 @@
 
 	<div class="eg">
 		<table t:type="jquery/datatable" t:id="personsdt" t:source="persons" t:row="person"
-			t:rowsPerPage="4" t:options="options">[Grid here]
+			t:rowsPerPage="4" t:options="options">
 			<p:regionCell>
 				${personRegion}
 			</p:regionCell>

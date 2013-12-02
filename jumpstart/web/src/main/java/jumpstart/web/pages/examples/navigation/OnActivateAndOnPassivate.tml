@@ -70,7 +70,7 @@
 	For completeness, here is the Person specified by the activation context given to this page:
 	
 	<div class="eg">
-		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+		<t:beandisplay object="person"/>
 	</div>
 
 	References:	

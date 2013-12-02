@@ -19,7 +19,7 @@
 		<form t:type="form" t:id="personsEdit">
 			<t:errors globalOnly="true"/>
 			<table t:type="Grid" t:source="persons" t:row="person" t:encoder="personEncoder" 
-				t:include="id,firstname,lastname,startdate">[Persons Grid here]
+				t:include="id,firstname,lastname,startdate">
 				<p:firstNameCell>
 					<input t:id="firstName" t:type="TextField" t:value="person.firstName" t:validate="required, maxlength=10" size="10"/>
 

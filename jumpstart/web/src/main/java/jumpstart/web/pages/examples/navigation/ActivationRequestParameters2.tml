@@ -19,7 +19,7 @@
 	This page received <em>personid=${personId}</em>. Here is that Person:<br/>
 
 	<div class="eg">
-		<t:beandisplay object="person">[BeanDisplay here]</t:beandisplay>
+		<t:beandisplay object="person"/>
 	</div>
 
 	<strong>When to use activation request parameters instead of activation context?</strong> 

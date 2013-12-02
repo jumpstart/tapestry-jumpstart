@@ -17,7 +17,7 @@
 		<form t:type="form" t:id="deletables">
 			<t:errors globalOnly="true"/>
 			<table t:type="grid" t:source="persons" t:row="person" t:encoder="personEncoder" 
-				t:include="id,firstname,lastname,startdate" t:add="delete">[Persons Grid here]
+				t:include="id,firstname,lastname,startdate" t:add="delete">
 				<p:deleteCell>
 					<input t:id="delete" t:type="checkbox" value="delete"/>
 
