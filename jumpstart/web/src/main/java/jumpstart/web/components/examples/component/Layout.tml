@@ -2,22 +2,22 @@
 <!-- We need a DOCTYPE to allow us to use special characters like &nbsp; 
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	 <link rel="stylesheet" type="text/css" href="${asset:css/examples/layout.css}"/>
-</head>
 <body>
 
 	<div class="header">
 		<h1>The Layout Component</h1>
-		Here we show 2 pages that have the same layout: a colored margin, this text, some PageLinks, and the page's content.<br/> 
-		The way to do such a layout is to write a component to do it and have each page surround all their content with the<br/>
-		component. In this example the "layout component" is called <em>examples.component.Layout</em> and you can see it is <br/>
-		used by both pages in their outermost tag.<br/><br/>
+
+		Page 1 and 2 have the same layout: a colored margin, two PageLinks, and this text, around some content.<br/>  
+		We did this by writing a component that outputs all of that <em>and the contents of its body</em>.<br/> 
+		We called the component <em>Layout</em>, but we could have used any other name. <br/>
+		Then we put <em>Layout</em> in both pages, and moved the rest of their contents into <em>Layout's</em> body.<br/> 
+		So on display, their contents are inside Layout!<br/><br/>
 		
 		<div class="nav">
-			<a t:type="pagelink" t:page="examples/component/TheLayoutComponent1">Page 1</a>
-			<a t:type="pagelink" t:page="examples/component/TheLayoutComponent2">Page 2</a>
+			<t:pagelink page="examples/component/TheLayoutComponent1">Page 1</t:pagelink>
+			<t:pagelink page="examples/component/TheLayoutComponent2">Page 2</t:pagelink>
 		</div>
+
 	</div>
 	
 	<table class="middle">

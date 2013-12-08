@@ -1,5 +1,15 @@
 package jumpstart.web.pages.examples.ajax;
 
+
+
+
+// Started on, but need to figure out the js replacements for Tapestry.findZoneManager(element)
+// and Tapestry.FORM_PROCESS_SUBMIT_EVEN and Tapestry.TRIGGER_ZONE_UPDATE_EVENT .
+
+
+
+
+
 import org.apache.tapestry5.Asset;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -13,7 +23,7 @@ import org.apache.tapestry5.services.javascript.StylesheetLink;
 import org.apache.tapestry5.services.javascript.StylesheetOptions;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js/zone-overlay.js", stylesheet = "css/zone-overlay.css")
+@Import(stylesheet = {"css/examples/js.css", "css/examples/zone-overlay.css"})
 public class AjaxLoadingSpinner {
 	static final private String[] ALL_THINGS = { "Sugar", "Spice", "All Things Nice" };
 
@@ -37,7 +47,7 @@ public class AjaxLoadingSpinner {
 	private JavaScriptSupport javaScriptSupport;
 
 	@Inject
-	@Path("css/zone-overlay-ie.css")
+	@Path("css/examples/zone-overlay-ie.css")
 	private Asset ieCSS;
 
 	// The code
@@ -48,6 +58,7 @@ public class AjaxLoadingSpinner {
 		// @Import above except that it doesn't have the syntax to specify a condition.
 
 		javaScriptSupport.importStylesheet(new StylesheetLink(ieCSS, new StylesheetOptions().withCondition("IE")));
+		javaScriptSupport.require("zone-overlay");
 	}
 
 	Object onShowThings() {

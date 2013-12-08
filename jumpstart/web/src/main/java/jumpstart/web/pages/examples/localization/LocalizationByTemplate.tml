@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/localization.css}"/>
-</head>
 <body class="container">
 	<h3>Localization By Template</h3>
 	
@@ -18,29 +15,25 @@
 	</ul>
 
 	<div class="eg">
-		The current template is the second one.	Using the current locale, we get:<br/><br/>
+		The current template is the second one.	Using the current locale, we get:
 	
-		<table>
-			<tr>
-				<th>Locale code:</th><td>${currentLocale.toString()}</td>
-			</tr>
-			<tr>
-				<th>Locale name:</th><td>${currentLocale.getDisplayName()}</td>
-			</tr>
-			<tr>
-				<th>A date:</th><td><t:output value="date" format="prop:dateFormat"/></td>
-			</tr>
-			<tr>
-				<th>A number:</th><td><t:output value="number" format="prop:numberFormat"/></td>
-			</tr>
-	 	</table><br/>
+	 	<dl class="dl-horizontal well">
+	 		<dt>Locale code</dt>
+	 		<dd>${currentLocale.toString()}</dd>
+			<dt>Locale name</dt>
+			<dd>${currentLocale.getDisplayName()}</dd>
+			<dt>A date</dt>
+			<dd><t:output value="date" format="prop:dateFormat"/></dd>
+			<dt>A number</dt>
+			<dd><t:output value="number" format="prop:numberFormat"/></dd>
+	 	</dl>
 
 		The supported locales are defined in AppModule.  Our AppModule has ${supportedLocales.size()}.<br/><br/>
 	
 		Choose one: 
 		<t:loop source="supportedLocales" value="supportedLocale" index="var:index">
 			<t:if test="var:index">, </t:if>
-			<a href="#" t:type="eventlink" t:event="switchLocale" t:context="supportedLocale.toString()">${supportedLocale.getDisplayName()}</a>
+			<t:eventlink event="switchLocale" context="supportedLocale.toString()">${supportedLocale.getDisplayName()}</t:eventlink>
 		</t:loop>.
 	</div>	
 	
@@ -60,13 +53,13 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
 	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Rendervariables">Render Variables</a>.<br/><br/>
 	
-	<a t:type="PageLink" page="Index" href="#">Home</a><br/><br/>
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate_fr.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/localization.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/LocalesUtil.java"/>
 	</t:tabgroup>

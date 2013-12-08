@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Protecting Pages</h3>
 	
@@ -23,7 +20,7 @@
 
 	<div class="eg">
 		Here's a link to a "protected" page: 
-		<a t:type="pagelink" t:page="theapp/security/userview" t:context="literal:2">View admin user</a>. Try it!
+		<t:pagelink page="theapp/security/userview" context="literal:2">View admin user</t:pagelink>. Try it!
 	</div>
 	
 	For more elaborate security try <a href="http://tynamo.org/tapestry-security+guide">tapestry-security</a> 
@@ -40,7 +37,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ProtectingPages.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/theapp/security/UserView.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/annotation/ProtectedPage.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/PageProtectionFilter.java"/>

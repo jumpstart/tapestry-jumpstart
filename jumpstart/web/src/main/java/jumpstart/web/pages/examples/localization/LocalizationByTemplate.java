@@ -6,10 +6,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.LocalizationSetter;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class LocalizationByTemplate {
 
 	// Screen fields

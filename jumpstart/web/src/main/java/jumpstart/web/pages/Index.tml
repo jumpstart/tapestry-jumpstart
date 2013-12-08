@@ -157,7 +157,6 @@
 					<td class="col">
 						<div class="group">
 							<t:pagelink page="examples/tables/Grid">Grid</t:pagelink><br/>
-							<t:pagelink page="examples/tables/PreviewableGrid" t:disabled="true">Previewable Grid</t:pagelink><br/>
 							<t:pagelink page="examples/tables/StyledGrid">Styled Grid</t:pagelink><br/>
 							<t:pagelink page="examples/tables/SortedGrid">Sorted Grid</t:pagelink><br/>
 							<t:pagelink page="examples/tables/LinkingGrid1">Linking Grid</t:pagelink><br/>
@@ -190,7 +189,7 @@
 							<t:pagelink page="examples/lang/IfNotNegateSwitchElseUnless">If, Not, Negate, Switch, Else, Unless</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/infrastructure/ProtectingPages" t:disabled="true">Protecting Pages</t:pagelink><br/>
+							<t:pagelink page="examples/infrastructure/ProtectingPages">Protecting Pages</t:pagelink><br/>
 							<t:pagelink page="examples/infrastructure/ProtectingAssets" t:disabled="true">Protecting Assets</t:pagelink><br/>
 						</div>
 						<div class="group">
@@ -200,24 +199,24 @@
 							<t:pagelink page="core/t5dashboard">T5 Dashboard (localhost only)</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/localization/LocalizationByMessageCatalog" t:disabled="true">Localization By Message Catalog</t:pagelink><br/>
-							<t:pagelink page="examples/localization/LocalizationByTemplate" t:disabled="true">Localization By Template</t:pagelink><br/>
+							<t:pagelink page="examples/localization/LocalizationByMessageCatalog">Localization By Message Catalog</t:pagelink><br/>
+							<t:pagelink page="examples/localization/LocalizationByTemplate">Localization By Template</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/styling/SwitchableStylesheets" t:disabled="true">Switchable Stylesheets</t:pagelink><br/>
-							<t:pagelink page="examples/styling/SkinningTheming" t:disabled="true">Skinning/Theming</t:pagelink><br/>
+							<t:pagelink page="examples/styling/SwitchableStylesheets">Switchable Stylesheets</t:pagelink><br/>
+							<t:pagelink page="examples/styling/SkinningTheming">Skinning/Theming</t:pagelink><br/>
 						</div>
 					</td>
 					<td class="col">
 						<div class="group">
-							<t:pagelink page="examples/component/CreatingComponents" t:disabled="true">Creating Components</t:pagelink><br/>
-							<t:pagelink page="examples/component/ComponentAroundContent" t:disabled="true">Component Around Content</t:pagelink><br/>
-							<t:pagelink page="examples/component/TheLayoutComponent1" t:disabled="true">The Layout Component</t:pagelink><br/>
+							<t:pagelink page="examples/component/CreatingComponents">Creating Components</t:pagelink><br/>
+							<t:pagelink page="examples/component/ComponentAroundContent">Component Around Content</t:pagelink><br/>
+							<t:pagelink page="examples/component/TheLayoutComponent1">The Layout Component</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/component/ThirdPartyComponents" t:disabled="true">Third-Party Components</t:pagelink><br/>
 							<t:pagelink page="examples/component/CombiningComponents" t:disabled="true">Combining Components</t:pagelink><br/>
-							<t:pagelink page="examples/component/WrappingTapestryComponents" t:disabled="true">Wrapping Tapestry Components</t:pagelink><br/>
+							<t:pagelink page="examples/component/WrappingTapestryComponents">Wrapping Tapestry Components</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/component/EventBubbling" t:disabled="true">Event Bubbling</t:pagelink><br/>
+							<t:pagelink page="examples/component/EventBubbling">Event Bubbling</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>
@@ -232,8 +231,8 @@
 							<t:pagelink page="examples/component/SubFormAsAField1" t:disabled="true">Sub-Form As a Field</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/component/MarkupWriter" t:disabled="true">MarkupWriter</t:pagelink><br/>
-							<t:pagelink page="examples/lang/DelegateToRenderable" t:disabled="true">Delegate to Renderable</t:pagelink><br/>
+							<t:pagelink page="examples/component/MarkupWriter">MarkupWriter</t:pagelink><br/>
+							<t:pagelink page="examples/lang/DelegateToRenderable">Delegate to Renderable</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/lang/Mixins" t:disabled="true">Mixins</t:pagelink><br/>
@@ -298,9 +297,7 @@
 							<t:pagelink page="examples/javascript/Scriptaculous" t:disabled="true">script.aculo.us</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/javascript/JQuery" t:disabled="true">jQuery</t:pagelink><br/>
-							<!-- 
 							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
-							 -->
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/navigation/Tabs">Tabs</t:pagelink><br/>

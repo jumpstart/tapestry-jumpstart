@@ -14,7 +14,7 @@
 		<a href="http://tapestry.apache.org/layout-component.html">Layout Component</a>,
 		<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Abody%3EElement">t:body</a>.<br/><br/>
 		
-		<a t:type="pagelink" t:page="Index">Home</a>
+		<t:pagelink page="Index">Home</t:pagelink>
 	</div>
 	
 	<t:tabgroup>

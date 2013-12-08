@@ -3,42 +3,45 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${stylesheet}"/>
-</head>
 <body class="container">
 	<h3>Switchable Stylesheets</h3>
 
-	This page can switch between 2 different stylesheets: <em>css/examples/examples.css</em> and <em>css/switched.css</em>.
+	This page can switch between 2 different stylesheets: <em>css/examples/plain.css</em> and <em>css/switched.css</em>.
 	
 	<div class="eg">
-		<form t:type="form" t:id="inputs">
-			<table>
-				<tr>
-					<th>First Name:</th>
-					<td><input t:type="TextField" t:value="firstName"/></td>
-				</tr>
-				<tr>
-					<th>Last Name:</th>
-					<td><input t:type="TextField" t:value="lastName"/></td>
-				</tr>
-			</table>
-			
-			<input type="submit" value="Switch Style"/>
-		</form>
+		<t:form t:id="names" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="firstName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="firstName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="lastName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="lastName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-2">
+					<t:submit value="Switch Style"/>
+				</div>
+			</div>
+		</t:form>
 	</div>
 	
 	References: 
 	<a href="http://www.w3.org/Style/CSS/">Cascading Style Sheets</a>, 
 	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>, 
-	<a href="http://tapestry.apache.org/assets.html">Assets</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/assets.html">Assets</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/SwitchableStylesheets.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/SwitchableStylesheets.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/switched.css"/>
 	</t:tabgroup>
 </body>

@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Creating Components</h3>
 
@@ -13,7 +10,7 @@
 
 	This page shows how simple it can be to create a component.<br/><br/>
 	
-	Components have a lot in common with pages:<br/>
+	<p>Components have a lot in common with pages:</p>
 	<ul>
 		<li>A component <em>must</em> have a 
 		<a href="http://tapestry.apache.org/component-classes.html">Class</a>.</li>
@@ -28,7 +25,7 @@
 	Instead of rendering from a <em>template</em>, a page or component can render a DOM directly with 
 	Tapestry's <em>MarkupWriter</em>. For more, see the MarkupWriter example.<br/><br/> 
 		
-	Components have some differences to pages:<br/>
+	<p>Components have some differences to pages:</p>
 	<ul>
 		<li>They reside under the <code>components</code> package, not the <code>pages</code> package.</li>
 		<li>They can receive 
@@ -57,9 +54,10 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/CreatingComponents.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/CreatingComponents.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplay.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/BoldItalicDisplay.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/bolditalicdisplay.css"/>
 	</t:tabgroup>
 </body>
 </html>
