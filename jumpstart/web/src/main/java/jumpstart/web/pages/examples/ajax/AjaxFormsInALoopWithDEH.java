@@ -12,11 +12,10 @@ import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.commons.EvenOdd;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
@@ -25,6 +24,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
+@Import(stylesheet = "css/examples/ajaxformsinaloop.css")
 public class AjaxFormsInALoopWithDEH {
 	static private final int MAX_RESULTS = 30;
 
@@ -40,20 +40,11 @@ public class AjaxFormsInALoopWithDEH {
 	private boolean editing;
 
 	@Property
-	private EvenOdd evenOdd;
-
-	@Property
 	private final String BAD_NAME = "Acme";
-
-	@Property
-	@Persist
-	private boolean highlightZoneUpdates;
 
 	// Work fields
 
 	private boolean loadingLoop;
-
-	private Actions action;
 
 	private Long personId;
 
@@ -83,10 +74,6 @@ public class AjaxFormsInALoopWithDEH {
 	@Inject
 	private Locale currentLocale;
 
-	private enum Actions {
-		TO_EDIT, CANCEL, SAVE;
-	}
-
 	// The code
 
 	void onActivate() {
@@ -98,8 +85,6 @@ public class AjaxFormsInALoopWithDEH {
 
 		// Get all persons - ask business service to find them (from the database)
 		persons = personFinderService.findPersons(MAX_RESULTS);
-
-		evenOdd = new EvenOdd();
 	}
 
 	void onPrepareForRenderFromPersonForm(Long personId) {
@@ -132,58 +117,33 @@ public class AjaxFormsInALoopWithDEH {
 		}
 	}
 
-	void onSelectedFromEdit() {
-		action = Actions.TO_EDIT;
-	}
-
-	void onSelectedFromSave() {
-		action = Actions.SAVE;
-	}
-
-	void onSelectedFromCancel() {
-		action = Actions.CANCEL;
-	}
-
 	void onValidateFromPersonForm() {
 
-		if (action == Actions.SAVE) {
-
-			if (personForm.getHasErrors()) {
-				// We get here only if a server-side validator detected an error.
-				return;
-			}
-
-			// Simulate a server-side validation error: return error if anyone's first name is BAD_NAME.
-
-			if (person.getFirstName() != null && person.getFirstName().equals(BAD_NAME)) {
-				personForm.recordError("First name cannot be " + BAD_NAME + ".");
-				return;
-			}
-
-			try {
-				personManagerService.changePerson(person);
-			}
-			catch (Exception e) {
-				// Display the cause. In a real system we would try harder to get a user-friendly message.
-				personForm.recordError(ExceptionUtil.getRootCauseMessage(e));
-			}
-
+		if (personForm.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
 		}
-		else if (action == Actions.TO_EDIT) {
-			// Do nothing - there may be an error so don't clear the form.
+
+		// Simulate a server-side validation error: return error if anyone's first name is BAD_NAME.
+
+		if (person.getFirstName() != null && person.getFirstName().equals(BAD_NAME)) {
+			personForm.recordError("First name cannot be " + BAD_NAME + ".");
+			return;
 		}
-		else if (action == Actions.CANCEL) {
-			personForm.clearErrors();
+
+		try {
+			personManagerService.changePerson(person);
 		}
-		else {
-			throw new IllegalStateException(action.name());
+		catch (Exception e) {
+			// Display the cause. In a real system we would try harder to get a user-friendly message.
+			personForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
 
 	}
 
 	void onSuccessFromPersonForm() {
 
-		editing = action == Actions.TO_EDIT;
+		editing = false;
 
 		if (request.isXHR()) {
 			ajaxResponseRenderer.addRender(rowZone);
@@ -192,7 +152,27 @@ public class AjaxFormsInALoopWithDEH {
 
 	void onFailureFromPersonForm() {
 
-		editing = action == Actions.SAVE;
+		editing = true;
+
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(rowZone);
+		}
+	}
+
+	void onToEdit(Long personId) {
+		this.personId = personId;
+		person = personFinderService.findPerson(personId);
+		editing = true;
+
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(rowZone);
+		}
+	}
+
+	void onCancel(Long personId) {
+		this.personId = personId;
+		person = personFinderService.findPerson(personId);
+		editing = false;
 
 		if (request.isXHR()) {
 			ajaxResponseRenderer.addRender(rowZone);
@@ -219,10 +199,6 @@ public class AjaxFormsInALoopWithDEH {
 
 	public boolean isPersonFormHasErrors() {
 		return personForm.getHasErrors();
-	}
-
-	public String getZoneUpdateFunction() {
-		return highlightZoneUpdates ? "highlight" : "show";
 	}
 
 }

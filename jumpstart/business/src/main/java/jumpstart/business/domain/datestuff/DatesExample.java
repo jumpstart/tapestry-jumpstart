@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 
 import jumpstart.util.JodaTimeUtil;
 
@@ -47,7 +48,8 @@ public class DatesExample implements Serializable {
 	@Temporal(TemporalType.TIME)
 	private java.util.Date aTime;
 
-	// These fields are exposed as Joda Time types but persisted as standard Java types (Date, Timestamp, String, Integer).
+	// These fields are exposed as Joda Time types but persisted as standard Java types (Date, Timestamp, String,
+	// Integer).
 
 	private java.sql.Timestamp aDateTime;
 
@@ -55,6 +57,8 @@ public class DatesExample implements Serializable {
 
 	private String aDateTimeTZ;
 
+	// This JSR-303 validation will be picked up by Form. For BeanEditForm, we also annotate the getter.
+	@NotNull
 	private java.sql.Date aDateMidnight;
 
 	private java.sql.Date aDateMidnightWithTZ;
@@ -63,6 +67,8 @@ public class DatesExample implements Serializable {
 
 	private java.sql.Timestamp aLocalDateTime;
 
+	// This JSR-303 validation will be picked up by Form. For BeanEditForm, we also annotate the getter.
+	@NotNull
 	private java.sql.Date aLocalDate;
 
 	private java.sql.Time aLocalTimeAsTime;
@@ -73,7 +79,7 @@ public class DatesExample implements Serializable {
 
 	public String toString() {
 		final String DIVIDER = ", ";
-		
+
 		StringBuilder buf = new StringBuilder();
 		buf.append(this.getClass().getSimpleName() + ": ");
 		buf.append("[");
@@ -162,6 +168,8 @@ public class DatesExample implements Serializable {
 		this.aDateTimeTZ = JodaTimeUtil.toTimeZoneID(dt);
 	}
 
+	// This JSR-303 validation will be picked up by BeanEditForm. For Form, we also annotate the field.
+	@NotNull
 	public DateMidnight getADateMidnight() {
 		return JodaTimeUtil.toDateMidnight(aDateMidnight);
 	}
@@ -187,6 +195,8 @@ public class DatesExample implements Serializable {
 		this.aLocalDateTime = JodaTimeUtil.toSQLTimestamp(ldt);
 	}
 
+	// This JSR-303 validation will be picked up by BeanEditForm. For Form, we also annotate the field.
+	@NotNull
 	public LocalDate getALocalDate() {
 		return JodaTimeUtil.toLocalDate(aLocalDate);
 	}

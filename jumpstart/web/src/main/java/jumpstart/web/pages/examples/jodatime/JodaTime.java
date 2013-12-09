@@ -7,11 +7,13 @@ import javax.ejb.EJB;
 import jumpstart.business.domain.datestuff.DatesExample;
 import jumpstart.business.domain.datestuff.iface.IDateStuffServiceLocal;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 
+@Import(stylesheet = "css/examples/jodatime.css")
 public class JodaTime {
 
 	// Screen fields

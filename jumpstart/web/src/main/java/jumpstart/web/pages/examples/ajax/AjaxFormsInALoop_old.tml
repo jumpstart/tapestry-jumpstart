@@ -3,6 +3,9 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/ajaxformsinaloop.css}"/>
+</head>
 <body class="container">
 	<h3>Ajax Forms in a Loop</h3>
 
@@ -14,7 +17,7 @@
 
 	<div class="eg">
 	
-		<table id="personsTable" class="table table-striped table-hover table-condensed">
+		<table id="personsTable" class="outer">
 			<thead>
 				<tr>
 					<th>
@@ -35,14 +38,14 @@
 			</thead>
 			<tbody>
 				<t:Loop t:source="persons" t:value="person">
-					<tr t:type="zone" t:id="rowZone" id="prop:currentRowZoneId">
+					<tr t:type="Zone" t:id="rowZone" id="prop:currentRowZoneId">
 						<td>
-							<t:form t:id="personForm" context="person.id" zone="^" validate="person">
+							<form t:id="personForm" t:type="form" t:context="person.id" t:zone="^" t:clientValidation="none">
 								<table class="inner">
 									<tbody>
 										<tr>
 											<td>
-												<span t:type="any">${person.id}</span>
+												<span t:type="any" id="personId">${person.id}</span>
 
 												<!-- If optimistic locking is not needed then comment out this next line. -->
 												<t:hidden value="person.version"/>
@@ -52,7 +55,7 @@
 													${person.firstName}
 												</t:if>
 												<t:if test="editing">
-													<t:textfield t:id="firstName" value="person.firstName"/>
+													<input t:type="TextField" t:id="firstName" value="person.firstName" t:validate="required, maxlength=10" size="10"/>
 												</t:if>
 											</td>
 											<td>
@@ -66,7 +69,7 @@
 													${personRegion}
 												</t:if>
 												<t:if test="editing">
-													<t:select t:id="region" value="person.region"/>
+													<input t:type="Select" t:id="region" value="person.region"/>
 												</t:if>
 											</td>
 											<td>
@@ -74,16 +77,16 @@
 													<t:output t:value="person.startDate" t:format="prop:dateFormat"/>
 												</t:if>
 												<t:if test="editing">
-													<t:datefield t:id="startDate" value="person.startDate" format="prop:dateFormat"/>
+													<input t:type="DateField" t:id="startDate" t:value="person.startDate" t:format="prop:dateFormat" size="10"/>
 												</t:if>
 											</td>
 											<td>
 												<t:if test="!editing">
-											 		<t:eventlink event="toEdit" context="person.id" zone="^" class="btn btn-default">Edit</t:eventlink>
+											 		<input t:type="submit" t:id="edit" value="Edit" t:mode="cancel"/>
 												</t:if>
 												<t:if test="editing">
-											 		<t:submit t:id="save" value="Save"/>
-											 		<t:eventlink event="cancel" context="person.id" zone="^" class="btn btn-default">Cancel</t:eventlink>
+											 		<input t:type="submit" t:id="save" value="Save"/>
+											 		<input t:type="submit" t:id="cancel" value="Cancel" t:mode="cancel"/>
 												</t:if>
 											</td>
 										</tr>
@@ -96,7 +99,7 @@
 										</t:if>
 									</tbody>
 								</table>
-							</t:form>
+							</form>
 						</td>
 					</tr>
 				</t:Loop>

@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>ProgressiveDisplay Variations</h3>
 
@@ -16,52 +13,52 @@
 	More than one ProgressiveDisplay can be used on a page.
 
 	<div class="eg">
-		<t:ProgressiveDisplay t:id="showOne">
+		<t:progressivedisplay t:id="showOne">
 			Operation One has ended.
-	 	</t:ProgressiveDisplay><br/>
+	 	</t:progressivedisplay><br/>
 	
-		<t:ProgressiveDisplay t:id="showTwo">
+		<t:progressivedisplay t:id="showTwo">
 			Operation Two has ended.
-	 	</t:ProgressiveDisplay>
+	 	</t:progressivedisplay>
 	</div>
 
 	ProgressiveDisplay can have a context.
 
 	<div class="eg">
-		<t:ProgressiveDisplay t:id="showThree" t:context="literal:3000">
+		<t:progressivedisplay t:id="showThree" t:context="literal:3000">
 			Operation Three slept ${sleepTimeMillis} milliseconds.
-	 	</t:ProgressiveDisplay>
+	 	</t:progressivedisplay>
 	 </div>
 
 	ProgressiveDisplay can display something other than "Loading...".
 
 	<div class="eg">
-		<t:ProgressiveDisplay t:id="showFour" t:initial="block:loadingBlock">
+		<t:progressivedisplay t:id="showFour" t:initial="block:loadingBlock">
 			Operation Four has ended.
-	 	</t:ProgressiveDisplay>
+	 	</t:progressivedisplay>
 	</div>
 
 	You can replace the yellow "highlight" effect with "show", "fade", "slidedown", or "slideup".<br/>
 	FYI, they are the names of the functions in Tapestry.ElementEffect which is found in Tapestry's javascript file, tapestry.js.
 
 	<div class="eg">
-		<t:ProgressiveDisplay t:id="showFive" t:update="slidedown">
+		<t:progressivedisplay t:id="showFive" t:update="slidedown">
 			Operation Five has ended.<br/>
 			Operation Five has ended.<br/>
 			Operation Five has ended.<br/>
 			Operation Five has ended.<br/>
 			Operation Five has ended.
-	 	</t:ProgressiveDisplay>
+	 	</t:progressivedisplay>
 	 </div>
 
 	ProgressiveDisplay does not have to wrap the eventual output - the event handler can return a renderable object instead.
  	
 	<div class="eg">
-		<t:ProgressiveDisplay t:id="showSix"/>
+		<t:progressivedisplay t:id="showSix"/>
 	</div>
 	
  	<t:block t:id="loadingBlock">
- 		<div style="font-weight: bold; text-decoration: blink;">
+ 		<div style="font-weight: bold;">
 	 		Please wait for operation four to end...
  		</div>
  	</t:block>

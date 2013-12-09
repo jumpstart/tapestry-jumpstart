@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/ajax_filtered_grid.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX Filtered Grid</h3>
 	
@@ -18,29 +15,34 @@
 	The sorting and paging links of the Grid send AJAX requests because we specified <em>t:inplace="true"</em>.
 	
 	<div class="eg">
-		<form t:type="form" t:id="filterCriteria" t:zone="personsZone" class="filter">
+		<t:form t:id="filterCriteria" zone="personsZone" class="form-inline">
 		
 			<!-- On change of a Select, we do an javascript click of an invisible submit button.
 				Note: do not use "this.form.performSubmit()" because on an AJAX Form it fails in Firefox. -->
 	
-			<t:label for="firstInitial"/>: 
-			<select t:type="select" t:id="firstInitial" t:model="firstInitials" 
-				onchange="document.getElementById('filterSubmit').click()"/>
+			<div class="form-group">
+				<t:label for="firstInitial"/>: 
+				<t:select t:id="firstInitial" model="firstInitials" onchange="document.getElementById('filterSubmit').click()" secure="literal:never"/>
+			</div>
 	
-			<t:label for="lastInitial"/>: 
-			<select t:type="select" t:id="lastInitial" t:model="lastInitials" 
-				onchange="document.getElementById('filterSubmit').click()"/>
+			<div class="form-group">
+				<t:label for="lastInitial"/>: 
+				<t:select t:id="lastInitial" model="lastInitials" onchange="document.getElementById('filterSubmit').click()" secure="literal:never"/>
+			</div>
 	
-			<t:label for="region"/>: 
-			<select t:type="select" t:id="region" 
-				onchange="document.getElementById('filterSubmit').click()"/>
+			<div class="form-group">
+				<t:label for="region"/>: 
+				<t:select t:id="region" onchange="document.getElementById('filterSubmit').click()" secure="literal:never"/>
+			</div>
 	
-			<input type="submit" id="filterSubmit" style="display: none;"/>
-		</form>
+			<div class="form-group">
+				<t:submit t:id="filterSubmit" id="filterSubmit" style="display: none;"/>
+			</div>
+		</t:form>
 
 		<div>
 			<t:zone t:id="personsZone" id="personsZone">
-				<table t:type="grid" id="grid" t:source="persons" t:rowsPerPage="4" t:pagerPosition="bottom" t:inplace="true">[Grid here]</table>
+				<t:grid id="grid" source="persons" rowsPerPage="4" pagerPosition="bottom" inplace="true"/>
 			</t:zone>
 		</div>
 	</div>
@@ -65,8 +67,10 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFilteredGrid.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFilteredGrid.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFilteredGrid.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajax_filtered_grid.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxfilteredgrid.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ajax/PersonFilteredDataSource.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/query/SortCriterion.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/util/query/SortDirection.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>

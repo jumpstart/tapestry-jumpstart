@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>ProgressiveDisplay</h3>
 
@@ -13,24 +10,25 @@
 		${message:javascript_required}
 	</noscript> 	
 
-	The ProgressiveDisplay component lets you run an operation in the background, auto-updating the page when it has finished, like this...<br/>
+	The ProgressiveDisplay component lets you run an operation in the background, 
+	auto-updating the page when it has finished, like this...<br/>
 
 	<div class="eg">
-		<t:ProgressiveDisplay t:id="showThings">
-			<div t:type="Loop" t:source="things" t:value="thing">
+		<t:progressivedisplay t:id="showThings">
+			<t:loop source="things" value="thing" element="div">
 				${thing}
-			</div>
-	 	</t:ProgressiveDisplay>
+			</t:loop>
+	 	</t:progressivedisplay>
 	</div>	
 
-	To use ProgressiveDisplay like this, here is all you do:<br/>
+	<p>To use ProgressiveDisplay like this, here is all you do:</p>
 
 	<ol>
 		<li>In the template, wrap ProgressiveDisplay around the eventual output of your operation.</li>
 		<li>In the class, put the operation in a method that handles the PROGRESSIVE_DISPLAY event.</li>
 	</ol>
 
-	Behind the scenes, this is what it does:<br/>
+	<p>Behind the scenes, this is what it does:</p>
 
 	<ul>
 		<li>As the page renders, ProgressiveDisplay ignores its body, renders "Loading..." instead, and adds some javascript to the page.</li>

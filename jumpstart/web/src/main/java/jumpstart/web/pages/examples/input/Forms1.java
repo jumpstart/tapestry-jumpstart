@@ -1,7 +1,6 @@
 package jumpstart.web.pages.examples.input;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.apache.tapestry5.annotations.Component;

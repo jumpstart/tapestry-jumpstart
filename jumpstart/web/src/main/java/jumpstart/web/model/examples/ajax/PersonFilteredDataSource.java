@@ -38,6 +38,7 @@ public class PersonFilteredDataSource implements GridDataSource {
 	public void prepare(final int startIndex, final int endIndex, final List<SortConstraint> sortConstraints) {
 
 		// Get a filtered page of persons - ask business service to find them (from the database)
+		
 		List<SortCriterion> sortCriteria = toSortCriteria(sortConstraints);
 		preparedResults = personFinderService.findPersons(firstInitial, lastInitial, region, startIndex, endIndex
 				- startIndex + 1, sortCriteria);

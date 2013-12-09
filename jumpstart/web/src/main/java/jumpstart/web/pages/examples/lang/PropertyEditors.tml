@@ -3,15 +3,12 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Property Editors</h3>
 	
 	This example demonstrates adding your own property editors, allowing Grid, BeanDisplay, and BeanEditor to display/edit unusual property types.<br/><br/>
 	
-	A property editor is made up of two parts:
+	<p>A property editor is made up of two parts:</p>
 	<ol>
 		<li>A <strong>data type analyzer</strong>, able to recognise when a property is of a type that the editor can handle.</li>
 		<li>A <strong>display block</strong> and/or <strong>edit block</strong>, to display and/or edit the property.</li>
@@ -27,7 +24,7 @@
 	Tapestry comes with edit blocks for text, number, enum, date, and more. 
 	See <a href="http://tapestry.apache.org/beaneditform-guide.html#BeanEditFormGuide-SupportedTypes">here</a>.<br/><br/>
 
-	In JumpStart we have added to the list of supported types by contributing property editors for certain Joda Time properties:
+	<p>In JumpStart we have added to the list of supported types by contributing property editors for certain Joda Time properties:</p>
 	<ol>
 		<li>We contributed <strong>DataTypeAnalyzers</strong> to detect 5 types: DateTime, DateMidnight, LocalDateTime, LocalDate, and LocalTime.</li>
 		<li>We contributed BeanBlockSource <strong>display blocks</strong> for all 5 types and <strong>edit blocks</strong> for 2 of them: DateMidnight and LocalDate.</li>
@@ -43,7 +40,7 @@
 	Here is what BeanEditForm can do with the same DatesExample object. It makes use of our 2 contributed edit blocks.
 	
 	<div class="eg">	
-		<t:beaneditform t:id="updateDates" object="datesExample" submitLabel="Save" include="adatemidnight,alocaldate"/>
+		<t:beaneditform t:id="updateDates" object="datesExample" include="adatemidnight,alocaldate" submitLabel="Save"/>
 	</div>
  		
 	References: 
@@ -66,12 +63,12 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/PropertyEditors.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyDisplayBlocks.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/infra/AppPropertyEditBlocks.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
 	</t:tabgroup>

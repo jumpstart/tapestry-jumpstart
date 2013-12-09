@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>Ajax EventLinks in a Loop</h3>
 
@@ -14,14 +11,7 @@
 	</noscript> 	
 
 	<div class="eg">
-		<form t:type="form" t:id="preferencesForm">
-			Highlight zone updates? 
-			 <input t:type="checkbox" t:id="highlightZoneUpdates" value="highlightZoneUpdates" onclick="this.form.submit()"/>
-			This shows you which zones are updated by the Ajax response. <br/>
-			Note that it upsets our hover highlighting due to <a href="https://issues.apache.org/jira/browse/TAP5-2014">TAP5-2014</a>.
-		</form><br/>
-	
-		<table class="grid">
+		<table class="table table-striped table-hover table-condensed">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -32,30 +22,30 @@
 				</tr>
 			</thead>
 			<tbody>
-				<t:Loop t:source="persons" t:value="person">
-					<tr t:type="Zone" t:id="rowZone" id="prop:currentRowZoneId" class="prop:evenodd.next" t:update="prop:zoneUpdateFunction">
+				<t:loop t:source="persons" t:value="person">
+					<tr t:type="zone" t:id="rowZone" id="prop:currentRowZoneId">
 						<td>${person.id}</td>
 						<td>${person.firstName}</td>
 						<td>${person.lastName}</td>
 						<td>
 							<!-- Using images from http://www.clker.com/clipart-6514.html and http://www.clker.com/clipart-6518.htm -->
 							<t:if test="started">
-								<img src="${context:images/led_circle_green.svg.thumb.png}" style="height: 16px;"/> 
+								<img src="${asset:images/led_circle_green.svg.thumb.png}" style="height: 16px;"/> 
 							</t:if> 
 							<t:if test="!started">
-								<img src="${context:images/led_circle_red.svg.thumb.png}" style="height: 16px;"/> 
+								<img src="${asset:images/led_circle_red.svg.thumb.png}" style="height: 16px;"/> 
 							</t:if>
 						</td>
 						<td>
 							<t:if test="started">
-								<a t:type="eventlink" t:event="stop" t:context="person.id" t:zone="^" href="#">Stop</a>
+								<t:eventlink event="stop" context="person.id" zone="^">Stop</t:eventlink>
 							</t:if>
 							<t:if test="!started">
-								<a t:type="eventlink" t:event="start" t:context="person.id" t:zone="^" href="#">Start</a>
+								<t:eventlink event="start" context="person.id" zone="^">Start</t:eventlink>
 							</t:if>
 						</td>
 					</tr>
-				</t:Loop>
+				</t:loop>
 			</tbody>
 	 	</table>
 	 </div>

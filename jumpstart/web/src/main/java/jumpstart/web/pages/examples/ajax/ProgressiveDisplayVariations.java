@@ -1,13 +1,15 @@
 package jumpstart.web.pages.examples.ajax;
 
 import org.apache.tapestry5.Block;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/examples/js.css")
 public class ProgressiveDisplayVariations {
 
 	// Screen fields
-	
+
 	@Property
 	private int sleepTimeMillis;
 

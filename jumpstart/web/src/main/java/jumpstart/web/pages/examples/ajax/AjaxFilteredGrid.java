@@ -12,6 +12,7 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.web.model.examples.ajax.PersonFilteredDataSource;
 
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
@@ -20,6 +21,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
+@Import(stylesheet = "css/examples/ajaxfilteredgrid.css")
 public class AjaxFilteredGrid {
 	static private final int MAX_RESULTS = 30;
 

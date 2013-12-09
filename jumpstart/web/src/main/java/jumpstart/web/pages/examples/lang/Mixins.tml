@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>Mixins</h3>
 	
@@ -19,23 +16,25 @@
 	to add behaviour to a TextField.
 
 	<div class="eg">
-		<form t:type="Form" t:id="names">
-			<t:errors globalOnly="true"/>
-			<table>
-				<tr>
-					<td>First Name:</td>
-					<td><input t:type="TextField" t:id="firstName"/></td>
-				</tr>
-				<tr>
-					<td>Last Name:</td>
-					<td><input t:type="TextField" t:id="lastName" t:mixins="OverrideFieldFocus"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Display"/></td>
-				</tr>
-			</table>
-		</form>
+		<t:form t:id="names" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="firstName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="firstName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="lastName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="lastName" t:mixins="OverrideFieldFocus"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-2">
+					<t:submit/>
+				</div>
+			</div>
+		</t:form>
 	 </div>
 
 	To create your own mixins see the next example.<br/><br/>
@@ -47,16 +46,10 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	The source for @EJB handling, etc. is shown in the @EJB example.<br/><br/>
-
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/Mixins.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/Mixins.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/GridSortingDisabler.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>
 </body>
 </html>

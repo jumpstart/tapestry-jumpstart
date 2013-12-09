@@ -235,15 +235,15 @@
 							<t:pagelink page="examples/lang/DelegateToRenderable">Delegate to Renderable</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/lang/Mixins" t:disabled="true">Mixins</t:pagelink><br/>
-							<t:pagelink page="examples/lang/CreatingMixins" t:disabled="true">Creating Mixins</t:pagelink><br/>
+							<t:pagelink page="examples/lang/Mixins">Mixins</t:pagelink><br/>
+							<t:pagelink page="examples/lang/CreatingMixins">Creating Mixins</t:pagelink><br/>
 						</div>
 						<div class="group">
-			 				<t:pagelink page="examples/jodatime/jodatime" t:disabled="true">Joda Time</t:pagelink><br/>
+			 				<t:pagelink page="examples/jodatime/jodatime">Joda Time</t:pagelink><br/>
 			 			</div>
 						<div class="group">
-			 				<t:pagelink page="examples/lang/TypeCoercers" t:disabled="true">Type Coercers</t:pagelink><br/>
-			 				<t:pagelink page="examples/lang/PropertyEditors" t:disabled="true">Property Editors</t:pagelink><br/>
+			 				<t:pagelink page="examples/lang/TypeCoercers">Type Coercers</t:pagelink><br/>
+			 				<t:pagelink page="examples/lang/PropertyEditors">Property Editors</t:pagelink><br/>
 			 			</div>
 						<div class="group">
 							<t:pagelink page="examples/wizard/WizardUsingFormFragments" t:disabled="true">Wizard Using Form Fragments</t:pagelink><br/>
@@ -267,18 +267,18 @@
 					</td>
 					<td class="col">
 						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxEventLinksInALoop" t:disabled="true">AJAX EventLinks in a Loop</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxFormsInALoop" t:disabled="true">AJAX Forms in a Loop</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxFormsInALoopWithDEH" t:disabled="true">AJAX Forms in a Loop (With DEH)</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxEventLinksInALoop">AJAX EventLinks in a Loop</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormsInALoop">AJAX Forms in a Loop</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormsInALoopWithDEH">AJAX Forms in a Loop (With DEH)</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/ajax/AjaxFilteredGrid" t:disabled="true">AJAX Filtered Grid</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFilteredGrid">AJAX Filtered Grid</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/ajax/AutocompleteMixin" t:disabled="true">Autocomplete Mixin</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/ajax/TreeFromDatabaseWithZones" t:disabled="true">Tree From Database, With Zones</t:pagelink><br/> 
 							<br/>
-							<t:pagelink page="examples/ajax/ProgressiveDisplay" t:disabled="true">ProgressiveDisplay</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/ProgressiveDisplayVariations" t:disabled="true">ProgressiveDisplay Variations</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/ProgressiveDisplay">ProgressiveDisplay</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/ProgressiveDisplayVariations">ProgressiveDisplay Variations</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/ajax/AjaxFormLoop1" t:disabled="true">AjaxFormLoop</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormLoopWithHolders1" t:disabled="true">AjaxFormLoop With Holders</t:pagelink><br/>

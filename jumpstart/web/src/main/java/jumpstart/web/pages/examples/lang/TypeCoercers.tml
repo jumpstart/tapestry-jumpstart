@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Type Coercers</h3>
 	
@@ -21,22 +18,26 @@
 	To achieve this, we have contributed 4 type coercers. You can see the contribution in AppModule, below.<br/>
 
 	<div class="eg">
-		<form t:type="form" t:id="dates">
-			<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
-	 		<t:hidden value="datesExample.version"/>
-	
-			<!-- In future I'd like to add t:validate="date,minDate=${minDate},maxDate=${maxDate}" to this input... -->
-			
-			<input t:type="datefield" value="datesExample.aDateMidnight" t:format="prop:dateFieldFormat" t:validate="required"/>&nbsp;
-				org.joda.time.DateMidnight<br/><br/>
-	
-			<input t:type="datefield" value="datesExample.aLocalDate" t:format="prop:dateFieldFormat" t:validate="required"/>&nbsp;
-				org.joda.time.LocalDate<br/><br/>
-	
-	 		<t:errors globalOnly="true"/>
-			<input t:type="submit" value="Save"/>
-		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
-		</form>
+		<t:form t:id="dates" class="form-horizontal" validate="datesExample">
+			<div class="form-group">
+				<t:label class="col-sm-4" for="aDateMidnight"/>
+				<div class="col-sm-4">
+					<t:datefield t:id="aDateMidnight" value="datesExample.aDateMidnight" format="prop:dateFieldFormat"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4" for="aLocalDate"/>
+				<div class="col-sm-4">
+					<t:datefield t:id="aLocalDate" value="datesExample.aLocalDate" format="prop:dateFieldFormat"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-4">
+					<t:submit value="Save"/>
+				 	<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>
+				</div>
+			</div>
+		</t:form>
 	</div>
 	
 	To help you debug coercions, you can ask the TypeCoercer service to 
@@ -50,6 +51,7 @@
 	</div> 
 			
 	References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://tapestry.apache.org/type-coercion.html">Type Coercion</a>, 
 	<a href="http://tapestry.apache.org/typecoercer-service.html">TypeCoercer Service</a>, 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ioc/services/TypeCoercer.html">TypeCoercer</a>, 
@@ -62,8 +64,9 @@
 
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/lang/TypeCoercers.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DateStuffService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/datestuff/DatesExample.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
