@@ -293,7 +293,7 @@
 	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/gracefulajaxfiltercrud.css"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/together/PersonFilteredDataSource.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

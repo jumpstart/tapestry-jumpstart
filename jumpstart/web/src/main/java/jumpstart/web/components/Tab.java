@@ -3,7 +3,7 @@
 
 package jumpstart.web.components;
 
-import jumpstart.web.model.TabTracker;
+import jumpstart.web.models.TabTracker;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ComponentResources;

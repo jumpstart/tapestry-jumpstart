@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import jumpstart.web.model.TabTracker;
+import jumpstart.web.models.TabTracker;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.MarkupWriter;

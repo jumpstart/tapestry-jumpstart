@@ -1,7 +1,7 @@
 package jumpstart.web.pages.examples.wizard;
 
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.model.Conversations;
+import jumpstart.web.models.Conversations;
 import jumpstart.web.pages.Index;
 import jumpstart.web.state.examples.wizard.CreditRequest;
 

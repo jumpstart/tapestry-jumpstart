@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import jumpstart.business.domain.dewey.Classification;
 import jumpstart.business.domain.dewey.iface.ClassificationNode;
 import jumpstart.business.domain.dewey.iface.IDeweyFinderServiceLocal;
-import jumpstart.web.model.examples.tree.ClassificationTreeModelAdapter;
+import jumpstart.web.models.examples.tree.ClassificationTreeModelAdapter;
 import jumpstart.web.pages.Index;
 
 import org.apache.tapestry5.ComponentResources;

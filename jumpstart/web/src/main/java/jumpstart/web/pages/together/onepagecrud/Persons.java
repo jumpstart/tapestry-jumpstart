@@ -11,7 +11,7 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 import jumpstart.web.components.CustomForm;
-import jumpstart.web.model.together.PersonPagedDataSource;
+import jumpstart.web.models.together.PersonPagedDataSource;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.PersistenceConstants;

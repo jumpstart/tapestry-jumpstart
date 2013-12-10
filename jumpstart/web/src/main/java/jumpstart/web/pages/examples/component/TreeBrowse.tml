@@ -37,8 +37,8 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TreeBrowse.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/TreeBrowse.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/tree/StuffTreeModelAdapter.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/tree/Stuff.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/tree/StuffTreeModelAdapter.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/tree/Stuff.java"/>
 	</t:tabgroup>
 </body>
 </html>

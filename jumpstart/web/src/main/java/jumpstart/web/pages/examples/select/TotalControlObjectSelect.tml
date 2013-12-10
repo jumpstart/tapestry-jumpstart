@@ -40,7 +40,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/TotalControlObjectSelect.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/select/TotalControlObjectSelect.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/select.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/select/PersonSelectModel.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/select/PersonSelectModel.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/encoders/examples/PersonEncoder.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	</t:tabgroup>

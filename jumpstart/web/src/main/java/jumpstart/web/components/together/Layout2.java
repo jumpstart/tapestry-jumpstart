@@ -1,8 +1,8 @@
 package jumpstart.web.components.together;
 
 import jumpstart.web.annotation.ProtectedPage;
-import jumpstart.web.model.Menu;
-import jumpstart.web.model.MenuOption;
+import jumpstart.web.models.Menu;
+import jumpstart.web.models.MenuOption;
 
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;

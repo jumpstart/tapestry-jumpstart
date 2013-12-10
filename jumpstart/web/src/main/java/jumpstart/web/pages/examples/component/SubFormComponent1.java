@@ -8,7 +8,7 @@ import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.util.ExceptionUtil;
 import jumpstart.web.components.CustomForm;
-import jumpstart.web.model.examples.Invitation;
+import jumpstart.web.models.examples.Invitation;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectPage;

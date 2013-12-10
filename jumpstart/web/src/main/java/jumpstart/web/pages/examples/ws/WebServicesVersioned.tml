@@ -34,9 +34,9 @@
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonFind01.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonsFind01.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/Person01.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/PersonFind01Response.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/examples/ws/PersonsFind01Response.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/ws/Person01.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/ws/PersonFind01Response.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/ws/PersonsFind01Response.java"/>
 	</t:tabgroup>
 </body>
 </html>

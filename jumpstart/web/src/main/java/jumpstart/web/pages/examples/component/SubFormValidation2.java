@@ -6,7 +6,7 @@ import javax.ejb.EJB;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-import jumpstart.web.model.examples.Invitation;
+import jumpstart.web.models.examples.Invitation;
 
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Persist;

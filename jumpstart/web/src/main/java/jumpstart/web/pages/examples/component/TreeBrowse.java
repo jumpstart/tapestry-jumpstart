@@ -2,8 +2,8 @@
 
 package jumpstart.web.pages.examples.component;
 
-import jumpstart.web.model.examples.tree.Stuff;
-import jumpstart.web.model.examples.tree.StuffTreeModelAdapter;
+import jumpstart.web.models.examples.tree.Stuff;
+import jumpstart.web.models.examples.tree.StuffTreeModelAdapter;
 import jumpstart.web.pages.Index;
 
 import org.apache.tapestry5.ComponentResources;

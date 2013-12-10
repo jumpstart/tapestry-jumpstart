@@ -1,6 +1,6 @@
 package jumpstart.web.base.examples.wizard;
 
-import jumpstart.web.model.Conversations;
+import jumpstart.web.models.Conversations;
 import jumpstart.web.pages.examples.wizard.WizardUsingPagesBadFlow;
 import jumpstart.web.state.examples.wizard.CreditRequest;
 

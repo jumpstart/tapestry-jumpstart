@@ -6,7 +6,7 @@ import javax.ejb.EJB;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-import jumpstart.web.model.examples.select.PersonIdSelectModel;
+import jumpstart.web.models.examples.select.PersonIdSelectModel;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.SelectModel;

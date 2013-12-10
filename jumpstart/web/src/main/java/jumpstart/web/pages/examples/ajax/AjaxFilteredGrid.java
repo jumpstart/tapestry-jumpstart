@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-import jumpstart.web.model.examples.ajax.PersonFilteredDataSource;
+import jumpstart.web.models.examples.ajax.PersonFilteredDataSource;
 
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Import;

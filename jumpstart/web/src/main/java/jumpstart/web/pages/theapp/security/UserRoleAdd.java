@@ -12,8 +12,8 @@ import jumpstart.business.domain.security.iface.ISecurityFinderServiceLocal;
 import jumpstart.business.domain.security.iface.ISecurityManagerServiceLocal;
 import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.base.theapp.SimpleBasePage;
-import jumpstart.web.model.app.select.RoleIdSelectModel;
-import jumpstart.web.model.app.select.UserIdSelectModel;
+import jumpstart.web.models.app.select.RoleIdSelectModel;
+import jumpstart.web.models.app.select.UserIdSelectModel;
 
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.SelectModel;

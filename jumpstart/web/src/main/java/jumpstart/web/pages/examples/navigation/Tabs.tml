@@ -13,7 +13,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/Tabs.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/TabGroup.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/TabGroup.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/TabTracker.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/TabTracker.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SourceCodeTab.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SourceCodeTab.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/Tab.java"/>

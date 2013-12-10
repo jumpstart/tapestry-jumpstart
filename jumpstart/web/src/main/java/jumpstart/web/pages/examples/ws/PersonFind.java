@@ -13,7 +13,7 @@ import javax.xml.bind.Marshaller;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-import jumpstart.web.model.examples.ws.Person01;
+import jumpstart.web.models.examples.ws.Person01;
 
 import org.apache.tapestry5.StreamResponse;
 import org.apache.tapestry5.services.Response;

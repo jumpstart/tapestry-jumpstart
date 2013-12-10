@@ -102,8 +102,8 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingFormFragments.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/wizard.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/wizard/CreditRequest.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/Conversations.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/model/Conversation.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/Conversations.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/Conversation.java"/>
 	</t:tabgroup>
 </body>
 </html>

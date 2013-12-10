@@ -3,7 +3,7 @@ package jumpstart.web.pages.examples.tables;
 import javax.ejb.EJB;
 
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-import jumpstart.web.model.examples.tables.PersonPagedDataSource;
+import jumpstart.web.models.examples.tables.PersonPagedDataSource;
 
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;

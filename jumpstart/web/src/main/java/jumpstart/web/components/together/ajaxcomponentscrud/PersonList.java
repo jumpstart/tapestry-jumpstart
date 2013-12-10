@@ -4,7 +4,7 @@ import javax.ejb.EJB;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-import jumpstart.web.model.together.PersonFilteredDataSource;
+import jumpstart.web.models.together.PersonFilteredDataSource;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.annotations.Events;

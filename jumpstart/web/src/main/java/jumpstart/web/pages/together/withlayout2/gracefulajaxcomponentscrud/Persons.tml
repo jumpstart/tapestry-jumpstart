@@ -51,6 +51,6 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout2.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/Layout2.java"/>
 	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/layout2.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/Menu.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/model/MenuOption.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/models/Menu.java"/>
+	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/models/MenuOption.java"/>
 </html>
