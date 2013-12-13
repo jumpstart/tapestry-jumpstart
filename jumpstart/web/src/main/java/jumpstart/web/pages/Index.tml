@@ -226,9 +226,9 @@
 							<t:pagelink page="theapp/Login" t:disabled="true">Example App</t:pagelink> 
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/component/SubFormComponent1" t:disabled="true">Sub-Form Component</t:pagelink><br/>
-							<t:pagelink page="examples/component/SubFormValidation1" t:disabled="true">Sub-Form Validation</t:pagelink><br/>
-							<t:pagelink page="examples/component/SubFormAsAField1" t:disabled="true">Sub-Form As a Field</t:pagelink><br/>
+							<t:pagelink page="examples/component/SubFormComponent1">Sub-Form Component</t:pagelink><br/>
+							<t:pagelink page="examples/component/SubFormValidation1">Sub-Form Validation</t:pagelink><br/>
+							<t:pagelink page="examples/component/SubFormAsAField1">Sub-Form As a Field</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/component/MarkupWriter">MarkupWriter</t:pagelink><br/>
@@ -246,14 +246,14 @@
 			 				<t:pagelink page="examples/lang/PropertyEditors">Property Editors</t:pagelink><br/>
 			 			</div>
 						<div class="group">
-							<t:pagelink page="examples/wizard/WizardUsingFormFragments" t:disabled="true">Wizard Using Form Fragments</t:pagelink><br/>
-							<t:pagelink page="examples/wizard/WizardUsingPages1" t:disabled="true">Wizard Using Pages</t:pagelink><br/>
-							<t:pagelink page="examples/wizard/ConversationsList" t:disabled="true">Conversations List</t:pagelink><br/>
+							<t:pagelink page="examples/wizard/WizardUsingFormFragments">Wizard Using Form Fragments</t:pagelink><br/>
+							<t:pagelink page="examples/wizard/WizardUsingPages1">Wizard Using Pages</t:pagelink><br/>
+							<t:pagelink page="examples/wizard/ConversationsList">Conversations List</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/ws/WebServices" t:disabled="true">Web Services</t:pagelink><br/>
-							<t:pagelink page="examples/ws/WebServicesMore" t:disabled="true">Web Services More</t:pagelink><br/>
-							<t:pagelink page="examples/ws/WebServicesVersioned" t:disabled="true">Web Services Versioned</t:pagelink><br/>
+							<t:pagelink page="examples/ws/WebServices">Web Services</t:pagelink><br/>
+							<t:pagelink page="examples/ws/WebServicesMore">Web Services More</t:pagelink><br/>
+							<t:pagelink page="examples/ws/WebServicesVersioned">Web Services Versioned</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/ajax/AjaxEventLink">AJAX EventLink</t:pagelink><br/>
@@ -296,7 +296,6 @@
 							<br/>
 							<t:pagelink page="examples/javascript/Scriptaculous" t:disabled="true">script.aculo.us</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/javascript/JQuery" t:disabled="true">jQuery</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
 						</div>
 						<div class="group">
@@ -307,11 +306,11 @@
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/ajax/AjaxLoadingSpinner" t:disabled="true">AJAX Loading Spinner</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxPeriodicUpdate" t:disabled="true">AJAX Periodic Update</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxPeriodicUpdateMixin" t:disabled="true">AJAX Periodic Update Mixin</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxOnEvent" t:disabled="true">AJAX On Event: ZoneUpdater</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxMultipleZoneUpdate" t:disabled="true">AJAX Multiple Zone Update</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxComponents1" t:disabled="true">AJAX Components</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxPeriodicUpdate">AJAX Periodic Update</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxPeriodicUpdateMixin">AJAX Periodic Update Mixin</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxOnEvent">AJAX On Event: ZoneUpdater</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxMultipleZoneUpdate">AJAX Multiple Zone Update</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxComponents1">AJAX Components</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxValidators1" t:disabled="true">AJAX Validators</t:pagelink><br/>
 						</div>
 						<div class="group">

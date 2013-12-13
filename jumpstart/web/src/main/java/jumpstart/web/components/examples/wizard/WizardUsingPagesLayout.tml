@@ -2,11 +2,8 @@
 <!-- We need a DOCTYPE to allow us to use special characters like &nbsp; 
 	We use a "strict" DTD to make IE follow the alignment rules. -->
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/wizard.css}"/>
-</head>
-<body>
-	<h1>Wizard Using Pages</h1>
+<body class="container">
+	<h3>Wizard Using Pages</h3>
 
 	This 4 step wizard is done with 5 <strong>pages</strong>.<br/>
 	The first 3 steps are data entry.  They share a "conversation" during which the browser's Back and Refresh/Reload buttons are allowed.<br/>
@@ -16,7 +13,7 @@
 		<t:body/>
 	</div>
 
-	<h3>The best approach?</h3>	
+	<h4>The best approach?</h4>	
 	So which approach is best for writing wizards? Pages or form fragments? The choice is yours.<br/><br/>
 	
 	References: 
@@ -25,22 +22,24 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/wizard/WizardUsingPagesLayout.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/examples/wizard/WizardUsingPagesLayout.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages1.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages1.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages2.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages2.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages3.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages3.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/base/examples/wizard/WizardConversationalPage.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesSuccess.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesSuccess.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesBadFlow.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesBadFlow.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/css/examples/wizard.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/state/examples/wizard/CreditRequest.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/models/Conversations.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/models/Conversation.java"/>
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/wizard/WizardUsingPagesLayout.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/wizard/WizardUsingPagesLayout.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages1.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages2.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages3.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPages3.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/base/examples/wizard/WizardConversationalPage.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesSuccess.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesSuccess.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesBadFlow.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/wizard/WizardUsingPagesBadFlow.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/wizard.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/wizard/CreditRequest.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/Conversations.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/Conversation.java"/>
+	</t:tabgroup>
 </body>
 </html>

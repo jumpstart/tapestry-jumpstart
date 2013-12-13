@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/wizard.css}"/>
-</head>
 <body class="container">
 	<h3>Wizard Using Form Fragments</h3>
 
@@ -15,51 +12,67 @@
 
 	<div class="eg">
 		<t:if test="inEntrySteps">
-			<form t:type="form" t:id="form">
+			<t:form t:id="form" class="form-horizontal well">
 			
 				<t:formfragment visible="inStart">
-					<h2>Applying for Credit - Step 1: Start</h2>
-					<table>
-						<tr>
-							<td><t:label for="amount"/></td>
-							<td><input t:type="TextField" t:id="amount" value="creditRequest.amount" 
-								t:validate="required, min=10, max=9999" size="10"/></td>
-							<td>(required)</td>
-						</tr>
-					</table><br/>
-			
-					<input type="submit" value="Next &gt;"/>
-					<button t:type="chenillekit/Button" type="button" t:event="Quit" class="quit"> Quit </button>
-			
+					<h4>Applying for Credit - Step 1: Start</h4>
+
+					<div class="form-group">
+						<t:label class="col-sm-2" for="amount"/>
+						<div class="col-sm-3">
+							<t:textfield t:id="amount" value="creditRequest.amount" validate="required, min=10, max=9999" size="10"/>
+						</div>
+						<div class="col-sm-2">
+							<p class="form-control-static">(required)</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-5 col-sm-offset-2">
+							<t:submit value="Next &gt;"/>
+							<t:eventlink event="Quit" class="btn btn-default">Quit</t:eventlink>
+						</div>
+					</div>
+					
 					<t:errors globalOnly="true"/>
 				</t:formfragment>
 		
 				<t:formfragment visible="inApplicant">
-					<h2>Applying for Credit - Step 2: The Applicant</h2>
-					<table>
-						<tr>
-							<td><t:label for="name"/></td>
-							<td><input t:type="TextField" t:id="name" value="creditRequest.applicantName" t:validate="required"/></td>
-							<td>(required)</td>
-						</tr>
-					</table><br/>
-					
-					<button t:type="chenillekit/Button" type="button" t:event="Prev">&lt; Prev</button>
-					<input type="submit" value="Next &gt;"/>
-					<button t:type="chenillekit/Button" type="button" t:event="Quit" class="quit"> Quit </button>
+					<h4>Applying for Credit - Step 2: The Applicant</h4>
+
+					<div class="form-group">
+						<t:label class="col-sm-2" for="name"/>
+						<div class="col-sm-3">
+							<t:textfield t:id="name" value="creditRequest.applicantName" validate="required"/>
+						</div>
+						<div class="col-sm-2">
+							<p class="form-control-static">(required)</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-5 col-sm-offset-2">
+							<t:eventlink event="Prev" class="btn btn-default">&lt; Prev</t:eventlink>
+							<t:submit value="Next &gt;"/>
+							<t:eventlink event="Quit" class="btn btn-default">Quit</t:eventlink>
+						</div>
+					</div>
 			
 					<t:errors globalOnly="true"/>
 				</t:formfragment>
 		
 				<t:formfragment visible="inSubmit">
-					<h2>Applying for Credit - Step 3: Submit</h2>
-		
-					Amount: $${creditRequest.amount}<br/>
-					Applicant Name: ${creditRequest.applicantName}<br/><br/>
-					
-					<button t:type="chenillekit/Button" type="button" t:event="Prev">&lt; Prev</button>
-					<input type="submit" value="Submit for Credit Check" onclick="displayProcessingMessage()"/>
-					<button t:type="chenillekit/Button" type="button" t:event="Quit" class="quit"> Quit </button>
+					<h4>Applying for Credit - Step 3: Submit</h4>
+
+					<dl class="dl-horizontal">
+						<dt>Amount:</dt>
+						<dd>$${creditRequest.amount}</dd>
+						<dt>Applicant Name:</dt>
+						<dd>${creditRequest.applicantName}</dd>
+					</dl>
+					<div class="form-group">
+							<t:eventlink event="Prev" class="btn btn-default">&lt; Prev</t:eventlink>
+							<t:submit value="Submit for Credit Check" onclick="displayProcessingMessage()" class="btn btn-info"/>
+							<t:eventlink event="Quit" class="btn btn-default">Quit</t:eventlink>
+					</div>
 			
 					<t:errors globalOnly="true"/>
 		
@@ -77,14 +90,14 @@
 					</script>
 				</t:formfragment>
 		
-			</form>
+			</t:form>
 		</t:if>
 		<t:if test="inBadFlow">
-			<div class="badflow">
+			<div class="alert alert-danger">
 				Operation not allowed because the chosen Credit Request is over. Did you use the Back button after the Request was over?<br/><br/>
 	
-				<a t:type="pagelink" t:page="examples/wizard/ConversationsList" href="#">List conversations</a><br/>
-				<a t:type="eventlink" t:event="Restart" href="#">Start again</a>
+				<t:pagelink page="examples/wizard/ConversationsList">List conversations</t:pagelink><br/>
+				<t:eventlink event="Restart">Start again</t:eventlink>
 			</div>
 		</t:if>
 	</div>

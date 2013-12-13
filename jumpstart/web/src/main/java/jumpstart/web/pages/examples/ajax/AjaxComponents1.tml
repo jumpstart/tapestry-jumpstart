@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX Components (1)</h3>
 	
@@ -19,11 +16,25 @@
 	The component is called TextEchoer. It contains a TextField and a Zone that "echoes" the value of the TextField.
 	
 	<div class="eg">
-		<form t:type="form">
-			First Name: <input t:type="examples/ajax/TextEchoer" t:id="firstName"/><br/>
-			Last Name: <input t:type="examples/ajax/TextEchoer" t:id="lastName"/><br/><br/>
-			<input type="submit" value="Display"/>
-	 	</form>
+		<t:form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="firstName">First Name</label>
+				<div class="col-sm-8">
+					<t:examples.ajax.TextEchoer t:id="firstName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="lastName">Last Name</label>
+				<div class="col-sm-8">
+					<t:examples.ajax.TextEchoer t:id="lastName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-2">
+					<t:submit value="Display"/>
+				</div>
+			</div>
+	 	</t:form>
 	</div>
 	
 	The tricky part about using an AJAX component more than once in a page is that each occurrence of a Zone must have a unique client-side id. 
@@ -49,7 +60,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/ajax/TextEchoer.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/ajax/TextEchoer.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/zone-updater.js"/>
 	</t:tabgroup>
 </body>
 </html>

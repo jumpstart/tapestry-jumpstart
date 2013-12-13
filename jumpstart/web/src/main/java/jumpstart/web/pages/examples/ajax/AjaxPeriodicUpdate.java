@@ -2,22 +2,28 @@ package jumpstart.web.pages.examples.ajax;
 
 import java.util.Date;
 
+import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
+import org.apache.tapestry5.corelib.components.EventLink;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-// The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js_imports/pages/examples/ajax/AjaxPeriodicUpdate.js")
+@Import(stylesheet = "css/examples/js.css")
 public class AjaxPeriodicUpdate {
 
 	// Generally useful bits and pieces
 
 	@InjectComponent
+	private EventLink refreshTimeZone;
+
+	@InjectComponent
 	private Zone timeZone;
+
+	@Inject
+	private ComponentResources componentResources;
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
@@ -28,7 +34,9 @@ public class AjaxPeriodicUpdate {
 	// The code
 
 	public void afterRender() {
-		javaScriptSupport.addInitializerCall("periodicTimeZoneUpdater", new JSONObject());
+		String eventURL = refreshTimeZone.getLink().toAbsoluteURI();
+
+		javaScriptSupport.require("zone-periodic-updater").with(timeZone.getClientId(), eventURL, 3, 4);
 	}
 
 	Object onRefreshTimeZone() {

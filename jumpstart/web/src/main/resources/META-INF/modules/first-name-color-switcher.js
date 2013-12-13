@@ -9,18 +9,18 @@ define(["jquery"], function($) {
 
 		firstName.css("color", red);
 
-		function doSwitchColor() {
-			var o = $(this);
+		firstName.on("keyup", doSwitchColor);
 
-			if (o.css("color") == red) {
-				o.css("color", green);
+		function doSwitchColor() {
+			var field = $(this);
+
+			if (field.css("color") == red) {
+				field.css("color", green);
 			}
 			else {
-				o.css("color", red);
+				field.css("color", red);
 			}
-		};
-
-		firstName.on("keyup", doSwitchColor);
+		}
 	}
 
 })

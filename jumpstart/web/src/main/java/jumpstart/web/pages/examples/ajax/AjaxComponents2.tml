@@ -3,16 +3,13 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX Components (2)</h3>
 	
 	<div class="eg">
 		Welcome ${name}!<br/><br/>
 		
-		<a t:type="pagelink" t:page="examples/ajax/AjaxComponents1" href="#">Return</a>
+		<t:pagelink page="examples/ajax/AjaxComponents1">Return</t:pagelink>
 	</div>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
@@ -20,6 +17,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxComponents2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxComponents2.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabgroup>
 </body>
 </html>

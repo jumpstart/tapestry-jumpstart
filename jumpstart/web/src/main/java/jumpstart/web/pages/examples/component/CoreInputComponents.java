@@ -82,8 +82,7 @@ public class CoreInputComponents {
 	@Persist(PersistenceConstants.FLASH)
 	private String textValue;
 
-	// DO NOT initialise mutable fields in their declaration because that isn't thread-safe. Initialise them in
-	// life-cycle methods like this one.
+	// Life-cycle stuff. Fields that are marked @Persist MUST NOT be initialized in their declarations.
 
 	void onPrepare() {
 		if (paletteSelectedValues == null) {

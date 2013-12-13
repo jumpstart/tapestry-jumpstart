@@ -3,16 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-	<style type="text/css">
-		h3				{ margin-top: 0; }
-		.invitation		{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
-		.noInvitation	{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
-		.review th		{ font-weight: normal; text-align: left; vertical-align: top; }
-		.selectPersons	{ padding: 15px; border: 2px solid #dddddd; background-color: #e4e4e4; width: 250px; }
-	</style>
-</head>
 <body class="container">
 	<h3>Sub-Form Component (2)</h3>
 	
@@ -22,35 +12,37 @@
 	receive the invitation's id and use it as the activation context with onPassivate() and onActivate(), and in setupRender() <br/>
 	we would get the invitation from the database.<br/> 
 
-	<t:if t:test="invitation">
-		<div class="eg invitation">
+	<div class="eg">
+		
+		<t:if t:test="invitation">
 			<!-- A form is needed so that the checkbox in SelectPersons works OK. -->
-			<form t:type="form" t:id="form">
-				<h3>Invitation</h3>
-	
-			 	<table class="review">
-			 		<tr>
-			 			<th>Event Description:</th>
-			 			<td>${invitation.eventDescription}</td>
-			 		</tr>
-			 		<tr>
-			 			<th>Invited People:</th>
-			 			<td><t:examples.component.SelectPersons t:id="invitedPersons" t:persons="allPersons" 
-			 				t:chosen="invitation.invitedPersons" t:disabled="true">[List here]
-			 				</t:examples.component.SelectPersons></td>
-			 		</tr>
-			 	</table>
-				
-			</form>
-		</div>
-	</t:if>
-	<t:if t:test="invitation" t:negate="true">
-		<div class="eg noInvitation">
-			No invitation found.
-		</div>
-	</t:if>
+			<t:form validate="invitation" class="form-horizontal well">
+				<h4>Invitation</h4>
+
+				<div class="form-group">
+			 		<label class="col-sm-3 control-label">${message:eventDescription-label}</label>
+			 		<div class="col-sm-3">
+			 			<p class="form-control-static">${invitation.eventDescription}</p>
+			 		</div>
+				</div>
+				<div class="form-group">
+		 			<label class="col-sm-3 control-label" for="invitedPersons">${message:invitedPersons-label}</label>
+			 		<div class="col-sm-3">
+						<t:examples.component.SelectPersons t:id="invitedPersons" persons="allPersons" chosen="invitation.invitedPersons"
+							disabled="true" />
+					</div>
+			 	</div>
+			</t:form>
+		</t:if>
+		<t:if t:test="!invitation">
+			<div class="alert alert-info">
+				No invitation found.
+			</div>
+		</t:if>
+
+	</div>
 	 
-	<a t:type="pagelink" t:page="examples/component/SubFormComponent1" href="#">Return</a><br/><br/>
+	<t:pagelink page="examples/component/SubFormComponent1">Return</t:pagelink><br/><br/>
 
 	References: 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
@@ -59,8 +51,9 @@
 
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent2.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent2.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/Invitation.java"/>

@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX On Event: the ZoneUpdater Mixin</h3>
 	
@@ -17,18 +14,26 @@
 	to update a zone in response to a client-side event.
 	
 	<div class="eg">
-		<form t:type="form">
-			First Name: 
-			<input t:type="TextField" t:id="firstName" t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="firstNameChanged" t:zone="nameZone" /><br/>
-			Last Name: 
-			<input t:type="TextField" t:id="lastName" t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="lastNameChanged" t:zone="nameZone"/><br/><br/>
+		<t:form class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="firstName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="firstName" t:mixins="zoneUpdater" clientEvent="keyup" event="firstNameChanged" zone="nameZone"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="lastName"/>
+				<div class="col-sm-4">
+					<t:textfield t:id="lastName" t:mixins="zoneUpdater" clientEvent="keyup" event="lastNameChanged" zone="nameZone"/>
+				</div>
+			</div>
 	
 			<t:zone t:id="nameZone" id="nameZone">
 				Welcome ${name}.
 			</t:zone><br/>
 	
 			Note that the following time field does not update because it's not in the zone:  ${time}<br/>
-	 	</form>
+	 	</t:form>
 	</div>
 	
 	For those using Tapestry5-jQuery, it provides equivalent functionality with its <em>Bind</em> mixin.<br/><br/>
@@ -39,14 +44,14 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>.<br/><br/>
 
-	<a t:type="eventlink" t:event="gohome" href="#">Home</a><br/><br/>
+	<t:eventlink event="gohome">Home</t:eventlink><br/><br/>
 
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxOnEvent.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxOnEvent.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ZoneUpdater.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/zone-updater.js"/>
 	</t:tabgroup>
 </body>
 </html>

@@ -29,7 +29,7 @@ AjaxValidator = Class.create( {
 		var listenerURIWithValue = this.listenerURI;
     			
 		if (value) {
-			listenerURIWithValue = addQueryStringParameter(listenerURIWithValue, 'param', value);
+			listenerURIWithValue = appendQueryStringParameter(listenerURIWithValue, 'param', value);
 			
 			new Ajax.Request(listenerURIWithValue, {
 				method: 'get',
@@ -50,7 +50,7 @@ AjaxValidator = Class.create( {
 	
 } )
 
-function addQueryStringParameter(url, name, value) {
+function appendQueryStringParameter(url, name, value) {
 	if (url.indexOf('?') < 0) {
 		url += '?'
 	} else {

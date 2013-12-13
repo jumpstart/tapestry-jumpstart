@@ -3,11 +3,18 @@ package jumpstart.web.models.examples;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+
 import jumpstart.business.domain.person.Person;
+
+import org.hibernate.validator.constraints.Length;
 
 public class Invitation {
 
+	@NotNull
+	@Length(max = 50)
 	private String eventDescription;
+
 	private Set<Person> invitedPersons;
 
 	public String toString() {

@@ -3,17 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-	<style type="text/css">
-		h3				{ margin-top: 0; }
-		.invitation		{ width: 520px; padding: 20px; border: 1px solid #dddddd; background-color: #eeeeee; }
-		.edit th		{ font-weight: normal; text-align: left; vertical-align: top; }
-		.selectPersons	{ padding: 15px; border: 2px solid #dddddd; background-color: #e4e4e4; width: 250px; }
-		.error-label-c	{ color: red; } 
-		.error-msg-c	{ color: red; } 
-	</style>
-</head>
 <body class="container">
 	<h3>Sub-Form Validation (1)</h3>
 	
@@ -22,30 +11,32 @@
 	FormSupport holds a list of actions for the Form to execute on submit. Our sub-form adds its processSubmission() to that list.<br/>
 	ValidationTracker lets us record error messages.<br/>
 		
-	<div class="eg invitation">
+	<div class="eg">
 		
-		<form t:type="CustomForm" t:id="form">
-			<h3>Create Invitation</h3>
+		<t:form t:id="form" validate="invitation" class="form-horizontal well">
+			<h4>Create Invitation</h4>
 
-		 	<table class="edit">
-		 		<tr>
-		 			<th><t:label for="eventDescription"/>:</th>
-		 			<td><input t:type="TextField" t:id="eventDescription" value="invitation.eventDescription" 
-						t:validate="required, maxLength=50" size="50"/><br/>
-						<t:CustomError for="eventDescription">Error message</t:CustomError></td>
-		 		</tr>
-		 		<tr>
-		 			<th>People to Invite:</th>
-		 			<td><t:examples.component.SelectPersonsValidated t:id="invitedPersons" t:persons="allPersons" 
-		 				t:chosen="invitation.invitedPersons" t:min="1">[List here]
-		 				</t:examples.component.SelectPersonsValidated></td>
-		 		</tr>
-		 	</table>
+			<div class="form-group">
+		 		<t:label class="col-sm-3" for="eventDescription"/>
+		 		<div class="col-sm-3">
+		 			<t:textfield t:id="eventDescription" value="invitation.eventDescription"/>
+		 		</div>
+			</div>
+			<div class="form-group">
+	 			<label class="col-sm-3 control-label" for="invitedPersons">${message:invitedPersons-label}</label>
+		 		<div class="col-sm-3">
+					<t:examples.component.SelectPersonsValidated t:id="invitedPersons" persons="allPersons"
+						chosen="invitation.invitedPersons" min="1" />
+				</div>
+		 	</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<t:submit value="Save"/>
+				</div>
+			</div>
 
-			<t:errors globalOnly="true"/><br/>
-			
-			<input t:type="Submit" t:id="done" value="Save"/>
-		</form>
+			<t:errors globalOnly="true"/>
+		</t:form>
 	</div>
 
 	References: 
@@ -57,12 +48,12 @@
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
-	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 	
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormValidation1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormValidation1.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormValidation1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsValidated.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsValidated.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/Invitation.java"/>

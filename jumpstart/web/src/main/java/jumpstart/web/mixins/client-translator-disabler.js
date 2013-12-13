@@ -2,8 +2,8 @@
 
 define(["jquery"], function($) {
 
-	return function(params) {
-		var field = $("#" + params.fieldId);
+	return function(fieldId) {
+		var field = $("#" + fieldId);
 		field.removeAttr("data-translation");
 	}
 	

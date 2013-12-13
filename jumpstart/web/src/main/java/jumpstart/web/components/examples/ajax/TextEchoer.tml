@@ -1,12 +1,16 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <t:content>
 
-	<input t:type="TextField" t:id="value" 
-		t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="valueChanged" t:zone="prop:componentResources.id"/>
-
-	<span t:type="zone" t:id="echoZone" id="prop:componentResources.id">
-		${echo}
-	</span>
+	<div class="form-group">
+		<div class="col-sm-6">
+			<t:textfield t:id="value" t:mixins="zoneUpdater" clientEvent="keyup" event="valueChanged" zone="prop:componentResources.id"/>
+		</div>
+		<div class="col-sm-6">
+			<t:zone t:id="echoZone" id="prop:componentResources.id">
+				<p class="form-control-static">${echo}</p>
+			</t:zone>
+		</div>
+	</div>
 
 </t:content>
 </html>

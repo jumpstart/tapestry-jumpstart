@@ -1,7 +1,9 @@
 package jumpstart.web.pages.examples.wizard;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/wizard.css")
 public class WizardUsingFormFragmentsSuccess {
 
 	// The activation context

@@ -13,28 +13,34 @@
 	This page demonstrates AJAX-enabling the Select component.
 
 	<div class="eg">
-		<t:form t:id="searchCriteria">
-			<div class="form-group form-inline">
-				<div class="form-group">
-					<t:label for="carMake"/>
-					<t:select t:id="carMake" model="carMakes" blankOption="ALWAYS" blankLabel="Choose..." zone="carModelZone" validate="required" secure="literal:never"/>
-				</div>
-				<div class="form-group">
-					<t:zone t:id="carModelZone" id="carModelZone" style="display: inline;">
-						<t:label for="carModel"/>
-						<t:select t:id="carModel" model="carModels" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="literal:never"/>
-					</t:zone>
-				</div>
-				<div class="form-group">
-					<t:label for="keywords"/>
-					<t:textfield t:id="keywords" class="keywords"/>
-				</div>
-				<div class="form-group">
-					<p class="form-control-static">(optional)</p>
+		<t:form t:id="searchCriteria" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-2" for="carMake"/>
+				<div class="col-sm-4">
+					<t:select t:id="carMake" model="carMakes" blankOption="ALWAYS" blankLabel="Choose..." zone="carModelZone" secure="literal:never"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:submit value="Save"/>
+				<t:zone t:id="carModelZone" id="carModelZone" style="display: inline;">
+					<t:label class="col-sm-2" for="carModel"/>
+					<div class="col-sm-4">
+						<t:select t:id="carModel" model="carModels" blankOption="ALWAYS" blankLabel="Choose..." secure="literal:never"/>
+					</div>
+				</t:zone>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-2" for="keywords"/>
+				<div class="col-sm-2">
+					<t:textfield t:id="keywords"/>
+				</div> 
+				<div class="col-sm-4">
+					(optional)
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 col-sm-offset-2">
+					<t:submit value="Save"/>
+				</div>
 			</div>
 	
 			<t:errors/>

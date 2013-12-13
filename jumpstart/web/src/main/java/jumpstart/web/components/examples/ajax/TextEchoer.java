@@ -8,7 +8,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 
 /**
- * TextEchoer contains a TextField and a Zone that "echoes" the value of the TextField.
+ * Contains a TextField and a Zone that "echoes" the value of the TextField.
  */
 public class TextEchoer {
 
@@ -24,9 +24,11 @@ public class TextEchoer {
 
 	Object onValueChanged() {
 		value = request.getParameter("param");
+
 		if (value == null) {
 			value = "";
 		}
+		
 		return request.isXHR() ? echoZone.getBody() : null;
 	}
 

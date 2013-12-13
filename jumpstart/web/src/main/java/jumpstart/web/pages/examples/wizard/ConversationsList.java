@@ -5,11 +5,14 @@ import java.util.Collection;
 import jumpstart.web.base.examples.wizard.WizardConversationalPage;
 import jumpstart.web.models.Conversation;
 import jumpstart.web.models.Conversations;
+import jumpstart.web.pages.examples.wizard.WizardUsingFormFragments.Step;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
 
+@Import(stylesheet = "css/examples/conversationslist.css")
 public class ConversationsList {
 
 	// Screen fields
@@ -23,7 +26,7 @@ public class ConversationsList {
 	// Other pages
 
 	@InjectPage
-	private WizardUsingPages1 creditRequestsWizard;
+	private WizardUsingFormFragments creditRequestsWizard;
 
 	// Generally useful bits and pieces
 
@@ -42,7 +45,7 @@ public class ConversationsList {
 		if (conversation != null) {
 			// We know of 1 type of conversation only - it belongs to the credit requests wizard
 			if (conversation.getObject(WizardConversationalPage.CREDIT_REQUEST_KEY) != null) {
-				creditRequestsWizard.set(conversationId);
+				creditRequestsWizard.set(Step.START, conversationId);
 				return creditRequestsWizard;
 			}
 		}

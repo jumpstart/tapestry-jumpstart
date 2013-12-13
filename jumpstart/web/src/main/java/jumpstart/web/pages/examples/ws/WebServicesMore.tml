@@ -3,23 +3,20 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"> 
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/examples.css}"/>
-</head>
 <body class="container">
 	<h3>Web Services More</h3>
 	
 	Some more examples of Tapestry pages acting as a REST-like web service.<br/>
 	
 	<div class="eg">
-		<a t:type="pagelink" t:page="examples/ws/PersonsFind" href="#">PersonsFind</a><br/>
-		<!-- We use an href next because PageLink doesn't have a way to specify a query string -->
-	 	<a href="personsfind?namefilter=a">PersonsFind?namefilter=a</a><br/>
+		<t:pagelink page="examples/ws/PersonsFind">PersonsFind</t:pagelink><br/>
+		<t:pagelink page="examples/ws/PersonsFind" parameters="{'namefilter':'a'}">PersonsFind?namefilter=a</t:pagelink><br/>
 	</div>
 	
 	For a more RESTful implementation try <a href="http://tynamo.org/tapestry-resteasy+guide">tapestry-resteasy</a>.<br/><br/>
 
 	References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
 	<a href="http://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding">JAXB</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Response.html">Response</a>,
@@ -30,7 +27,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServicesMore.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/WebServicesMore.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ws/PersonsFind.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/ws/Persons01.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/ws/Person01.java"/>

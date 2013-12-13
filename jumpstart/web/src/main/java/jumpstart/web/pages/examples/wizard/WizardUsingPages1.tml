@@ -1,20 +1,26 @@
 <html t:type="examples/wizard/WizardUsingPagesLayout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 
-	<form t:type="form" t:id="form">
-		<h2>Applying for Credit - Step 1: Start</h2>
-		<table>
-			<tr>
-				<td><t:label for="amount"/></td>
-				<td><input t:type="TextField" t:id="amount" value="creditRequest.amount" 
-					t:validate="required, min=10, max=9999" size="10"/></td>
-				<td>(required)</td>
-			</tr>
-		</table><br/>
+	<t:form t:id="form" class="form-horizontal well">
+		<h4>Applying for Credit - Step 1: Start</h4>
+		
+		<div class="form-group">
+			<t:label class="col-sm-2" for="amount"/>
+			<div class="col-sm-3">
+				<t:textfield t:id="amount" value="creditRequest.amount" validate="required, min=10, max=9999" size="10"/>
+			</div>
+			<div class="col-sm-2">
+				<p class="form-control-static">(required)</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-5 col-sm-offset-2">
+				<t:submit value="Next &gt;"/>
+				<t:eventlink event="Quit" class="btn btn-default">Quit</t:eventlink>
+			</div>
+		</div>
 
-		<input type="submit" value="Next &gt;"/>
-		<button t:type="chenillekit/Button" type="button" t:event="Quit" style="margin-left: 20px;"> Quit </button>
 
 		<t:errors globalOnly="true"/>
-	</form>
+	</t:form>
 
 </html>

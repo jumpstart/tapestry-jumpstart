@@ -8,15 +8,11 @@ import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.annotations.Environmental;
-import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-// The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js_imports/mixins/ZoneUpdater.js")
 public class ZoneUpdater {
 
 	// Parameters
@@ -71,13 +67,7 @@ public class ZoneUpdater {
 	void afterRender() {
 		String listenerURI = componentResources.createEventLink(event, context).toAbsoluteURI(secure);
 
-		// Add some JavaScript to the page to instantiate a ZoneUpdater. It will run when the DOM has been fully loaded.
-
-		JSONObject spec = new JSONObject();
-		spec.put("elementId", clientElement.getClientId());
-		spec.put("clientEvent", clientEvent);
-		spec.put("listenerURI", listenerURI);
-		spec.put("zoneId", zone);
-		javaScriptSupport.addScript("%sZoneUpdater = new ZoneUpdater(%s)", prefix, spec.toString());
+		javaScriptSupport.require("mixins/zone-updater").with(clientElement.getClientId(), clientEvent, listenerURI,
+				zone);
 	}
 }

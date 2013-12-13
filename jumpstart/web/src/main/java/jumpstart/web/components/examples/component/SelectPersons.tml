@@ -5,20 +5,16 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <t:content>
 
-	<div class="selectPersons">
-	
-		<table>
-			<tr t:type="loop" t:source="persons" t:value="person" t:formstate="ITERATION">
-				<td>
-					<input t:type="checkbox" type="checkbox" t:id="person" value="personChosen" t:disabled="prop:disabled"/>
-				</td>
-				<td>
-					${person.firstName}&nbsp;${person.lastName}
-				</td>
-			</tr>
-		</table>
-			
+	<div class="form-group well">
+		<t:loop source="persons" value="person" formstate="iteration">
+			<div class="col-sm-2">
+				<t:checkbox t:id="person" value="personChosen" disabled="prop:disabled"/>
+			</div>
+			<div class="col-sm-10">
+				${person.firstName}&nbsp;${person.lastName}
+			</div>
+		</t:loop>
 	</div>
- 	
+
 </t:content>
 </html>

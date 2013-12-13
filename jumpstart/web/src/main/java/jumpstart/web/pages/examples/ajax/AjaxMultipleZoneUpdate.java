@@ -46,7 +46,7 @@ public class AjaxMultipleZoneUpdate {
 
 	// The code
 
-	// Life-cycle stuff. Fields that are marked @Persist MUST be initialized here rather than where they are declared.
+	// Life-cycle stuff. Fields that are marked @Persist MUST NOT be initialized in their declarations.
 
 	void setupRender() {
 		if (firstName == null && lastName == null) {

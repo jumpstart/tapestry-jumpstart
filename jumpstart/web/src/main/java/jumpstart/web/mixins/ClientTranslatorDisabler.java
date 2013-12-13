@@ -7,7 +7,6 @@ package jumpstart.web.mixins;
 import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 public class ClientTranslatorDisabler {
@@ -23,9 +22,7 @@ public class ClientTranslatorDisabler {
 	// The code
 
 	public void afterRender() {
-		JSONObject spec = new JSONObject();
-		spec.put("fieldId", clientElement.getClientId());
-		javaScriptSupport.require("mixins/client-translator-disabler").with(spec);
+		javaScriptSupport.require("mixins/client-translator-disabler").with(clientElement.getClientId());
 	}
 
 }

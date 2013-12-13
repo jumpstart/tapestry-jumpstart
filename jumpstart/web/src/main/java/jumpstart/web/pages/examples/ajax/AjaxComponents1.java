@@ -1,8 +1,10 @@
 package jumpstart.web.pages.examples.ajax;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/js.css")
 public class AjaxComponents1 {
 
 	// Screen fields

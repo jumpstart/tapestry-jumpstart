@@ -3,26 +3,27 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/conversationslist.css}"/>
-</head>
 <body class="container">
 	<h3>Conversations List</h3>
 	
 	This page shows which "conversations" are in your session.  The Wizard examples use conversations.<br/>
 	
 	<div class="eg">
-		<table class="grid">
-			<tr>
-				<th>Target</th>
-				<th>ConversationId</th>
-			</tr>
-			<tr t:type="Loop" t:source="allConversations" t:value="conversation">
-				<td>${object.class}</td>
-				<td><a t:type="eventlink" t:event="GoTo" t:context="conversation.id" href="#">${conversation.id}</a></td>
-			</tr>
+		<table class="table table-bordered table-condensed table-striped">
+			<thead>
+				<tr>
+					<th>Target</th>
+					<th>ConversationId</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr t:type="loop" t:source="allConversations" t:value="conversation">
+					<td>${object.class}</td>
+					<td><t:eventlink event="GoTo" context="conversation.id">${conversation.id}</t:eventlink></td>
+				</tr>
+			</tbody>
 	 	</table>
-		<div t:type="if" t:test="allConversations" t:negate="true">
+		<div t:type="if" t:test="!allConversations">
 			<div class="nodata">(No Conversations to display)</div>
 		</div>
 	</div>

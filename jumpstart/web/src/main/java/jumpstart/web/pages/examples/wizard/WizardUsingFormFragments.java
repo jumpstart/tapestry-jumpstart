@@ -6,11 +6,13 @@ import jumpstart.web.pages.Index;
 import jumpstart.web.state.examples.wizard.CreditRequest;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
 
+@Import(stylesheet = "css/examples/wizard.css")
 public class WizardUsingFormFragments {
 
 	public static final String WIZARD_CONVERSATION_PREFIX = "wiz";
@@ -38,9 +40,6 @@ public class WizardUsingFormFragments {
 
 	@InjectPage
 	private WizardUsingFormFragmentsSuccess successPage;
-
-	@InjectPage
-	private WizardUsingPagesBadFlow badFlowPage;
 
 	@InjectPage
 	private Index indexPage;
@@ -80,8 +79,9 @@ public class WizardUsingFormFragments {
 		// then it means the Back/Reload/Refresh button has been used to reach an old conversation,
 		// so redirect to the bad-flow-step
 
-		if (restoreCreditRequestFromConversation() == null) {
-			return badFlowPage;
+		if (this.step != Step.BAD_FLOW && restoreCreditRequestFromConversation() == null) {
+			this.step = Step.BAD_FLOW;
+			return this;
 		}
 
 		return null;

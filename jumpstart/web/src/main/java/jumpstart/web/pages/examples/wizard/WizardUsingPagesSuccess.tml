@@ -1,11 +1,11 @@
 <html t:type="examples/wizard/WizardUsingPagesLayout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 
-	<div class="success">
-		<h2>Applying for Credit - Step 4: Success</h2>
+	<div class="well">
+		<h4>Applying for Credit - Step 4: Success</h4>
 
-		Congratulations!  The credit application for $${approvedAmount} to ${approvedApplicantName} has been accepted.<br/><br/>
+		<p>Congratulations!  The credit application for $${approvedAmount} to ${approvedApplicantName} has been accepted.</p>
 			
-		<button t:type="chenillekit/Button" type="button" t:event="Restart">Start Again</button>
+		<t:eventlink event="Restart" class="btn btn-default">Start Again</t:eventlink>
 	</div>
 
 </html>

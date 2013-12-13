@@ -3,23 +3,18 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/wizard.css}"/>
-</head>
 <body class="container">
 	<h3>Wizard Using Form Fragments</h3>
-	<br/>
 
 	<div class="eg">
-		<div class="success">
-			<h2>Applying for Credit - Step 4: Success</h2>
+		<div class="well">
+			<h4>Applying for Credit - Step 4: Success</h4>
 	
-			Congratulations!  The credit application for $${approvedAmount} to ${approvedApplicantName} has been accepted.<br/><br/>
+			<p>Congratulations!  The credit application for $${approvedAmount} to ${approvedApplicantName} has been accepted.</p>
 				
-			<button t:type="chenillekit/Button" type="button" t:event="Restart">Start Again</button>
+			<t:eventlink event="Restart" class="btn btn-default">Start Again</t:eventlink>
 		</div>
 	</div>
-	<br/><br/>
 	
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 

@@ -8,7 +8,6 @@ import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 public class TextboxHint {
@@ -30,16 +29,12 @@ public class TextboxHint {
 	private ClientElement clientElement;
 
 	// The code
-	
+
 	public void afterRender() {
 
 		// Give a "textbox hint" to the field we're being mixed into.
 
-		JSONObject params = new JSONObject();
-		params.put("textboxId", clientElement.getClientId());
-		params.put("hintText", hintText);
-		params.put("hintColor", hintColor);
-		javaScriptSupport.require("textbox-hint").with(params);
+		javaScriptSupport.require("textbox-hint").with(clientElement.getClientId(), hintText, hintColor);
 
 	}
 
