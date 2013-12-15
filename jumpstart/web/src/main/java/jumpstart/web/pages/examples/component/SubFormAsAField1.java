@@ -7,13 +7,13 @@ import javax.ejb.EJB;
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.util.ExceptionUtil;
+import jumpstart.web.components.examples.component.SelectPersonsField;
 import jumpstart.web.models.examples.Invitation;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
 
@@ -24,7 +24,7 @@ public class SubFormAsAField1 {
 	// Screen fields
 
 	@Property
-	@SessionState(create = false)
+	// @SessionState(create = false)
 	private Invitation invitation;
 
 	@Property
@@ -42,9 +42,12 @@ public class SubFormAsAField1 {
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
-	
+
 	@Component(id = "eventDescription")
 	private TextField eventDescriptionField;
+
+	@Component(id = "invitedPersons")
+	private SelectPersonsField invitedPersonsField;
 
 	// The code
 
@@ -56,11 +59,14 @@ public class SubFormAsAField1 {
 	}
 
 	void onValidateFromForm() {
-		
-//		form.recordError(eventDescriptionField, "I don't like you.");
 
 		if (form.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.
+			return;
+		}
+
+		if (invitation.getEventDescription().startsWith("a")) {
+			form.recordError("Event desc must not start with \"a\".");
 			return;
 		}
 

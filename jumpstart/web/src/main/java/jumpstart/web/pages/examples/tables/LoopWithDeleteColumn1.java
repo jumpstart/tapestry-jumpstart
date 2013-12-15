@@ -21,6 +21,7 @@ import org.apache.tapestry5.Field;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
@@ -29,6 +30,7 @@ import org.apache.tapestry5.corelib.components.Checkbox;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class LoopWithDeleteColumn1 {
 	static private final int MAX_RESULTS = 30;
 
@@ -58,13 +60,8 @@ public class LoopWithDeleteColumn1 {
 
 	private List<IdVersion> personsToDelete;
 
-	// This carries the list of submitted persons through the redirect that follows a server-side validation failure.
-	// We do this to compensate for the fact that Form doesn't carry the Hidden component's value through the redirect.
-	@Persist(PersistenceConstants.FLASH)
-	private List<Person> personsSubmittedFlash;
-
 	private int rowNum;
-	private Map<Integer, FieldCopy> deleteCopyByRowNum;
+	private Map<Integer, FieldCopy> deleteFieldCopyByRowNum;
 
 	// Other pages
 
@@ -76,8 +73,8 @@ public class LoopWithDeleteColumn1 {
 	@Component(id = "deletables")
 	private Form form;
 
-	@InjectComponent
-	private Checkbox delete;
+	@InjectComponent("delete")
+	private Checkbox deleteField;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
@@ -107,11 +104,6 @@ public class LoopWithDeleteColumn1 {
 			}
 		}
 
-		// Else, we're rendering after a redirect, so rebuild the list with the same persons as were submitted
-
-		else {
-			persons = new ArrayList<Person>(personsSubmittedFlash);
-		}
 	}
 
 	// Form bubbles up the PREPARE_FOR_SUBMIT event during form submission.
@@ -127,12 +119,12 @@ public class LoopWithDeleteColumn1 {
 		// Prepare to take a copy of each editable field.
 
 		rowNum = 0;
-		deleteCopyByRowNum = new HashMap<Integer, FieldCopy>();
+		deleteFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 	}
 
 	void onValidateFromDelete() {
 		// Unfortunately, this method is never called because Checkbox doesn't bubble up VALIDATE. It's a shame because
-		// this would be the perfect place to validate whether deleting is OK, or to put an entry in deleteCopyByRowNum.
+		// this would be the perfect place to validate whether deleting is OK, or to put an entry in deleteFieldCopyByRowNum.
 		// Please vote for https://issues.apache.org/jira/browse/TAP5-2075 .
 	}
 
@@ -165,10 +157,10 @@ public class LoopWithDeleteColumn1 {
 					personToDelete.setVersion(p.getVersion());
 
 					if (p.getFirstName() != null && p.getFirstName().equals(BAD_NAME)) {
-						// Unfortunately, at this point the field "delete" is from the final row of the Loop.
+						// Unfortunately, at this point the deleteField is from the final row of the Loop.
 						// Fortunately, we have a copy of the correct field, so we can record the error with that.
 
-						Field field = deleteCopyByRowNum.get(rowNum);
+						Field field = deleteFieldCopyByRowNum.get(rowNum);
 						form.recordError(field, "Cannot delete " + BAD_NAME + ".");
 						return;
 					}
@@ -196,7 +188,7 @@ public class LoopWithDeleteColumn1 {
 	}
 
 	void onFailure() {
-		personsSubmittedFlash = new ArrayList<Person>(personsSubmitted);
+		persons = new ArrayList<Person>(personsSubmitted);
 	}
 
 	void onRefresh() {
@@ -266,7 +258,7 @@ public class LoopWithDeleteColumn1 {
 	public void setDelete(boolean delete) {
 		if (inFormSubmission) {
 			rowNum++;
-			deleteCopyByRowNum.put(rowNum, new FieldCopy(this.delete));
+			deleteFieldCopyByRowNum.put(rowNum, new FieldCopy(this.deleteField));
 
 			if (delete) {
 				// Put the current person in our list of ones to delete. Record their id but not version - we shouldn't

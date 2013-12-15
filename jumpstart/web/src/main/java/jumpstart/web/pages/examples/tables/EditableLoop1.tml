@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/editableloop.css}"/>
-</head>
 <body class="container">
 	<h3>Editable Loop (1)</h3>
 
@@ -14,9 +11,9 @@
 	To demonstrate a server-side validation error, leave one or more fields of a person empty.<br/>
 	
 	<div class="eg">
-		<form t:type="form" t:id="personsCreate">
+		<t:form t:id="personsCreate">
 			<t:errors globalOnly="true"/>
-			<table class="grid">
+			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>First Name</th>
@@ -26,25 +23,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr t:type="Loop" t:source="persons" t:value="person" t:formstate="ITERATION" class="prop:evenodd.next">
-						<td><input t:type="TextField" t:id="firstName" t:value="person.firstName" t:validate="maxlength=10" size="10"/></td>
-						<td><input t:type="TextField" t:id="lastName" t:value="person.lastName" t:validate="maxlength=10" size="10"/></td>
-						<td><input t:type="Select" t:id="region" value="person.region"/></td>
-						<td><input t:type="DateField" t:id="startDate" t:value="person.startDate" t:format="prop:dateFormat" size="14"/></td>
-					</tr>
+					<t:loop source="persons" value="person" formstate="ITERATION">
+						<tr>
+							<td><t:textfield t:id="firstName" value="person.firstName" validate="maxlength=10" size="10"/></td>
+							<td><t:textfield t:id="lastName" value="person.lastName" validate="maxlength=10" size="10"/></td>
+							<td><t:select t:id="region" value="person.region"/></td>
+							<td class="datefield"><t:datefield t:id="startDate" value="person.startDate" format="prop:dateFormat" size="14"/></td>
+						</tr>
+					</t:loop>
 				</tbody>
-		 	</table><br/>
-		 	<input type="submit" value="Save"/>
-		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
-		 </form>
+		 	</table>
+		 	<t:submit value="Save"/>
+		 	<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>
+		 </t:form>
 	</div>
 
-	Features:<br/>
-	<ul>
-	<li>On error, we redisplay the list. Tapestry redirects the browser to redisplay the page.</li>
-	<li>Your input values are redisplayed correctly because a feature of Form is that it carries them through the redirect and redisplays them.</li>
-	</ul>
-	
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/LoopFormState.html">LoopFormState</a>,
@@ -57,7 +50,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/editableloop.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/editableloop.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>

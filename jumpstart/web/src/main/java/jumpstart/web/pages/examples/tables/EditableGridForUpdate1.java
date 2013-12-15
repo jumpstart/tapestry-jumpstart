@@ -14,16 +14,16 @@ import jumpstart.util.ExceptionUtil;
 import jumpstart.web.commons.FieldCopy;
 
 import org.apache.tapestry5.Field;
-import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class EditableGridForUpdate1 {
 	static private final int MAX_RESULTS = 30;
 
@@ -51,13 +51,8 @@ public class EditableGridForUpdate1 {
 
 	private List<Person> personsSubmitted;
 
-	// This carries the list of submitted persons through the redirect that follows a server-side validation failure.
-	// We do this to compensate for the fact that Form doesn't carry Hidden component values through a redirect.
-	@Persist(PersistenceConstants.FLASH)
-	private List<Person> personsSubmittedFlash;
-
 	private int rowNum;
-	private Map<Integer, FieldCopy> firstNameCopyByRowNum;
+	private Map<Integer, FieldCopy> firstNameFieldCopyByRowNum;
 
 	// Other pages
 
@@ -69,8 +64,8 @@ public class EditableGridForUpdate1 {
 	@Component(id = "personsEdit")
 	private Form form;
 
-	@InjectComponent
-	private TextField firstName;
+	@InjectComponent("firstName")
+	private TextField firstNameField;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
@@ -98,11 +93,6 @@ public class EditableGridForUpdate1 {
 			}
 		}
 
-		// Else, we're rendering after a redirect, so rebuild the list with the same persons as were submitted
-
-		else {
-			persons = new ArrayList<Person>(personsSubmittedFlash);
-		}
 	}
 
 	// Form bubbles up the PREPARE_FOR_SUBMIT event during form submission.
@@ -115,14 +105,14 @@ public class EditableGridForUpdate1 {
 		personsInDB = personFinderService.findPersons(MAX_RESULTS);
 
 		// Prepare to take a copy of each editable field.
-		
+
 		rowNum = 0;
-		firstNameCopyByRowNum = new HashMap<Integer, FieldCopy>();
+		firstNameFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 	}
 
 	void onValidateFromFirstName() {
 		rowNum++;
-		firstNameCopyByRowNum.put(rowNum, new FieldCopy(firstName));
+		firstNameFieldCopyByRowNum.put(rowNum, new FieldCopy(firstNameField));
 	}
 
 	void onValidateFromPersonsEdit() {
@@ -149,10 +139,10 @@ public class EditableGridForUpdate1 {
 			rowNum++;
 
 			if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
-				// Unfortunately, at this point the field firstName is from the final row of the Grid.
+				// Unfortunately, at this point the field firstNameField is from the final row of the Grid.
 				// Fortunately, we have a copy of the correct field, so we can record the error with that.
 
-				Field field = firstNameCopyByRowNum.get(rowNum);
+				Field field = firstNameFieldCopyByRowNum.get(rowNum);
 				form.recordError(field, "First name cannot be " + BAD_NAME + ".");
 				return;
 			}
@@ -175,7 +165,7 @@ public class EditableGridForUpdate1 {
 	}
 
 	void onFailure() {
-		personsSubmittedFlash = new ArrayList<Person>(personsSubmitted);
+		persons = personsSubmitted;
 	}
 
 	void onRefresh() {

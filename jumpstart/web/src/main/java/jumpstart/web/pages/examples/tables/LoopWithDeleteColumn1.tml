@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/loopwithdeletecolumn.css}"/>
-</head>
 <body class="container">
 	<h3>Loop With Delete Column (1)</h3>
 	
@@ -14,9 +11,9 @@
 	To demonstrate a server-side error, try to delete a person whose First Name is <em>${BAD_NAME}</em>.<br/>
 
 	<div class="eg">
-		<form t:type="form" t:id="deletables">
+		<t:form t:id="deletables">
 			<t:errors globalOnly="true"/>
-			<table class="grid">
+			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>Id</th>
@@ -27,26 +24,28 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr t:type="Loop" t:source="persons" t:value="person" t:encoder="personEncoder">
-	 					<td>${person.id}</td>
-						<td>${person.firstName}</td>
-						<td>${person.lastName}</td>
-						<td><t:output value="person.startDate" format="dateFormat"/></td>
-						<td><input t:id="delete" t:type="checkbox" value="delete"/></td>
-						
-						<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
-						<t:hidden value="person.firstName"/>
-						<t:hidden value="person.lastName"/>
-						<t:hidden value="person.startDate" t:encoder="dateEncoder"/>
-						
-						<!-- If optimistic locking is not needed then comment out this next line. -->
-						<t:hidden value="person.version"/>
-					</tr>
+					<t:loop source="persons" value="person" encoder="personEncoder">
+						<tr>
+		 					<td>${person.id}</td>
+							<td>${person.firstName}</td>
+							<td>${person.lastName}</td>
+							<td><t:output value="person.startDate" format="dateFormat"/></td>
+							<td><t:checkbox t:id="delete" value="delete"/></td>
+							
+							<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
+							<t:hidden value="person.firstName"/>
+							<t:hidden value="person.lastName"/>
+							<t:hidden value="person.startDate" t:encoder="dateEncoder"/>
+							
+							<!-- If optimistic locking is not needed then comment out this next line. -->
+							<t:hidden value="person.version"/>
+						</tr>
+					</t:loop>
 				</tbody>
-		 	</table><br/>
-		 	<input t:type="submit"/>
-		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
-		 </form>
+		 	</table>
+		 	<t:submit/>
+		 	<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>
+		 </t:form>
 	</div>
 
 	This example works very much like the Editable Loop For Update example.<br/><br/>
@@ -63,7 +62,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/loopwithdeletecolumn.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	</t:tabgroup>

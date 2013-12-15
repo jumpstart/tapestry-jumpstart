@@ -5,7 +5,7 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <t:content>
 
- 	<div class="form-group well">
+ 	<div id="${clientId}" class="form-group well">
 		<t:loop source="persons" value="person" formstate="iteration">
 			<div class="col-sm-2">
 				<t:checkbox t:id="person" value="personChosen" disabled="prop:disabled"/>

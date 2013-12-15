@@ -7,16 +7,16 @@ import jumpstart.business.domain.person.Person;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ComponentAction;
 import org.apache.tapestry5.EventConstants;
-import org.apache.tapestry5.Field;
 import org.apache.tapestry5.ValidationTracker;
 import org.apache.tapestry5.annotations.Environmental;
 import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.base.AbstractField;
 import org.apache.tapestry5.services.FormSupport;
 
 @Events(EventConstants.VALIDATE)
-public class SelectPersonsField implements Field {
+public class SelectPersonsField extends AbstractField {
 
 	// Parameters
 
@@ -32,16 +32,6 @@ public class SelectPersonsField implements Field {
 	@Property
 	private int min;
 
-	@Parameter(defaultPrefix = BindingConstants.LITERAL, value = "false")
-	@Property
-	private boolean disabled;
-
-	@Parameter(value = "prop:componentResources.id", defaultPrefix = BindingConstants.LITERAL)
-	private String clientId;
-
-	@Parameter(defaultPrefix = BindingConstants.LITERAL)
-	private String label;
-
 	// Screen fields
 
 	@Property
@@ -49,89 +39,52 @@ public class SelectPersonsField implements Field {
 
 	// Generally useful bits and pieces
 
-	private String controlName;
-
 	@Environmental
 	private FormSupport formSupport;
 
 	@Environmental
 	private ValidationTracker tracker;
 
-	private static final ProcessSubmission PROCESS_SUBMISSION = new ProcessSubmission();
+	private static final ProcessSubmissionAfter PROCESS_SUBMISSION_AFTER = new ProcessSubmissionAfter();
 
 	// The code
-
-	// Tapestry calls setupRender() before it renders me and BEFORE it renders any components I contain (ie. Loop).
-
-	final void setupRender() {
-
-		// If we are inside a form, ask FormSupport to execute "setup" now AND store it in its list of actions to do on
-		// submit.
-		// If I contain other components, their actions will be stored later in the list, after "setup". That is because
-		// this method, setupRender(), is early in the sequence. This guarantees "setup" will be executed on submit
-		// BEFORE the components I contain are processed (including their validation).
-
-		if (formSupport != null) {
-			String controlName = formSupport.allocateControlName(clientId);
-			ComponentAction<SelectPersonsField> setup = new Setup(controlName);
-			formSupport.storeAndExecute(this, setup);
-		}
-
-	}
-
-	private static class Setup implements ComponentAction<SelectPersonsField> {
-		private static final long serialVersionUID = 1L;
-
-		private final String controlName;
-
-		Setup(String controlName) {
-			this.controlName = controlName;
-		}
-
-		public void execute(SelectPersonsField component) {
-			component.setup(controlName);
-		}
-
-		@Override
-		public String toString() {
-			return String.format(this.getClass().getSimpleName() + ".Setup[%s]", controlName);
-		}
-	}
-
-	private void setup(String controlName) {
-		this.controlName = controlName;
-	}
 
 	// Tapestry calls afterRender() AFTER it renders any components I contain (ie. Loop).
 
 	final void afterRender() {
 
 		// If we are inside a form, ask FormSupport to store PROCESS_SUBMISSION in its list of actions to do on submit.
-		// If I contain other components, their actions will already be in the list, before PROCESS_SUBMISSION. That is
-		// because this method, afterRender(), is late in the sequence. This guarantees PROCESS_SUBMISSION will be
-		// executed on submit AFTER the components I contain are processed (which includes their validation).
+		// If I contain other components (which I do), their actions will already be in the list, before
+		// PROCESS_SUBMISSION. That is because this method, afterRender(), is late in the sequence. This guarantees
+		// PROCESS_SUBMISSION will be executed on submit AFTER the components I contain are processed (which includes
+		// their validation).
 
 		if (formSupport != null) {
-			formSupport.store(this, PROCESS_SUBMISSION);
+			formSupport.store(this, PROCESS_SUBMISSION_AFTER);
 		}
 	}
 
-	private static class ProcessSubmission implements ComponentAction<SelectPersonsField> {
+	private static class ProcessSubmissionAfter implements ComponentAction<SelectPersonsField> {
 		private static final long serialVersionUID = 1L;
 
 		public void execute(SelectPersonsField component) {
-			component.processSubmission();
+			component.processSubmissionAfter();
 		}
 
 		@Override
 		public String toString() {
-			return this.getClass().getSimpleName() + ".ProcessSubmission";
+			return this.getClass().getSimpleName() + ".ProcessSubmissionAfter";
 		}
 	};
 
-	private void processSubmission() {
+	@Override
+	protected void processSubmission(final String controlName) {
+		// Nothing to do yet, because it's before my components are handled.
+	       final String[] parameters = request.getParameters(controlName);
+	       int i = 1;
+	}
 
-		// Validate. We ensured in afterRender() that the components I contain have already been validated.
+	protected void processSubmissionAfter() {
 
 		// Error if the number of persons chosen is less than specified by the min parameter.
 
@@ -155,26 +108,6 @@ public class SelectPersonsField implements Field {
 		else {
 			chosenPersons.remove(person);
 		}
-	}
-
-	@Override
-	public String getClientId() {
-		return null;
-	}
-
-	@Override
-	public String getControlName() {
-		return controlName;
-	}
-
-	@Override
-	public String getLabel() {
-		return label;
-	}
-
-	@Override
-	public boolean isDisabled() {
-		return disabled;
 	}
 
 	@Override

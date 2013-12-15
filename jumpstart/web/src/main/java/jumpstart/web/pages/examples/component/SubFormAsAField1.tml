@@ -6,8 +6,9 @@
 <body class="container">
 	<h3>Sub-Form As a Field (1)</h3>
 	
-	The sub-form in this example does its own validation AND it links to its label because it implements <em>Field</em>, <br/>
-	so when there's an error in the sub-form the label will be decorated. Try Save with no people selected.<br/>
+	The sub-form in this example does its own validation AND it links to its label because it extends <em>AbstractField</em> 
+	and renders a div with the field's id, so when there's an error in the sub-form the label will be decorated. 
+	Try Save with no people selected.<br/>
 
 	<div class="eg">
 		
@@ -33,21 +34,23 @@
 				</div>
 			</div>
 
-<!-- 
 			<t:errors globalOnly="true"/>
- -->
-			<t:errors/>
 		</t:form>
 		
 	</div>
+	
+	This solution does not handle Tapestry and JSR-303 validators. For a comprehensive solution see Tapestry's <code>Checklist</code> component: 
+	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/resources/org/apache/tapestry5/corelib/components/Checklist.tml?view=markup">Checklist.tml</a>, 
+	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/components/Checklist.java?view=markup">Checklist.java</a>. 
+	<br/><br/>
 
 	References: 
-	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/components/RadioGroup.java?view=markup">RadioGroup.java</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Field.html">Field</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/base/AbstractField.html">AbstractField</a>, 
 	<a href="http://tapestry.apache.org/environmental-services.html">Environmental Services</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValidationTracker.html">ValidationTracker</a>, 
-	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentAction.html">ComponentAction</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
@@ -57,7 +60,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField1.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormAsAField1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/examples.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersonsField.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/Invitation.java"/>

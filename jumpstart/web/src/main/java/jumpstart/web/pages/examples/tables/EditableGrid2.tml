@@ -3,18 +3,15 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/styledgrid.css}"/>
-</head>
 <body class="container">
 	<h3>Editable Grid (2)</h3>
 
 	Here is what you asked to be created.  It has not been persisted to the database.
 
 	<div class="eg">
-		<table t:type="grid" t:source="persons" t:include="firstname,lastname,region,startdate">[Persons Grid here]</table><br/>
+		<t:grid source="persons" include="firstname,lastname,region,startdate"/>
 	 
-		<a t:type="pagelink" t:page="examples/tables/EditableGrid1" href="#">Return</a>
+		<p><t:pagelink page="examples/tables/EditableGrid1">Return</t:pagelink></p>
 	</div>
 	
 	References: 
@@ -25,7 +22,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableGrid2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableGrid2.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/styledgrid.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabgroup>
 </body>
 </html>

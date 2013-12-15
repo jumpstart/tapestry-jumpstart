@@ -38,12 +38,11 @@
 		
 	</div>
 
-	There is a reason we cannot do validation in our sub-form: our sub-form doesn't know when the form has been submitted.<br/>
-	When the Form triggers events like SUBMIT and VALIDATE they bubble up to its container which is this page.<br/>
-	The sub-form does not receive the events.<br/><br/>
-	
-	And yet, every input component that we put in a sub-form <em>can</em> do validation. That is because they have some <br/>
-	extra plumbing. We will add that plumbing to our sub-forms in the next couple of examples...<br/><br/>
+	We would like the sub-form to do some <strong>validation</strong>, but where? 
+	There is no point putting validation in an event handler method like <em>onValidateFromForm()</em> because the 
+	method will never be triggered. Yes, Form will trigger event VALIDATE, but it wil bubble up to its container, 
+	which is this page, not down into its body, which is where this sub-form sits.
+	We solve this in the next two examples.<br/><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>

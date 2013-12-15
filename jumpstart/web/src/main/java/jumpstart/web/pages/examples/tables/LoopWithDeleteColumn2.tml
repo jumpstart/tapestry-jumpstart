@@ -3,16 +3,13 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/loopwithdeletecolumn.css}"/>
-</head>
 <body class="container">
 	<h3>Loop With Delete Column (2)</h3>
 	
 	Here is what you asked to delete.  The deletions have not been persisted to the database.<br/>
 
 	<div class="eg">
-	 	<table class="grid">
+	 	<table class="table table-hover table-bordered table-striped">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -20,17 +17,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr t:type="Loop" t:source="persons" t:value="person">
-					<td>${person.id}</td>
-					<td>${person.version}</td>
-				</tr>
+				<t:loop source="persons" value="person">
+					<tr>
+						<td>${person.id}</td>
+						<td>${person.version}</td>
+					</tr>
+				</t:loop>
 			</tbody>
 	 	</table>
-		<div t:type="if" t:test="!persons">
-			<div class="nodata">No persons were chosen to be deleted.</div><br/>
-		</div><br/>
+	 	<t:if test="!persons">
+		 	<div class="alert alert-info">
+				No persons were chosen to be deleted.
+			</div>
+		</t:if>
 	 
-		<a t:type="pagelink" t:page="examples/tables/LoopWithDeleteColumn1" href="#">Return</a>
+		<t:pagelink page="examples/tables/LoopWithDeleteColumn1">Return</t:pagelink>
 	</div>
 	
 	References: 
@@ -41,7 +42,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/LoopWithDeleteColumn2.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/loopwithdeletecolumn.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabgroup>
 </body>
 </html>

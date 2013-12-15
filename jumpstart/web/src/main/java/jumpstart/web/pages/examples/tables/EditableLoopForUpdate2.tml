@@ -3,16 +3,13 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/editableloop.css}"/>
-</head>
 <body class="container">
 	<h3>Editable Loop For Update (2)</h3>
 
 	Here is the result of your changes.  The changes have not been persisted to the database.
 
 	<div class="eg">
-		<table class="grid">
+		<table class="table table-hover table-bordered table-striped">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -22,19 +19,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr t:type="Loop" t:source="persons" t:value="person" class="prop:evenodd.next">
-					<td>${person.id}</td>
-					<td>${person.firstName}</td>
-					<td>${person.lastName}</td>
-					<td><t:output value="person.startDate" format="dateFormat"/></td>
-				</tr>
+				<t:loop source="persons" value="person">
+					<tr>
+						<td>${person.id}</td>
+						<td>${person.firstName}</td>
+						<td>${person.lastName}</td>
+						<td><t:output value="person.startDate" format="dateFormat"/></td>
+					</tr>
+				</t:loop>
 			</tbody>
-	 	</table><br/>
-	 	<div t:type="if" t:test="!persons">
-			<div class="nodata">There is no data to display.</div><br/>
-		</div>
+	 	</table>
+	 	<t:if test="!persons">
+		 	<div class="alert alert-info">
+				There is no data to display.
+			</div>
+		</t:if>
 	
-		<a t:type="pagelink" t:page="examples/tables/EditableLoopForUpdate1" href="#">Return</a>
+		<t:pagelink page="examples/tables/EditableLoopForUpdate1">Return</t:pagelink>
 	</div>
 	
 	References: 
@@ -45,7 +46,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate2.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/editableloop.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabgroup>
 </body>
 </html>

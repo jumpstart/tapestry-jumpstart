@@ -176,13 +176,13 @@
 							<t:pagelink page="together/filtercrud/Persons" t:disabled="true">Filter CRUD</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/tables/EditableGrid1" t:disabled="true">Editable Grid</t:pagelink><br/>
-							<t:pagelink page="examples/tables/EditableGridForUpdate1" t:disabled="true">Editable Grid For Update</t:pagelink><br/>
-							<t:pagelink page="examples/tables/GridWithDeleteColumn1" t:disabled="true">Grid With Delete Column</t:pagelink><br/>
+							<t:pagelink page="examples/tables/EditableGrid1">Editable Grid</t:pagelink><br/>
+							<t:pagelink page="examples/tables/EditableGridForUpdate1">Editable Grid For Update</t:pagelink><br/>
+							<t:pagelink page="examples/tables/GridWithDeleteColumn1">Grid With Delete Column</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/tables/EditableLoop1" t:disabled="true">Editable Loop</t:pagelink><br/>
-							<t:pagelink page="examples/tables/EditableLoopForUpdate1" t:disabled="true">Editable Loop For Update</t:pagelink><br/>
-							<t:pagelink page="examples/tables/LoopWithDeleteColumn1" t:disabled="true">Loop With Delete Column</t:pagelink><br/>
+							<t:pagelink page="examples/tables/EditableLoop1">Editable Loop</t:pagelink><br/>
+							<t:pagelink page="examples/tables/EditableLoopForUpdate1">Editable Loop For Update</t:pagelink><br/>
+							<t:pagelink page="examples/tables/LoopWithDeleteColumn1">Loop With Delete Column</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/lang/DelegateToBlock">Delegate to Block</t:pagelink><br/>

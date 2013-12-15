@@ -5,14 +5,14 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"> 
 <body class="container">
 	<h3>Select</h3>
-	The <strong>Select</strong> component displays a list of <strong>options</strong> in a drop-down box, allowing
+	The Select component displays a list of <strong>options</strong> in a drop-down box, allowing
 	you to choose one.<br/>
 	The options are held in a <strong>model</strong> which can be specified in many different ways, as these examples demonstrate.<br/>
 	Each option has a <strong>label</strong>, which is what you see displayed in the list.<br/>
 	Each option also has a <strong>value</strong>, which uniquely identifies it to the server.
 	If the value is not a string, then an <strong>encoder</strong> must be provided.<br/>
-	Each <strong>t:label</strong> component in these examples is providing a label next to its corresponding Select component. 
-	They do not affect the Select's option labels.<br/><br/>
+	Each <strong>Label</strong> component in these examples is providing a label next to its corresponding Select component. 
+	It does not affect the Select's option labels.<br/><br/>
 
 	The Select component expects you to provide a SelectModel, but to keep things simple it will also accept enums and lists of strings 
 	as the following examples show.
@@ -70,8 +70,10 @@
 	is <a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/data/BlankOption.html">here</a>.<br/><br/> 
 
 	References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Label.html">Label</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/data/BlankOption.html">BlankOption</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/data/BlankOption.html">BlankOption</a>, 
+	.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

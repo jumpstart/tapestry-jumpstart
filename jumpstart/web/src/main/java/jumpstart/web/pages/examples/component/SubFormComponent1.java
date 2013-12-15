@@ -13,7 +13,6 @@ import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
 
 @Import(stylesheet = "css/examples/plain.css")
@@ -23,7 +22,6 @@ public class SubFormComponent1 {
 	// Screen fields
 
 	@Property
-	@SessionState(create = false)
 	private Invitation invitation;
 
 	@Property
@@ -57,7 +55,7 @@ public class SubFormComponent1 {
 			// We get here only if a server-side validator detected an error.
 			return;
 		}
-		
+
 		// Error if no persons chosen.
 
 		if (invitation.getInvitedPersons().size() == 0) {

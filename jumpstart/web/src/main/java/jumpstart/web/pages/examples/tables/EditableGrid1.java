@@ -21,6 +21,7 @@ import jumpstart.web.commons.FieldCopy;
 
 import org.apache.tapestry5.Field;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
@@ -33,6 +34,7 @@ import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.BeanModelSource;
 
+@Import(stylesheet = "css/examples/editablegrid.css")
 public class EditableGrid1 {
 	private static final String REQUIRED_MSG_KEY = "required";
 
@@ -53,10 +55,10 @@ public class EditableGrid1 {
 	// Work fields
 
 	private int rowNum;
-	private Map<Integer, FieldCopy> firstNameCopyByRowNum;
-	private Map<Integer, FieldCopy> lastNameCopyByRowNum;
-	private Map<Integer, FieldCopy> regionCopyByRowNum;
-	private Map<Integer, FieldCopy> startDateCopyByRowNum;
+	private Map<Integer, FieldCopy> firstNameFieldCopyByRowNum;
+	private Map<Integer, FieldCopy> lastNameFieldCopyByRowNum;
+	private Map<Integer, FieldCopy> regionFieldCopyByRowNum;
+	private Map<Integer, FieldCopy> startDateFieldCopyByRowNum;
 
 	private List<Person> personsToCreate;
 
@@ -70,17 +72,17 @@ public class EditableGrid1 {
 	@Component(id = "personsCreate")
 	private Form form;
 
-	@InjectComponent
-	private TextField firstName;
+	@InjectComponent("firstName")
+	private TextField firstNameField;
 
-	@InjectComponent
-	private TextField lastName;
+	@InjectComponent("lastName")
+	private TextField lastNameField;
 
-	@InjectComponent
-	private Select region;
+	@InjectComponent("region")
+	private Select regionField;
 
-	@InjectComponent
-	private DateField startDate;
+	@InjectComponent("startDate")
+	private DateField startDateField;
 
 	@Inject
 	private BeanModelSource beanModelSource;
@@ -119,10 +121,10 @@ public class EditableGrid1 {
 		// Prepare to take a copy of each field.
 
 		rowNum = 0;
-		firstNameCopyByRowNum = new HashMap<Integer, FieldCopy>();
-		lastNameCopyByRowNum = new HashMap<Integer, FieldCopy>();
-		regionCopyByRowNum = new HashMap<Integer, FieldCopy>();
-		startDateCopyByRowNum = new HashMap<Integer, FieldCopy>();
+		firstNameFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
+		lastNameFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
+		regionFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
+		startDateFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 	}
 
 	// Form bubbles up the PREPARE event during form render and form submission.
@@ -150,19 +152,19 @@ public class EditableGrid1 {
 
 	void onValidateFromFirstName() {
 		rowNum++;
-		firstNameCopyByRowNum.put(rowNum, new FieldCopy(firstName));
+		firstNameFieldCopyByRowNum.put(rowNum, new FieldCopy(firstNameField));
 	}
 
 	void onValidateFromLastName() {
-		lastNameCopyByRowNum.put(rowNum, new FieldCopy(lastName));
+		lastNameFieldCopyByRowNum.put(rowNum, new FieldCopy(lastNameField));
 	}
 
 	void onValidateFromRegion() {
-		regionCopyByRowNum.put(rowNum, new FieldCopy(region));
+		regionFieldCopyByRowNum.put(rowNum, new FieldCopy(regionField));
 	}
 
 	void onValidateFromStartDate() {
-		startDateCopyByRowNum.put(rowNum, new FieldCopy(startDate));
+		startDateFieldCopyByRowNum.put(rowNum, new FieldCopy(startDateField));
 	}
 
 	void onValidateFromPersonsCreate() {
@@ -184,26 +186,26 @@ public class EditableGrid1 {
 			if (StringUtil.isNotEmpty(person.getFirstName()) || StringUtil.isNotEmpty(person.getLastName())
 					|| person.getRegion() != null || person.getStartDate() != null) {
 
-				// Unfortunately, at this point the fields firstName, lastName, etc. are from the final row of the Grid.
+				// Unfortunately, at this point the fields firstNameField, lastNameField, etc. are from the final row of the Grid.
 				// Fortunately, we have a copy of the correct fields, so we can record the error with those.
 
 				if (StringUtil.isEmpty(person.getFirstName())) {
-					Field field = firstNameCopyByRowNum.get(rowNum);
+					Field field = firstNameFieldCopyByRowNum.get(rowNum);
 					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
 					return;
 				}
 				else if (StringUtil.isEmpty(person.getLastName())) {
-					Field field = lastNameCopyByRowNum.get(rowNum);
+					Field field = lastNameFieldCopyByRowNum.get(rowNum);
 					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
 					return;
 				}
 				else if (person.getRegion() == null) {
-					Field field = regionCopyByRowNum.get(rowNum);
+					Field field = regionFieldCopyByRowNum.get(rowNum);
 					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
 					return;
 				}
 				else if (person.getStartDate() == null) {
-					Field field = startDateCopyByRowNum.get(rowNum);
+					Field field = startDateFieldCopyByRowNum.get(rowNum);
 					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
 					return;
 				}

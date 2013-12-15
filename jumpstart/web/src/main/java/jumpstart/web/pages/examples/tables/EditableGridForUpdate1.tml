@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/styledgrid.css}"/>
-</head>
 <body class="container">
 	<h3>Editable Grid For Update (1)</h3>
 
@@ -16,12 +13,11 @@
 	The key difference from the Editable Grid example is that now we are dealing with existing entities, so we give the Grid a custom ValueEncoder.<br/>
 	
 	<div class="eg">
-		<form t:type="form" t:id="personsEdit">
+		<t:form t:id="personsEdit">
 			<t:errors globalOnly="true"/>
-			<table t:type="Grid" t:source="persons" t:row="person" t:encoder="personEncoder" 
-				t:include="id,firstname,lastname,startdate">
+			<t:grid source="persons" row="person" encoder="personEncoder" include="id,firstname,lastname,startdate">
 				<p:firstNameCell>
-					<input t:id="firstName" t:type="TextField" t:value="person.firstName" t:validate="required, maxlength=10" size="10"/>
+					<t:textfield t:id="firstName" value="person.firstName" validate="required, maxlength=10" size="10"/>
 
 					<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
 					<t:hidden value="person.lastName"/>
@@ -30,10 +26,10 @@
 					<!-- We ensure version is submitted, to ensure optimistic locking. Optimistic locking is essential for this solution. -->
 					<t:hidden value="person.version"/>
 				</p:firstNameCell>
-		 	</table><br/>
-		 	<input t:type="submit" value="Save"/>
-		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
-		</form>
+		 	</t:grid>
+		 	<t:submit value="Save"/>
+		 	<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>
+		</t:form>
 	</div>
 
 	Features:<br/>
@@ -44,7 +40,6 @@
 	<li>On error, we redisplay the list with the same persons and values you submitted. Here's how:
 		<ul>
 		<li>Form doesn't submit output-only fields but it does submit hidden fields, so we shadow each output-only field with a Hidden.</li>
-		<li>Form doesn't carry Hidden values through to redisplay, so we do it ourselves use FLASH-persistence - see onFailure() and onPrepareForRender().</li>
 		</ul>
 	</li>
 	</ul>
@@ -61,7 +56,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableGridForUpdate1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableGridForUpdate1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/styledgrid.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>

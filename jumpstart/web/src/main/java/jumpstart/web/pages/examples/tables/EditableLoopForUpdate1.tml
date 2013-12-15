@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/tables/editableloop.css}"/>
-</head>
 <body class="container">
 	<h3>Editable Loop For Update (1)</h3>
 
@@ -16,9 +13,9 @@
 	so we drop formstate="<em>ITERATION</em>" from the Loop and give it a custom ValueEncoder instead.<br/>
 	
 	<div class="eg">
-		<form t:type="form" t:id="personsEdit">
+		<t:form t:id="personsEdit">
 			<t:errors globalOnly="true"/>
-			<table class="grid">
+			<table class="table table-hover table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>Id</th>
@@ -28,24 +25,26 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr t:type="Loop" t:source="persons" t:value="person" t:encoder="personEncoder" class="prop:evenodd.next">
-	 					<td>${person.id}</td>
-						<td><input t:id="firstName" t:type="TextField" t:value="person.firstName" t:validate="required, maxlength=10" size="10"/></td>
-						<td>${person.lastName}</td>
-						<td><t:output value="person.startDate" format="dateFormat"/></td>
-
-						<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
-						<t:hidden value="person.lastName"/>
-						<t:hidden value="person.startDate" t:encoder="dateEncoder"/>
-
-						<!-- We ensure version is submitted, to ensure optimistic locking. Optimistic locking is essential for this solution. -->
-						<t:hidden value="person.version"/>
-					</tr>
+					<t:loop source="persons" value="person" encoder="personEncoder">
+						<tr>
+		 					<td>${person.id}</td>
+							<td><t:textfield t:id="firstName" value="person.firstName" validate="required, maxlength=10" size="10"/></td>
+							<td>${person.lastName}</td>
+							<td><t:output value="person.startDate" format="dateFormat"/></td>
+	
+							<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
+							<t:hidden value="person.lastName"/>
+							<t:hidden value="person.startDate" t:encoder="dateEncoder"/>
+	
+							<!-- We ensure version is submitted, to ensure optimistic locking. Optimistic locking is essential for this solution. -->
+							<t:hidden value="person.version"/>
+						</tr>
+					</t:loop>
 				</tbody>
-		 	</table><br/>
-		 	<input t:type="submit" value="Save"/>
-		 	<a t:type="eventlink" t:event="refresh" href="#" style="margin-left: 5px;">Refresh</a>
-		 </form>
+		 	</table>
+		 	<t:submit value="Save"/>
+		 	<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>
+		 </t:form>
 	</div>
 
 	Features:<br/>
@@ -56,7 +55,6 @@
 	<li>On error, we redisplay the list with the same persons and values you submitted. Here's how:
 		<ul>
 		<li>Form doesn't submit output-only fields but it does submit hidden fields, so we shadow each output-only field with a Hidden.</li>
-		<li>Form doesn't carry Hidden values through to redisplay, so we do it ourselves use FLASH-persistence - see onFailure() and onPrepareForRender().</li>
 		</ul>
 	</li>
 	</ul>
@@ -73,7 +71,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoopForUpdate1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/editableloop.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
