@@ -20,7 +20,7 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
  */
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
 @Import(library = "js_imports/mixins/Confirm.js")
-public class Confirm {
+public class Confirm_old {
 
 	@Parameter(name = "message", value = "Are you sure?", defaultPrefix = BindingConstants.LITERAL)
 	private String message;
