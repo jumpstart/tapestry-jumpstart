@@ -6,31 +6,36 @@
 <body class="container">
 	<h3>Editable Grid (1)</h3>
 
-	A table built with a Form around a Grid to allow creation of up to ${LIST_SIZE} persons.<br/><br/>
-	
-	To demonstrate a server-side validation error, leave one or more fields of a person empty.<br/>
+	A table built with a Form around a Grid to allow creation of up to ${LIST_SIZE} persons.
 	
 	<div class="eg">
 		<t:form t:id="personsCreate">
 			<t:errors globalOnly="true"/>
 			<t:grid source="persons" row="person" model="model" include="firstname,lastname,region,startdate">
 				<p:firstNameCell>
-					<t:textfield t:id="firstName" value="person.firstName" t:validate="maxlength=10" size="10"/>
+					<t:textfield t:id="firstName" value="person.firstName" t:validate="maxlength=10"/>
 				</p:firstNameCell>
 				<p:lastNameCell>
-					<t:textfield t:id="lastName" value="person.lastName" t:validate="maxlength=10" size="10"/>
+					<t:textfield t:id="lastName" value="person.lastName" t:validate="maxlength=10"/>
 				</p:lastNameCell>
 				<p:regionCell>
 					<t:select t:id="region" value="person.region"/>
 				</p:regionCell>
 				<p:startDateCell>
-					<t:datefield t:id="startDate" class="date" value="person.startDate" format="prop:dateFormat" size="14"/>
+					<t:datefield t:id="startDate" class="date" value="person.startDate" format="prop:dateFormat"/>
 				</p:startDateCell>
 		 	</t:grid>
 		 	<t:submit value="Save"/>
 		 	<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>
 		</t:form>
 	</div>
+
+	<p>Grid doesn't support JSR-303 validation, so we're demonstrating 3 workarounds:</p>
+	<ul>
+		<li>Client-side, we're validating field lengths with traditional Tapestry validators specified in the template.</li>
+		<li>Server-side, we're invoking the validator for each field, which includes JSR-303 validation.</li>
+		<li>Server-side, we're checking First Name is not <em>${BAD_NAME}</em>, which is a custom validation.</li>
+	</ul> 
 
 	For more flexibility, see the Editable Loop examples.<br/><br/>
 	

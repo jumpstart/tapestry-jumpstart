@@ -3,23 +3,20 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/totalcontrolcrud.css}"/>
-</head>
-<body>
-	<h1>Total Control CRUD</h1>
+<body class="container">
+	<h3>Total Control CRUD</h3>
 	
 	This example is like <em>Easy CRUD</em> but shows how CRUD can be done "by hand", ie. without using Tapestry's Grid, BeanEditor, and BeanDisplay components.<br/>
 	For example, instead of using the Grid component we use the Loop and Output components in a normal HTML table.
 
 	<div class="eg">
-	 	<a t:type="pageLink" t:page="together/totalcontrolcrud/person/PersonCreate" href="#">Create...</a><br/><br/>
+	 	<t:pagelink page="together/totalcontrolcrud/person/PersonCreate">Create...</t:pagelink><br/><br/>
 	 	
 		<t:if test="errorMessage">
 			<br/><span style="color:red">${errorMessage}</span><br/><br/>
 		</t:if>
 	
-		<table class="grid">
+		<table class="table table-bordered table-striped table-hover table-condensed">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -38,10 +35,10 @@
 					<td>${personRegion}</td>
 					<td><t:output value="person.startDate" format="dateFormat"/></td>
 					<td>
-						<a t:type="pageLink" t:page="together/totalcontrolcrud/person/PersonReview" t:context="person.id" href="#">Review</a>
-						<a t:type="pageLink" t:page="together/totalcontrolcrud/person/PersonUpdate" t:context="person.id" href="#">Update</a>
-						<a t:type="eventLink" t:event="Delete" t:context="[person.id,person.version]" 
-							t:mixins="Confirm" t:message="Delete ${person.firstName} ${person.lastName}?">Delete</a>
+						<t:pagelink page="together/totalcontrolcrud/person/PersonReview" context="person.id">Review</t:pagelink>
+						<t:pagelink page="together/totalcontrolcrud/person/PersonUpdate" context="person.id">Update</t:pagelink>
+						<t:eventLink event="Delete" context="[person.id,person.version]" 
+							t:mixins="Confirm" essage="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventLink>
 					</td>
 				</tr>
 			</tbody>
@@ -53,13 +50,13 @@
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
 	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/Persons.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/Persons.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/Persons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/totalcontrolcrud.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/Persons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/Persons.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/Persons.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
 </body>
 </html>

@@ -8,8 +8,6 @@
 
 	A table built with a Form around a Grid to allow update of persons.<br/><br/>
 	
-	To demonstrate a server-side error, change any First Name to <em>${BAD_NAME}</em>.<br/><br/>
-	
 	The key difference from the Editable Grid example is that now we are dealing with existing entities, so we give the Grid a custom ValueEncoder.<br/>
 	
 	<div class="eg">
@@ -17,7 +15,7 @@
 			<t:errors globalOnly="true"/>
 			<t:grid source="persons" row="person" encoder="personEncoder" include="id,firstname,lastname,startdate">
 				<p:firstNameCell>
-					<t:textfield t:id="firstName" value="person.firstName" validate="required, maxlength=10" size="10"/>
+					<t:textfield t:id="firstName" value="person.firstName" validate="maxlength=10"/>
 
 					<!-- We shadow each output-only with a hidden field to enable redisplay of the list exactly as it was submitted. -->
 					<t:hidden value="person.lastName"/>
@@ -32,7 +30,7 @@
 		</t:form>
 	</div>
 
-	Features:<br/>
+	<p>Features:</p>
 	<ul>
 	<li>If another process creates a person by the time you submit, we ignore it. The encoder ensures we target the submitted persons only.</li>
 	<li>If another process updates a person by the time you submit, your update will be rejected by the business layer (optimistic locking exception).</li>
@@ -44,6 +42,13 @@
 	</li>
 	</ul>
 	
+	<p>Grid doesn't support JSR-303 validation, so, as in the previous example, we're demonstrating 3 workarounds:</p>
+	<ul>
+		<li>Client-side, we're validating field lengths with traditional Tapestry validators specified in the template.</li>
+		<li>Server-side, we're invoking the validator for each field, which includes JSR-303 validation.</li>
+		<li>Server-side, we're checking First Name is not <em>${BAD_NAME}</em>, which is a custom validation.</li>
+	</ul>
+
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
@@ -59,7 +64,6 @@
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>
 </body>
 </html>

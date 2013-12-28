@@ -9,10 +9,12 @@ import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet="css/together/totalcontrolcrudreview.css")
 public class PersonReview {
 
 	// The activation context

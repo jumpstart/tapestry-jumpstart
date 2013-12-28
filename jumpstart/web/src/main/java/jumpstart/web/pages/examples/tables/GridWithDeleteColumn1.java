@@ -15,13 +15,11 @@ import jumpstart.util.ExceptionUtil;
 import jumpstart.web.commons.FieldCopy;
 
 import org.apache.tapestry5.Field;
-import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Checkbox;
 import org.apache.tapestry5.corelib.components.Form;
@@ -111,22 +109,18 @@ public class GridWithDeleteColumn1 {
 
 		// Prepare to take a copy of each editable field.
 
-		rowNum = 0;
+		rowNum = -1;
 		deleteFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 	}
 
 	void onValidateFromDelete() {
 		// Unfortunately, this method is never called because Checkbox doesn't bubble up VALIDATE. It's a shame because
-		// this would be the perfect place to validate whether deleting is OK, or to put an entry in deleteFieldCopyByRowNum.
+		// this would be the perfect place to validate whether deleting is OK, or to put an entry in
+		// deleteFieldCopyByRowNum.
 		// Please vote for https://issues.apache.org/jira/browse/TAP5-2075 .
 	}
 
 	void onValidateFromDeletables() {
-
-		if (form.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
-		}
 
 		// Error if any person to delete has a null id - it means toValue(...) found they are no longer in the database.
 
@@ -141,26 +135,30 @@ public class GridWithDeleteColumn1 {
 		// Also, simulate a server-side validation error: return error if deleting a person with first name BAD_NAME.
 
 		for (IdVersion personToDelete : personsToDelete) {
-			rowNum = 0;
+			rowNum = -1;
 
-			for (Person p : personsSubmitted) {
+			for (Person personSubmitted : personsSubmitted) {
 				rowNum++;
 
-				if (p.getId() != null && p.getId().equals(personToDelete.getId())) {
-					personToDelete.setVersion(p.getVersion());
+				if (personSubmitted.getId() != null && personSubmitted.getId().equals(personToDelete.getId())) {
+					personToDelete.setVersion(personSubmitted.getVersion());
 
-					if (p.getFirstName() != null && p.getFirstName().equals(BAD_NAME)) {
-						// Unfortunately, at this point the deleteField is from the final row of the Loop.
-						// Fortunately, we have a copy of the correct field, so we can record the error with that.
+					// Unfortunately, at this point the deleteField is from the final row of the Loop.
+					// Fortunately, we have a copy of the correct field, so we can record the error with that.
 
+					if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
 						Field field = deleteFieldCopyByRowNum.get(rowNum);
 						form.recordError(field, "Cannot delete " + BAD_NAME + ".");
-						return;
 					}
 
 					break;
 				}
 			}
+		}
+
+		if (form.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
 		}
 
 		try {
@@ -240,17 +238,20 @@ public class GridWithDeleteColumn1 {
 		}
 	};
 
-	// The Loop component will automatically call this for every row as it is rendered.
+	// The Grid component will automatically call this for every row as it is rendered.
+	
 	public boolean isDelete() {
 		return false;
 	}
 
-	// The Loop component will automatically call this for every row on submit.
+	// The Grid component will automatically call this for every row on submit.
+
 	public void setDelete(boolean delete) {
-		rowNum++;
-		deleteFieldCopyByRowNum.put(rowNum, new FieldCopy(this.deleteField));
 
 		if (inFormSubmission) {
+			rowNum++;
+			deleteFieldCopyByRowNum.put(rowNum, new FieldCopy(this.deleteField));
+
 			if (delete) {
 				// Put the current person in our list of ones to delete. Record their id but not version - we shouldn't
 				// assume person.version has been overwritten yet with the submitted value - it may still hold the
@@ -277,4 +278,5 @@ public class GridWithDeleteColumn1 {
 		}
 
 	}
+
 }

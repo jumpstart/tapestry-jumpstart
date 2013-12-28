@@ -193,19 +193,21 @@
 		<!-- compile-time jars - needed for compiling and will be put in the package for runtime -->
 
 		<mkdir dir="${lib.compile.dir}"/>
-		<get dest="${lib.compile.dir}/tapestry-core-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-core/5.4-alpha-28/tapestry-core-5.4-alpha-28.jar" />
-		<get dest="${lib.compile.dir}/tapestry-ioc-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-ioc/5.4-alpha-28/tapestry-ioc-5.4-alpha-28.jar" />
-		<get dest="${lib.compile.dir}/tapestry-json-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-json/5.4-alpha-28/tapestry-json-5.4-alpha-28.jar" />			
-		<get dest="${lib.compile.dir}/tapestry-func-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-func/5.4-alpha-28/tapestry-func-5.4-alpha-28.jar" />				
-		<get dest="${lib.compile.dir}/plastic-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/plastic/5.4-alpha-28/plastic-5.4-alpha-28.jar" />
-		<get dest="${lib.compile.dir}/tapestry5-annotations-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry5-annotations/5.4-alpha-28/tapestry5-annotations-5.4-alpha-28.jar" />
+		<get dest="${lib.compile.dir}/tapestry-core-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-core/5.4-beta-1/tapestry-core-5.4-beta-1.jar" />
+		<get dest="${lib.compile.dir}/tapestry-ioc-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-ioc/5.4-beta-1/tapestry-ioc-5.4-beta-1.jar" />
+		<get dest="${lib.compile.dir}/tapestry-json-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-json/5.4-beta-1/tapestry-json-5.4-beta-1.jar" />			
+		<get dest="${lib.compile.dir}/tapestry-func-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-func/5.4-beta-1/tapestry-func-5.4-beta-1.jar" />				
+		<get dest="${lib.compile.dir}/plastic-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/plastic/5.4-beta-1/plastic-5.4-beta-1.jar" />
+		<get dest="${lib.compile.dir}/tapestry5-annotations-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry5-annotations/5.4-beta-1/tapestry5-annotations-5.4-beta-1.jar" />
 		<get dest="${lib.compile.dir}/javax.inject-1.jar" usetimestamp="true" src="${maven.repo.root}/javax/inject/javax.inject/1/javax.inject-1.jar" />
+		<!--
 		<get dest="${lib.compile.dir}/chenillekit-core-1.3.3.jar" usetimestamp="true" src="${maven.repo.root}/org/chenillekit/chenillekit-core/1.3.3/chenillekit-core-1.3.3.jar" />
 		<get dest="${lib.compile.dir}/chenillekit-tapestry-1.3.3.jar" usetimestamp="true" src="${maven.repo.root}/org/chenillekit/chenillekit-tapestry/1.3.3/chenillekit-tapestry-1.3.3.jar" />
+		-->
 		<!-- For tapestry-kaptcha -->
-		<get dest="${lib.compile.dir}/tapestry-kaptcha-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-kaptcha/5.4-alpha-28/tapestry-kaptcha-5.4-alpha-28.jar" />
+		<get dest="${lib.compile.dir}/tapestry-kaptcha-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-kaptcha/5.4-beta-1/tapestry-kaptcha-5.4-beta-1.jar" />
 		<!-- For tapestry-upload -->
-		<get dest="${lib.compile.dir}/tapestry-upload-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-upload/5.4-alpha-28/tapestry-upload-5.4-alpha-28.jar" />
+		<get dest="${lib.compile.dir}/tapestry-upload-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-upload/5.4-beta-1/tapestry-upload-5.4-beta-1.jar" />
 		<get dest="${lib.compile.dir}/commons-fileupload-1.2.2.jar" usetimestamp="true" src="${maven.repo.root}/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar" />
 		<!-- For tapestry5-jquery -->
 		<!--
@@ -216,14 +218,14 @@
 		<get dest="${lib.compile.dir}/tapestry-bootstrap-2.1.3.jar" usetimestamp="true" src="${maven.repo.root}/com/trsvax/tapestry-bootstrap/2.1.3/tapestry-bootstrap-2.1.3.jar" />
 		-->
 		<!-- For JSR-303 Bean Validation 1.0 -->
-		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-beanvalidator/5.4-alpha-28/tapestry-beanvalidator-5.4-alpha-28.jar" />				
+		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-beanvalidator/5.4-beta-1/tapestry-beanvalidator-5.4-beta-1.jar" />				
 		
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container (eg. JBoss) or the EAR (shared with the business tier) -->
 
 		<mkdir dir="${lib.provided.dir}"/>
 		<get dest="${lib.provided.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
 		<get dest="${lib.provided.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
-		<get dest="${lib.provided.dir}/slf4j-api-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
+		<get dest="${lib.provided.dir}/slf4j-api-1.7.2.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar" />
 		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
 		<get dest="${lib.provided.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 
@@ -236,7 +238,7 @@
 		<get dest="${lib.runtime.dir}/commons-configuration-1.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar" />
 		<get dest="${lib.runtime.dir}/commons-lang-2.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" />
 		<!-- For tapestry-webresources -->
-		<get dest="${lib.runtime.dir}/tapestry-webresources-5.4-alpha-28.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-webresources/5.4-alpha-28/tapestry-webresources-5.4-alpha-28.jar" />				
+		<get dest="${lib.runtime.dir}/tapestry-webresources-5.4-beta-1.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-webresources/5.4-beta-1/tapestry-webresources-5.4-beta-1.jar" />				
 		<get dest="${lib.runtime.dir}/less4j-1.1.2.jar" usetimestamp="true" src="${maven.repo.root}/com/github/sommeri/less4j/1.1.2/less4j-1.1.2.jar" />				
 		<get dest="${lib.runtime.dir}/closure-compiler-v20130722.jar" usetimestamp="true" src="${maven.repo.root}/com/google/javascript/closure-compiler/v20130722/closure-compiler-v20130722.jar" />				
 		<get dest="${lib.runtime.dir}/rhino-1.7R4.jar" usetimestamp="true" src="${maven.repo.root}/org/mozilla/rhino/1.7R4/rhino-1.7R4.jar" />
@@ -267,8 +269,8 @@
 		<get dest="${lib.test.dir}/junit-4.11.jar" usetimestamp="true" src="${maven.repo.root}/junit/junit/4.11/junit-4.11.jar" />
 		<get dest="${lib.test.dir}/hamcrest-core-1.3.jar" usetimestamp="true" src="${maven.repo.root}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
 		<get dest="${lib.test.dir}/log4j-1.2.16.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.16/log4j-1.2.16.jar" />
-		<get dest="${lib.test.dir}/slf4j-api-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
-		<get dest="${lib.test.dir}/slf4j-log4j12-1.6.4.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar" />
+		<get dest="${lib.test.dir}/slf4j-api-1.7.2.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar" />
+		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.2.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.2/slf4j-log4j12-1.7.2.jar" />
 		<!-- For JNDI lookup -->
 		<get dest="${lib.test.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
 		<!-- For Jetty -->

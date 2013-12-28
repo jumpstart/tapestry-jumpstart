@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/easycrudedit.css}"/>
-</head>
-<body>
-	<h1>Update</h1>
+<body class="container">
+	<h3>Update</h3>
 	
 	<div class="eg">
 		<t:if test="person">
@@ -16,23 +13,25 @@
 				<p:version>
 					<t:hidden value="person.version"/>
 				</p:version>
-		 	</t:beaneditform><br/>
+		 	</t:beaneditform>
 		</t:if>
 		<t:if negate="true" test="person">
 			Person ${personId} does not exist.<br/><br/>
 		</t:if>
 	
-		<a t:type="pageLink" t:page="together/easycrud/Persons" href="#">Cancel</a>
+		<a t:type="pagelink" t:page="together/easycrud/Persons" href="#">Cancel</a>
 	</div>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonUpdate.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonUpdate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/easycrudedit.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonUpdate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonUpdate.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
 </body>
 </html>

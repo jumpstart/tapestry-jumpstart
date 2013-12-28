@@ -3,26 +3,25 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/easycrudedit.css}"/>
-</head>
-<body>
-	<h1>Create</h1>
+<body class="container">
+	<h3>Create</h3>
 	
 	<div class="eg">
-		<t:beaneditform t:id="personForm" object="person" include="firstName,lastName,region,startDate" submitLabel="Save"/><br/>
+		<t:beaneditform t:id="personForm" object="person" include="firstName,lastName,region,startDate" submitLabel="Save"/>
 
-		<a t:type="pageLink" t:page="together/easycrud/Persons" href="#">Cancel</a>
+		<t:pagelink page="together/easycrud/Persons">Cancel</t:pagelink>
 	</div>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	The source for PersonManagerService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonCreate.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonCreate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/easycrudedit.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonCreate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/easycrud/person/PersonCreate.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
 </body>
 </html>

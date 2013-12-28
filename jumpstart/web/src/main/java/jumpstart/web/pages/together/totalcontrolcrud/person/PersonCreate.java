@@ -5,13 +5,15 @@ import javax.ejb.EJB;
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.components.CustomForm;
 import jumpstart.web.pages.together.totalcontrolcrud.Persons;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
 
+@Import(stylesheet="css/examples/plain.css")
 public class PersonCreate {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
@@ -29,7 +31,7 @@ public class PersonCreate {
 	// Generally useful bits and pieces
 
 	@Component(id = "personForm")
-	private CustomForm personForm;
+	private Form personForm;
 
 	@EJB
 	private IPersonManagerServiceLocal personManagerService;

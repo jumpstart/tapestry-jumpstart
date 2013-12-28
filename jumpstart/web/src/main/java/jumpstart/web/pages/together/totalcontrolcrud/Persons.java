@@ -15,11 +15,13 @@ import jumpstart.util.ExceptionUtil;
 import jumpstart.web.commons.EvenOdd;
 
 import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet="css/examples/plain.css")
 public class Persons {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");

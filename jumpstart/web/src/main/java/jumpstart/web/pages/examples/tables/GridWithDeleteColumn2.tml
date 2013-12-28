@@ -9,13 +9,20 @@
 	Here is what you asked to delete.  The deletions have not been persisted to the database.<br/>
 
 	<div class="eg">
-		<t:grid source="persons"/>
+		<t:grid source="persons" empty="block:empty"/>
 	 
 		<p><t:pagelink page="examples/tables/GridWithDeleteColumn1">Return</t:pagelink></p>
 	</div>
+
+	<t:block t:id="empty">
+	 	<div class="alert alert-info">
+			No persons were chosen to be deleted.
+		</div>
+	</t:block>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>.<br/><br/>
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Block.html">Block</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 

@@ -25,10 +25,10 @@
 				<tbody>
 					<t:loop source="persons" value="person" formstate="ITERATION">
 						<tr>
-							<td><t:textfield t:id="firstName" value="person.firstName" validate="maxlength=10" size="10"/></td>
-							<td><t:textfield t:id="lastName" value="person.lastName" validate="maxlength=10" size="10"/></td>
+							<td><t:textfield t:id="firstName" value="person.firstName" validate="maxlength=10"/></td>
+							<td><t:textfield t:id="lastName" value="person.lastName" validate="maxlength=10"/></td>
 							<td><t:select t:id="region" value="person.region"/></td>
-							<td class="datefield"><t:datefield t:id="startDate" value="person.startDate" format="prop:dateFormat" size="14"/></td>
+							<td class="datefield"><t:datefield t:id="startDate" value="person.startDate" format="prop:dateFormat"/></td>
 						</tr>
 					</t:loop>
 				</tbody>
@@ -38,6 +38,13 @@
 		 </t:form>
 	</div>
 
+	<p>Loop doesn't support JSR-303 validation, so we're demonstrating 3 workarounds:</p>
+	<ul>
+		<li>Client-side, we're validating field lengths with traditional Tapestry validators specified in the template.</li>
+		<li>Server-side, we're invoking the validator for each field, which includes JSR-303 validation.</li>
+		<li>Server-side, we're checking First Name is not <em>${BAD_NAME}</em>, which is a custom validation.</li>
+	</ul> 
+	
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/LoopFormState.html">LoopFormState</a>,
@@ -52,7 +59,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/editableloop.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>

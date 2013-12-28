@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/totalcontrolcrudedit.css}"/>
-</head>
-<body>
-	<h1>Create</h1>
+<body class="container">
+	<h3>Create</h3>
 	
 	<div class="eg">
 		<form t:type="CustomForm" t:id="personForm" class="input">
@@ -68,7 +65,7 @@
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.properties"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/totalcontrolcrudedit.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/example/plain.css"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

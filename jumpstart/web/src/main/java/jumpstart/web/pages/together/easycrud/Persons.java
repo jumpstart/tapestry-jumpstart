@@ -10,9 +10,11 @@ import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/js.css")
 public class Persons {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");

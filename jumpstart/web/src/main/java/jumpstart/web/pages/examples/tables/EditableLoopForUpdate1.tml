@@ -28,7 +28,7 @@
 					<t:loop source="persons" value="person" encoder="personEncoder">
 						<tr>
 		 					<td>${person.id}</td>
-							<td><t:textfield t:id="firstName" value="person.firstName" validate="required, maxlength=10" size="10"/></td>
+							<td><t:textfield t:id="firstName" value="person.firstName" validate="maxlength=10"/></td>
 							<td>${person.lastName}</td>
 							<td><t:output value="person.startDate" format="dateFormat"/></td>
 	
@@ -58,7 +58,14 @@
 		</ul>
 	</li>
 	</ul>
-	
+
+	<p>Loop doesn't support JSR-303 validation, so, as in the previous example, we're demonstrating 3 workarounds:</p>
+	<ul>
+		<li>Client-side, we're validating field lengths with traditional Tapestry validators specified in the template.</li>
+		<li>Server-side, we're invoking the validator for each field, which includes JSR-303 validation.</li>
+		<li>Server-side, we're checking First Name is not <em>${BAD_NAME}</em>, which is a custom validation.</li>
+	</ul>
+
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
@@ -74,7 +81,6 @@
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/FieldCopy.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>
 </body>
 </html>

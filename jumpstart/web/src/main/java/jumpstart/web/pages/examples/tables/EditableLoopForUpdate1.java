@@ -5,11 +5,16 @@ import java.text.Format;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.ejb.EJB;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
@@ -17,13 +22,11 @@ import jumpstart.util.ExceptionUtil;
 import jumpstart.web.commons.FieldCopy;
 
 import org.apache.tapestry5.Field;
-import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
@@ -79,13 +82,16 @@ public class EditableLoopForUpdate1 {
 	@Inject
 	private Locale currentLocale;
 
+	@Inject
+	private ValidatorFactory validatorFactory;
+
 	// The code
 
 	void onActivate() {
 		inFormSubmission = false;
 	}
 
-	// Form bubbles up the PREPARE_FOR_SUBMIT event during form submission.
+	// Form bubbles up the PREPARE_FOR_RENDER event during form render.
 
 	void onPrepareForRender() {
 
@@ -115,8 +121,8 @@ public class EditableLoopForUpdate1 {
 		personsInDB = personFinderService.findPersons(MAX_RESULTS);
 
 		// Prepare to take a copy of each editable field.
-		
-		rowNum = 0;
+
+		rowNum = -1;
 		firstNameFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 	}
 
@@ -127,11 +133,6 @@ public class EditableLoopForUpdate1 {
 
 	void onValidateFromPersonsEdit() {
 
-		if (form.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
-		}
-
 		// Error if any person submitted has a null id - it means toValue(...) found they are no longer in the database.
 
 		for (Person personSubmitted : personsSubmitted) {
@@ -141,21 +142,25 @@ public class EditableLoopForUpdate1 {
 			}
 		}
 
-		// Simulate a server-side validation error: return error if anyone's first name is BAD_NAME.
-
-		rowNum = 0;
+		rowNum = -1;
 
 		for (Person personSubmitted : personsSubmitted) {
 			rowNum++;
 
-			if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
-				// Unfortunately, at this point the field firstNameField is from the final row of the Loop.
-				// Fortunately, we have a copy of the correct field, so we can record the error with that.
+			// Unfortunately, at this point the field firstNameField is from the final row of the Grid.
+			// Fortunately, we have a copy of the correct field, so we can record the error with that.
 
+			validate(personSubmitted, "firstName", firstNameFieldCopyByRowNum.get(rowNum), form);
+
+			if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
 				Field field = firstNameFieldCopyByRowNum.get(rowNum);
 				form.recordError(field, "First name cannot be " + BAD_NAME + ".");
-				return;
 			}
+		}
+
+		if (form.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
 		}
 
 		try {
@@ -263,4 +268,46 @@ public class EditableLoopForUpdate1 {
 		}
 
 	}
+
+	private void validate(Object bean, String propertyName, Field field, Form form) {
+		String errorMessage = validate(bean, propertyName, field);
+
+		if (errorMessage != null) {
+			form.recordError(field, errorMessage);
+		}
+	}
+
+	/**
+	 * Use this method to validate fields that aren't being validated elsewhere, eg. derived fields, or fields that are
+	 * disabled in screen (because disabled input fields are not submitted or validated). Based on Tapestry's
+	 * BeanFieldValidator#validate(Object).
+	 * 
+	 * @param bean
+	 * @param propertyName
+	 * @param field
+	 * @return Error message string to use in Form#recordError or Tracker#recordError.
+	 */
+	private <T> String validate(T bean, String propertyName, Field field) {
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<T>> constraintViolations = validator.validateProperty(bean, propertyName);
+
+		if (constraintViolations.isEmpty()) {
+			return null;
+		}
+
+		final StringBuilder builder = new StringBuilder();
+
+		for (Iterator<ConstraintViolation<T>> iterator = constraintViolations.iterator(); iterator.hasNext();) {
+			ConstraintViolation<T> violation = (ConstraintViolation<T>) iterator.next();
+
+			builder.append(String.format("%s %s", field.getLabel(), violation.getMessage()));
+
+			if (iterator.hasNext()) {
+				builder.append(", ");
+			}
+		}
+
+		return builder.toString();
+	}
+
 }

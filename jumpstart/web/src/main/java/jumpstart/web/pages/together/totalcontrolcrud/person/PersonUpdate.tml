@@ -3,11 +3,8 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/totalcontrolcrudedit.css}"/>
-</head>
-<body>
-	<h1>Update</h1>
+<body class="container">
+	<h3>Update</h3>
 
 	<div class="eg">
 		<form t:type="CustomForm" t:id="personForm" >
@@ -58,14 +55,14 @@
 						<th>&nbsp;</th>
 						<td colspan="2">
 							<input t:type="submit" value="Save"/>&nbsp;
-							<a t:type="pageLink" t:page="together/totalcontrolcrud/Persons" href="#">Cancel</a>
+							<a t:type="pagelink" t:page="together/totalcontrolcrud/Persons" href="#">Cancel</a>
 						</td>
 					</tr>
 				</table>
 			</t:if>
 			<t:if negate="true" test="person">
 				Person ${personId} does not exist.<br/><br/>
-				<a t:type="pageLink" t:page="together/totalcontrolcrud/Persons" href="#">Cancel</a>
+				<a t:type="pagelink" t:page="together/totalcontrolcrud/Persons" href="#">Cancel</a>
 			</t:if>
 		</form>
 	</div>
@@ -76,7 +73,7 @@
 	
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonUpdate.tml"/>
 	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonUpdate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/totalcontrolcrudedit.css"/>
+	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 </body>

@@ -30,7 +30,7 @@
 		<div id="titlesbar">
 			<div id="titles">
 				<h1>JumpStart 7.0-alpha-1</h1>
-				<h2>For Tapestry 5.4-alpha-24</h2>
+				<h2>For Tapestry 5.4-beta-1</h2>
 			</div>
 		</div>
 	</td>
@@ -170,8 +170,8 @@
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>
-							<t:pagelink page="together/easycrud/Persons" t:disabled="true">Easy CRUD</t:pagelink><br/>
-							<t:pagelink page="together/totalcontrolcrud/Persons" t:disabled="true">Total Control CRUD</t:pagelink><br/>
+							<t:pagelink page="together/easycrud/Persons">Easy CRUD</t:pagelink><br/>
+							<t:pagelink page="together/totalcontrolcrud/Persons">Total Control CRUD</t:pagelink><br/>
 							<t:pagelink page="together/onepagecrud/Persons" t:disabled="true">One Page CRUD</t:pagelink><br/>
 							<t:pagelink page="together/filtercrud/Persons" t:disabled="true">Filter CRUD</t:pagelink><br/>
 						</div>

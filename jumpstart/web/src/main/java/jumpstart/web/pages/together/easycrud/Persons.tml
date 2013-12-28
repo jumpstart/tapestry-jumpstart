@@ -3,12 +3,13 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/easycrud.css}"/>
-</head>
-<body>
-	<h1>Easy CRUD</h1>
+<body class="container">
+	<h3>Easy CRUD</h3>
 	
+	<noscript class="js-recommended">
+		${message:javascript_recommended}
+	</noscript> 	
+
 	This example demonstrates how Tapestry can handle CRUD (Create, Review, Update, Delete) with ease.<br/>
 	It uses the Grid, BeanEditor, and BeanDisplay components which are especially great for prototyping.
 
@@ -19,26 +20,26 @@
 			<span style="color:red">${errorMessage}</span><br/><br/>
 		</t:if>
 	
-		<table t:type="grid" t:source="persons" t:row="person" include="id,firstName,lastName,region,startDate" t:add="action">[Grid here]
+		<t:grid source="persons" row="person" include="id,firstName,lastName,region,startDate" add="action">[Grid here]
 			<p:actionCell>
 				<t:pagelink page="together/easycrud/person/PersonReview" context="person.id">Review</t:pagelink>
 				<t:pagelink page="together/easycrud/person/PersonUpdate" context="person.id">Update</t:pagelink>
 				<t:eventlink event="Delete" context="[person.id,person.version]" 
 					t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventlink>
 			</p:actionCell>
-		</table>
+		</t:grid>
 	</div>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/easycrud.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/easycrud/Persons.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/css/js.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
 </body>
 </html>

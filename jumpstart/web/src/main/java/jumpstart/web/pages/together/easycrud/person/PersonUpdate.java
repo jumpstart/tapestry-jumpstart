@@ -10,11 +10,13 @@ import jumpstart.web.pages.together.easycrud.Persons;
 
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 
+@Import(stylesheet="css/examples/plain.css")
 public class PersonUpdate {
 
 	// The activation context

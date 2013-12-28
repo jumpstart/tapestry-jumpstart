@@ -6,11 +6,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.ejb.EJB;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.Regions;
@@ -34,7 +39,6 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 @Import(stylesheet = "css/examples/editableloop.css")
 public class EditableLoop1 {
-	private static final String REQUIRED_MSG_KEY = "required";
 
 	// Screen fields
 
@@ -46,6 +50,9 @@ public class EditableLoop1 {
 
 	@Property
 	private final int LIST_SIZE = 5;
+
+	@Property
+	private final String BAD_NAME = "Acme";
 
 	// Work fields
 
@@ -88,6 +95,9 @@ public class EditableLoop1 {
 	@Inject
 	private Locale currentLocale;
 
+	@Inject
+	private ValidatorFactory validatorFactory;
+
 	// The code
 
 	// Form bubbles up the PREPARE_FOR_RENDER event during form render.
@@ -112,7 +122,7 @@ public class EditableLoop1 {
 
 		// Prepare to take a copy of each field.
 
-		rowNum = 0;
+		rowNum = -1;
 		firstNameFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 		lastNameFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 		regionFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
@@ -148,16 +158,11 @@ public class EditableLoop1 {
 
 	void onValidateFromPersonsCreate() {
 
-		if (form.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
-		}
-
 		personsToCreate = new ArrayList<Person>();
 
 		// Error if any person has fields entered but not all of them.
 
-		rowNum = 0;
+		rowNum = -1;
 
 		for (Person person : persons) {
 			rowNum++;
@@ -165,32 +170,26 @@ public class EditableLoop1 {
 			if (StringUtil.isNotEmpty(person.getFirstName()) || StringUtil.isNotEmpty(person.getLastName())
 					|| person.getRegion() != null || person.getStartDate() != null) {
 
-				// Unfortunately, at this point the fields firstNameField, lastNameField, etc. are from the final row of the Loop.
-				// Fortunately, we have a copy of the correct fields, so we can record the error with those.
+				// Unfortunately, at this point the fields firstNameField, lastNameField, etc. are from the final row of
+				// the Loop. Fortunately, we have a copy of the correct fields, so we can record the error with those.
 
-				if (StringUtil.isEmpty(person.getFirstName())) {
+				validate(person, "firstName", firstNameFieldCopyByRowNum.get(rowNum), form);
+				validate(person, "lastName", lastNameFieldCopyByRowNum.get(rowNum), form);
+				validate(person, "region", regionFieldCopyByRowNum.get(rowNum), form);
+				validate(person, "startDate", startDateFieldCopyByRowNum.get(rowNum), form);
+
+				if (person.getFirstName() != null && person.getFirstName().equals(BAD_NAME)) {
 					Field field = firstNameFieldCopyByRowNum.get(rowNum);
-					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
-					return;
-				}
-				else if (StringUtil.isEmpty(person.getLastName())) {
-					Field field = lastNameFieldCopyByRowNum.get(rowNum);
-					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
-					return;
-				}
-				else if (person.getRegion() == null) {
-					Field field = regionFieldCopyByRowNum.get(rowNum);
-					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
-					return;
-				}
-				else if (person.getStartDate() == null) {
-					Field field = startDateFieldCopyByRowNum.get(rowNum);
-					form.recordError(field, messages.format(REQUIRED_MSG_KEY, field.getLabel()));
-					return;
+					form.recordError(field, "First name cannot be " + BAD_NAME + ".");
 				}
 
 				personsToCreate.add(person);
 			}
+		}
+
+		if (form.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
 		}
 
 		try {
@@ -217,6 +216,47 @@ public class EditableLoop1 {
 		// By doing nothing the page will be displayed afresh.
 	}
 
+	private void validate(Object bean, String propertyName, Field field, Form form) {
+		String errorMessage = validate(bean, propertyName, field);
+
+		if (errorMessage != null) {
+			form.recordError(field, errorMessage);
+		}
+	}
+
+	/**
+	 * Use this method to validate fields that aren't being validated elsewhere, eg. derived fields, or fields that are
+	 * disabled in screen (because disabled input fields are not submitted or validated). Based on Tapestry's
+	 * BeanFieldValidator#validate(Object).
+	 * 
+	 * @param bean
+	 * @param propertyName
+	 * @param field
+	 * @return Error message string to use in Form#recordError or Tracker#recordError.
+	 */
+	private <T> String validate(T bean, String propertyName, Field field) {
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<T>> constraintViolations = validator.validateProperty(bean, propertyName);
+
+		if (constraintViolations.isEmpty()) {
+			return null;
+		}
+
+		final StringBuilder builder = new StringBuilder();
+
+		for (Iterator<ConstraintViolation<T>> iterator = constraintViolations.iterator(); iterator.hasNext();) {
+			ConstraintViolation<T> violation = (ConstraintViolation<T>) iterator.next();
+
+			builder.append(String.format("%s %s", field.getLabel(), violation.getMessage()));
+
+			if (iterator.hasNext()) {
+				builder.append(", ");
+			}
+		}
+
+		return builder.toString();
+	}
+
 	public Format getDateFormat() {
 		return DateFormat.getDateInstance(DateFormat.SHORT, currentLocale);
 	}
@@ -228,4 +268,5 @@ public class EditableLoop1 {
 		today.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH));
 		return today.getTime();
 	}
+
 }

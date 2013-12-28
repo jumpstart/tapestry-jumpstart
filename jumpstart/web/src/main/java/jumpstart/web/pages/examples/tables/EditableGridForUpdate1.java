@@ -3,10 +3,16 @@ package jumpstart.web.pages.examples.tables;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
@@ -70,6 +76,9 @@ public class EditableGridForUpdate1 {
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
 
+	@Inject
+	private ValidatorFactory validatorFactory;
+
 	// The code
 
 	void onActivate() {
@@ -86,6 +95,7 @@ public class EditableGridForUpdate1 {
 			// Get all persons - ask business service to find them (from the database)
 			personsInDB = personFinderService.findPersons(MAX_RESULTS);
 
+			// Populate the persons to be edited.
 			persons = new ArrayList<Person>();
 
 			for (Person personInDB : personsInDB) {
@@ -106,7 +116,7 @@ public class EditableGridForUpdate1 {
 
 		// Prepare to take a copy of each editable field.
 
-		rowNum = 0;
+		rowNum = -1;
 		firstNameFieldCopyByRowNum = new HashMap<Integer, FieldCopy>();
 	}
 
@@ -117,11 +127,6 @@ public class EditableGridForUpdate1 {
 
 	void onValidateFromPersonsEdit() {
 
-		if (form.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
-		}
-
 		// Error if any person submitted has a null id - it means toValue(...) found they are no longer in the database.
 
 		for (Person personSubmitted : personsSubmitted) {
@@ -131,21 +136,25 @@ public class EditableGridForUpdate1 {
 			}
 		}
 
-		// Simulate a server-side validation error: return error if anyone's first name is BAD_NAME.
-
-		rowNum = 0;
+		rowNum = -1;
 
 		for (Person personSubmitted : personsSubmitted) {
 			rowNum++;
 
-			if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
-				// Unfortunately, at this point the field firstNameField is from the final row of the Grid.
-				// Fortunately, we have a copy of the correct field, so we can record the error with that.
+			// Unfortunately, at this point the field firstNameField is from the final row of the Grid.
+			// Fortunately, we have a copy of the correct field, so we can record the error with that.
 
+			validate(personSubmitted, "firstName", firstNameFieldCopyByRowNum.get(rowNum), form);
+
+			if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
 				Field field = firstNameFieldCopyByRowNum.get(rowNum);
 				form.recordError(field, "First name cannot be " + BAD_NAME + ".");
-				return;
 			}
+		}
+
+		if (form.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
 		}
 
 		try {
@@ -248,6 +257,47 @@ public class EditableGridForUpdate1 {
 			return date;
 		}
 
+	}
+
+	private void validate(Object bean, String propertyName, Field field, Form form) {
+		String errorMessage = validate(bean, propertyName, field);
+
+		if (errorMessage != null) {
+			form.recordError(field, errorMessage);
+		}
+	}
+
+	/**
+	 * Use this method to validate fields that aren't being validated elsewhere, eg. derived fields, or fields that are
+	 * disabled in screen (because disabled input fields are not submitted or validated). Based on Tapestry's
+	 * BeanFieldValidator#validate(Object).
+	 * 
+	 * @param bean
+	 * @param propertyName
+	 * @param field
+	 * @return Error message string to use in Form#recordError or Tracker#recordError.
+	 */
+	private <T> String validate(T bean, String propertyName, Field field) {
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<T>> constraintViolations = validator.validateProperty(bean, propertyName);
+
+		if (constraintViolations.isEmpty()) {
+			return null;
+		}
+
+		final StringBuilder builder = new StringBuilder();
+
+		for (Iterator<ConstraintViolation<T>> iterator = constraintViolations.iterator(); iterator.hasNext();) {
+			ConstraintViolation<T> violation = (ConstraintViolation<T>) iterator.next();
+
+			builder.append(String.format("%s %s", field.getLabel(), violation.getMessage()));
+
+			if (iterator.hasNext()) {
+				builder.append(", ");
+			}
+		}
+
+		return builder.toString();
 	}
 
 }

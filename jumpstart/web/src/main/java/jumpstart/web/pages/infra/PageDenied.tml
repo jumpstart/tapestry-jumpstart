@@ -11,6 +11,6 @@
 	
 	You are not authorised to page ${urlDenied}.<br/><br/>
 	
-	<a t:type="pageLink" t:page="Index">Home</a>
+	<a t:type="pagelink" t:page="Index">Home</a>
 </body>
 </html>
