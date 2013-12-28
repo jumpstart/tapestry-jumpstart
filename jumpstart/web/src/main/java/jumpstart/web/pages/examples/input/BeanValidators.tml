@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Bean Validators</h3>
+	Here is a second demonstration of Bean Validation, this time using a domain entity, Person, as the bean.
+
+	<div class="eg">
+			
+		<t:form t:id="personForm" class="form-horizontal" validate="person">
+			<div class="form-group">
+				<t:label class="col-sm-3" for="firstName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="firstName" value="person.firstName"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${person.firstName}
+						<span class="text-muted">
+							(not null, size max = 10)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="lastName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="lastName" value="person.lastName"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${person.lastName}
+						<span class="text-muted">
+							(not null, size max = 10)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<t:submit/>
+				</div>
+			</div>
+		</t:form>
+			
+	</div>
+	
+	Notice that we set <code>validate="person"</code> on the Form.<br/><br/>
+
+	References: 
+	<a href="http://tapestry.apache.org/bean-validation.html">Bean Validation</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.
+	<br/><br/>
+
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+		
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/BeanValidators.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/BeanValidators.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+	</t:tabgroup>
+</body>
+</html>

@@ -5,39 +5,42 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
 	<h3>Validators</h3>
-	Most input components can use Tapestry validators. Client-side and server-side, validation occurs AFTER translation.<br/><br/>
+	Client-side and server-side, validation occurs AFTER translation.<br/><br/>
 	
-	Tapestry has these built-in validators: <em>Email</em>, <em>Max</em>, <em>MaxLength</em>, <em>Min</em>, <em>MinLength</em>, <em>None</em>, <em>Regexp</em>, and <em>Required</em>. 
-	They all implement <a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Validator.html">Validator</a>. <br/><br/>
-	
-	In this example the Textfields use <em>Required</em> and <em>MaxLength</em>.
+	Tapestry has two declarative styles of validation: industry-standard 
+	<a href="http://en.wikipedia.org/wiki/Bean_Validation">Bean Validation</a> (JSR 303), and Tapestry Validators.<br/><br/>
+ 
+	Here we demonstrate Bean Validation, using the page as a bean. We annotated the page's properties 
+	<code>firstName</code> and <code>lastName</code> with JSR 303's <code>@NotNull</code> and <code>@Size</code>.
 
 	<div class="eg">
-		<t:form class="form-horizontal" t:id="inputs">
 			
+		<t:form class="form-horizontal">
 			<div class="form-group">
 				<t:label class="col-sm-3" for="firstName"/>
 				<div class="col-sm-3">
-					<t:textfield t:id="firstName" t:validate="required, maxlength=10" size="10"/>
+					<t:textfield t:id="firstName"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
 						${firstName}
-						&nbsp;&nbsp;
-						<span class="text-muted">(required, maxLength=10)</span>
+						<span class="text-muted">
+							(not null, size max = 10)
+						</span>
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<t:label class="col-sm-3" for="lastName"/>
 				<div class="col-sm-3">
-					<t:textfield t:id="lastName" t:validate="required, maxlength=10" size="10"/>
+					<t:textfield t:id="lastName"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
 						${lastName}
-						&nbsp;&nbsp;
-						<span class="text-muted">(required, maxLength=10)</span>
+						<span class="text-muted">
+							(not null, size max = 10)
+						</span>
 					</p>
 				</div>
 			</div>
@@ -46,21 +49,27 @@
 					<t:submit/>
 				</div>
 			</div>
-			
 		</t:form>
+			
 	</div>
 	
-	Validators can have a client-side implementation, usually written in JavaScript. Validators ALWAYS have a server-side implementation.<br/>
-	If the user disables JavaScript, it's not a data risk - the server-side validation will still run.<br/>
-	You can turn off client-side validation programatically with the <code>clientValidation</code> parameter of Form.<br/><br/>
+	All bean validations have a server-side implementation, and most (or perhaps all?) have a client-side implementation.<br/>
+	If the form passes client-side validation, then it is sent to the server, where it is validated again.<br/>
+	To turn off client-side validation programatically, use the <code>clientValidation</code> parameter of Form.<br/><br/>
 
+	<p>Bean validation is NOT part of Tapestry's corelib. To use it, put the following jars in the classpath:</p>
+	<ul>
+		<li>tapestry-beanvalidator-5.4.n.jar, for compile and runtime.</li>
+		<li>a JSR 303 implementation, such as hibernate-validator-4.3.1.Final.jar, for runtime. 
+			It can be provided by the runtime environment.</li>
+	</ul>
+	and follow the Configuration information <a href="http://tapestry.apache.org/bean-validation.html">here</a>.<br/><br/>
+	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Validator.html">Validator</a>, 
-	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>,
+	<a href="http://tapestry.apache.org/bean-validation.html">Bean Validation</a>, 
+	<a href="http://docs.oracle.com/javaee/6/api/javax/validation/constraints/package-summary.html">the standard annotations</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>.
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.
 	<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
@@ -69,6 +78,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
 	</t:tabgroup>
 </body>
 </html>

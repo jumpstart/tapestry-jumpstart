@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>The Validate Event</h3>
+	
+	In the previous example we saw programmatic validation done in the Form's <em>validate</em> event handler. 	 
+	Here we demonstrate <strong>a second common approach</strong>, which takes advantage of the fact that before Form 
+	bubbles up <em>validate</em>, each input component also bubbles up <em>validate</em>!<br/><br/>
+	
+	Instead of putting all the validation in one handler, we provide one handler per field and one for the Form. 
+	In this approach, our Form handler validates dependencies between the fields, also known as 
+	<strong>"cross-form validation"</strong>.
+	
+	<div class="eg">
+		<t:form  class="form-horizontal" t:id="inputs">
+			<div style="padding-bottom: 8px;">Enter your First Name OR your Lucky Number:</div>
+			
+			<div class="form-group">
+				<t:label class="col-sm-3" for="firstName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="firstName"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${firstName}
+						<span class="text-muted">
+							(size max = 10, letters only)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="luckyNumber"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="luckyNumber"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${luckyNumber}
+						<span class="text-muted">
+							(min=1, max=100, not 13)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<t:submit/>
+				</div>
+			</div>
+			
+			<t:errors globalOnly="true"/>
+		</t:form>
+	</div>
+
+	Which approach is best? The choice is yours.<br/><br/>
+
+	References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/base/AbstractTextField.html">AbstractTextField</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>, 
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>, 
+	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>.<br/><br/>
+	
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+		
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TheValidateEvent.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TheValidateEvent.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+	</t:tabgroup>
+</body>
+</html>

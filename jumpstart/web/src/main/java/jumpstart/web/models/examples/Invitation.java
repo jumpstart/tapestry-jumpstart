@@ -8,12 +8,10 @@ import javax.validation.constraints.Size;
 
 import jumpstart.business.domain.person.Person;
 
-import org.hibernate.validator.constraints.Length;
-
 public class Invitation {
 
 	@NotNull
-	@Length(max = 50)
+	@Size(max = 50)
 	private String eventDescription;
 
 	private Set<Person> invitedPersons;

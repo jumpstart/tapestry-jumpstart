@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Programmatic Validation</h3>
+	
+	Here we demonstrate programmatic validation in the event handler <code>onValidateFromInputs()</code>. 
+	Yes, we could have avoided it by using Bean Validation's <code>@Pattern</code> annotation instead.
+
+	<div class="eg">
+		<t:form  class="form-horizontal" t:id="inputs">
+		
+			<div class="form-group">
+				<t:label class="col-sm-3" for="firstName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="firstName"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${firstName}
+						<span class="text-muted">
+							(required, maxLength=10, letters only)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="lastName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="lastName"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${lastName}
+						<span class="text-muted">
+							(required, maxLength=10, letters only)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<t:submit/>
+				</div>
+			</div>
+
+		</t:form>
+	</div>
+
+	References: 
+	<a href="http://tapestry.apache.org/bean-validation.html">Bean Validation</a>, 
+	<a href="http://docs.oracle.com/javaee/6/api/javax/validation/constraints/Pattern.html">@Pattern API</a>, 
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>.<br/><br/>
+	
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+		
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ProgrammaticValidation.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/ProgrammaticValidation.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+	</t:tabgroup>
+</body>
+</html>

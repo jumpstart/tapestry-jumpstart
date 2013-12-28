@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Tapestry Validators</h3>
+	Here we demonstrate tapestry's second declarative style of validation: Tapestry Validators. 
+	They have largely been made redundant by Bean Validation (JSR 303), but they are still supported, 
+	and the two styles can be used together.<br/><br/>
+ 
+	Tapestry has these built-in Validators: <em>Email</em>, <em>Max</em>, <em>MaxLength</em>, <em>Min</em>, <em>MinLength</em>, <em>None</em>, <em>Regexp</em>, and <em>Required</em>. 
+	They all implement <a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Validator.html">Validator</a>. <br/><br/>
+	
+	In this example the TextFields specify <code>validate="required, maxlength=10"</code>.
+
+	<div class="eg">
+		<t:form class="form-horizontal" t:id="inputs">
+			
+			<div class="form-group">
+				<t:label class="col-sm-3" for="firstName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="firstName" validate="required, maxlength=10" size="10"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${firstName}
+						<span class="text-muted">
+							(required, maxLength=10)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-3" for="lastName"/>
+				<div class="col-sm-3">
+					<t:textfield t:id="lastName" validate="required, maxlength=10" size="10"/>
+				</div>
+				<div class="col-sm-6">
+					<p class="form-control-static">
+						${lastName}
+						<span class="text-muted">
+							(required, maxLength=10)
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3">
+					<t:submit/>
+				</div>
+			</div>
+			
+		</t:form>
+	</div>
+	
+	All Tapestry Validators have a server-side implementation, and most have a client-side implementation.<br/>
+	If the form passes client-side validation, then it is sent to the server, where it is validated again.<br/>
+	To turn off client-side validation programatically, use the <code>clientValidation</code> parameter of Form.<br/><br/>
+
+	References: 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Validator.html">Validator</a>, 
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>,
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.
+	<br/><br/>
+
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+		
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TapestryValidators.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TapestryValidators.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+	</t:tabgroup>
+</body>
+</html>

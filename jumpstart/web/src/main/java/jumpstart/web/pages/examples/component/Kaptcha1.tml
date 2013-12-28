@@ -30,9 +30,9 @@
 
 	<p>The kaptcha components are NOT part of Tapestry's corelib. To use them, put the following jars in the classpath:</p>
 	<ul>
-		<li>tapestry-kaptcha-5.3.n.jar, at compile and runtime.</li>
+		<li>tapestry-kaptcha-5.4.n.jar, for compile and runtime.</li>
 		<li>
-			kaptcha-2.3.jar, at runtime. You can get it from:
+			kaptcha-2.3.jar, for runtime. You can get it from:
 			<ul>
 				<li>https://nexus.sourcesense.com/nexus/content/repositories/public/com/google/code/kaptcha/2.3/</li>
 				<li>http://savant.inversoft.org/com/google/code/kaptcha/kaptcha/2.3/</li>
