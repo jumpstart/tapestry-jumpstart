@@ -115,8 +115,7 @@
 							<t:pagelink page="examples/input/TapestryValidators">Tapestry Validators</t:pagelink><br/>
 							<t:pagelink page="examples/input/ProgrammaticValidation">Programmatic Validation</t:pagelink><br/>
 							<t:pagelink page="examples/input/TheValidateEvent">The Validate Event</t:pagelink><br/>
-							<t:pagelink page="examples/input/ContributingBeanValidators">Contributing Bean Validators</t:pagelink><br/>
-							<t:pagelink page="examples/input/ContributingTapestryValidators">Contributing Tapestry Validators</t:pagelink><br/>
+							<t:pagelink page="examples/input/ContributingValidators">Contributing Validators</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/input/Edit1" t:context="literal:1">Edit (Using BeanEditForm)</t:pagelink><br/>
 							<t:pagelink page="examples/input/Create1">Create (Using BeanEditForm)</t:pagelink><br/>

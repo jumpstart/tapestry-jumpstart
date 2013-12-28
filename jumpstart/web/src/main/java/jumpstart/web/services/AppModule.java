@@ -2,16 +2,19 @@ package jumpstart.web.services;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Map;
 
+import jumpstart.business.validation.constraints.Letters;
 import jumpstart.util.JodaTimeUtil;
 import jumpstart.web.translators.MoneyTranslator;
 import jumpstart.web.translators.YesNoTranslator;
-import jumpstart.web.validators.Letters;
 
+import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.Translator;
-import org.apache.tapestry5.Validator;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.beanvalidator.ClientConstraintDescriptor;
+import org.apache.tapestry5.internal.beanvalidator.BaseCCD;
 import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
@@ -31,6 +34,7 @@ import org.apache.tapestry5.services.EditBlockContribution;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
+import org.apache.tapestry5.services.javascript.DataConstants;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.services.security.WhitelistAnalyzer;
 import org.apache.tapestry5.services.transform.ComponentClassTransformWorker2;
@@ -63,7 +67,7 @@ public class AppModule {
 		binder.bind(SelectIdModelFactory.class, SelectIdModelFactoryImpl.class);
 	}
 
-	// Tell Tapestry about our custom translators, validators, and their message files.
+	// Tell Tapestry about our custom translators and their message file.
 	// We do this by contributing configuration to Tapestry's TranslatorAlternatesSource service, FieldValidatorSource
 	// service, and ComponentMessagesSource service.
 
@@ -74,15 +78,25 @@ public class AppModule {
 		configuration.add("money2", new MoneyTranslator("money2", 2, threadLocale));
 	}
 
-	@SuppressWarnings("rawtypes")
-	public static void contributeFieldValidatorSource(MappedConfiguration<String, Validator> configuration,
-			JavaScriptSupport javaScriptSupport) {
-		configuration.add("letters", new Letters(javaScriptSupport));
-	}
-
 	public void contributeComponentMessagesSource(OrderedConfiguration<String> configuration) {
 		configuration.add("myTranslationMessages", "jumpstart/web/translators/TranslationMessages");
-		configuration.add("myValidationMessages", "jumpstart/web/validators/ValidationMessages");
+	}
+
+	// Tell Tapestry about the client-side (javascript) validators that corresponds to each server-side Bean Validator.
+
+	public static void contributeClientConstraintDescriptorSource(final JavaScriptSupport javaScriptSupport,
+			final Configuration<ClientConstraintDescriptor> configuration) {
+
+		configuration.add(new BaseCCD(Letters.class) {
+
+			public void applyClientValidation(MarkupWriter writer, String message, Map<String, Object> attributes) {
+				javaScriptSupport.require("beanvalidation/letters");
+				writer.attributes(DataConstants.VALIDATION_ATTRIBUTE, true, "data-validate-letters", true,
+						"data-letters-message", message);
+			}
+
+		});
+
 	}
 
 	// Tell Tapestry about our custom ValueEncoders.

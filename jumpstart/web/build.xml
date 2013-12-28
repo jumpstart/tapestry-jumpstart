@@ -226,8 +226,6 @@
 		<get dest="${lib.provided.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
 		<get dest="${lib.provided.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
 		<get dest="${lib.provided.dir}/slf4j-api-1.7.2.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar" />
-		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
-		<get dest="${lib.provided.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 
 		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
 
@@ -280,6 +278,8 @@
 		<get dest="${lib.test.dir}/jetty-ajp-6.1.26.jar" usetimestamp="true" src="${maven.repo.root}/org/mortbay/jetty/jetty-ajp/6.1.26/jetty-ajp-6.1.26.jar" />
 		<get dest="${lib.test.dir}/jetty-plus-6.1.26.jar" usetimestamp="true" src="${maven.repo.root}/org/mortbay/jetty/jetty-plus/6.1.26/jetty-plus-6.1.26.jar" />
 		-->
+		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
+		<get dest="${lib.test.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 		
 	</target>
 

@@ -18,7 +18,5 @@ encoding//web/src/main/java/jumpstart/web/pages/examples/localization/Localizati
 encoding//web/src/main/java/jumpstart/web/pages/examples/localization/LocalizationByTemplate_fr.tml=UTF-8
 encoding//web/src/main/java/jumpstart/web/translators/TranslationMessages.properties=UTF-8
 encoding//web/src/main/java/jumpstart/web/translators/TranslationMessages_fr.properties=UTF-8
-encoding//web/src/main/java/jumpstart/web/validators/ValidationMessages.properties=UTF-8
-encoding//web/src/main/java/jumpstart/web/validators/ValidationMessages_fr.properties=UTF-8
 encoding//web/src/main/webapp/WEB-INF/app.properties=UTF-8
 encoding/<project>=UTF-8

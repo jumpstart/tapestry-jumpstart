@@ -58,7 +58,7 @@
 	<target name="copy-business-to-collapsed-war" depends="mkdir">
 
 		<copy todir="${war.dir}/WEB-INF/classes">
-			<fileset dir="${business.main.resources.dir}" includes="META-INF/ejb-jar.xml" />
+			<fileset dir="${business.main.resources.dir}" excludes="META-INF/MANIFEST.MF" />
 		</copy>
 
 		<copy todir="${war.dir}/WEB-INF/classes/${business.package.path}">
