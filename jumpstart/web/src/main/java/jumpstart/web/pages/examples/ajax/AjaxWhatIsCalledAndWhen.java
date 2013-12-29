@@ -2,6 +2,7 @@ package jumpstart.web.pages.examples.ajax;
 
 import java.util.Date;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
@@ -9,6 +10,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.slf4j.Logger;
 
+@Import(stylesheet={"css/examples/ajaxwhatiscalledandwhen.css"})
 public class AjaxWhatIsCalledAndWhen {
 	static final private String[] ALL_MAKES = new String[] { "Honda", "Toyota" };
 	

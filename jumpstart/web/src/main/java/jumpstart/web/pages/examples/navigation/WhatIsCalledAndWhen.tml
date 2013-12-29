@@ -44,6 +44,7 @@
 	the following table shows what you would see in the logs if you configured log4j to record this page at debug level:<br/>
 	
 	<div class="eg row">
+	
 		<div class="col-sm-9 col-sm-offset-1">
 		 	<table class="table table-bordered">
 		 		<tr>
@@ -101,7 +102,7 @@
 				<tr>
 		 			<th>
 		 				In response to an <strong>EventLink</strong> event request.<br/>
-		 				Eg. <a t:type="EventLink" t:event="goHome" href="#">Home</a>
+		 				Eg. <t:eventlink event="goHome">Home</t:eventlink>
 		 			</th>
 					<td>
 						pageAttached()<br/>
@@ -115,7 +116,7 @@
 		 		<tr>
 		 			<th>
 		 				In response to <strong>ActionLink</strong> event request.<br/>
-		 				Eg. <a t:type="ActionLink" t:id="toHome" href="#">Home</a>
+		 				Eg. <t:actionlink t:id="toHome">Home</t:actionlink>
 		 			</th>
 					<td>
 						pageAttached()<br/>
@@ -128,14 +129,14 @@
 				</tr>
 		 		<tr>
 		 			<th>
-		 				<form t:type="form" t:id="form">
+		 				<t:form t:id="form">
 							In response to a <strong>Form</strong> event request.
 							<div class="form-group form-inline">
 								Eg. Name: 
 								<t:textfield t:id="name"/>
 								<t:submit/>
 							</div>
-						</form>
+						</t:form>
 		 			</th>
 					<td>
 						pageAttached()<br/>
@@ -157,6 +158,7 @@
 		
 			message: ${message}
 		</div>
+		
 	</div>
 	
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/annotations/PageAttached.html">PageAttached</a> and 

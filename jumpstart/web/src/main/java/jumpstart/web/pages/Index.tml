@@ -287,7 +287,7 @@
 							<t:pagelink page="examples/ajax/AjaxFormLoopTailored1" t:disabled="true">AjaxFormLoop Tailored</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxWhatIsCalledAndWhen" t:disabled="true">AJAX: What is Called and When</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxWhatIsCalledAndWhen">AJAX: What is Called and When</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/javascript/JavaScript">JavaScript</t:pagelink><br/>

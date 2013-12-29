@@ -3,16 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-	<style type="text/css">
-		.eg		{ border: none; margin: 0; color: #333; }
-		tr		{ background-color: rgb(204, 190, 153); border: black 2px outset; padding: 2px; font-family: 'Trebuchet MS'; }
-		th		{ width:300px; text-align:left; font-weight: normal; padding: 0.4em; }
-		td		{ width:300px; text-align:left; font-weight: normal; padding: 0.4em; vertical-align: top;}
-		.t-zone	{ background-color: rgb(204, 190, 153); }
-	</style>
-</head>
 <body class="container">
 	<h3>AJAX: What is Called and When</h3>
 	
@@ -25,122 +15,127 @@
 	It provides, and logs, every page lifecycle method, several render phase methods, and every component event handler method.<br/> 
 	This table shows what you will see in the logs if you configure log4j to record this page at debug level:
 	
-	<div class="eg">
-	 	<table style="border:thin gray 2px;">
-			<tr>
-	 			<th>
-	 				In response to request from <strong>EventLink</strong> with Zone.<br/>
-	 				Eg. <a t:type="EventLink" t:event="updateTime1" t:zone="time1Zone" href="#">Update the time</a>
-	 				<t:zone t:id="time1Zone" id="time1Zone">
-	 					${time1}
-	 				</t:zone>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onUpdateTime1()<br/>
-					<em>...Tapestry generates zone content...</em><br/>
-					...getTime1()<br/>
-					pageDetached()<br/>
-					<em>Tapestry returns zone content</em><br/>
-				</td>
-	 		</tr>
-	 		<tr>
-	 			<th>
-	 				In response to request from <strong>ActionLink</strong> with Zone.<br/>
-	 				Eg. <a t:type="ActionLink" t:id="updateTime2" t:zone="time2Zone" href="#">Update the time</a>
-	 				<t:zone t:id="time2Zone" id="time2Zone">
-	 					${time2}
-	 				</t:zone>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onAction()<br/>
-					<em>...Tapestry generates zone content...</em><br/>
-					...getTime2()<br/>
-					pageDetached()<br/>
-					<em>Tapestry returns zone content</em><br/>
-				</td>
-			</tr>
-	 		<tr>
-	 			<th>
-	 				<t:zone t:id="formZone" id="formZone">
-		 				<form t:type="form" t:id="formWithZone" t:zone="^">
-							In response to request from <strong>Form</strong> with Zone.<br/>
-							Eg. Name: <input t:type="TextField" t:id="name1"/><input t:type="Submit" value="Show"/><br/>
-		 					${name1}&nbsp;
-						</form>
-	 				</t:zone>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onPrepareForSubmit()<br/>
-					...onPrepare()<br/>
-					...onValidateFromName1()<br/>
-					...setName1()<br/>
-					...onSelected()<br/>
-					...onValidateFromFormWithZone()<br/>
-					...onSuccess()<br/>
-					...onSubmit()<br/>
-					<em>...Tapestry generates zone content...</em><br/>
-					...onPassivate()<br/>
-					...onPrepareForRender()<br/>
-					...onPrepare()<br/>
-					...getName1()<br/>
-					...getName1() <em>[sic]</em><br/>
-					pageDetached()<br/>
-					<em>Tapestry returns zone content</em><br/>
-				</td>
-			</tr>
-	 		<tr>
-	 			<th>
-	 				<form t:type="form">
-						In response to value change in <strong>Select</strong> with Zone.<br/>
-						Eg. <t:label for="carMake"/>:
-						<select t:type="select" t:id="carMake" t:model="carMakes" t:zone="carDisplayZone"
-							t:blankOption="ALWAYS" t:blankLabel="Choose..." t:validate="required"/>
-		 				<t:zone t:id="carDisplayZone" id="carDisplayZone">
-		 					${carMake}&nbsp;
-		 				</t:zone>
-					</form>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onValueChangedFromCarMake()<br/>
-					<em>...Tapestry generates zone content...</em><br/>
-					...setCarMake()<br/>
-					...getCarMake()<br/>
-					pageDetached()<br/>
-					<em>Tapestry returns zone content</em><br/>
-				</td>
-			</tr>
-	 		<tr>
-	 			<th>
-	 				<form t:type="form">
-						In response to keyup in <strong>TextField</strong> mixing in <strong>ZoneUpdater</strong> with Zone (see later examples).<br/>
-						Eg. Name: <input t:type="TextField" t:id="name2" t:mixins="zoneUpdater" t:clientEvent="keyup" t:event="name2Changed" t:zone="name2Zone"/><br/>
-		 				<t:zone t:id="name2Zone" id="name2Zone">
-		 					${name2}&nbsp;
-		 				</t:zone>
-					</form>
-	 			</th>
-				<td>
-					pageAttached()<br/>
-					...onActivate()<br/>
-					...onName2Changed()<br/>
-					<em>...Tapestry generates zone content...</em><br/>
-					...getName2()<br/>
-					pageDetached()<br/>
-					<em>Tapestry returns zone content</em><br/>
-				</td>
-			</tr>
-		</table>
-	</div>
+	<div class="eg row">
 	
-	Message: ${message}<br/><br/>
+		<div class="col-sm-9 col-sm-offset-1">
+		 	<table class="table table-bordered">
+				<tr>
+		 			<th>
+		 				In response to request from <strong>EventLink</strong> with Zone.<br/>
+		 				Eg. <t:eventlink event="updateTime1" zone="time1Zone">Update the time</t:eventlink>
+		 				<t:zone t:id="time1Zone" id="time1Zone">
+		 					${time1}
+		 				</t:zone>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onUpdateTime1()<br/>
+						<em>...Tapestry generates zone content...</em><br/>
+						...getTime1()<br/>
+						pageDetached()<br/>
+						<em>Tapestry returns zone content</em><br/>
+					</td>
+		 		</tr>
+		 		<tr>
+		 			<th>
+		 				In response to request from <strong>ActionLink</strong> with Zone.<br/>
+		 				Eg. <t:actionlink t:id="updateTime2" zone="time2Zone">Update the time</t:actionlink>
+		 				<t:zone t:id="time2Zone" id="time2Zone">
+		 					${time2}
+		 				</t:zone>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onAction()<br/>
+						<em>...Tapestry generates zone content...</em><br/>
+						...getTime2()<br/>
+						pageDetached()<br/>
+						<em>Tapestry returns zone content</em><br/>
+					</td>
+				</tr>
+		 		<tr>
+		 			<th>
+		 				<t:zone t:id="formZone" id="formZone">
+			 				<t:form t:id="formWithZone" zone="^">
+								In response to request from <strong>Form</strong> with Zone.<br/>
+								Eg. Name: <t:textfield t:id="name1"/><t:submit value="Show"/><br/>
+			 					${name1}&nbsp;
+							</t:form>
+		 				</t:zone>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onPrepareForSubmit()<br/>
+						...onPrepare()<br/>
+						...onValidateFromName1()<br/>
+						...setName1()<br/>
+						...onSelected()<br/>
+						...onValidateFromFormWithZone()<br/>
+						...onSuccess()<br/>
+						...onSubmit()<br/>
+						<em>...Tapestry generates zone content...</em><br/>
+						...onPassivate()<br/>
+						...onPrepareForRender()<br/>
+						...onPrepare()<br/>
+						...getName1()<br/>
+						...getName1() <em>[sic]</em><br/>
+						pageDetached()<br/>
+						<em>Tapestry returns zone content</em><br/>
+					</td>
+				</tr>
+		 		<tr>
+		 			<th>
+		 				<t:form>
+							In response to value change in <strong>Select</strong> with Zone.<br/>
+							Eg. <t:label for="carMake"/>:
+							<t:select t:id="carMake" model="carMakes" zone="carDisplayZone"
+								blankOption="ALWAYS" blankLabel="Choose..." validate="required"
+								secure="literal:never"/>
+			 				<t:zone t:id="carDisplayZone" id="carDisplayZone">
+			 					${carMake}&nbsp;
+			 				</t:zone>
+						</t:form>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onValueChangedFromCarMake()<br/>
+						<em>...Tapestry generates zone content...</em><br/>
+						...setCarMake()<br/>
+						...getCarMake()<br/>
+						pageDetached()<br/>
+						<em>Tapestry returns zone content</em><br/>
+					</td>
+				</tr>
+		 		<tr>
+		 			<th>
+		 				<t:form>
+							In response to keyup in <strong>TextField</strong> mixing in <strong>ZoneUpdater</strong> with Zone (see later examples).<br/>
+							Eg. Name: <t:textfield t:id="name2" t:mixins="zoneUpdater" clientEvent="keyup" event="name2Changed" zone="name2Zone"/><br/>
+			 				<t:zone t:id="name2Zone" id="name2Zone">
+			 					${name2}&nbsp;
+			 				</t:zone>
+						</t:form>
+		 			</th>
+					<td>
+						pageAttached()<br/>
+						...onActivate()<br/>
+						...onName2Changed()<br/>
+						<em>...Tapestry generates zone content...</em><br/>
+						...getName2()<br/>
+						pageDetached()<br/>
+						<em>Tapestry returns zone content</em><br/>
+					</td>
+				</tr>
+			</table>
+	
+			message: ${message}<br/><br/>
+		</div>
+
+	</div>
 	
 	References: 
 	<a href="http://tapestry.apache.org/page-life-cycle.html">Page Lifecycle</a>, 
@@ -160,7 +155,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxWhatIsCalledAndWhen.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxWhatIsCalledAndWhen.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxwhatiscalledandwhen.css"/>
 	</t:tabgroup>
 </body>
 </html>
