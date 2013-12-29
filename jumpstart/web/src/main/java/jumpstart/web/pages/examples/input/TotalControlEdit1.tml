@@ -10,36 +10,36 @@
 	The cost is more lines of code in the template. The benefit is total control of the content, layout and style.
 	
 	<div class="eg">
-		<t:form class="form-horizontal" t:id="person">
+		<t:form class="form-horizontal" t:id="person" validate="person">
 			<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
 	 		<t:hidden value="person.version"/>
 
 			<div class="form-group">
 				<t:label class="col-sm-3" for="firstName"/>
 				<div class="col-sm-3">
-					<t:textfield t:id="firstName" value="person.firstName" validate="required, maxlength=10, letters"/>
+					<t:textfield t:id="firstName" value="person.firstName"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
-						<span class="text-muted">(required, maxLength=10, letters only)</span>
+						<span class="text-muted">(required, up to 10 characters)</span>
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<t:label class="col-sm-3" for="lastName"/>
 				<div class="col-sm-3">
-					<t:textfield t:id="lastName" value="person.lastName" validate="required, maxlength=10, letters"/>
+					<t:textfield t:id="lastName" value="person.lastName"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
-						<span class="text-muted">(required, maxLength=10, letters only)</span>
+						<span class="text-muted">(required, up to 10 characters)</span>
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<t:label class="col-sm-3" for="region"/>
 				<div class="col-sm-3">
-					<t:select t:id="region" value="person.region" validate="required"/>
+					<t:select t:id="region" value="person.region"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
@@ -50,7 +50,7 @@
 			<div class="form-group">
 				<t:label class="col-sm-3" for="startDate"/>
 				<div class="col-sm-3">
-					<t:datefield t:id="startDate" value="person.startDate" format="dd/MM/yyyy" validate="required"/>
+					<t:datefield t:id="startDate" value="person.startDate" format="dd/MM/yyyy"/>
 				</div>
 				<div class="col-sm-6">
 					<p class="form-control-static">
@@ -86,8 +86,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/TotalControlEdit1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>

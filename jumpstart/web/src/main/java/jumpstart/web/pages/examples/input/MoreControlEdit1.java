@@ -27,12 +27,6 @@ public class MoreControlEdit1 {
 	@Property
 	private Person person;
 
-	// Work fields
-
-	// This carries version through the redirect that follows a server-side validation failure.
-	@Persist(PersistenceConstants.FLASH)
-	private Integer versionFlash;
-
 	// Other pages
 
 	@InjectPage
@@ -66,24 +60,37 @@ public class MoreControlEdit1 {
 	// Form bubbles up the PREPARE_FOR_RENDER event during form render.
 
 	void onPrepareForRender() throws Exception {
-		person = findPerson(personId);
 
-		// If the form has errors then we're redisplaying after a redirect.
-		// Form will restore your input values but it's up to us to restore Hidden values.
+        // If fresh start, make sure there's a Person object available.
 
-		if (form.getHasErrors()) {
-			person.setVersion(versionFlash);
-		}
+        if (form.isValid()) {
+            person = findPerson(personId);
+            // Handle null person in the template.
+        }
+
 	}
 
 	// Form bubbles up the PREPARE_FOR_SUBMIT event during form submission.
 
 	void onPrepareForSubmit() throws Exception {
-		// Get objects for the form fields to overlay.
+		
+        // Get Person object for the form fields to overlay.
 		person = findPerson(personId);
+
+        if (person == null) {
+            form.recordError("Person has been deleted by another process.");
+            // Instantiate an empty person to avoid NPE in the form.
+            person = new Person();
+        }
 	}
 
 	void onValidateFromPersonForm() {
+
+		if (form.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
+		}
+
 		try {
 			personManagerService.changePerson(person);
 		}
@@ -96,10 +103,6 @@ public class MoreControlEdit1 {
 	Object onSuccess() {
 		page2.set(personId);
 		return page2;
-	}
-
-	void onFailure() {
-		versionFlash = person.getVersion();
 	}
 
 	void onRefresh() {

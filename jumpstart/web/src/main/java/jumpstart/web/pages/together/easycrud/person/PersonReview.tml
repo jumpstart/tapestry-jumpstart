@@ -11,10 +11,12 @@
 			<t:beandisplay object="person"/>
 		</t:if>
 		<t:if test="!person">
-			Person ${personId} does not exist.<br/><br/>
+			<div class="alert alert-danger">
+				Person ${personId} does not exist.
+			</div>
 		</t:if>
 		
-		<t:pagelink page="together/easycrud/Persons">Cancel</t:pagelink>
+		<t:pagelink page="together/easycrud/Persons" class="btn btn-default">Cancel</t:pagelink>
 	</div>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

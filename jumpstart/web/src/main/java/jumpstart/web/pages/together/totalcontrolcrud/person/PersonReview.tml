@@ -30,7 +30,7 @@
 	        </div>
 	        <div class="row">
 	            <div class="col-sm-10 col-sm-offset-2">
-	            	<t:pagelink page="together/totalcontrolcrud/Persons">Cancel</t:pagelink>
+	            	<t:pagelink page="together/totalcontrolcrud/Persons" class="btn btn-default">Cancel</t:pagelink>
 	            </div>
 	        </div>
 		</t:if>
@@ -38,7 +38,7 @@
 	        <div class="alert alert-warning">
 				Person ${personId} does not exist.
 			</div>
-           	<t:pagelink page="together/totalcontrolcrud/Persons">Cancel</t:pagelink>
+           	<t:pagelink page="together/totalcontrolcrud/Persons" class="btn btn-default">Cancel</t:pagelink>
 		</t:if>
 	</div>
 	

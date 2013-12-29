@@ -13,7 +13,9 @@
 	 	<t:pagelink page="together/totalcontrolcrud/person/PersonCreate">Create...</t:pagelink><br/><br/>
 	 	
 		<t:if test="errorMessage">
-			<br/><span style="color:red">${errorMessage}</span><br/><br/>
+			<div class="alert alert-danger">
+				${errorMessage}
+			</div>
 		</t:if>
 	
 		<table class="table table-bordered table-striped table-hover table-condensed">
@@ -38,7 +40,7 @@
 						<t:pagelink page="together/totalcontrolcrud/person/PersonReview" context="person.id">Review</t:pagelink>
 						<t:pagelink page="together/totalcontrolcrud/person/PersonUpdate" context="person.id">Update</t:pagelink>
 						<t:eventLink event="Delete" context="[person.id,person.version]" 
-							t:mixins="Confirm" essage="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventLink>
+							t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventLink>
 					</td>
 				</tr>
 			</tbody>

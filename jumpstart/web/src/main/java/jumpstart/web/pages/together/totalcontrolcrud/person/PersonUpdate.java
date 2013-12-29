@@ -8,15 +8,13 @@ import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 import jumpstart.web.pages.together.totalcontrolcrud.Persons;
 
-import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class PersonUpdate {
 
 	// The activation context
@@ -28,12 +26,6 @@ public class PersonUpdate {
 
 	@Property
 	private Person person;
-
-	// Work fields
-
-	// This carries version through the redirect that follows a server-side validation failure.
-	@Persist(PersistenceConstants.FLASH)
-	private Integer versionFlash;
 
 	// Other pages
 
@@ -68,28 +60,27 @@ public class PersonUpdate {
 	// PersonForm bubbles up the PREPARE_FOR_RENDER event during form render.
 
 	void onPrepareForRender() {
-		person = personFinderService.findPerson(personId);
-		// Handle null person in the template.
 
-		// If the form has errors then we're redisplaying after a redirect.
-		// Form will restore your input values but it's up to us to restore Hidden values.
+		// If fresh start, make sure there's a Person object available.
 
-		if (personForm.getHasErrors()) {
-			if (person != null) {
-				person.setVersion(versionFlash);
-			}
+		if (personForm.isValid()) {
+			person = personFinderService.findPerson(personId);
+			// Handle null person in the template.
 		}
+
 	}
 
 	// PersonForm bubbles up the PREPARE_FOR_SUBMIT event during form submission.
 
 	void onPrepareForSubmit() {
+
 		// Get objects for the form fields to overlay.
 		person = personFinderService.findPerson(personId);
 
 		if (person == null) {
-			person = new Person();
 			personForm.recordError("Person has been deleted by another process.");
+			// Instantiate an empty person to avoid NPE in the Form.
+			person = new Person();
 		}
 	}
 
@@ -117,7 +108,4 @@ public class PersonUpdate {
 		return indexPage;
 	}
 
-	void onFailure() {
-		versionFlash = person.getVersion();
-	}
 }

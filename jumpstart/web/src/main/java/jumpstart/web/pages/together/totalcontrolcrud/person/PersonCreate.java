@@ -38,9 +38,20 @@ public class PersonCreate {
 
 	// The code
 
-	// PersonForm bubbles up the PREPARE event when it is rendered or submitted
+	// PersonForm bubbles up the PREPARE_FOR_RENDER event when it is rendered
 
-	void onPrepare() throws Exception {
+	void onPrepareForRender() throws Exception {
+
+		// If fresh start, make sure there's a Person object available.
+
+		if (personForm.isValid()) {
+			person = new Person();
+		}
+	}
+
+	// PersonForm bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
+
+	void onPrepareForSubmit() throws Exception {
 		// Instantiate a Person for the form data to overlay.
 		person = new Person();
 	}
@@ -58,6 +69,7 @@ public class PersonCreate {
 			personForm.recordError("Sorry, but this function is not allowed in Demo mode.");
 			return;
 		}
+
 		try {
 			personManagerService.createPerson(person);
 		}

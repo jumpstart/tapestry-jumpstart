@@ -37,11 +37,23 @@ public class Create1 {
 
 	// The code
 
-	// Form bubbles up the PREPARE event during form render and form submission.
+    // PersonForm bubbles up the PREPARE_FOR_RENDER event when it is rendered
 
-	void onPrepare() throws Exception {
-		person = new Person();
-	}
+    void onPrepareForRender() throws Exception {
+
+        // If fresh start, make sure there's a Person object available.
+
+        if (personForm.isValid()) {
+            person = new Person();
+        }
+    }
+
+    // PersonForm bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
+
+    void onPrepareForSubmit() throws Exception {
+        // Instantiate a Person for the form data to overlay.
+        person = new Person();
+    }
 
 	void onValidateFromPersonForm() {
 		

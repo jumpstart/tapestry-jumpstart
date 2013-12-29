@@ -7,66 +7,75 @@
 	<h3>Create</h3>
 	
 	<div class="eg">
-		<form t:type="CustomForm" t:id="personForm" class="input">
+		<t:form t:id="personForm" class="form-horizontal" validate="person">
 			<t:errors globalOnly="true"/>
 	
-			<table class="edit">
-				<tr>
-					<th><t:label for="firstName"/>:</th>
-					<td><input t:type="TextField" t:id="firstName" value="person.firstName" t:validate="required, maxlength=10" size="10"/></td>
-					<td>(required)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="firstName"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="lastName"/>:</th>
-					<td><input t:type="TextField" t:id="lastName" value="person.lastName" t:validate="required, maxlength=10" size="10"/></td>
-					<td>(required)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="lastName"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="region"/>:</th>
-					<td><input t:type="Select" t:id="region" value="person.region" t:validate="required" t:blankOption="ALWAYS"/></td>
-					<td>(required)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="region"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="startDate"/>:</th>
-					<td><input t:type="DateField" t:id="startDate" value="person.startDate" t:format="dd/MM/yyyy" t:validate="required" size="10"/></td>
-					<td>(required, dd/mm/yyyy)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="startDate"/></td>
-				</tr>
-				<tr>
-					<th></th>
-					<td colspan="2">
-						<input type="submit" value="Save"/>&nbsp;
-						<a t:type="pagelink" t:page="together/totalcontrolcrud/Persons" href="#">Cancel</a>
-					</td>
-				</tr>
-			</table>
-		</form>
+            <div class="form-group">
+                <t:label class="col-sm-3" for="firstName"/>
+                <div class="col-sm-3">
+                    <t:textfield t:id="firstName" value="person.firstName"/>
+                </div>
+                <div class="col-sm-6">
+                    <p class="form-control-static">
+                        (required)
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <t:label class="col-sm-3" for="lastName"/>
+                <div class="col-sm-3">
+                    <t:textfield t:id="lastName" value="person.lastName"/>
+                </div>
+                <div class="col-sm-6">
+                    <p class="form-control-static">
+                        (required)
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <t:label class="col-sm-3" for="region"/>
+                <div class="col-sm-3">
+                    <t:select t:id="region" value="person.region" blankOption="always"/>
+                </div>
+                <div class="col-sm-6">
+                    <p class="form-control-static">
+                        (required)
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <t:label class="col-sm-3" for="startDate"/>
+                <div class="col-sm-3">
+                    <t:datefield t:id="startDate" value="person.startDate" format="dd/MM/yyyy"/>
+                </div>
+                <div class="col-sm-6">
+                    <p class="form-control-static">
+                        (required, dd/mm/yyyy)
+                    </p>
+                </div>
+            </div>
+			<div class="form-group">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <t:submit value="Save"/>
+					<t:pagelink page="together/totalcontrolcrud/Persons" class="btn btn-default">Cancel</t:pagelink>
+                </div>
+            </div>
+			
+		</t:form>
+		
 	</div>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
 
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/example/plain.css"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/totalcontrolcrud/person/PersonCreate.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/example/plain.css"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
 </body>
 </html>

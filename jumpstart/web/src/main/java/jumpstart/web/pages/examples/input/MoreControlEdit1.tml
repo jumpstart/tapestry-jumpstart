@@ -24,7 +24,7 @@
 			
 				<div class="t-beaneditor-row">
 					<t:submit value="Save"/>&nbsp;
-					<t:eventlink t:event="refresh" href="#">Refresh</t:eventlink>&nbsp;
+					<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>&nbsp;
 				</div>
 			</div>
 	 	</t:form>
@@ -47,8 +47,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MoreControlEdit1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MoreControlEdit1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonManagerService.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>

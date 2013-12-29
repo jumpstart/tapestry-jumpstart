@@ -13,7 +13,7 @@ import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class PersonCreate {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
@@ -38,16 +38,37 @@ public class PersonCreate {
 
 	// The code
 
-	// PersonForm bubbles up the PREPARE event when it is rendered or submitted
+	// PersonForm bubbles up the PREPARE_FOR_RENDER event when it is rendered
 
-	void onPrepare() throws Exception {
+	void onPrepareForRender() throws Exception {
+
+		// If fresh start, make sure there's a Person object available.
+
+		if (personForm.isValid()) {
+			person = new Person();
+		}
+	}
+
+	// PersonForm bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
+
+	void onPrepareForSubmit() throws Exception {
 		// Instantiate a Person for the form data to overlay.
 		person = new Person();
+	}
+
+	Object onCanceledFromPersonForm() {
+		return indexPage;
 	}
 
 	// PersonForm bubbles up the VALIDATE event when it is submitted
 
 	void onValidateFromPersonForm() {
+
+		if (personForm.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
+			return;
+		}
+
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			personForm.recordError("Sorry, but this function is not allowed in Demo mode.");
 			return;

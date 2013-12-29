@@ -14,10 +14,12 @@
 	It uses the Grid, BeanEditor, and BeanDisplay components which are especially great for prototyping.
 
 	<div class="eg">
-		<t:pagelink page="together/easycrud/person/PersonCreate">Create...</t:pagelink>><br/><br/>
+		<t:pagelink page="together/easycrud/person/PersonCreate">Create...</t:pagelink><br/><br/>
 	
 		<t:if test="errorMessage">
-			<span style="color:red">${errorMessage}</span><br/><br/>
+			<div class="alert alert-danger">
+				${errorMessage}
+			</div>
 		</t:if>
 	
 		<t:grid source="persons" row="person" include="id,firstName,lastName,region,startDate" add="action">[Grid here]

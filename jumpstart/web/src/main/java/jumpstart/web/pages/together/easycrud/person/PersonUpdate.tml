@@ -8,18 +8,19 @@
 	
 	<div class="eg">
 		<t:if test="person">
-			<t:beaneditform t:id="personForm" object="person" submitLabel="Save">[BeanEditForm here]
+			<t:beaneditform t:id="personForm" object="person" submitLabel="Save" cancel="true">[BeanEditForm here]
 				<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
 				<p:version>
 					<t:hidden value="person.version"/>
 				</p:version>
 		 	</t:beaneditform>
 		</t:if>
-		<t:if negate="true" test="person">
-			Person ${personId} does not exist.<br/><br/>
+		<t:if test="!person">
+			<div class="alert alert-danger">
+				Person ${personId} does not exist.
+			</div>
+			<t:pagelink page="together/easycrud/Persons" class="btn btn-default">Cancel</t:pagelink>
 		</t:if>
-	
-		<a t:type="pagelink" t:page="together/easycrud/Persons" href="#">Cancel</a>
 	</div>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
