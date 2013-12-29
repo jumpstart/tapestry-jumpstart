@@ -19,7 +19,7 @@
 			Please try again later, or <t:pagelink page="Index">click here to return to Start</t:pagelink>.
 		</div><br/><br/><br/>
 	</t:if>
-	<t:if negate="true" test="productionMode">
+	<t:if test="!productionMode">
 		System property <em>tapestry.production-mode</em> is currently <em>false</em>, so I will display full technical details 
 		of the exception - the same exception and session data as Tapestry's default ExceptionReport. 
 		The source for this page is at the bottom. For more info about this page, click 

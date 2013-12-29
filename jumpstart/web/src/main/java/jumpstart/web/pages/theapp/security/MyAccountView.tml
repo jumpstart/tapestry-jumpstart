@@ -64,7 +64,7 @@
 							</td>
 						</tr>
 					</table>
-					<div t:type="if" t:test="userRoles" t:negate="true">
+					<div t:type="if" t:test="!userRoles">
 						<div class="nodata">(No Roles to display)</div>
 					</div>
 				</div>

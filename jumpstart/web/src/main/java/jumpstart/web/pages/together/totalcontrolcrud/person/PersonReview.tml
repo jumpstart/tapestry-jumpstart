@@ -34,7 +34,7 @@
 	            </div>
 	        </div>
 		</t:if>
-		<t:if negate="true" test="person">
+		<t:if test="!person">
 	        <div class="alert alert-warning">
 				Person ${personId} does not exist.
 			</div>

@@ -168,7 +168,7 @@
 									</div>
 		
 								</t:if>
-								<t:if negate="true" test="editorPerson">
+								<t:if test="!editorPerson">
 									Person ${editorPersonId} does not exist.<br/><br/>
 								</t:if>
 								
@@ -229,7 +229,7 @@
 										</div>
 										
 									</t:if>
-									<t:if negate="true" test="editorPerson">
+									<t:if test="!editorPerson">
 										Person ${editorPersonId} does not exist.<br/><br/>
 									</t:if>
 								</form>
@@ -259,7 +259,7 @@
 									</t:if>
 								</form>
 						
-								<t:if negate="true" test="editorPerson">
+								<t:if test="!editorPerson">
 									Person ${editorPersonId} does not exist.<br/><br/>
 								</t:if>
 								

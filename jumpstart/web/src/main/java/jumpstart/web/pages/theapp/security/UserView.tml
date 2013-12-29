@@ -95,7 +95,7 @@
 									</td>
 								</tr>
 							</table>
-							<div t:type="if" t:test="userRoles" t:negate="true">
+							<div t:type="if" t:test="!userRoles">
 								<div class="nodata">(No Roles to display)</div>
 							</div>
 						</div>
@@ -104,7 +104,7 @@
 			</table>
 		</form>
 	</t:if>
-	<t:if negate="true" test="user">
+	<t:if test="!user">
 		<div class="badrequest">
 			User does not exist.
 		</div>

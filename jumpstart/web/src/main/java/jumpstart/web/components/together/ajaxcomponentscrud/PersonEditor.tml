@@ -104,7 +104,7 @@
 			</div>
 
 		</t:if>
-		<t:if negate="true" test="person">
+		<t:if test="!person">
 			Person ${personId} does not exist.<br/><br/>
 		</t:if>
 		
@@ -166,7 +166,7 @@
 						
 			</t:if>
 	
-			<t:if negate="true" test="person">
+			<t:if test="!person">
 				Person ${personId} does not exist.<br/><br/>
 			</t:if>
 		</form>

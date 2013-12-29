@@ -18,7 +18,7 @@
 									t:mixins="Confirm" t:message="Delete ${role.name}?" title="Delete">Delete</a></span>
 							</p:actionsCell>
 						</table>
-						<div t:type="if" t:test="roles" t:negate="true">
+						<div t:type="if" t:test="!roles">
 							<div class="nodata">(No Roles to display)</div>
 						</div>
 					</div>

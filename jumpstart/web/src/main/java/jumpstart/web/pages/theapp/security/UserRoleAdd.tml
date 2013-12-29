@@ -14,7 +14,7 @@
 										<th>User:</th>
 										<td>${user.loginId}</td>
 									</t:if>
-									<t:if negate="true" test="user">
+									<t:if test="!user">
 										<th><t:label for="user"/></th>
 										<td><select t:type="select" t:id="user" t:model="userIdsModel" t:value="selectedUserId" t:validate="required" t:blankOption="ALWAYS"></select></td>
 									</t:if>
@@ -26,7 +26,7 @@
 										<th>Role:</th>
 										<td>${role.name}</td>
 									</t:if>
-									<t:if negate="true" test="role">
+									<t:if test="!role">
 										<th><t:label for="role"/></th>
 										<td><select t:type="select" t:id="role" t:model="roleIdsModel" t:value="selectedRoleId" t:validate="required" t:blankOption="ALWAYS"></select></td>
 									</t:if>

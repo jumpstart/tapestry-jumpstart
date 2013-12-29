@@ -21,7 +21,7 @@
 		<t:if test="person">
 			<t:beandisplay object="person" />
 		</t:if>
-		<t:if negate="true" test="person">
+		<t:if test="!person">
 			<div class="alert alert-danger">Person ${personId} does not exist.</div>
 		</t:if>
 	</div>
