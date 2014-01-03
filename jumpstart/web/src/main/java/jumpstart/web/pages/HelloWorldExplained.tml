@@ -3,7 +3,7 @@
 
 	<h3>"Hello, ${username}" Explained</h3> 
 	
-	A minimal, templated, Tapestry application needs only three files. For example, to produce this page:
+	<p>A minimal, templated, Tapestry application needs only three files. For example, to produce this page:</p>
 	
 	<ul>
 		<li><strong>web.xml</strong> 
@@ -14,12 +14,12 @@
 			A page class associated with the template. Here it merely provides a <em>username</em> property that the template can access.</li>
 	</ul>
 
-	In this page we also use three <em>components</em>:
+	<p>In this page we also use three <em>components</em>:</p>
 	
 	<ul>
-		<li><strong>PageLink</strong> which is a core Tapestry component that outputs an HTML link to another page.</li>
-		<li><strong>TabGroup</strong> which is a custom component provided by JumpStart to output the tabs you see below.</li>
-		<li><strong>SourceCodeTab</strong> which is a custom component provided by JumpStart to output source files as HTML.</li>
+		<li><strong>PageLink</strong> which is a core Tapestry component. It outputs an HTML link to another page.</li>
+		<li><strong>TabGroup</strong> which is a custom component provided by JumpStart. It outputs the tabs you see below.</li>
+		<li><strong>SourceCodeTab</strong> which is a custom component provided by JumpStart. It outputs source files as HTML.</li>
 	</ul>
 	
 	References: 
