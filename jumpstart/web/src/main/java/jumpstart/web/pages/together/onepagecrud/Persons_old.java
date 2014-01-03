@@ -1,4 +1,4 @@
-package jumpstart.web.pages.together.filtercrud;
+package jumpstart.web.pages.together.onepagecrud;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -10,12 +10,12 @@ import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.models.together.PersonFilteredDataSource;
+import jumpstart.web.models.together.PersonPagedDataSource;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -23,7 +23,8 @@ import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-public class Persons {
+@Import(stylesheet="css/together/onepagecrud.css")
+public class Persons_old {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
@@ -40,10 +41,6 @@ public class Persons {
 	private Long editorPersonId;
 
 	// Screen fields
-
-	@Property
-	@ActivationRequestParameter
-	private String partialName;
 
 	@Property
 	private GridDataSource listPersons;
@@ -73,13 +70,9 @@ public class Persons {
 	private IPersonManagerServiceLocal personManagerService;
 
 	@Component
-	// FIX!
-	// private CustomForm createForm;
 	private Form createForm;
 
 	@Component
-	// FIX!
-	// private CustomForm updateForm;
 	private Form updateForm;
 
 	@Inject
@@ -128,11 +121,12 @@ public class Persons {
 	// setupRender() is called by Tapestry right before it starts rendering the page.
 
 	void setupRender() {
-		listPersons = new PersonFilteredDataSource(personFinderService, partialName);
+		listPersons = new PersonPagedDataSource(personFinderService);
 
 		if (editorMode == Mode.REVIEW) {
 			if (editorPersonId == null) {
 				editorPerson = null;
+				// Handle null editorPerson in the template.
 			}
 			else {
 				if (editorPerson == null) {
@@ -141,6 +135,7 @@ public class Persons {
 				}
 			}
 		}
+
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -200,11 +195,6 @@ public class Persons {
 		editorPersonId = editorPerson.getId();
 	}
 
-	void onFailureFromCreateForm() {
-		editorMode = Mode.CREATE;
-		editorPersonId = null;
-	}
-
 	// /////////////////////////////////////////////////////////////////////
 	// REVIEW
 	// /////////////////////////////////////////////////////////////////////
@@ -213,7 +203,7 @@ public class Persons {
 
 	void onSelected(Long personId) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
+		this.editorPersonId = personId;
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -224,17 +214,17 @@ public class Persons {
 
 	void onToUpdate(Long personId) {
 		editorMode = Mode.UPDATE;
-		editorPersonId = personId;
+		this.editorPersonId = personId;
 	}
 
 	// Handle event "cancelUpdate"
 
 	void onCancelUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
+		this.editorPersonId = personId;
 	}
 
-	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
+	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event during form render
 
 	void onPrepareForRenderFromUpdateForm() {
 		editorMode = Mode.UPDATE;
@@ -294,7 +284,6 @@ public class Persons {
 	}
 
 	void onFailureFromUpdateForm() {
-		editorMode = Mode.UPDATE;
 		versionFlash = editorPerson.getVersion();
 	}
 
@@ -306,7 +295,7 @@ public class Persons {
 
 	void onDelete(Long personId, Integer personVersion) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
+		this.editorPersonId = personId;
 		editorPerson = personFinderService.findPerson(personId);
 		// Handle null editorPerson in the template.
 
@@ -318,7 +307,7 @@ public class Persons {
 		try {
 			personManagerService.deletePerson(personId, personVersion);
 			editorMode = null;
-			editorPersonId = null;
+			this.editorPersonId = null;
 		}
 		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.

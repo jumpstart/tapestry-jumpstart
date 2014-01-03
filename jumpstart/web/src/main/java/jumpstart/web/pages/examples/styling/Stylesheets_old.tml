@@ -3,22 +3,25 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+	<link rel="stylesheet" type="text/css" href="${asset:css/examples/olive.css}"/>
+</head>
 <body class="container">
 	<h3>Stylesheets</h3>
 	
 	In addition to the Bootstrap stylesheet, Tapestry adds its own stylesheets to style some of its core components.<br/><br/>
 
-	To add your own stylesheet(s) to the page, use either <code>@Import</code> in the Java class or <code>&lt;link></code> in the template.<br/>
+	To add your own stylesheet(s) to the page, use <code>&lt;link></code> tags in the template (see the source code below).<br/>
+	Use <code>asset:</code> to mean the path of an asset within the WAR file's <em>WEB-INF/classes/META-INF/assets/</em>.<br/>
 	Tapestry will slot your stylesheet(s) in after the others. This allows you to add your styles and override the others.<br/><br/>
-	
-	In this page we've used @Import. Our stylesheet affects class <code>eg</code>:
+
+	In this page we've added a stylesheet with the class <code>eg</code>, which is used here:
 
 	<div class="eg">
 		Hello, ${username}.
 	</div>
 
-	Components and mixins can also add stylesheets. Using @Import, each stylesheet will only be added once, regardless of 
-	how many components and mixins in the page specify it.<br/><br/>
+	An alternative way to add a stylesheet is with the @Import annotation in the page class, eg. <code>@Import(stylesheet="css/examples/olive.css")</code><br/><br/>
 	
 	Tapestry can automatically load an alternative stylesheet for Internet Explorer. For more information see the references.<br/><br/>
 	

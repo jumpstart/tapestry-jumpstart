@@ -10,7 +10,6 @@ import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.components.CustomForm;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
@@ -102,10 +101,14 @@ public class PersonEditor {
 	private IPersonManagerServiceLocal personManagerService;
 
 	@Component
-	private CustomForm createForm;
+	// FIX!
+	// private CustomForm createForm;
+	private Form createForm;
 
 	@Component
-	private CustomForm updateForm;
+	// FIX!
+	// private CustomForm updateForm;
+	private Form updateForm;
 
 	@Component
 	private Form confirmDeleteForm;

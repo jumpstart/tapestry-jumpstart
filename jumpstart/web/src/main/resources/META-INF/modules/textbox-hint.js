@@ -4,16 +4,16 @@
 define(["jquery"], function($) {
 
 	return function(textboxId, hintText, hintColor) {
-		var textbox = $("#" + textboxId);
+		var $textbox = $("#" + textboxId);
 
-		var normalColor = textbox.css("color");
+		var normalColor = $textbox.css("color");
 
-		textbox.on("focus", doClearHint);
-		textbox.on("blur", doCheckHint);
-		textbox.on("change", doCheckHint);
-		textbox.on("submit", doClearHint);
+		$textbox.on("focus", doClearHint);
+		$textbox.on("blur", doCheckHint);
+		$textbox.on("change", doCheckHint);
+		$textbox.on("submit", doClearHint);
 
-		textbox.blur();
+		$textbox.blur();
 
 		function doClearHint() {
 			var field = $(this);

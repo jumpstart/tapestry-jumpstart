@@ -41,7 +41,7 @@
 		</copy>
 
 		<!-- Pick up the js that I left out above. By convention js shouldn't be in main/resources/META-INF 
-			but I prefer to keep js that is specific to a page/component/mixin in alongside its java. -->
+			but I prefer to keep js that is specific to a page/component/mixin alongside its java. -->
 		<copy todir="${war.dir}/WEB-INF/classes/META-INF/modules">
 			<fileset dir="${project.bin.dir}/${web.package.path}" includes="**/*.js" />
 		</copy>

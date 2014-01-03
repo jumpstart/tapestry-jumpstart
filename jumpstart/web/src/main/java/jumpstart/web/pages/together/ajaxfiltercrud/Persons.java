@@ -10,7 +10,6 @@ import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.components.CustomForm;
 import jumpstart.web.models.together.PersonFilteredDataSource;
 
 import org.apache.tapestry5.PersistenceConstants;
@@ -19,6 +18,7 @@ import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.ioc.Messages;
@@ -76,10 +76,14 @@ public class Persons {
 	private IPersonManagerServiceLocal personManagerService;
 
 	@Component
-	private CustomForm createForm;
+	// FIX!
+	// private CustomForm createForm;
+	private Form createForm;
 
 	@Component
-	private CustomForm updateForm;
+	// FIX!
+	// private CustomForm updateForm;
+	private Form updateForm;
 
 	@InjectComponent
 	private Zone listZone;

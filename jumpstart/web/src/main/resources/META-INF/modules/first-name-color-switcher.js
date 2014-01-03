@@ -3,13 +3,13 @@
 define(["jquery"], function($) {
 
 	return function() {
-		var firstName = $("#firstName");
+		var $firstName = $("#firstName");
 		var red = "rgb(255, 0, 0)";
 		var green = "rgb(0, 128, 0)";
 
-		firstName.css("color", red);
+		$firstName.css("color", red);
 
-		firstName.on("keyup", doSwitchColor);
+		$firstName.on("keyup", doSwitchColor);
 
 		function doSwitchColor() {
 			var field = $(this);

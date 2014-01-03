@@ -10,18 +10,20 @@ import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.components.CustomForm;
 import jumpstart.web.models.together.PersonPagedDataSource;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/together/onepagecrud.css")
 public class Persons {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
@@ -53,12 +55,6 @@ public class Persons {
 	@Persist(PersistenceConstants.FLASH)
 	private String deleteMessage;
 
-	// Work fields
-
-	// This carries version through the redirect that follows a server-side validation failure.
-	@Persist(PersistenceConstants.FLASH)
-	private Integer versionFlash;
-
 	// Generally useful bits and pieces
 
 	@EJB
@@ -68,10 +64,10 @@ public class Persons {
 	private IPersonManagerServiceLocal personManagerService;
 
 	@Component
-	private CustomForm createForm;
+	private Form createForm;
 
 	@Component
-	private CustomForm updateForm;
+	private Form updateForm;
 
 	@Inject
 	private Messages messages;
@@ -154,9 +150,21 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	// Component "createForm" bubbles up the PREPARE event when it is rendered or submitted
+	// Component "createForm" bubbles up the PREPARE_FOR_RENDER event when it is rendered
 
-	void onPrepareFromCreateForm() throws Exception {
+	void onPrepareForRenderFromCreateForm() throws Exception {
+
+		// If fresh start, make sure there's a Person object available.
+
+		if (createForm.isValid()) {
+			editorMode = Mode.CREATE;
+			editorPerson = new Person();
+		}
+	}
+
+	// Component "createForm" bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
+
+	void onPrepareForSubmitFromCreateForm() throws Exception {
 		editorMode = Mode.CREATE;
 		// Instantiate a Person for the form data to overlay.
 		editorPerson = new Person();
@@ -225,18 +233,13 @@ public class Persons {
 	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event during form render
 
 	void onPrepareForRenderFromUpdateForm() {
-		editorMode = Mode.UPDATE;
 
-		editorPerson = personFinderService.findPerson(editorPersonId);
-		// Handle null editorPerson in the template.
+		// If fresh start, make sure there's a Person object available.
 
-		// If the form has errors then we're redisplaying after a redirect.
-		// Form will restore your input values but it's up to us to restore Hidden values.
-
-		if (updateForm.getHasErrors()) {
-			if (editorPerson != null) {
-				editorPerson.setVersion(versionFlash);
-			}
+		if (updateForm.isValid()) {
+			editorMode = Mode.UPDATE;
+			editorPerson = personFinderService.findPerson(editorPersonId);
+			// Handle null editorPerson in the template.
 		}
 	}
 
@@ -249,8 +252,9 @@ public class Persons {
 		editorPerson = personFinderService.findPerson(editorPersonId);
 
 		if (editorPerson == null) {
-			editorPerson = new Person();
 			updateForm.recordError("Person has been deleted by another process.");
+			// Instantiate an empty person to avoid NPE in the Form.
+			editorPerson = new Person();
 		}
 	}
 
@@ -281,10 +285,6 @@ public class Persons {
 		setupRender();
 	}
 
-	void onFailureFromUpdateForm() {
-		versionFlash = editorPerson.getVersion();
-	}
-
 	// /////////////////////////////////////////////////////////////////////
 	// DELETE
 	// /////////////////////////////////////////////////////////////////////
@@ -294,9 +294,7 @@ public class Persons {
 	void onDelete(Long personId, Integer personVersion) {
 		editorMode = Mode.REVIEW;
 		this.editorPersonId = personId;
-		editorPerson = personFinderService.findPerson(personId);
-		// Handle null editorPerson in the template.
-
+		
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
 			return;

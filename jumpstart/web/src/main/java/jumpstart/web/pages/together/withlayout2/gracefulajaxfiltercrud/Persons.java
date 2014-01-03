@@ -10,7 +10,6 @@ import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.components.CustomForm;
 import jumpstart.web.models.together.PersonFilteredDataSource;
 
 import org.apache.tapestry5.EventContext;
@@ -90,10 +89,14 @@ public class Persons {
 	private IPersonManagerServiceLocal personManagerService;
 
 	@Component
-	private CustomForm createForm;
+	// FIX!
+	// private CustomForm createForm;
+	private Form createForm;
 
 	@Component
-	private CustomForm updateForm;
+	// FIX!
+	// private CustomForm updateForm;
+	private Form updateForm;
 
 	@Component
 	private Form confirmDeleteForm;

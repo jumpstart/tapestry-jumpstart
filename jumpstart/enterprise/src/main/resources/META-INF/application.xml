@@ -16,7 +16,7 @@
 	<module>
 		<web>
 			<web-uri>jumpstart.war</web-uri>
-			<context-root>jumpstart</context-root>
+			<context-root>jumpstart7</context-root>
 		</web>
 	</module>
 

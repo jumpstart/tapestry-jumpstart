@@ -1,7 +1,6 @@
 package jumpstart.web.pages.examples.javascript;
 
 import jumpstart.util.ExceptionUtil;
-import jumpstart.web.components.CustomForm;
 import jumpstart.web.services.IFiler;
 
 import org.apache.commons.fileupload.FileUploadException;
@@ -13,6 +12,7 @@ import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Any;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
@@ -44,7 +44,9 @@ public class FileUpload {
 	private ComponentResources componentResources;
 
 	@InjectComponent
-	private CustomForm uploadForm;
+	// FIX!
+//	private CustomForm uploadForm;
+	private Form uploadForm;
 
 	@Inject
 	private Messages messages;

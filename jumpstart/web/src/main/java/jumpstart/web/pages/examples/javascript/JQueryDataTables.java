@@ -16,11 +16,11 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
-import org.got5.tapestry5.jquery.ImportJQueryUI;
 
 @Import(stylesheet = { "css/examples/jquerydatatables.css" })
 // Apply the "smoothness" theme (downloaded from http://jqueryui.com/themeroller/)
-@ImportJQueryUI(theme = "css/examples/jquery/themes/smoothness/jquery-ui-1.8.23.custom.css")
+// FIX!
+//@ImportJQueryUI(theme = "css/examples/jquery/themes/smoothness/jquery-ui-1.8.23.custom.css")
 public class JQueryDataTables {
 	static private final int MAX_RESULTS = 30;
 

@@ -1,10 +1,8 @@
 package jumpstart.web.components.examples.component;
 
 import org.apache.tapestry5.BindingConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
-import org.chenillekit.tapestry.core.components.SlidingPanel;
 
 public class SlidingBoldItalicDisplayWithContent {
 
@@ -20,7 +18,8 @@ public class SlidingBoldItalicDisplayWithContent {
 
 	// Generally useful bits and pieces
 
-	@Component(parameters={"subject=prop:panelTitle", "closed=true"}, publishParameters = "options, closed")
-	private SlidingPanel slidingPanel;
+	// FIX!
+	// @Component(parameters={"subject=prop:panelTitle", "closed=true"}, publishParameters = "options, closed")
+	// private SlidingPanel slidingPanel;
 
 }

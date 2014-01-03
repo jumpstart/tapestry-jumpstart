@@ -9,6 +9,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.annotations.RequestParameter;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
@@ -48,19 +49,19 @@ public class AjaxOnEvent {
 		}
 	}
 
-	Object onFirstNameChanged() {
-		firstName = request.getParameter("param");
+	Object onFirstNameChanged(@RequestParameter(value = "param", allowBlank = true) String firstName) {
 		if (firstName == null) {
 			firstName = "";
 		}
+		this.firstName = firstName;
 		return request.isXHR() ? nameZone.getBody() : null;
 	}
 
-	Object onLastNameChanged() {
-		lastName = request.getParameter("param");
+	Object onLastNameChanged(@RequestParameter(value = "param", allowBlank = true) String lastName) {
 		if (lastName == null) {
 			lastName = "";
 		}
+		this.lastName = lastName;
 		return request.isXHR() ? nameZone.getBody() : null;
 	}
 

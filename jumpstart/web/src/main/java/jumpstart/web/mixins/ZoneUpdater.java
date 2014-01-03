@@ -65,6 +65,7 @@ public class ZoneUpdater {
 	// The code
 
 	void afterRender() {
+
 		String listenerURI = componentResources.createEventLink(event, context).toAbsoluteURI(secure);
 
 		javaScriptSupport.require("mixins/zone-updater").with(clientElement.getClientId(), clientEvent, listenerURI,
