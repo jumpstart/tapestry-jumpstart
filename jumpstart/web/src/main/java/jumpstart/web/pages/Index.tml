@@ -216,7 +216,7 @@
 							<br/>
 							<t:pagelink page="examples/component/ThirdPartyComponents" t:disabled="true">Third-Party Components</t:pagelink><br/>
 							<t:pagelink page="examples/component/CombiningComponents" t:disabled="true">Combining Components</t:pagelink><br/>
-							<t:pagelink page="examples/component/WrappingTapestryComponents">Wrapping Tapestry Components</t:pagelink><br/>
+							<t:pagelink page="examples/component/WrappingTapestryComponents" t:disabled="true">Wrapping Tapestry Components</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/component/EventBubbling">Event Bubbling</t:pagelink><br/>
 						</div>
