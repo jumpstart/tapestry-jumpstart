@@ -19,5 +19,7 @@ lib-runtime/
 	Contains jar files needed only at runtime.
 	They are not needed during compile, usually because they are connectors from the code to the runtime resources.
 	To populate or refresh the directory, run the get-dependent-files target in the project's build.xml Ant file.
+resources/
+	// TODO - describe.
 webapp/
 	Contains files that are to be packaged into the WAR.

@@ -53,8 +53,8 @@ public class TabGroup {
 	/**
 	 * The tricky part is that we can't render the navbar before we've rendered the body, because we don't know how many
 	 * elements are in the body nor what labels they would like. We solve this by making a TabTracker available to the
-	 * body. They body's Tab components will record in TabTracker the tab labels and markup that they want. Later, in
-	 * afterRenderBody(), we will render the whole TabGroup based on what's in TabTracker.
+	 * body. The Tabs in the body will record, in TabTracker, the labels and markup they want. Later, in our 
+	 * afterRenderBody(), we will get those labels and markup from TabTracker, then render the whole TabGroup at once.
 	 */
 	void beginRender() {
 		environment.push(TabTracker.class, new TabTracker());
