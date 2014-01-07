@@ -16,7 +16,7 @@
 	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/base/AbstractTextField.java?view=markup">
 	AbstractTextField</a> does most of the work.<br/><br/>
 	
-	Two more examples are JumpStart's sourcecodetab and JodaTimeOutput components. Their source is below.<br/><br/> 
+	Two more examples are JumpStart's SourceCodeDisplay (used by SourceCodeTab) and JodaTimeOutput components. Their source is below.<br/><br/> 
 	 
 	References:  
 	<a href="http://tapestry.apache.org/dom.html">DOM</a>, 
@@ -27,7 +27,8 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/MarkupWriter.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/MarkupWriter.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SourceCodeDisplay2.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SourceCodeDisplay.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/sourcecodedisplay.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/JodaTimeOutput.java"/>
 	</t:tabgroup>
 </body>

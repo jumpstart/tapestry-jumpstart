@@ -133,7 +133,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormsInALoopWithDEH.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxFormsInALoopWithDEH.properties"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxformsinaloop.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/EvenOdd.java"/>
 	</t:tabgroup>
 </body>
 </html>

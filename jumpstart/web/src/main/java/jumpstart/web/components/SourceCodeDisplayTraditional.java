@@ -14,10 +14,22 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Context;
 
 @Import(stylesheet = "css/sourcecodedisplay.css")
-public class SourceCodeDisplay2 {
+public class SourceCodeDisplayTraditional {
 	static private String LINE_SEPARATOR = System.getProperty("line.separator");
 
-	static private String STYLE_SOURCECODEDISPLAY = "sourcecodedisplay";
+//	static private String STYLE_BOX = "margin: 10px 0px 0px 0px; background: #adffd6; padding: 8px; "
+//			+ "border: 1px solid #ddd; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px;";
+//
+//	static private String STYLE_TITLE = "margin: -2px 0 0 0; text-align: left; font-family: Arial, Helvetica, sans-serif; "
+//			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
+//
+//	static private String STYLE_SOURCE = "text-align: left; tab-stops: 5px; "
+//			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
+//
+//	static private String STYLE_NOT_FOUND = "margin: 10px 0; font-family: Arial, Helvetica, sans-serif; "
+//			+ "font-size: 12px; font-weight: normal; text-align: left; color: red;";
+	
+	static private String STYLE_SOURCECODEDISPLAY = "sourcecodedisplaytraditional";
 	static private String STYLE_BOX = "box";
 	static private String STYLE_TITLE = "title";
 	static private String STYLE_SOURCE = "source";
@@ -37,27 +49,27 @@ public class SourceCodeDisplay2 {
 		// Print start of the source block
 
 		writer.write(LINE_SEPARATOR);
-		writer.writeRaw("<!-- Start of source code inserted by SourceCodeDisplay2 component. -->");
+		writer.writeRaw("<!-- Start of source code inserted by SourceCodeDisplayTraditional component. -->");
 		writer.write(LINE_SEPARATOR);
 		writer.write(LINE_SEPARATOR);
 
 		// Print a div with style info to make a pretty block
 
 		writer.element("div", "class", STYLE_SOURCECODEDISPLAY);
-//		writer.element("div", "class", STYLE_BOX);
-//		writer.write(LINE_SEPARATOR);
-//		{
-//			writer.element("div", "class", STYLE_TITLE);
-//			writer.write(LINE_SEPARATOR);
-//			{
-//				writer.write(extractSimpleName(src));
-//				writer.write(LINE_SEPARATOR);
-//			}
-//			writer.end();
-//		}
-//		// writer.element("hr", "style", "color: #ccc; background-color: #ccc;");
-//		writer.element("hr", "style", "color: #ddd; background-color: #ddd;");
-//		writer.end();
+		writer.element("div", "class", STYLE_BOX);
+		writer.write(LINE_SEPARATOR);
+		{
+			writer.element("div", "class", STYLE_TITLE);
+			writer.write(LINE_SEPARATOR);
+			{
+				writer.write(extractSimpleName(src));
+				writer.write(LINE_SEPARATOR);
+			}
+			writer.end();
+		}
+		// writer.element("hr", "style", "color: #ccc; background-color: #ccc;");
+		writer.element("hr", "style", "color: #ddd; background-color: #ddd;");
+		writer.end();
 
 		// Print the source
 
@@ -67,8 +79,8 @@ public class SourceCodeDisplay2 {
 
 		// Print end of div
 
-//		writer.write(LINE_SEPARATOR);
-//		writer.end();
+		writer.write(LINE_SEPARATOR);
+		writer.end();
 		writer.end();
 
 		// Print end of source block

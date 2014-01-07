@@ -17,24 +17,10 @@ import org.apache.tapestry5.services.Context;
 public class SourceCodeDisplay {
 	static private String LINE_SEPARATOR = System.getProperty("line.separator");
 
-//	static private String STYLE_BOX = "margin: 10px 0px 0px 0px; background: #adffd6; padding: 8px; "
-//			+ "border: 1px solid #ddd; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px;";
-//
-//	static private String STYLE_TITLE = "margin: -2px 0 0 0; text-align: left; font-family: Arial, Helvetica, sans-serif; "
-//			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
-//
-//	static private String STYLE_SOURCE = "text-align: left; tab-stops: 5px; "
-//			+ "font-size: 12px; font-weight: normal; color: #444; line-height: 14px; ";
-//
-//	static private String STYLE_NOT_FOUND = "margin: 10px 0; font-family: Arial, Helvetica, sans-serif; "
-//			+ "font-size: 12px; font-weight: normal; text-align: left; color: red;";
-	
 	static private String STYLE_SOURCECODEDISPLAY = "sourcecodedisplay";
-	static private String STYLE_BOX = "box";
-	static private String STYLE_TITLE = "title";
 	static private String STYLE_SOURCE = "source";
 	static private String STYLE_NOT_FOUND = "not-found";
-	
+
 	static private int TAB_STOPS_WIDTH = 4;
 
 	// The source file path from the project root eg. "/web/src/main/jumpstart/web/pages/Start.java"
@@ -56,31 +42,17 @@ public class SourceCodeDisplay {
 		// Print a div with style info to make a pretty block
 
 		writer.element("div", "class", STYLE_SOURCECODEDISPLAY);
-		writer.element("div", "class", STYLE_BOX);
-		writer.write(LINE_SEPARATOR);
 		{
-			writer.element("div", "class", STYLE_TITLE);
-			writer.write(LINE_SEPARATOR);
-			{
-				writer.write(extractSimpleName(src));
-				writer.write(LINE_SEPARATOR);
+
+			// Print the source
+
+			if (src != null) {
+				printSourceFromInputStream(writer, src, "/WEB-INF/sourcecode" + src);
 			}
-			writer.end();
+
+			// Print end of div
+
 		}
-		// writer.element("hr", "style", "color: #ccc; background-color: #ccc;");
-		writer.element("hr", "style", "color: #ddd; background-color: #ddd;");
-		writer.end();
-
-		// Print the source
-
-		if (src != null) {
-			printSourceFromInputStream(writer, src, "/WEB-INF/sourcecode" + src);
-		}
-
-		// Print end of div
-
-		writer.write(LINE_SEPARATOR);
-		writer.end();
 		writer.end();
 
 		// Print end of source block
@@ -91,15 +63,6 @@ public class SourceCodeDisplay {
 		writer.write(LINE_SEPARATOR);
 
 		return true;
-	}
-
-	private String extractSimpleName(String path) {
-		String simpleName = path;
-
-		int i = path.lastIndexOf("/");
-		simpleName = path.substring(i + 1);
-
-		return simpleName;
 	}
 
 	private void printSourceFromInputStream(MarkupWriter writer, String title, String givenPath) {
@@ -129,7 +92,7 @@ public class SourceCodeDisplay {
 	private void printSource(MarkupWriter writer, BufferedReader sourceReader) {
 		writer.element("div", "class", STYLE_SOURCE);
 		{
-			writer.element("pre", "style", "margin: 0;");
+			writer.element("pre");
 			{
 				writer.write(LINE_SEPARATOR);
 				writer.element("code");
@@ -149,8 +112,8 @@ public class SourceCodeDisplay {
 						e.printStackTrace();
 					}
 
-					writer.end();
 				}
+				writer.end();
 				writer.write(LINE_SEPARATOR);
 			}
 			writer.end();
@@ -165,12 +128,12 @@ public class SourceCodeDisplay {
 		}
 		writer.end();
 	}
-	
+
 	private String replaceTabsWithSpaces(String s) {
 		StringBuilder sb = new StringBuilder();
 		char c;
 		int column = 1;
-		
+
 		for (int i = 0; i < s.length(); i++, column++) {
 			if ((c = s.charAt(i)) == '\t') {
 				sb.append(' ');
@@ -183,7 +146,7 @@ public class SourceCodeDisplay {
 				sb.append(c);
 			}
 		}
-		
+
 		return sb.toString();
 	}
 }

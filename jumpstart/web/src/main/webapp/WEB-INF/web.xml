@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-      
-    <display-name>Tapestry JumpStart</display-name> 
-    
-    <!-- Tell Tapestry where to look for pages, components, mixins, and services. -->
 
-    <context-param> 
-        <param-name>tapestry.app-package</param-name> 
-        <param-value>jumpstart.web</param-value> 
-    </context-param> 
-    
-	<!-- Tell the servlet container that we want a filter and it will be a TapestryFilter. We'll call it "app". -->
-      
-    <filter> 
-        <filter-name>app</filter-name> 
-        <filter-class>org.apache.tapestry5.TapestryFilter</filter-class> 
-    </filter> 
-    
-	<!-- Tell the servlet container to feed all requests to the above filter. -->
-      
-    <filter-mapping> 
-        <filter-name>app</filter-name> 
-        <url-pattern>/*</url-pattern> 
-    </filter-mapping> 
-    
+	<display-name>Tapestry JumpStart</display-name>
+
+	<!-- Tell Tapestry where to look for pages, components, mixins, and services. -->
+
+	<context-param>
+		<param-name>tapestry.app-package</param-name>
+		<param-value>jumpstart.web</param-value>
+	</context-param>
+
+	<!-- Tell the servlet container that we want a filter, call it "app", and it must be a TapestryFilter. -->
+
+	<filter>
+		<filter-name>app</filter-name>
+		<filter-class>org.apache.tapestry5.TapestryFilter</filter-class>
+	</filter>
+
+	<!-- Tell the servlet container to feed all requests through the above filter. -->
+
+	<filter-mapping>
+		<filter-name>app</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app> 

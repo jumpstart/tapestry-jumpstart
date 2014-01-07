@@ -6,20 +6,20 @@
 	<p>A minimal, templated, Tapestry application needs only three files. For example, to produce this page:</p>
 	
 	<ul>
-		<li><strong>web.xml</strong> 
-			A servlet application deployment descriptor which installs Tapestry as a servlet filter.</li>
 		<li><strong>HelloWorldExplained.tml</strong> 
 			An (X)HTML template for the /helloworldexplained page. Tapestry templates can contain any well-formed (X)HTML markup.</li>
 		<li><strong>HelloWorldExplained.java</strong> 
 			A page class associated with the template. Here it merely provides a <em>username</em> property that the template can access.</li>
+		<li><strong>web.xml</strong> 
+			A servlet application deployment descriptor which installs Tapestry as a servlet filter.</li>
 	</ul>
 
 	<p>In this page we also use three <em>components</em>:</p>
 	
 	<ul>
-		<li><strong>PageLink</strong> which is a core Tapestry component. It outputs an HTML link to another page.</li>
-		<li><strong>TabGroup</strong> which is a custom component provided by JumpStart. It outputs the tabs you see below.</li>
-		<li><strong>SourceCodeTab</strong> which is a custom component provided by JumpStart. It outputs source files as HTML.</li>
+		<li><strong>PageLink</strong> is a core Tapestry component. It outputs an HTML link to another page.</li>
+		<li><strong>TabGroup</strong> is a custom component provided by JumpStart. It outputs the tabs you see below.</li>
+		<li><strong>SourceCodeTab</strong> is a custom component provided by JumpStart. It outputs a source file as HTML.</li>
 	</ul>
 	
 	References: 

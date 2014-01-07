@@ -13,9 +13,6 @@ public class JavaScript {
 	@Property
 	private String firstName;
 
-	@Property
-	private String lastName;
-
 	// Generally useful bits and pieces
 
 	@Inject
