@@ -3,8 +3,8 @@
 define(["jquery"], function($) {
 
 	return function(fieldId) {
-		var field = $("#" + fieldId);
-		field.removeAttr("data-translation");
+		var $field = $("#" + fieldId);
+		$field.removeAttr("data-translation");
 	}
 	
 });

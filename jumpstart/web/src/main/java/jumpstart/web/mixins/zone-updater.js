@@ -8,17 +8,17 @@
 define(["jquery", "t5/core/zone"], function($, zoneManager) {
 
 	return function(elementId, clientEvent, listenerURI, zoneElementId) {
-		var element = $("#" + elementId);
+		var $element = $("#" + elementId);
 
 		if (clientEvent) {
-			element.on(clientEvent, updateZone);
+			$element.on(clientEvent, updateZone);
 		}
 	
 		function updateZone() {
 			var listenerURIWithValue = listenerURI;
 	
-			if (element.val()) {
-				listenerURIWithValue = appendQueryStringParameter(listenerURIWithValue, 'param', element.val());
+			if ($element.val()) {
+				listenerURIWithValue = appendQueryStringParameter(listenerURIWithValue, 'param', $element.val());
 			}
 	
 			zoneManager.deferredZoneUpdate(zoneElementId, listenerURIWithValue);
