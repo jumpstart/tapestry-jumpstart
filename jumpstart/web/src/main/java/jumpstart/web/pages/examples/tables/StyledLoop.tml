@@ -4,13 +4,12 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Loop</h3>
+	<h3>Styled Loop</h3>
 	
-	A table built "by hand", using the Loop component rather than the Grid component. 
-	We have used BootStrap classes to style it.
-
+	With a bit of css, you can make a Loop look however you want.
+	
 	<div class="eg">
-		<table class="table table-hover table-bordered table-striped">
+		<table class="grid">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -41,10 +40,10 @@
 	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
 
 	<t:tabgroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/Loop.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/Loop.properties"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/Loop.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/loop.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/StyledLoop.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/StyledLoop.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/StyledLoop.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/tables/styledloop.css"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>

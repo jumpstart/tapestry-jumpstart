@@ -4,13 +4,12 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Submits (1)</h3>
+	<h3>MultipleSubmits (1)</h3>
 	
-	The Submit component generates a submit button/image.<br/> 
-	Use it when the server-side needs to know which submit button/image submitted the Form, or when you need to ignore validation.<br/><br/>
+	The Submit component generates a submit button or, if you specified it, an image.<br/> 
+	This example shows how to respond to more than one Submit in a Form. It also demonstrates the <code>mode</code> parameter, 
+	which allows you to submit without client-side validation.<br/><br/>
 	
-	In this example we use Submit to generate the 2nd and 3rd buttons.
-
 	<div class="eg">
 		<t:form class="form-horizontal" t:id="search">
 			<div class="form-group">
@@ -23,7 +22,7 @@
 				<div class="col-sm-10 col-sm-offset-2">
 					<t:submit value="Search Customers"/>
 					<t:submit t:id="suppliers" value="Search Suppliers" class="btn btn-default"/>
-					<t:submit t:id="cancel" value="Cancel" mode="CANCEL" class="btn btn-default"/>
+					<t:submit t:id="cancel" value="Cancel" mode="cancel" class="btn btn-default"/>
 				</div>
 			</div>
 	 	</t:form>
@@ -43,8 +42,8 @@
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabgroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits1.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits1.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleSubmits1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleSubmits1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabgroup>
 </body>

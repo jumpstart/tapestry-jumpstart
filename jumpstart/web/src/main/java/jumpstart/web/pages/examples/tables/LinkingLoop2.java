@@ -6,7 +6,7 @@ import org.apache.tapestry5.annotations.Property;
 @Import(stylesheet = "css/examples/plain.css")
 public class LinkingLoop2 {
 
-	// Screen fields
+	// Activation context
 
 	@Property
 	private String firstName;

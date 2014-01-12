@@ -6,10 +6,10 @@
 <body class="container">
 	<h3>What is Called and When</h3>
 	
-	This page demonstrates what methods are called, and when, in various situations.<br/>
-	It does not cover AJAX requests - they are demonstrated in AJAX: What is Called and When.<br/><br/>
+	<p>This page demonstrates what methods are called, and when, in various situations.<br/>
+	It does not cover AJAX requests - they are demonstrated in AJAX: What is Called and When.</p>
 	
-	But first, a review of what a <strong>page class</strong> can do and how. It can:
+	<p>But first, a review of what a <strong>page class</strong> can do and how. It can:</p>
 	<ul>
 		<li><span class="what">Control rendering</span> (eg. for a page render request) with 
 			<a class="link" href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">
@@ -30,7 +30,7 @@
 			life cycle methods</a> (rarely needed), ie. <code>pageLoaded()</code>, <code>pageAttached()</code>, <code>pageDetached</code>.</li>
 	</ul>
 	
-	And just briefly, a couple of important things a <strong>page template</strong> can do:
+	<p>And just briefly, a couple of important things a <strong>page template</strong> can do:</p>
 	<ul>
 		<li><span class="what">Render the page's properties and resources</span>, with 
 			<a class="link" href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">
@@ -40,8 +40,8 @@
 			parameters</a>, eg. <code>${exampleParameters1}</code>.</li>
 	</ul>
 				
-	OK, back to the demonstration. This page provides, and logs, examples of all the methods we've mentioned. For convenience, <br/>
-	the following table shows what you would see in the logs if you configured log4j to record this page at debug level:<br/>
+	<p>OK, back to the demonstration. This page provides, and logs, examples of all the methods we've mentioned. For convenience, <br/>
+	the following table shows what you would see in the logs if you configured log4j to record this page at debug level:</p>
 	
 	<div class="eg row">
 	
@@ -161,18 +161,18 @@
 		
 	</div>
 	
-	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/annotations/PageAttached.html">PageAttached</a> and 
+	<p><a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/annotations/PageAttached.html">PageAttached</a> and 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/annotations/PageDetached.html">PageDetached</a> 
 	have been deprecated. However, they might be "de-deprecated" in future 
 	<a href="http://tapestry.1045711.n5.nabble.com/Which-phase-of-page-lifecycle-will-not-occur-when-we-access-page-2nd-time-td5718142.html#none">
-	as discussed here</a>.<br/><br/>
+	as discussed here</a>.</p>
 	
-	<strong>About Thread Safety</strong> (based on an <a href="http://tapestry.1045711.n5.nabble.com/Which-phase-of-page-lifecycle-will-not-occur-when-we-access-page-2nd-time-td5718142.html#none">Lance's answer</a>)<br/>
+	<p><strong>About Thread Safety</strong> (based on an <a href="http://tapestry.1045711.n5.nabble.com/Which-phase-of-page-lifecycle-will-not-occur-when-we-access-page-2nd-time-td5718142.html#none">Lance's answer</a>)<br/>
 	Each incoming request runs in its own thread, and Tapestry pages are singletons that are shared between threads...<br/>
 	So how does Tapestry avoid issues of synchronisation and conflicts of field values, ie. how does it achieve thread-safety?<br/>
 	The answer is byte-code manipulation: Tapestry transforms your pages and components to store their request-specific state in ThreadLocals.<br/> 
 	<strong>In production mode</strong>, the ThreadLocal values are used. The page and component member variables are not used.<br/> 
-	<strong>In development mode</strong>, the ThreadLocal values are used AND Tapestry mirrors them to the page and component member variables to make debugging easier.<br/><br/>
+	<strong>In development mode</strong>, the ThreadLocal values are used AND Tapestry mirrors them to the page and component member variables to make debugging easier.</p>
 	
 	References: 
 	<a href="http://tapestry.apache.org/page-life-cycle.html">Page Life Cycle</a>, 

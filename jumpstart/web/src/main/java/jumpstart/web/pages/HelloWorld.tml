@@ -1,5 +1,5 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<body>
+<body style="margin: 10px;">
 	<h3>Hello, ${username}</h3> 
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

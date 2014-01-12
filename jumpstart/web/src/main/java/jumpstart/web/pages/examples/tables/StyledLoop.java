@@ -16,8 +16,8 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-@Import(stylesheet = "css/examples/plain.css")
-public class Loop {
+@Import(stylesheet = "css/examples/tables/styledloop.css")
+public class StyledLoop {
 	static private final int MAX_RESULTS = 30;
 
 	// Screen fields

@@ -4,20 +4,19 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Submits (2)</h3>
+	<h3>Multiple Submits (2)</h3>
 	
 	<div class="eg">
-		${yourSearch}
-		<br/><br/>
-		<t:pagelink page="examples/input/Submits1">Return</t:pagelink>
+		<p>${yourSearch}</p>
+		<t:pagelink page="examples/input/MultipleSubmits1">Return</t:pagelink>
 	</div>
 	
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabgroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits2.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Submits2.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleSubmits2.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/MultipleSubmits2.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 	</t:tabgroup>
 </body>

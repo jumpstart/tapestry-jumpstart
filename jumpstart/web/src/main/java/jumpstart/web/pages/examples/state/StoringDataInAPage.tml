@@ -10,13 +10,13 @@
 	To do this, annotate those fields with <code>@Persist</code>.<br/><br/>
 	
 	In this example we use @Persist on a field called <em>count</em>. We increment <em>count</em> every time the page is rendered.<br/>
-	If you reload this page or revisit it, you will see that <em>count</em> has been remembered and incremented.
+	If you revisit this page or reload it, you will see that <em>count</em> has been remembered and incremented.
 	
 	<div class="eg">
 		The number of times you have visited this page during this session: <strong>${count}</strong>
 	</div>
 	
-	The default <em>strategy</em> for @Persist is "session", which means store the field's value in your session. 
+	The default <em>strategy</em> for @Persist is "session", which means store the field's value server-side in your web session. 
 	Alternative strategies for @Persist include "flash" and "client" - see 
 	<a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>. <br/><br/>
 	

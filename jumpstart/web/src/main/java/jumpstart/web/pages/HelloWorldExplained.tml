@@ -1,5 +1,5 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<body>
+<body style="margin: 10px;">
 
 	<h3>"Hello, ${username}" Explained</h3> 
 	
@@ -14,7 +14,7 @@
 			A servlet application deployment descriptor which installs Tapestry as a servlet filter.</li>
 	</ul>
 
-	<p>In this page we also use three <em>components</em>:</p>
+	<p>Also in this page, towards the bottom, we use three <em>components</em>:</p>
 	
 	<ul>
 		<li><strong>PageLink</strong> is a core Tapestry component. It outputs an HTML link to another page.</li>

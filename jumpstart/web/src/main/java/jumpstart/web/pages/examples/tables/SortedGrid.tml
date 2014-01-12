@@ -6,7 +6,7 @@
 <body class="container">
 	<h3>Sorted Grid</h3>
 	
-	A table built with the Grid component, initially sorted by startDate ascending.
+	A table built with the Grid component, sorted initially by ascending startDate.
 
 	<div class="eg">
 		<t:grid source="persons" rowsPerPage="4" pagerPosition="top"/>

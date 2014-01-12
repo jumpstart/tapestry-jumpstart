@@ -69,54 +69,36 @@
 							<t:pagelink page="examples/navigation/ActivationRequestParameters1">Activation Request Parameters</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/tables/Grid">Grid</t:pagelink><br/>
-							<t:pagelink page="examples/tables/StyledGrid">Styled Grid</t:pagelink><br/>
-							<t:pagelink page="examples/tables/SortedGrid">Sorted Grid</t:pagelink><br/>
-							<t:pagelink page="examples/tables/LinkingGrid1">Linking Grid</t:pagelink><br/>
-							<t:pagelink page="examples/tables/AddAndRemoveColumns1">Add And Remove Columns</t:pagelink><br/>
-							<t:pagelink page="examples/tables/GridBeanModel1">Grid BeanModel</t:pagelink><br/>
-							<t:pagelink page="examples/tables/GridDataSources">Grid Data Sources</t:pagelink><br/>
+							<t:pagelink page="examples/input/EventLinks">EventLinks</t:pagelink><br/>
+							<t:pagelink page="examples/input/EventLinksExplained">EventLinks Explained</t:pagelink><br/>
+							<t:pagelink page="examples/input/ActionLinks">ActionLinks</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/tables/Loop">Loop</t:pagelink><br/>
-							<t:pagelink page="examples/tables/StyledLoop">Styled Loop</t:pagelink><br/>
-							<t:pagelink page="examples/tables/LinkingLoop1">Linking Loop</t:pagelink><br/>
+							<t:pagelink page="examples/input/AtOnEvent">@OnEvent</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/input/Forms1">Forms</t:pagelink><br/>
+							<t:pagelink page="examples/input/FormsExplained1">Forms Explained</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/input/InputAndEvents">Input and Events</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/state/StoringDataInAPage">Storing Data in a Page</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/component/CoreInputComponents">Core Input Components</t:pagelink><br/>
+							<t:pagelink page="examples/component/Html5InputTypes">HTML5 Input Types</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/lang/PreviewableTemplates">Previewable Templates</t:pagelink><br/>
 							<t:pagelink page="examples/lang/AtComponent">@Component</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/lang/DelegateToBlock">Delegate to Block</t:pagelink><br/>
-							<t:pagelink page="examples/lang/IfNotNegateSwitchElseUnless">If, Not, Negate, Switch, Else, Unless</t:pagelink><br/>
-						</div>
-					</td>
-					<td class="col">
-						<div class="group">
-							<t:pagelink page="examples/input/InputAndEvents">Input and Events</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/input/Forms1">Forms</t:pagelink><br/>
-							<t:pagelink page="examples/input/FormsExplained1">Forms Explained</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/component/CoreInputComponents">Core Input Components</t:pagelink><br/>
-							<t:pagelink page="examples/component/Html5InputTypes">HTML5 Input Types</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/input/EventLinks">EventLinks</t:pagelink><br/>
-							<t:pagelink page="examples/input/EventLinksExplained">EventLinks Explained</t:pagelink><br/>
-							<t:pagelink page="examples/input/AtOnEvent">@OnEvent</t:pagelink><br/>
-							<t:pagelink page="examples/navigation/MultipleMethodMatches">Multiple Method Matches</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/input/ActionLinks">ActionLinks</t:pagelink><br/>
-						</div>
-						<div class="group">
 							<t:pagelink page="examples/styling/LinksAndSubmits1">Styling Links and Submits</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/navigation/ReturnTypes1">Return Types</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/state/StoringDataInAPage">Storing Data in a Page</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/navigation/MultipleMethodMatches">Multiple Method Matches</t:pagelink><br/>
+							<br/>
 							<t:pagelink page="examples/state/PassingDataBetweenPages">Passing Data Between Pages</t:pagelink><br/>
 							<t:pagelink page="examples/state/SharingAcrossMultiplePages1">Sharing Across Multiple Pages</t:pagelink><br/>
 							<t:pagelink page="examples/state/SharingAcrossTheApplication">Sharing Across the Application</t:pagelink><br/>
@@ -124,6 +106,8 @@
 						<div class="group">
 							<t:pagelink page="examples/navigation/WhatIsCalledAndWhen">What is Called and When</t:pagelink><br/>
 						</div>
+					</td>
+					<td class="col">
 						<div class="group">
 							<t:pagelink page="examples/input/Translators">Translators</t:pagelink><br/>
 							<t:pagelink page="examples/input/PrimitivesTranslators">Primitives Translators</t:pagelink><br/>
@@ -143,25 +127,16 @@
 							<t:pagelink page="examples/input/TotalControlEdit1" t:context="literal:1">Total Control Edit</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/navigation/ReturnToPage1" t:context="literal:abc">Return to Page</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/state/SessionBeans">Session Beans</t:pagelink><br/>
-							<t:pagelink page="examples/state/AtEjb">@EJB</t:pagelink><br/>
-						</div>
-					</td>
-					<td class="col">
-						<div class="group">
 							<t:pagelink page="examples/navigation/OnActivateAndOnPassivate" t:context="literal:3">onActivate and onPassivate</t:pagelink><br/>
 							<t:pagelink page="examples/infrastructure/HandlingABadContext" t:context="literal:1">Handling a Bad Context</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/infrastructure/ExceptionReportPage">Exception Report Page</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/input/MultipleSubmits1">Multiple Submits</t:pagelink><br/>
-							<t:pagelink page="examples/input/MultipleForms1">Multiple Forms</t:pagelink><br/>
-							<br/>
+							<t:pagelink page="examples/input/Submits1">Submits</t:pagelink><br/>
 							<t:pagelink page="examples/input/LinkSubmits1">LinkSubmits</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/input/MultipleForms1">Multiple Forms</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/component/Kaptcha1">Kaptcha</t:pagelink><br/>
@@ -176,6 +151,32 @@
 							<t:pagelink page="examples/component/Alerts">Alerts</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/component/TreeBrowse">Tree Browse</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/navigation/ReturnToPage1" t:context="literal:abc">Return to Page</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/state/SessionBeans">Session Beans</t:pagelink><br/>
+							<t:pagelink page="examples/state/AtEjb">@EJB</t:pagelink><br/>
+						</div>
+					</td>
+					<td class="col">
+						<div class="group">
+							<t:pagelink page="examples/tables/Grid">Grid</t:pagelink><br/>
+							<t:pagelink page="examples/tables/StyledGrid">Styled Grid</t:pagelink><br/>
+							<t:pagelink page="examples/tables/SortedGrid">Sorted Grid</t:pagelink><br/>
+							<t:pagelink page="examples/tables/LinkingGrid1">Linking Grid</t:pagelink><br/>
+							<t:pagelink page="examples/tables/AddAndRemoveColumns1">Add And Remove Columns</t:pagelink><br/>
+							<t:pagelink page="examples/tables/GridBeanModel1">Grid BeanModel</t:pagelink><br/>
+							<t:pagelink page="examples/tables/GridDataSources">Grid Data Sources</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/tables/Loop">Loop</t:pagelink><br/>
+							<t:pagelink page="examples/tables/LinkingLoop1">Linking Loop</t:pagelink><br/>
+							<t:pagelink page="examples/tables/AlternatingLoop">Alternating Loop</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/lang/DelegateToBlock">Delegate to Block</t:pagelink><br/>
+							<t:pagelink page="examples/lang/IfNotNegateSwitchElseUnless">If, Not, Negate, Switch, Else, Unless</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>

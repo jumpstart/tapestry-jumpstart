@@ -5,17 +5,21 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
 	<h3>Input and Events</h3>
+	
+	So far we have looked at output. We have seen that when a <strong>page render request</strong> reaches 
+	the server, Tapestry renders the page to HTML and returns it. And we have seen that one way to 
+	send a page render request is to click a link produced by PageLink.<br/><br/>
+	
+	Now we will look at <strong>input</strong> and <strong>events</strong>.<br/><br/>
+	
+	Input and events always target a page or a component on a page. The two most common components for 
+	this are Form and EventLink. They are shown in the next examples.<br/><br/>
 
-	To ask the server to <strong>output</strong> a page, send it a <strong>page render request</strong>. 
-	PageLink does that, as we have seen in previous examples.<br/><br/>
-	
-	To tell the server about an <strong>event</strong> and any <strong>input</strong>, send it a 
-	<strong>component event request</strong>. Form and EvenLink are two common components that do that, 
-	as we will see in the next examples.<br/><br/>
-	
-	When a component event request reaches the server, Tapestry directs it to <em>the same page and 
-	component classes that rendered</em> the page and component in the first place. <strong>This is great!</strong> 
-	It makes it very easy to understand and manage how a Tapestry application fits together.<br/><br/>  
+	Input and events are sent to the server as <strong>component event requests</strong>, and they relate 
+	to a specific component in a page, eg. a Form or EventLink. Tapestry directs the request to the <em>the page and 
+	component class that rendered</em> the page and component in the first place. <strong>This is great!</strong> 
+	Who is better placed to understand the purpose of input from a Form or an event from an EventLink 
+	than the page that contains that Form or EventLink.<br/><br/>  
 
 	Some other components also send component event requests, such as GridPager. 
 	And in fact almost every component can send a component event request when the component is 

@@ -6,7 +6,7 @@
 <body class="container">
 	<h3>Grid</h3>
 	
-	A table built with with the Grid component: just one line of code in the template and no grid-specific css.
+	Here is a table of Persons. It was built with the Grid component, using just one line of code in the template. 
 
 	<div class="eg">
 		<t:grid source="persons" rowsPerPage="4" pagerPosition="top"/>

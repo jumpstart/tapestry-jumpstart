@@ -9,7 +9,7 @@
 	A table built with the Loop component, with links.
 
 	<div class="eg">
-		<table class="table table-hover">
+		<table class="table table-hover table-bordered table-striped">
 			<thead>
 				<tr>
 					<th>Id</th>
