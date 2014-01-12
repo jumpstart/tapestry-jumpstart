@@ -7,8 +7,7 @@
 	<h3>Activation Request Parameters (2)</h3>
 
 	<div class="eg">
-		<p>You requested Person <em>${personId}</em>.</p>
-		<t:beandisplay object="person"/>
+		<p>You requested persons whose name is like "<em>${partialName}</em>".</p>
 	</div>
 
 	Look at the URL of this page. 
@@ -17,8 +16,8 @@
 	This page receives the activation request parameter(s) by providing annotated field(s):<br/><br/>
 	
 	<pre><code>
-	@ActivationRequestParameter(value = "personid")
-	private Long personId;
+	@ActivationRequestParameter
+	private String partialName;
 	</code></pre><br/>
 
 	<strong>When to use activation request parameters instead of activation context?</strong> 
@@ -41,9 +40,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters2.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationRequestParameters2.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/PersonFinderService.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
 	</t:tabgroup>
 </body>
 </html>

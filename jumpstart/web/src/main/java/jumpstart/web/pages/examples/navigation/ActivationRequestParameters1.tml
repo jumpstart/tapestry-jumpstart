@@ -10,13 +10,12 @@
 	which Tapestry calls <strong>activation request parameters</strong>.<br/><br/>
 	
 	To specify activation request parameters in a PageLink, use the <code>parameters</code> parameter. 
-	Here we have specified <code>parameters="queryParams"</code>.
+	Here we have specified <code>parameters="queryParams"</code>. 
+	Click the link to learn more.
 	
   	<div class="eg">
-		<t:pagelink page="examples/navigation/ActivationRequestParameters2" parameters="queryParams">Show Person ${personId}</t:pagelink><br/>
+		<t:pagelink page="examples/navigation/ActivationRequestParameters2" parameters="queryParams">Find persons whose name is like "${partialName}".</t:pagelink><br/>
 	</div>
-
-	Click the link above to learn more.<br/><br/>
 	
 	References:	
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 

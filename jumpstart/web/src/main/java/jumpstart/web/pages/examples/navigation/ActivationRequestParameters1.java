@@ -10,15 +10,15 @@ import org.apache.tapestry5.annotations.Property;
 public class ActivationRequestParameters1 {
 	
 	@Property
-	private Long personId;
+	private String partialName;
 	
 	void setupRender() {
-		personId = new Long(1L);
+		partialName = "humpty o";
 	}
 	
 	public Map<String, Object> getQueryParams() {
 		Map<String, Object> queryParams = new HashMap<>();
-		queryParams.put("personid", personId);
+		queryParams.put("partialName", partialName);
 		return queryParams;
 	}
 	
