@@ -6,10 +6,10 @@
 <body class="container">
 	<h3>Action Links</h3>
 	
-	ActionLink is very similar to EventLink. ActionLink is 
+	<p>ActionLink is very similar to EventLink. ActionLink is 
 	<a href="http://tapestry.1045711.n5.nabble.com/What-ist-the-advantage-of-ActionLink-compared-to-EventLink-td2419735.html">
 	probably no longer needed</a> but it is 
-	<a href="http://tapestry.1045711.n5.nabble.com/EventLInk-vs-ActionLink-td3390203.html">still supported</a>.<br/><br/>
+	<a href="http://tapestry.1045711.n5.nabble.com/EventLInk-vs-ActionLink-td3390203.html">still supported</a>.</p>
 	
 	<p>The first big difference between ActionLink and EventLink is this:</p>
 	<ul>

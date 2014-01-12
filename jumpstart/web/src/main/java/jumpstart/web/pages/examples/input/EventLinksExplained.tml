@@ -20,25 +20,26 @@
 		<t:eventlink t:event="clear">Clear</t:eventlink>
 	</div>	  
 
-	The links above have URLs like these:<br/><br/>
+	<p>The links above send URLs like these:</p>
 	<ul>
 		<li><code>http://thehost/jumpstart/examples/input/eventlinks:add/1?t:ac=n</code></li>
 		<li><code>http://thehost/jumpstart/examples/input/eventlinks:add/2?t:ac=n</code></li>
 		<li><code>http://thehost/jumpstart/examples/input/eventlinks:clear?t:ac=n</code></li>
 	</ul>
 
-	Clicking a link sends the URL. This is how the server reacts:<br/><br/>
+	<p>Clicking a link sends the URL. This is how the server reacts:</p>
 	<ul>
 		<li>Tapestry activates the page <em>examples/input/eventlinks</em>, and notifies the component, an EventLink.</li>
 		<li>EventLink "bubbles up" the given event, <em>add</em> or <em>clear</em>, and its parameter(s).</li>
-		<li>This page has handlers for the events: <code>onAdd(int count)</code> and <code>onClear()</code>.</li>
-		<li>The handlers return void which means stay on the same page (for alternatives, see the Return Types example). 
-			Tapestry generates a <strong>page render request</strong> to this page and redirects the browser to it.</li>
+		<li>The page has a handler for each event: <code>onAdd(int count)</code> and <code>onClear()</code>.</li>
+		<li>Both handlers return <code>void</code>, which means stay on the same page. 
+			We will see other return types later, in the Return Types example.</li> 
+		<li>Tapestry generates a <strong>page render request</strong> to this page, and redirects the browser to it.</li>
 	</ul>
 
 	Q: Why would Tapestry <strong>redirect</strong> the browser to this page instead of just rendering and returning this page?<br/>
 	A: Tapestry uses the <a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get</a> pattern. 
-	The benefit is that when the next page shows, its URL will NOT be the URL that triggered the event.  
+	The benefit of Post/Redirect/Get is that when the next page shows, its URL will NOT be the URL that triggered the event.  
 	Instead, it will be a URL that is safe to reload, or bookmark, or return to with the Back button. 
 	The cost is 2 trips to the server, but it's worth it.<br/><br/>
 	

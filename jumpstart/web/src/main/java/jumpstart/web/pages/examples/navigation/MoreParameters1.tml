@@ -4,33 +4,34 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Activation Context (1)</h3>
+	<h3>More Parameters (1)</h3>
 
-	A <strong>page render request</strong> activates a page. 
-	A page render request can include parameters, which Tapestry calls the <strong>activation context</strong>.<br/><br/>
+	<p>To pass more parameters in a context, use square brackets and commas, and single quotes for literals.</p>
 	
-	To specify an activation context in a PageLink, use the <code>context</code> parameter. 
-	Here we have specified <code>context="personId"</code>:
+	<p>For example <code>t:context="['view',personId]"</code> 
+	would render a URL like this: <code>http://thehost/jumpstart/examples/navigation/MoreParameters2/view/1</code>.</p>
 	
   	<div class="eg">
-		<t:pagelink page="examples/navigation/ActivationContext2" context="personId">Show Person ${personId}</t:pagelink><br/>
+		<t:pagelink page="examples/navigation/MoreParameters2" context="[anInt,aLong,aString,aDouble,aBigDecimal,aBoolean,aMode,'create']">
+			Pass many parameters
+		</t:pagelink><br/>
 	</div>
-	
-	Click the link above to learn more.<br/><br/>
 	
 	References:	
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
     <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Page Render Requests</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>, 
 	<a href="http://tapestry.apache.org/property-expressions.html#PropertyExpressions-Grammar">Grammar</a>, 
-	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-BindingExpressions">Binding Expressions</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-BindingExpressions">Binding Expressions</a>, 
+	<a href="http://tapestry.apache.org/typecoercer-service.html">Type Coercion</a>.<br/><br/>
 
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabgroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/ActivationContext1.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MoreParameters1.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/MoreParameters1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/Mode.java"/>
 	</t:tabgroup>
 </body>
 </html>

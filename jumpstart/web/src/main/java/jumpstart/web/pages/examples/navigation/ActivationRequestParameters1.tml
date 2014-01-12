@@ -15,10 +15,7 @@
   	<div class="eg">
 		<t:pagelink page="examples/navigation/ActivationRequestParameters2" parameters="queryParams">Show Person ${personId}</t:pagelink><br/>
 	</div>
-	
-	The link has a URL similar to this: <code>http://thehost/jumpstart/examples/navigation/activationrequestparameters2?personid=1</code> 
-	See the activation request parameters appended to the end?<br/><br/>
-	
+
 	Click the link above to learn more.<br/><br/>
 	
 	References:	

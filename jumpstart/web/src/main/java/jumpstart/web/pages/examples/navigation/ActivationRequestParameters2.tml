@@ -6,8 +6,13 @@
 <body class="container">
 	<h3>Activation Request Parameters (2)</h3>
 
-	Look at the URL of this page. It is the page render request from the PageLink,
-	and the <strong>activation request parameters</strong> are at the end.<br/><br/>
+	<div class="eg">
+		<p>You requested Person <em>${personId}</em>.</p>
+		<t:beandisplay object="person"/>
+	</div>
+
+	Look at the URL of this page. 
+	It is the page render request from the PageLink, and the <strong>activation request parameters</strong> are at the end.<br/><br/>
 
 	This page receives the activation request parameter(s) by providing annotated field(s):<br/><br/>
 	
@@ -15,12 +20,6 @@
 	@ActivationRequestParameter(value = "personid")
 	private Long personId;
 	</code></pre><br/>
-
-	This page received <em>personid=${personId}</em>. Here is that Person:<br/>
-
-	<div class="eg">
-		<t:beandisplay object="person"/>
-	</div>
 
 	<strong>When to use activation request parameters instead of activation context?</strong> 
 	Activation request parameters are good for <strong>filter criteria</strong> because, arguably, 

@@ -7,7 +7,7 @@
 	<h3>Storing Data in a Page</h3>
 	
 	Sometimes there are fields in a page that you want the page to store for use next time you access the page.<br/>
-	To do this, annotate those fields with <em>@Persist</em>.<br/><br/>
+	To do this, annotate those fields with <code>@Persist</code>.<br/><br/>
 	
 	In this example we use @Persist on a field called <em>count</em>. We increment <em>count</em> every time the page is rendered.<br/>
 	If you reload this page or revisit it, you will see that <em>count</em> has been remembered and incremented.
@@ -16,13 +16,20 @@
 		The number of times you have visited this page during this session: <strong>${count}</strong>
 	</div>
 	
-	The default strategy for @Persist is "session", which means store the field's value in your session. 
-	The page can remove it from the session by setting it to null or using the 
-	<code>discardPersistentFieldChanges()</code> method of ComponentResources, as demonstrated by this link:
-	<a t:type="eventlink" t:event="clear" href="#">Remove count from the Session and go Home</a>. 
-	To see what's currently stored in your session, go to the Display Session Contents example.<br/><br/>
+	The default <em>strategy</em> for @Persist is "session", which means store the field's value in your session. 
+	Alternative strategies for @Persist include "flash" and "client" - see 
+	<a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>. <br/><br/>
 	
-	<strong>Caution</strong><br/>
+	To remove a session-persisted field from the session, set it to null, or call ComponentResources' 
+	<code>discardPersistentFieldChanges()</code> method as demonstrated by this link:
+	
+	<div class="eg">
+		<a t:type="eventlink" t:event="clear" href="#">Remove count from the Session and go Home</a>.
+	</div>
+	 
+	To see what's currently stored in your session, see the Display Session Contents example.<br/><br/>
+	
+	<p><strong>Caution</strong></p>
 	<ul>
 		<li>The "session" strategy is risky because many browsers share the same session across windows and tabs.
 			The danger is that the field will be overwritten if the user opens a new window or tab and visits the same page. 
@@ -33,10 +40,8 @@
 			and the documentation discusses it in 
 			<a href="http://tapestry.apache.org/persistent-page-data.html#PersistentPageData-ClusteringIssues">Clustering Issues</a>.</li>
 	</ul>
-	
-	Alternative strategies for @Persist include "flash" and "client" - see 
-	<a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>. 
-	You can add your own - see
+
+	You can add your own persistence strategy: see
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUsePersistentFieldStrategy">How To Use Persistent Field Strategy</a>.<br/><br/> 
 	
 	References: <a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>, 
