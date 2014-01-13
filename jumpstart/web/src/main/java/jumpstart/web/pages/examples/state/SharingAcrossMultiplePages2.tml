@@ -10,9 +10,9 @@
 	
 	<div class="eg">
 		<t:beandisplay object="myBasket"/>
+		<t:pagelink page="examples/state/SharingAcrossMultiplePages1">Return</t:pagelink>
 	</div>
 	
-	<t:pagelink page="examples/state/SharingAcrossMultiplePages1">Return</t:pagelink><br/><br/>
 
 	References: 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>

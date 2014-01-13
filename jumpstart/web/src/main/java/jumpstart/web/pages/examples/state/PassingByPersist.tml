@@ -7,7 +7,8 @@
 	<h3>Passing Data Between Pages: by Persist</h3>
 
 	<div class="eg">
-		Welcome ${name}!
+		<p>You asked for ${name}.</p>
+		<t:eventlink event="return">Return</t:eventlink>
 	</div>
 
 	This page used <code>@Persist</code> to save its data through the redirection.<br/> 
@@ -17,8 +18,6 @@
 	In this example we have used the FLASH strategy which stores the field in your session only temporarily - until it is displayed.<br/><br/>
 	
 	For more information see the Storing Data in a Page example.<br/><br/>
-	 	
-	<t:eventlink event="return">Return</t:eventlink><br/><br/>
 
 	<t:eventlink event="gohome">Home</t:eventlink><br/><br/>
 	

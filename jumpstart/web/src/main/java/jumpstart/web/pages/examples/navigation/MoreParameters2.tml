@@ -8,6 +8,7 @@
 	
 	<div class="eg">
 		<t:beandisplay object="this" reorder="intParam,longParam,stringParam,doubleParam,bigDecimalParam,booleanParam,modeParam,mode2Param"/>
+		<t:pagelink t:page="examples/navigation/MoreParameters1">Return</t:pagelink>
 	</div>
 
 	Look at the URL of this page. 
@@ -19,7 +20,6 @@
 	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">Page Activation</a>, 
 	<a href="http://tapestry.apache.org/typecoercer-service.html">Type Coercion</a>.<br/><br/>
 
-	<t:pagelink t:page="examples/navigation/MoreParameters1">Return</t:pagelink><br/><br/>
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabgroup>

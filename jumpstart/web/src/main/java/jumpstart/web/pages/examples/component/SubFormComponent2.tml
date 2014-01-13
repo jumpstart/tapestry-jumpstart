@@ -40,9 +40,9 @@
 			</div>
 		</t:if>
 
+		<t:pagelink page="examples/component/SubFormComponent1">Return</t:pagelink>
 	</div>
 	 
-	<t:pagelink page="examples/component/SubFormComponent1">Return</t:pagelink><br/><br/>
 
 	References: 
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>

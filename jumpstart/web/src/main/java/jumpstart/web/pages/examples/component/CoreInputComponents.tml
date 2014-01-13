@@ -96,6 +96,7 @@
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
 	References:
+	<a href="http://tapestry.apache.org/persistent-page-data.html#PersistentPageData-FlashStrategy">Flash Strategy</a>, 
 	<a href="http://tapestry.apache.org/component-reference.html#ComponentReference-FormComponents">Form Components</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Checkbox.html">Checkbox</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Checklist.html">Checklist</a>, 

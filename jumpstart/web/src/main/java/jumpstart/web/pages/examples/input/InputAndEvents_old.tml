@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Input and Events</h3>
+	
+	So far we have looked at output. We have seen that when a <strong>page render request</strong> reaches 
+	the server, Tapestry renders the page to HTML and returns it. And we have seen that one way to 
+	send a page render request is to click a link produced by PageLink.<br/><br/>
+	
+	Now we will look at <strong>input</strong> and <strong>events</strong>.<br/><br/>
+	
+	Input and events always target a page or a component on a page. The two most common components for 
+	this are Form and EventLink. They are shown in the next examples.<br/><br/>
+
+	Input and events are sent to the server as <strong>component event requests</strong>, and they relate 
+	to a specific component in a page, eg. a Form or EventLink. Tapestry directs the request to the <em>the page and 
+	component class that rendered</em> the page and component in the first place. <strong>This is great!</strong> 
+	Who is better placed to understand the purpose of input from a Form or an event from an EventLink 
+	than the page that contains that Form or EventLink.<br/><br/>  
+
+	Some other components also send component event requests, such as GridPager. 
+	And in fact almost every component can send a component event request when the component is 
+	<strong>Ajax</strong>-enabled. We'll look at Ajax later.<br/><br/>
+
+	References:	
+	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
+	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax</a>.<br/><br/>
+	
+	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
+
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.java"/>
+	</t:tabgroup>
+</body>
+</html>

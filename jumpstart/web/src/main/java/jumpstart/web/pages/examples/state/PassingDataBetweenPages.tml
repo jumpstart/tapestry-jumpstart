@@ -22,7 +22,7 @@
 
 			<div class="eg">
 				<t:form t:id="useactivationcontext">
-					<t:submit value="Use Activation Context" class="btn btn-default"/>
+					<t:eventlink event="useActivationContext">Use activation context to pass id <em>1</em></t:eventlink>.
 				</t:form>
 			</div>
 		</li>
@@ -34,7 +34,7 @@
 
 			<div class="eg">
 				<t:form t:id="usequerystring">
-					<t:submit value="Use Query String" class="btn btn-default"/>
+					<t:eventlink event="useQueryString">Use query string to pass partial name = <em>humpty</em></t:eventlink>.
 				</t:form>
 			</div>
 		</li>
@@ -46,7 +46,7 @@
 
 			<div class="eg">
 				<t:form t:id="usepersist">
-					<t:submit value="Use Persist" class="btn btn-default"/>
+					<t:eventlink event="usePersist">Use @Persist to pass a Person's first and last name</t:eventlink>.
 				</t:form>
 			</div>
 		</li>
@@ -70,9 +70,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingDataBetweenPages.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByActivationContext.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByQueryString.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/state/PassingByPersist.java"/>
 	</t:tabgroup>
 </body>
 </html>

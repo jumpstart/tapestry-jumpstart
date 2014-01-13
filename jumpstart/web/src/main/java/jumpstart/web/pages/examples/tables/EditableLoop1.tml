@@ -52,7 +52,7 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/><br/>
+	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
 
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/tables/EditableLoop1.tml"/>

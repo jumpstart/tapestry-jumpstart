@@ -7,10 +7,9 @@
 	<h3>Link Submits (2)</h3>
 	
 	<div class="eg">
-		Welcome ${name}!
+		<p>Welcome ${name}!</p>
+		<t:pagelink page="examples/input/LinkSubmits1">Return</t:pagelink>
 	</div>
-	
-	<t:pagelink page="examples/input/LinkSubmits1">Return</t:pagelink><br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

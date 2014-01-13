@@ -105,6 +105,7 @@
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
 	References:
+	<a href="http://tapestry.apache.org/persistent-page-data.html#PersistentPageData-FlashStrategy">Flash Strategy</a>, 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-TemplateDoctypes">Template Doctypes</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>.<br/><br/>
 	

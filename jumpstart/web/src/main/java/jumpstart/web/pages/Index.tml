@@ -93,36 +93,27 @@
 					<td class="col">
 						<div class="group">
 							<t:pagelink page="examples/input/InputAndEvents">Input and Events</t:pagelink><br/>
-						</div>
-						<div class="group">
+							<br/>
 							<t:pagelink page="examples/input/Forms1">Forms</t:pagelink><br/>
 							<t:pagelink page="examples/input/FormsExplained1">Forms Explained</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/component/CoreInputComponents">Core Input Components</t:pagelink><br/>
-							<t:pagelink page="examples/component/Html5InputTypes">HTML5 Input Types</t:pagelink><br/>
-						</div>
-						<div class="group">
 							<t:pagelink page="examples/input/EventLinks">EventLinks</t:pagelink><br/>
 							<t:pagelink page="examples/input/EventLinksExplained">EventLinks Explained</t:pagelink><br/>
+							<br/>
 							<t:pagelink page="examples/input/AtOnEvent">@OnEvent</t:pagelink><br/>
 							<t:pagelink page="examples/navigation/MultipleMethodMatches">Multiple Method Matches</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/input/ActionLinks">ActionLinks</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/styling/LinksAndSubmits1">Styling Links and Submits</t:pagelink><br/>
+							<t:pagelink page="examples/state/StoringDataInAPage">Storing Data in a Page</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/component/CoreInputComponents">Core Input Components</t:pagelink><br/>
+							<t:pagelink page="examples/component/Html5InputTypes">HTML5 Input Types</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/navigation/ReturnTypes1">Return Types</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/state/StoringDataInAPage">Storing Data in a Page</t:pagelink><br/>
-							<t:pagelink page="examples/state/PassingDataBetweenPages">Passing Data Between Pages</t:pagelink><br/>
-							<t:pagelink page="examples/state/SharingAcrossMultiplePages1">Sharing Across Multiple Pages</t:pagelink><br/>
-							<t:pagelink page="examples/state/SharingAcrossTheApplication">Sharing Across the Application</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/navigation/WhatIsCalledAndWhen">What is Called and When</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/input/Translators">Translators</t:pagelink><br/>
@@ -141,6 +132,17 @@
 							<t:pagelink page="examples/input/Create1">Create (Using BeanEditForm)</t:pagelink><br/>
 							<t:pagelink page="examples/input/MoreControlEdit1" t:context="literal:1">More Control Edit (Using BeanEditor)</t:pagelink><br/>
 							<t:pagelink page="examples/input/TotalControlEdit1" t:context="literal:1">Total Control Edit</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/state/PassingDataBetweenPages">Passing Data Between Pages</t:pagelink><br/>
+							<t:pagelink page="examples/state/SharingAcrossMultiplePages1">Sharing Across Multiple Pages</t:pagelink><br/>
+							<t:pagelink page="examples/state/SharingAcrossTheApplication">Sharing Across the Application</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/navigation/WhatIsCalledAndWhen">What is Called and When</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/styling/LinksAndSubmits1">Styling Links and Submits</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/navigation/ReturnToPage1" t:context="literal:abc">Return to Page</t:pagelink><br/>

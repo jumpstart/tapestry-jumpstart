@@ -40,14 +40,13 @@
 			</div>
 		</t:if>
 
+		<t:pagelink page="examples/component/SubFormAsAField1">Return</t:pagelink>
 	</div>
 	 
 	This solution does not handle Tapestry and JSR-303 validators. For a comprehensive solution see Tapestry's <code>Checklist</code> component: 
 	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/resources/org/apache/tapestry5/corelib/components/Checklist.tml?view=markup">Checklist.tml</a>, 
 	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/components/Checklist.java?view=markup">Checklist.java</a>. 
 	<br/><br/>
-
-	<t:pagelink page="examples/component/SubFormAsAField1">Return</t:pagelink><br/><br/>
 
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/base/AbstractField.html">AbstractField</a>, 

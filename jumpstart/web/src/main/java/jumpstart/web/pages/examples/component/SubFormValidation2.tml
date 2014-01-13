@@ -40,9 +40,8 @@
 			</div>
 		</t:if>
 		
+		<t:pagelink page="examples/component/SubFormValidation1">Return</t:pagelink>
 	</div>
-	 
-	<t:pagelink page="examples/component/SubFormValidation1">Return</t:pagelink><br/><br/>
 
 	References: 
 	<a href="http://tapestry.apache.org/environmental-services.html">Environmental Services</a>, 

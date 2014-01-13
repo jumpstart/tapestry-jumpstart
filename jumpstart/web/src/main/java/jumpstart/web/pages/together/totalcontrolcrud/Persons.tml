@@ -49,7 +49,7 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	The source for PersonFinderService, @EJB handling, etc. is shown in the @EJB example.<br/>
+	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/>
 	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
 
 	<t:tabgroup>

@@ -8,6 +8,7 @@
 
 	<div class="eg">
 		<p>You requested persons whose name is like "<em>${partialName}</em>".</p>
+		<t:pagelink t:page="examples/navigation/ActivationRequestParameters1">Return</t:pagelink>
 	</div>
 
 	Look at the URL of this page. 
@@ -33,7 +34,6 @@
 	<a href="http://blpsilva.wordpress.com/2008/04/05/query-strings-in-restful-web-services/">Query strings in RESTful Web Services</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
 
-	<t:pagelink t:page="examples/navigation/ActivationRequestParameters1">Return</t:pagelink><br/><br/>
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabgroup>

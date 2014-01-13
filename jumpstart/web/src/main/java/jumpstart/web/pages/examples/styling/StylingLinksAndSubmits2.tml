@@ -7,10 +7,9 @@
 	<h3>Styling Links and Submits (2)</h3>
 	
 	<div class="eg">
-		You chose ${yourChoice}!
+		<p>You chose ${yourChoice}!</p>
+		<a t:type="pagelink" t:page="examples/styling/StylingLinksAndSubmits1" href="#">Return</a>
 	</div>
-	
-	<a t:type="pagelink" t:page="examples/styling/StylingLinksAndSubmits1" href="#">Return</a><br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

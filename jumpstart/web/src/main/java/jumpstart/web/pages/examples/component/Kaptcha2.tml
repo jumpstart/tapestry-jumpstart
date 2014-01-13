@@ -7,10 +7,9 @@
 	<h3>Kaptcha (2)</h3>
 
 	<div class="eg">
-		Correct!
+		<p>Correct!</p>
+		<t:pagelink page="examples/component/Kaptcha1">Return</t:pagelink>
 	</div>
-		
-	<t:pagelink page="examples/component/Kaptcha1">Return</t:pagelink><br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

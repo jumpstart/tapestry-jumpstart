@@ -7,7 +7,8 @@
 	<h3>Forms Explained (2)</h3>
 
 	<div class="eg">
-		Welcome ${name}!
+		<p>Welcome ${name}!</p>
+		<t:pagelink t:page="examples/input/FormsExplained1">Return</t:pagelink>
 	</div>	
 		
 	Look at the URL of this page. It is the <strong>page render request</strong> we have been redirected to, 
@@ -17,8 +18,6 @@
 	Why does this page have <code>onPassivate()</code>? Well, to generate the <strong>page render request</strong>, 
 	Tapestry needed this page's activation context, which it got by triggering the <em>passivate</em> event on this page. 
 	It is the duty of a <em>passivate</em> event handler to return the page's activation context.<br/><br/>
-	
-	<t:pagelink t:page="examples/input/FormsExplained1">Return</t:pagelink><br/><br/>
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	

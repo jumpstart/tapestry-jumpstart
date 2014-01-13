@@ -6,24 +6,38 @@
 <body class="container">
 	<h3>Input and Events</h3>
 	
-	So far we have looked at output. We have seen that when a <strong>page render request</strong> reaches 
-	the server, Tapestry renders the page to HTML and returns it. And we have seen that one way to 
-	send a page render request is to click a link produced by PageLink.<br/><br/>
+	<p>The examples so far have involved one type of request: the <em>page render request</em>. To recap:</p>
 	
-	Now we will look at <strong>input</strong> and <strong>events</strong>.<br/><br/>
+	<ul>
+		<li><strong>Page render requests</strong> target a specific page. Tapestry activates the page, 
+		renders it to HTML, and returns it to the client.</li>
+	</ul>
+
+	<p>To send input and events to the server, there is a second type of request: the <em>component event request</em>.</p>
 	
-	Input and events always target a page or a component on a page. The two most common components for 
-	this are Form and EventLink. They are shown in the next examples.<br/><br/>
+	<ul>
+		<li><strong>Component event requests</strong> target a specific component on the page. Tapestry activates 
+		the page, triggers an event on the component, and the component may bubble up events for the containing page 
+		or components to react to.</li>
+	</ul>
 
-	Input and events are sent to the server as <strong>component event requests</strong>, and they relate 
-	to a specific component in a page, eg. a Form or EventLink. Tapestry directs the request to the <em>the page and 
-	component class that rendered</em> the page and component in the first place. <strong>This is great!</strong> 
-	Who is better placed to understand the purpose of input from a Form or an event from an EventLink 
-	than the page that contains that Form or EventLink.<br/><br/>  
+	<p><strong>This is really significant:</strong> the container, ie. the page or component; that chose to render 
+	a particular component, is then able to react to input and events sent to that component. This is perfect! 
+	What could be better placed to understand the meaning of the input or event than the container that chose to 
+	render that component.</p>
 
-	Some other components also send component event requests, such as GridPager. 
-	And in fact almost every component can send a component event request when the component is 
-	<strong>Ajax</strong>-enabled. We'll look at Ajax later.<br/><br/>
+    <p>The 2 most used components for generating <em>component event requests</em> are these:</p>
+
+    <ul>
+        <li><strong>Form</strong>.  When submitted, the request carries your input to the corresponding Form on the server.</li>
+        <li><strong>EventLink</strong>.  When clicked, the request carries an event name and parameters to the corresponding 
+        	EventLink on the server.</li>
+    </ul>
+
+    <p>Others include <strong>ActionLink</strong> and <strong>GridPager</strong>.</p>
+    
+    <p>In later examples, when we use <strong>Ajax</strong>, we will find that <strong><em>every</em> component 
+    can send a component event request!</strong></p>
 
 	References:	
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 

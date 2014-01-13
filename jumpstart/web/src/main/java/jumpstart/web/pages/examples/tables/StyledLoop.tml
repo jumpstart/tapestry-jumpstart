@@ -6,7 +6,7 @@
 <body class="container">
 	<h3>Styled Loop</h3>
 	
-	With a bit of css, you can make a Loop look however you want.
+	As with Grid, with a bit of CSS you can make a Loop look however you want.
 	
 	<div class="eg">
 		<table class="grid">

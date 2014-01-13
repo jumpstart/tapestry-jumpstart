@@ -7,18 +7,18 @@
 	<h3>Passing Data Between Pages: by Activation Context</h3>
 
 	<div class="eg">
-		Welcome ${name}!
+		<p>You asked for person ${personId}.</p>
+		<t:pagelink page="examples/state/PassingDataBetweenPages">Return</t:pagelink>
 	</div>
 	
 	This page used the <strong>activation context</strong> to save its data through the redirection. 
 	The data became part of the URL so the page can be bookmarked.<br/><br/>
 
-	This technique is usually employed to pass an <strong>identifier</strong>, eg. productId.<br/><br/>
+	This technique is usually employed to pass an <strong>identifier</strong>, eg. personId, 
+	but it is not limited to one parameter (see the More Parameters and Variable Parameters examples).<br/><br/>
 
 	References:  
 	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">Page Render Requests</a>.<br/><br/>
-
-	<t:pagelink page="examples/state/PassingDataBetweenPages">Return</t:pagelink><br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

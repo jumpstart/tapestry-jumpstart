@@ -16,17 +16,17 @@ public class PassingDataBetweenPages {
 	@InjectPage
 	private PassingByPersist byPersistPage;
 
-	Object onSuccessFromUseActivationContext() {
-		byActivationContextPage.set("Humpty", "Dumpty");
+	Object onUseActivationContext() {
+		byActivationContextPage.set(1L);
 		return byActivationContextPage;
 	}
 
-	Object onSuccessFromUseQueryString() {
-		Link link = byQueryStringPage.set("Humpty", "Dumpty");
+	Object onUseQueryString() {
+		Link link = byQueryStringPage.set("humpty");
 		return link;
 	}
 
-	Object onSuccessFromUsePersist() {
+	Object onUsePersist() {
 		byPersistPage.set("Humpty", "Dumpty");
 		return byPersistPage;
 	}

@@ -7,12 +7,11 @@
 	<h3>Forms (2)</h3>
 
 	<div class="eg">
-		Welcome ${name}!
+		<p>Welcome ${name}!</p>
+		<t:pagelink t:page="examples/input/Forms1">Return</t:pagelink>
 	</div>	
 		
-	This example is explained in the next example.<br/><br/>
-	
-	<t:pagelink t:page="examples/input/Forms1">Return</t:pagelink><br/><br/>
+	<p>This example is explained in the next example.</p>
 	
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 	
