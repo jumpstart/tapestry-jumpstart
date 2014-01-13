@@ -56,7 +56,7 @@
 	
 	All Tapestry Validators have a server-side implementation, and most have a client-side implementation.<br/>
 	If the form passes client-side validation, then it is sent to the server, where, for safety, it is validated again.<br/>
-	To turn off client-side validation programatically, use the <code>clientValidation</code> parameter of Form.<br/><br/>
+	To turn off client-side validation programatically, set Form's <code>clientValidation</code> parameter.<br/><br/>
 
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Validator.html">Validator</a>, 

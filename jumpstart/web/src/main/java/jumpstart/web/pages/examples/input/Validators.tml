@@ -53,11 +53,11 @@
 			
 	</div>
 	
-	All bean validations have a server-side implementation, and most (or perhaps all?) have a client-side implementation.<br/>
+	All bean validations have a server-side implementation, and most (or all?) have a client-side implementation.<br/>
 	If the form passes client-side validation, then it is sent to the server, where it is validated again.<br/>
-	To turn off client-side validation programatically, use the <code>clientValidation</code> parameter of Form.<br/><br/>
+	To turn off client-side validation programatically, set Form's <code>clientValidation</code> parameter.<br/><br/>
 
-	<p>Bean validation is NOT part of Tapestry's corelib. To use it, put the following jars in the classpath:</p>
+	<p>Bean Validation is not in Tapestry's corelib. To use it, add the following jars to the classpath:</p>
 	<ul>
 		<li>tapestry-beanvalidator-5.4.n.jar, for compile and runtime.</li>
 		<li>a JSR 303 implementation, such as hibernate-validator-4.3.1.Final.jar, for runtime. 

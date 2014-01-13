@@ -6,9 +6,7 @@
 <body class="container">
 	<h3>Event Links Explained</h3>
 
-	EventLink renders a link that sends an event name and parameters in the URL when it is clicked.<br/><br/>
-	
-	Here are 3 EventLinks. The first two send event <em>add</em>, and the third one sends event <em>clear</em>:<br/>
+	Here is a blow-by-blow explanation of the previous example.
 		
 	<div class="eg"> 
 		<div class="alert alert-info">

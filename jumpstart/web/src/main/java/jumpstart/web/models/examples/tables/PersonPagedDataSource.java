@@ -30,9 +30,9 @@ public class PersonPagedDataSource implements GridDataSource {
 
 	@Override
 	public void prepare(final int startIndex, final int endIndex, final List<SortConstraint> sortConstraints) {
-
-		// Get a page of persons - ask business service to find them (from the database)
 		List<SortCriterion> sortCriteria = toSortCriteria(sortConstraints);
+
+		// Get a page of persons - ask business service to find them (from the database).
 		preparedResults = personFinderService.findPersons(startIndex, endIndex - startIndex + 1, sortCriteria);
 
 		this.startIndex = startIndex;

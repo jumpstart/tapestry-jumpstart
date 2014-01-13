@@ -18,11 +18,6 @@ public class FormsExplained1 {
 	@Property
 	@NotNull
 	@Size(max=10)
-	private String nlahName;
-
-	@Property
-	@NotNull
-	@Size(max=10)
 	private String firstName;
 
 	@Property
