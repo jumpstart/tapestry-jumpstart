@@ -13,7 +13,7 @@
 		renders it to HTML, and returns it to the client.</li>
 	</ul>
 
-	<p>To send input and events to the server, there is a second type of request: the <em>component event request</em>.</p>
+	<p>To send events - possibly containing input data - to the server, there is a second type of request: the <em>component event request</em>.</p>
 	
 	<ul>
 		<li><strong>Component event requests</strong> target a specific component on the page. Tapestry activates 
@@ -22,22 +22,21 @@
 	</ul>
 
 	<p><strong>This is really significant:</strong> the container, ie. the page or component; that chose to render 
-	a particular component, is then able to react to input and events sent to that component. This is perfect! 
-	What could be better placed to understand the meaning of the input or event than the container that chose to 
-	render that component.</p>
+	a particular component, is then able to react to the events sent to that component. This is perfect! 
+	What could be better placed to interpret, and understand the meaning of, the event, than the container?</p>
 
     <p>The 2 most used components for generating <em>component event requests</em> are these:</p>
 
     <ul>
-        <li><strong>Form</strong>.  When submitted, the request carries your input to the corresponding Form on the server.</li>
-        <li><strong>EventLink</strong>.  When clicked, the request carries an event name and parameters to the corresponding 
+        <li><strong>Form</strong>.  When submitted, the request carries data fields to the corresponding Form on the server.</li>
+        <li><strong>EventLink</strong>.  When clicked, the request carries the name of an event, plus parameters, to the corresponding 
         	EventLink on the server.</li>
     </ul>
 
     <p>Others include <strong>ActionLink</strong> and <strong>GridPager</strong>.</p>
     
-    <p>In later examples, when we use <strong>Ajax</strong>, we will find that <strong><em>every</em> component 
-    can send a component event request!</strong></p>
+    <p>In later examples, when we use <strong>Ajax</strong>, we will find that it is possible for <strong><em>any</em> 
+    component to send a component event request!</strong></p>
 
 	References:	
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 

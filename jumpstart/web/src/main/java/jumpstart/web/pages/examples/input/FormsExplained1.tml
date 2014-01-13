@@ -31,7 +31,7 @@
 	 </div>
 
 	On submit, Form does <em>client-side validation</em> that the TextFields satisfy <code>@NotNull</code> and 
-	<code>@Size(max=10)</code>. If that doesn't fail, then...<br/><br/>
+	<code>@Size(max=10)</code>. If it passes validation, then...<br/><br/>
 	 
 	Form sends a <strong>component event request</strong>. It's an HTTP POST with a URL similar to 
 	<code>http://thehost/jumpstart/examples/input/forms1.names</code> and this is how the server reacts:<br/><br/>
@@ -54,7 +54,7 @@
 	The cost is 2 trips to the server, but it's worth it.<br/><br/>
 
 	Q: Why do we use the long method name <code>onValidateFromNames()</code> instead of just <code>onValidate()</code>? <br/>
-	A; To distinguish <em>validate</em> bubbled up from Form from <em>validate</em> bubbled up by the TextFields 
+	A; To distinguish between <em>validate</em> bubbled up from Form and <em>validate</em> bubbled up from each TextField 
 	(firstName and lastName). We explore this more in the example The Validate Event.<br/><br/>
 	
 	References: <a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 

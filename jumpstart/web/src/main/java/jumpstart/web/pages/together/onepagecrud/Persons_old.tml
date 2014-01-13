@@ -220,8 +220,7 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/>
-	The source for CustomForm and CustomError is shown in the No Validation Bubbles example.<br/><br/>
+	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
 
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/onepagecrud/Persons.tml"/>

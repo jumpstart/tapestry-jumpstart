@@ -22,7 +22,7 @@
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
-	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
+	The source for IPersonManagerServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
 
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Create1.tml"/>
