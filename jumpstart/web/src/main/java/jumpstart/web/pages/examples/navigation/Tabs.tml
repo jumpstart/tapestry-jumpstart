@@ -6,6 +6,21 @@
 <body class="container">
 	<h3>Tabs</h3>
 	
+	<p>There are many techniques for implementing tabs. Here is one.</p>
+	
+	<p>To avoid a trip to the server every time you click on a tab, JumpStart's TabGroup populates the content 
+	of all of its tabs before display. Then it uses Bootstrap's <code>nav nav-tabs</code> to make them look like 
+	tabs, and Bootstrap's <code>data-toggle="tab"</code> to make them behave like tabs.</p>
+	
+	<p><a href="http://tapestry-stitch.uklance.cloudbees.net/tabgroupdemo">tapestry-stitch</a> demonstrates a 
+	different technique. To avoid rendering tabs that may never be chosen, its TabGroup defers rendering each tab 
+	until the tab is chosen.</p>
+	
+	References:	
+	<a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Tabs</a>, 
+	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Abody%3EElement">t:body</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Environment.html">Environment</a>.<br/><br/> 
+
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabgroup>

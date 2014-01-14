@@ -7,6 +7,7 @@
 		<div class="alert alert-warning">${message:javascript_required_for_tabs}</div>
 	</noscript>
 
+	<!-- We depend on the body not rendering to the DOM, and instead rendering into TabTracker! -->
 	<t:body />
 
 	<ul class="nav nav-tabs">
@@ -20,6 +21,7 @@
 	<div class="tab-content">
 		<t:loop source="tabIds" value="tabId" index="tabNum">
 			<div class="tab-pane ${active}" id="${tabId}">
+				<!-- Get the rendered markup that was put in TabTracker, above, in t:body. -->
 				<t:delegate to="tabMarkup" />
 			</div>
 		</t:loop>
