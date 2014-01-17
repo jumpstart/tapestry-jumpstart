@@ -6,7 +6,7 @@
 <body class="container">
 	<h1>Filter CRUD</h1>
 	
-	This example is based on <em>One Page CRUD</em> and adds a "filter" field.<br/>
+	This example builds on the <em>One Page CRUD</em> example by adding a "filter" field. 
 	Notice that it still produces a URL that can be bookmarked.<br/>
 
 	<div class="eg">
@@ -190,7 +190,7 @@
 	 	
 	</div>
 
-	Also later, the Components CRUD example demonstrates splitting the list and editor out into separate components.<br/><br/>
+	Later, in the <em>Components CRUD</em> example, we will turn the list and editor into components.<br/><br/>
 	
  	References: 
  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
