@@ -183,7 +183,7 @@
 							<div class="together">Putting It All Together</div>
 							<t:pagelink page="together/easycrud/Persons">Easy CRUD</t:pagelink><br/>
 							<t:pagelink page="together/totalcontrolcrud/Persons">Total Control CRUD</t:pagelink><br/>
-							<t:pagelink page="together/onepagecrud/Persons" t:disabled="true">One Page CRUD</t:pagelink><br/>
+							<t:pagelink page="together/onepagecrud/Persons">One Page CRUD</t:pagelink><br/>
 							<t:pagelink page="together/filtercrud/Persons" t:disabled="true">Filter CRUD</t:pagelink><br/>
 						</div>
 						<div class="group">

@@ -18,38 +18,36 @@
 	
 					<!-- This is the left side of the table: a list of Persons -->
 	
-					<td id="listSide">
-						<div id="listContainer">
+					<td id="listCell">
 	
-							<div id="listTitle">
-								Person
-							</div>
-		
-							<div id="personList">
-								<t:grid t:id="list" source="listPersons" row="listPerson"
-									exclude="id,version,firstName,lastName,region,startDate" add="name"
-									rowsPerPage="4" pagerPosition="bottom"
-									class="table" empty="block:emptyPersons">
-									<p:nameCell>
-										<a t:type="eventLink" t:event="selected" t:context="listPerson.id" class="prop:linkCSSClass" href="#">
-											${listPerson.firstName} ${listPerson.lastName}
-										</a>
-									</p:nameCell>
-								</t:grid>
-							</div>
-							
-							<t:block t:id="emptyPersons">
-								<div id="noPersons">
-									(No persons found)
-								</div>
-							</t:block>
-
+						<div id="listTitle">
+							Person
 						</div>
+	
+						<div id="personList">
+							<t:grid t:id="list" source="listPersons" row="listPerson"
+								exclude="id,version,firstName,lastName,region,startDate" add="name"
+								rowsPerPage="4" pagerPosition="bottom"
+								class="personGrid" empty="block:emptyPersons">
+								<p:nameCell>
+									<a t:type="eventLink" t:event="selected" t:context="listPerson.id" class="prop:linkCSSClass" href="#">
+										${listPerson.firstName} ${listPerson.lastName}
+									</a>
+								</p:nameCell>
+							</t:grid>
+						</div>
+						
+						<t:block t:id="emptyPersons">
+							<div id="noPersons">
+								(No persons found)
+							</div>
+						</t:block>
+	
 					</td>
 					
 					<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
 			
-					<td id="editorSide">
+					<td id="editorCell">
 	
 						<t:if test="modeCreate">
 						
