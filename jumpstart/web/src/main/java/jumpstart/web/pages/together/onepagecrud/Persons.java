@@ -150,7 +150,7 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	// Component "createForm" bubbles up the PREPARE_FOR_RENDER event when it is rendered
+	// Component "createForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
 	void onPrepareForRenderFromCreateForm() throws Exception {
 
@@ -209,7 +209,7 @@ public class Persons {
 
 	void onSelected(Long personId) {
 		editorMode = Mode.REVIEW;
-		this.editorPersonId = personId;
+		editorPersonId = personId;
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -220,17 +220,17 @@ public class Persons {
 
 	void onToUpdate(Long personId) {
 		editorMode = Mode.UPDATE;
-		this.editorPersonId = personId;
+		editorPersonId = personId;
 	}
 
 	// Handle event "cancelUpdate"
 
 	void onCancelUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
-		this.editorPersonId = personId;
+		editorPersonId = personId;
 	}
 
-	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event during form render
+	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
 	void onPrepareForRenderFromUpdateForm() {
 
@@ -293,8 +293,8 @@ public class Persons {
 
 	void onDelete(Long personId, Integer personVersion) {
 		editorMode = Mode.REVIEW;
-		this.editorPersonId = personId;
-		
+		editorPersonId = personId;
+
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
 			return;
@@ -303,7 +303,7 @@ public class Persons {
 		try {
 			personManagerService.deletePerson(personId, personVersion);
 			editorMode = null;
-			this.editorPersonId = null;
+			editorPersonId = null;
 		}
 		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.

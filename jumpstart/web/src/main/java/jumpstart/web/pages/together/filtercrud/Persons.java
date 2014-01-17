@@ -4,6 +4,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 
 import javax.ejb.EJB;
+import javax.validation.constraints.Size;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.Regions;
@@ -16,6 +17,7 @@ import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -23,6 +25,7 @@ import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+@Import(stylesheet = "css/together/filtercrud.css")
 public class Persons {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
@@ -43,6 +46,7 @@ public class Persons {
 
 	@Property
 	@ActivationRequestParameter
+	@Size(max = 10)
 	private String partialName;
 
 	@Property
@@ -58,12 +62,6 @@ public class Persons {
 	@Persist(PersistenceConstants.FLASH)
 	private String deleteMessage;
 
-	// Work fields
-
-	// This carries version through the redirect that follows a server-side validation failure.
-	@Persist(PersistenceConstants.FLASH)
-	private Integer versionFlash;
-
 	// Generally useful bits and pieces
 
 	@EJB
@@ -73,13 +71,9 @@ public class Persons {
 	private IPersonManagerServiceLocal personManagerService;
 
 	@Component
-	// FIX!
-	// private CustomForm createForm;
 	private Form createForm;
 
 	@Component
-	// FIX!
-	// private CustomForm updateForm;
 	private Form updateForm;
 
 	@Inject
@@ -133,6 +127,7 @@ public class Persons {
 		if (editorMode == Mode.REVIEW) {
 			if (editorPersonId == null) {
 				editorPerson = null;
+				// Handle null editorPerson in the template.
 			}
 			else {
 				if (editorPerson == null) {
@@ -141,6 +136,7 @@ public class Persons {
 				}
 			}
 		}
+
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -161,9 +157,21 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	// Component "createForm" bubbles up the PREPARE event when it is rendered or submitted
+	// Component "createForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
-	void onPrepareFromCreateForm() throws Exception {
+	void onPrepareForRenderFromCreateForm() throws Exception {
+
+		// If fresh start, make sure there's a Person object available.
+
+		if (createForm.isValid()) {
+			editorMode = Mode.CREATE;
+			editorPerson = new Person();
+		}
+	}
+
+	// Component "createForm" bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
+
+	void onPrepareForSubmitFromCreateForm() throws Exception {
 		editorMode = Mode.CREATE;
 		// Instantiate a Person for the form data to overlay.
 		editorPerson = new Person();
@@ -200,11 +208,6 @@ public class Persons {
 		editorPersonId = editorPerson.getId();
 	}
 
-	void onFailureFromCreateForm() {
-		editorMode = Mode.CREATE;
-		editorPersonId = null;
-	}
-
 	// /////////////////////////////////////////////////////////////////////
 	// REVIEW
 	// /////////////////////////////////////////////////////////////////////
@@ -237,18 +240,13 @@ public class Persons {
 	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
 	void onPrepareForRenderFromUpdateForm() {
-		editorMode = Mode.UPDATE;
 
-		editorPerson = personFinderService.findPerson(editorPersonId);
-		// Handle null editorPerson in the template.
+		// If fresh start, make sure there's a Person object available.
 
-		// If the form has errors then we're redisplaying after a redirect.
-		// Form will restore your input values but it's up to us to restore Hidden values.
-
-		if (updateForm.getHasErrors()) {
-			if (editorPerson != null) {
-				editorPerson.setVersion(versionFlash);
-			}
+		if (updateForm.isValid()) {
+			editorMode = Mode.UPDATE;
+			editorPerson = personFinderService.findPerson(editorPersonId);
+			// Handle null editorPerson in the template.
 		}
 	}
 
@@ -261,8 +259,9 @@ public class Persons {
 		editorPerson = personFinderService.findPerson(editorPersonId);
 
 		if (editorPerson == null) {
-			editorPerson = new Person();
 			updateForm.recordError("Person has been deleted by another process.");
+			// Instantiate an empty person to avoid NPE in the Form.
+			editorPerson = new Person();
 		}
 	}
 
@@ -293,11 +292,6 @@ public class Persons {
 		setupRender();
 	}
 
-	void onFailureFromUpdateForm() {
-		editorMode = Mode.UPDATE;
-		versionFlash = editorPerson.getVersion();
-	}
-
 	// /////////////////////////////////////////////////////////////////////
 	// DELETE
 	// /////////////////////////////////////////////////////////////////////
@@ -307,8 +301,6 @@ public class Persons {
 	void onDelete(Long personId, Integer personVersion) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
-		editorPerson = personFinderService.findPerson(personId);
-		// Handle null editorPerson in the template.
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
