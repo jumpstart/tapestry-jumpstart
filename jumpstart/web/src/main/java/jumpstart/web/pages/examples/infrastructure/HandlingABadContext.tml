@@ -69,7 +69,7 @@
 	<p>
 		<strong>EventContext</strong><br /> To handle a variable number of context parameters, or even an unexpected number of
 		context parameters, use <a href="http://tapestry.apache.org/component-events.html#ComponentEvents-EventContext">EventContext</a>.
-		We use it in the Easy Object Select example and the One Page CRUD example.
+		See the Variable Parameters example, Easy Object Select example, and One Page CRUD example.
 	</p>
 
 	References:
