@@ -25,7 +25,7 @@ public class MultipleSubmits1 {
 	private Form search;
 
 	public enum SearchType {
-		CUSTOMERS, SUPPLIERS, CANCEL;
+		CUSTOMERS, SUPPLIERS;
 	}
 
 	private SearchType searchType;
@@ -40,13 +40,20 @@ public class MultipleSubmits1 {
 		searchType = SearchType.SUPPLIERS;
 	}
 
-	void onSelectedFromCancel() {
-		searchType = SearchType.CANCEL;
+	Object onSelectedFromCancel() {
+		page2.set(null, name);
+		return page2;
 	}
 
 	void onValidateFromSearch() {
-		if (searchType == SearchType.CANCEL) {
-			search.clearErrors();
+		if (searchType == SearchType.CUSTOMERS) {
+			// Validate the customer search here.
+		}
+		else if (searchType == SearchType.SUPPLIERS) {
+			// Validate the supplier search here.
+		}
+		else {
+			throw new IllegalStateException(searchType.name());
 		}
 	}
 

@@ -34,7 +34,7 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Errors.html">Errors</a>,
 	<a href="http://wiki.apache.org/tapestry/Tapestry5HowToUseForms">How To Use Forms</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/OnEvent.html">@OnEvent</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 

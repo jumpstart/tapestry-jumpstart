@@ -1,8 +1,8 @@
 package jumpstart.web.pages.examples.input;
 
-import org.apache.tapestry5.annotations.Import;
-
 import jumpstart.web.pages.examples.input.MultipleSubmits1.SearchType;
+
+import org.apache.tapestry5.annotations.Import;
 
 @Import(stylesheet = "css/examples/plain.css")
 public class MultipleSubmits2 {
@@ -36,15 +36,18 @@ public class MultipleSubmits2 {
 	}
 
 	public String getYourSearch() {
-		switch (searchType) {
-		case CUSTOMERS:
-			return "You chose to search Customers with \"" + name + "\".";
-		case SUPPLIERS:
-			return "You chose to search Suppliers with \"" + name + "\".";
-		case CANCEL:
-			return "You chose to cancel the search.";
-		default:
-			throw new IllegalStateException();
+		if (searchType == null) {
+			return "You did not choose a search type.";
+		}
+		else {
+			switch (searchType) {
+			case CUSTOMERS:
+				return "You chose to search Customers with \"" + name + "\".";
+			case SUPPLIERS:
+				return "You chose to search Suppliers with \"" + name + "\".";
+			default:
+				throw new IllegalStateException();
+			}
 		}
 	}
 }
