@@ -282,7 +282,6 @@ public class Persons {
 	void onSuccessFromUpdateForm() {
 		editorMode = Mode.REVIEW;
 		editorPersonId = editorPerson.getId();
-		setupRender();
 	}
 
 	// /////////////////////////////////////////////////////////////////////
