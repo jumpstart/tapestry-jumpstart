@@ -11,7 +11,7 @@
 	</noscript> 	
 
 	Here we demonstrate some reusable javascript that puts a "textbox hint" in a field. 
-	We could achieve the same effect with HTML's <code>placeholder</code> attribute, but this works across more browsers.<br/>
+	We could achieve the same effect with HTML5's <code>placeholder</code> attribute, but this works across more browsers.<br/>
 	
 	<div class="eg">
 		<t:form class="form-inline" autofocus="false">

@@ -12,13 +12,13 @@ define(["jquery"], function($) {
 		$firstName.on("keyup", doSwitchColor);
 
 		function doSwitchColor() {
-			var field = $(this);
+			var $field = $(this);
 
-			if (field.css("color") == red) {
-				field.css("color", green);
+			if ($field.css("color") == red) {
+				$field.css("color", green);
 			}
 			else {
-				field.css("color", red);
+				$field.css("color", red);
 			}
 		}
 	}

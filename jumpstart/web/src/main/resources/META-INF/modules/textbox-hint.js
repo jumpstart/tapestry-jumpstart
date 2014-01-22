@@ -16,36 +16,36 @@ define(["jquery"], function($) {
 		$textbox.blur();
 
 		function doClearHint() {
-			var field = $(this);
+			var $field = $(this);
 			
-			if (field.val() == hintText) {
-				field.val("");
+			if ($field.val() == hintText) {
+				$field.val("");
 			}
 
-			field.css("color", normalColor);
+			$field.css("color", normalColor);
 		}
 
 		function doCheckHint() {
-			var field = $(this);
+			var $field = $(this);
 
-			// If field is empty, put the hintText in it and set its color to
+			// If $field is empty, put the hintText in it and set its color to
 			// hintColor
 
-			if (field.val() == "") {
-				field.val(hintText);
-				field.css("color", hintColor);
+			if ($field.val() == "") {
+				$field.val(hintText);
+				$field.css("color", hintColor);
 			}
 
-			// Else if field contains hintText, set its color to hintColor
+			// Else if $field contains hintText, set its color to hintColor
 
-			else if (field.val() == hintText) {
-				field.css("color", hintColor);
+			else if ($field.val() == hintText) {
+				$field.css("color", hintColor);
 			}
 
-			// Else, set the field's color to its normal color
+			// Else, set the $field's color to its normal color
 
 			else {
-				field.css("color", normalColor);
+				$field.css("color", normalColor);
 			}
 		}
 
