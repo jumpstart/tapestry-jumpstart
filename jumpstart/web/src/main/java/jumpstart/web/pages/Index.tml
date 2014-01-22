@@ -227,7 +227,7 @@
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>
-							<t:pagelink page="together/componentscrud/Persons" t:disabled="true">Components CRUD</t:pagelink><br/>
+							<t:pagelink page="together/componentscrud/Persons">Components CRUD</t:pagelink><br/>
 							<t:pagelink page="together/withlayout/HelloWorld" t:disabled="true">With Layout</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="theapp/Login" t:disabled="true">Example App</t:pagelink> 

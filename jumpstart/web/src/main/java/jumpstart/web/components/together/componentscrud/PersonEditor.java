@@ -15,6 +15,7 @@ import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Events;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
@@ -37,6 +38,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 @Events({ PersonEditor.CANCEL_CREATE, PersonEditor.SUCCESSFUL_CREATE, PersonEditor.FAILED_CREATE,
 		PersonEditor.TO_UPDATE, PersonEditor.CANCEL_UPDATE, PersonEditor.SUCCESSFUL_UPDATE, PersonEditor.FAILED_UPDATE,
 		PersonEditor.SUCCESFUL_DELETE, PersonEditor.FAILED_DELETE })
+@Import(stylesheet = "css/together/filtercrud.css")
 public class PersonEditor {
 	public static final String CANCEL_CREATE = "cancelCreate";
 	public static final String SUCCESSFUL_CREATE = "successfulCreate";
@@ -73,12 +75,6 @@ public class PersonEditor {
 	@Persist(PersistenceConstants.FLASH)
 	private String deleteMessage;
 
-	// Work fields
-
-	// This carries version through the redirect that follows a server-side validation failure.
-	@Persist(PersistenceConstants.FLASH)
-	private Integer versionFlash;
-
 	// Generally useful bits and pieces
 
 	@EJB
@@ -89,12 +85,12 @@ public class PersonEditor {
 
 	@Component
 	// FIX!
-//	private CustomForm createForm;
+	// private CustomForm createForm;
 	private Form createForm;
 
 	@Component
 	// FIX!
-//	private CustomForm updateForm;
+	// private CustomForm updateForm;
 	private Form updateForm;
 
 	@Inject
@@ -135,9 +131,20 @@ public class PersonEditor {
 		return false;
 	}
 
-	// Component "createForm" bubbles up the PREPARE event when it is rendered or submitted
+	// Component "createForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
-	void onPrepareFromCreateForm() throws Exception {
+	void onPrepareForRenderFromCreateForm() throws Exception {
+
+		// If fresh start, make sure there's a Person object available.
+
+		if (createForm.isValid()) {
+			person = new Person();
+		}
+	}
+
+	// Component "createForm" bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
+
+	void onPrepareForSubmitFromCreateForm() throws Exception {
 		// Instantiate a Person for the form data to overlay.
 		person = new Person();
 	}
@@ -211,16 +218,12 @@ public class PersonEditor {
 	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event during form render
 
 	void onPrepareForRenderFromUpdateForm() {
-		person = personFinderService.findPerson(personId);
-		// Handle null person in the template.
 
-		// If the form has errors then we're redisplaying after a redirect.
-		// Form will restore your input values but it's up to us to restore Hidden values.
+		// If fresh start, make sure there's a Person object available.
 
-		if (updateForm.getHasErrors()) {
-			if (person != null) {
-				person.setVersion(versionFlash);
-			}
+		if (updateForm.isValid()) {
+			person = personFinderService.findPerson(personId);
+			// Handle null person in the template.
 		}
 	}
 
@@ -231,8 +234,9 @@ public class PersonEditor {
 		person = personFinderService.findPerson(personId);
 
 		if (person == null) {
-			person = new Person();
 			updateForm.recordError("Person has been deleted by another process.");
+			// Instantiate an empty person to avoid NPE in the Form.
+			person = new Person();
 		}
 	}
 
@@ -266,7 +270,6 @@ public class PersonEditor {
 	}
 
 	boolean onFailureFromUpdateForm() {
-		versionFlash = person.getVersion();
 
 		// Rather than letting "failure" bubble up which doesn't say what you were trying to do, we trigger new event
 		// "failedUpdate". It will bubble up because we don't have a handler method for it.

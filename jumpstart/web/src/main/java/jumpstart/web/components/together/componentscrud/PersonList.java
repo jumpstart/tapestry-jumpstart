@@ -7,6 +7,7 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.web.models.together.PersonFilteredDataSource;
 
 import org.apache.tapestry5.annotations.Events;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.grid.GridDataSource;
@@ -17,6 +18,7 @@ import org.apache.tapestry5.grid.GridDataSource;
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
 @Events({ PersonList.SELECTED })
+@Import(stylesheet = "css/together/filtercrud.css")
 public class PersonList {
 	public static final String SELECTED = "selected";
 

@@ -22,7 +22,7 @@
 			</div>
 		</t:if>
 	
-		<t:grid source="persons" row="person" include="id,firstName,lastName,region,startDate" add="action">[Grid here]
+		<t:grid source="persons" row="person" include="id,firstName,lastName,region,startDate" add="action">
 			<p:actionCell>
 				<t:pagelink page="together/easycrud/person/PersonReview" context="person.id">Review</t:pagelink>
 				<t:pagelink page="together/easycrud/person/PersonUpdate" context="person.id">Update</t:pagelink>

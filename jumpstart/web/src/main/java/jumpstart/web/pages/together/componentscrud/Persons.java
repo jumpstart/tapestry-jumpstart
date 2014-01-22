@@ -4,8 +4,10 @@ import jumpstart.web.components.together.componentscrud.PersonEditor.Mode;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/together/filtercrud.css")
 public class Persons {
 
 	// The activation context

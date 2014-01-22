@@ -26,10 +26,10 @@
 							</div>
 		
 							<div id="personList">
-								<t:grid t:id="list" source="listPersons" row="listPerson"
+								<t:grid t:id="list" source="listPersons" row="listPerson" class="table"
 									exclude="id,version,firstName,lastName,region,startDate" add="name"
 									rowsPerPage="4" pagerPosition="bottom"
-									class="table" empty="block:emptyPersons">
+									empty="block:emptyPersons">
 									<p:nameCell>
 										<a t:type="eventLink" t:event="selected" t:context="listPerson.id" class="prop:linkCSSClass" href="#">
 											${listPerson.firstName} ${listPerson.lastName}

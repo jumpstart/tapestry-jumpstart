@@ -3,102 +3,47 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<!--  At runtime the page will supply the stylesheet. The link here is to enable preview. -->
-<link rel="stylesheet" type="text/css" href="../../../css/examples/componentscrud.css"/>
-
 <t:content>
 
 	<t:if test="modeCreate">
+
 		<h1>Create</h1>
 		
-		<form t:type="form" t:id="createForm" >
+		<t:form t:id="createForm" class="form-horizontal" validate="person">
 			<t:errors globalOnly="true"/>
-	
-			<table>
-				<tr>
-					<th><t:label for="firstName"/>:</th>
-					<td><input t:type="TextField" t:id="firstName" value="person.firstName" t:validate="required, maxlength=10" size="10"/></td>
-					<td>(required)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="firstName"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="lastName"/>:</th>
-					<td><input t:type="TextField" t:id="lastName" t:clientid="clastname" value="person.lastName" t:validate="required, maxlength=10" size="10"/></td>
-					<td>(required)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="lastName"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="region"/>:</th>
-					<td><input t:type="Select" t:id="region" value="person.region" t:validate="required" t:blankOption="ALWAYS"/></td>
-					<td>(required)</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="region"/></td>
-				</tr>
-				<tr>
-					<th><t:label for="startDate"/>:</th>
-					<td><input t:type="DateField" t:id="startDate" t:clientid="cstartdate" value="person.startDate" t:format="prop:dateFormat" t:validate="required" size="10"/></td>
-					<td>(required, ${datePattern})</td>
-				</tr>
-				<tr class="err">
-					<th></th>
-					<td colspan="2"><t:CustomError for="startDate"/></td>
-				</tr>
-			</table>
-
-			<div class="buttons">
-		 		<a t:type="eventLink" t:event="cancelCreate" href="#">Cancel</a>
-				<input type="submit" value="Save"/>
-			</div>
-		</form>
+	 		<t:delegate to="block:editor"/>
+		</t:form>
 
 	</t:if>
 
 	<t:if test="modeReview">
+
 		<h1>Review</h1>
 		
 		<t:if test="person">
 			<div t:type="if" t:test="deleteMessage" class="error">
 				${deleteMessage}
 			</div>
-
-			<table>
-				<tr>
-					<th>Id:</th>
-					<td>${person.id}</td>
-				</tr>
-				<tr>
-					<th>Version:</th>
-					<td>${person.version}</td>
-				</tr>
-				<tr>
-					<th>Name:</th>
-					<td>${person.firstName} ${person.lastName}</td>
-				</tr>
-				<tr>
-					<th>Region:</th>
-					<td>${personRegion}</td>
-				</tr>
-				<tr>
-					<th>Start Date:</th>
-					<td><t:output value="person.startDate" format="prop:dateFormat"/></td>
-				</tr>
-			</table>
+			
+			<t:beandisplay object="person" include="id,version" add="name,regionX,startDateX">
+				<p:name>
+					${person.firstName} ${person.lastName}
+				</p:name>
+				<p:regionX>
+					${personRegion}
+				</p:regionX>
+				<p:startDateX>
+				<t:output value="person.startDate" format="prop:dateFormat"/>
+				</p:startDateX>
+			</t:beandisplay>
 
 			<div class="buttons">
-			 	<a t:type="eventLink" t:event="toUpdate" t:context="person.id" href="#">Update...</a>
-				<a t:type="eventLink" t:event="delete" t:context="[person.id,person.version]" href="#" 
-					t:mixins="Confirm" t:message="Delete ${person.firstName} ${person.lastName}?">Delete...</a>
+			 	<t:eventlink event="toUpdate" context="person.id">Update...</t:eventlink>
+				<t:eventlink event="delete" context="[person.id,person.version]" 
+					t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete...</t:eventlink>
 			</div>
-
 		</t:if>
+
 		<t:if test="!person">
 			Person ${personId} does not exist.<br/><br/>
 		</t:if>
@@ -106,66 +51,74 @@
 	</t:if>
 
 	<t:if test="modeUpdate">
+
 		<h1>Update</h1>
 		
-		<form t:type="form" t:id="updateForm">
+		<t:form t:id="updateForm" class="form-horizontal" validate="person">
 			<t:errors globalOnly="true"/>
 		
 			<t:if test="person">
 				<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
 		 		<t:hidden value="person.version"/>
-		
-				<table>
-					<tr>
-						<th><t:label for="updFirstName"/>:</th>
-						<td><input t:type="TextField" t:id="updFirstName" value="person.firstName" t:validate="required, maxlength=10" size="10"/></td>
-						<td>(required)</td>
-					</tr>
-					<tr class="err">
-						<th></th>
-						<td colspan="2"><t:CustomError for="updFirstName"/></td>
-					</tr>
-					<tr>
-						<th><t:label for="updLastName"/>:</th>
-						<td><input t:type="TextField" t:id="updLastName" value="person.lastName" t:validate="required, maxlength=10" size="10"/></td>
-						<td>(required)</td>
-					</tr>
-					<tr class="err">
-						<th></th>
-						<td colspan="2"><t:CustomError for="updLastName"/></td>
-					</tr>
-					<tr>
-						<th><t:label for="updRegion"/>:</th>
-						<td><input t:type="Select" t:id="updRegion" value="person.region" t:validate="required"/></td>
-						<td>(required)</td>
-					</tr>
-					<tr class="err">
-						<th></th>
-						<td colspan="2"><t:CustomError for="updRegion"/></td>
-					</tr>
-					<tr>
-						<th><t:label for="updStartDate"/>:</th>
-						<td><input t:type="DateField" t:id="updStartDate" value="person.startDate" t:format="prop:dateFormat" t:validate="required" size="10"/></td>
-						<td>(required, ${datePattern})</td>
-					</tr>
-					<tr class="err">
-						<th></th>
-						<td colspan="2"><t:CustomError for="updStartDate"/></td>
-					</tr>
-				</table>
-
-				<div class="buttons">
-			 		<a t:type="eventLink" t:event="cancelUpdate" t:context="person.id" href="#">Cancel</a>
-				 	<input t:type="submit" value="Save"/>
-				</div>
+		 		<t:delegate to="block:editor"/>
 			</t:if>
+
 			<t:if test="!person">
 				Person ${personId} does not exist.<br/><br/>
 			</t:if>
+		</t:form>
 				
-		</form>
-		
 	</t:if>
+
+	<t:block t:id="editor">
+		<div class="form-group">
+			<t:label class="col-sm-4" for="firstName" />
+			<div class="col-sm-4">
+				<t:textfield t:id="firstName" value="person.firstName" />
+			</div>
+			<div class="col-sm-4">
+				<p class="form-control-static">(required)</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<t:label class="col-sm-4" for="lastName" />
+			<div class="col-sm-4">
+				<t:textfield t:id="lastName" value="person.lastName" />
+			</div>
+			<div class="col-sm-4">
+				<p class="form-control-static">(required)</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<t:label class="col-sm-4" for="region" />
+			<div class="col-sm-4">
+				<t:select t:id="region" value="person.region" blankOption="always" />
+			</div>
+			<div class="col-sm-4">
+				<p class="form-control-static">(required)</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<t:label class="col-sm-4" for="startDate" />
+			<div class="col-sm-4">
+				<t:datefield t:id="startDate" value="person.startDate" format="prop:dateFormat" />
+			</div>
+			<div class="col-sm-4">
+				<p class="form-control-static">(required, ${datePattern})</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-4 col-sm-offset-4">
+				<t:submit value="Save" />
+				<t:if test="modeCreate">
+					<t:eventlink event="cancelCreate" class="btn btn-default">Cancel</t:eventlink>
+				</t:if>
+				<t:if test="modeUpdate">
+					<t:eventlink event="cancelUpdate" context="personId" class="btn btn-default">Cancel</t:eventlink>
+				</t:if>
+			</div>
+		</div>
+	</t:block>
 
 </t:content>
 </html>

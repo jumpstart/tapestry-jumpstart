@@ -3,10 +3,7 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/componentscrud.css}"/>
-</head>
-<body>
+<body class="container">
 	<h1>Components CRUD</h1>
 	
 	This example is based on the <em>Filter CRUD</em> example, replacing the list and the editor with two custom components: 
@@ -21,13 +18,13 @@
 	
 					<!-- This is the left side of the table: a list of Persons -->
 	
-					<td id="listCell">
+					<td id="listSide">
 						<t:together.componentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
 					</td>
 					
-					<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
+					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
 			
-					<td id="editorCell">
+					<td id="editorSide">
 						<t:together.componentscrud.PersonEditor t:id="editor" mode="editorMode" personId="editorPersonId"/>
 					</td>
 					
@@ -37,9 +34,9 @@
 	</div>
 
 	Like all good components, PersonList and PersonEditor do not know about each other. They handle their own events, 
-	then bubble them up to their container which in this case is the page. The container is responsible for coordinating its components. 
-	For example, when you click on a person in the list, PersonList bubbles an event up to the page and the page decides what to tell 
-	the PersonEditor.<br/><br/>
+	then bubble them up to their container which, in this case, is the page. The container is responsible for coordinating its components. 
+	For example, when you click on a person in the list, PersonList bubbles the SELECTED event up to the page, and the page decides to 
+	set editorMode = REVIEW, and editorPersonId = the selected id, so that on redisplay the PersonEditor will show that person for review.<br/><br/>
 	 
 	A component can include data within an event that it bubbles up, which is what PersonList and PersonEditor do, but take note that a 
 	component can also return data in its parameters - the container can read the data because component parameters are bi-directional.<br/><br/>
@@ -55,19 +52,18 @@
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
-
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/componentscrud.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+    <t:tabgroup>
+        <t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/filtercrud.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
 </body>
 </html>

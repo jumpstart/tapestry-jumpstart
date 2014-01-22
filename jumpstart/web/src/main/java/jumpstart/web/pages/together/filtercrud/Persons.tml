@@ -22,7 +22,7 @@
 						<div id="listContainer">
 	
 							<div id="personFilter">
-								<form t:type="form" t:id="filterForm">
+								<t:form t:id="filterForm">
 									<div>
 										Person
 									</div>
@@ -30,18 +30,18 @@
 										<t:textfield t:id="partialName" type="search" placeholder="Filter"/>
 										<t:submit value="Filter" title="Filter" style="display: none;"/>
 									</div>
-								</form>
+								</t:form>
 							</div>
 		
 							<div id="personList">
-								<t:grid t:id="list" source="listPersons" row="listPerson"
+								<t:grid t:id="list" source="listPersons" row="listPerson" class="table"
 									exclude="id,version,firstName,lastName,region,startDate" add="name"
 									rowsPerPage="4" pagerPosition="bottom"
-									class="table" empty="block:emptyPersons">
+									empty="block:emptyPersons">
 									<p:nameCell>
-										<a t:type="eventLink" t:event="selected" t:context="listPerson.id" class="prop:linkCSSClass" href="#">
+										<t:eventLink event="selected" context="listPerson.id" class="prop:linkCSSClass">
 											${listPerson.firstName} ${listPerson.lastName}
-										</a>
+										</t:eventLink>
 									</p:nameCell>
 								</t:grid>
 							</div>
@@ -55,7 +55,7 @@
 						</div>
 					</td>
 					
-					<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
+					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
 			
 					<td id="editorSide">
 	
