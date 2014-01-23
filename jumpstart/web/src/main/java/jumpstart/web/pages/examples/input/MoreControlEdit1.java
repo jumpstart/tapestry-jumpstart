@@ -86,6 +86,10 @@ public class MoreControlEdit1 {
 
 	void onValidateFromPersonForm() {
 
+		if (personId == 2 && !person.getFirstName().equals("Mary")) {
+			form.recordError("First Name for this person must be Mary.");
+		}
+
 		if (form.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.
 			return;

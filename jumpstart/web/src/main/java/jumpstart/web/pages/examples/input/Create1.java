@@ -57,13 +57,16 @@ public class Create1 {
 
 	void onValidateFromPersonForm() {
 		
-		if (personForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
+		if (person.getFirstName() != null && person.getFirstName().equals("Acme")) {
+			personForm.recordError("First Name must not be Acme.");
 		}
-		
+
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			personForm.recordError("Sorry, but this function is not allowed in Demo mode.");
+		}
+		
+		if (personForm.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
 			return;
 		}
 		

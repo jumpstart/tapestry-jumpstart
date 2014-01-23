@@ -156,6 +156,11 @@ public class EditableLoopForUpdate1 {
 				Field field = firstNameFieldCopyByRowNum.get(rowNum);
 				form.recordError(field, "First name cannot be " + BAD_NAME + ".");
 			}
+
+			if (personSubmitted.getId() == 2 && !personSubmitted.getFirstName().equals("Mary")) {
+				Field field = firstNameFieldCopyByRowNum.get(rowNum);
+				form.recordError(field, field.getLabel() + " for this person must be Mary.");
+			}
 		}
 
 		if (form.getHasErrors()) {

@@ -46,7 +46,7 @@ public class LoopWithDeleteColumn1 {
 	private final DateEncoder dateEncoder = new DateEncoder();
 
 	@Property
-	private final String BAD_NAME = "Humpty";
+	private final String BAD_NAME = "Mary";
 
 	// Work fields
 

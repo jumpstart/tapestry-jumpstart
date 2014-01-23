@@ -12,6 +12,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.TextField;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
 @Import(stylesheet = "css/examples/plain.css")
@@ -35,6 +36,9 @@ public class TotalControlEdit1 {
 
 	@Component(id = "person")
 	private Form form;
+
+	@Component(id = "firstName")
+	private TextField firstNameField;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
@@ -84,6 +88,10 @@ public class TotalControlEdit1 {
 	}
 
 	void onValidateFromPerson() {
+
+		if (personId == 2 && !person.getFirstName().equals("Mary")) {
+			form.recordError(firstNameField, firstNameField.getLabel() + " must not be Acme.");
+		}
 
 		if (form.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.

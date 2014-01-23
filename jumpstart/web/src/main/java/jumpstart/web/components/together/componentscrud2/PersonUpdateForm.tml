@@ -5,7 +5,6 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <t:content>
 
-
 	<h1>Update</h1>
 	
 	<t:form t:id="form" class="form-horizontal" validate="person">

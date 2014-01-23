@@ -8,7 +8,7 @@
 	<div class="form-group">
 		<t:label class="col-sm-4" for="firstName" />
 		<div class="col-sm-4">
-			<t:textfield t:id="firstName" value="person.firstName" />
+			<t:textfield t:id="firstName" value="person.firstName" disabled="disabled"/>
 		</div>
 		<div class="col-sm-4">
 			<p class="form-control-static">(required)</p>
@@ -17,7 +17,7 @@
 	<div class="form-group">
 		<t:label class="col-sm-4" for="lastName" />
 		<div class="col-sm-4">
-			<t:textfield t:id="lastName" value="person.lastName" />
+			<t:textfield t:id="lastName" value="person.lastName" disabled="disabled"/>
 		</div>
 		<div class="col-sm-4">
 			<p class="form-control-static">(required)</p>
@@ -26,7 +26,7 @@
 	<div class="form-group">
 		<t:label class="col-sm-4" for="region" />
 		<div class="col-sm-4">
-			<t:select t:id="region" value="person.region" blankOption="always" />
+			<t:select t:id="region" value="person.region" blankOption="always" disabled="disabled"/>
 		</div>
 		<div class="col-sm-4">
 			<p class="form-control-static">(required)</p>
@@ -35,7 +35,7 @@
 	<div class="form-group">
 		<t:label class="col-sm-4" for="startDate" />
 		<div class="col-sm-4">
-			<t:datefield t:id="startDate" value="person.startDate" format="prop:dateFormat" />
+			<t:datefield t:id="startDate" value="person.startDate" format="prop:dateFormat" disabled="disabled"/>
 		</div>
 		<div class="col-sm-4">
 			<p class="form-control-static">(required, ${datePattern})</p>

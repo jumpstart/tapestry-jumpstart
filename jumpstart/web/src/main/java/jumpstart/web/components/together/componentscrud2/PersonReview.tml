@@ -7,33 +7,27 @@
 
 	<h1>Review</h1>
 	
-	<t:if test="person">
-		<div t:type="if" t:test="deleteMessage" class="error">
-			${deleteMessage}
-		</div>
+	<t:form t:id="form" class="form-horizontal">
+
+		<t:if test="person">
+			<div t:type="if" t:test="deleteMessage" class="error">
+				${deleteMessage}
+			</div>
+			
+			<t:together.componentscrud2.PersonEditor person="person" disabled="true"/>
+	
+			<div class="buttons">
+			 	<t:eventlink event="toUpdate" context="person.id">Update...</t:eventlink>
+				<t:eventlink event="delete" context="[person.id,person.version]" 
+					t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete...</t:eventlink>
+			</div>
+		</t:if>
+	
+		<t:if test="!person">
+			Person ${personId} does not exist.<br/><br/>
+		</t:if>
 		
-		<t:beandisplay object="person" include="id,version" add="name,regionX,startDateX">
-			<p:name>
-				${person.firstName} ${person.lastName}
-			</p:name>
-			<p:regionX>
-				${personRegion}
-			</p:regionX>
-			<p:startDateX>
-			<t:output value="person.startDate" format="prop:dateFormat"/>
-			</p:startDateX>
-		</t:beandisplay>
-
-		<div class="buttons">
-		 	<t:eventlink event="toUpdate" context="person.id">Update...</t:eventlink>
-			<t:eventlink event="delete" context="[person.id,person.version]" 
-				t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete...</t:eventlink>
-		</div>
-	</t:if>
-
-	<t:if test="!person">
-		Person ${personId} does not exist.<br/><br/>
-	</t:if>
+	</t:form>
 		
 </t:content>
 </html>

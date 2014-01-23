@@ -81,7 +81,7 @@ public class Persons {
 	// CREATE
 	// /////////////////////////////////////////////////////////////////////
 
-	void onCancelFromPersonCreate() {
+	void onCancelCreateFromPersonCreate() {
 		editorMode = null;
 		editorPersonId = null;
 	}
@@ -119,7 +119,7 @@ public class Persons {
 		editorPersonId = personId;
 	}
 
-	void onSuccessfulUpdatePersonUpdate(Long personId) {
+	void onSuccessfulUpdateFromPersonUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
