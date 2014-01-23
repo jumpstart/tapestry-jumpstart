@@ -24,15 +24,15 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#CANCEL_CREATE},
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#FAILED_CREATE},
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#TO_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#CANCEL_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#FAILED_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#SUCCESSFUL_DELETE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.componentscrud.PersonEditor#FAILED_DELETE}(Long personId).
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#CANCEL_CREATE},
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#FAILED_CREATE},
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#TO_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#CANCEL_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#FAILED_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#SUCCESSFUL_DELETE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#FAILED_DELETE}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
 @Events({ PersonEditor.CANCEL_CREATE, PersonEditor.SUCCESSFUL_CREATE, PersonEditor.FAILED_CREATE,

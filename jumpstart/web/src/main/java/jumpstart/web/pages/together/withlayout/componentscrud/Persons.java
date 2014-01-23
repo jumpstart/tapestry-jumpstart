@@ -1,6 +1,6 @@
 package jumpstart.web.pages.together.withlayout.componentscrud;
 
-import jumpstart.web.components.together.componentscrud.PersonEditor.Mode;
+import jumpstart.web.components.together.componentscrud.PersonEditorForm.Mode;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;

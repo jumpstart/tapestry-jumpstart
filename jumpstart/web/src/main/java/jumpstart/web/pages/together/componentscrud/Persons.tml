@@ -7,7 +7,7 @@
 	<h1>Components CRUD</h1>
 	
 	This example is based on the <em>Filter CRUD</em> example, replacing the list and the editor with two custom components: 
-	PersonList and PersonEditor.<br/>
+	PersonList and PersonEditorForm.<br/>
 
 	<div class="eg">
 	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>
@@ -25,7 +25,7 @@
 					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
 			
 					<td id="editorSide">
-						<t:together.componentscrud.PersonEditor t:id="editor" mode="editorMode" personId="editorPersonId"/>
+						<t:together.componentscrud.PersonEditorForm t:id="editor" mode="editorMode" personId="editorPersonId"/>
 					</td>
 					
 				</tr>
@@ -33,15 +33,15 @@
 	 	</table>
 	</div>
 
-	Like all good components, PersonList and PersonEditor do not know about each other. They handle their own events, 
-	then bubble them up to their container which, in this case, is the page. The container is responsible for coordinating its components. 
-	For example, when you click on a person in the list, PersonList bubbles the SELECTED event up to the page, and the page decides to 
-	set editorMode = REVIEW, and editorPersonId = the selected id, so that on redisplay the PersonEditor will show that person for review.<br/><br/>
+	Like all good components, PersonList and PersonEditorForm do not know about each other. They handle their own events, 
+	then bubble them up to their container which is, in this case, the page. The container is responsible for coordinating its components. 
+	For example, when you click on a person in the list, PersonList bubbles the SELECTED event up to the page, and the page sets 
+	editorMode = REVIEW, and editorPersonId = the selected id, so that on redisplay the PersonEditorForm will show that person for review.<br/><br/>
 	 
-	A component can include data within an event that it bubbles up, which is what PersonList and PersonEditor do, but take note that a 
+	A component can include data within an event that it bubbles up, which is what PersonList and PersonEditorForm do, but take note that a 
 	component can also return data in its parameters - the container can read the data because component parameters are bi-directional.<br/><br/>
 
-	Splitting the page into custom components like PersonList and PersonEditor is very appealing because it provides a clear and very 
+	Splitting the page into custom components like PersonList and PersonEditorForm is very appealing because it provides a clear and very 
 	natural separation of concerns, but just be aware that it doesn't come for free: you have to put in a bit of extra effort to get 
 	the event handling right.<br/><br/>
 
@@ -57,9 +57,9 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.properties"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditor.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditorForm.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditorForm.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEditorForm.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/filtercrud.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>

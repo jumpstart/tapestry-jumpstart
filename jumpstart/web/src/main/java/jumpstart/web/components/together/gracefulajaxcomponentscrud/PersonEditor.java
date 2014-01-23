@@ -25,20 +25,20 @@ import org.apache.tapestry5.services.Request;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#CANCEL_CREATE},
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#FAILED_CREATE},
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#TO_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#CANCEL_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#FAILED_UPDATE}(Long personId),
- * personId), {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#SUCCESSFUL_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#FAILED_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#TO_CONFIRM_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#CANCEL_CONFIRM_DELETE}
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#CANCEL_CREATE},
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#FAILED_CREATE},
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#TO_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#CANCEL_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#FAILED_UPDATE}(Long personId),
+ * personId), {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#SUCCESSFUL_DELETE}(Long
+ * personId), {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#FAILED_DELETE}(Long
+ * personId), {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#TO_CONFIRM_DELETE}(Long
+ * personId), {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#CANCEL_CONFIRM_DELETE}
  * (Long personId),
- * {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#SUCCESSFUL_CONFIRM_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.gracefulcomponentscrud.PersonEditor#FAILED_CONFIRM_DELETE}
+ * {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#SUCCESSFUL_CONFIRM_DELETE}(Long
+ * personId), {@link jumpstart.web.components.examples.ajax.PersonEditorForm.PersonEditor#FAILED_CONFIRM_DELETE}
  * (Long personId)
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.

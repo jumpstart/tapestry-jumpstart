@@ -12,6 +12,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.TextField;
 
 @Import(stylesheet="css/examples/plain.css")
 public class PersonCreate {
@@ -32,6 +33,9 @@ public class PersonCreate {
 
 	@Component(id = "personForm")
 	private Form personForm;
+
+	@Component(id = "firstName")
+	private TextField firstNameField;
 
 	@EJB
 	private IPersonManagerServiceLocal personManagerService;
@@ -60,13 +64,16 @@ public class PersonCreate {
 
 	void onValidateFromPersonForm() {
 
-		if (personForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
+		if (person.getFirstName() != null && person.getFirstName().equals("Acme")) {
+			personForm.recordError(firstNameField, firstNameField.getLabel() + " must not be Acme.");
 		}
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			personForm.recordError("Sorry, but this function is not allowed in Demo mode.");
+		}
+
+		if (personForm.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
 			return;
 		}
 

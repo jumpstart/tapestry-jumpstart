@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<t:content>
+
+	<h1>Create</h1>
+	
+	<t:form t:id="form" class="form-horizontal" validate="person">
+		<t:errors globalOnly="true"/>
+		
+ 		<t:together.componentscrud2.PersonEditor person="person"/>
+
+		<div class="form-group">
+			<div class="col-sm-4 col-sm-offset-4">
+				<t:submit value="Save" />
+				<t:eventlink event="cancel" class="btn btn-default">Cancel</t:eventlink>
+			</div>
+		</div>
+	</t:form>
+
+</t:content>
+</html>

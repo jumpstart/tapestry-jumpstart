@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<t:content>
+
+	<h1>Review</h1>
+	
+	<t:if test="person">
+		<div t:type="if" t:test="deleteMessage" class="error">
+			${deleteMessage}
+		</div>
+		
+		<t:beandisplay object="person" include="id,version" add="name,regionX,startDateX">
+			<p:name>
+				${person.firstName} ${person.lastName}
+			</p:name>
+			<p:regionX>
+				${personRegion}
+			</p:regionX>
+			<p:startDateX>
+			<t:output value="person.startDate" format="prop:dateFormat"/>
+			</p:startDateX>
+		</t:beandisplay>
+
+		<div class="buttons">
+		 	<t:eventlink event="toUpdate" context="person.id">Update...</t:eventlink>
+			<t:eventlink event="delete" context="[person.id,person.version]" 
+				t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete...</t:eventlink>
+		</div>
+	</t:if>
+
+	<t:if test="!person">
+		Person ${personId} does not exist.<br/><br/>
+	</t:if>
+		
+</t:content>
+</html>

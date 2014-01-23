@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<body class="container">
+	<h1>Components CRUD 2</h1>
+	
+	Again, this example is based on the <em>Filter CRUD</em> example, but this time we've replaced the list and the editor with 
+	five custom components: PersonList, PersonCreateForm, PersonReview, PersonUpdateForm, and PersonEditor.<br/>
+
+	<div class="eg">
+	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>
+	 	
+		<table id="listAndEditor">
+			<tbody>
+				<tr>
+	
+					<!-- This is the left side of the table: a list of Persons -->
+	
+					<td id="listSide">
+						<t:together.componentscrud2.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
+					</td>
+					
+					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
+			
+					<td id="editorSide">
+						<t:if test="modeCreate">
+							<t:together.componentscrud2.PersonCreateForm t:id="personCreate"/>
+						</t:if>
+						<t:if test="modeReview">
+							<t:together.componentscrud2.PersonReview t:id="personReview" personId="editorPersonId"/>
+						</t:if>
+						<t:if test="modeUpdate">
+							<t:together.componentscrud2.PersonUpdateForm t:id="personUpdate" personId="editorPersonId"/>
+						</t:if>
+					</td>
+					
+				</tr>
+			</tbody>
+	 	</table>
+	</div>
+
+ 	References: 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
+
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+	
+	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
+    <t:tabgroup>
+        <t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud2/Persons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud2/Persons.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonList.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonList.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonCreateForm.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonCreateForm.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonReview.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonReview.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonUpdateForm.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonUpdateForm.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonEditor.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonEditor.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonEditor.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/filtercrud.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
+</body>
+</html>

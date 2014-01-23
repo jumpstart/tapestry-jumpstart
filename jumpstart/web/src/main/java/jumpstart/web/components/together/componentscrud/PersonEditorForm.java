@@ -20,33 +20,30 @@ import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#CANCEL_CREATE},
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#FAILED_CREATE},
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#TO_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#FAILED_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#SUCCESSFUL_DELETE}(Long personId),
- * {@link jumpstart.web.components.examples.component.crud.PersonEditor#FAILED_DELETE}(Long personId).
+ * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#CANCEL_CREATE},
+ * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
+ * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#TO_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
+ * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_DELETE}(Long personId),
+ * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#FAILED_DELETE}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
-@Events({ PersonEditor.CANCEL_CREATE, PersonEditor.SUCCESSFUL_CREATE, PersonEditor.FAILED_CREATE,
-		PersonEditor.TO_UPDATE, PersonEditor.CANCEL_UPDATE, PersonEditor.SUCCESSFUL_UPDATE, PersonEditor.FAILED_UPDATE,
-		PersonEditor.SUCCESFUL_DELETE, PersonEditor.FAILED_DELETE })
+@Events({ PersonEditorForm.CANCEL_CREATE, PersonEditorForm.SUCCESSFUL_CREATE, PersonEditorForm.TO_UPDATE,
+		PersonEditorForm.CANCEL_UPDATE, PersonEditorForm.SUCCESSFUL_UPDATE, PersonEditorForm.SUCCESFUL_DELETE,
+		PersonEditorForm.FAILED_DELETE })
 @Import(stylesheet = "css/together/filtercrud.css")
-public class PersonEditor {
+public class PersonEditorForm {
 	public static final String CANCEL_CREATE = "cancelCreate";
 	public static final String SUCCESSFUL_CREATE = "successfulCreate";
-	public static final String FAILED_CREATE = "failedCreate";
 	public static final String TO_UPDATE = "toUpdate";
 	public static final String CANCEL_UPDATE = "cancelUpdate";
 	public static final String SUCCESSFUL_UPDATE = "successfulUpdate";
-	public static final String FAILED_UPDATE = "failedUpdate";
 	public static final String SUCCESFUL_DELETE = "successfulDelete";
 	public static final String FAILED_DELETE = "failedDelete";
 
@@ -84,14 +81,13 @@ public class PersonEditor {
 	private IPersonManagerServiceLocal personManagerService;
 
 	@Component
-	// FIX!
-	// private CustomForm createForm;
 	private Form createForm;
 
 	@Component
-	// FIX!
-	// private CustomForm updateForm;
 	private Form updateForm;
+
+	@Component(id = "firstName")
+	private TextField firstNameField;
 
 	@Inject
 	private ComponentResources componentResources;
@@ -119,6 +115,7 @@ public class PersonEditor {
 		}
 
 	}
+
 	// /////////////////////////////////////////////////////////////////////
 	// CREATE
 	// /////////////////////////////////////////////////////////////////////
@@ -153,13 +150,16 @@ public class PersonEditor {
 
 	void onValidateFromCreateForm() {
 
-		if (createForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
+		if (person.getFirstName() != null && person.getFirstName().equals("Acme")) {
+			createForm.recordError(firstNameField, firstNameField.getLabel() + " must not be Acme.");
 		}
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			createForm.recordError("Sorry, but Create is not allowed in Demo mode.");
+		}
+
+		if (createForm.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
 			return;
 		}
 
@@ -180,14 +180,6 @@ public class PersonEditor {
 		// "successfulCreate" with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(SUCCESSFUL_CREATE, new Object[] { person.getId() }, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
-		return true;
-	}
-
-	boolean onFailureFromCreateForm() {
-		// Rather than letting "failure" bubble up which doesn't say what you were trying to do, we trigger new event
-		// "failedCreate". It will bubble up because we don't have a handler method for it.
-		componentResources.triggerEvent(FAILED_CREATE, null, null);
-		// We don't want "failure" to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
@@ -244,6 +236,10 @@ public class PersonEditor {
 
 	void onValidateFromUpdateForm() {
 
+		if (personId == 2 && !person.getFirstName().equals("Mary")) {
+			updateForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
+		}
+
 		if (updateForm.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.
 			return;
@@ -266,15 +262,6 @@ public class PersonEditor {
 		// "successfulUpdate" with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(SUCCESSFUL_UPDATE, new Object[] { personId }, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
-		return true;
-	}
-
-	boolean onFailureFromUpdateForm() {
-
-		// Rather than letting "failure" bubble up which doesn't say what you were trying to do, we trigger new event
-		// "failedUpdate". It will bubble up because we don't have a handler method for it.
-		componentResources.triggerEvent(FAILED_UPDATE, new Object[] { personId }, null);
-		// We don't want "failure" to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 

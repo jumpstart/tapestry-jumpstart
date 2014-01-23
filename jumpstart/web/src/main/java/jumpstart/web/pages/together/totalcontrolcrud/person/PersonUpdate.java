@@ -13,6 +13,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.TextField;
 
 @Import(stylesheet = "css/examples/plain.css")
 public class PersonUpdate {
@@ -36,6 +37,9 @@ public class PersonUpdate {
 
 	@Component(id = "personForm")
 	private Form personForm;
+
+	@Component(id = "firstName")
+	private TextField firstNameField;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;
@@ -87,6 +91,10 @@ public class PersonUpdate {
 	// PersonForm bubbles up the VALIDATE event when it is submitted
 
 	void onValidateFromPersonForm() {
+
+		if (personId == 2 && !person.getFirstName().equals("Mary")) {
+			personForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
+		}
 
 		if (personForm.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.

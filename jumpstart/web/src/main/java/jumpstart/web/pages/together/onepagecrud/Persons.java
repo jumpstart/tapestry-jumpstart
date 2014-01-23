@@ -19,6 +19,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -68,6 +69,9 @@ public class Persons {
 
 	@Component
 	private Form updateForm;
+
+	@Component(id = "firstName")
+	private TextField firstNameField;
 
 	@Inject
 	private Messages messages;
@@ -174,13 +178,16 @@ public class Persons {
 
 	void onValidateFromCreateForm() {
 
-		if (createForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
+		if (editorPerson.getFirstName() != null && editorPerson.getFirstName().equals("Acme")) {
+			createForm.recordError(firstNameField, firstNameField.getLabel() + " must not be Acme.");
 		}
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			createForm.recordError("Sorry, but Create is not allowed in Demo mode.");
+		}
+
+		if (createForm.getHasErrors()) {
+			// We get here only if a server-side validator detected an error.
 			return;
 		}
 
@@ -261,6 +268,10 @@ public class Persons {
 	// Component "updateForm" bubbles up the VALIDATE event when it is submitted
 
 	void onValidateFromUpdateForm() {
+
+		if (editorPersonId == 2 && !editorPerson.getFirstName().equals("Mary")) {
+			updateForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
+		}
 
 		if (updateForm.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.

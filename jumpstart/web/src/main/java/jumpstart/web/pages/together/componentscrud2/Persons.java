@@ -1,4 +1,4 @@
-package jumpstart.web.pages.together.componentscrud;
+package jumpstart.web.pages.together.componentscrud2;
 
 import jumpstart.web.components.together.componentscrud.PersonEditorForm.Mode;
 
@@ -84,25 +84,18 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	// Handle event "cancelCreate" from component "editor"
+	// Handle event "cancelCreate" from component "personCreate"
 
-	void onCancelCreateFromEditor() {
+	void onCancelFromPersonCreate() {
 		editorMode = null;
 		editorPersonId = null;
 	}
 
-	// Handle event "successfulCreate" from component "editor"
+	// Handle event "successfulCreate" from component "personCreate"
 
-	void onSuccessfulCreateFromEditor(Long personId) {
+	void onSuccessfulCreateFromPersonCreate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
-	}
-
-	// Handle event "failedCreate" from component "editor"
-
-	void onFailedCreateFromEditor() {
-		editorMode = Mode.CREATE;
-		editorPersonId = null;
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -120,31 +113,24 @@ public class Persons {
 	// UPDATE
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "toUpdate" from component "editor"
+	// Handle event "toUpdate" from component "personReview"
 
-	void onToUpdateFromEditor(Long personId) {
+	void onToUpdateFromPersonReview(Long personId) {
 		editorMode = Mode.UPDATE;
 		editorPersonId = personId;
 	}
 
-	// Handle event "cancelUpdate" from component "editor"
+	// Handle event "cancelUpdate" from component "personUpdate"
 
-	void onCancelUpdateFromEditor(Long personId) {
+	void onCancelUpdateFromPersonUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
 
-	// Handle event "successfulUpdate" from component "editor"
+	// Handle event "successfulUpdate" from component "personUpdate"
 
-	void onSuccessfulUpdateFromEditor(Long personId) {
+	void onSuccessfulUpdatePersonUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
-	}
-
-	// Handle event "failedUpdate" from component "editor"
-
-	void onFailedUpdateFromEditor(Long personId) {
-		editorMode = Mode.UPDATE;
 		editorPersonId = personId;
 	}
 
@@ -152,18 +138,35 @@ public class Persons {
 	// DELETE
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "successfulDelete" from component "editor"
+	// Handle event "successfulDelete" from component "personReview"
 
-	void onSuccessfulDeleteFromEditor(Long personId) {
+	void onSuccessfulDeleteFromPersonReview(Long personId) {
 		editorMode = null;
 		editorPersonId = null;
 	}
 
-	// Handle event "failedDelete" from component "editor"
+	// Handle event "failedDelete" from component "personReview"
 
-	void onFailedDeleteFromEditor(Long personId) {
+	void onFailedDeleteFromPersonReview(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
 
+	// /////////////////////////////////////////////////////////////////////
+	// OTHER
+	// /////////////////////////////////////////////////////////////////////
+
+	// Getters
+
+	public boolean isModeCreate() {
+		return editorMode == Mode.CREATE;
+	}
+
+	public boolean isModeReview() {
+		return editorMode == Mode.REVIEW;
+	}
+
+	public boolean isModeUpdate() {
+		return editorMode == Mode.UPDATE;
+	}
 }
