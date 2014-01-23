@@ -40,7 +40,7 @@ public class BeanValidators {
 		}
 	}
 
-	// PersonForm bubbles up the PREPARE_FOR_SUBMIT event during form render.
+	// PersonForm bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
 
 	void onPrepareForSubmit() {
 		// Create object for the form fields to overlay.

@@ -6,15 +6,17 @@
 <body class="container">
 	<h3>Better Output</h3>
 
-	As Tapestry generates, or "renders", a page, Tapestry will call the page's <code>setupRender()</code> method if there is one.<br/>
+	As Tapestry generates, or <em>renders</em>, a page, it will call the page's 
+	<code>setupRender()</code> method if the page has one.<br/>
 	In previous examples we set up <code>message</code> in <code>getMessage()</code>. 
-	Now we set it up once, in <code>setupRender()</code>. 
+	In this example we set up <code>message</code> once, in <code>setupRender()</code>. 
 	
 	<div class="eg">
+		<p>
 		${message}<br/>
 		${message}<br/>
-		${message}<br/><br/>
-		
+		${message}<br/>
+		</p>
 		<t:pagelink t:page="examples/output/BetterOutput" href="#">Refresh</t:pagelink>
 	</div>
 

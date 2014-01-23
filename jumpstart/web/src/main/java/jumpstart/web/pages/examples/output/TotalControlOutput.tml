@@ -31,7 +31,7 @@
 		</div>
 	</div>
 
-	4 new things:<br/><br/>
+	<p>4 new things:</p>
 	<ul>
 		<li>
 			<strong>Property expressions</strong> 
@@ -51,7 +51,7 @@
 			A Tapestry service that provides access to properties files. We use it to convert the enum to a message. It looks
 			first for <em>TotalControlOutput.properties</em> and finds it.
 		</li>
-	</ul><br/>
+	</ul>
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">Expansions</a>, 
@@ -61,6 +61,8 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/Messages.html">Messages</a>.<br/><br/>	
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>
+	
+	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
 	
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/output/TotalControlOutput.tml"/>

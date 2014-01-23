@@ -13,7 +13,7 @@
 	</div>
 	
 	This bean is Person 1 retrieved from the database by PersonFinderService.  
-	The source for PersonFinderService and @EJB handling is shown in the @EJB example.<br/><br/>
+	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
 	
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
