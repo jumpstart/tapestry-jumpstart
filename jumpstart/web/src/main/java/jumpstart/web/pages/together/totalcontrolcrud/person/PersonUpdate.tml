@@ -7,7 +7,7 @@
 	<h3>Update</h3>
 
 	<div class="eg">
-		<t:form t:id="personForm" class="form-horizontal" validate="person">
+		<t:form t:id="form" class="form-horizontal" validate="person">
 			<t:errors globalOnly="true"/>
 		
 			<t:if test="person">

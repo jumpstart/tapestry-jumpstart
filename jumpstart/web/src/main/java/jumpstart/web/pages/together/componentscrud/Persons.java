@@ -29,8 +29,6 @@ public class Persons {
 
 	// The code
 
-	// onActivate() is called by Tapestry to pass in the activation context from the URL.
-
 	void onActivate(EventContext ec) {
 
 		if (ec.getCount() == 0) {
@@ -47,8 +45,6 @@ public class Persons {
 		}
 
 	}
-
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
 
 	Object[] onPassivate() {
 
@@ -67,51 +63,49 @@ public class Persons {
 
 	}
 
-	// setupRender() is called by Tapestry right before it starts rendering the page.
-
 	void setupRender() {
 		listPersonId = editorPersonId;
 	}
-
-	// /////////////////////////////////////////////////////////////////////
-	// CREATE
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "toCreate" from this page
 
 	void onToCreate() {
 		editorMode = Mode.CREATE;
 		editorPersonId = null;
 	}
 
-	// Handle event "cancelCreate" from component "editor"
+	void onSelectedFromList(Long personId) {
+		editorMode = Mode.REVIEW;
+		editorPersonId = personId;
+	}
+
+	// /////////////////////////////////////////////////////////////////////
+	// CREATE
+	// /////////////////////////////////////////////////////////////////////
 
 	void onCancelCreateFromEditor() {
 		editorMode = null;
 		editorPersonId = null;
 	}
 
-	// Handle event "successfulCreate" from component "editor"
-
 	void onSuccessfulCreateFromEditor(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
-	}
-
-	// Handle event "failedCreate" from component "editor"
-
-	void onFailedCreateFromEditor() {
-		editorMode = Mode.CREATE;
-		editorPersonId = null;
 	}
 
 	// /////////////////////////////////////////////////////////////////////
 	// REVIEW
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "selected" from component "list"
+	void onToUpdateFromEditor(Long personId) {
+		editorMode = Mode.UPDATE;
+		editorPersonId = personId;
+	}
 
-	void onSelectedFromList(Long personId) {
+	void onSuccessfulDeleteFromEditor(Long personId) {
+		editorMode = null;
+		editorPersonId = null;
+	}
+
+	void onFailedDeleteFromEditor(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
@@ -120,48 +114,12 @@ public class Persons {
 	// UPDATE
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "toUpdate" from component "editor"
-
-	void onToUpdateFromEditor(Long personId) {
-		editorMode = Mode.UPDATE;
-		editorPersonId = personId;
-	}
-
-	// Handle event "cancelUpdate" from component "editor"
-
 	void onCancelUpdateFromEditor(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
 
-	// Handle event "successfulUpdate" from component "editor"
-
 	void onSuccessfulUpdateFromEditor(Long personId) {
-		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
-	}
-
-	// Handle event "failedUpdate" from component "editor"
-
-	void onFailedUpdateFromEditor(Long personId) {
-		editorMode = Mode.UPDATE;
-		editorPersonId = personId;
-	}
-
-	// /////////////////////////////////////////////////////////////////////
-	// DELETE
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "successfulDelete" from component "editor"
-
-	void onSuccessfulDeleteFromEditor(Long personId) {
-		editorMode = null;
-		editorPersonId = null;
-	}
-
-	// Handle event "failedDelete" from component "editor"
-
-	void onFailedDeleteFromEditor(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}

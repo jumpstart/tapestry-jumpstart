@@ -7,7 +7,7 @@
 	<h3>Create</h3>
 	
 	<div class="eg">
-		<t:beaneditform t:id="personForm" object="person" include="firstName,lastName,region,startDate" submitLabel="Save" cancel="true"/>
+		<t:beaneditform t:id="form" object="person" include="firstName,lastName,region,startDate" submitLabel="Save" cancel="true"/>
 	</div>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

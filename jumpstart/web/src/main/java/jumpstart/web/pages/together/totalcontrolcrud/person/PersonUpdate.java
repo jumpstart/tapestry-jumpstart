@@ -35,8 +35,8 @@ public class PersonUpdate {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "personForm")
-	private Form personForm;
+	@Component
+	private Form form;
 
 	@Component(id = "firstName")
 	private TextField firstNameField;
@@ -49,32 +49,24 @@ public class PersonUpdate {
 
 	// The code
 
-	// onActivate() is called by Tapestry to pass in the activation context from the URL.
-
 	void onActivate(Long personId) {
 		this.personId = personId;
 	}
-
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
 
 	Long onPassivate() {
 		return personId;
 	}
 
-	// PersonForm bubbles up the PREPARE_FOR_RENDER event during form render.
-
 	void onPrepareForRender() {
 
 		// If fresh start, make sure there's a Person object available.
 
-		if (personForm.isValid()) {
+		if (form.isValid()) {
 			person = personFinderService.findPerson(personId);
 			// Handle null person in the template.
 		}
 
 	}
-
-	// PersonForm bubbles up the PREPARE_FOR_SUBMIT event during form submission.
 
 	void onPrepareForSubmit() {
 
@@ -82,22 +74,19 @@ public class PersonUpdate {
 		person = personFinderService.findPerson(personId);
 
 		if (person == null) {
-			personForm.recordError("Person has been deleted by another process.");
+			form.recordError("Person has been deleted by another process.");
 			// Instantiate an empty person to avoid NPE in the Form.
 			person = new Person();
 		}
 	}
 
-	// PersonForm bubbles up the VALIDATE event when it is submitted
-
-	void onValidateFromPersonForm() {
+	void onValidateFromForm() {
 
 		if (personId == 2 && !person.getFirstName().equals("Mary")) {
-			personForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
+			form.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
 		}
 
-		if (personForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
+		if (form.getHasErrors()) {
 			return;
 		}
 
@@ -106,11 +95,9 @@ public class PersonUpdate {
 		}
 		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
-			personForm.recordError(ExceptionUtil.getRootCauseMessage(e));
+			form.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
 	}
-
-	// PersonForm bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE records an error
 
 	Object onSuccess() {
 		return indexPage;

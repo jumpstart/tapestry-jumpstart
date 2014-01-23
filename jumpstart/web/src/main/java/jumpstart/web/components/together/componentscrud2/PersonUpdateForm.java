@@ -16,7 +16,6 @@ import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
-import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -66,8 +65,6 @@ public class PersonUpdateForm {
 
 	// The code
 
-	// Handle event "cancelUpdate"
-
 	boolean onCancel(Long personId) {
 		// We want to tell our containing page explicitly what person we've updated, so we trigger new event
 		// "successfulUpdate" with a parameter. It will bubble up because we don't have a handler method for it.
@@ -75,8 +72,6 @@ public class PersonUpdateForm {
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;
 	}
-
-	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event during form render
 
 	void onPrepareForRenderFromForm() {
 
@@ -87,8 +82,6 @@ public class PersonUpdateForm {
 			// Handle null person in the template.
 		}
 	}
-
-	// Component "updateForm" bubbles up the PREPARE_FOR_SUBMIT event during for submission
 
 	void onPrepareForSubmitFromForm() {
 		// Get objects for the form fields to overlay.
@@ -101,12 +94,9 @@ public class PersonUpdateForm {
 		}
 	}
 
-	// Component "updateForm" bubbles up the VALIDATE event when it is submitted
-
 	void onValidateFromForm() {
 
 		if (form.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
 			return;
 		}
 
@@ -118,9 +108,6 @@ public class PersonUpdateForm {
 			form.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
 	}
-
-	// Component "updateForm" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE
-	// records an error
 
 	boolean onSuccessFromForm() {
 		// We want to tell our containing page explicitly what person we've updated, so we trigger new event

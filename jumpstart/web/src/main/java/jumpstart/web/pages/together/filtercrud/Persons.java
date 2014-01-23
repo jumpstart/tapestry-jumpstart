@@ -85,8 +85,6 @@ public class Persons {
 
 	// The code
 
-	// onActivate() is called by Tapestry to pass in the activation context from the URL.
-
 	void onActivate(EventContext ec) {
 
 		if (ec.getCount() == 0) {
@@ -104,8 +102,6 @@ public class Persons {
 
 	}
 
-	// onPassivate() is called by Tapestry to get the activation context to put in the URL.
-
 	Object[] onPassivate() {
 
 		if (editorMode == null) {
@@ -122,8 +118,6 @@ public class Persons {
 		}
 
 	}
-
-	// setupRender() is called by Tapestry right before it starts rendering the page.
 
 	void setupRender() {
 		listPersons = new PersonFilteredDataSource(personFinderService, partialName);
@@ -143,25 +137,24 @@ public class Persons {
 
 	}
 
-	// /////////////////////////////////////////////////////////////////////
-	// CREATE
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "toCreate"
-
 	void onToCreate() {
 		editorMode = Mode.CREATE;
 		editorPersonId = null;
 	}
 
-	// Handle event "cancelCreate"
+	void onSelected(Long personId) {
+		editorMode = Mode.REVIEW;
+		editorPersonId = personId;
+	}
+
+	// /////////////////////////////////////////////////////////////////////
+	// CREATE
+	// /////////////////////////////////////////////////////////////////////
 
 	void onCancelCreate() {
 		editorMode = null;
 		editorPersonId = null;
 	}
-
-	// Component "createForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
 	void onPrepareForRenderFromCreateForm() throws Exception {
 
@@ -173,15 +166,11 @@ public class Persons {
 		}
 	}
 
-	// Component "createForm" bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
-
 	void onPrepareForSubmitFromCreateForm() throws Exception {
 		editorMode = Mode.CREATE;
 		// Instantiate a Person for the form data to overlay.
 		editorPerson = new Person();
 	}
-
-	// Component "createForm" bubbles up the VALIDATE event when it is submitted
 
 	void onValidateFromCreateForm() {
 
@@ -194,7 +183,6 @@ public class Persons {
 		}
 
 		if (createForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
 			return;
 		}
 
@@ -207,9 +195,6 @@ public class Persons {
 		}
 	}
 
-	// Component "createForm" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE
-	// records an error
-
 	void onSuccessFromCreateForm() {
 		editorMode = Mode.REVIEW;
 		editorPersonId = editorPerson.getId();
@@ -219,32 +204,40 @@ public class Persons {
 	// REVIEW
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "selected"
+	void onToUpdate(Long personId) {
+		editorMode = Mode.UPDATE;
+		editorPersonId = personId;
+	}
 
-	void onSelected(Long personId) {
+	void onDelete(Long personId, Integer personVersion) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
+
+		if (demoModeStr != null && demoModeStr.equals("true")) {
+			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
+			return;
+		}
+
+		try {
+			personManagerService.deletePerson(personId, personVersion);
+
+			editorMode = null;
+			editorPersonId = null;
+		}
+		catch (Exception e) {
+			// Display the cause. In a real system we would try harder to get a user-friendly message.
+			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
+		}
 	}
 
 	// /////////////////////////////////////////////////////////////////////
 	// UPDATE
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "toUpdate"
-
-	void onToUpdate(Long personId) {
-		editorMode = Mode.UPDATE;
-		editorPersonId = personId;
-	}
-
-	// Handle event "cancelUpdate"
-
 	void onCancelUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
-
-	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
 	void onPrepareForRenderFromUpdateForm() {
 
@@ -256,8 +249,6 @@ public class Persons {
 			// Handle null editorPerson in the template.
 		}
 	}
-
-	// Component "updateForm" bubbles up the PREPARE_FOR_SUBMIT event during form submission
 
 	void onPrepareForSubmitFromUpdateForm() {
 		editorMode = Mode.UPDATE;
@@ -272,8 +263,6 @@ public class Persons {
 		}
 	}
 
-	// Component "updateForm" bubbles up the VALIDATE event when it is submitted
-
 	void onValidateFromUpdateForm() {
 
 		if (editorPersonId == 2 && !editorPerson.getFirstName().equals("Mary")) {
@@ -281,7 +270,6 @@ public class Persons {
 		}
 
 		if (updateForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
 			return;
 		}
 
@@ -294,45 +282,14 @@ public class Persons {
 		}
 	}
 
-	// Component "updateForm" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE
-	// records an error
-
 	void onSuccessFromUpdateForm() {
 		editorMode = Mode.REVIEW;
 		editorPersonId = editorPerson.getId();
 	}
 
 	// /////////////////////////////////////////////////////////////////////
-	// DELETE
+	// GETTERS ETC.
 	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "delete"
-
-	void onDelete(Long personId, Integer personVersion) {
-		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
-
-		if (demoModeStr != null && demoModeStr.equals("true")) {
-			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
-			return;
-		}
-
-		try {
-			personManagerService.deletePerson(personId, personVersion);
-			editorMode = null;
-			editorPersonId = null;
-		}
-		catch (Exception e) {
-			// Display the cause. In a real system we would try harder to get a user-friendly message.
-			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
-		}
-	}
-
-	// /////////////////////////////////////////////////////////////////////
-	// OTHER
-	// /////////////////////////////////////////////////////////////////////
-
-	// Getters
 
 	public String getLinkCSSClass() {
 		if (listPerson != null && listPerson.getId().equals(editorPersonId)) {

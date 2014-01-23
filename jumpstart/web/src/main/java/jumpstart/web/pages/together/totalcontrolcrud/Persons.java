@@ -21,7 +21,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class Persons {
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
@@ -58,16 +58,13 @@ public class Persons {
 
 	// The code
 
-	// setupRender() is called by Tapestry right before it starts rendering the page.
-
 	void setupRender() {
 		persons = personFinderService.findPersons(MAX_RESULTS);
 		evenOdd = new EvenOdd();
 	}
 
-	// Handle event "delete"
-
 	void onDelete(Long id, Integer version) {
+		
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			errorMessage = "Sorry, but this function is not allowed in Demo mode.";
 			return;

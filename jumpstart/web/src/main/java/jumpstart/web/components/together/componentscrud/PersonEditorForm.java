@@ -97,8 +97,6 @@ public class PersonEditorForm {
 
 	// The code
 
-	// setupRender() is called by Tapestry right before it starts rendering the component.
-
 	void setupRender() {
 
 		if (mode == Mode.REVIEW) {
@@ -120,15 +118,11 @@ public class PersonEditorForm {
 	// CREATE
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "cancelCreate"
-
 	boolean onCancelCreate() {
 		// Return false, which means we haven't handled the event so bubble it up.
 		// This method is here solely as documentation, because without this method the event would bubble up anyway.
 		return false;
 	}
-
-	// Component "createForm" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
 	void onPrepareForRenderFromCreateForm() throws Exception {
 
@@ -139,14 +133,10 @@ public class PersonEditorForm {
 		}
 	}
 
-	// Component "createForm" bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
-
 	void onPrepareForSubmitFromCreateForm() throws Exception {
 		// Instantiate a Person for the form data to overlay.
 		person = new Person();
 	}
-
-	// Component "createForm" bubbles up the VALIDATE event when it is submitted
 
 	void onValidateFromCreateForm() {
 
@@ -159,7 +149,6 @@ public class PersonEditorForm {
 		}
 
 		if (createForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
 			return;
 		}
 
@@ -171,9 +160,6 @@ public class PersonEditorForm {
 			createForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
 	}
-
-	// Component "createForm" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE
-	// records an error
 
 	boolean onSuccessFromCreateForm() {
 		// We want to tell our containing page explicitly what person we've created, so we trigger new event
@@ -187,89 +173,11 @@ public class PersonEditorForm {
 	// REVIEW
 	// /////////////////////////////////////////////////////////////////////
 
-	// /////////////////////////////////////////////////////////////////////
-	// UPDATE
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "toUpdate"
-
 	boolean onToUpdate(Long personId) {
 		// Return false, which means we haven't handled the event so bubble it up.
 		// This method is here solely as documentation, because without this method the event would bubble up anyway.
 		return false;
 	}
-
-	// Handle event "cancelUpdate"
-
-	boolean onCancelUpdate(Long personId) {
-		// Return false, which means we haven't handled the event so bubble it up.
-		// This method is here solely as documentation, because without this method the event would bubble up anyway.
-		return false;
-	}
-
-	// Component "updateForm" bubbles up the PREPARE_FOR_RENDER event during form render
-
-	void onPrepareForRenderFromUpdateForm() {
-
-		// If fresh start, make sure there's a Person object available.
-
-		if (updateForm.isValid()) {
-			person = personFinderService.findPerson(personId);
-			// Handle null person in the template.
-		}
-	}
-
-	// Component "updateForm" bubbles up the PREPARE_FOR_SUBMIT event during for submission
-
-	void onPrepareForSubmitFromUpdateForm() {
-		// Get objects for the form fields to overlay.
-		person = personFinderService.findPerson(personId);
-
-		if (person == null) {
-			updateForm.recordError("Person has been deleted by another process.");
-			// Instantiate an empty person to avoid NPE in the Form.
-			person = new Person();
-		}
-	}
-
-	// Component "updateForm" bubbles up the VALIDATE event when it is submitted
-
-	void onValidateFromUpdateForm() {
-
-		if (personId == 2 && !person.getFirstName().equals("Mary")) {
-			updateForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
-		}
-
-		if (updateForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
-		}
-
-		try {
-			personManagerService.changePerson(person);
-		}
-		catch (Exception e) {
-			// Display the cause. In a real system we would try harder to get a user-friendly message.
-			updateForm.recordError(ExceptionUtil.getRootCauseMessage(e));
-		}
-	}
-
-	// Component "updateForm" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE
-	// records an error
-
-	boolean onSuccessFromUpdateForm() {
-		// We want to tell our containing page explicitly what person we've updated, so we trigger new event
-		// "successfulUpdate" with a parameter. It will bubble up because we don't have a handler method for it.
-		componentResources.triggerEvent(SUCCESSFUL_UPDATE, new Object[] { personId }, null);
-		// We don't want "success" to bubble up, so we return true to say we've handled it.
-		return true;
-	}
-
-	// /////////////////////////////////////////////////////////////////////
-	// DELETE
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "delete"
 
 	boolean onDelete(Long personId, Integer personVersion) {
 		this.personId = personId;
@@ -303,10 +211,66 @@ public class PersonEditorForm {
 	}
 
 	// /////////////////////////////////////////////////////////////////////
-	// OTHER
+	// UPDATE
 	// /////////////////////////////////////////////////////////////////////
 
-	// Getters
+	boolean onCancelUpdate(Long personId) {
+		// Return false, which means we haven't handled the event so bubble it up.
+		// This method is here solely as documentation, because without this method the event would bubble up anyway.
+		return false;
+	}
+
+	void onPrepareForRenderFromUpdateForm() {
+
+		// If fresh start, make sure there's a Person object available.
+
+		if (updateForm.isValid()) {
+			person = personFinderService.findPerson(personId);
+			// Handle null person in the template.
+		}
+	}
+
+	void onPrepareForSubmitFromUpdateForm() {
+		// Get objects for the form fields to overlay.
+		person = personFinderService.findPerson(personId);
+
+		if (person == null) {
+			updateForm.recordError("Person has been deleted by another process.");
+			// Instantiate an empty person to avoid NPE in the Form.
+			person = new Person();
+		}
+	}
+
+	void onValidateFromUpdateForm() {
+
+		if (personId == 2 && !person.getFirstName().equals("Mary")) {
+			updateForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
+		}
+
+		if (updateForm.getHasErrors()) {
+			return;
+		}
+
+		try {
+			personManagerService.changePerson(person);
+		}
+		catch (Exception e) {
+			// Display the cause. In a real system we would try harder to get a user-friendly message.
+			updateForm.recordError(ExceptionUtil.getRootCauseMessage(e));
+		}
+	}
+
+	boolean onSuccessFromUpdateForm() {
+		// We want to tell our containing page explicitly what person we've updated, so we trigger new event
+		// "successfulUpdate" with a parameter. It will bubble up because we don't have a handler method for it.
+		componentResources.triggerEvent(SUCCESSFUL_UPDATE, new Object[] { personId }, null);
+		// We don't want "success" to bubble up, so we return true to say we've handled it.
+		return true;
+	}
+
+	// /////////////////////////////////////////////////////////////////////
+	// GETTERS ETC.
+	// /////////////////////////////////////////////////////////////////////
 
 	public boolean isModeCreate() {
 		return mode == Mode.CREATE;

@@ -44,15 +44,11 @@ public class PersonList {
 
 	// The code
 
-	// Handle event "selected"
-
 	boolean onSelected(Long personId) {
 		// Return false, which means we haven't handled the event so bubble it up.
 		// This method is here solely as documentation, because without this method the event would bubble up anyway.
 		return false;
 	}
-
-	// Getters
 
 	public GridDataSource getPersons() {
 		return new PersonFilteredDataSource(personFinderService, partialName);

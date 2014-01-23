@@ -7,7 +7,7 @@
 	<h3>Create</h3>
 	
 	<div class="eg">
-		<t:form t:id="personForm" class="form-horizontal" validate="person">
+		<t:form t:id="form" class="form-horizontal" validate="person">
 			<t:errors globalOnly="true"/>
 	
             <div class="form-group">

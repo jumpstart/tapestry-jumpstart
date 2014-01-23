@@ -42,15 +42,12 @@ public class Persons {
 
 	// The code
 
-	// setupRender() is called by Tapestry right before it starts rendering the page.
-
 	void setupRender() {
 		persons = personFinderService.findPersons(MAX_RESULTS);
 	}
 
-	// Handle event "delete"
-
 	void onDelete(Long id, Integer version) {
+
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			errorMessage = "Sorry, but this function is not allowed in Demo mode.";
 			return;

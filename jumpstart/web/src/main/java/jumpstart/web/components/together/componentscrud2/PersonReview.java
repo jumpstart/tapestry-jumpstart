@@ -68,8 +68,6 @@ public class PersonReview {
 
 	// The code
 
-	// setupRender() is called by Tapestry right before it starts rendering the component.
-
 	void setupRender() {
 
 		if (personId == null) {
@@ -85,15 +83,11 @@ public class PersonReview {
 
 	}
 
-	// Handle event "toUpdate"
-
 	boolean onToUpdate(Long personId) {
 		// Return false, which means we haven't handled the event so bubble it up.
 		// This method is here solely as documentation, because without this method the event would bubble up anyway.
 		return false;
 	}
-
-	// Handle event "delete"
 
 	boolean onDelete(Long personId, Integer personVersion) {
 		this.personId = personId;

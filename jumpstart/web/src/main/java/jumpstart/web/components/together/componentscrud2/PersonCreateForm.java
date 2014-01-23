@@ -11,10 +11,8 @@ import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.Import;
-import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
-import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -60,8 +58,6 @@ public class PersonCreateForm {
 
 	// The code
 
-	// Handle event "cancel"
-
 	boolean onCancel() {
 		// We want to tell our containing page explicitly what person we've created, so we trigger new event
 		// "successfulCreate" with a parameter. It will bubble up because we don't have a handler method for it.
@@ -69,8 +65,6 @@ public class PersonCreateForm {
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;
 	}
-
-	// Component "form" bubbles up the PREPARE_FOR_RENDER event before it is rendered
 
 	void onPrepareForRenderFromForm() throws Exception {
 
@@ -81,14 +75,10 @@ public class PersonCreateForm {
 		}
 	}
 
-	// Component "form" bubbles up the PREPARE_FOR_SUBMIT event when it is submitted
-
 	void onPrepareForSubmitFromForm() throws Exception {
 		// Instantiate a Person for the form data to overlay.
 		person = new Person();
 	}
-
-	// Component "form" bubbles up the VALIDATE event when it is submitted
 
 	void onValidateFromForm() {
 
@@ -97,7 +87,6 @@ public class PersonCreateForm {
 		}
 
 		if (form.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
 			return;
 		}
 
@@ -109,9 +98,6 @@ public class PersonCreateForm {
 			form.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
 	}
-
-	// Component "form" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE
-	// records an error
 
 	boolean onSuccessFromForm() {
 		// We want to tell our containing page explicitly what person we've created, so we trigger new event
