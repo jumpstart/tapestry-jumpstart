@@ -18,6 +18,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.services.javascript.StylesheetLink;
 import org.apache.tapestry5.services.javascript.StylesheetOptions;
@@ -40,6 +41,9 @@ public class AjaxLoadingSpinner {
 	@Inject
 	private Request request;
 
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
 	@InjectComponent
 	private Zone thingsZone;
 
@@ -61,7 +65,7 @@ public class AjaxLoadingSpinner {
 		javaScriptSupport.require("zone-overlay");
 	}
 
-	Object onShowThings() {
+	void onShowThings() {
 
 		// Set up the list of things to display
 		things = ALL_THINGS;
@@ -69,7 +73,9 @@ public class AjaxLoadingSpinner {
 		// Sleep 4 seconds to simulate a long-running operation
 		sleep(4000);
 
-		return request.isXHR() ? thingsZone.getBody() : null;
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(thingsZone);
+		}
 	}
 
 	private void sleep(long millis) {

@@ -8,6 +8,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.slf4j.Logger;
 
 @Import(stylesheet={"css/examples/ajaxwhatiscalledandwhen.css"})
@@ -32,6 +33,9 @@ public class AjaxWhatIsCalledAndWhen {
 
 	@Inject
 	private Request request;
+
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
 
 	@InjectComponent
 	private Zone time1Zone;
@@ -91,14 +95,18 @@ public class AjaxWhatIsCalledAndWhen {
 		logger.debug("...cleanupRender()");
 	}
 
-	Object onUpdateTime1() {
+	void onUpdateTime1() {
 		logger.debug("...onUpdateTime1()");
-		return request.isXHR() ? time1Zone.getBody() : null;
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(time1Zone);
+		}
 	}
 
-	Object onAction() {
+	void onAction() {
 		logger.debug("...onAction()");
-		return request.isXHR() ? time2Zone.getBody() : null;
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(time2Zone);
+		}
 	}
 
 	void onPrepareForRender() {
@@ -133,25 +141,31 @@ public class AjaxWhatIsCalledAndWhen {
 		logger.debug("...onFailure()");
 	}
 
-	Object onSubmit() {
+	void onSubmit() {
 		logger.debug("...onSubmit()");
-		return request.isXHR() ? formZone.getBody() : null;
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(formZone);
+		}
 	}
 
-	Object onName2Changed() {
+	void onName2Changed() {
 		logger.debug("...onName2Changed()");
 		name2 = request.getParameter("param");
 		if (name2 == null) {
 			name2 = "";
 		}
-		return request.isXHR() ? name2Zone.getBody() : null;
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(name2Zone);
+		}
 	}
 
-	Object onValueChangedFromCarMake(String carMake) {
+	void onValueChangedFromCarMake(String carMake) {
 		logger.debug("...onValueChangedFromCarMake()");
 		this.carMake = carMake;
 		carMakes = ALL_MAKES;
-		return carDisplayZone.getBody();
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(carDisplayZone);
+		}
 	}
 
 	public String getMessage() {

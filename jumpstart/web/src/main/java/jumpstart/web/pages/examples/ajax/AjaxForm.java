@@ -15,6 +15,7 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 @Import(stylesheet = "css/examples/js.css")
 public class AjaxForm {
@@ -54,6 +55,9 @@ public class AjaxForm {
 	@InjectComponent
 	private Zone formZone;
 
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
 	// The code
 
 	void setupRender() {
@@ -64,12 +68,16 @@ public class AjaxForm {
 		}
 	}
 
-	Object onSuccess() {
-		return request.isXHR() ? formZone.getBody() : null;
+	void onSuccess() {
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(formZone);
+		}
 	}
 
-	Object onFailure() {
-		return request.isXHR() ? formZone.getBody() : null;
+	void onFailure() {
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(formZone);
+		}
 	}
 
 	public String getName() {

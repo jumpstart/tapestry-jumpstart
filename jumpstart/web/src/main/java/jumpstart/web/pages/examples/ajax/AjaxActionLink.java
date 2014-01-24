@@ -7,7 +7,10 @@ import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
+// Some time soon, redirect it to the AjaxEventLink example.
+@Deprecated
 @Import(stylesheet = "css/examples/js.css")
 public class AjaxActionLink {
 
@@ -19,6 +22,9 @@ public class AjaxActionLink {
 	@InjectComponent
 	private Zone time2Zone;
 
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
 	// The code
 
 	void onActionFromRefreshPage() {
@@ -26,11 +32,10 @@ public class AjaxActionLink {
 		// and getServerTime2().
 	}
 
-	// Isn't called if the link is clicked before the DOM is fully loaded. See
-	// https://issues.apache.org/jira/browse/TAP5-1 .
-	Object onActionFromRefreshZone() {
-		// Here we can do whatever updates we want, then return the content we want rendered.
-		return request.isXHR() ? time2Zone.getBody() : null;
+	void onActionFromRefreshZone() {
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(time2Zone);
+		}
 	}
 
 	public Date getServerTime1() {

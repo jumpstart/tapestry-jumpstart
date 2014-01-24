@@ -7,29 +7,32 @@ import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 @Import(stylesheet = "css/examples/js.css")
 public class AjaxEventLink {
 
 	// Generally useful bits and pieces
-	
+
 	@Inject
 	private Request request;
 
 	@InjectComponent
 	private Zone time2Zone;
 
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
 	// The code
-	
+
 	void onRefreshPage() {
 		// Nothing to do - the page will call getTime1() and getTime2() as it renders.
 	}
 
-	// Isn't called if the link is clicked before the DOM is fully loaded. See
-	// https://issues.apache.org/jira/browse/TAP5-1 .
-	Object onRefreshZone() {
-		// Here we can do whatever updates we want, then return the content we want rendered.
-		return request.isXHR() ? time2Zone.getBody() : null;
+	void onRefreshZone() {
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(time2Zone);
+		}
 	}
 
 	public Date getServerTime1() {

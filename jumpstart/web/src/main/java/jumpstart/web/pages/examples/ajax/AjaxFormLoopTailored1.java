@@ -26,6 +26,7 @@ import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 public class AjaxFormLoopTailored1 {
 	static private final int MAX_RESULTS = 30;
@@ -70,9 +71,6 @@ public class AjaxFormLoopTailored1 {
 
 	// Generally useful bits and pieces
 
-	@InjectComponent
-	private Zone personsEditZone;
-
 	@Component(id = "personsEdit")
 	private Form form;
 
@@ -87,6 +85,12 @@ public class AjaxFormLoopTailored1 {
 
 	@Inject
 	private Request request;
+
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
+	@InjectComponent
+	private Zone personsEditZone;
 
 	// The code
 
@@ -246,21 +250,21 @@ public class AjaxFormLoopTailored1 {
 		return page2;
 	}
 
-	Object onFailure() {
+	void onFailure() {
 
 		if (request.isXHR()) {
-			return personsEditZone.getBody();
+			ajaxResponseRenderer.addRender(personsEditZone);
 		}
 		else {
 			// Not an AJAX request, so don't bother. Just refresh the screen and it will display "JavaScript required".
-			return onRefresh();
+			onRefresh();
 		}
 	}
 
-	Object onRefresh() {
+	void onRefresh() {
 		form.clearErrors();
 
-		return request.isXHR() ? personsEditZone.getBody() : null;
+		ajaxResponseRenderer.addRender(personsEditZone);
 	}
 
 	// The AjaxFormLoop component will automatically call this for every row as it is rendered.

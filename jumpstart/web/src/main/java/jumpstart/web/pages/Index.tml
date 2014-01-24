@@ -265,7 +265,6 @@
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/ajax/AjaxEventLink">AJAX EventLink</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxActionLink">AJAX ActionLink</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxForm">AJAX Form</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormMultipleZoneUpdate">AJAX Form Multiple Zone Update</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxSelect1">AJAX Select</t:pagelink><br/>

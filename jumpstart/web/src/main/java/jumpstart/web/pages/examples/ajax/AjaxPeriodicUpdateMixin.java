@@ -7,6 +7,7 @@ import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 @Import(stylesheet = "css/examples/js.css")
 public class AjaxPeriodicUpdateMixin {
@@ -17,13 +18,17 @@ public class AjaxPeriodicUpdateMixin {
 	private Zone timeZone;
 
 	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
+	@Inject
 	private Request request;
 
 	// The code
 
-	Object onRefreshTimeZone() {
-		// Here we can do whatever updates we want, then return the content we want rendered.
-		return request.isXHR() ? timeZone.getBody() : null;
+	void onRefreshTimeZone() {
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(timeZone);
+		}
 	}
 
 	public Date getServerTime() {

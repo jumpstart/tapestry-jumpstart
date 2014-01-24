@@ -9,6 +9,7 @@ import org.apache.tapestry5.corelib.components.EventLink;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 @Import(stylesheet = "css/examples/js.css")
@@ -21,6 +22,9 @@ public class AjaxPeriodicUpdate {
 
 	@InjectComponent
 	private Zone timeZone;
+
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
 
 	@Inject
 	private ComponentResources componentResources;
@@ -39,9 +43,10 @@ public class AjaxPeriodicUpdate {
 		javaScriptSupport.require("zone-periodic-updater").with(timeZone.getClientId(), eventURL, 3, 4);
 	}
 
-	Object onRefreshTimeZone() {
-		// Here we can do whatever updates we want, then return the content we want rendered.
-		return request.isXHR() ? timeZone.getBody() : null;
+	void onRefreshTimeZone() {
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(timeZone);
+		}
 	}
 
 	public Date getServerTime() {

@@ -13,6 +13,7 @@ import org.apache.tapestry5.annotations.RequestParameter;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 @Import(stylesheet = "css/examples/js.css")
 public class AjaxOnEvent {
@@ -33,6 +34,9 @@ public class AjaxOnEvent {
 	private Zone nameZone;
 
 	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
+	@Inject
 	private Request request;
 
 	@Inject
@@ -49,20 +53,29 @@ public class AjaxOnEvent {
 		}
 	}
 
-	Object onFirstNameChanged(@RequestParameter(value = "param", allowBlank = true) String firstName) {
+	void onFirstNameChanged(@RequestParameter(value = "param", allowBlank = true) String firstName) {
 		if (firstName == null) {
 			firstName = "";
 		}
+
 		this.firstName = firstName;
-		return request.isXHR() ? nameZone.getBody() : null;
+
+		if (request.isXHR()) {
+			// Here we can do whatever updates we want, then return the content we want rendered.
+			ajaxResponseRenderer.addRender(nameZone);
+		}
 	}
 
-	Object onLastNameChanged(@RequestParameter(value = "param", allowBlank = true) String lastName) {
+	void onLastNameChanged(@RequestParameter(value = "param", allowBlank = true) String lastName) {
 		if (lastName == null) {
 			lastName = "";
 		}
+
 		this.lastName = lastName;
-		return request.isXHR() ? nameZone.getBody() : null;
+
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(nameZone);
+		}
 	}
 
 	public String getName() {

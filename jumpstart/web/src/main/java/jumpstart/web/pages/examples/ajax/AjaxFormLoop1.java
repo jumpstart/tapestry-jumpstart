@@ -26,6 +26,7 @@ import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 public class AjaxFormLoop1 {
 	static private final int MAX_RESULTS = 30;
@@ -76,9 +77,6 @@ public class AjaxFormLoop1 {
 
 	// Generally useful bits and pieces
 
-	@InjectComponent
-	private Zone personsEditZone;
-
 	@Component(id = "personsEdit")
 	private Form form;
 
@@ -90,6 +88,12 @@ public class AjaxFormLoop1 {
 
 	@Inject
 	private Request request;
+
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
+	@InjectComponent
+	private Zone personsEditZone;
 
 	// The code
 
@@ -231,27 +235,27 @@ public class AjaxFormLoop1 {
 		return page2;
 	}
 
-	Object onFailure() {
+	void onFailure() {
 
 		if (request.isXHR()) {
 			if (personsToDelete != null && personsToDelete.size() > 0) {
 				form.recordError("The submit button has been disabled to protect you from issue TAP5-1896.");
 				disableSubmit = true;
 			}
-			return personsEditZone.getBody();
+			ajaxResponseRenderer.addRender(personsEditZone);
 		}
 		else {
 			// Not an AJAX request, so don't bother. Just refresh the screen and it will display "JavaScript required".
-			return onRefresh();
+			onRefresh();
 		}
 
 	}
 
-	Object onRefresh() {
+	void onRefresh() {
 		form.clearErrors();
 		disableSubmit = false;
 
-		return request.isXHR() ? personsEditZone.getBody() : null;
+		ajaxResponseRenderer.addRender(personsEditZone);
 	}
 
 	public PersonDTO getPerson() {
