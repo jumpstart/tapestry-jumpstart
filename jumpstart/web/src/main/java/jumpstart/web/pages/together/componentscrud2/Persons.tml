@@ -6,8 +6,12 @@
 <body class="container">
 	<h1>Components CRUD 2</h1>
 	
-	Again, this example is based on the <em>Filter CRUD</em> example, but this time we've replaced the list and the editor with 
-	five custom components: PersonList, PersonCreateForm, PersonReview, PersonUpdateForm, and PersonEditor.<br/>
+	<p>Again, this example is based on the <em>Filter CRUD</em> example, but this time we've replaced the list and the editor with 
+	five custom components: <em>PersonList</em>, <em>PersonCreateForm</em>, <em>PersonReview</em>, <em>PersonUpdateForm</em>, 
+	and <em>PersonEditor</em>.</p>
+	
+	<p>The benefit is better-targeted components; shorter, more concise code per component; 
+	and the possibility of greater reuse.</p>
 
 	<div class="eg">
 	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>

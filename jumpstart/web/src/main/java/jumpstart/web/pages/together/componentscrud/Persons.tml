@@ -7,7 +7,7 @@
 	<h1>Components CRUD</h1>
 	
 	This example is based on the <em>Filter CRUD</em> example, replacing the list and the editor with two custom components: 
-	PersonList and PersonEditorForm.<br/>
+	<em>PersonList</em> and <em>PersonEditorForm</em>.<br/>
 
 	<div class="eg">
 	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>

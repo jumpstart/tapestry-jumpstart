@@ -20,15 +20,13 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * This component will trigger the following events on its container (which in this example is the page):
  * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#CANCEL_CREATE},
  * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#FAILED_CREATE},
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
-@Events({ PersonCreateForm.CANCEL_CREATE, PersonCreateForm.SUCCESSFUL_CREATE, PersonCreateForm.FAILED_CREATE })
+@Events({ PersonCreateForm.CANCEL_CREATE, PersonCreateForm.SUCCESSFUL_CREATE })
 @Import(stylesheet = "css/together/filtercrud.css")
 public class PersonCreateForm {
 	public static final String CANCEL_CREATE = "cancelCreate";
 	public static final String SUCCESSFUL_CREATE = "successfulCreate";
-	public static final String FAILED_CREATE = "failedCreate";
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
