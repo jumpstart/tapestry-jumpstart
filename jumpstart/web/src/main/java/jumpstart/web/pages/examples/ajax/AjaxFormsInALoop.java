@@ -13,6 +13,7 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
+import org.apache.tapestry5.Field;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -111,15 +112,17 @@ public class AjaxFormsInALoop {
 
 	void onValidateFromPersonForm() {
 
-		if (personForm.getHasErrors()) {
-			// We get here only if a server-side validator detected an error.
-			return;
-		}
-
 		// Simulate a server-side validation error: return error if anyone's first name is BAD_NAME.
-
+		
 		if (person.getFirstName() != null && person.getFirstName().equals(BAD_NAME)) {
 			personForm.recordError("First name cannot be " + BAD_NAME + ".");
+		}
+
+		if (person.getId() == 2 && !person.getFirstName().equals("Mary")) {
+			personForm.recordError("First name for this person must be Mary.");
+		}
+
+		if (personForm.getHasErrors()) {
 			return;
 		}
 
