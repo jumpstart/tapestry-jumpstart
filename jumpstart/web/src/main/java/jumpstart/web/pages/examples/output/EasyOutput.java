@@ -1,16 +1,11 @@
 package jumpstart.web.pages.examples.output;
 
-import javax.ejb.EJB;
-
-import jumpstart.business.domain.person.Person;
-import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
-@Import(stack = "core", stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class EasyOutput {
-	
+
 	@Property
 	private String name;
 
@@ -20,11 +15,8 @@ public class EasyOutput {
 	@Property
 	private Gender gender;
 
-	@EJB
-	private IPersonFinderServiceLocal personFinderService;
-
 	void setupRender() {
-		
+
 		name = "Jane Citizen";
 		age = 25;
 		gender = Gender.FEMALE;

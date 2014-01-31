@@ -78,7 +78,6 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/Validators.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
 	</t:tabgroup>
 </body>
 </html>

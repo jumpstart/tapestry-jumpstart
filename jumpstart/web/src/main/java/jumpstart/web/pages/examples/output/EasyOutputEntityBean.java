@@ -8,7 +8,7 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
-@Import(stack = "core", stylesheet="css/examples/plain.css")
+@Import(stylesheet="css/examples/plain.css")
 public class EasyOutputEntityBean {
 
 	@Property
