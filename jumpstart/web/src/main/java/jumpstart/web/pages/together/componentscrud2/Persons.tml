@@ -29,13 +29,13 @@
 					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
 			
 					<td id="editorSide">
-						<t:if test="modeCreate">
+						<t:if test="isEditorMode('create')">
 							<t:together.componentscrud2.PersonCreateForm t:id="personCreate"/>
 						</t:if>
-						<t:if test="modeReview">
+						<t:if test="isEditorMode('review')">
 							<t:together.componentscrud2.PersonReview t:id="personReview" personId="editorPersonId"/>
 						</t:if>
-						<t:if test="modeUpdate">
+						<t:if test="isEditorMode('update')">
 							<t:together.componentscrud2.PersonUpdateForm t:id="personUpdate" personId="editorPersonId"/>
 						</t:if>
 					</td>

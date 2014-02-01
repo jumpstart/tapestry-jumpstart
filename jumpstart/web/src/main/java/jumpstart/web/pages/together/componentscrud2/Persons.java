@@ -1,7 +1,5 @@
 package jumpstart.web.pages.together.componentscrud2;
 
-import jumpstart.web.components.together.componentscrud.PersonEditorForm.Mode;
-
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Import;
@@ -9,6 +7,10 @@ import org.apache.tapestry5.annotations.Property;
 
 @Import(stylesheet = "css/together/filtercrud.css")
 public class Persons {
+
+	public enum Mode {
+		CREATE, REVIEW, UPDATE;
+	}
 
 	// The activation context
 
@@ -128,15 +130,7 @@ public class Persons {
 	// GETTERS ETC.
 	// /////////////////////////////////////////////////////////////////////
 
-	public boolean isModeCreate() {
-		return editorMode == Mode.CREATE;
-	}
-
-	public boolean isModeReview() {
-		return editorMode == Mode.REVIEW;
-	}
-
-	public boolean isModeUpdate() {
-		return editorMode == Mode.UPDATE;
+	public boolean isEditorMode(Mode mode) {
+		return editorMode == mode;
 	}
 }

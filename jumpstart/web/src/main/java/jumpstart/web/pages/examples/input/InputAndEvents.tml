@@ -22,8 +22,8 @@
 	</ul>
 
 	<p><strong>This is really significant:</strong> the container, ie. the page or component; that chose to render 
-	a particular component, is then able to react to the events sent to that component. This is perfect! 
-	What could be better placed to interpret, and understand the meaning of, the event, than the container?</p>
+	a particular component is then able to react to the events sent to that component. This is perfect! 
+	What could be better placed to interpret and understand the meaning of the component event than the component's container?</p>
 
     <p>The 2 most used components for generating <em>component event requests</em> are these:</p>
 
