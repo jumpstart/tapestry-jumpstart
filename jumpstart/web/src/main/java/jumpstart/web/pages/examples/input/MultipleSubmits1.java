@@ -40,7 +40,7 @@ public class MultipleSubmits1 {
 		searchType = SearchType.SUPPLIERS;
 	}
 
-	Object onSelectedFromCancel() {
+	Object onCanceled() {
 		page2.set(null, name);
 		return page2;
 	}

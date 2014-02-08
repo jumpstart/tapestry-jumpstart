@@ -43,15 +43,6 @@ public class AjaxForm {
 	@Component
 	private Form ajaxForm;
 
-	@Component(id = "birthday")
-	private DateField birthdayField;
-
-	@Component(id = "firstName")
-	private TextField firstNameField;
-
-	@Component(id = "lastName")
-	private TextField lastNameField;
-
 	@InjectComponent
 	private Zone formZone;
 

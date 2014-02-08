@@ -10,6 +10,7 @@ import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.base.theapp.SimpleBasePage;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -34,7 +35,7 @@ public class UserPasswordChange extends SimpleBasePage {
 
 	// Generally useful bits and pieces
 	
-	@Component(id = "newPassword")
+	@InjectComponent("newPassword")
 	private PasswordField newPasswordField;
 
 	@InjectPage

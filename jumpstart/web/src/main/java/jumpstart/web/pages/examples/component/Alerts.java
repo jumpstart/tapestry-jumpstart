@@ -48,7 +48,7 @@ public class Alerts {
 			quantity = 1;
 		}
 		if (showDismissAll == null) {
-			showDismissAll = true;
+			showDismissAll = false;
 		}
 	}
 

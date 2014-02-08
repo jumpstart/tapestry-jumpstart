@@ -5,6 +5,7 @@ import javax.validation.constraints.Size;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -35,7 +36,7 @@ public class FormsExplained1 {
 	@Component(id = "names")
 	private Form form;
 
-	@Component(id = "firstName")
+	@InjectComponent("firstName")
 	private TextField firstNameField;
 
 	// The code

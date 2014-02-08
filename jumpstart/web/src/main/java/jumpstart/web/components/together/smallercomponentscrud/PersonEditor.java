@@ -1,4 +1,4 @@
-package jumpstart.web.components.together.componentscrud2;
+package jumpstart.web.components.together.smallercomponentscrud;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -8,8 +8,8 @@ import jumpstart.business.domain.person.Regions;
 
 import org.apache.tapestry5.ComponentAction;
 import org.apache.tapestry5.ValidationTracker;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Environmental;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.TextField;
@@ -31,7 +31,7 @@ public class PersonEditor {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "firstName")
+	@InjectComponent("firstName")
 	private TextField firstNameField;
 	
 	@Inject

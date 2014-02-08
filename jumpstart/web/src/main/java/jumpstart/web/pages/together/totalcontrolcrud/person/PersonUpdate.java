@@ -10,6 +10,7 @@ import jumpstart.web.pages.together.totalcontrolcrud.Persons;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -38,7 +39,7 @@ public class PersonUpdate {
 	@Component
 	private Form form;
 
-	@Component(id = "firstName")
+	@InjectComponent("firstName")
 	private TextField firstNameField;
 
 	@EJB

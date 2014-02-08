@@ -14,7 +14,7 @@
 			<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
 	 		<t:hidden value="person.version"/>
 	 		
-	 		<t:together.componentscrud2.PersonEditor person="person"/>
+	 		<t:together.smallercomponentscrud.PersonEditor person="person"/>
 
 			<div class="form-group">
 				<div class="col-sm-4 col-sm-offset-4">

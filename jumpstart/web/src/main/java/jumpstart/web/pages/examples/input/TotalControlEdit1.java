@@ -9,6 +9,7 @@ import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -37,7 +38,7 @@ public class TotalControlEdit1 {
 	@Component(id = "person")
 	private Form form;
 
-	@Component(id = "firstName")
+	@InjectComponent("firstName")
 	private TextField firstNameField;
 
 	@EJB

@@ -52,7 +52,7 @@ public class PersonCreate {
 		person = new Person();
 	}
 
-	Object onCanceledFromForm() {
+	Object onCanceled() {
 		return indexPage;
 	}
 

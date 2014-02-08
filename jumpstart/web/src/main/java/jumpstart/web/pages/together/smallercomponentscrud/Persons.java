@@ -1,4 +1,4 @@
-package jumpstart.web.pages.together.componentscrud2;
+package jumpstart.web.pages.together.smallercomponentscrud;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;

@@ -78,7 +78,7 @@ public class PersonUpdate {
 		}
 	}
 
-	Object onCanceledFromForm() {
+	Object onCanceled() {
 		return indexPage;
 	}
 

@@ -14,7 +14,7 @@
 				${deleteMessage}
 			</div>
 			
-			<t:together.componentscrud2.PersonEditor person="person" disabled="true"/>
+			<t:together.smallercomponentscrud.PersonEditor person="person" disabled="true"/>
 	
 			<div class="buttons">
 			 	<t:eventlink event="toUpdate" context="person.id">Update...</t:eventlink>

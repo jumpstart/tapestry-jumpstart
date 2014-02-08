@@ -54,7 +54,7 @@ public class FileUpload {
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
 	
-	@Component(id = "file")
+	@InjectComponent("file")
 	private Upload fileField;
 
 	@Component

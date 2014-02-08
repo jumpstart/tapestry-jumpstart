@@ -35,9 +35,6 @@ public class AjaxFormMultipleZoneUpdate {
 
 	// Generally useful bits and pieces
 
-	@Component
-	private Form ajaxForm;
-
 	@InjectComponent
 	private Zone formZone;
 

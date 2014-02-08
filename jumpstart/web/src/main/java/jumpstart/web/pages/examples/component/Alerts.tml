@@ -30,6 +30,8 @@
 					<t:RadioGroup t:id="severity" validate="required">
 						<t:Radio t:id="severityI" value="Severity.INFO" label="Info"/>
 						<t:label for="severityI" class="label-radio"/>
+						<t:Radio t:id="severityS" value="Severity.SUCCESS" label="Success"/>
+						<t:label for="severityS" class="label-radio"/>
 						<t:Radio t:id="severityW" value="Severity.WARN" label="Warn"/>
 						<t:label for="severityW" class="label-radio"/>
 						<t:Radio t:id="severityE" value="Severity.ERROR" label="Error"/>
@@ -54,10 +56,10 @@
 				<t:label class="col-sm-3" for="showDismissAll"/>
 				<div class="col-sm-6">
 					<t:RadioGroup t:id="showDismissAll" validate="required">
-						<t:Radio t:id="showDismissAllY" value="literal:true" label="Yes"/>
-						<t:label for="showDismissAllY" class="label-radio"/>
 						<t:Radio t:id="showDismissAllN" value="literal:false" label="No"/>
 						<t:label for="showDismissAllN" class="label-radio"/>
+						<t:Radio t:id="showDismissAllY" value="literal:true" label="Yes"/>
+						<t:label for="showDismissAllY" class="label-radio"/>
 					</t:RadioGroup><br/>
 				</div>
 			</div>

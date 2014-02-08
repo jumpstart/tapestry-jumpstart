@@ -6,8 +6,8 @@ import java.util.Locale;
 
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValidationException;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.TextField;
@@ -64,7 +64,7 @@ public class AugmentingTranslators {
 	@Inject
 	private Messages messages;
 
-	@Component(id = "objectAllowingShorthandInput")
+	@InjectComponent("objectAllowingShorthandInput")
 	private TextField objectAllowingShorthandInputField;
 
 	// The code

@@ -1,4 +1,4 @@
-package jumpstart.web.components.together.componentscrud2;
+package jumpstart.web.components.together.smallercomponentscrud;
 
 import javax.ejb.EJB;
 
@@ -25,9 +25,9 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
-@Events({ PersonUpdateForm.CANCEL_UPDATE, PersonUpdateForm.SUCCESSFUL_UPDATE })
+@Events({ PersonUpdate.CANCEL_UPDATE, PersonUpdate.SUCCESSFUL_UPDATE })
 @Import(stylesheet = "css/together/filtercrud.css")
-public class PersonUpdateForm {
+public class PersonUpdate {
 	public static final String CANCEL_UPDATE = "cancelUpdate";
 	public static final String SUCCESSFUL_UPDATE = "successfulUpdate";
 

@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 <body class="container">
-	<h1>Components CRUD 2</h1>
+	<h1>Smaller Components CRUD</h1>
 	
 	<p>Again, this example is based on the <em>Filter CRUD</em> example, but this time we've replaced the list and the editor with 
-	five custom components: <em>PersonList</em>, <em>PersonCreateForm</em>, <em>PersonReview</em>, <em>PersonUpdateForm</em>, 
+	five smaller custom components: <em>PersonList</em>, <em>PersonCreate</em>, <em>PersonReview</em>, <em>PersonUpdate</em>, 
 	and <em>PersonEditor</em>.</p>
 	
 	<p>The benefit is better-targeted components; shorter, more concise code per component; 
@@ -23,20 +23,20 @@
 					<!-- This is the left side of the table: a list of Persons -->
 	
 					<td id="listSide">
-						<t:together.componentscrud2.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
+						<t:together.smallercomponentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
 					</td>
 					
 					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
 			
 					<td id="editorSide">
 						<t:if test="isEditorMode('create')">
-							<t:together.componentscrud2.PersonCreateForm t:id="personCreate"/>
+							<t:together.smallercomponentscrud.PersonCreate t:id="personCreate"/>
 						</t:if>
 						<t:if test="isEditorMode('review')">
-							<t:together.componentscrud2.PersonReview t:id="personReview" personId="editorPersonId"/>
+							<t:together.smallercomponentscrud.PersonReview t:id="personReview" personId="editorPersonId"/>
 						</t:if>
 						<t:if test="isEditorMode('update')">
-							<t:together.componentscrud2.PersonUpdateForm t:id="personUpdate" personId="editorPersonId"/>
+							<t:together.smallercomponentscrud.PersonUpdate t:id="personUpdate" personId="editorPersonId"/>
 						</t:if>
 					</td>
 					
@@ -56,20 +56,20 @@
 	
 	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
     <t:tabgroup>
-        <t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud2/Persons.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud2/Persons.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonList.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonList.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonCreateForm.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonCreateForm.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonReview.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonReview.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonUpdateForm.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonUpdateForm.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonEditor.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonEditor.properties"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud2/PersonEditor.java"/>
+        <t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/smallercomponentscrud/Persons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/smallercomponentscrud/Persons.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/filtercrud.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonList.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonList.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonCreate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonCreate.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonReview.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonReview.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonUpdate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonUpdate.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonEditor.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonEditor.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/smallercomponentscrud/PersonEditor.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>

@@ -1,4 +1,4 @@
-package jumpstart.web.components.together.componentscrud2;
+package jumpstart.web.components.together.smallercomponentscrud;
 
 import javax.ejb.EJB;
 

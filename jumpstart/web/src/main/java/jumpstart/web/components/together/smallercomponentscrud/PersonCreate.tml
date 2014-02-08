@@ -10,7 +10,7 @@
 	<t:form t:id="form" class="form-horizontal" validate="person">
 		<t:errors globalOnly="true"/>
 		
- 		<t:together.componentscrud2.PersonEditor person="person"/>
+ 		<t:together.smallercomponentscrud.PersonEditor person="person"/>
 
 		<div class="form-group">
 			<div class="col-sm-4 col-sm-offset-4">
