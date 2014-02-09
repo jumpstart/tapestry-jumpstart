@@ -83,12 +83,12 @@ public class Persons {
 	// CREATE
 	// /////////////////////////////////////////////////////////////////////
 
-	void onCancelCreateFromPersonCreate() {
+	void onCanceledFromPersonCreate() {
 		editorMode = null;
 		editorPersonId = null;
 	}
 
-	void onSuccessfulCreateFromPersonCreate(Long personId) {
+	void onCreatedFromPersonCreate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
@@ -102,26 +102,21 @@ public class Persons {
 		editorPersonId = personId;
 	}
 
-	void onSuccessfulDeleteFromPersonReview(Long personId) {
+	void onDeletedFromPersonReview(Long personId) {
 		editorMode = null;
 		editorPersonId = null;
-	}
-
-	void onFailedDeleteFromPersonReview(Long personId) {
-		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
 	}
 
 	// /////////////////////////////////////////////////////////////////////
 	// UPDATE
 	// /////////////////////////////////////////////////////////////////////
 
-	void onCancelUpdateFromPersonUpdate(Long personId) {
+	void onCanceledFromPersonUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
 
-	void onSuccessfulUpdateFromPersonUpdate(Long personId) {
+	void onUpdatedFromPersonUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}

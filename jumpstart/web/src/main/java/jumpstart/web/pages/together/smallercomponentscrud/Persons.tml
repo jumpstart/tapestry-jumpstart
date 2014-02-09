@@ -7,11 +7,11 @@
 	<h1>Smaller Components CRUD</h1>
 	
 	<p>Again, this example is based on the <em>Filter CRUD</em> example, but this time we've replaced the list and the editor with 
-	five smaller custom components: <em>PersonList</em>, <em>PersonCreate</em>, <em>PersonReview</em>, <em>PersonUpdate</em>, 
+	<em>five</em> custom components: <em>PersonList</em>, <em>PersonCreate</em>, <em>PersonReview</em>, <em>PersonUpdate</em>, 
 	and <em>PersonEditor</em>.</p>
 	
-	<p>The benefit is better-targeted components; shorter, more concise code per component; 
-	and the possibility of greater reuse.</p>
+	<p>These smaller components are easier to read, easier to understand, and easier to maintain. 
+	And because each of our components fulfils a use case, the opportunity for mix-and-match reuse is higher.</p>
 
 	<div class="eg">
 	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>

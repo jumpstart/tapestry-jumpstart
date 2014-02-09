@@ -138,16 +138,16 @@ public class PersonEditor {
 
 	// Component "createForm" bubbles up the VALIDATE event when it is submitted
 
-	void onValidateFromCreateForm() {
+	boolean onValidateFromCreateForm() {
 
 		if (createForm.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.
-			return;
+			return true;
 		}
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			createForm.recordError("Sorry, but Create is not allowed in Demo mode.");
-			return;
+			return true;
 		}
 
 		try {
@@ -157,6 +157,8 @@ public class PersonEditor {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			createForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
+		
+		return true;
 	}
 
 	// Component "createForm" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE
@@ -231,11 +233,11 @@ public class PersonEditor {
 
 	// Component "updateForm" bubbles up the VALIDATE event when it is submitted
 
-	void onValidateFromUpdateForm() {
+	boolean onValidateFromUpdateForm() {
 
 		if (updateForm.getHasErrors()) {
 			// We get here only if a server-side validator detected an error.
-			return;
+			return true;
 		}
 
 		try {
@@ -245,6 +247,8 @@ public class PersonEditor {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			updateForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
+		
+		return true;
 	}
 
 	// Component "updateForm" bubbles up SUCCESS or FAILURE when it is submitted, depending on whether VALIDATE

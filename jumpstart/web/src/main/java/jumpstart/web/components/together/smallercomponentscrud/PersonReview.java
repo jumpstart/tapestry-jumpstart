@@ -23,17 +23,14 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#TO_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_DELETE}(Long personId),
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#FAILED_DELETE}(Long personId).
+ * {@link PersonReview#TO_UPDATE}(Long personId), {@link PersonReview#DELETED}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
-@Events({ PersonReview.TO_UPDATE, PersonReview.SUCCESFUL_DELETE, PersonReview.FAILED_DELETE })
+@Events({ PersonReview.TO_UPDATE, PersonReview.DELETED })
 @Import(stylesheet = "css/together/filtercrud.css")
 public class PersonReview {
 	public static final String TO_UPDATE = "toUpdate";
-	public static final String SUCCESFUL_DELETE = "successfulDelete";
-	public static final String FAILED_DELETE = "failedDelete";
+	public static final String DELETED = "deleted";
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
@@ -62,7 +59,7 @@ public class PersonReview {
 
 	@Inject
 	private ComponentResources componentResources;
-	
+
 	@Inject
 	private Messages messages;
 
@@ -95,8 +92,6 @@ public class PersonReview {
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
 
-			// Trigger new event "failedDelete" which will bubble up.
-			componentResources.triggerEvent(FAILED_DELETE, new Object[] { personId }, null);
 			// We don't want "delete" to bubble up, so we return true to say we've handled it.
 			return true;
 		}
@@ -108,30 +103,14 @@ public class PersonReview {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
 
-			// Trigger new event "failedDelete" which will bubble up.
-			componentResources.triggerEvent(FAILED_DELETE, new Object[] { personId }, null);
 			// We don't want "delete" to bubble up, so we return true to say we've handled it.
 			return true;
 		}
 
 		// Trigger new event "successfulDelete" which will bubble up.
-		componentResources.triggerEvent(SUCCESFUL_DELETE, new Object[] { personId }, null);
+		componentResources.triggerEvent(DELETED, new Object[] { personId }, null);
 		// We don't want "delete" to bubble up, so we return true to say we've handled it.
 		return true;
-	}
-
-	// TODO - delete these.
-	
-	public String getPersonRegion() {
-		return messages.get(Regions.class.getSimpleName() + "." + person.getRegion().name());
-	}
-
-	public String getDatePattern() {
-		return "dd/MM/yyyy";
-	}
-
-	public Format getDateFormat() {
-		return new SimpleDateFormat(getDatePattern());
 	}
 
 }

@@ -139,7 +139,7 @@ public class PersonEditorForm {
 		person = new Person();
 	}
 
-	void onValidateFromCreateForm() {
+	boolean onValidateFromCreateForm() {
 
 		if (person.getFirstName() != null && person.getFirstName().equals("Acme")) {
 			createForm.recordError(firstNameField, firstNameField.getLabel() + " must not be Acme.");
@@ -150,7 +150,7 @@ public class PersonEditorForm {
 		}
 
 		if (createForm.getHasErrors()) {
-			return;
+			return true;
 		}
 
 		try {
@@ -160,6 +160,8 @@ public class PersonEditorForm {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			createForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
+		
+		return true;
 	}
 
 	boolean onSuccessFromCreateForm() {
@@ -242,14 +244,14 @@ public class PersonEditorForm {
 		}
 	}
 
-	void onValidateFromUpdateForm() {
+	boolean onValidateFromUpdateForm() {
 
 		if (personId == 2 && !person.getFirstName().equals("Mary")) {
 			updateForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
 		}
 
 		if (updateForm.getHasErrors()) {
-			return;
+			return true;
 		}
 
 		try {
@@ -259,6 +261,8 @@ public class PersonEditorForm {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			updateForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
+		
+		return true;
 	}
 
 	boolean onSuccessFromUpdateForm() {
