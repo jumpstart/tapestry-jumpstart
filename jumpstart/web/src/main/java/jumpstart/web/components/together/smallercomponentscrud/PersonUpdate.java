@@ -59,8 +59,8 @@ public class PersonUpdate {
 	// The code
 
 	boolean onCancel(Long personId) {
-		// We want to tell our containing page explicitly what person we've updated, so we trigger new event
-		// "successfulUpdate" with a parameter. It will bubble up because we don't have a handler method for it.
+		// We want to tell our containing page explicitly what person we've updated, so we trigger a new event
+		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(CANCELED, new Object[] { personId }, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;
@@ -105,8 +105,8 @@ public class PersonUpdate {
 	}
 
 	boolean onSuccess() {
-		// We want to tell our containing page explicitly what person we've updated, so we trigger new event
-		// "successfulUpdate" with a parameter. It will bubble up because we don't have a handler method for it.
+		// We want to tell our containing page explicitly what person we've updated, so we trigger a new event
+		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(UPDATED, new Object[] { personId }, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;

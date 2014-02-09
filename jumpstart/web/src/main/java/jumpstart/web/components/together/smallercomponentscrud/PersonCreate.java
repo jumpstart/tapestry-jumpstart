@@ -57,8 +57,8 @@ public class PersonCreate {
 	// The code
 
 	boolean onCancel() {
-		// We want to tell our containing page explicitly what person we've created, so we trigger new event
-		// "successfulCreate" with a parameter. It will bubble up because we don't have a handler method for it.
+		// We want to tell our containing page explicitly what person we've created, so we trigger a new event
+		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(CANCELED, new Object[] {}, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;
@@ -95,13 +95,13 @@ public class PersonCreate {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			form.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
-		
+
 		return true;
 	}
 
 	boolean onSuccess() {
-		// We want to tell our containing page explicitly what person we've created, so we trigger new event
-		// "successfulCreate" with a parameter. It will bubble up because we don't have a handler method for it.
+		// We want to tell our containing page explicitly what person we've created, so we trigger a new event
+		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(CREATED, new Object[] { person.getId() }, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;

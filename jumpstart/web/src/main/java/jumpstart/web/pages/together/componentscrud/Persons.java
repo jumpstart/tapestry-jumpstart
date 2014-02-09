@@ -1,6 +1,6 @@
 package jumpstart.web.pages.together.componentscrud;
 
-import jumpstart.web.components.together.componentscrud.PersonEditorForm.Mode;
+import jumpstart.web.components.together.componentscrud.PersonEdit.Mode;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
@@ -86,7 +86,7 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	void onSuccessfulCreateFromEditor(Long personId) {
+	void onCreatedFromEditor(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}
@@ -100,14 +100,9 @@ public class Persons {
 		editorPersonId = personId;
 	}
 
-	void onSuccessfulDeleteFromEditor(Long personId) {
+	void onDeletedFromEditor(Long personId) {
 		editorMode = null;
 		editorPersonId = null;
-	}
-
-	void onFailedDeleteFromEditor(Long personId) {
-		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -119,7 +114,7 @@ public class Persons {
 		editorPersonId = personId;
 	}
 
-	void onSuccessfulUpdateFromEditor(Long personId) {
+	void onUpdatedFromEditor(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}

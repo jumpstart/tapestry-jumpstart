@@ -7,11 +7,9 @@
 
  	<div id="${clientId}" class="form-group well">
 		<t:loop source="persons" value="person" formstate="iteration">
-			<div class="col-sm-2">
+			<div class="form-inline person-row">
 				<t:checkbox t:id="person" value="personChosen" disabled="prop:disabled"/>
-			</div>
-			<div class="col-sm-10">
-				${person.firstName}&nbsp;${person.lastName}
+				<t:label for="person">${person.firstName}&nbsp;${person.lastName}</t:label>
 			</div>
 		</t:loop>
 	</div>

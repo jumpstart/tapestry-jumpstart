@@ -1,12 +1,8 @@
 package jumpstart.web.components.together.smallercomponentscrud;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-
 import javax.ejb.EJB;
 
 import jumpstart.business.domain.person.Person;
-import jumpstart.business.domain.person.Regions;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
@@ -107,7 +103,7 @@ public class PersonReview {
 			return true;
 		}
 
-		// Trigger new event "successfulDelete" which will bubble up.
+		// Trigger new event which will bubble up.
 		componentResources.triggerEvent(DELETED, new Object[] { personId }, null);
 		// We don't want "delete" to bubble up, so we return true to say we've handled it.
 		return true;

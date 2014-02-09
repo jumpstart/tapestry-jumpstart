@@ -27,26 +27,21 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#CANCEL_CREATE},
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_CREATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#TO_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_UPDATE}(Long personId),
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#SUCCESSFUL_DELETE}(Long personId),
- * {@link jumpstart.web.components.examples.component.PersonEditorForm.PersonEditor#FAILED_DELETE}(Long personId).
+ * {@link PersonEdit#CANCEL_CREATE}, {@link PersonEdit#CREATED}(Long personId), {@link PersonEdit#TO_UPDATE} (Long
+ * personId), {@link PersonEdit#CANCEL_UPDATE}, {@link PersonEdit#UPDATED}(Long personId), {@link PersonEdit#DELETED}
+ * (Long personId).
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
-@Events({ PersonEditorForm.CANCEL_CREATE, PersonEditorForm.SUCCESSFUL_CREATE, PersonEditorForm.TO_UPDATE,
-		PersonEditorForm.CANCEL_UPDATE, PersonEditorForm.SUCCESSFUL_UPDATE, PersonEditorForm.SUCCESFUL_DELETE,
-		PersonEditorForm.FAILED_DELETE })
+@Events({ PersonEdit.CANCEL_CREATE, PersonEdit.CREATED, PersonEdit.TO_UPDATE, PersonEdit.CANCEL_UPDATE,
+		PersonEdit.UPDATED, PersonEdit.DELETED })
 @Import(stylesheet = "css/together/filtercrud.css")
-public class PersonEditorForm {
+public class PersonEdit {
 	public static final String CANCEL_CREATE = "cancelCreate";
-	public static final String SUCCESSFUL_CREATE = "successfulCreate";
+	public static final String CREATED = "created";
 	public static final String TO_UPDATE = "toUpdate";
 	public static final String CANCEL_UPDATE = "cancelUpdate";
-	public static final String SUCCESSFUL_UPDATE = "successfulUpdate";
-	public static final String SUCCESFUL_DELETE = "successfulDelete";
-	public static final String FAILED_DELETE = "failedDelete";
+	public static final String UPDATED = "updated";
+	public static final String DELETED = "deleted";
 
 	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
@@ -160,14 +155,14 @@ public class PersonEditorForm {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			createForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
-		
+
 		return true;
 	}
 
 	boolean onSuccessFromCreateForm() {
-		// We want to tell our containing page explicitly what person we've created, so we trigger new event
-		// "successfulCreate" with a parameter. It will bubble up because we don't have a handler method for it.
-		componentResources.triggerEvent(SUCCESSFUL_CREATE, new Object[] { person.getId() }, null);
+		// We want to tell our containing page explicitly what person we've created, so we trigger a new event
+		// with a parameter. It will bubble up because we don't have a handler method for it.
+		componentResources.triggerEvent(CREATED, new Object[] { person.getId() }, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;
 	}
@@ -188,8 +183,6 @@ public class PersonEditorForm {
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
 
-			// Trigger new event "failedDelete" which will bubble up.
-			componentResources.triggerEvent(FAILED_DELETE, new Object[] { personId }, null);
 			// We don't want "delete" to bubble up, so we return true to say we've handled it.
 			return true;
 		}
@@ -201,14 +194,12 @@ public class PersonEditorForm {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
 
-			// Trigger new event "failedDelete" which will bubble up.
-			componentResources.triggerEvent(FAILED_DELETE, new Object[] { personId }, null);
 			// We don't want "delete" to bubble up, so we return true to say we've handled it.
 			return true;
 		}
 
-		// Trigger new event "successfulDelete" which will bubble up.
-		componentResources.triggerEvent(SUCCESFUL_DELETE, new Object[] { personId }, null);
+		// Trigger new event which will bubble up.
+		componentResources.triggerEvent(DELETED, new Object[] { personId }, null);
 		// We don't want "delete" to bubble up, so we return true to say we've handled it.
 		return true;
 	}
@@ -261,14 +252,14 @@ public class PersonEditorForm {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			updateForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
-		
+
 		return true;
 	}
 
 	boolean onSuccessFromUpdateForm() {
-		// We want to tell our containing page explicitly what person we've updated, so we trigger new event
-		// "successfulUpdate" with a parameter. It will bubble up because we don't have a handler method for it.
-		componentResources.triggerEvent(SUCCESSFUL_UPDATE, new Object[] { personId }, null);
+		// We want to tell our containing page explicitly what person we've updated, so we trigger a new event
+		// with a parameter. It will bubble up because we don't have a handler method for it.
+		componentResources.triggerEvent(UPDATED, new Object[] { personId }, null);
 		// We don't want "success" to bubble up, so we return true to say we've handled it.
 		return true;
 	}

@@ -18,7 +18,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
 
-@Import(stylesheet = "css/examples/plain.css")
+@Import(stylesheet = "css/examples/subform.css")
 public class SubFormAsAField1 {
 	static private final int MAX_RESULTS = 30;
 

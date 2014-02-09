@@ -13,7 +13,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 
-@Import(stylesheet = "css/examples/plain.css")
+@Import(stylesheet = "css/examples/subform.css")
 public class SubFormValidation2 {
 	static private final int MAX_RESULTS = 30;
 

@@ -16,19 +16,19 @@
 			<h4>Create Invitation</h4>
 
 			<div class="form-group">
-		 		<t:label class="col-sm-3" for="eventDescription"/>
-		 		<div class="col-sm-3">
+		 		<t:label class="col-sm-4" for="eventDescription"/>
+		 		<div class="col-sm-4">
 		 			<t:textfield t:id="eventDescription" value="invitation.eventDescription"/>
 		 		</div>
 			</div>
 			<div class="form-group">
-	 			<label class="col-sm-3 control-label" for="invitedPersons">${message:invitedPersons-label}</label>
-		 		<div class="col-sm-3">
+	 			<label class="col-sm-4 control-label" for="invitedPersons">${message:invitedPersons-label}</label>
+		 		<div class="col-sm-4">
 					<t:examples.component.SelectPersons t:id="invitedPersons" persons="allPersons" chosen="invitation.invitedPersons" />
 				</div>
 		 	</div>
 			<div class="form-group">
-				<div class="col-sm-3 col-sm-offset-3">
+				<div class="col-sm-4 col-sm-offset-4">
 					<t:submit value="Save"/>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/component/SubFormComponent1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/subform.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/examples/component/SelectPersons.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/examples/Invitation.java"/>

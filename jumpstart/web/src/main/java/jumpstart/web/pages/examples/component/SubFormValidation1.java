@@ -15,7 +15,7 @@ import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 
-@Import(stylesheet = "css/examples/plain.css")
+@Import(stylesheet = "css/examples/subform.css")
 public class SubFormValidation1 {
 	static private final int MAX_RESULTS = 30;
 
