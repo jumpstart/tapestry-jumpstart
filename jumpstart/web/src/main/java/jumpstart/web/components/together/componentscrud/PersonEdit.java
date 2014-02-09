@@ -163,7 +163,7 @@ public class PersonEdit {
 		// We want to tell our containing page explicitly what person we've created, so we trigger a new event
 		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(CREATED, new Object[] { person.getId() }, null);
-		// We don't want "success" to bubble up, so we return true to say we've handled it.
+		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
@@ -183,7 +183,7 @@ public class PersonEdit {
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
 
-			// We don't want "delete" to bubble up, so we return true to say we've handled it.
+			// We don't want the event to bubble up, so we return true to say we've handled it.
 			return true;
 		}
 
@@ -194,13 +194,13 @@ public class PersonEdit {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
 
-			// We don't want "delete" to bubble up, so we return true to say we've handled it.
+			// We don't want the event to bubble up, so we return true to say we've handled it.
 			return true;
 		}
 
 		// Trigger new event which will bubble up.
 		componentResources.triggerEvent(DELETED, new Object[] { personId }, null);
-		// We don't want "delete" to bubble up, so we return true to say we've handled it.
+		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
@@ -260,7 +260,7 @@ public class PersonEdit {
 		// We want to tell our containing page explicitly what person we've updated, so we trigger a new event
 		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(UPDATED, new Object[] { personId }, null);
-		// We don't want "success" to bubble up, so we return true to say we've handled it.
+		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 

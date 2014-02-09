@@ -300,8 +300,6 @@
 							<t:pagelink page="examples/javascript/JavaScriptMixin">JavaScript Mixin</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/CreatingMixins1" t:disabled="true">Creating Mixins: ClickOnce</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/javascript/Scriptaculous" t:disabled="true">script.aculo.us</t:pagelink><br/>
-							<br/>
 							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
 						</div>
 						<div class="group">
@@ -321,11 +319,8 @@
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>
-							<t:pagelink page="together/ajaxfiltercrud/Persons" t:disabled="true">AJAX Filter CRUD</t:pagelink><br/>
-							<t:pagelink page="together/gracefulajaxfiltercrud/Persons" t:disabled="true">Graceful AJAX Filter CRUD</t:pagelink><br/>
-							<t:pagelink page="together/ajaxcomponentscrud/Persons" t:disabled="true">AJAX Components CRUD</t:pagelink><br/>
+							<t:pagelink page="together/ajaxcomponentscrud/Persons">AJAX Components CRUD</t:pagelink><br/>
 							<t:pagelink page="together/gracefulajaxcomponentscrud/Persons" t:disabled="true">Graceful AJAX Components CRUD</t:pagelink><br/>
-							<t:pagelink page="together/withlayout2/gracefulajaxfiltercrud/Persons" t:disabled="true">With Layout</t:pagelink><br/>
 						</div>
 					</td>
 				</tr>

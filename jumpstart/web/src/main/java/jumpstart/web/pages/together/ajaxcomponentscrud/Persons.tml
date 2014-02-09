@@ -3,27 +3,17 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/together/ajaxcomponentscrud.css}"/>
-</head>
-<body>
+<body class="container">
 	<h1>AJAX Components CRUD</h1>
 	
-	<noscript class="js-required">
-		${message:javascript_required}
-	</noscript> 	
+   <noscript class="js-required">
+        ${message:javascript_required}
+    </noscript>     
 
-	This example is based on <em>AJAX Filter CRUD</em>, modified by replacing the list and the editor with two custom components: 
-	PersonList and PersonEditor.
+	<p>This example is based on the <em>Smaller Components CRUD</em> example, and adds AJAX functionality with Tapestry's Zone component.</p>
 
 	<div class="eg">
-		<form t:type="form" t:id="preferencesForm">
-			Highlight zone updates? 
-			 <input t:type="checkbox" t:id="highlightZoneUpdates" value="highlightZoneUpdates" onclick="this.form.submit()"/>
-			This shows you which zones are updated by the Ajax response.
-		</form><br/>
-	
-	 	<a t:type="eventLink" t:event="toCreate" t:zone="editorZone" href="#">Create...</a><br/>
+	 	<t:eventLink event="toCreate" zone="editorZone">Create...</t:eventLink><br/>
 	 	
 		<table id="listAndEditor">
 			<tbody>
@@ -31,17 +21,25 @@
 	
 					<!-- This is the left side of the table: a list of Persons -->
 	
-					<td id="listCell">
-						<t:zone t:id="listZone" id="listZone" t:update="prop:zoneUpdateFunction">
+					<td id="listSide">
+						<t:zone t:id="listZone" id="listZone">
 							<t:together.ajaxcomponentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
 						</t:zone>
 					</td>
 					
-					<!-- This is the right side of the table: where a Person will be created, reviewed, or updated. -->
+					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
 			
-					<td id="editorCell">
-						<t:zone t:id="editorZone" id="editorZone" t:update="prop:zoneUpdateFunction">
-							<t:together.ajaxcomponentscrud.PersonEditor t:id="editor" mode="editorMode" personId="editorPersonId"/>
+					<td id="editorSide">
+						<t:zone t:id="editorZone" id="editorZone">
+							<t:if test="isEditorMode('create')">
+								<t:together.ajaxcomponentscrud.PersonCreate t:id="personCreate"/>
+							</t:if>
+							<t:if test="isEditorMode('review')">
+								<t:together.ajaxcomponentscrud.PersonReview t:id="personReview" personId="editorPersonId"/>
+							</t:if>
+							<t:if test="isEditorMode('update')">
+								<t:together.ajaxcomponentscrud.PersonUpdate t:id="personUpdate" personId="editorPersonId"/>
+							</t:if>
 						</t:zone>
 					</td>
 					
@@ -50,41 +48,34 @@
 	 	</table>
 	</div>
 
-	Like all good components, PersonList and PersonEditor do not know about each other. They handle their own events, then bubble them up 
-	to their container which in this case is the page. The container is responsible for coordinating its components. For example, when you 
-	click on a person in the list, PersonList bubbles an event up to the page and the page decides what to tell the PersonEditor.<br/><br/>
-	 
-	A component can include data within an event that it bubbles up, which is what PersonList and PersonEditor do, but take note that a 
-	component can also return data in its parameters - the container can read the data because component parameters are bi-directional.<br/><br/>
-	
-	Splitting the page into custom components like PersonList and PersonEditor is very appealing because it provides a clear and very 
-	natural separation of concerns, but just be aware that it doesn't come for free: you have to put in a bit of extra effort to get 
-	the event handling right.<br/><br/>
-
  	References: 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>, 
+ 	<a href="http://tapestry.apache.org/environmental-services.html">Environmental Services</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 
+ 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValidationTracker.html">ValidationTracker</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
-
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/ajaxcomponentscrud/Persons.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/pages/together/ajaxcomponentscrud/Persons.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonList.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonList.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonEditor.tml"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonEditor.properties"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonEditor.java"/>
-	<t:sourcecodedisplay src="/web/src/main/resources/META-INF/assets/css/together/ajaxcomponentscrud.css"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.java"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/mixins/Confirm.js"/>
-	<t:sourcecodedisplay src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
-	<t:sourcecodedisplay src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+    <t:tabgroup>
+        <t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/ajaxcomponentscrud/Persons.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/ajaxcomponentscrud/Persons.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/ajaxcomponentscrud.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonList.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonList.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonCreate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonCreate.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonReview.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonReview.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonEditor.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonEditor.properties"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonEditor.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
+		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+	</t:tabgroup>
 </body>
 </html>

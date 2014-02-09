@@ -1,4 +1,4 @@
-package jumpstart.web.components.together.smallercomponentscrud;
+package jumpstart.web.components.together.ajaxcomponentscrud;
 
 import javax.ejb.EJB;
 
@@ -8,30 +8,32 @@ import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.EventConstants;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.Import;
-import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link PersonUpdate#CANCELED}(Long personId), {@link PersonUpdate#UPDATED}(Long personId).
+ * {@link PersonCreate#CANCELED}, {@link PersonCreate#CREATED}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
-@Events({ PersonUpdate.CANCELED, PersonUpdate.UPDATED })
+@Events({ EventConstants.CANCELED, PersonCreate.CREATED })
 @Import(stylesheet = "css/together/filtercrud.css")
-public class PersonUpdate {
+public class PersonCreate {
 	public static final String CANCELED = "canceled";
-	public static final String UPDATED = "updated";
+	public static final String CREATED = "created";
+
+	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
 	// Parameters
-
-	@Parameter(required = true)
-	@Property
-	private Long personId;
 
 	// Screen fields
 
@@ -49,46 +51,52 @@ public class PersonUpdate {
 	@Component
 	private Form form;
 
+	@InjectComponent
+	private Zone formZone;
+
+	@Inject
+	private Request request;
+
 	@Inject
 	private ComponentResources componentResources;
 
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
 	// The code
 
-	boolean onCancel(Long personId) {
-		componentResources.triggerEvent(CANCELED, new Object[] { personId }, null);
+	boolean onCancel() {
+		componentResources.triggerEvent(CANCELED, new Object[] {}, null);
 		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
-	void onPrepareForRender() {
+	void onPrepareForRender() throws Exception {
 
 		// If fresh start, make sure there's a Person object available.
 
 		if (form.isValid()) {
-			person = personFinderService.findPerson(personId);
-			// Handle null person in the template.
-		}
-	}
-
-	void onPrepareForSubmit() {
-		// Get objects for the form fields to overlay.
-		person = personFinderService.findPerson(personId);
-
-		if (person == null) {
-			form.recordError("Person has been deleted by another process.");
-			// Instantiate an empty person to avoid NPE in the Form.
 			person = new Person();
 		}
 	}
 
+	void onPrepareForSubmit() throws Exception {
+		// Instantiate a Person for the form data to overlay.
+		person = new Person();
+	}
+
 	boolean onValidateFromForm() {
+		
+		if (demoModeStr != null && demoModeStr.equals("true")) {
+			form.recordError("Sorry, but Create is not allowed in Demo mode.");
+		}
 
 		if (form.getHasErrors()) {
 			return true;
 		}
 
 		try {
-			personManagerService.changePerson(person);
+			person = personManagerService.createPerson(person);
 		}
 		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
@@ -99,11 +107,20 @@ public class PersonUpdate {
 	}
 
 	boolean onSuccess() {
-		// We want to tell our containing page explicitly what person we've updated, so we trigger a new event
+		// We want to tell our containing page explicitly what person we've created, so we trigger a new event
 		// with a parameter. It will bubble up because we don't have a handler method for it.
-		componentResources.triggerEvent(UPDATED, new Object[] { personId }, null);
+		componentResources.triggerEvent(CREATED, new Object[] { person.getId() }, null);
 		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
+	boolean onFailure() {
+
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(formZone);
+		}
+
+		// We don't want the event to bubble up, so we return true to say we've handled it.
+		return true;
+	}
 }

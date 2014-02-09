@@ -10,7 +10,7 @@
 	Notice how, despite being a single page, it produces a readable URL that can be bookmarked.<br/>
 
 	<div class="eg">
-	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>
+	 	<t:eventLink event="toCreate">Create...</t:eventLink><br/>
 	 	
 		<table id="listAndEditor">
 			<tbody>
@@ -58,8 +58,14 @@
 							<t:form t:id="createForm" class="form-horizontal" validate="editorPerson">
 								<t:errors globalOnly="true"/>
 						 		<t:delegate to="block:editor"/>
+		
+								<div class="form-group">
+					                <div class="col-sm-4 col-sm-offset-4">
+					                    <t:submit value="Save"/>
+										<t:eventlink event="cancelCreate" class="btn btn-default">Cancel</t:eventlink>
+					                </div>
+					            </div>
 							</t:form>
-	
 						</t:if>
 	
 						<t:if test="modeReview">
@@ -107,6 +113,13 @@
 									<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
 							 		<t:hidden value="editorPerson.version"/>
 							 		<t:delegate to="block:editor"/>
+
+									<div class="form-group">
+						                <div class="col-sm-4 col-sm-offset-4">
+						                    <t:submit value="Save"/>
+											<t:eventlink event="cancelUpdate" context="editorPersonId" class="btn btn-default">Cancel</t:eventlink>
+						                </div>
+						            </div>
 								</t:if>
 
 								<t:if test="!editorPerson">
@@ -165,17 +178,6 @@
                     <p class="form-control-static">
                         (required, ${datePattern})
                     </p>
-                </div>
-            </div>
-			<div class="form-group">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <t:submit value="Save"/>
-                    <t:if test="modeCreate">
-						<t:eventlink event="cancelCreate" class="btn btn-default">Cancel</t:eventlink>
-                    </t:if>
-                    <t:if test="modeUpdate">
-						<t:eventlink event="cancelUpdate" context="editorPersonId" class="btn btn-default">Cancel</t:eventlink>
-                    </t:if>
                 </div>
             </div>
  		</t:block>

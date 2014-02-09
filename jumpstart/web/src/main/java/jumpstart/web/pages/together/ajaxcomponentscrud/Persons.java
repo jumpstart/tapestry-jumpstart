@@ -1,8 +1,7 @@
 package jumpstart.web.pages.together.ajaxcomponentscrud;
 
-import jumpstart.web.components.together.ajaxcomponentscrud.PersonEditor.Mode;
-
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
@@ -11,13 +10,14 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
+@Import(stylesheet = "css/together/ajaxcomponentscrud.css")
 public class Persons {
 
-	// Screen fields
+	public enum Mode {
+		CREATE, REVIEW, UPDATE;
+	}
 
-	@Property
-	@Persist
-	private boolean highlightZoneUpdates;
+	// Screen fields
 
 	@Property
 	// If we use @ActivationRequestParameter instead of @Persist, then our handler for filter form success would have
@@ -59,73 +59,14 @@ public class Persons {
 		listPersonId = editorPersonId;
 	}
 
-	// /////////////////////////////////////////////////////////////////////
-	// FILTER
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "filter" from component "list"
-
-	void onFilterFromList() {
-		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone);
-		}
-	}
-
-	// /////////////////////////////////////////////////////////////////////
-	// CREATE
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "toCreate" from this page
-
 	void onToCreate() {
 		editorMode = Mode.CREATE;
 		editorPersonId = null;
-		listPersonId = null;
 
 		if (request.isXHR()) {
 			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
 		}
 	}
-
-	// Handle event "cancelCreate" from component "editor"
-
-	void onCancelCreateFromEditor() {
-		editorMode = null;
-		editorPersonId = null;
-
-		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(editorZone);
-		}
-	}
-
-	// Handle event "successfulCreate" from component "editor"
-
-	void onSuccessfulCreateFromEditor(Long personId) {
-		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
-		listPersonId = personId;
-
-		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
-		}
-	}
-
-	// Handle event "failedCreate" from component "editor"
-
-	void onFailedCreateFromEditor() {
-		editorMode = Mode.CREATE;
-		editorPersonId = null;
-
-		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(editorZone);
-		}
-	}
-
-	// /////////////////////////////////////////////////////////////////////
-	// REVIEW
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "selected" from component "list"
 
 	void onSelectedFromList(Long personId) {
 		editorMode = Mode.REVIEW;
@@ -138,46 +79,33 @@ public class Persons {
 	}
 
 	// /////////////////////////////////////////////////////////////////////
-	// UPDATE
+	// CREATE
 	// /////////////////////////////////////////////////////////////////////
 
-	// Handle event "toUpdate" from component "editor"
-
-	void onToUpdateFromEditor(Long personId) {
-		editorMode = Mode.UPDATE;
-		editorPersonId = personId;
+	void onCanceledFromPersonCreate() {
+		editorMode = null;
+		editorPersonId = null;
 
 		if (request.isXHR()) {
 			ajaxResponseRenderer.addRender(editorZone);
 		}
 	}
 
-	// Handle event "cancelUpdate" from component "editor"
-
-	void onCancelUpdateFromEditor(Long personId) {
-		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
-
-		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(editorZone);
-		}
-	}
-
-	// Handle event "successfulUpdate" from component "editor"
-
-	void onSuccessfulUpdateFromEditor(Long personId) {
+	void onCreatedFromPersonCreate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 		listPersonId = personId;
 
-		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
-		}
+        if (request.isXHR()) {
+            ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+        }
 	}
 
-	// Handle event "failedUpdate" from component "editor"
+	// /////////////////////////////////////////////////////////////////////
+	// REVIEW
+	// /////////////////////////////////////////////////////////////////////
 
-	void onFailedUpdateFromEditor(Long personId) {
+	void onToUpdateFromPersonReview(Long personId) {
 		editorMode = Mode.UPDATE;
 		editorPersonId = personId;
 
@@ -186,13 +114,7 @@ public class Persons {
 		}
 	}
 
-	// /////////////////////////////////////////////////////////////////////
-	// DELETE
-	// /////////////////////////////////////////////////////////////////////
-
-	// Handle event "successfulDelete" from component "editor"
-
-	void onSuccessfulDeleteFromEditor(Long personId) {
+	void onDeletedFromPersonReview(Long personId) {
 		editorMode = null;
 		editorPersonId = null;
 		listPersonId = null;
@@ -202,9 +124,11 @@ public class Persons {
 		}
 	}
 
-	// Handle event "failedDelete" from component "editor"
+	// /////////////////////////////////////////////////////////////////////
+	// UPDATE
+	// /////////////////////////////////////////////////////////////////////
 
-	void onFailedDeleteFromEditor(Long personId) {
+	void onCanceledFromPersonUpdate(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 
@@ -213,12 +137,21 @@ public class Persons {
 		}
 	}
 
-	// /////////////////////////////////////////////////////////////////////
-	// GETTERS
-	// /////////////////////////////////////////////////////////////////////
+	void onUpdatedFromPersonUpdate(Long personId) {
+		editorMode = Mode.REVIEW;
+		editorPersonId = personId;
+		listPersonId = personId;
 
-	public String getZoneUpdateFunction() {
-		return highlightZoneUpdates ? "highlight" : "show";
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+		}
 	}
 
+	// /////////////////////////////////////////////////////////////////////
+	// GETTERS ETC.
+	// /////////////////////////////////////////////////////////////////////
+
+	public boolean isEditorMode(Mode mode) {
+		return editorMode == mode;
+	}
 }

@@ -14,7 +14,6 @@ import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
-import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
@@ -51,16 +50,12 @@ public class PersonCreate {
 	@Inject
 	private ComponentResources componentResources;
 
-	@Inject
-	private Messages messages;
-
 	// The code
 
 	boolean onCancel() {
-		// We want to tell our containing page explicitly what person we've created, so we trigger a new event
-		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(CANCELED, new Object[] {}, null);
-		// We don't want "success" to bubble up, so we return true to say we've handled it.
+
+		// We don't want the original to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
@@ -103,7 +98,8 @@ public class PersonCreate {
 		// We want to tell our containing page explicitly what person we've created, so we trigger a new event
 		// with a parameter. It will bubble up because we don't have a handler method for it.
 		componentResources.triggerEvent(CREATED, new Object[] { person.getId() }, null);
-		// We don't want "success" to bubble up, so we return true to say we've handled it.
+
+		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 

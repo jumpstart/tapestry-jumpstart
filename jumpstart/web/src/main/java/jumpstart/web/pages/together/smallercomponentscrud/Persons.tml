@@ -14,7 +14,7 @@
 	And because each of our components fulfils a use case, the opportunity for mix-and-match reuse is higher.</p>
 
 	<div class="eg">
-	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>
+	 	<t:eventLink event="toCreate">Create...</t:eventLink>
 	 	
 		<table id="listAndEditor">
 			<tbody>

@@ -10,7 +10,7 @@
 	<em>PersonList</em> and <em>PersonEdit</em>.<br/>
 
 	<div class="eg">
-	 	<a t:type="eventLink" t:event="toCreate" href="#">Create...</a><br/>
+	 	<t:eventLink event="toCreate">Create...</t:eventLink><br/>
 	 	
 		<table id="listAndEditor">
 			<tbody>

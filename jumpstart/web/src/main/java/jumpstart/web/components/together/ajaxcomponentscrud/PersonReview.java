@@ -1,4 +1,4 @@
-package jumpstart.web.components.together.smallercomponentscrud;
+package jumpstart.web.components.together.ajaxcomponentscrud;
 
 import javax.ejb.EJB;
 
@@ -11,10 +11,14 @@ import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
@@ -41,7 +45,6 @@ public class PersonReview {
 	private Person person;
 
 	@Property
-	@Persist(PersistenceConstants.FLASH)
 	private String deleteMessage;
 
 	// Generally useful bits and pieces
@@ -52,12 +55,22 @@ public class PersonReview {
 	@EJB
 	private IPersonManagerServiceLocal personManagerService;
 
+	@InjectComponent
+	private Zone messageZone;
+
+	@Inject
+	private Request request;
+
 	@Inject
 	private ComponentResources componentResources;
+
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
 
 	// The code
 
 	void setupRender() {
+		deleteMessage = null;
 
 		if (personId == null) {
 			person = null;
@@ -84,6 +97,10 @@ public class PersonReview {
 		if (demoModeStr != null && demoModeStr.equals("true")) {
 			deleteMessage = "Sorry, but Delete is not allowed in Demo mode.";
 
+			if (request.isXHR()) {
+				ajaxResponseRenderer.addRender(messageZone);
+			}
+
 			// We don't want the event to bubble up, so we return true to say we've handled it.
 			return true;
 		}
@@ -95,13 +112,16 @@ public class PersonReview {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
 
+			if (request.isXHR()) {
+				ajaxResponseRenderer.addRender(messageZone);
+			}
+
 			// We don't want the event to bubble up, so we return true to say we've handled it.
 			return true;
 		}
 
 		// Trigger new event which will bubble up.
 		componentResources.triggerEvent(DELETED, new Object[] { personId }, null);
-
 		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}

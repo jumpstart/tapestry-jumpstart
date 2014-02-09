@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<t:content>
+
+	<h1>Update</h1>
+	
+	<t:zone t:id="formZone" id="formZone">
+		<t:form t:id="form" class="form-horizontal" validate="person" zone="^">
+			<t:errors globalOnly="true"/>
+		
+			<t:if test="person">
+				<!-- If optimistic locking is not needed then comment out this next line. It works because Hidden fields are part of the submit. -->
+		 		<t:hidden value="person.version"/>
+		 		
+		 		<t:together.smallercomponentscrud.PersonEditor person="person"/>
+	
+				<div class="form-group">
+					<div class="col-sm-4 col-sm-offset-4">
+						<t:submit value="Save" />
+						<t:eventlink event="cancel" context="personId" class="btn btn-default" zone="^">Cancel</t:eventlink>
+					</div>
+				</div>
+			</t:if>
+	
+			<t:if test="!person">
+				Person ${personId} does not exist.<br/><br/>
+			</t:if>
+		</t:form>
+	</t:zone>
+				
+</t:content>
+</html>
