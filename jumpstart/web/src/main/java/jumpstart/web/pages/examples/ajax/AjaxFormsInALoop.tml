@@ -107,7 +107,7 @@
 
 	Each row is a Zone around a Form. Here's the sequence when you click an Edit, Save, or Cancel: 
 	<ul>
-	    <li>tapestry.js on the client submits the form as an AJAX component event request. It reaches the corresponding Form on the server and...</li>
+	    <li>Tapestry's JavaScript on the client submits the form as an AJAX component event request. It reaches the corresponding Form on the server and...</li>
     	<li>- Form bubbles up <em>prepareForSubmit</em>. It has a context.</li>
     	<li>- Submit bubbles up <em>selected</em>.</li>
     	<li>- Form bubbles up <em>validate</em>.</li>
@@ -115,7 +115,7 @@
     	<li>Tapestry renders the Zone, during which...</li>
     	<li>- Form bubbles up <em>prepareForRender</em>. It has a context.</li>
     	<li>Tapestry returns the fresh Zone contents to the client in an AJAX response.</li>
-    	<li>tapestry.js on the client puts the Zone contents in the right place on the page.</li>
+    	<li>Tapestry's JavaScript on the client puts the Zone contents in the right place on the page.</li>
 	</ul>
 
 	Notes: 
@@ -132,7 +132,10 @@
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/coffeescript/zone.html">t5/core/zone</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/coffeescript/ajax.html">t5/core/ajax</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/coffeescript/forms.html">t5/core/forms</a>.<br/><br/> 
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

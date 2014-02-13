@@ -29,7 +29,8 @@
 	</div>
 
 	If "Search Suppliers" is clicked, server-side the Form will notify the "suppliers" Submit component which will "bubble up" the SELECTED event.<br/>
-	If "Cancel" is clicked, server-side the Form will notify the "cancel" Submit component which will ""bubble up" the SELECTED event.<br/><br/>
+	If "Cancel" is clicked, due to <code>mode="cancel"</code> it will bypass validation and submit with <code>SubmitMode.CANCEL</code>. 
+		Server-side the Form will "bubble up" the CANCELED event before notifying the "cancel" Submit component which will "bubble up" the SELECTED event.<br/><br/>
 
 	The request from either button is an HTTP POST with a URL like this: <code>http://thehost/jumpstart/examples/input/submits1.search</code><br/><br/>
 
