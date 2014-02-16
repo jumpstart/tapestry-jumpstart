@@ -88,6 +88,10 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ExceptionReportPage.tml" />
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/infrastructure/ExceptionReportPage.java" />
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css" />
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/ExceptionReport.tml" />
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/ExceptionReport_Parked.java" />
+        <t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/ExceptionAndSessionDisplay.tml"/>
+        <t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/ExceptionAndSessionDisplay.java"/>
 	</t:tabgroup>
 </body>
 </html>

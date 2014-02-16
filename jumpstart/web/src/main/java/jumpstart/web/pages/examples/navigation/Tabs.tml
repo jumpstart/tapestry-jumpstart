@@ -9,8 +9,9 @@
 	<p>There are many techniques for implementing tabs. Here is one.</p>
 	
 	<p>To avoid a trip to the server every time you click on a tab, JumpStart's TabGroup populates the content 
-	of all of its tabs before display. Then it uses Bootstrap's <code>nav nav-tabs</code> to make them look like 
-	tabs, and Bootstrap's <code>data-toggle="tab"</code> to make them behave like tabs.</p>
+	of all of its tabs before display. Then it uses Bootstrap's <code>nav nav-tabs</code>, <code>tab-content</code>, 
+	and <code>tab-pane</code> to make them look like tabs, and Bootstrap's <code>data-toggle="tab"</code> to make 
+	them behave like tabs.</p>
 	
 	<p><a href="http://tapestry-stitch.uklance.cloudbees.net/tabgroupdemo">tapestry-stitch</a> demonstrates a 
 	different technique. To avoid rendering tabs that may never be chosen, its TabGroup defers rendering each tab 

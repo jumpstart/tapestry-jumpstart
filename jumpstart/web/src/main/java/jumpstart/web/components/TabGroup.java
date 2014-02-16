@@ -33,7 +33,6 @@ public class TabGroup {
 
 	// Work fields
 
-	private TabTracker tabTracker;
 	private List<String> tabLabels;
 	private List<String> tabMarkups;
 
@@ -51,22 +50,22 @@ public class TabGroup {
 	// The code
 
 	/**
-	 * The tricky part is that we can't render the navbar before we've rendered the body, because we don't know how many
+	 * The tricky part is that we can't render the navbar before we've rendered the body because we don't know how many
 	 * elements are in the body nor what labels they would like. We solve this by making a TabTracker available to the
-	 * body. The Tabs in the body will record, in TabTracker, the labels and markup they want. Later, in our 
-	 * afterRenderBody(), we will get those labels and markup from TabTracker, then render the whole TabGroup at once.
+	 * body. Each Tab in the body will put its label and markup in TabTracker instead of rendering it. Afterwards, in
+	 * our afterRenderBody(), we will read TabTracker and render the tabs and tab content.
 	 */
 	void beginRender() {
 		environment.push(TabTracker.class, new TabTracker());
 	}
 
 	/**
-	 * By the time this method is called, we expect each Tab in the body of this component to have recorded, in
-	 * TabTracker, the tab labels and markup that it wants, and to have deleted from the DOM any markup it generated.
-	 * Using what's in TabTracker we can now render a navbar with appropriate labels, then render the markups below it.
+	 * By the time this method is called, we expect each Tab in the body of this component to have recorded a label and
+	 * markup in TabTracker instead of rendering it. Using what's in TabTracker we get ready to render tabs and tab
+	 * content.
 	 */
 	void afterRenderBody(MarkupWriter markupWriter) {
-		tabTracker = environment.pop(TabTracker.class);
+		TabTracker tabTracker = environment.pop(TabTracker.class);
 
 		tabLabels = tabTracker.getLabels();
 		tabMarkups = tabTracker.getMarkups();
@@ -86,12 +85,12 @@ public class TabGroup {
 		javaScriptSupport.require("bootstrap/tab");
 	}
 
-	public String getTabLabel() {
-		return tabLabels.get(tabNum);
-	}
-
 	public String getActive() {
 		return tabNum == 0 ? "active" : "";
+	}
+
+	public String getTabLabel() {
+		return tabLabels.get(tabNum);
 	}
 
 	public RenderCommand getTabMarkup() {
