@@ -28,9 +28,10 @@ public class Persons {
 	@Persist
 	private String partialName;
 
-	// We wouldn't need to use @ActivationRequestParameter here if GridPager had a context parameter. When GridPager is
-	// clicked, it re-renders the page, but without this @ActivationRequestParameter, or alternatively @Persist, the
-	// server-side wouldn't know which person to highlight in the Grid.
+	// We wouldn't need to use @ActivationRequestParameter here if GridPager had a context parameter and bubbled up an
+	// event so our component could grab it. When GridPager is clicked, it re-renders the page, but without this
+	// @ActivationRequestParameter, or alternatively @Persist, the server-side wouldn't know which person to highlight
+	// in the Grid.
 	@Property
 	@ActivationRequestParameter
 	private Long listPersonId;
