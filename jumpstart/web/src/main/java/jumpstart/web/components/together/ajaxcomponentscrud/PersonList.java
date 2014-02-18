@@ -62,7 +62,15 @@ public class PersonList {
 
 	// The code
 
-	boolean onSelected(Long personId) {
+	void onPrepareForSubmit(String partialName, Long selectedPersonId) {
+		this.partialName = partialName;
+		this.selectedPersonId = selectedPersonId;
+	}
+
+	boolean onSelected(String partialName, Long personId) {
+		this.partialName = partialName;
+		this.selectedPersonId = personId;
+
 		// Return false, which means we haven't handled the event so bubble it up.
 		// This method is here solely as documentation, because without this method the event would bubble up anyway.
 		return false;

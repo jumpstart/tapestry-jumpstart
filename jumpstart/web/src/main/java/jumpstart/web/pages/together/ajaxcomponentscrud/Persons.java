@@ -28,15 +28,17 @@ public class Persons {
 	@Persist
 	private String partialName;
 
+	// We wouldn't need to use @ActivationRequestParameter here if GridPager had a context parameter. When GridPager is
+	// clicked, it re-renders the page, but without this @ActivationRequestParameter, or alternatively @Persist, the
+	// server-side wouldn't know which person to highlight in the Grid.
 	@Property
+	@ActivationRequestParameter
 	private Long listPersonId;
 
 	@Property
-	@ActivationRequestParameter
 	private Mode editorMode;
 
 	@Property
-	@ActivationRequestParameter
 	private Long editorPersonId;
 
 	// Generally useful bits and pieces
@@ -56,7 +58,7 @@ public class Persons {
 	// The code
 
 	void onActivate() {
-		listPersonId = editorPersonId;
+		// listPersonId = editorPersonId;
 	}
 
 	void onToCreate() {
@@ -68,10 +70,12 @@ public class Persons {
 		}
 	}
 
-	void onSelectedFromList(Long personId) {
+	// void onSelectedFromList(Long personId) {
+	void onSelectedFromList() {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
-		listPersonId = personId;
+		// editorPersonId = personId;
+		// listPersonId = personId;
+		editorPersonId = listPersonId;
 
 		if (request.isXHR()) {
 			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
@@ -96,9 +100,9 @@ public class Persons {
 		editorPersonId = personId;
 		listPersonId = personId;
 
-        if (request.isXHR()) {
-            ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
-        }
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+		}
 	}
 
 	// /////////////////////////////////////////////////////////////////////

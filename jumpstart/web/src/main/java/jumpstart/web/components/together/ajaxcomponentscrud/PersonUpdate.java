@@ -83,7 +83,9 @@ public class PersonUpdate {
 		}
 	}
 
-	void onPrepareForSubmit() {
+	void onPrepareForSubmit(Long personId) {
+		this.personId = personId;
+		
 		// Get objects for the form fields to overlay.
 		person = personFinderService.findPerson(personId);
 

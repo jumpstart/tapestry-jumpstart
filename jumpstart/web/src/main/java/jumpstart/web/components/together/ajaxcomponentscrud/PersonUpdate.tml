@@ -8,7 +8,7 @@
 	<h1>Update</h1>
 	
 	<t:zone t:id="formZone" id="formZone">
-		<t:form t:id="form" class="form-horizontal" validate="person" zone="^">
+		<t:form t:id="form" class="form-horizontal" validate="person" zone="^" context="personId">
 			<t:errors globalOnly="true"/>
 		
 			<t:if test="person">
