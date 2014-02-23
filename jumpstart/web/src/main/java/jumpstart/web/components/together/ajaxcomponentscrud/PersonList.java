@@ -7,7 +7,6 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.web.models.together.PersonFilteredDataSource;
 
 import org.apache.tapestry5.ComponentResources;
-import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -62,7 +61,7 @@ public class PersonList {
 	private AjaxResponseRenderer ajaxResponseRenderer;
 
 	// The code
-	
+
 	void onPrepareForSubmit(String partialName, Long selectedPersonId) {
 		this.partialName = partialName;
 		this.selectedPersonId = selectedPersonId;
@@ -76,20 +75,10 @@ public class PersonList {
 		// This method is here solely as documentation, because without this method the event would bubble up anyway.
 		return false;
 	}
-	
+
 	void onPaging(Long selectedPersonId) {
 		this.selectedPersonId = selectedPersonId;
 	}
-
-//	void onPaging(EventContext context) {
-////		this.selectedPersonId = selectedPersonId;
-//		return;
-//	}
-
-//	void onPaging() {
-////		this.selectedPersonId = selectedPersonId;
-//		return;
-//	}
 
 	boolean onSuccess() {
 

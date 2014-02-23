@@ -6,6 +6,7 @@ import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.SupportsInformalParameters;
 import org.apache.tapestry5.beaneditor.BeanModel;
@@ -19,12 +20,15 @@ import org.apache.tapestry5.ioc.services.TypeCoercer;
 import org.apache.tapestry5.services.Environment;
 
 /**
- * Behaves the same as Grid, plus it accepts a context parameter which will be passed with events from the GridPager.
- * Achieves this by wrapping Grid, pushing the context into the environment stack, and depends on our modified GridPager
- * class to use that context.
+ * Behaves the same as Grid, plus it accepts a context parameter which it makes available to our modified GridPager.
+ * This component achieves that by wrapping Grid, pushing the context into the environment stack. Our modified GridPager
+ * will read that context and include it in the pager links that it generates.
  */
 @SupportsInformalParameters
-public class GridWithPagerContext implements ClientElement, GridModel {
+@Events({ GridWithContext.PAGING })
+public class GridWithContext implements ClientElement, GridModel {
+
+	public static final String PAGING = "Paging";
 
 	/**
 	 * The context for the GridPager links (optional parameter). This list of values will be converted into strings and
@@ -41,7 +45,7 @@ public class GridWithPagerContext implements ClientElement, GridModel {
 
 	@Inject
 	private Environment environment;
-	
+
 	@Inject
 	private TypeCoercer typeCoercer;
 
@@ -49,10 +53,11 @@ public class GridWithPagerContext implements ClientElement, GridModel {
 
 	/**
 	 * This beginRender() will execute before our inner Grid's beginRender(). It gives us the chance to change the
-	 * environment first - let's push our custom validation decorator onto the environment stack.
+	 * environment first - let's push our context onto the environment stack.
 	 */
 	void beginRender(MarkupWriter writer) {
-		EventContext gridContext = context == null ? new EmptyEventContext() : new ArrayEventContext(typeCoercer, context);
+		EventContext gridContext = context == null ? new EmptyEventContext() : new ArrayEventContext(typeCoercer,
+				context);
 		environment.push(EventContext.class, gridContext);
 	}
 
@@ -63,9 +68,6 @@ public class GridWithPagerContext implements ClientElement, GridModel {
 		environment.pop(EventContext.class);
 	}
 
-	/**
-	 * Returns the client id of the embedded form.
-	 */
 	@Override
 	public String getClientId() {
 		return grid.getClientId();

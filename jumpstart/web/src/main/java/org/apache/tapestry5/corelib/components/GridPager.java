@@ -17,6 +17,8 @@ package org.apache.tapestry5.corelib.components;
 import java.util.ArrayList;
 import java.util.List;
 
+import jumpstart.web.components.GridWithContext;
+
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ComponentParameterConstants;
 import org.apache.tapestry5.ComponentResources;
@@ -39,7 +41,9 @@ import org.apache.tapestry5.services.Request;
  * 
  * @tapestrydoc
  */
-@Events(InternalConstants.GRID_INPLACE_UPDATE + " (internal event)")
+// START OF MODIFIED SOURCE.
+@Events({ GridWithContext.PAGING, InternalConstants.GRID_INPLACE_UPDATE + " (internal event)" })
+// END OF MODIFIED SOURCE.
 public class GridPager {
 	/**
 	 * The source of the data displayed by the grid (this is used to determine {@link GridDataSource#getAvailableRows()
@@ -216,7 +220,7 @@ public class GridPager {
 			actionContextWithoutPageNum.add(actionContext.get(Object.class, i));
 		}
 
-		resources.triggerEvent("Paging", actionContextWithoutPageNum.toArray(), null);
+		resources.triggerEvent(GridWithContext.PAGING, actionContextWithoutPageNum.toArray(), null);
 
 		// END OF MODIFIED SOURCE.
 

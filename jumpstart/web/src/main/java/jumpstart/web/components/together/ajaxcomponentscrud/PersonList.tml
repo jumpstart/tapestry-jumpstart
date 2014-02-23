@@ -22,19 +22,7 @@
 		<t:zone t:id="personsZone" id="personsZone">
 
 			<div id="personList">
-				<!-- 
-				<t:grid t:id="list" source="persons" row="person" class="table"
-					exclude="id,version,firstName,lastName,region,startDate" add="name"
-					rowsPerPage="4" pagerPosition="bottom"
-					empty="block:emptyPersons" inplace="true">
-					<p:nameCell>
-						<t:eventLink event="selected" context="[partialName,person.id]" class="prop:linkCSSClass" zone="^">
-							${person.firstName} ${person.lastName}
-						</t:eventLink>
-					</p:nameCell>
-				</t:grid>
-				 -->
-				<t:gridwithpagercontext t:id="list" source="persons" row="person" class="table"
+				<t:gridwithcontext t:id="list" source="persons" row="person" class="table"
 					exclude="id,version,firstName,lastName,region,startDate" add="name"
 					rowsPerPage="4" pagerPosition="bottom"
 					empty="block:emptyPersons" inplace="true" context="selectedPersonId">
@@ -43,7 +31,7 @@
 							${person.firstName} ${person.lastName}
 						</t:eventLink>
 					</p:nameCell>
-				</t:gridwithpagercontext>
+				</t:gridwithcontext>
 			</div>
 			
 			<t:block t:id="emptyPersons">

@@ -76,6 +76,9 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/GridWithContext.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/GridWithContext.java"/>
+		<t:sourcecodetab src="/web/src/main/java/org/apache/tapestry5/corelib/components/GridPager.java"/>
 	</t:tabgroup>
 </body>
 </html>
