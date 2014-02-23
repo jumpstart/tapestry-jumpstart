@@ -1,0 +1,7 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<t:content>
+    <t:grid t:id="grid">
+        <t:body/>
+    </t:grid>
+</t:content>
+</html>

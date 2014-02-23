@@ -17,7 +17,7 @@
 	<classpathentry kind="lib" path="business/src/main/lib-provided/slf4j-api-1.7.2.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/plastic-5.4-beta-2.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-beanvalidator-5.4-beta-2.jar"/>
-	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-core-5.4-beta-2.jar"/>
+	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-core-5.4-beta-2.jar" sourcepath="/devel/tapestry-core-5.4-beta-2-sources.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-func-5.4-beta-2.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-ioc-5.4-beta-2.jar"/>
 	<classpathentry kind="lib" path="web/src/main/lib-compile/tapestry-json-5.4-beta-2.jar"/>

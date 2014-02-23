@@ -37,6 +37,7 @@
 		<copy todir="${war.dir}/WEB-INF/classes">
 			<!-- Exclude js because by convention it shouldn't be in here. See note below, where I get the js. -->
 			<fileset dir="${project.bin.dir}" includes="${web.package.path}/**" excludes="**/*.js" />
+			<fileset dir="${project.bin.dir}" includes="${tapestry.corelib.overrides.path}/**" excludes="**/*.js" /> 
 			<fileset dir="${web.main.resources.dir}" />
 		</copy>
 
