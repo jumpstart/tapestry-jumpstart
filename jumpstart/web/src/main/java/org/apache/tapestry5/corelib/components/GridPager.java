@@ -161,7 +161,30 @@ public class GridPager {
 
 		writer.element("li");
 
-		Link link = createEventLinkWithContext(pageIndex, gridContext, actionContextWithoutPageNum);
+		// START OF MODIFIED SOURCE.
+
+		// Create link with page index and the request's context.
+
+		List<Object> newContext = new ArrayList<>();
+		newContext.add(new Integer(pageIndex));
+
+		// If actionContextWithoutPageNum is not null, then we're rendering an AJAX response to an action. Use it.
+
+		if (actionContextWithoutPageNum != null) {
+			newContext.addAll(actionContextWithoutPageNum);
+		}
+
+		// Else, use the context put into the Environment by Grid.
+
+		else {
+			for (int i = 0; i < gridContext.getCount(); i++) {
+				newContext.add(gridContext.get(Object.class, i));
+			}
+		}
+
+		Link link = resources.createEventLink(EventConstants.ACTION, newContext.toArray());
+
+		// END OF MODIFIED SOURCE.
 
 		if (zone != null) {
 			link.addParameter("t:inplace", "true");
@@ -176,37 +199,14 @@ public class GridPager {
 
 		writer.end(); // li
 	}
-	
-	private Link createEventLinkWithContext(int pageIndex, EventContext gridContext, List<Object> actionContextWithoutPageNum) {
-		List<Object> newContext = new ArrayList<>();
-		
-		newContext.add(new Integer(pageIndex));
-
-		// If actionContextWithoutPageNum is not null then we're rendering an AJAX response to an action. Use it.
-
-		if (actionContextWithoutPageNum != null) {
-			newContext.addAll(actionContextWithoutPageNum);
-		}
-
-		// Else, use the context put into the Environment by Grid.
-
-		else {
-			// Using action context
-			for (int i = 0; i < gridContext.getCount(); i++) {
-				newContext.add(gridContext.get(Object.class, i));
-			}
-		}
-
-		Link link = resources.createEventLink(EventConstants.ACTION, newContext.toArray());
-
-		return link;
-	}
 
 	/**
 	 * Repaging event handler.
 	 */
 	boolean onAction(EventContext actionContext) {
 		// TODO: Validate newPage in range
+
+		// START OF MODIFIED SOURCE.
 
 		currentPage = actionContext.get(Integer.class, 0);
 
@@ -217,6 +217,8 @@ public class GridPager {
 		}
 
 		resources.triggerEvent("Paging", actionContextWithoutPageNum.toArray(), null);
+
+		// END OF MODIFIED SOURCE.
 
 		if (request.isXHR()) {
 			resources.triggerEvent(InternalConstants.GRID_INPLACE_UPDATE, null, null);

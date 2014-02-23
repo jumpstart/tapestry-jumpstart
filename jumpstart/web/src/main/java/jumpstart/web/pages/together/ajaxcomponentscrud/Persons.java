@@ -1,6 +1,5 @@
 package jumpstart.web.pages.together.ajaxcomponentscrud;
 
-import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
@@ -33,7 +32,7 @@ public class Persons {
 	// @ActivationRequestParameter, or alternatively @Persist, the server-side wouldn't know which person to highlight
 	// in the Grid.
 	@Property
-	@ActivationRequestParameter
+	// @ActivationRequestParameter
 	private Long listPersonId;
 
 	@Property
