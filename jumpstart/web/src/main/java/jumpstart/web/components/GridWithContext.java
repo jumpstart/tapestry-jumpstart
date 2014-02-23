@@ -31,9 +31,9 @@ public class GridWithContext implements ClientElement, GridModel {
 	public static final String PAGING = "Paging";
 
 	/**
-	 * The context for the GridPager links (optional parameter). This list of values will be converted into strings and
-	 * included in the URI. The strings will be coerced back to whatever their values are and made available in the
-	 * PAGING event bubbled up by our modified GridPager.
+	 * This list of values will be converted into strings and included in our modified GridPager's pager links. The
+	 * strings will be coerced back to whatever their values are and made available in the PAGING event bubbled up by
+	 * our modified GridPager.
 	 */
 	@Parameter
 	private Object[] context;
@@ -52,8 +52,8 @@ public class GridWithContext implements ClientElement, GridModel {
 	// The code
 
 	/**
-	 * This beginRender() will execute before our inner Grid's beginRender(). It gives us the chance to change the
-	 * environment first - let's push our context onto the environment stack.
+	 * This beginRender() will execute before our inner Grid's beginRender(). We'll push our context onto the
+	 * Environment stack for use by our modified GridPager.
 	 */
 	void beginRender(MarkupWriter writer) {
 		EventContext gridContext = context == null ? new EmptyEventContext() : new ArrayEventContext(typeCoercer,
