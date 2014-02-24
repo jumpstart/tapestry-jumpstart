@@ -74,7 +74,7 @@ public class GridWithContext implements ClientElement, GridModel {
 	}
 
 	@Override
-	public BeanModel getDataModel() {
+	public BeanModel<?> getDataModel() {
 		return grid.getDataModel();
 	}
 
