@@ -21,7 +21,7 @@ public class Persons {
 
 	@Property
 	private Function function;
-	
+
 	@Property
 	private Long listPersonId;
 
@@ -31,8 +31,8 @@ public class Persons {
 	// Generally useful bits and pieces
 
 	@InjectComponent
-	private PersonList list; 
-	
+	private PersonList list;
+
 	@InjectComponent
 	private Zone editorZone;
 
@@ -47,7 +47,7 @@ public class Persons {
 	void onToCreate() {
 		function = Function.CREATE;
 		editorPersonId = null;
-		
+
 		list.doChangeOfSelectedPerson();
 
 		if (request.isXHR()) {
@@ -55,9 +55,9 @@ public class Persons {
 		}
 	}
 
-	void onPersonSelectedFromList() {
+	void onPersonSelectedFromList(Long oldSelectedPersonId, Long newSelectedPersonId) {
 		function = Function.REVIEW;
-		editorPersonId = listPersonId;
+		editorPersonId = newSelectedPersonId;
 
 		list.doChangeOfSelectedPerson();
 

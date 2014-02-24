@@ -94,8 +94,8 @@ public class PersonList {
 		return true;
 	}
 
-	boolean onPersonSelected(Long personId) {
-		this.selectedPersonId = personId;
+	boolean onPersonSelected(Long oldSelectedPersonId, Long newSelectedPersonId) {
+		this.selectedPersonId = newSelectedPersonId;
 		// Let it bubble up.
 		return false;
 	}
