@@ -39,7 +39,7 @@
 									rowsPerPage="4" pagerPosition="bottom"
 									empty="block:emptyPersons">
 									<p:nameCell>
-										<t:eventLink event="selected" context="listPerson.id" class="prop:linkCSSClass">
+										<t:eventLink event="personSelected" context="listPerson.id" class="prop:linkCSSClass">
 											${listPerson.firstName} ${listPerson.lastName}
 										</t:eventLink>
 									</p:nameCell>

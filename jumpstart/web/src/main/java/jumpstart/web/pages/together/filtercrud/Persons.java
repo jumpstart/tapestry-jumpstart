@@ -143,7 +143,7 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	void onSelected(Long personId) {
+	void onPersonSelected(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}

@@ -74,7 +74,7 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	void onSelectedFromList(Long personId) {
+	void onPersonSelectedFromList(Long personId) {
 		editorMode = Mode.REVIEW;
 		editorPersonId = personId;
 	}

@@ -14,13 +14,13 @@ import org.apache.tapestry5.grid.GridDataSource;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link jumpstart.web.components.examples.component.crud.PersonList#PERSON_SELECTED}(Long personId).
+ * {@link PersonList#PERSON_SELECTED}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
-@Events({ PersonList.SELECTED })
+@Events({ PersonList.PERSON_SELECTED })
 @Import(stylesheet = "css/together/filtercrud.css")
 public class PersonList {
-	public static final String SELECTED = "selected";
+	public static final String PERSON_SELECTED = "personSelected";
 
 	// Parameters
 
@@ -44,7 +44,7 @@ public class PersonList {
 
 	// The code
 
-	boolean onSelected(Long personId) {
+	boolean onPersonSelected(Long personId) {
 		// Return false, which means we haven't handled the event so bubble it up.
 		// This method is here solely as documentation, because without this method the event would bubble up anyway.
 		return false;

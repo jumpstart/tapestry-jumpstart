@@ -46,11 +46,12 @@
 	 	</table>
 	</div>
 
-	<p>The techniques used here avoid using the activation context and activation request parameters, so they can be
-		used deeply nested in a page.</p>
-
-	<p>Notice we have enhanced Tapestry's GridPager to handle a context and bubble it up to our PersonList component in
-		an event we've called PAGING.</p>
+	<p>In this example we have avoided using the activation context and activation request parameters. 
+		We have done this by using Form's and EventLink's context parameter to record the containing component's parameters, 
+		and we restore those parameters in the event handler methods. Tapestry's GridPager doesn't have a context, so we
+		have created GridWithContext and enhanced GridPager to carry the context and bubble it up in an event called PAGING.</p>
+		
+	<p>The big advantage of these techniques is that they enable our components to be used deeply nested in an AJAX page.</p>
 
 	References:
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 
