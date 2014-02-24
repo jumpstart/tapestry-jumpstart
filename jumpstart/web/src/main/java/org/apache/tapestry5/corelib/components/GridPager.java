@@ -34,6 +34,7 @@ import org.apache.tapestry5.grid.GridDataSource;
 import org.apache.tapestry5.internal.InternalConstants;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.ioc.util.UnknownValueException;
 import org.apache.tapestry5.services.Request;
 
 /**
@@ -181,8 +182,13 @@ public class GridPager {
 		// Else, use the context put into the Environment by Grid.
 
 		else {
-			for (int i = 0; i < gridContext.getCount(); i++) {
-				newContext.add(gridContext.get(Object.class, i));
+			try {
+				for (int i = 0; i < gridContext.getCount(); i++) {
+					newContext.add(gridContext.get(Object.class, i));
+				}
+			}
+			catch (UnknownValueException e) {
+				// This occurs when enclosed by Grid, not GridWithContext. Ignore it.
 			}
 		}
 
