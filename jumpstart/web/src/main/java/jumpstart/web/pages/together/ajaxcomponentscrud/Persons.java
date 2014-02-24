@@ -1,8 +1,9 @@
 package jumpstart.web.pages.together.ajaxcomponentscrud;
 
+import jumpstart.web.components.together.ajaxcomponentscrud.PersonList;
+
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -12,31 +13,17 @@ import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 @Import(stylesheet = "css/together/ajaxcomponentscrud.css")
 public class Persons {
 
-	public enum Mode {
+	public enum Function {
 		CREATE, REVIEW, UPDATE;
 	}
 
 	// Screen fields
 
 	@Property
-	// If we use @ActivationRequestParameter instead of @Persist, then our handler for filter form success would have
-	// to render more than just the listZone, it would have to render all other links and forms: it would need a zone
-	// around the "Create..." link so it could render it; and it would render the editorZone, which would be destructive
-	// if the user has been typing into Create or Update. Alternatively, it could use a custom JavaScript callback to
-	// update the partialName in all other links and forms - see AjaxResponseRenderer#addCallback(JavaScriptCallback).
-	@Persist
-	private String partialName;
-
-	// We wouldn't need to use @ActivationRequestParameter here if GridPager had a context parameter and bubbled up an
-	// event so our component could grab it. When GridPager is clicked, it re-renders the page, but without this
-	// @ActivationRequestParameter, or alternatively @Persist, the server-side wouldn't know which person to highlight
-	// in the Grid.
+	private Function function;
+	
 	@Property
-	// @ActivationRequestParameter
 	private Long listPersonId;
-
-	@Property
-	private Mode editorMode;
 
 	@Property
 	private Long editorPersonId;
@@ -44,8 +31,8 @@ public class Persons {
 	// Generally useful bits and pieces
 
 	@InjectComponent
-	private Zone listZone;
-
+	private PersonList list; 
+	
 	@InjectComponent
 	private Zone editorZone;
 
@@ -57,28 +44,25 @@ public class Persons {
 
 	// The code
 
-	void onActivate() {
-		// listPersonId = editorPersonId;
-	}
-
 	void onToCreate() {
-		editorMode = Mode.CREATE;
+		function = Function.CREATE;
 		editorPersonId = null;
+		
+		list.doChangeOfSelectedPerson();
 
 		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+			ajaxResponseRenderer.addRender(editorZone);
 		}
 	}
 
-	// void onSelectedFromList(Long personId) {
-	void onSelectedFromList() {
-		editorMode = Mode.REVIEW;
-		// editorPersonId = personId;
-		// listPersonId = personId;
+	void onPersonSelectedFromList() {
+		function = Function.REVIEW;
 		editorPersonId = listPersonId;
 
+		list.doChangeOfSelectedPerson();
+
 		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+			ajaxResponseRenderer.addRender(editorZone);
 		}
 	}
 
@@ -87,7 +71,7 @@ public class Persons {
 	// /////////////////////////////////////////////////////////////////////
 
 	void onCanceledFromPersonCreate() {
-		editorMode = null;
+		function = null;
 		editorPersonId = null;
 
 		if (request.isXHR()) {
@@ -96,12 +80,14 @@ public class Persons {
 	}
 
 	void onCreatedFromPersonCreate(Long personId) {
-		editorMode = Mode.REVIEW;
+		function = Function.REVIEW;
 		editorPersonId = personId;
 		listPersonId = personId;
 
+		list.doChangeOfSelectedPerson();
+
 		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+			ajaxResponseRenderer.addRender(editorZone);
 		}
 	}
 
@@ -110,7 +96,7 @@ public class Persons {
 	// /////////////////////////////////////////////////////////////////////
 
 	void onToUpdateFromPersonReview(Long personId) {
-		editorMode = Mode.UPDATE;
+		function = Function.UPDATE;
 		editorPersonId = personId;
 
 		if (request.isXHR()) {
@@ -119,12 +105,14 @@ public class Persons {
 	}
 
 	void onDeletedFromPersonReview(Long personId) {
-		editorMode = null;
+		function = null;
 		editorPersonId = null;
 		listPersonId = null;
 
+		list.doChangeOfSelectedPerson();
+
 		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+			ajaxResponseRenderer.addRender(editorZone);
 		}
 	}
 
@@ -133,7 +121,7 @@ public class Persons {
 	// /////////////////////////////////////////////////////////////////////
 
 	void onCanceledFromPersonUpdate(Long personId) {
-		editorMode = Mode.REVIEW;
+		function = Function.REVIEW;
 		editorPersonId = personId;
 
 		if (request.isXHR()) {
@@ -142,12 +130,14 @@ public class Persons {
 	}
 
 	void onUpdatedFromPersonUpdate(Long personId) {
-		editorMode = Mode.REVIEW;
+		function = Function.REVIEW;
 		editorPersonId = personId;
 		listPersonId = personId;
 
+		list.doChangeOfSelectedPerson();
+
 		if (request.isXHR()) {
-			ajaxResponseRenderer.addRender(listZone).addRender(editorZone);
+			ajaxResponseRenderer.addRender(editorZone);
 		}
 	}
 
@@ -155,7 +145,7 @@ public class Persons {
 	// GETTERS ETC.
 	// /////////////////////////////////////////////////////////////////////
 
-	public boolean isEditorMode(Mode mode) {
-		return editorMode == mode;
+	public boolean isFunction(Function function) {
+		return this.function == function;
 	}
 }

@@ -22,22 +22,20 @@
 					<!-- This is the left side of the table: a list of Persons -->
 	
 					<td id="listSide">
-						<t:zone t:id="listZone" id="listZone">
-							<t:together.ajaxcomponentscrud.PersonList t:id="list" partialName="partialName" selectedPersonId="listPersonId"/>
-						</t:zone>
+						<t:together.ajaxcomponentscrud.PersonList t:id="list" selectedPersonId="listPersonId"/>
 					</td>
 					
 					<!-- This is the right side of the table: where a Person will be created, reviewed, updated, or deleted. -->
 			
 					<td id="editorSide">
 						<t:zone t:id="editorZone" id="editorZone">
-							<t:if test="isEditorMode('create')">
+							<t:if test="isFunction('create')">
 								<t:together.ajaxcomponentscrud.PersonCreate t:id="personCreate"/>
 							</t:if>
-							<t:if test="isEditorMode('review')">
+							<t:if test="isFunction('review')">
 								<t:together.ajaxcomponentscrud.PersonReview t:id="personReview" personId="editorPersonId"/>
 							</t:if>
-							<t:if test="isEditorMode('update')">
+							<t:if test="isFunction('update')">
 								<t:together.ajaxcomponentscrud.PersonUpdate t:id="personUpdate" personId="editorPersonId"/>
 							</t:if>
 						</t:zone>
@@ -48,8 +46,14 @@
 	 	</table>
 	</div>
 
- 	References: 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 
+	<p>The techniques used here avoid using the activation context and activation request parameters, so they can be
+		used deeply nested in a page.</p>
+
+	<p>Notice we have enhanced Tapestry's GridPager to handle a context and bubble it up to our PersonList component in
+		an event we've called PAGING.</p>
+
+	References:
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 
  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>, 
  	<a href="http://tapestry.apache.org/environmental-services.html">Environmental Services</a>, 
  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/FormSupport.html">FormSupport</a>, 

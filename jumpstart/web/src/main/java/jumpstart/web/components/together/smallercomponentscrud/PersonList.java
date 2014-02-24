@@ -14,7 +14,7 @@ import org.apache.tapestry5.grid.GridDataSource;
 
 /**
  * This component will trigger the following events on its container (which in this example is the page):
- * {@link jumpstart.web.components.examples.component.crud.PersonList#SELECTED}(Long personId).
+ * {@link jumpstart.web.components.examples.component.crud.PersonList#PERSON_SELECTED}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
 @Events({ PersonList.SELECTED })
