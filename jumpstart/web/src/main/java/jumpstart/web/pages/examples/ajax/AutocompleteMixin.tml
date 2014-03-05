@@ -17,38 +17,26 @@
 	As you type, Autocomplete issues <em>providecompletions</em> events which we handle by returning a list of partial matches.
 
 	<div class="eg">
-		<form t:type="form">
-			Type in a country name:
-			<input t:id="countryName" t:type="TextField" t:mixins="autocomplete"/>
-		</form>
+		<t:form class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-3" for="countryName">
+				Type in a country name:
+				</t:label>
+				<div class="col-sm-3">
+					<input t:id="countryName" t:type="TextField" t:mixins="autocomplete"/>
+				</div>
+			</div>
+		</t:form>
 	</div>
 	
-	Looking at the source of 
-	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/java/org/apache/tapestry5/corelib/mixins/Autocomplete.java?view=markup">Autocomplete.java</a> and 
-	<a href="http://svn.apache.org/viewvc/tapestry/tapestry5/trunk/tapestry-core/src/main/resources/org/apache/tapestry5/corelib/mixins/autocomplete.js?view=markup">autocomplete.js</a> 
-	you will find that what it does is quite simple - <br/>
-	it adds a short piece of javascript to the page, which instantiates a script.aculo.us <a href="http://madrobby.github.com/scriptaculous/ajax-autocompleter/">Ajax.Autocompleter</a>:
+	<p>Looking at the source of 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/src-html/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete.java</a>, 
+	you'll see that what it does is quite simple: it adds to the page a short piece of JavaScript, 
+	<a href="http://people.apache.org/~hlship/t5api/coffeescript/autocomplete.html">autocomplete.coffee</a>. 
+	The JavaScript requires <a href="http://twitter.github.io/typeahead.js/">Twitter typeahead</a>, and configures it on the target field.</p>
 	
-	<div style="padding: 14px;">
-		<code>new Ajax.Autocompleter(id_of_component, id_of_div_to_populate, url, options);</code>
-	</div>
-	
-	<strong>URL:</strong> The mixin populates the url with an event link to itself. The event is "autocomplete". <br/>
-	When the mixin handles the event, it bubbles up the <em>provideCompletions</em> event.<br/>
-	Your handler for <em>provideCompletions</em> returns a list, which the mixin returns to the client's Autocompleter.<br/><br/>
-
-	<strong>Options:</strong> The mixin lets you control some options through its parameters (frequency, minChars, tokens).<br/>
-	To control other options, create your own mixin - a subclass of <em>Autocomplete</em> - and override <em>configure(JSONObject config)</em>.<br/><br/>
-
-	<strong>Server return:</strong> Ajax.Autocompleter requires the server to return an unordered list, which the mixin does like this: 
-
-	<div style="padding: 14px;">
-		<code>&lt;ul>&lt;li>AUSTRALIA&lt;/li>&lt;li>AUSTRIA&lt;/li>&lt;/ul></code>
-	</div>
-
-	You are allowed to put additional information in the "server return" (see <a href="http://madrobby.github.com/scriptaculous/ajax-autocompleter/">Ajax.Autocompleter</a>). <br/>
-	To do so, create your own mixin - a sublcass of <em>Autocomplete</em> - and override <em>generateResponseMarkup(MarkupWriter writer, List matches)</em>.<br/>
-	But to make use of the information you may need to add some javascript and an <em>afterUpdateElement</em> option that references the javascript.<br/><br/>
+	<p>When you type in the field, typeahead sends event <em>autocomplete</em> to the mixin server-side. 
+	The mixin bubbles up <em>provideCompletions</em>, which you can handle by returning a list, which the mixin returns to the client's typeahead.</p>
 	
 	For a multi-value autocomplete, try 
 	<a href="http://tawus.wordpress.com/2011/12/28/multivalue-autocomplete-for-tapestry/">Multivalue Autocomplete for Tapestry</a>. 
@@ -56,9 +44,10 @@
 	For tips on styling Autocomplete, see this <a href="http://web.archiveorange.com/archive/v/NzHgI7qCz2F9Gt8grftw">mailing list thread</a>.<br/><br/>
 
 	References: 
-	<a href="http://tapestry.apache.org/ajax-and-zones.html#AjaxandZones-autocomplete">Autocomplete Mixin</a>,
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete API</a>, 
-	<a href="http://madrobby.github.com/scriptaculous/ajax-autocompleter/">Ajax.Autocompleter</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/coffeescript/autocomplete.html">autocomplete.coffee</a>, 
+	<a href="http://tapestry.apache.org/ajax-and-zones.html#AjaxandZones-autocomplete">(T5.3) Autocomplete Mixin</a>, 
+	<a href="http://twitter.github.io/typeahead.js/">typeahead.js</a>, 
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>.<br/><br/>
 	
@@ -67,7 +56,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AutocompleteMixin.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AutocompleteMixin.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/autocomplete.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/CountryNames.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/services/AppModule.java"/>
 	</t:tabgroup>

@@ -8,8 +8,7 @@
 
 	As Tapestry generates, or <em>renders</em>, a page, it will call the page's 
 	<code>setupRender()</code> method if the page has one.<br/>
-	In previous examples we set up <code>message</code> in <code>getMessage()</code>. 
-	In this example we set up <code>message</code> once, in <code>setupRender()</code>. 
+	When a field is annotated with <code>@Property</code>, Tapestry creates getter and setter methods for it at runtime.<br/>
 	
 	<div class="eg">
 		<p>
@@ -20,7 +19,9 @@
 		<t:pagelink t:page="examples/output/BetterOutput" href="#">Refresh</t:pagelink>
 	</div>
 
-	Also new in this page is <code>@Property</code>, a field annotation that creates getter and setter methods at runtime.<br/><br/>
+	In the previous example we used <code>getMessage()</code> to generate a message. 
+	In this example we used <code>setupRender()</code> to generate a value for the <code>message</code> field which is 
+	annotated with <code>@Property</code>. The result is that despite being referenced 3 times, message is generated only once. <br/><br/>
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 

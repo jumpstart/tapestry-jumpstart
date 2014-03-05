@@ -75,6 +75,9 @@
 		</copy>
 
 		<copy tofile="${war.dir}/WEB-INF/classes/META-INF/persistence.xml" file="${business.main.resources.dir}/persistence-descriptor/${collapsed.persistence.descriptor}" />
+		<copy todir="${war.dir}/WEB-INF/classes/">
+			<fileset dir="${business.main.resources.dir}" includes="*.properties"/>
+		</copy>
 
 		<copy todir="${war.dir}/WEB-INF/lib">
 			<fileset dir="${business.main.lib.compile.dir}" includes="*.jar" />

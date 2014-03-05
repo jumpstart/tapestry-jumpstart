@@ -1,4 +1,4 @@
-define(["jquery", "t5/core/console"], function($, console) {
+define(["jquery"], function($) {
 
 	return {
 		$submit : "",

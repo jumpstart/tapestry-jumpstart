@@ -69,6 +69,7 @@
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/ajaxcomponentscrud.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonList.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonList.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/person-list.js"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonCreate.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonCreate.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonReview.tml"/>

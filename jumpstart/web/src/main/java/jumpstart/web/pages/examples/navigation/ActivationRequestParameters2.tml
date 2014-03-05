@@ -21,7 +21,7 @@
 	private String partialName;
 	</code></pre><br/>
 
-	<strong>When to use activation request parameters instead of activation context?</strong> 
+	<strong>When to use activation request parameters instead of activation context?</strong><br/> 
 	Activation request parameters are good for <strong>filter criteria</strong> because, arguably, 
 	they produce a more RESTful URL in that situation.<br/><br/>
 
