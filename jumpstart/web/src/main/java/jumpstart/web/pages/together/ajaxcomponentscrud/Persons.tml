@@ -46,12 +46,21 @@
 	 	</table>
 	</div>
 
-	<p>In this example we have avoided using the activation context and activation request parameters. 
-		We have done this by using Form's and EventLink's context parameter to record the containing component's parameters, 
-		and we restore those parameters in the event handler methods. Tapestry's GridPager doesn't have a context, so we
-		have created GridWithContext and enhanced GridPager to carry the context and bubble it up in an event called PAGING.</p>
+	<p>In this example we avoided depending on the activation context and activation request parameters. 
+		Deeply nested components need to be able to handle requests independently, without depending on the 
+		activation context and activation request parameters being passed down to them through layers of parameters.</p>
 		
-	<p>The big advantage of these techniques is that they enable our components to be used deeply nested in an AJAX page.</p>
+	<p>Instead, we used Form's and EventLink's context parameter to save the containing component's parameters, 
+		and our event handler methods receive the context and restore the parameters.</p>
+		
+	<p>However, Grid doesn't have a context! We need it so we can pass <em>selectedPersonId</em> with every click of a GridPager link. 
+		Without it, PersonList would no longer know who was selected. So, we created GridWithContext, we enhanced GridPager to carry the context 
+		and bubble it up in an event called PAGING, and our <code>onPaging(...)</code> method restores selectedPersonId.</p>
+	
+	<p class="alert alert-info">
+		Vote for Grid to get a context parameter for AJAX paging and column sorting here: 
+		<a href="https://issues.apache.org/jira/browse/TAP5-2297">TAP5-2297</a>.
+	</p>
 
 	References:
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResourcesCommon.html">ComponentResourcesCommon</a>, 

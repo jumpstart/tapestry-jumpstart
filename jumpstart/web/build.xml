@@ -193,7 +193,10 @@
 		<setproxy></setproxy>
 		<fail unless="maven.repo.root" message="*** Specify maven.repo.root in the project's build.properties."/>
 		
+		<!--
 		<property name="tapestry.staging" value="https://repository.apache.org/content/groups/staging"/>
+		-->
+		<property name="tapestry.staging" value="${maven.repo.root}"/>
 
 		<!-- compile-time jars - needed for compiling and will be put in the package for runtime -->
 

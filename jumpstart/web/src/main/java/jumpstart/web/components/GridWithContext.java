@@ -20,9 +20,8 @@ import org.apache.tapestry5.ioc.services.TypeCoercer;
 import org.apache.tapestry5.services.Environment;
 
 /**
- * Behaves the same as Grid, plus it accepts a context parameter which it makes available to our modified GridPager.
- * This component achieves that by wrapping Grid, pushing the context into the environment stack. Our modified GridPager
- * will read that context and include it in the pager links that it generates.
+ * Behaves mostly the same as Grid but this component also accepts a context parameter and our modified GridPager 
+ * copies that context into the links that it renders.
  */
 @SupportsInformalParameters
 @Events({ GridWithContext.PAGING })
