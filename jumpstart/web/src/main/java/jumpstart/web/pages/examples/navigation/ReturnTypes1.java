@@ -14,6 +14,7 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
+import org.apache.tapestry5.services.HttpError;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Response;
 
@@ -47,16 +48,20 @@ public class ReturnTypes1 {
 		return ReturnTypesClass.class;
 	}
 
-	@InjectPage
-	private ReturnTypesPageObject pageObject;
-
-	Object onReturnPageObject() {
-		pageObject.set("Hello");
-		return pageObject;
-	}
-
 	String onReturnString() {
 		return "examples/navigation/ReturnTypesString";
+	}
+
+	@InjectPage
+	private ReturnTypesPageObject pageInstance;
+
+	Object onReturnPageInstance() {
+		pageInstance.set("Hello");
+		return pageInstance;
+	}
+	
+	HttpError onReturnHttpError() {
+		return new HttpError(404, "Page not found");
 	}
 
 	@Inject

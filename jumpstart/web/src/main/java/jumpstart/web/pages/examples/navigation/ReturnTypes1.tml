@@ -13,9 +13,11 @@
 		<t:eventlink event="returnnull">null</t:eventlink> - redisplay the same page.<br/>
 		<t:eventlink event="returnfalse">false</t:eventlink> - same as returning null.<br/>
 		<t:eventlink event="returntrue">true</t:eventlink> - redisplay same page, aborting event bubbling (see Event Bubbling example).<br/>
-		<t:eventlink event="returnclass">Class (must be a page class)</t:eventlink> - go to new page.<br/>
 		<t:eventlink event="returnstring">String (must be a logical page name)</t:eventlink> - go to new page.<br/>
-		<t:eventlink event="returnpageobject">page object</t:eventlink> - go to new page, with the option of setting up its parameters first.<br/>
+		<t:eventlink event="returnclass">Class (must be a page class)</t:eventlink> - go to new page.<br/>
+		<t:eventlink event="returnpageobject">page instance</t:eventlink> - go to new page, with the option of setting up its parameters first.<br/>
+		<t:eventlink event="returnhttperror">HttpError</t:eventlink> - returns an 
+			<a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a>.<br/>
 		<t:eventlink event="returnlink">Link</t:eventlink> - go to new page, with the option of setting up a context first.<br/>
 		<t:eventlink event="returnstreamresponse">StreamResponse</t:eventlink> - used by pages or components to return images, PDFs, XML, etc.<br/>
 		<t:eventlink event="returnurl">URL</t:eventlink> - go to a java.net.URL of an external page.<br/>
@@ -29,7 +31,8 @@
 	</div>
 
 	References: 
-	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">Component Event Requests</a>, 
+	<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests&amp;Responses">Component Event Requests</a>, 
+	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/services/HttpError.html">HttpError</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Link.html">Link</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/StreamResponse.html">StreamResponse</a>, 

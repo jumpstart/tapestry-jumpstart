@@ -23,7 +23,7 @@
 	<ul>
 		<li><strong>Plus:</strong> Able to do work before going to next page (or redisplaying same page).</li>
 		<li><strong>Minus:</strong> Generates a 
-			<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">
+			<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests&amp;Responses">
 			component event request</a>, so it does 2 trips to the server.</li>
 		<li><strong>Plus:</strong> Context can be baked in when the link is rendered and/or provided dynamically 
 			by the event handler method.</li>

@@ -23,7 +23,7 @@
 	<li>
 		<code>onPrepare()</code> is ideal for setting up objects and fields that can be edited in a Form because it 
 		is triggered during form rendering and form submission but it isn't triggered by other 
-		<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">component event requests</a>. 
+		<a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests&amp;Responses">component event requests</a>. 
 		If there's more than one form then use more than one onPrepare, eg. onPrepareFromFormX(), onPrepareFromFormY().
 	</li>
 	<li>
@@ -45,7 +45,7 @@
 	
 	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">page render request</a> 
 	can provide an activation context for the new page. 
-	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">component 
+	A <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests&amp;Responses">component 
 	event request</a> provides the activation context of the page it came from. 
 	When another page calls a method on the page it is usually to set up the fields used in the activation context.<br/>
 

@@ -13,7 +13,7 @@
 	
 	Second, we create a ComponentRequestFilter, called PageProtectionFilter, which we contribute to the application in AppModule. 
 	This filter inspects every <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">
- 	page render request</a> and <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests">
+ 	page render request</a> and <a href="http://tapestry.apache.org/page-navigation.html#PageNavigation-ComponentEventRequests&amp;Responses">
  	component event request</a> as it comes in, determines which page is involved,
 	and whether the page has the annotation. If it does and the user is not logged in, then the filter redirects the browser to 
 	the Login page. It also tells the Login page which page you were trying to reach.
