@@ -20,7 +20,7 @@
 
 	<div class="eg">
 		Here's a link to a "protected" page: 
-		<t:pagelink page="theapp/security/userview" context="literal:2">View admin user</t:pagelink>. Try it!
+		<t:pagelink page="theapp/userview" context="literal:2">View admin user</t:pagelink>. Try it!
 	</div>
 	
 	For more elaborate security try <a href="http://tynamo.org/tapestry-security+guide">tapestry-security</a> 

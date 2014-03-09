@@ -51,9 +51,9 @@
 						<table>
 							<tr>
 								<td><input type="submit" value="Search" class="positive" title="Search"/></td>
-								<td><button t:type="chenillekit/Button" type="button" t:event="Reset">Reset</button></td>
+								<td><t:eventlink event="Reset" class="btn btn-default">Reset</t:eventlink></td>
 								<!-- Replace this Button with the "page link button" when t5components releases it. -->
-								<td><button t:type="chenillekit/Button" type="button" t:event="New" title="New">New...</button></td>
+								<td><t:eventlink event="New" title="New" class="btn btn-default">New...</t:eventlink></td>
 							</tr>
 						</table>
 					</div>

@@ -281,7 +281,7 @@
 							<br/>
 							<t:pagelink page="examples/ajax/AutocompleteMixin">Autocomplete Mixin</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/ajax/TreeFromDatabaseWithZones" t:disabled="true">Tree From Database, With Zones</t:pagelink><br/> 
+							<t:pagelink page="examples/ajax/TreeFromDatabaseWithZones">Tree From Database, With Zones</t:pagelink><br/> 
 							<br/>
 							<t:pagelink page="examples/ajax/ProgressiveDisplay">ProgressiveDisplay</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/ProgressiveDisplayVariations">ProgressiveDisplay Variations</t:pagelink><br/>

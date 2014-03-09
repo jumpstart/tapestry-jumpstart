@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a DOCTYPE to allow us to use special characters like &nbsp; 
+	We use a "strict" DTD to make IE follow the alignment rules. -->
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<head>
+	<title>${title}</title>
+</head>
+
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Tapestry JumpStart</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<t:pagelink page="Index" class="navbar-brand">Tapestry JumpStart</t:pagelink>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<t:pagelink page="theapp/UserView">User View</t:pagelink>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav pull-right">
+					<li>
+						<t:eventlink event="Logout">Log Out</t:eventlink>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div style="padding: 51px 0;">
+			<t:body/>
+		</div>
+	</div>
+	
+</body>
+</html>

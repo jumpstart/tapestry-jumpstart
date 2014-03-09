@@ -14,6 +14,7 @@ import jumpstart.web.pages.Index;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.ValueEncoder;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Tree;
@@ -25,6 +26,7 @@ import org.apache.tapestry5.tree.DefaultTreeModel;
 import org.apache.tapestry5.tree.TreeModel;
 import org.apache.tapestry5.tree.TreeNode;
 
+@Import(stylesheet = "css/examples/treefromdatabasewithzones.css")
 public class TreeFromDatabaseWithZones {
 
 	// Screen fields

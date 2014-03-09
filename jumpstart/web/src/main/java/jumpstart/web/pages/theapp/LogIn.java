@@ -9,13 +9,14 @@ import jumpstart.util.ExceptionUtil;
 import jumpstart.web.base.theapp.SimpleBasePage;
 import jumpstart.web.commons.IIntermediatePage;
 import jumpstart.web.pages.Index;
-import jumpstart.web.pages.theapp.general.Welcome;
 import jumpstart.web.state.theapp.Visit;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
+import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -26,7 +27,8 @@ import org.slf4j.Logger;
 // To make this page accessible only by HTTPS, annotate it with @Secure and ensure your web server can deliver HTTPS.
 // See http://tapestry.apache.org/secure.html .
 // @Secure
-public class Login extends SimpleBasePage implements IIntermediatePage {
+@Import(stylesheet = "css/theapp/login.css")
+public class LogIn extends SimpleBasePage implements IIntermediatePage {
 
 	// The activation context
 
@@ -57,6 +59,9 @@ public class Login extends SimpleBasePage implements IIntermediatePage {
 	
 	@EJB
 	private ISecurityFinderServiceLocal securityFinderService;
+	
+	@InjectPage
+	private UserView userViewPage;
 
 	// The code
 	
@@ -103,7 +108,9 @@ public class Login extends SimpleBasePage implements IIntermediatePage {
 	Object onSuccess() {
 		
 		if (nextPageLink == null) {
-			return Welcome.class;
+//			return Welcome.class;
+			userViewPage.set(getVisit().getMyUserId());
+			return userViewPage;
 		}
 		else {
 			componentResources.discardPersistentFieldChanges();

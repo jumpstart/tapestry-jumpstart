@@ -15,7 +15,7 @@ import jumpstart.client.IBusinessServicesLocator;
 import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.commons.IIntermediatePage;
 import jumpstart.web.pages.infra.PageDenied;
-import jumpstart.web.pages.theapp.Login;
+import jumpstart.web.pages.theapp.LogIn;
 import jumpstart.web.state.theapp.Visit;
 
 import org.apache.tapestry5.EventContext;
@@ -45,7 +45,7 @@ import org.slf4j.Logger;
 public class PageProtectionFilter implements ComponentRequestFilter {
 	private static final String COMPONENT_PARAM_PREFIX = "t:";
 
-	private final String autoLoginStr = System.getProperty("jumpstart.auto-login");
+	private final String autoLogInStr = System.getProperty("jumpstart.auto-login");
 
 	private enum AuthCheckResult {
 		AUTHENTICATE, AUTHORISED, DENY;
@@ -93,13 +93,13 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		}
 		else if (result == AuthCheckResult.AUTHENTICATE) {
 
-			// Redirect to the Login page, with memory of the request.
+			// Redirect to the LogIn page, with memory of the request.
 
 			Link requestedPageLink = createLinkToRequestedPage(parameters.getLogicalPageName(),
 					parameters.getActivationContext());
-			Link loginPageLink = createLoginPageLinkWithMemory(requestedPageLink);
+			Link logInPageLink = createLogInPageLinkWithMemory(requestedPageLink);
 
-			response.sendRedirect(loginPageLink);
+			response.sendRedirect(logInPageLink);
 		}
 		else {
 			throw new IllegalStateException(result.toString());
@@ -141,14 +141,14 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 				return;
 			}
 
-			// Else, redirect to the Login page, with memory of the request.
+			// Else, redirect to the LogIn page, with memory of the request.
 
 			else {
 				Link requestedPageLink = createLinkToRequestedPage(parameters.getActivePageName(),
 						parameters.getPageActivationContext());
-				Link loginPageLink = createLoginPageLinkWithMemory(requestedPageLink);
+				Link logInPageLink = createLogInPageLinkWithMemory(requestedPageLink);
 
-				response.sendRedirect(loginPageLink);
+				response.sendRedirect(logInPageLink);
 			}
 		}
 		else {
@@ -249,8 +249,8 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		// app every time the session clears eg. when app is restarted.
 
 		else {
-			if (isAutoLoginOn()) {
-				autoLogin(1L);
+			if (isAutoLogInOn()) {
+				autoLogIn(1L);
 				return true;
 			}
 		}
@@ -276,30 +276,30 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 	 * Checks the value of system property jumpstart.auto-login. If "true" then returns true; if "false" then return
 	 * false; if not set then returns false.
 	 */
-	private boolean isAutoLoginOn() {
-		boolean autoLogin = false;
-		if (autoLoginStr == null) {
-			autoLogin = false;
+	private boolean isAutoLogInOn() {
+		boolean autoLogIn = false;
+		if (autoLogInStr == null) {
+			autoLogIn = false;
 		}
-		else if (autoLoginStr.equalsIgnoreCase("true")) {
-			autoLogin = true;
+		else if (autoLogInStr.equalsIgnoreCase("true")) {
+			autoLogIn = true;
 		}
-		else if (autoLoginStr.equalsIgnoreCase("false")) {
-			autoLogin = false;
+		else if (autoLogInStr.equalsIgnoreCase("false")) {
+			autoLogIn = false;
 		}
 		else {
 			throw new IllegalStateException(
 					"System property jumpstart.auto-login has been set to \""
-							+ autoLoginStr
+							+ autoLogInStr
 							+ "\".  Please set it to \"true\" or \"false\".  If not specified at all then it will default to \"false\".");
 		}
-		return autoLogin;
+		return autoLogIn;
 	}
 
 	/**
 	 * Automatically logs you in as the given user. Intended for use in development environment only.
 	 */
-	private void autoLogin(Long userId) {
+	private void autoLogIn(Long userId) {
 
 		// Lazy-load the business services locator because it is only needed for auto-login
 
@@ -320,13 +320,13 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 		}
 	}
 
-	private Link createLoginPageLinkWithMemory(Link requestedPageLink) {
+	private Link createLogInPageLinkWithMemory(Link requestedPageLink) {
 
-		IIntermediatePage loginPage = (IIntermediatePage) componentSource.getPage(Login.class);
-		loginPage.setNextPageLink(requestedPageLink);
-		Link loginPageLink = pageRenderLinkSource.createPageRenderLink(Login.class);
+		IIntermediatePage logInPage = (IIntermediatePage) componentSource.getPage(LogIn.class);
+		logInPage.setNextPageLink(requestedPageLink);
+		Link logInPageLink = pageRenderLinkSource.createPageRenderLink(LogIn.class);
 
-		return loginPageLink;
+		return logInPageLink;
 	}
 
 	private ISecurityFinderServiceLocal getSecurityFinderService() {

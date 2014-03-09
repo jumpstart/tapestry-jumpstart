@@ -22,8 +22,8 @@
 						<table>
 							<tr>
 								<td><input type="submit" value="Search" class="positive"/></td>
-								<td><button t:type="chenillekit/Button" type="button" t:event="Reset">Reset</button></td>
-								<td><button t:type="chenillekit/Button" type="button" t:event="Add" title="Add">Add...</button></td>
+								<td><t:eventlink event="Reset" class="btn btn-default">Reset</t:eventlink></td>
+								<td><t:eventlink event="Add" title="Add" class="btn btn-default">Add...</t:eventlink></td>
  							</tr>
 						</table>
 					</div>

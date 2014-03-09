@@ -68,8 +68,12 @@
 						<div class="buttons">
 							<table>
 								<tr>
+									<!-- 
 									<td><button t:type="chenillekit/Button" type="button" t:event="Refresh" title="Refresh">Refresh</button></td>
 									<td><button t:type="chenillekit/Button" type="button" t:event="Cancel" title="Cancel">Cancel</button></td>
+									 -->
+									<td><t:eventlink event="Refresh" title="Refresh" class="btn btn-default">Refresh</t:eventlink></td>
+									<td><t:eventlink event="Cancel" title="Cancel" class="btn btn-default">Cancel</t:eventlink></td>
 								</tr>
 							</table>
 						</div>

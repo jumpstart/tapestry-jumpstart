@@ -22,45 +22,38 @@
 	<div class="eg">
 		<table>
 		<tr>
-		
-			<td id="treeSide">
-				<t:if test="hasResults">
-					<a t:type="EventLink" t:event="clearExpansions" t:zone="treeZone" href="#">Clear Expansions</a><br/><br/>
-
-					<t:zone t:id="treeZone" id="treeZone">
-						<t:tree t:id="Tree" t:model="treeModel" t:node="treeNode" t:value="classificationNode">
-							<p:label>
-								<t:if test="treeNode.leaf">
-									<a t:type="EventLink" t:event="leafSelected" t:context="classificationNode.classification.id" 
-										t:zone="selectedZone" class="prop:leafClass" href="#">
-										${treeNode.label}
-									</a>
-								</t:if>
-								<t:if test="!treeNode.leaf">
+		<td id="treeSide">
+			<t:if test="hasResults">
+				<a t:type="EventLink" t:event="clearExpansions" t:zone="treeZone" href="#">Clear Expansions</a><br/><br/>
+				<t:zone t:id="treeZone" id="treeZone">
+					<t:tree t:id="Tree" t:model="treeModel" t:node="treeNode" t:value="classificationNode">
+						<p:label>
+							<t:if test="treeNode.leaf">
+								<a t:type="EventLink" t:event="leafSelected" t:context="classificationNode.classification.id" 
+									t:zone="selectedZone" class="prop:leafClass" href="#">
 									${treeNode.label}
-								</t:if>
-							</p:label>
-						</t:tree>
-					</t:zone><br/>
-
-					<a t:type="EventLink" t:event="refresh" t:zone="treeZone" href="#">Refresh</a>
+								</a>
+							</t:if>
+							<t:if test="!treeNode.leaf">
+								${treeNode.label}
+							</t:if>
+						</p:label>
+					</t:tree>
+				</t:zone><br/>
+				<a t:type="EventLink" t:event="refresh" t:zone="treeZone" href="#">Refresh</a>
+			</t:if>
+			<t:if test="!hasResults">
+				<span style="color: red;">Database data has not been set up!</span>
+			</t:if>
+		</td>
+		<td id="selectedSide">
+			<t:zone t:id="selectedZone" id="selectedZone">
+				<t:if test="selectedClassification">
+					You selected:<br/>
+					${selectedClassification.label}
 				</t:if>
-				<t:if test="!hasResults">
-					<span style="color: red;">Database data has not been set up!</span>
-				</t:if>
-			</td>
-
-			<td id="selectedSide">
-
-				<t:zone t:id="selectedZone" id="selectedZone">
-					<t:if test="selectedClassification">
-						You selected:<br/>
-						${selectedClassification.label}
-					</t:if>
-				</t:zone>
-
-			</td>
-			
+			</t:zone>
+		</td>
 		</tr>
 		</table>
 	</div>

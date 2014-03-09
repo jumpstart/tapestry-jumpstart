@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<body class="container">
+
+	<div id="page">
+
+		<div class="row" id="instructions">
+			Initially, the available login IDs are admin, secofr, and john, <br /> and the passwords are the same as the login
+			ID.
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3">
+
+				<t:form t:id="login" class="form-signin">
+
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-1">
+
+							<h2 class="form-signin-heading">Log In</h2>
+
+							<div class="form-group">
+								<t:textfield t:id="loginId" class="input-medium" maxLength="15" t:validate="required, maxLength=15"
+									placeholder="Login ID" />
+							</div>
+
+							<div class="form-group">
+								<t:passwordfield t:id="password" class="input-medium" maxLength="15" t:validate="required, maxLength=15"
+									placeholder="Password" />
+							</div>
+
+							<div class="form-group">
+								<t:submit value="Login" class="btn btn-lg btn-primary" />
+								<t:eventlink event="GoHome" style="margin-left: 12px;">Home</t:eventlink>
+							</div>
+
+							<t:errors globalOnly="true" />
+						</div>
+					</div>
+
+				</t:form>
+			</div>
+		</div>
+
+		<div class="row" id="secure">
+			A page can be made secure, ie. accessible only by HTTPS, by annotating the page's class with
+			<code>@Secure</code>
+			.<br /> You will also have to enable HTTPS on your web server, which may require some configuration.<br />
+			References: <a href="http://tapestry.apache.org/https.html">Securing your application with HTTPS</a>, <a
+				href="http://roneiv.wordpress.com/2008/01/03/jboss-tutorial-how-to-enable-ssl-https-on-jboss-as-well-as-other-nice-to-know-configurations/">How
+				to enable SSL on JBoss</a>.
+		</div>
+		
+		<div class="row" id="links">
+			<t:pagelink page="examples/state/displaysessioncontents">Display Session Contents</t:pagelink>
+		</div>
+		
+	</div>
+
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/theapp/LogIn.tml" />
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/theapp/LogIn.java" />
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/commons/IIntermediatePage.java" />
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/theapp/login.css" />
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/theapp/Visit.java" />
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/base/theapp/SimpleBasePage.java" />
+	</t:tabgroup>
+	
+</body>
+</html>
