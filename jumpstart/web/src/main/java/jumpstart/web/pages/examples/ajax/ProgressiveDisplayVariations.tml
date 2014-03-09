@@ -30,26 +30,21 @@
 	 	</t:progressivedisplay>
 	 </div>
 
-	ProgressiveDisplay can display something other than "Loading...".
+	ProgressiveDisplay can be modified by css.
 
 	<div class="eg">
-		<t:progressivedisplay t:id="showFour" t:initial="block:loadingBlock">
-			Operation Four has ended.
+		<t:progressivedisplay t:id="showFour" class="with-spinner">
+			Operation Five has ended.
 	 	</t:progressivedisplay>
 	</div>
 
-	You can replace the yellow "highlight" effect with "show", "fade", "slidedown", or "slideup".<br/>
-	FYI, they are the names of the functions in Tapestry.ElementEffect which is found in Tapestry's javascript file, tapestry.js.
+	ProgressiveDisplay can display a block instead of "Loading...".
 
 	<div class="eg">
-		<t:progressivedisplay t:id="showFive" t:update="slidedown">
-			Operation Five has ended.<br/>
-			Operation Five has ended.<br/>
-			Operation Five has ended.<br/>
-			Operation Five has ended.<br/>
-			Operation Five has ended.
+		<t:progressivedisplay t:id="showFive" t:initial="block:loadingBlock">
+			Operation Four has ended.
 	 	</t:progressivedisplay>
-	 </div>
+	</div>
 
 	ProgressiveDisplay does not have to wrap the eventual output - the event handler can return a renderable object instead.
  	
@@ -78,7 +73,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ProgressiveDisplayVariations.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/ProgressiveDisplayVariations.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/progressivedisplayvariations.css"/>
 	</t:tabgroup>
 </body>
 </html>

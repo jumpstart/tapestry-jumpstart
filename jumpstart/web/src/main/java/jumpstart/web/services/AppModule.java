@@ -133,7 +133,7 @@ public class AppModule {
 	public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
 			PageRenderLinkSource pageRenderLinkSource) {
 		final HashSet<String> ASSETS_WHITE_LIST = new HashSet<String>(Arrays.asList("jpg", "jpeg", "png", "gif", "js",
-				"css", "ico"));
+				"css", "ico", "map", "woff"));
 		configuration.add("AssetProtectionFilter", new AssetProtectionFilter(ASSETS_WHITE_LIST, pageRenderLinkSource),
 				"before:*");
 	}

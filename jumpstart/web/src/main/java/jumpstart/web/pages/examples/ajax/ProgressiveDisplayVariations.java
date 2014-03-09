@@ -5,7 +5,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-@Import(stylesheet = "css/examples/js.css")
+@Import(stylesheet = "css/examples/progressivedisplayvariations.css")
 public class ProgressiveDisplayVariations {
 
 	// Screen fields
