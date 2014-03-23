@@ -80,8 +80,6 @@ public class SelectPersonsField extends AbstractField {
 	@Override
 	protected void processSubmission(final String controlName) {
 		// Nothing to do yet, because it's before my components are handled.
-	       final String[] parameters = request.getParameters(controlName);
-	       int i = 1;
 	}
 
 	protected void processSubmissionAfter() {
