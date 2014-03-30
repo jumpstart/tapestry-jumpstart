@@ -10,12 +10,13 @@
 		${message:javascript_required}
 	</noscript> 	
 
-	This example displays an "AJAX loading spinner" while a Zone request is in progress.<br/>
-	It uses JavaScript to detect any Form or link request that involves a Zone update, then overlays the Zone.<br/>
-	When the Zone update returns from the server it replaces the Zone completely, without the overlay. 
+	This example displays an "AJAX loading spinner" while a Zone request is in progress.
 
 	<div class="eg">
-		<a t:type="eventlink" t:event="showThings" t:zone="thingsZone" href="#">Show things, with a delay...</a><br/><br/>
+		<t:form zone="thingsZone" class="form-inline">
+			<t:eventlink event="showThings" zone="thingsZone">Show things, with a delay...</t:eventlink>
+			<t:submit t:id="WithAZone" value="Show things, with a delay..." class="btn btn-default"/>
+		</t:form>
 		
 		<t:zone t:id="thingsZone" id="thingsZone" style="width: 140px; min-height: 80px;">
 			<div t:type="Loop" t:source="things" t:value="thing">
@@ -25,7 +26,10 @@
 		
 	</div>	
 	
-	It uses just a bit of JavaScript, css, and an animated GIF.<br/>
+	It uses JavaScript to detect any Form or link request that involves a Zone update, 
+	then it overlays the Zone with a CSS class that darkens the area and displays an animated GIF. 
+	When the Zone update returns from the server it replaces the Zone completely, without the overlay.<br/><br/> 
+
 	You could make this available to all pages by adding it to a Layout component - see The Layout Component example.<br/><br/>
 
 	This solution has limitations which are described in the original article 
@@ -38,7 +42,6 @@
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
-	<a href="http://api.prototypejs.org/">Prototype 1.7 API</a>, 
 	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>.<br/><br/> 
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

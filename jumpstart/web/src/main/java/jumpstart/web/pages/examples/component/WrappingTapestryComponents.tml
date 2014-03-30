@@ -7,7 +7,7 @@
 	<h3>Wrapping Tapestry Components</h3>
 
 	The preferred way to extend and/or override a Tapestry component's functionality is to "wrap" it. 
-	For an example, see the No Validation Bubbles example.<br/><br/>
+	For an example, see the <em>GridWithContext</em> component in the <em>AJAX Components CRUD</em> example.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

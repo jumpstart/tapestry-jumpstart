@@ -29,7 +29,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 7.0-preview-9</h1>
+				<h1>JumpStart 7.0-preview-10</h1>
 				<h2>For Tapestry 5.4-beta-3</h2>
 			</div>
 		</div>
@@ -221,7 +221,7 @@
 							<br/>
 							<t:pagelink page="examples/component/ThirdPartyComponents" t:disabled="true">Third-Party Components</t:pagelink><br/>
 							<t:pagelink page="examples/component/CombiningComponents" t:disabled="true">Combining Components</t:pagelink><br/>
-							<t:pagelink page="examples/component/WrappingTapestryComponents" t:disabled="true">Wrapping Tapestry Components</t:pagelink><br/>
+							<t:pagelink page="examples/component/WrappingTapestryComponents">Wrapping Tapestry Components</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/component/EventBubbling">Event Bubbling</t:pagelink><br/>
 						</div>
@@ -307,7 +307,7 @@
 							<t:pagelink page="examples/javascript/FileUpload" t:disabled="true">File Upload</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxLoadingSpinner" t:disabled="true">AJAX Loading Spinner</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxLoadingSpinner">AJAX Loading Spinner</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxPeriodicUpdate">AJAX Periodic Update</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxPeriodicUpdateMixin">AJAX Periodic Update Mixin</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxOnEvent">AJAX On Event: ZoneUpdater</t:pagelink><br/>
@@ -318,7 +318,9 @@
 						<div class="group">
 							<div class="together">Putting It All Together</div>
 							<t:pagelink page="together/ajaxcomponentscrud/Persons">AJAX Components CRUD</t:pagelink><br/>
+							<!-- 
 							<t:pagelink page="together/gracefulajaxcomponentscrud/Persons" t:disabled="true">Graceful AJAX Components CRUD</t:pagelink><br/>
+							 -->
 						</div>
 					</td>
 				</tr>
@@ -330,9 +332,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0-preview-9">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0-preview-10">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0-preview-9">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0-preview-10">me</a>.<br/>
 		</div>
 	</td>
 	</tr>

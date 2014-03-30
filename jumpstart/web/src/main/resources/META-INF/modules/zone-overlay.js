@@ -1,38 +1,28 @@
-// A script that detects when any Form is being submitted or any component issues a request involving a zone. It reacts by overlaying the 
-// zone with a div of class "zone-loading-overlay". The idea is that you should define that class, in css, to display an animated GIF.
+// A script that detects when any Form is being submitted, or any component issues a request, involving a zone. 
+// It reacts by overlaying the zone with a div of class "zone-loading-overlay". 
+// The idea is that you should define that class, in css, to display an animated GIF.
 //
 // Based on a solution by Howard Lewis Ship at http://tapestryjava.blogspot.co.uk/2011/12/adding-ajax-throbbers-to-zone-updates.html .
 
-define(["jquery"], function($) {
+define(["t5/core/dom", "t5/core/events", "t5/core/zone"], function(dom, events, zoneManager) {
 
 	return function(params) {
 
-		function addZoneOverlay(event, element) {
-			var mgr = Tapestry.findZoneManager(element);
-			var zone = mgr && mgr.element;
+		function addZoneOverlay() {
+			var $zone = this.$;
+			this.prepend("<div class='zone-loading-overlay'/>");
+			var overlay = $zone.find("div:first");
 
-			if (!zone) {
-				return;
-			}
-
-			zone.insert({
-				top : "<div class='zone-loading-overlay'/>"
-			});
-
-			var zoneDims = zone.getDimensions()
-			var overlay = zone.down("div");
-
-			overlay.setStyle({
-				width : zoneDims.width + "px",
-				height : zoneDims.height + "px"
+			overlay.css({
+				width : $zone.width() + "px",
+				height : $zone.height() + "px"
 			});
 		}
 
-		// Tell document body to call addAjaxOverlay whenever a Form is
-		// submitted or a zone-related form or link is clicked.
+		// Tell document to call addZoneOverlay whenever a zone-related refresh is requested.
 
-		$(document.body).on(Tapestry.FORM_PROCESS_SUBMIT_EVENT, addZoneOverlay);
-		$(document.body).on(Tapestry.TRIGGER_ZONE_UPDATE_EVENT, addZoneOverlay);
+		dom.onDocument(events.zone.refresh, addZoneOverlay);
+
 	}
 
 });
