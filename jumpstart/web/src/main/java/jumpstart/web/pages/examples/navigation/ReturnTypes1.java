@@ -53,7 +53,7 @@ public class ReturnTypes1 {
 	}
 
 	@InjectPage
-	private ReturnTypesPageObject pageInstance;
+	private ReturnTypesPageInstance pageInstance;
 
 	Object onReturnPageInstance() {
 		pageInstance.set("Hello");

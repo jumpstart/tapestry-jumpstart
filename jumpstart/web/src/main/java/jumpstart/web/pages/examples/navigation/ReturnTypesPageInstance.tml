@@ -4,10 +4,10 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Return Types (Page Object)</h3>
+	<h3>Return Types (Page Instance)</h3>
 	
 	<div class="eg">
-		<p>You chose an action that returned this page object set up with parameter "${parameter}".</p>
+		<p>You chose an event that returned this page instance, configured with <code>parameter</code> = "${parameter}".</p>
 		<t:pagelink page="examples/navigation/ReturnTypes1">Return</t:pagelink>
 	</div>
 

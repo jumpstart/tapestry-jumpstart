@@ -7,7 +7,7 @@
 	<h3>Return Types (Link)</h3>
 	
 	<div class="eg">
-		<p>You chose an action that returned a Link to this page object with context "${parameter}".</p>
+		<p>You chose an event that returned a Link to this page object with context "${parameter}".</p>
 		<t:pagelink page="examples/navigation/ReturnTypes1">Return</t:pagelink>
 	</div>
 

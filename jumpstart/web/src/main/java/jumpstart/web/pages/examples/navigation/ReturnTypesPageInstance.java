@@ -3,7 +3,7 @@ package jumpstart.web.pages.examples.navigation;
 import org.apache.tapestry5.annotations.Import;
 
 @Import(stylesheet="css/examples/olive.css")
-public class ReturnTypesPageObject {
+public class ReturnTypesPageInstance {
 
 	private String parameter;
 

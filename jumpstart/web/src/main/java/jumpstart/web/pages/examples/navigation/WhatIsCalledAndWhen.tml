@@ -22,7 +22,7 @@
 		<li><span class="what">Receive its context</span> from a page render request or component event request, with an 
 			<a class="link" href="http://tapestry.apache.org/page-navigation.html#PageNavigation-Pageactivation">
 			activate event handler</a>, ie. <code>onActivate(...)</code>.</li>
-		<li><span class="what">Return its context</span> which Tapestry uses to generate a request URL to it, with a 
+		<li><span class="what">Return its context</span>, which Tapestry uses to generate a request URL to it, with a 
 			<a class="link" href="http://tapestry.apache.org/page-navigation.html#PageNavigation-PageRenderRequests">
 			passivate event handler</a>, ie. <code>onPassivate()</code>.</li>
 		<li><span class="what">React to its life cycle</span> with 
@@ -30,7 +30,7 @@
 			life cycle methods</a> (rarely needed), ie. <code>pageLoaded()</code>, <code>pageAttached()</code>, <code>pageDetached</code>.</li>
 	</ul>
 	
-	<p>And just briefly, a couple of important things a <strong>page template</strong> can do:</p>
+	<p>And, just briefly, a couple of important things a <strong>page template</strong> can do - it can:</p>
 	<ul>
 		<li><span class="what">Render the page's properties and resources</span>, with 
 			<a class="link" href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">
@@ -40,8 +40,8 @@
 			parameters</a>, eg. <code>${exampleParameters1}</code>.</li>
 	</ul>
 				
-	<p>OK, back to the demonstration. This page provides, and logs, examples of all the methods we've mentioned. For convenience, <br/>
-	the following table shows what you would see in the logs if you configured log4j to record this page at debug level:</p>
+	<p>OK, back to the demonstration. This page provides examples of all the methods we've mentioned, and when they're called they write to the log.<br/> 
+	For convenience, the following table shows what you would see in the logs if you configured log4j to record this page at DEBUG level:</p>
 	
 	<div class="eg row">
 	

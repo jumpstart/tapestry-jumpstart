@@ -7,7 +7,7 @@
 	<h3>Return Types (String)</h3>
 	
 	<div class="eg">
-		<p>You chose an action that returned this page's logical name.</p>
+		<p>You chose an event that returned this page's logical name.</p>
 		<t:pagelink page="examples/navigation/ReturnTypes1">Return</t:pagelink>
 	</div>
 

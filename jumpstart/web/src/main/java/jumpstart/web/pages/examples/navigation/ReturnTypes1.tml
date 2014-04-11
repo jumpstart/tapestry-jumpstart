@@ -11,11 +11,11 @@
 	<div class="eg">
 		<t:eventlink event="returnvoid">void</t:eventlink> - redisplay the same page.<br/>
 		<t:eventlink event="returnnull">null</t:eventlink> - redisplay the same page.<br/>
-		<t:eventlink event="returnfalse">false</t:eventlink> - same as returning null.<br/>
+		<t:eventlink event="returnfalse">false</t:eventlink> - redisplay the same page.<br/>
 		<t:eventlink event="returntrue">true</t:eventlink> - redisplay same page, aborting event bubbling (see Event Bubbling example).<br/>
 		<t:eventlink event="returnstring">String (must be a logical page name)</t:eventlink> - go to new page.<br/>
 		<t:eventlink event="returnclass">Class (must be a page class)</t:eventlink> - go to new page.<br/>
-		<t:eventlink event="returnpageobject">page instance</t:eventlink> - go to new page, with the option of setting up its parameters first.<br/>
+		<t:eventlink event="returnpageinstance">page instance</t:eventlink> - go to new page, possibly configuring it first.<br/>
 		<t:eventlink event="returnhttperror">HttpError</t:eventlink> - returns an 
 			<a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a>.<br/>
 		<t:eventlink event="returnlink">Link</t:eventlink> - go to new page, with the option of setting up a context first.<br/>

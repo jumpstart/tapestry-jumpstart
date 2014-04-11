@@ -312,7 +312,7 @@
 							<t:pagelink page="examples/ajax/AjaxOnEvent">AJAX On Event: ZoneUpdater</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxMultipleZoneUpdate">AJAX Multiple Zone Update</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxComponents1">AJAX Components</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxValidators1">AJAX Validators</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxValidators1" t:disabled="true">AJAX Validators</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>

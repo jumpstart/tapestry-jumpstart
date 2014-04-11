@@ -129,6 +129,6 @@ public class WhatIsCalledAndWhen {
 	}
 	
 	public String getExampleParameters1() {
-		return "<t:TextField t:value=\"firstName\"/>";
+		return "<t:TextField value=\"firstName\"/>";
 	}
 }
