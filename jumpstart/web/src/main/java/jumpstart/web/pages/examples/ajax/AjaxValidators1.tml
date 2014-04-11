@@ -27,36 +27,38 @@
 	we use it here to validate that the first and last names are unique.
 
 	<div class="eg">
-		<form t:type="CustomForm" t:id="inputs">
+		<t:form t:id="inputs">
 			<t:errors globalOnly="true"/>
 			<table>
 				<tr>
 					<td><t:label for="firstName"/>:</td>
-					<td><input t:type="TextField" t:id="firstName" t:validate="required, maxlength=10" size="10"
-						t:mixins="ajaxValidator"/></td>
+					<td><t:textfield t:id="firstName" validate="required, maxlength=10" size="10" t:mixins="ajaxValidator"/></td>
 					<td>(required, maxLength=10, new name only)</td>
 				</tr>
+				<!-- 
 				<tr>
 					<th></th>
 					<td colspan="2"><t:customerror for="firstName"/></td>
 				</tr>
+				 -->
 				<tr>
 					<td><t:label for="lastName"/>:</td>
-					<td><input t:type="TextField" t:id="lastName" t:validate="required, maxLength=10" size="10"
-						t:mixins="ajaxValidator"/></td>
+					<td><t:textfield t:id="lastName" validate="required, maxLength=10" size="10" t:mixins="ajaxValidator"/></td>
 					<td>(required, maxLength=10, new name only)</td>
 				</tr>
+				<!-- 
 				<tr>
 					<th></th>
 					<td colspan="2"><t:customerror for="lastName"/></td>
 				</tr>
+				 -->
 				<tr>
 					<td></td>
-					<td><input type="submit" value="Display"/></td>
+					<td><t:submit value="Display"/></td>
 					<td></td>
 				</tr>
 			</table>
-		</form><br/>
+		</t:form>
 		
 		Here are the names already in use:<br/><br/>
 		

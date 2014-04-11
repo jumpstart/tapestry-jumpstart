@@ -166,18 +166,12 @@
 							<t:pagelink page="examples/input/LinkSubmits1">LinkSubmits</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/component/Kaptcha1">Kaptcha</t:pagelink><br/>
-							<br/>
 							<t:pagelink page="examples/select/Select">Select</t:pagelink><br/>
 							<t:pagelink page="examples/select/VariedSelect">Varied Select</t:pagelink><br/>
 							<t:pagelink page="examples/select/EasyObjectSelect">Easy Object Select</t:pagelink><br/>
 							<t:pagelink page="examples/select/TotalControlObjectSelect">Total Control Object Select</t:pagelink><br/>
 							<t:pagelink page="examples/select/IdSelect">Id Select</t:pagelink><br/>
 							<t:pagelink page="examples/select/EasyIdSelect">Easy Id Select</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/component/Alerts">Alerts</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/component/TreeBrowse">Tree Browse</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>
@@ -185,6 +179,11 @@
 							<t:pagelink page="together/totalcontrolcrud/Persons">Total Control CRUD</t:pagelink><br/>
 							<t:pagelink page="together/onepagecrud/Persons">One Page CRUD</t:pagelink><br/>
 							<t:pagelink page="together/filtercrud/Persons">Filter CRUD</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/component/Kaptcha1">Kaptcha</t:pagelink><br/>
+							<t:pagelink page="examples/component/Alerts">Alerts</t:pagelink><br/>
+							<t:pagelink page="examples/component/TreeBrowse">Tree Browse</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/tables/EditableGrid1">Editable Grid</t:pagelink><br/>
@@ -313,7 +312,7 @@
 							<t:pagelink page="examples/ajax/AjaxOnEvent">AJAX On Event: ZoneUpdater</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxMultipleZoneUpdate">AJAX Multiple Zone Update</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxComponents1">AJAX Components</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxValidators1" t:disabled="true">AJAX Validators</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxValidators1">AJAX Validators</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>

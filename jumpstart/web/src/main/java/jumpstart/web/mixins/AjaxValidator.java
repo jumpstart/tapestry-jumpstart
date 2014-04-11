@@ -7,14 +7,13 @@ package jumpstart.web.mixins;
 
 import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.ComponentResources;
-import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
-@Import(library = "js_imports/mixins/AjaxValidator.js")
+//@Import(library = "js_imports/mixins/AjaxValidator.js")
 public class AjaxValidator {
 
 	// Useful bits and pieces
@@ -41,6 +40,7 @@ public class AjaxValidator {
 		JSONObject spec = new JSONObject();
 		spec.put("elementId", clientElement.getClientId());
 		spec.put("listenerURI", componentResources.createEventLink("ajaxValidate").toAbsoluteURI());
-		javaScriptSupport.addInitializerCall("ajaxValidator", spec);
+		// javaScriptSupport.addInitializerCall("ajaxValidator", spec);
+		javaScriptSupport.require("mixins/ajax-validator").with(spec);
 	}
 }
