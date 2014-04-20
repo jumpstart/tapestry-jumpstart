@@ -53,15 +53,20 @@ public class SelectPersonsField extends AbstractField {
 
 	final void afterRender() {
 
-		// If we are inside a form, ask FormSupport to store PROCESS_SUBMISSION in its list of actions to do on submit.
-		// If I contain other components (which I do), their actions will already be in the list, before
-		// PROCESS_SUBMISSION. That is because this method, afterRender(), is late in the sequence. This guarantees
-		// PROCESS_SUBMISSION will be executed on submit AFTER the components I contain are processed (which includes
-		// their validation).
+		// If we are inside a form, ask FormSupport to store PROCESS_SUBMISSION_AFTER in its list of actions to do on
+		// submit. If I contain other components (which I do), their actions will already be in the list, before
+		// PROCESS_SUBMISSION_AFTER. That is because this method, afterRender(), is late in the sequence. This
+		// guarantees PROCESS_SUBMISSION_AFTER will be executed on submit AFTER the components I contain are processed
+		// (which includes their validation).
 
 		if (formSupport != null) {
 			formSupport.store(this, PROCESS_SUBMISSION_AFTER);
 		}
+	}
+
+	@Override
+	protected void processSubmission(final String controlName) {
+		// Nothing to do yet, because it's before my components are handled.
 	}
 
 	private static class ProcessSubmissionAfter implements ComponentAction<SelectPersonsField> {
@@ -76,11 +81,6 @@ public class SelectPersonsField extends AbstractField {
 			return this.getClass().getSimpleName() + ".ProcessSubmissionAfter";
 		}
 	};
-
-	@Override
-	protected void processSubmission(final String controlName) {
-		// Nothing to do yet, because it's before my components are handled.
-	}
 
 	protected void processSubmissionAfter() {
 
