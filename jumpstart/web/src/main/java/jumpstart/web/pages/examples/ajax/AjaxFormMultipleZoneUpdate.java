@@ -71,8 +71,4 @@ public class AjaxFormMultipleZoneUpdate {
 		return firstName + " " + lastName;
 	}
 
-	public Date getTime() {
-		return new Date();
-	}
-
 }

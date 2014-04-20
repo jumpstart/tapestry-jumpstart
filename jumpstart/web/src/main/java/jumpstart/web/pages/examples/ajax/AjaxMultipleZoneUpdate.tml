@@ -36,7 +36,7 @@
 				Welcome ${upperCaseName}.
 			</t:zone><br/>
 	
-			Note that the following time field does not update because it's not in the zone:  ${time}<br/>
+			Note that the following time field does not update because it's not in the zone:  ${serverTime}<br/>
 			
 	 	</t:form>
 	</div>

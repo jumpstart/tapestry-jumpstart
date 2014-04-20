@@ -82,7 +82,7 @@ public class AjaxOnEvent {
 		return firstName + " " + lastName;
 	}
 
-	public Date getTime() {
+	public Date getServerTime() {
 		return new Date();
 	}
 

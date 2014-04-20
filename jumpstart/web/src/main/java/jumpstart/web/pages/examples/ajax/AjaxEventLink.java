@@ -26,7 +26,7 @@ public class AjaxEventLink {
 	// The code
 
 	void onRefreshPage() {
-		// Nothing to do - the page will call getTime1() and getTime2() as it renders.
+		// Nothing to do - as the page renders the template it will call getServerTime1() and getServerTime2().
 	}
 
 	void onRefreshZone() {

@@ -18,7 +18,7 @@
 	<ul>
 		<li>
 			<strong>By Activation Context</strong><br/>
-			The most used technique. Usually employed to pass an <strong>identifier</strong>, eg. productId.
+			This is the most used technique. It's usually employed to pass an <strong>identifier</strong>, eg. productId.
 
 			<div class="eg">
 				<t:form t:id="useactivationcontext">
@@ -29,7 +29,7 @@
 		
 		<li>
 			<strong>By Query String</strong><br/>
-			May be the most appropriate way to pass <strong>filter criteria</strong> because, 
+			This may be the most appropriate way to pass <strong>filter criteria</strong> because, 
 			arguably, it produces the most RESTful URL in that situation.
 
 			<div class="eg">
@@ -41,7 +41,7 @@
 
 		<li>
 			<strong>By Persist</strong><br/>
-			Usually the most appropriate way to pass <strong>whole objects, lengthy data, or data you don't 
+			This is usually the most appropriate way to pass <strong>whole objects, lengthy data, or data you don't 
 			want to be visible in a URL</strong>
 
 			<div class="eg">
@@ -53,13 +53,13 @@
 
 		<li class="noeg">
 			<strong>By Session State Objects</strong><br/>
-			The best way to share data between multiple pages as in a <strong>wizard or a shopping basket</strong>.<br/>
+			This is the best way to share data <strong>between multiple pages</strong> as in a <strong>wizard or a shopping basket</strong>.<br/>
 			See the <em>Sharing Across Multiple Pages</em> example.
 		</li>
 
 		<li>
 			<strong>By Services</strong><br/>
-			The best way to share an object across the whole application.<br/>
+			This is the best way to share an object <strong>across the whole application</strong>.<br/>
 			See the <em>Sharing Across the Application</em> example.
 		</li>
 	</ul>	

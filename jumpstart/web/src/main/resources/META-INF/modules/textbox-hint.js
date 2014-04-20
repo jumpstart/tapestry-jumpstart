@@ -8,10 +8,8 @@ define(["jquery"], function($) {
 
 		var normalColor = $textbox.css("color");
 
-		$textbox.on("focus", doClearHint);
-		$textbox.on("blur", doCheckHint);
-		$textbox.on("change", doCheckHint);
-		$textbox.on("submit", doClearHint);
+		$textbox.on("focus submit", doClearHint);
+		$textbox.on("blur change", doCheckHint);
 
 		$textbox.blur();
 

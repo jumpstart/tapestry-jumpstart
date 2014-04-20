@@ -38,11 +38,6 @@
 	<p>When you type in the field, typeahead sends event <em>autocomplete</em> to the mixin server-side. 
 	The mixin bubbles up <em>provideCompletions</em>, which you can handle by returning a list, which the mixin returns to the client's typeahead.</p>
 	
-	For a multi-value autocomplete, try 
-	<a href="http://tawus.wordpress.com/2011/12/28/multivalue-autocomplete-for-tapestry/">Multivalue Autocomplete for Tapestry</a>. 
-	It uses jQuery, so refer to JumpStart's jQuery example.<br/>
-	For tips on styling Autocomplete, see this <a href="http://web.archiveorange.com/archive/v/NzHgI7qCz2F9Gt8grftw">mailing list thread</a>.<br/><br/>
-
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete API</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/coffeescript/autocomplete.html">autocomplete.coffee</a>, 

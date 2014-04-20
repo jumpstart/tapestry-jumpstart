@@ -126,16 +126,17 @@ public class PersonList {
 			String filterFormActionWithSelectedPersonURI = actionWithSelectedPersonURI.replace(actionURI, actionURI
 					+ ".filterForm");
 
-			ajaxResponseRenderer.addCallback(makeScriptToSubmitFilter(filterFormActionWithSelectedPersonURI));
+			ajaxResponseRenderer
+					.addCallback(makeJavaScriptCallbackToSubmitPersonList(filterFormActionWithSelectedPersonURI));
 		}
 
 	}
 
-	private JavaScriptCallback makeScriptToSubmitFilter(final String updatedFilterFormAction) {
+	private JavaScriptCallback makeJavaScriptCallbackToSubmitPersonList(final String updatedFilterFormAction) {
 
 		return new JavaScriptCallback() {
-			public void run(JavaScriptSupport javascriptSupport) {
-				javascriptSupport.require("components/together/ajaxcomponentscrud/person-list").invoke("submit")
+			public void run(JavaScriptSupport javaScriptSupport) {
+				javaScriptSupport.require("components/together/ajaxcomponentscrud/person-list").invoke("submit")
 						.with(updatedFilterFormAction);
 			}
 		};

@@ -73,7 +73,7 @@ public class AjaxForm {
 		return firstName + " " + lastName;
 	}
 
-	public Date getTime() {
+	public Date getServerTime() {
 		return new Date();
 	}
 

@@ -44,7 +44,7 @@
 	 	</t:zone>
 	</div>	
 
-	Note that the following time field does not update because it's not in the zone:  ${time}<br/><br/>
+	Note that the following time field does not update because it's not in the zone:  ${serverTime}<br/><br/>
  	
 	References: 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 

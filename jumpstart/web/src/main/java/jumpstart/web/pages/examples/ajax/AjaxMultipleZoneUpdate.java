@@ -83,7 +83,7 @@ public class AjaxMultipleZoneUpdate {
 		return getName().toUpperCase();
 	}
 
-	public Date getTime() {
+	public Date getServerTime() {
 		return new Date();
 	}
 
