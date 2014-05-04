@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Reusable Modal</h3>
+
+	<noscript class="js-required">
+		${message:javascript_required}
+	</noscript> 	
+
+	<div class="eg">
+
+		<t:zone t:id="paneZone" id="modalExamplePaneZone">
+	
+			<t:if test="isFunction('review')">
+				<t:beandisplay object="person"/>
+				<t:eventlink event="toUpdate" context="personId" zone="^">Update...</t:eventlink>
+			</t:if>
+			
+		</t:zone>
+
+		<t:zone t:id="modalZone" id="modalExampleModalZone">
+
+			<t:if test="isFunction('update')">
+				<t:BasicModal t:id="personUpdateModal">
+					<t:together.ajaxcomponentscrud.PersonUpdate t:id="personUpdate" personId="personId"/>
+				</t:BasicModal>
+			</t:if>
+		
+		</t:zone>
+		
+	 </div>
+	
+	References: 
+	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
+	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+	<a href="http://requirejs.org">RequireJS</a>, 
+	<a href="http://api.jquery.com">jQuery API</a>.<br/><br/> 
+	
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableModal.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableModal.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/BasicModal.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/BasicModal.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/activate-modal.js"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/hide-modal.js"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/reusablemodal.css"/>
+	</t:tabgroup>
+</body>
+</html>
