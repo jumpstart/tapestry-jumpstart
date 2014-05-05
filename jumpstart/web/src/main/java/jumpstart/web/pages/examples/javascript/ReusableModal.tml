@@ -8,7 +8,9 @@
 
 	<noscript class="js-required">
 		${message:javascript_required}
-	</noscript> 	
+	</noscript>
+	
+	<p>Here we have created a modal dialog component that can be used around any content.</p>
 
 	<div class="eg">
 
@@ -24,16 +26,20 @@
 		<t:zone t:id="modalZone" id="modalExampleModalZone">
 
 			<t:if test="isFunction('update')">
-				<t:BasicModal t:id="personUpdateModal">
+				<t:SimpleModal t:id="personUpdateModal">
 					<t:together.ajaxcomponentscrud.PersonUpdate t:id="personUpdate" personId="personId"/>
-				</t:BasicModal>
+				</t:SimpleModal>
 			</t:if>
 		
 		</t:zone>
 		
-	 </div>
+	</div>
 	
+	<p>The component is called SimpleModal, and its job is simply to show or hide a Bootstrap Modal, 
+		with our content inside it.</p>
+
 	References: 
+	<a href="http://getbootstrap.com/javascript/#modals">Bootstrap Modal</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
 	<a href="http://requirejs.org">RequireJS</a>, 
@@ -44,11 +50,11 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableModal.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableModal.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/BasicModal.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/BasicModal.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/reusablemodal.css"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SimpleModal.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SimpleModal.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/activate-modal.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/hide-modal.js"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/reusablemodal.css"/>
 	</t:tabgroup>
 </body>
 </html>

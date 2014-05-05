@@ -55,12 +55,12 @@
     <t:tabgroup>
         <t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/together/componentscrud/Persons.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/filtercrud.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonList.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEdit.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEdit.properties"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/componentscrud/PersonEdit.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/together/filtercrud.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/together/PersonFilteredDataSource.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Person.java"/>
 		<t:sourcecodetab src="/business/src/main/java/jumpstart/business/domain/person/Regions.java"/>

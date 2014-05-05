@@ -4,7 +4,7 @@ import javax.ejb.EJB;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
-import jumpstart.web.components.BasicModal;
+import jumpstart.web.components.SimpleModal;
 
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -44,7 +44,7 @@ public class ReusableModal {
 	private Zone modalZone;
 
 	@InjectComponent
-	private BasicModal personUpdateModal;
+	private SimpleModal personUpdateModal;
 
 	@EJB
 	private IPersonFinderServiceLocal personFinderService;

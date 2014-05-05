@@ -12,7 +12,7 @@ import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.ajax.JavaScriptCallback;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-public class BasicModal implements ClientElement {
+public class SimpleModal implements ClientElement {
 
 	// Parameters
 
