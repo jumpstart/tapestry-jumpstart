@@ -18,9 +18,8 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 /**
- * This component will trigger the following events on its container (which in
- * this example is the page): {@link PersonReview#TO_UPDATE}(Long personId),
- * {@link PersonReview#DELETED}(Long personId).
+ * This component will trigger the following events on its container (which in this example is the page):
+ * {@link PersonReview#TO_UPDATE}(Long personId), {@link PersonReview#DELETED}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may
 // trigger. It is not checked at runtime.
@@ -29,8 +28,7 @@ public class PersonReview {
 	public static final String TO_UPDATE = "toUpdate";
 	public static final String DELETED = "deleted";
 
-	private final String demoModeStr = System
-			.getProperty("jumpstart.demo-mode");
+	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
 	// Parameters
 
@@ -74,7 +72,8 @@ public class PersonReview {
 		if (personId == null) {
 			person = null;
 			// Handle null person in the template.
-		} else {
+		}
+		else {
 			if (person == null) {
 				person = personFinderService.findPerson(personId);
 				// Handle null person in the template.
@@ -108,7 +107,8 @@ public class PersonReview {
 
 		try {
 			personManagerService.deletePerson(personId, personVersion);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a
 			// user-friendly message.
 			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
@@ -123,8 +123,7 @@ public class PersonReview {
 		}
 
 		// Trigger new event which will bubble up.
-		componentResources.triggerEvent(DELETED, new Object[] { personId },
-				null);
+		componentResources.triggerEvent(DELETED, new Object[] { personId }, null);
 		// We don't want the original event to bubble up, so we return true to
 		// say we've handled it.
 		return true;

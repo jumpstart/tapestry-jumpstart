@@ -1,5 +1,6 @@
 package jumpstart.web.pages.together.componentscrud;
 
+import jumpstart.business.domain.person.Person;
 import jumpstart.web.components.together.componentscrud.PersonEdit.Mode;
 
 import org.apache.tapestry5.EventContext;
@@ -86,9 +87,9 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	void onCreatedFromEditor(Long personId) {
+	void onCreatedFromEditor(Person person) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
+		editorPersonId = person.getId();
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -114,9 +115,9 @@ public class Persons {
 		editorPersonId = personId;
 	}
 
-	void onUpdatedFromEditor(Long personId) {
+	void onUpdatedFromEditor(Person person) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
+		editorPersonId = person.getId();
 	}
 
 }

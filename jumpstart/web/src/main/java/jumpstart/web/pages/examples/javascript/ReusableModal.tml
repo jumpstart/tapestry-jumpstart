@@ -47,6 +47,8 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
+	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
+	
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableModal.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/ReusableModal.java"/>
@@ -55,6 +57,8 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SimpleModal.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/activate-modal.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/hide-modal.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.java"/>
 	</t:tabgroup>
 </body>
 </html>

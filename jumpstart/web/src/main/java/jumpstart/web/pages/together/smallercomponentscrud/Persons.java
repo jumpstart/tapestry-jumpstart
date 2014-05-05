@@ -1,5 +1,7 @@
 package jumpstart.web.pages.together.smallercomponentscrud;
 
+import jumpstart.business.domain.person.Person;
+
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Import;
@@ -88,9 +90,9 @@ public class Persons {
 		editorPersonId = null;
 	}
 
-	void onCreatedFromPersonCreate(Long personId) {
+	void onCreatedFromPersonCreate(Person person) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
+		editorPersonId = person.getId();
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -116,9 +118,9 @@ public class Persons {
 		editorPersonId = personId;
 	}
 
-	void onUpdatedFromPersonUpdate(Long personId) {
+	void onUpdatedFromPersonUpdate(Person person) {
 		editorMode = Mode.REVIEW;
-		editorPersonId = personId;
+		editorPersonId = person.getId();
 	}
 
 	// /////////////////////////////////////////////////////////////////////

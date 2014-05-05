@@ -20,9 +20,8 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 /**
- * This component will trigger the following events on its container (which in
- * this example is the page): {@link PersonUpdate#CANCELED}(Long personId),
- * {@link PersonUpdate#UPDATED}(Long personId).
+ * This component will trigger the following events on its container (which in this example is the page):
+ * {@link PersonUpdate#CANCELED}(Long personId), {@link PersonUpdate#UPDATED}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may
 // trigger. It is not checked at runtime.
@@ -68,8 +67,9 @@ public class PersonUpdate {
 	// The code
 
 	boolean onCancel(Long personId) {
-		componentResources.triggerEvent(CANCELED, new Object[] { personId },
-				null);
+		this.personId = personId;
+
+		componentResources.triggerEvent(CANCELED, new Object[] { personId }, null);
 		// We don't want the event to bubble up, so we return true to say we've
 		// handled it.
 		return true;
@@ -105,8 +105,9 @@ public class PersonUpdate {
 		}
 
 		try {
-			personManagerService.changePerson(person);
-		} catch (Exception e) {
+			person = personManagerService.changePerson(person);
+		}
+		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a
 			// user-friendly message.
 			form.recordError(ExceptionUtil.getRootCauseMessage(e));
@@ -116,12 +117,10 @@ public class PersonUpdate {
 	}
 
 	boolean onSuccess() {
-		// We want to tell our containing page explicitly what person we've
-		// updated, so we trigger a new event
-		// with a parameter. It will bubble up because we don't have a handler
-		// method for it.
-		componentResources.triggerEvent(UPDATED, new Object[] { personId },
-				null);
+		// We want to tell our containing page explicitly what person we've updated, so we trigger a new event with a
+		// parameter. It will bubble up because we don't have a handler method for it.
+		componentResources.triggerEvent(UPDATED, new Object[] { person }, null);
+
 		// We don't want the original event to bubble up, so we return true to
 		// say we've handled it.
 		return true;

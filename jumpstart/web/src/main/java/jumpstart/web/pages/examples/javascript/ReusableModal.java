@@ -93,8 +93,8 @@ public class ReusableModal {
 		}
 	}
 
-	void onUpdatedFromPersonUpdate(Long personId) {
-		this.personId = personId;
+	void onUpdatedFromPersonUpdate(Person person) {
+		this.personId = person.getId();
 		function = Function.REVIEW;
 
 		personUpdateModal.hide();
@@ -114,8 +114,7 @@ public class ReusableModal {
 		person = personFinderService.findPerson(1L);
 
 		if (person == null) {
-			throw new IllegalStateException(
-					"Database data has not been set up!");
+			throw new IllegalStateException("Database data has not been set up!");
 		}
 	}
 

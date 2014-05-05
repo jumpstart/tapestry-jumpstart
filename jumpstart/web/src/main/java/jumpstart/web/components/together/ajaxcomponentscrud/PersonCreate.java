@@ -20,9 +20,8 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
 /**
- * This component will trigger the following events on its container (which in
- * this example is the page): {@link PersonCreate#CANCELED},
- * {@link PersonCreate#CREATED}(Long personId).
+ * This component will trigger the following events on its container (which in this example is the page):
+ * {@link PersonCreate#CANCELED}, {@link PersonCreate#CREATED}(Long personId).
  */
 // @Events is applied to a component solely to document what events it may
 // trigger. It is not checked at runtime.
@@ -31,8 +30,7 @@ public class PersonCreate {
 	public static final String CANCELED = "canceled";
 	public static final String CREATED = "created";
 
-	private final String demoModeStr = System
-			.getProperty("jumpstart.demo-mode");
+	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
 	// Parameters
 
@@ -99,7 +97,8 @@ public class PersonCreate {
 
 		try {
 			person = personManagerService.createPerson(person);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a
 			// user-friendly message.
 			form.recordError(ExceptionUtil.getRootCauseMessage(e));
@@ -109,14 +108,11 @@ public class PersonCreate {
 	}
 
 	boolean onSuccess() {
-		// We want to tell our containing page explicitly what person we've
-		// created, so we trigger a new event
-		// with a parameter. It will bubble up because we don't have a handler
-		// method for it.
-		componentResources.triggerEvent(CREATED,
-				new Object[] { person.getId() }, null);
-		// We don't want the original event to bubble up, so we return true to
-		// say we've handled it.
+		// We want to tell our containing page explicitly what person we've created, so we trigger a new event with a
+		// parameter. It will bubble up because we don't have a handler method for it.
+		componentResources.triggerEvent(CREATED, new Object[] { person }, null);
+
+		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
@@ -126,8 +122,7 @@ public class PersonCreate {
 			ajaxResponseRenderer.addRender(formZone);
 		}
 
-		// We don't want the event to bubble up, so we return true to say we've
-		// handled it.
+		// We don't want the event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 }

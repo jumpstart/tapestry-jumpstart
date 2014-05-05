@@ -25,16 +25,15 @@ import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
- * This component will trigger the following events on its container (which in
- * this example is the page): {@link PersonEdit#CANCEL_CREATE},
- * {@link PersonEdit#CREATED}(Long personId), {@link PersonEdit#TO_UPDATE} (Long
- * personId), {@link PersonEdit#CANCEL_UPDATE}, {@link PersonEdit#UPDATED}(Long
- * personId), {@link PersonEdit#DELETED} (Long personId).
+ * This component will trigger the following events on its container (which in this example is the page):
+ * {@link PersonEdit#CANCEL_CREATE}, {@link PersonEdit#CREATED}(Long personId), {@link PersonEdit#TO_UPDATE} (Long
+ * personId), {@link PersonEdit#CANCEL_UPDATE}, {@link PersonEdit#UPDATED}(Long personId), {@link PersonEdit#DELETED}
+ * (Long personId).
  */
 // @Events is applied to a component solely to document what events it may
 // trigger. It is not checked at runtime.
-@Events({ PersonEdit.CANCEL_CREATE, PersonEdit.CREATED, PersonEdit.TO_UPDATE,
-		PersonEdit.CANCEL_UPDATE, PersonEdit.UPDATED, PersonEdit.DELETED })
+@Events({ PersonEdit.CANCEL_CREATE, PersonEdit.CREATED, PersonEdit.TO_UPDATE, PersonEdit.CANCEL_UPDATE,
+		PersonEdit.UPDATED, PersonEdit.DELETED })
 public class PersonEdit {
 	public static final String CANCEL_CREATE = "cancelCreate";
 	public static final String CREATED = "created";
@@ -43,8 +42,7 @@ public class PersonEdit {
 	public static final String UPDATED = "updated";
 	public static final String DELETED = "deleted";
 
-	private final String demoModeStr = System
-			.getProperty("jumpstart.demo-mode");
+	private final String demoModeStr = System.getProperty("jumpstart.demo-mode");
 
 	public enum Mode {
 		CREATE, REVIEW, UPDATE;
@@ -100,7 +98,8 @@ public class PersonEdit {
 			if (personId == null) {
 				person = null;
 				// Handle null person in the template.
-			} else {
+			}
+			else {
 				if (person == null) {
 					person = personFinderService.findPerson(personId);
 					// Handle null person in the template.
@@ -138,15 +137,12 @@ public class PersonEdit {
 
 	boolean onValidateFromCreateForm() {
 
-		if (person.getFirstName() != null
-				&& person.getFirstName().equals("Acme")) {
-			createForm.recordError(firstNameField, firstNameField.getLabel()
-					+ " must not be Acme.");
+		if (person.getFirstName() != null && person.getFirstName().equals("Acme")) {
+			createForm.recordError(firstNameField, firstNameField.getLabel() + " must not be Acme.");
 		}
 
 		if (demoModeStr != null && demoModeStr.equals("true")) {
-			createForm
-					.recordError("Sorry, but Create is not allowed in Demo mode.");
+			createForm.recordError("Sorry, but Create is not allowed in Demo mode.");
 		}
 
 		if (createForm.getHasErrors()) {
@@ -155,7 +151,8 @@ public class PersonEdit {
 
 		try {
 			person = personManagerService.createPerson(person);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a
 			// user-friendly message.
 			createForm.recordError(ExceptionUtil.getRootCauseMessage(e));
@@ -165,14 +162,11 @@ public class PersonEdit {
 	}
 
 	boolean onSuccessFromCreateForm() {
-		// We want to tell our containing page explicitly what person we've
-		// created, so we trigger a new event
-		// with a parameter. It will bubble up because we don't have a handler
-		// method for it.
-		componentResources.triggerEvent(CREATED,
-				new Object[] { person.getId() }, null);
-		// We don't want the original event to bubble up, so we return true to
-		// say we've handled it.
+		// We want to tell our containing page explicitly what person we've created, so we trigger a new event with a
+		// parameter. It will bubble up because we don't have a handler method for it.
+		componentResources.triggerEvent(CREATED, new Object[] { person }, null);
+
+		// We don't want the original event to bubble up, so we return true to say we've handled it.
 		return true;
 	}
 
@@ -201,7 +195,8 @@ public class PersonEdit {
 
 		try {
 			personManagerService.deletePerson(personId, personVersion);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a
 			// user-friendly message.
 			deleteMessage = ExceptionUtil.getRootCauseMessage(e);
@@ -212,8 +207,7 @@ public class PersonEdit {
 		}
 
 		// Trigger new event which will bubble up.
-		componentResources.triggerEvent(DELETED, new Object[] { personId },
-				null);
+		componentResources.triggerEvent(DELETED, new Object[] { personId }, null);
 		// We don't want the original event to bubble up, so we return true to
 		// say we've handled it.
 		return true;
@@ -224,6 +218,8 @@ public class PersonEdit {
 	// /////////////////////////////////////////////////////////////////////
 
 	boolean onCancelUpdate(Long personId) {
+		this.personId = personId;
+
 		// Return false, which means we haven't handled the event so bubble it
 		// up.
 		// This method is here solely as documentation, because without this
@@ -246,8 +242,7 @@ public class PersonEdit {
 		person = personFinderService.findPerson(personId);
 
 		if (person == null) {
-			updateForm
-					.recordError("Person has been deleted by another process.");
+			updateForm.recordError("Person has been deleted by another process.");
 			// Instantiate an empty person to avoid NPE in the Form.
 			person = new Person();
 		}
@@ -256,8 +251,7 @@ public class PersonEdit {
 	boolean onValidateFromUpdateForm() {
 
 		if (personId == 2 && !person.getFirstName().equals("Mary")) {
-			updateForm.recordError(firstNameField, firstNameField.getLabel()
-					+ " for this person must be Mary.");
+			updateForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
 		}
 
 		if (updateForm.getHasErrors()) {
@@ -265,8 +259,9 @@ public class PersonEdit {
 		}
 
 		try {
-			personManagerService.changePerson(person);
-		} catch (Exception e) {
+			person = personManagerService.changePerson(person);
+		}
+		catch (Exception e) {
 			// Display the cause. In a real system we would try harder to get a
 			// user-friendly message.
 			updateForm.recordError(ExceptionUtil.getRootCauseMessage(e));
@@ -280,8 +275,8 @@ public class PersonEdit {
 		// updated, so we trigger a new event
 		// with a parameter. It will bubble up because we don't have a handler
 		// method for it.
-		componentResources.triggerEvent(UPDATED, new Object[] { personId },
-				null);
+		componentResources.triggerEvent(UPDATED, new Object[] { person }, null);
+
 		// We don't want the original event to bubble up, so we return true to
 		// say we've handled it.
 		return true;
@@ -304,8 +299,7 @@ public class PersonEdit {
 	}
 
 	public String getPersonRegion() {
-		return messages.get(Regions.class.getSimpleName() + "."
-				+ person.getRegion().name());
+		return messages.get(Regions.class.getSimpleName() + "." + person.getRegion().name());
 	}
 
 	public String getDatePattern() {

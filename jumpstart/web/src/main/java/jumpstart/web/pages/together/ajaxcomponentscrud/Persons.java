@@ -1,5 +1,6 @@
 package jumpstart.web.pages.together.ajaxcomponentscrud;
 
+import jumpstart.business.domain.person.Person;
 import jumpstart.web.components.together.ajaxcomponentscrud.PersonList;
 
 import org.apache.tapestry5.annotations.Import;
@@ -79,10 +80,10 @@ public class Persons {
 		}
 	}
 
-	void onCreatedFromPersonCreate(Long personId) {
+	void onCreatedFromPersonCreate(Person person) {
 		function = Function.REVIEW;
-		editorPersonId = personId;
-		listPersonId = personId;
+		editorPersonId = person.getId();
+		listPersonId = person.getId();
 
 		list.doChangeOfSelectedPerson();
 
@@ -129,10 +130,10 @@ public class Persons {
 		}
 	}
 
-	void onUpdatedFromPersonUpdate(Long personId) {
+	void onUpdatedFromPersonUpdate(Person person) {
 		function = Function.REVIEW;
-		editorPersonId = personId;
-		listPersonId = personId;
+		editorPersonId = person.getId();
+		listPersonId = person.getId();
 
 		list.doChangeOfSelectedPerson();
 

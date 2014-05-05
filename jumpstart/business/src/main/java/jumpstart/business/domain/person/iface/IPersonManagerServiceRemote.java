@@ -16,7 +16,7 @@ public interface IPersonManagerServiceRemote {
 
 	void createPersons(List<Person> persons);
 
-	void changePerson(Person person);
+	Person changePerson(Person person);
 
 	void changePersons(List<Person> persons);
 

@@ -34,7 +34,7 @@ public class PersonManagerService implements IPersonManagerServiceLocal, IPerson
 		}
 	}
 
-	public void changePerson(Person person) {
+	public Person changePerson(Person person) {
 		Person p = em.merge(person);
 		// Flush to work around OPENEJB issue https://issues.apache.org/jira/browse/OPENEJB-782
 		em.flush();
@@ -43,6 +43,8 @@ public class PersonManagerService implements IPersonManagerServiceLocal, IPerson
 		if (!p.getId().equals(person.getId())) {
 			throw new EntityNotFoundException("Person no longer exists.");
 		}
+		
+		return p;
 	}
 
 	public void changePersons(List<Person> persons) {
