@@ -165,10 +165,10 @@
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. JBoss -->
 
 		<mkdir dir="${lib.provided.dir}" />
-		<get dest="${lib.provided.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
+		<get dest="${lib.provided.dir}/javaee-api-6.0-5.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-5/javaee-api-6.0-5.jar" />
 		<!-- TODO: modify BaseEntity so it is not dependent on Hibernate. -->
 		<get dest="${lib.provided.dir}/hibernate-core-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar" />
-		<get dest="${lib.provided.dir}/slf4j-api-1.7.2.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar" />
+		<get dest="${lib.provided.dir}/slf4j-api-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
 
 		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
 
@@ -177,12 +177,12 @@
 		<!-- testing jars - needed for compiling and running tests -->
 
 		<mkdir dir="${lib.test.dir}" />
-		<get dest="${lib.test.dir}/javaee-api-6.0-4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-4/javaee-api-6.0-4.jar" />
+		<get dest="${lib.test.dir}/javaee-api-6.0-5.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-5/javaee-api-6.0-5.jar" />
 		<get dest="${lib.test.dir}/junit-4.11.jar" usetimestamp="true" src="${maven.repo.root}/junit/junit/4.11/junit-4.11.jar" />
 		<get dest="${lib.test.dir}/hamcrest-core-1.3.jar" usetimestamp="true" src="${maven.repo.root}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
-		<get dest="${lib.test.dir}/log4j-1.2.16.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.16/log4j-1.2.16.jar" />
-		<get dest="${lib.test.dir}/slf4j-api-1.7.2.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar" />
-		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.2.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.2/slf4j-log4j12-1.7.2.jar" />
+		<get dest="${lib.test.dir}/log4j-1.2.17.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.17/log4j-1.2.17.jar" />
+		<get dest="${lib.test.dir}/slf4j-api-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
+		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar" />
 		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
 		<get dest="${lib.test.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 
