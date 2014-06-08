@@ -54,7 +54,7 @@
 										<span class="action"><a t:type="eventlink" t:event="view" t:context="userRole.id" title="View">View</a></span>
 										<span class="action"><a t:type="eventlink" t:event="edit" t:context="userRole.id" title="Edit">Edit</a></span>
 										<span class="action"><a t:type="eventlink" t:event="remove" t:context="[userRole.id,userRole.version]" 
-											t:mixins="Confirm" t:message="Remove ${userRole.user.loginId}/${userRole.role.name}?" title="Remove">Remove</a></span>
+											t:mixins="Confirm" Confirm.message="Remove ${userRole.user.loginId}/${userRole.role.name}?" title="Remove">Remove</a></span>
 									</td>
 								</tr>
 							</tbody>

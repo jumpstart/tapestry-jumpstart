@@ -40,7 +40,7 @@
 						<t:pagelink page="together/totalcontrolcrud/person/PersonReview" context="person.id">Review</t:pagelink>
 						<t:pagelink page="together/totalcontrolcrud/person/PersonUpdate" context="person.id">Update</t:pagelink>
 						<t:eventLink event="Delete" context="[person.id,person.version]" 
-							t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventLink>
+							t:mixins="Confirm" Confirm.message="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventLink>
 					</td>
 				</tr>
 			</tbody>

@@ -159,7 +159,7 @@
 									<a t:type="eventLink" t:event="delete" t:context="[editorPerson.id,editorPerson.version]" t:zone="^" href="#">
 										<!-- The Confirm mixin can't cancel an EventLink that specifies a Zone, so we put the Confirm inside the EventLink. -->
 										<!-- See http://tapestry-users.832.n2.nabble.com/Confirm-mixin-won-t-cancel-when-in-zone-td5048950.html#a5048950 -->
-										<span t:type="any" t:mixins="Confirm" t:message="Delete ${editorPerson.firstName} ${editorPerson.lastName}?">
+										<span t:type="any" t:mixins="Confirm" Confirm.message="Delete ${editorPerson.firstName} ${editorPerson.lastName}?">
 											Delete...
 										</span>
 									</a>

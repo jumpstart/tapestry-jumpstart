@@ -16,10 +16,12 @@
 	<div class="eg">
 		<t:form class="form-inline" autofocus="false">
 			<div class="form-group">
-				<t:textfield t:id="firstName" t:mixins="TextboxHint" hintText="Enter First Name" hintColor="#808080"/>
+				<t:textfield t:id="firstName" t:mixins="TextboxHint" 
+					TextboxHint.hintText="Enter First Name" TextboxHint.hintColor="#808080"/>
 			</div>
 			<div class="form-group">
-				<t:textfield t:id="lastName" t:mixins="TextboxHint" hintText="Enter Last Name" hintColor="#808080"/>
+				<t:textfield t:id="lastName" t:mixins="TextboxHint" 
+					TextboxHint.hintText="Enter Last Name" TextboxHint.hintColor="#808080"/>
 			</div>
 		</t:form>
 	</div>

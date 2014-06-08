@@ -84,7 +84,7 @@
 									<span class="action"><a t:type="pagelink" t:page="theapp/security/UserView" t:context="user.id" title="View">View</a></span>
 									<span class="action"><a t:type="pagelink" t:page="theapp/security/UserEdit" t:context="user.id" title="Edit">Edit</a></span>
 									<span class="action"><a t:type="eventlink" t:event="Delete" t:context="[user.id,user.version]" 
-										t:mixins="Confirm" t:message="Delete ${user.loginId}?" title="Delete">Delete</a></span>
+										t:mixins="Confirm" Confirm.message="Delete ${user.loginId}?" title="Delete">Delete</a></span>
 								</p:actionsCell>
 								<p:empty>
 									<div class="nodata">(No Users to display)</div>

@@ -13,7 +13,8 @@
 	Here we have moved the "AJAX periodic update" functionality into a mixin that can be used with any Zone.
 
 	<div class="eg">
-		<t:zone t:id="timeZone" id="timeZone" t:mixins="ZonePeriodicUpdater" event="refreshTimeZone" frequencySecs="3" maxUpdates="4">
+		<t:zone t:id="timeZone" id="timeZone" t:mixins="ZonePeriodicUpdater" 
+			ZonePeriodicUpdater.event="refreshTimeZone" ZonePeriodicUpdater.frequencySecs="3" ZonePeriodicUpdater.maxUpdates="4">
 			serverTime:  ${serverTime}
 		</t:zone>
 	</div>

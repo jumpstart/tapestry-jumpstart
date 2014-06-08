@@ -15,7 +15,7 @@
 								<span class="action"><a t:type="pagelink" t:page="theapp/security/RoleView" t:context="role.id" title="View">View</a></span>
 								<span class="action"><a t:type="pagelink" t:page="theapp/security/RoleEdit" t:context="role.id" title="Edit">Edit</a></span>
 								<span class="action"><a t:type="eventlink" t:event="Delete" t:context="[role.id,role.version]" 
-									t:mixins="Confirm" t:message="Delete ${role.name}?" title="Delete">Delete</a></span>
+									t:mixins="Confirm" Confirm.message="Delete ${role.name}?" title="Delete">Delete</a></span>
 							</p:actionsCell>
 						</table>
 						<div t:type="if" t:test="!roles">

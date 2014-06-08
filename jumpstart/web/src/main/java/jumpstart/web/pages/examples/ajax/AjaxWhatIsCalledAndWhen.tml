@@ -114,7 +114,8 @@
 		 			<th>
 		 				<t:form>
 							In response to keyup in <strong>TextField</strong> mixing in <strong>ZoneUpdater</strong> with Zone (see later examples).<br/>
-							Eg. Name: <t:textfield t:id="name2" t:mixins="zoneUpdater" clientEvent="keyup" event="name2Changed" zone="name2Zone"/><br/>
+							Eg. Name: <t:textfield t:id="name2" t:mixins="zoneUpdater" 
+								ZoneUpdater.clientEvent="keyup" ZoneUpdater.event="name2Changed" ZoneUpdater.zone="name2Zone"/><br/>
 			 				<t:zone t:id="name2Zone" id="name2Zone">
 			 					${name2}&nbsp;
 			 				</t:zone>

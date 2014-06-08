@@ -3,7 +3,8 @@
 
 	<div class="form-group">
 		<div class="col-sm-6">
-			<t:textfield t:id="value" t:mixins="zoneUpdater" clientEvent="keyup" event="valueChanged" zone="prop:componentResources.id"/>
+			<t:textfield t:id="value" t:mixins="zoneUpdater" 
+				ZoneUpdater.clientEvent="keyup" ZoneUpdater.event="valueChanged" ZoneUpdater.zone="prop:componentResources.id"/>
 		</div>
 		<div class="col-sm-6">
 			<t:zone t:id="echoZone" id="prop:componentResources.id">

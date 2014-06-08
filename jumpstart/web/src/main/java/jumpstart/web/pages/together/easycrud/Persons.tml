@@ -27,7 +27,7 @@
 				<t:pagelink page="together/easycrud/person/PersonReview" context="person.id">Review</t:pagelink>
 				<t:pagelink page="together/easycrud/person/PersonUpdate" context="person.id">Update</t:pagelink>
 				<t:eventlink event="Delete" context="[person.id,person.version]" 
-					t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventlink>
+					t:mixins="Confirm" Confirm.message="Delete ${person.firstName} ${person.lastName}?">Delete</t:eventlink>
 			</p:actionCell>
 		</t:grid>
 	</div>

@@ -73,6 +73,8 @@
 	Person is a JPA Entity Bean and PersonFinderService is an EJB3 Session Bean. <br/><br/>
 	
 	References: 
+	<a href="http://getbootstrap.com/css/#forms-horizontal">.form-horizontal</a>, 
+	<a href="http://getbootstrap.com/css/#grid">.col-</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Hidden.html">Hidden</a>.<br/><br/>

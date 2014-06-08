@@ -22,13 +22,15 @@
 			<div class="form-group">
 				<t:label class="col-sm-2" for="firstName"/>
 				<div class="col-sm-4">
-					<t:textfield t:id="firstName" t:mixins="zoneUpdater" clientEvent="keyup" event="firstNameChanged" zone="nameZone1"/>
+					<t:textfield t:id="firstName" t:mixins="zoneUpdater" 
+						ZoneUpdater.clientEvent="keyup" ZoneUpdater.event="firstNameChanged" ZoneUpdater.zone="nameZone1"/>
 				</div>
 			</div>
 			<div class="form-group">
 				<t:label class="col-sm-2" for="lastName"/>
 				<div class="col-sm-4">
-					<t:textfield t:id="lastName" t:mixins="zoneUpdater" clientEvent="keyup" event="lastNameChanged" zone="nameZone1"/>
+					<t:textfield t:id="lastName" t:mixins="zoneUpdater" 
+						ZoneUpdater.clientEvent="keyup" ZoneUpdater.event="lastNameChanged" ZoneUpdater.zone="nameZone1"/>
 				</div>
 			</div>
 	

@@ -54,6 +54,7 @@
 	</ul>
 	
 	References: 
+	<a href="http://getbootstrap.com/css/#grid">.row and .col-</a>, 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">Expansions</a>, 
 	<a href="http://tapestry.apache.org/property-expressions.html">Property Expressions</a>, 
 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Output.html">Output component</a>, 

@@ -47,7 +47,7 @@
 			<div class="buttons">
 			 	<t:eventlink event="toUpdate" context="person.id">Update...</t:eventlink>
 				<t:eventlink event="delete" context="[person.id,person.version]" 
-					t:mixins="Confirm" message="Delete ${person.firstName} ${person.lastName}?">Delete...</t:eventlink>
+					t:mixins="Confirm" Confirm.message="Delete ${person.firstName} ${person.lastName}?">Delete...</t:eventlink>
 			</div>
 		</t:if>
 

@@ -101,7 +101,7 @@
 								<div class="buttons">
 								 	<t:eventlink event="toUpdate" context="editorPerson.id">Update...</t:eventlink>
 									<t:eventlink event="delete" context="[editorPerson.id,editorPerson.version]" 
-										t:mixins="Confirm" message="Delete ${editorPerson.firstName} ${editorPerson.lastName}?">Delete...</t:eventlink>
+										t:mixins="Confirm" Confirm.message="Delete ${editorPerson.firstName} ${editorPerson.lastName}?">Delete...</t:eventlink>
 								</div>
 							</t:if>
 	

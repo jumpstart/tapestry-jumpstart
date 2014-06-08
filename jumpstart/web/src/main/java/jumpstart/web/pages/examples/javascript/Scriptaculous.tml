@@ -20,8 +20,10 @@
 
 			<div class="eg">
 				<form t:type="form" t:autofocus="false">
-					<input t:type="TextField" t:id="firstName" t:mixins="TextboxHint" t:hintText="Enter First Name" t:hintColor="#808080"/>
-					<input t:type="TextField" t:id="lastName" t:mixins="TextboxHint" t:hintText="Enter Last Name" t:hintColor="#808080"/><br/>
+					<input t:type="TextField" t:id="firstName" t:mixins="TextboxHint" 
+						TextboxHint.hintText="Enter First Name" TextboxHint.hintColor="#808080"/>
+					<input t:type="TextField" t:id="lastName" t:mixins="TextboxHint" 
+						TextboxHint.hintText="Enter Last Name" TextboxHint.hintColor="#808080"/><br/>
 			 	</form>
 		 	</div>
 				
