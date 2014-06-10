@@ -56,10 +56,10 @@
 	Without @NonVisual, step 6 will fail if someone else has updated the person since step 1. This is proper optimistic locking.<br/><br/>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/BeanEditForm.html">BeanEditForm</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/BeanEditForm.html">BeanEditForm</a>, 
 	<a href="http://tapestry.apache.org/beaneditform-guide.html">Using BeanEditForm</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/beaneditor/package-summary.html">beaneditor package</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Hidden.html">Hidden</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/beaneditor/package-summary.html">beaneditor package</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Hidden.html">Hidden</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

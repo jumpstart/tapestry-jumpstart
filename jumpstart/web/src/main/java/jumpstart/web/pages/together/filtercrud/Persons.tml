@@ -196,7 +196,7 @@
 	Later, in the <em>Components CRUD</em> example, we will turn the list and editor into components.<br/><br/>
 	
  	References: 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
+ 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

@@ -16,7 +16,7 @@
 	When clicked it sends a <strong>page render request</strong>. Click the link above to learn more.<br/><br/>
 
 	References:	
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>.<br/><br/>
 

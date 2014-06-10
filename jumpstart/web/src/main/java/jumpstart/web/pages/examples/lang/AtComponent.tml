@@ -45,7 +45,7 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-classes.html#ComponentClasses-EmbeddedComponents">Embedded Components</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>.
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Component.html">@Component</a>.
 	<br/><br/>
 	
 	<t:tabgroup>

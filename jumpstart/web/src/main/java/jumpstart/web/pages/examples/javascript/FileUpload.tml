@@ -65,10 +65,10 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/uploading-files.html">Uploading Files</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/upload/components/Upload.html">Upload</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/upload/components/Upload.html">Upload</a>,
 	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>.<br/><br/> 
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

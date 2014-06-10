@@ -14,8 +14,8 @@
 	</div>
 
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

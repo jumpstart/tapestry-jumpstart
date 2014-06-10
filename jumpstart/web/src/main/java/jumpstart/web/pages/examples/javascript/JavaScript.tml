@@ -31,7 +31,7 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
 	<a href="http://requirejs.org">RequireJS</a>, 
 	<a href="http://api.jquery.com">jQuery API</a>.<br/><br/> 
 	

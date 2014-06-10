@@ -24,12 +24,12 @@
 	<a href="http://tawus.wordpress.com/2011/08/24/tapestry53/">Java Magic: Tapestry 5.3+ : New Features</a>.<br/><br/>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Tree.html">Tree</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/tree/TreeModel.html">TreeModel</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/tree/DefaultTreeModel.html">DefaultTreeModel</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/tree/TreeModelAdapter.html">TreeModelAdapter</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Tree.html">Tree</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/tree/TreeModel.html">TreeModel</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/tree/DefaultTreeModel.html">DefaultTreeModel</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/tree/TreeModelAdapter.html">TreeModelAdapter</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
 
 	<t:eventlink event="Home">Home</t:eventlink><br/><br/>
 

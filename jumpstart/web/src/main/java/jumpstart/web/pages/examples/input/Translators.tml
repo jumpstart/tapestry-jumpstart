@@ -108,11 +108,11 @@
 	It exists only to bubble up the <em>toClient</em> and <em>parseClient</em> events.<br/><br/>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>.
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/internal/translator/package-summary.html">translator package</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/PasswordField.html">PasswordField</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/TextArea.html">TextArea</a>.
 	<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

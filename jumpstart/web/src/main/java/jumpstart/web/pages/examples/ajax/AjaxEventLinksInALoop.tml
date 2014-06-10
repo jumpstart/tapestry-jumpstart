@@ -51,14 +51,14 @@
 	 </div>
 
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/coffeescript/zone.html">t5/core/zone</a>.<br/><br/> 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
+	<a href="http://tapestry.apache.org/5.4/coffeescript/zone.html">t5/core/zone</a>.<br/><br/> 
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

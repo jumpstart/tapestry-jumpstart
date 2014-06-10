@@ -17,10 +17,10 @@
 	</div>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/FormFragment.html">FormFragment</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/FormFragment.html">FormFragment</a>, 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/EventContext.html">EventContext</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 

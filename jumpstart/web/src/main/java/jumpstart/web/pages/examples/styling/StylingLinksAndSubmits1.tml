@@ -60,12 +60,12 @@
 	</div>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Path.html">Path</a>,  
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Asset.html">Asset</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Path.html">Path</a>,  
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/Asset.html">Asset</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 

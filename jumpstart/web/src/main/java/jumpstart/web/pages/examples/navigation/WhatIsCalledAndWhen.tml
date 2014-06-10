@@ -179,10 +179,10 @@
 	<a href="http://tapestry.apache.org/component-rendering.html">Component Rendering</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>, 
 	<a href="http://tapestry.apache.org/component-parameters.html">Component Parameters</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Submit.html">Submit</a>, 
 	<a href="http://tapestry.apache.org/logging.html">Logging</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

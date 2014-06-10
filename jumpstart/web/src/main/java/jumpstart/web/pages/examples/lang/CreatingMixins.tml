@@ -45,14 +45,14 @@
 
 	References:
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Mixin.html">@Mixin</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/MixinAfter.html">@MixinAfter</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Mixin.html">@Mixin</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/MixinAfter.html">@MixinAfter</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/beaneditor/BeanModel.html">BeanModel</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/beaneditor/PropertyModel.html">PropertyModel</a>,
 	<a href="http://tapestry.apache.org/dom.html">DOM</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/dom/Element.html">Element</a>.
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/dom/Element.html">Element</a>.
 	<br />
 	<br />
 

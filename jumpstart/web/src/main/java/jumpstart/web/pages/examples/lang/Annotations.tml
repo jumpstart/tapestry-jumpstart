@@ -30,7 +30,7 @@
 			<code>@Property</code>
 			A field annotation. Tapestry will invisibly provide a getter and setter for the field. You can make the property
 			read-only or write-only - see <a
-				href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.
+				href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>.
 		</li>
 
 		<li>
@@ -51,7 +51,7 @@
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-RenderingPhases">Rendering Phases</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-CleanupRender">CleanupRender</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
 	<a href="http://tapestry.apache.org/logging.html">Logging</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

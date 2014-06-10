@@ -14,7 +14,7 @@
 	</div>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>,
 	<a href="http://tapestry.apache.org/beaneditform-guide.html">Using BeanEditForm (sic)</a>.<br/><br/>
 	
 	<t:pagelink t:page="Index" href="#">Home</t:pagelink><br/><br/>

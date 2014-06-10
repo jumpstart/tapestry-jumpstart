@@ -46,8 +46,8 @@
 	</ul> 
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/LoopFormState.html">LoopFormState</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/LoopFormState.html">LoopFormState</a>,
 	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

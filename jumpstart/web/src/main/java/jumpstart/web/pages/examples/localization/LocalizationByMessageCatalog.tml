@@ -44,13 +44,13 @@
 	References: 
 	<a href="http://tapestry.apache.org/localization.html">Localization</a>, 
 	<a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/LocalizationSetter.html">LocalizationSetter</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/services/ThreadLocale.html">ThreadLocale</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/PersistentLocale.html">PersistentLocale</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/LocalizationSetter.html">LocalizationSetter</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/services/ThreadLocale.html">ThreadLocale</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/PersistentLocale.html">PersistentLocale</a>, 
 	<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html">Locale</a>, 
 	<a href="http://docs.oracle.com/javase/6/docs/api/java/text/DateFormat.html">DateFormat</a>, 
 	<a href="http://docs.oracle.com/javase/6/docs/api/java/text/NumberFormat.html">NumberFormat</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
 	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Rendervariables">Render Variables</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

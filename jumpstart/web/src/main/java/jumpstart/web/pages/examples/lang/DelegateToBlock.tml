@@ -37,9 +37,9 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-reference.html#ComponentReference-ConditionalandLoopingComponents">Conditional and Looping Components</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">Delegate</a>, 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Ablock%3EElement">t:block</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/Block.html">Block</a>, 
 	<a href="http://tapestry.apache.org/switching-cases.html">Switching Cases</a>, 
 	<a href="http://tapestry.apache.org/principles.html#Principles-Principle1StaticStructure%2CDynamicBehavior">Principle 1 - Static Structure, Dynamic Behavior</a>.<br/><br/>
 

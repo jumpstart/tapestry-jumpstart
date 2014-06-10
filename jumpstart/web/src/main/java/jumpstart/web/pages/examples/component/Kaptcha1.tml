@@ -43,8 +43,8 @@
 	<p>
 		References: <a href="http://tapestry.apache.org/component-reference.html#ComponentReference-FormComponents">Form
 			Components</a>, <a
-			href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaField.html">KaptchaField</a>,
-		<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaImage.html">KaptchaImage</a>.
+			href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaField.html">KaptchaField</a>,
+		<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/kaptcha/components/KaptchaImage.html">KaptchaImage</a>.
 	</p>
 
 	<p>

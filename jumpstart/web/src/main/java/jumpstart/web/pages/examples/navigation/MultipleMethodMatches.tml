@@ -28,7 +28,7 @@
 	References: 
 	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-MultipleMethodMatches">Multiple Method Matches</a>, 
 	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-EventContext">Event Context</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>, 
 	<a href="http://tapestry.apache.org/persistent-page-data.html">Persistent Page Data</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

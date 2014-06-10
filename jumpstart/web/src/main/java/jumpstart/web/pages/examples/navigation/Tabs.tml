@@ -20,7 +20,7 @@
 	References:	
 	<a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Tabs</a>, 
 	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Abody%3EElement">t:body</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Environment.html">Environment</a>.<br/><br/> 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Environment.html">Environment</a>.<br/><br/> 
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

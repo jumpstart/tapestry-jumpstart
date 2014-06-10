@@ -51,11 +51,11 @@
 	</div> 
 			
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://tapestry.apache.org/type-coercion.html">Type Coercion</a>, 
 	<a href="http://tapestry.apache.org/typecoercer-service.html">TypeCoercer Service</a>, 
 	<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ioc/services/TypeCoercer.html">TypeCoercer</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/DateField.html">DateField</a>, 
 	<a href="http://joda-time.sourceforge.net/">Joda Time</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

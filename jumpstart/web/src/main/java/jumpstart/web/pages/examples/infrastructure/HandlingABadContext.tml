@@ -77,8 +77,8 @@
 		Event Exceptions</a>,
 	<a href="http://tapestry.apache.org/overriding-exception-reporting.html">Overriding Exception Reporting</a>,
 	<a href="http://tapestry.apache.org/component-events.html#ComponentEvents-EventContext">EventContext</a>.
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>.
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/If.html">If</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/BeanDisplay.html">BeanDisplay</a>.
 	<br />
 	<br />
 

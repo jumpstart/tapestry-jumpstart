@@ -47,7 +47,7 @@
 	In the rest of JumpStart we will use EventLink, not ActionLink.<br/><br/>
 
 	References:	
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
 	<a href="http://tapestry.apache.org/page-navigation.html">Page Navigation</a>, 
 	<a href="http://tapestry.apache.org/component-events.html">Component Events</a>.<br/><br/>
 

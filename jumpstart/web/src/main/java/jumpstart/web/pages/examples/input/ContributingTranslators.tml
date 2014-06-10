@@ -59,10 +59,10 @@
 	This example has also used localization, which is explained later in the Localization examples.<br/><br/> 
 
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/TranslatorSource.html">TranslatorSource</a>,  
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/TranslatorAlternatesSource.html">TranslatorAlternatesSource</a>,  
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/messages/ComponentMessagesSource.html">ComponentMessagesSource</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/Translator.html">Translator</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/TranslatorSource.html">TranslatorSource</a>,  
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/TranslatorAlternatesSource.html">TranslatorAlternatesSource</a>,  
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/messages/ComponentMessagesSource.html">ComponentMessagesSource</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IoC Services</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

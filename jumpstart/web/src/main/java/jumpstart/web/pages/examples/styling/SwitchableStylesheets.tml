@@ -34,7 +34,7 @@
 	<a href="http://www.w3.org/Style/CSS/">Cascading Style Sheets</a>, 
 	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>, 
 	<a href="http://tapestry.apache.org/assets.html">Assets</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

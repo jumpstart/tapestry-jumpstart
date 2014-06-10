@@ -16,74 +16,74 @@
 
 	<ul>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/package-summary.html">Core
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/package-summary.html">Core
 				Services</a>&nbsp; eg. we <strong>use</strong> SelectModelFactory in the "Easy Object Select" example, and <strong>contribute
 				configuration</strong> to RequestHandler in the "Protecting Assets" example.
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/ajax/package-summary.html">AJAX
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/package-summary.html">AJAX
 				Services</a>&nbsp; eg. we use AjaxResponseRenderer in many of our AJAX examples.
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/assets/package-summary.html">Asset
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/assets/package-summary.html">Asset
 				Services</a>
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/dynamic/package-summary.html">Dynamic
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/dynamic/package-summary.html">Dynamic
 				Component Services</a>
 		</li>
 		<li>
 			<a
-				href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/javascript/package-summary.html">JavaScript
+				href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/package-summary.html">JavaScript
 				Services</a>&nbsp; eg. we use JavaScriptSupport in our JavaScript examples.
 		</li>
 		<li>
 			<a
-				href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/linktransform/package-summary.html">Link
+				href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/linktransform/package-summary.html">Link
 				Transformation Services</a>
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/messages/package-summary.html">Message
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/messages/package-summary.html">Message
 				Services</a>&nbsp; eg. we contribute configuration to ComponentMessagesSource. See the "Creating Validators" and
 			"Creating Translators" examples.
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/meta/package-summary.html">Component
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/meta/package-summary.html">Component
 				MetaData Services</a>
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/pageload/package-summary.html">Page
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/pageload/package-summary.html">Page
 				Loading Services</a>
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/security/package-summary.html">Security
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/security/package-summary.html">Security
 				Services</a>&nbsp; eg. we contribute configuration to ClientWhitelist to protect pages annotated with
 			@WhitelistAccessOnly. See AppModule source below.
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/templates/package-summary.html">Template
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/templates/package-summary.html">Template
 				Services</a>
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/transform/package-summary.html">Class
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/transform/package-summary.html">Class
 				Transformation Services</a>&nbsp; eg. we contribute configuration to ComponentClassTransformWorker to provide @EJB
 			injection. See the "@EJB" example.
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/services/package-summary.html">IoC
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/services/package-summary.html">IoC
 				Services</a>&nbsp; eg. we <strong>override</strong> the ClasspathURLConverter service to handle the JBoss 7 Virtual File
 			System. See AppModule source below.
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/services/cron/package-summary.html">IoC
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/services/cron/package-summary.html">IoC
 				Cron Services</a>
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/kaptcha/services/package-summary.html">Kaptcha
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/kaptcha/services/package-summary.html">Kaptcha
 				Services</a>
 		</li>
 		<li>
-			<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/upload/services/package-summary.html">File
+			<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/upload/services/package-summary.html">File
 				Upload Services</a>&nbsp; eg. we use UploadedFile in the "File Upload" example.
 		</li>
 	</ul>
@@ -102,15 +102,15 @@
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Defining Tapestry IOC Services</a>, 
 	<a href="http://tapestry.apache.org/ioc.html">Tapestry IoC</a>, 
 	<a href="http://tapestry.apache.org/request-processing.html#RequestProcessing-Overview">Request Processing diagram</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Symbol.html">@Symbol</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Property.html">@Property</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Primary.html">@Primary</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/EagerLoad.html">@EagerLoad</a>,  
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/ServiceBinder.html">ServiceBinder</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/MappedConfiguration.html">MappedConfiguration</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/OrderedConfiguration.html">OrderedConfiguration</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/Configuration.html">Configuration</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Symbol.html">@Symbol</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Property.html">@Property</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Primary.html">@Primary</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/EagerLoad.html">@EagerLoad</a>,  
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/ServiceBinder.html">ServiceBinder</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/MappedConfiguration.html">MappedConfiguration</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/OrderedConfiguration.html">OrderedConfiguration</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/Configuration.html">Configuration</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 

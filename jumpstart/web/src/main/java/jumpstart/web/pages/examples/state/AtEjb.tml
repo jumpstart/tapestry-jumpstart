@@ -19,7 +19,7 @@
 	</div>
 
 	References: <a href="http://docs.oracle.com/javaee/6/api/javax/ejb/EJB.html">@EJB</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/transform/ComponentClassTransformWorker2.html">
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/transform/ComponentClassTransformWorker2.html">
 	ComponentClassTransformWorker2</a>, 
 	<a href="http://tapestry.apache.org/defining-tapestry-ioc-services.html">Tapestry IoC Services</a>.<br/><br/> 
 	

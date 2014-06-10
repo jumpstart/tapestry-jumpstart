@@ -25,7 +25,7 @@
 	
 	References: 
 	<a href="http://tapestry.apache.org/component-rendering.html#ComponentRendering-SetupRender">SetupRender</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Property.html">@Property</a>, 
     <a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Context%3ABindings">Context: Bindings</a>, 
     <a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-Expansions">Expansions</a>, 
     <a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-bindingexpressions">Binding Expressions</a>.<br/><br/>

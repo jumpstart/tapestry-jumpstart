@@ -50,8 +50,8 @@
 	References: 
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
 	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>

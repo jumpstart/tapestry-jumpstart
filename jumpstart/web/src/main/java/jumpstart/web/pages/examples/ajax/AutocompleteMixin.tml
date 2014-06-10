@@ -30,17 +30,17 @@
 	</div>
 	
 	<p>Looking at the source of 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/src-html/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete.java</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/src-html/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete.java</a>, 
 	you'll see that what it does is quite simple: it adds to the page a short piece of JavaScript, 
-	<a href="http://people.apache.org/~hlship/t5api/coffeescript/autocomplete.html">autocomplete.coffee</a>. 
+	<a href="http://tapestry.apache.org/5.4/coffeescript/autocomplete.html">autocomplete.coffee</a>. 
 	The JavaScript requires <a href="http://twitter.github.io/typeahead.js/">Twitter typeahead</a>, and configures it on the target field.</p>
 	
 	<p>When you type in the field, typeahead sends event <em>autocomplete</em> to the mixin server-side. 
 	The mixin bubbles up <em>provideCompletions</em>, which you can handle by returning a list, which the mixin returns to the client's typeahead.</p>
 	
 	References: 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete API</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/coffeescript/autocomplete.html">autocomplete.coffee</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/mixins/Autocomplete.html">Autocomplete API</a>, 
+	<a href="http://tapestry.apache.org/5.4/coffeescript/autocomplete.html">autocomplete.coffee</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html#AjaxandZones-autocomplete">(T5.3) Autocomplete Mixin</a>, 
 	<a href="http://twitter.github.io/typeahead.js/">typeahead.js</a>, 
 	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 

@@ -21,8 +21,8 @@
 	References: 
 	<a href="http://blpsilva.wordpress.com/2008/04/05/query-strings-in-restful-web-services/">
 		Query strings in RESTful Web Services</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/PageRenderLinkSource.html">PageRenderLinkSource</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/PageRenderLinkSource.html">PageRenderLinkSource</a>.<br/><br/>
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

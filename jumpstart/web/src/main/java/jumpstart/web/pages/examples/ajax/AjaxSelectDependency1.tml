@@ -50,15 +50,15 @@
 	We solve it by persisting <em>chosenCarSource</em> and <em>chosenCarMake</em> in the generated URLs by using <em>@ActivationRequestParameter</em>.<br/><br/>
 
 	References:
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/ActivationRequestParameter.html">@ActivationRequestParameter</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
- 	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
-  	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+ 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+  	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>.<br/><br/> 
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

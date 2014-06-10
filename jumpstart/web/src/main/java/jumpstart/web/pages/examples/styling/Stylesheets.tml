@@ -26,7 +26,7 @@
 	<a href="http://www.w3.org/Style/CSS/">Cascading Style Sheet</a>, 
 	<a href="http://tapestry.apache.org/css.html">Tapestry CSS Support</a>, 
 	<a href="http://tapestry.apache.org/component-parameters.html#ComponentParameters-Asset%3ABindings">Asset: Bindings</a>, 
-	<a href="http://people.apache.org/~hlship/t5api/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
