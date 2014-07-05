@@ -1,9 +1,11 @@
 package jumpstart.web.pages.examples.ajax;
 
 import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 
+@Import(stylesheet = "css/examples/plain.css")
 public class AjaxSelectDependency2 {
 
 	// Screen fields

@@ -1,6 +1,7 @@
 package jumpstart.web.pages.examples.ajax;
 
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
@@ -9,6 +10,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
+@Import(stylesheet = "css/examples/ajaxselect1.css")
 public class AjaxSelectDependency1 {
 	static final private String SOURCE_LOCAL = "Local";
 	static final private String SOURCE_IMPORTED = "Imported";
@@ -97,17 +99,18 @@ public class AjaxSelectDependency1 {
 
 	void onValueChangedFromCarSource(String carSource) {
 
-		// Record the source in the activation parameters (AKA query parameters) so it is available in requests from the other zones.
-		
+		// Record the source in the activation parameters (AKA query parameters) so it is available in requests from the
+		// other zones.
+
 		chosenCarSource = carSource;
-		
+
 		// Refresh the makes and models.
-		
+
 		carMake = chosenCarMake;
 		carMakes = ALL_MAKES;
-		
+
 		refreshCarModels();
-		
+
 		if (request.isXHR()) {
 			ajaxResponseRenderer.addRender(carMakeZone).addRender(carModelZone);
 		}
@@ -115,15 +118,16 @@ public class AjaxSelectDependency1 {
 
 	void onValueChangedFromCarMake(String carMake) {
 
-		// Record the make in the activation parameters (AKA query parameters) so it is available in requests from the other zones.
+		// Record the make in the activation parameters (AKA query parameters) so it is available in requests from the
+		// other zones.
 
 		chosenCarMake = carMake;
 
 		// Refresh the sources and models.
-		
+
 		carSource = chosenCarSource;
 		carSources = ALL_SOURCES;
-		
+
 		refreshCarModels();
 
 		if (request.isXHR()) {
@@ -139,7 +143,7 @@ public class AjaxSelectDependency1 {
 		carModels = NO_MODELS;
 
 		if (chosenCarSource != null && chosenCarMake != null) {
-			
+
 			if (chosenCarSource.equals(SOURCE_LOCAL)) {
 
 				if (chosenCarMake.equals(MAKE_HOLDEN)) {
@@ -151,10 +155,10 @@ public class AjaxSelectDependency1 {
 				else if (chosenCarMake.equals(MAKE_TOYOTA)) {
 					carModels = LOCAL_TOYOTA_MODELS;
 				}
-				
+
 			}
 			else if (chosenCarSource.equals(SOURCE_IMPORTED)) {
-				
+
 				if (chosenCarMake.equals(MAKE_HOLDEN)) {
 					carModels = IMPORTED_HOLDEN_MODELS;
 				}
@@ -164,9 +168,9 @@ public class AjaxSelectDependency1 {
 				else if (chosenCarMake.equals(MAKE_TOYOTA)) {
 					carModels = IMPORTED_TOYOTA_MODELS;
 				}
-				
+
 			}
-			
+
 		}
 
 	}

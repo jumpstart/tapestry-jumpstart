@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/ajax_select.css}"/>
-</head>
 <body class="container">
 	<h3>AJAX Select Dependency (1)</h3>
 	
@@ -17,32 +14,50 @@
 	Note that there are no models in Local Honda or Imported Holden combinations.
 	
 	<div class="eg">
-		<form t:type="form" t:id="searchCriteria">
+		<t:form t:id="searchCriteria">
 	
-			<t:zone t:id="carSourceZone" id="carSourceZone" style="display: inline;">
-				<t:label for="carSource"/>:
-				<select t:type="select" t:id="carSource" t:model="carSources" t:zone="carModelZone"
-					t:blankOption="ALWAYS" t:blankLabel="Choose..." t:validate="required"/>
-			</t:zone>
-		
-			<t:zone t:id="carMakeZone" id="carMakeZone" style="display: inline;">
-				<t:label for="carMake"/>:
-				<select t:type="select" t:id="carMake" t:model="carMakes" t:zone="carModelZone"
-					t:blankOption="ALWAYS" t:blankLabel="Choose..." t:validate="required"/>
-			</t:zone>
+			<div class="form-group form-inline">
+			
+				<div class="form-group">
+					<t:zone t:id="carSourceZone" id="carSourceZone" style="display: inline;">
+						<t:label for="carSource"/>
+						<t:select t:id="carSource" model="carSources" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="literal:never"
+							zone="carModelZone"/>
+					</t:zone>
+				</div>
+
+				<div class="form-group">
+					<t:zone t:id="carMakeZone" id="carMakeZone" style="display: inline;">
+						<t:label for="carMake"/>
+						<t:select t:id="carMake" model="carMakes" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="literal:never"
+							zone="carModelZone"/>
+					</t:zone>
+				</div>
+
+				<div class="form-group">
+					<t:zone t:id="carModelZone" id="carModelZone" style="display: inline;">
+						<t:label for="carModel"/>
+						<t:select t:id="carModel" model="carModels" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="literal:never"/>
+					</t:zone>
+				</div>
 	
-			<t:zone t:id="carModelZone" id="carModelZone" style="display: inline;">
-				<t:label for="carModel"/>:
-				<select t:type="select" t:id="carModel" t:model="carModels" 
-					t:blankOption="ALWAYS" t:blankLabel="Choose..." t:validate="required"/>
-			</t:zone>
+				<div class="form-group">
+					<t:label for="keywords"/>
+					<t:textfield t:id="keywords" class="keywords"/>
+				</div>
+
+				<div class="form-group">
+					<p class="form-control-static">(optional)</p>
+				</div>
+
+			</div>
+
+			<div class="form-group">
+				<t:submit value="Save"/>
+			</div>
 	
-			Keywords: <input t:type="TextField" t:id="keywords"/> (optional)<br/> 
-	
-			<input type="submit" value="Save"/>
 			<t:errors globalOnly="true"/>
-	
-		</form>
+		</t:form>
 	</div>
 
 	The tricky part of this is that AJAX Select requests pass only one context value, ie. the value of the Select; <br/>
@@ -65,7 +80,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelectDependency1.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxSelectDependency1.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajax_select.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/ajaxselect1.css"/>
 	</t:tabgroup>
 </body>
 </html>
