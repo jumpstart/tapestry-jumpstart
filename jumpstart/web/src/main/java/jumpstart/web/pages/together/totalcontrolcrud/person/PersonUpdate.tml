@@ -15,7 +15,7 @@
 		 		<t:hidden value="person.version"/>
 		
 	            <div class="form-group">
-	                <t:label class="col-sm-3" for="firstName"/>
+	                <t:label for="firstName" class="col-sm-3"/>
 	                <div class="col-sm-3">
 	                    <t:textfield t:id="firstName" value="person.firstName"/>
 	                </div>
@@ -26,7 +26,7 @@
 	                </div>
 	            </div>
 	            <div class="form-group">
-	                <t:label class="col-sm-3" for="lastName"/>
+	                <t:label for="lastName" class="col-sm-3"/>
 	                <div class="col-sm-3">
 	                    <t:textfield t:id="lastName" value="person.lastName"/>
 	                </div>
@@ -37,7 +37,7 @@
 	                </div>
 	            </div>
 	            <div class="form-group">
-	                <t:label class="col-sm-3" for="region"/>
+	                <t:label for="region" class="col-sm-3"/>
 	                <div class="col-sm-3">
 	                    <t:select t:id="region" value="person.region" blankOption="always"/>
 	                </div>
@@ -48,7 +48,7 @@
 	                </div>
 	            </div>
 	            <div class="form-group">
-	                <t:label class="col-sm-3" for="startDate"/>
+	                <t:label for="startDate" class="col-sm-3"/>
 	                <div class="col-sm-3">
 	                    <t:datefield t:id="startDate" value="person.startDate" format="dd/MM/yyyy"/>
 	                </div>

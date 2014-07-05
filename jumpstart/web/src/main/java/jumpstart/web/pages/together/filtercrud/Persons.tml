@@ -146,7 +146,7 @@
 	 	
  		<t:block t:id="editor">
             <div class="form-group">
-                <t:label class="col-sm-4" for="firstName"/>
+                <t:label for="firstName" class="col-sm-4"/>
                 <div class="col-sm-4">
                     <t:textfield t:id="firstName" value="editorPerson.firstName"/>
                 </div>
@@ -157,7 +157,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <t:label class="col-sm-4" for="lastName"/>
+                <t:label for="lastName" class="col-sm-4"/>
                 <div class="col-sm-4">
                     <t:textfield t:id="lastName" value="editorPerson.lastName"/>
                 </div>
@@ -168,7 +168,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <t:label class="col-sm-4" for="region"/>
+                <t:label for="region" class="col-sm-4"/>
                 <div class="col-sm-4">
                     <t:select t:id="region" value="editorPerson.region" blankOption="always"/>
                 </div>
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <t:label class="col-sm-4" for="startDate"/>
+                <t:label for="startDate" class="col-sm-4"/>
                 <div class="col-sm-4">
                     <t:datefield t:id="startDate" value="editorPerson.startDate" format="prop:dateFormat"/>
                 </div>

@@ -19,7 +19,7 @@
 	<div class="eg">
 		<t:form class="form-horizontal">
 			<div class="form-group">
-				<t:label class="col-sm-3" for="countryName">
+				<t:label for="countryName" class="col-sm-3">
 				Type in a country name:
 				</t:label>
 				<div class="col-sm-3">

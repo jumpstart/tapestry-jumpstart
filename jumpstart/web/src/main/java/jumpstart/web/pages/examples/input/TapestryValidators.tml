@@ -18,7 +18,7 @@
 		<t:form class="form-horizontal" t:id="inputs">
 			
 			<div class="form-group">
-				<t:label class="col-sm-3" for="firstName"/>
+				<t:label for="firstName" class="col-sm-3"/>
 				<div class="col-sm-3">
 					<t:textfield t:id="firstName" validate="required, maxlength=10" size="10"/>
 				</div>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-3" for="lastName"/>
+				<t:label for="lastName" class="col-sm-3"/>
 				<div class="col-sm-3">
 					<t:textfield t:id="lastName" validate="required, maxlength=10" size="10"/>
 				</div>

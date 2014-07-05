@@ -12,7 +12,7 @@
 	<div class="eg">
 		<t:form class="form-horizontal" t:id="inputs">
 			<div class="form-group">
-				<t:label class="col-sm-2" for="byteValue"/>
+				<t:label for="byteValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="byteValue"/>
 				</div>
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="shortValue"/>
+				<t:label for="shortValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="shortValue"/>
 				</div>
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="integerValue"/>
+				<t:label for="integerValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="integerValue"/>
 				</div>
@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="longValue"/>
+				<t:label for="longValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="longValue"/>
 				</div>
@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="floatValue"/>
+				<t:label for="floatValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="floatValue"/>
 				</div>
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="doubleValue"/>
+				<t:label for="doubleValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="doubleValue"/>
 				</div>
@@ -66,7 +66,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="bigIntegerValue"/>
+				<t:label for="bigIntegerValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="bigIntegerValue"/>
 				</div>
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="bigDecimalValue"/>
+				<t:label for="bigDecimalValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="bigDecimalValue"/>
 				</div>
@@ -84,7 +84,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="stringValue"/>
+				<t:label for="stringValue" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="stringValue"/>
 				</div>

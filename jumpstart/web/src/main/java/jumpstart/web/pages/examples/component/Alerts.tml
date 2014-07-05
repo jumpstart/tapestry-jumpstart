@@ -12,7 +12,7 @@
 	<div class="eg">
 		<t:form class="form-horizontal">
 			<div class="form-group">
-				<t:label class="col-sm-3" for="duration"/>
+				<t:label for="duration" class="col-sm-3"/>
 				<div class="col-sm-6">
 					<t:RadioGroup t:id="duration" value="duration" validate="required">
 						<t:Radio t:id="durationS" value="Duration.SINGLE" label="Single"/>
@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-3" for="severity"/>
+				<t:label for="severity" class="col-sm-3"/>
 				<div class="col-sm-6">
 					<t:RadioGroup t:id="severity" validate="required">
 						<t:Radio t:id="severityI" value="Severity.INFO" label="Info"/>
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-3" for="quantity"/>
+				<t:label for="quantity" class="col-sm-3"/>
 				<div class="col-sm-6">
 					<t:RadioGroup t:id="quantity" validate="required">
 						<t:Radio t:id="quantity1" value="literal:1" label="1"/>
@@ -53,7 +53,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-3" for="showDismissAll"/>
+				<t:label for="showDismissAll" class="col-sm-3"/>
 				<div class="col-sm-6">
 					<t:RadioGroup t:id="showDismissAll" validate="required">
 						<t:Radio t:id="showDismissAllN" value="literal:false" label="No"/>

@@ -18,7 +18,7 @@
 					<h4>Applying for Credit - Step 1: Start</h4>
 
 					<div class="form-group">
-						<t:label class="col-sm-2" for="amount"/>
+						<t:label for="amount" class="col-sm-2"/>
 						<div class="col-sm-3">
 							<t:textfield t:id="amount" value="creditRequest.amount" validate="required, min=10, max=9999" size="10"/>
 						</div>
@@ -40,7 +40,7 @@
 					<h4>Applying for Credit - Step 2: The Applicant</h4>
 
 					<div class="form-group">
-						<t:label class="col-sm-2" for="name"/>
+						<t:label for="name" class="col-sm-2"/>
 						<div class="col-sm-3">
 							<t:textfield t:id="name" value="creditRequest.applicantName" validate="required"/>
 						</div>

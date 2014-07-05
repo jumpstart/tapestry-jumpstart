@@ -16,19 +16,19 @@
 		<t:zone t:id="formZone" id="formZone">
 			<t:form t:id="ajaxForm" class="form-horizontal" t:zone="^">
 				<div class="form-group">
-					<t:label class="col-sm-2" for="firstName"/>
+					<t:label for="firstName" class="col-sm-2"/>
 					<div class="col-sm-4">
 						<t:textfield t:id="firstName"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<t:label class="col-sm-2" for="lastName"/>
+					<t:label for="lastName" class="col-sm-2"/>
 					<div class="col-sm-4">
 						<t:textfield t:id="lastName"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<t:label class="col-sm-2" for="birthday"/>
+					<t:label for="birthday" class="col-sm-2"/>
 					<div class="col-sm-4">
 						<t:datefield t:id="birthday"/>
 					</div>

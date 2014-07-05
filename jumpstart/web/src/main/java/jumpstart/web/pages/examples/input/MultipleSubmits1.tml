@@ -13,7 +13,7 @@
 	<div class="eg">
 		<t:form class="form-horizontal" t:id="search">
 			<div class="form-group">
-				<t:label class="col-sm-2" for="name"/>
+				<t:label for="name" class="col-sm-2"/>
 				<div class="col-sm-2">
 						<t:textfield t:id="name" validate="required, maxlength=10"/>
 				</div>

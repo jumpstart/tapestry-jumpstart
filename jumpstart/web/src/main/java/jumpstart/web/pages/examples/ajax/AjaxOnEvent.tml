@@ -16,14 +16,14 @@
 	<div class="eg">
 		<t:form class="form-horizontal">
 			<div class="form-group">
-				<t:label class="col-sm-2" for="firstName"/>
+				<t:label for="firstName" class="col-sm-2"/>
 				<div class="col-sm-4">
 					<t:textfield t:id="firstName" t:mixins="zoneUpdater" 
 						ZoneUpdater.clientEvent="keyup" ZoneUpdater.event="firstNameChanged" ZoneUpdater.zone="nameZone"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="lastName"/>
+				<t:label for="lastName" class="col-sm-2"/>
 				<div class="col-sm-4">
 					<t:textfield t:id="lastName" t:mixins="zoneUpdater" 
 						ZoneUpdater.clientEvent="keyup" ZoneUpdater.event="lastNameChanged" ZoneUpdater.zone="nameZone"/>

@@ -20,13 +20,13 @@
 	<div class="eg">
 		<t:form t:id="dates" class="form-horizontal" validate="datesExample">
 			<div class="form-group">
-				<t:label class="col-sm-4" for="aDateMidnight"/>
+				<t:label for="aDateMidnight" class="col-sm-4"/>
 				<div class="col-sm-4">
 					<t:datefield t:id="aDateMidnight" value="datesExample.aDateMidnight" format="prop:dateFieldFormat"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-4" for="aLocalDate"/>
+				<t:label for="aLocalDate" class="col-sm-4"/>
 				<div class="col-sm-4">
 					<t:datefield t:id="aLocalDate" value="datesExample.aLocalDate" format="prop:dateFieldFormat"/>
 				</div>

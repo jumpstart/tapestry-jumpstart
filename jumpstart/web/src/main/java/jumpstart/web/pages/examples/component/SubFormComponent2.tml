@@ -26,7 +26,7 @@
 			 		</div>
 				</div>
 				<div class="form-group">
-		 			<label class="col-sm-4 control-label" for="invitedPersons">${message:invitedPersons-label}</label>
+		 			<label for="invitedPersons" class="col-sm-4 control-label">${message:invitedPersons-label}</label>
 			 		<div class="col-sm-4">
 						<t:examples.component.SelectPersons t:id="invitedPersons" persons="allPersons" chosen="invitation.invitedPersons"
 							disabled="true" />

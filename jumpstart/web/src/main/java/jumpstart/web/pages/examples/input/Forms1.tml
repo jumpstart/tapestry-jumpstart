@@ -12,13 +12,13 @@
 	<div class="eg">
 		<t:form t:id="names" class="form-horizontal">
 			<div class="form-group">
-				<t:label class="col-sm-2" for="firstName"/>
+				<t:label for="firstName" class="col-sm-2"/>
 				<div class="col-sm-4">
 					<t:textfield t:id="firstName"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="lastName"/>
+				<t:label for="lastName" class="col-sm-2"/>
 				<div class="col-sm-4">
 					<t:textfield t:id="lastName"/>
 				</div>

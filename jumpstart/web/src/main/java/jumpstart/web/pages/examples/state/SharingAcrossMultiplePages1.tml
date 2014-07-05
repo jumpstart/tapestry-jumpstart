@@ -17,19 +17,19 @@
 	<div class="eg">
 		<t:form class="form-horizontal">
 			<div class="form-group">
-				<t:label class="col-sm-2" for="applesQuantity"/>
+				<t:label for="applesQuantity" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="applesQuantity" value="myBasket.applesQuantity"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="orangesQuantity"/>
+				<t:label for="orangesQuantity" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="orangesQuantity" value="myBasket.orangesQuantity"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-2" for="bananasQuantity"/>
+				<t:label for="bananasQuantity" class="col-sm-2"/>
 				<div class="col-sm-2">
 					<t:textfield t:id="bananasQuantity" value="myBasket.bananasQuantity"/>
 				</div>

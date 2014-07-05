@@ -17,13 +17,13 @@
 			<h4>Create Invitation</h4>
 
 			<div class="form-group">
-		 		<t:label class="col-sm-3" for="eventDescription"/>
+		 		<t:label for="eventDescription" class="col-sm-3"/>
 		 		<div class="col-sm-3">
 		 			<t:textfield t:id="eventDescription" value="invitation.eventDescription"/>
 		 		</div>
 			</div>
 			<div class="form-group">
-	 			<label class="col-sm-3 control-label" for="invitedPersons">${message:invitedPersons-label}</label>
+	 			<label for="invitedPersons" class="col-sm-3 control-label">${message:invitedPersons-label}</label>
 		 		<div class="col-sm-3">
 					<t:examples.component.SelectPersonsValidated t:id="invitedPersons" persons="allPersons"
 						chosen="invitation.invitedPersons" min="1" />

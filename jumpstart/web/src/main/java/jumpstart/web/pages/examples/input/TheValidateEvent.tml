@@ -19,7 +19,7 @@
 			<div style="padding-bottom: 8px;">Enter your First Name OR your Lucky Number:</div>
 			
 			<div class="form-group">
-				<t:label class="col-sm-3" for="firstName"/>
+				<t:label for="firstName" class="col-sm-3"/>
 				<div class="col-sm-3">
 					<t:textfield t:id="firstName"/>
 				</div>
@@ -33,7 +33,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-3" for="luckyNumber"/>
+				<t:label for="luckyNumber" class="col-sm-3"/>
 				<div class="col-sm-3">
 					<t:textfield t:id="luckyNumber"/>
 				</div>
