@@ -1,5 +1,6 @@
 package jumpstart.web.pages.examples.ajax;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
@@ -8,6 +9,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 
+@Import(stylesheet = "css/examples/ajaxselect1.css")
 public class AjaxSelectMore1 {
 	static final private String MAKE_HONDA = "Honda";
 	static final private String MAKE_TOYOTA = "Toyota";

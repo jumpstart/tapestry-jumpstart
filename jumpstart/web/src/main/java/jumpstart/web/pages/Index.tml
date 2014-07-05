@@ -264,7 +264,7 @@
 							<t:pagelink page="examples/ajax/AjaxForm">AJAX Form</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormMultipleZoneUpdate">AJAX Form Multiple Zone Update</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxSelect1">AJAX Select</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxSelectMore1" t:disabled="true">AJAX Select More</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxSelectMore1">AJAX Select More</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxSelectDependency1" t:disabled="true">AJAX Select Dependency</t:pagelink><br/>
 						</div>
 					</td>
