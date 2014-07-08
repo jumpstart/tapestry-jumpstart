@@ -8,7 +8,6 @@ import jumpstart.business.domain.security.iface.ISecurityManagerServiceLocal;
 import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.base.theapp.SimpleBasePage;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
@@ -39,7 +38,7 @@ public class UserCreate extends SimpleBasePage {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "form")
+	@InjectComponent
 	private Form form;
 
 	@InjectComponent("password")

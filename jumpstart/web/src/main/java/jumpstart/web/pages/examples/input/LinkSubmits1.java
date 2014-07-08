@@ -3,7 +3,6 @@ package jumpstart.web.pages.examples.input;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
@@ -33,7 +32,7 @@ public class LinkSubmits1 {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "names")
+	@InjectComponent("names")
 	private Form form;
 
 	@InjectComponent("firstName")

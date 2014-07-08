@@ -6,13 +6,13 @@ import javax.validation.constraints.Size;
 
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValidationException;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class TheValidateEvent {
 
 	// Screen fields
@@ -30,7 +30,7 @@ public class TheValidateEvent {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "inputs")
+	@InjectComponent("inputs")
 	private Form form;
 
 	// The code
@@ -63,7 +63,7 @@ public class TheValidateEvent {
 	 * Cross-form validation goes in here.
 	 */
 	void onValidateFromInputs() {
-		
+
 		if (form.getHasErrors()) {
 			return;
 		}

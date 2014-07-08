@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
@@ -38,7 +37,7 @@ public class AjaxForm {
 	@Inject
 	private Request request;
 
-	@Component
+	@InjectComponent
 	private Form ajaxForm;
 
 	@InjectComponent

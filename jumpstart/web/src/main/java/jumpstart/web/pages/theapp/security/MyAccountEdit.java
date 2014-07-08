@@ -13,7 +13,7 @@ import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.base.theapp.SimpleBasePage;
 
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -40,7 +40,7 @@ public class MyAccountEdit extends SimpleBasePage {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "form")
+	@InjectComponent
 	private Form form;
 
 	@EJB
@@ -66,7 +66,7 @@ public class MyAccountEdit extends SimpleBasePage {
 	void onPrepareForSubmit() throws DoesNotExistException {
 		Long userId = getVisit().getMyUserId();
 		user = securityFinderService.findUser(userId);
-		
+
 		if (user == null) {
 			user = new User();
 			form.recordError("Your account has been deleted by another process.");

@@ -20,7 +20,7 @@ import jumpstart.web.base.theapp.SimpleBasePage;
 
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
-import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -83,20 +83,20 @@ public class UserSearch extends SimpleBasePage {
 	@Persist
 	private Boolean lastShowResult;
 
-	@Component(id = "form")
+	@InjectComponent
 	private Form form;
 
 	@Inject
 	private PageRenderLinkSource pageRenderLinkSource;
-	
+
 	@EJB
 	private ISecurityFinderServiceLocal securityFinderService;
-	
+
 	@EJB
 	private ISecurityManagerServiceLocal securityManagerService;
 
 	// The code
-	
+
 	void onActivate() {
 		setSearchFieldsFromRequest();
 	}

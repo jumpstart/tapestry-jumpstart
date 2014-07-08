@@ -13,7 +13,6 @@ import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Events;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Parameter;
@@ -75,10 +74,10 @@ public class PersonEdit {
 	@EJB
 	private IPersonManagerServiceLocal personManagerService;
 
-	@Component
+	@InjectComponent
 	private Form createForm;
 
-	@Component
+	@InjectComponent
 	private Form updateForm;
 
 	@InjectComponent("firstName")

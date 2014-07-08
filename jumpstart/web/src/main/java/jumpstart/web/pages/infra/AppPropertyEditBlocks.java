@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
 
 import org.apache.tapestry5.FieldTranslator;
 import org.apache.tapestry5.FieldValidator;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Environmental;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.DateField;
 import org.apache.tapestry5.services.PropertyEditContext;
@@ -19,20 +19,20 @@ public class AppPropertyEditBlocks {
 	@Environmental
 	private PropertyEditContext context;
 
-	@Component
+	@InjectComponent
 	private DateField dateMidnight;
 
-	@Component
+	@InjectComponent
 	private DateField localDate;
-	
+
 	public DateFormat getDateInputFormat() {
 		return new SimpleDateFormat("dd MMMM yyyy");
 	}
-	
+
 	public FieldTranslator<?> getDateMidnightTranslator() {
 		return context.getTranslator(dateMidnight);
 	}
-	
+
 	public FieldValidator<?> getDateMidnightValidator() {
 		return context.getValidator(dateMidnight);
 	}

@@ -3,7 +3,6 @@ package jumpstart.web.pages.examples.lang;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
@@ -26,7 +25,7 @@ public class Mixins {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "names")
+	@InjectComponent("names")
 	private Form form;
 
 	@InjectComponent("firstName")

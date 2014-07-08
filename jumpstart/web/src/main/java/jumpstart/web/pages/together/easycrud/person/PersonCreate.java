@@ -7,8 +7,8 @@ import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 import jumpstart.web.pages.together.easycrud.Persons;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
@@ -30,7 +30,7 @@ public class PersonCreate {
 
 	// Generally useful bits and pieces
 
-	@Component
+	@InjectComponent
 	private BeanEditForm form;
 
 	@EJB

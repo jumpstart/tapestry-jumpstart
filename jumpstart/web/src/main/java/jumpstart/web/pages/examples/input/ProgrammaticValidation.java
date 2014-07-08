@@ -4,7 +4,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
@@ -12,7 +11,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextField;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class ProgrammaticValidation {
 
 	// Screen fields
@@ -31,7 +30,7 @@ public class ProgrammaticValidation {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "inputs")
+	@InjectComponent("inputs")
 	private Form form;
 
 	@InjectComponent("firstName")

@@ -9,8 +9,8 @@ import jumpstart.business.domain.datestuff.iface.IDateStuffServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -37,7 +37,7 @@ public class TypeCoercers {
 	@EJB
 	private IDateStuffServiceLocal dateStuffService;
 
-	@Component(id = "dates")
+	@InjectComponent("dates")
 	private Form form;
 
 	@Inject

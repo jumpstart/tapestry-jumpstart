@@ -9,7 +9,6 @@ import jumpstart.business.domain.security.iface.ISecurityManagerServiceLocal;
 import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.base.theapp.SimpleBasePage;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -19,7 +18,7 @@ import org.apache.tapestry5.corelib.components.PasswordField;
 public class MyPasswordChange extends SimpleBasePage {
 
 	// Screen fields
-	
+
 	@Property
 	private User user;
 
@@ -33,25 +32,25 @@ public class MyPasswordChange extends SimpleBasePage {
 	private String confirmNewPassword;
 
 	// Generally useful bits and pieces
-	
+
 	@InjectComponent("newPassword")
 	private PasswordField newPasswordField;
 
-	@Component(id = "form")
+	@InjectComponent
 	private Form form;
-	
+
 	@EJB
 	private ISecurityFinderServiceLocal securityFinderService;
-	
+
 	@EJB
 	private ISecurityManagerServiceLocal securityManagerService;
 
 	// The code
-	
+
 	void onPrepare() throws DoesNotExistException {
 		Long userId = getVisit().getMyUserId();
 		user = securityFinderService.findUser(userId);
-		
+
 		if (user == null) {
 			user = new User();
 			form.recordError("Your account has been deleted by another process.");
@@ -87,7 +86,7 @@ public class MyPasswordChange extends SimpleBasePage {
 	Object onSuccess() {
 		return MyAccountView.class;
 	}
-	
+
 	Object onCancel() {
 		return MyAccountView.class;
 	}

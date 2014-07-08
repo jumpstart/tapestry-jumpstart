@@ -6,7 +6,6 @@ import jumpstart.web.services.IFiler;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
@@ -36,7 +35,7 @@ public class FileUpload {
 	private String successMessage;
 
 	// Generally useful bits and pieces.
-	
+
 	@Inject
 	private IFiler filer;
 
@@ -45,7 +44,7 @@ public class FileUpload {
 
 	@InjectComponent
 	// FIX!
-//	private CustomForm uploadForm;
+	// private CustomForm uploadForm;
 	private Form uploadForm;
 
 	@Inject
@@ -53,18 +52,18 @@ public class FileUpload {
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
-	
+
 	@InjectComponent("file")
 	private Upload fileField;
 
-	@Component
+	@InjectComponent
 	private Any progress;
 
-	@Component
+	@InjectComponent
 	private Any result;
 
 	// The code
-	
+
 	void afterRender() {
 		// Tell Tapestry to add some javascript that sets up our event handling.
 		// Tapestry will put it at the end of the page in a section that runs once the DOM has been loaded.
@@ -91,12 +90,12 @@ public class FileUpload {
 		uploadForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		return this;
 	}
-	
+
 	public String getFileSizeMaxMessage() {
 		double fileSizeMaxMB = filer.getFileSizeMax() / 1048576.0;
 		return messages.format("file-size-max", (Double) fileSizeMaxMB);
 	}
-	
+
 	public boolean isDemoMode() {
 		return (demoModeStr != null && demoModeStr.equals("true"));
 	}
@@ -104,7 +103,7 @@ public class FileUpload {
 	public String getThisPageName() {
 		return componentResources.getPageName();
 	}
-	
+
 	public long getFileSizeMax() {
 		return filer.getFileSizeMax();
 	}

@@ -14,7 +14,6 @@ import jumpstart.web.models.together.PersonPagedDataSource;
 
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
@@ -65,10 +64,10 @@ public class Persons {
 	@EJB
 	private IPersonManagerServiceLocal personManagerService;
 
-	@Component
+	@InjectComponent
 	private Form createForm;
 
-	@Component
+	@InjectComponent
 	private Form updateForm;
 
 	@InjectComponent("firstName")
@@ -214,7 +213,7 @@ public class Persons {
 
 		try {
 			personManagerService.deletePerson(personId, personVersion);
-			
+
 			editorMode = null;
 			editorPersonId = null;
 		}

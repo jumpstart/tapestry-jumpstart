@@ -16,7 +16,6 @@ import jumpstart.web.commons.FieldCopy;
 
 import org.apache.tapestry5.Field;
 import org.apache.tapestry5.ValueEncoder;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
@@ -64,7 +63,7 @@ public class GridWithDeleteColumn1 {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "deletables")
+	@InjectComponent("deletables")
 	private Form form;
 
 	@InjectComponent("delete")
@@ -239,7 +238,7 @@ public class GridWithDeleteColumn1 {
 	};
 
 	// The Grid component will automatically call this for every row as it is rendered.
-	
+
 	public boolean isDelete() {
 		return false;
 	}
