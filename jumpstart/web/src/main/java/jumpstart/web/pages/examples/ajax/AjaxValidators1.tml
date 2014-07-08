@@ -6,7 +6,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
 	<style type="text/css">
-		form				{ background-color: #eee; padding: 14px; }
+		Zform				{ background-color: #eee; padding: 14px; }
 		.error-label		{ color: red; }
  		.required-field		{ border-right-color: orange; }
 		.error-field		{ border-color: red; }
@@ -27,42 +27,50 @@
 	we use it here to validate that the first and last names are unique.
 
 	<div class="eg">
-		<t:form t:id="inputs">
+		<t:form t:id="inputs" class="form-horizontal">
 			<t:errors globalOnly="true"/>
-			<table>
-				<tr>
-					<td><t:label for="firstName"/>:</td>
-					<td><t:textfield t:id="firstName" validate="required, maxlength=10" size="10" t:mixins="ajaxValidator"/></td>
-					<td>(required, maxLength=10, new name only)</td>
-				</tr>
-				<!-- 
-				<tr>
-					<th></th>
-					<td colspan="2"><t:customerror for="firstName"/></td>
-				</tr>
-				 -->
-				<tr>
-					<td><t:label for="lastName"/>:</td>
-					<td><t:textfield t:id="lastName" validate="required, maxLength=10" size="10" t:mixins="ajaxValidator"/></td>
-					<td>(required, maxLength=10, new name only)</td>
-				</tr>
-				<!-- 
-				<tr>
-					<th></th>
-					<td colspan="2"><t:customerror for="lastName"/></td>
-				</tr>
-				 -->
-				<tr>
-					<td></td>
-					<td><t:submit value="Display"/></td>
-					<td></td>
-				</tr>
-			</table>
+		
+            <div class="form-group">
+                <t:label for="firstName" class="col-sm-3"/>
+                <div class="col-sm-3">
+                    <t:textfield t:id="firstName" t:mixins="ajaxValidator"/>
+                </div>
+                <div class="col-sm-6">
+                    <p class="form-control-static">
+                        <span class="text-muted">
+                            (not null, size max = 10, new name only)
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <t:label for="lastName" class="col-sm-3"/>
+                <div class="col-sm-3">
+                    <t:textfield t:id="lastName" t:mixins="ajaxValidator"/>
+                </div>
+                <div class="col-sm-6">
+                    <p class="form-control-static">
+                        <span class="text-muted">
+                            (not null, size max = 10, new name only)
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <t:submit value="Display"/>
+                </div>
+            </div>
+
 		</t:form>
 		
 		Here are the names already in use:<br/><br/>
 		
-		<table t:type="grid" t:source="persons" t:row="var:person" include="firstName,lastName">[Grid here]</table>
+		<div class="row">
+			<div class="col-sm-4">
+				<t:grid source="persons" row="var:person" include="firstName,lastName" class="table table-condensed"/>
+			</div>
+		</div>
 	</div>
 
 	Mixin location is important.  Mixins must be put in a package called <code>mixins</code>.  Tapestry gives this package 
@@ -82,7 +90,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxValidators1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/AjaxValidator.js"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ajax-validator.js"/>
 	</t:tabgroup>
 </body>
 </html>

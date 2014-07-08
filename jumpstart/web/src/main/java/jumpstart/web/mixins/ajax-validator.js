@@ -1,59 +1,57 @@
-// A class that invokes a listener in the component via AJAX.
+// A class that invokes a validator in the component via AJAX.
 // Based on http://tinybits.blogspot.com/2010/03/new-and-better-zoneupdater.html
 // and http://tinybits.blogspot.com/2009/05/simple-onevent-mixin.html
 // and tapestry.js.
 
-define(["jquery", "t5/core/zone", "t5/core/dom"], function($, zoneManager, dom) {
-	var $field, listenerURI, focusOutOfField;
-
-	return {
-		
-		init : function(spec) {
-			$field = $"#" + spec.elementId);
-			listenerURI = spec.listenerURI;
-			$form = $field.closest("form");
-
-			// Set up a listener that validates the field - asynchronously in the server - on change of focus
-			
-			dom.on("focusout" function(e) {
-				focusOutOfField = this;
-			});
+define(["jquery", "t5/core/zone", "t5/core/dom", "t5/core/console"], function($, zoneManager, dom, console) {
 	
-//			document.observe(Tapestry.FOCUS_CHANGE_EVENT, function(event) {
-//				
-//				// If changing focus *within the same form* then perform validation.  
-//				// Note that Tapestry.currentFocusField does not change
-//				// until after the FOCUS_CHANGE_EVENT notification.
-//				
-//				if (Tapestry.currentFocusField == this.field && this.field.form == event.memo.form) {
-//					this.asyncValidateInServer();
-//				}
-//				
-//			}.bindAsEventListener(this)	);
+	var AjaxValidator = function() {
 
-			dom.on("focusin" function(e) {
+		var $field, validatorURI;
+		var $form, $focusOutOfField;
+	
+		var init = function(params) {
+			$field = $("#" + params.fieldId);
+			validatorURI = params.validatorURI;
+			
+			$form = $field.closest("form");
+	
+			$form.on("focusout", $field, function(e) {
+				$focusOutOfField = $(this);
+			});
+		
+			$form.on("focusin", $field, function(e) {
 				
 				// If changing focus *within the same form* then perform validation.  
-				// Note that Tapestry.currentFocusField does not change
-				// until after the FOCUS_CHANGE_EVENT notification.
+	
+				if ($focusOutOfField === undefined) {
+					console.info("$focusOutOfField = " + $focusOutOfField);
+				}
+				else {
+					console.info("$focusOutOfField.attr('id')  = " + $focusOutOfField.attr("id"));
+				}
+				console.info("$field.attr('id')            = " + $field.attr("id"));
+				console.info("$form                   = " + $form).attr("id");
+				console.info("$(this).closest('form') = " + $(this).closest("form"));
+				var z = $(this).closest("form") == $form;
+	//			console.info("z                = " + z);
+				console.info(" ");
 				
-				if (focusOutOfField == $field && this.closest("form") == $form) {
-					asyncValidateInServer();
+				if ($focusOutOfField !== undefined && $focusOutOfField == $field && $(this).closest("form") == $form) {
+					validateInServerAsync();
 				}
 				
 			});
-
-	
-		},
-		
-		asyncValidateInServer : function() {
+		};
+			
+		var validateInServerAsync = function() {
 			var value = $field.val();
-			var listenerURIWithValue = this.listenerURI;
-
+			var validatorURIWithValue = this.validatorURI;
+	
 			if (value) {
-				listenerURIWithValue = appendQueryStringParameter(listenerURIWithValue, 'param', value);
-
-				new Ajax.Request(listenerURIWithValue, {
+				validatorURIWithValue = appendQueryStringParameter(validatorURIWithValue, 'param', value);
+	
+				new Ajax.Request(validatorURIWithValue, {
 					method: 'get',
 					onFailure: function(t) {
 					    alert('Error communication with the server: ' + t.responseText.stripTags());
@@ -68,11 +66,14 @@ define(["jquery", "t5/core/zone", "t5/core/dom"], function($, zoneManager, dom) 
 					}.bind(this)
 				});
 			}
-		},
+		};
 
-	}
+		return {
+			init : init
+		}
+	};
 		
-	function appendQueryStringParameter(url, name, value) {
+	var appendQueryStringParameter = function(url, name, value) {
 		if (url.indexOf('?') < 0) {
 			url += '?'
 		} else {
@@ -81,6 +82,15 @@ define(["jquery", "t5/core/zone", "t5/core/dom"], function($, zoneManager, dom) 
 		value = escape(value);
 		url += name + '=' + value;
 		return url;
+	};
+	
+	var create = function(params) {
+		var ajaxValidator = new AjaxValidator();
+		ajaxValidator.init(params);
+	};
+
+	return {
+		create : create
 	}
 	
 });

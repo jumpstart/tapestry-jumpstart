@@ -3,6 +3,8 @@ package jumpstart.web.pages.examples.ajax;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import jumpstart.business.domain.person.Person;
 import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
@@ -19,9 +21,13 @@ public class AjaxValidators1 {
 	// Screen fields
 
 	@Property
+	@NotNull
+	@Size(max = 10)
 	private String firstName;
 
 	@Property
+	@NotNull
+	@Size(max = 10)
 	private String lastName;
 
 	@Property

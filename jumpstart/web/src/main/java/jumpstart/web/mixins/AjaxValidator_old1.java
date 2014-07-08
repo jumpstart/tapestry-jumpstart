@@ -14,7 +14,7 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 // The @Import tells Tapestry to put a link to the file in the head of the page so that the browser will pull it in. 
 //@Import(library = "js_imports/mixins/AjaxValidator.js")
-public class AjaxValidator {
+public class AjaxValidator_old1 {
 
 	// Useful bits and pieces
 
@@ -33,11 +33,14 @@ public class AjaxValidator {
 	// The code
 
 	void afterRender() {
+
+		// Tell the Tapestry.Initializer to do the initializing of an AjaxValidator, which it will do when the DOM has
+		// been fully loaded.
+
 		JSONObject spec = new JSONObject();
-
-		spec.put("fieldId", clientElement.getClientId());
-		spec.put("validatorURI", componentResources.createEventLink("ajaxValidate").toAbsoluteURI());
-
-		javaScriptSupport.require("mixins/ajax-validator").invoke("create").with(spec);
+		spec.put("elementId", clientElement.getClientId());
+		spec.put("listenerURI", componentResources.createEventLink("ajaxValidate").toAbsoluteURI());
+		// javaScriptSupport.addInitializerCall("ajaxValidator", spec);
+		javaScriptSupport.require("mixins/ajax-validator").with(spec);
 	}
 }
