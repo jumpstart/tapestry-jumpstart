@@ -7,13 +7,13 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class MoreControlEdit1 {
 
 	// The activation context
@@ -32,7 +32,7 @@ public class MoreControlEdit1 {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "personform")
+	@InjectComponent("personform")
 	private Form form;
 
 	@EJB
@@ -59,27 +59,27 @@ public class MoreControlEdit1 {
 
 	void onPrepareForRender() throws Exception {
 
-        // If fresh start, make sure there's a Person object available.
+		// If fresh start, make sure there's a Person object available.
 
-        if (form.isValid()) {
-            person = findPerson(personId);
-            // Handle null person in the template.
-        }
+		if (form.isValid()) {
+			person = findPerson(personId);
+			// Handle null person in the template.
+		}
 
 	}
 
 	// Form bubbles up the PREPARE_FOR_SUBMIT event during form submission.
 
 	void onPrepareForSubmit() throws Exception {
-		
-        // Get Person object for the form fields to overlay.
+
+		// Get Person object for the form fields to overlay.
 		person = findPerson(personId);
 
-        if (person == null) {
-            form.recordError("Person has been deleted by another process.");
-            // Instantiate an empty person to avoid NPE in the form.
-            person = new Person();
-        }
+		if (person == null) {
+			form.recordError("Person has been deleted by another process.");
+			// Instantiate an empty person to avoid NPE in the form.
+			person = new Person();
+		}
 	}
 
 	void onValidateFromPersonForm() {

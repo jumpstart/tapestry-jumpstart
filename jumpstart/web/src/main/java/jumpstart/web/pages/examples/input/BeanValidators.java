@@ -4,8 +4,8 @@ import jumpstart.business.domain.person.Person;
 import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -21,7 +21,7 @@ public class BeanValidators {
 
 	// Generally useful bits and pieces
 
-	@Component
+	@InjectComponent
 	private Form personForm;
 
 	// The code

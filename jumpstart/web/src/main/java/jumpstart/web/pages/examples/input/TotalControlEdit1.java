@@ -7,7 +7,6 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.business.domain.person.iface.IPersonManagerServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
@@ -35,7 +34,7 @@ public class TotalControlEdit1 {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "person")
+	@InjectComponent("person")
 	private Form form;
 
 	@InjectComponent("firstName")

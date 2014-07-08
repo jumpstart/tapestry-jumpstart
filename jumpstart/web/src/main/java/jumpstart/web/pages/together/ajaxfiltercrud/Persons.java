@@ -14,7 +14,6 @@ import jumpstart.web.models.together.PersonFilteredDataSource;
 
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
@@ -75,12 +74,12 @@ public class Persons {
 	@EJB
 	private IPersonManagerServiceLocal personManagerService;
 
-	@Component
+	@InjectComponent
 	// FIX!
 	// private CustomForm createForm;
 	private Form createForm;
 
-	@Component
+	@InjectComponent
 	// FIX!
 	// private CustomForm updateForm;
 	private Form updateForm;

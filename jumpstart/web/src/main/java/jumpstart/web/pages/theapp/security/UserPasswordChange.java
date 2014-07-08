@@ -9,7 +9,6 @@ import jumpstart.business.domain.security.iface.ISecurityManagerServiceLocal;
 import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.base.theapp.SimpleBasePage;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
@@ -20,7 +19,7 @@ import org.apache.tapestry5.corelib.components.PasswordField;
 public class UserPasswordChange extends SimpleBasePage {
 
 	// Screen fields
-	
+
 	@Property
 	private Long userId;
 
@@ -34,24 +33,24 @@ public class UserPasswordChange extends SimpleBasePage {
 	private String confirmNewPassword;
 
 	// Generally useful bits and pieces
-	
+
 	@InjectComponent("newPassword")
 	private PasswordField newPasswordField;
 
 	@InjectPage
 	private UserEdit userEdit;
 
-	@Component(id = "form")
+	@InjectComponent
 	private Form form;
-	
+
 	@EJB
 	private ISecurityFinderServiceLocal securityFinderService;
-	
+
 	@EJB
 	private ISecurityManagerServiceLocal securityManagerService;
 
 	// The code
-	
+
 	public void set(Long userId) {
 		this.userId = userId;
 	}
@@ -70,7 +69,7 @@ public class UserPasswordChange extends SimpleBasePage {
 
 	void onPrepareForSubmit() throws DoesNotExistException {
 		user = securityFinderService.findUser(userId);
-		
+
 		if (user == null) {
 			user = new User();
 			form.recordError("User has been deleted by another process.");

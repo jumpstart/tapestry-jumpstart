@@ -9,8 +9,8 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import jumpstart.util.ExceptionUtil;
 import jumpstart.web.models.examples.Invitation;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -35,7 +35,7 @@ public class SubFormAsAField1 {
 
 	// Generally useful bits and pieces.
 
-	@Component(id = "form")
+	@InjectComponent
 	private Form form;
 
 	@EJB

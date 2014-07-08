@@ -17,7 +17,6 @@ import jumpstart.web.encoders.examples.IdVersionsEncoder;
 
 import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.ValueEncoder;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
@@ -77,7 +76,7 @@ public class AjaxFormLoop1 {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "personsEdit")
+	@InjectComponent("personsEdit")
 	private Form form;
 
 	@EJB

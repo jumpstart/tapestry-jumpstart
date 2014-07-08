@@ -17,7 +17,7 @@ import jumpstart.web.models.app.select.UserIdSelectModel;
 
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.SelectModel;
-import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -65,17 +65,17 @@ public class UserRoleAdd extends SimpleBasePage {
 
 	// Useful bits and pieces
 
-	@Component(id = "form")
+	@InjectComponent
 	private Form form;
-	
+
 	@EJB
 	private ISecurityFinderServiceLocal securityFinderService;
-	
+
 	@EJB
 	private ISecurityManagerServiceLocal securityManagerService;
 
 	// The code
-	
+
 	public void set(Long userId, Long roleId, Link returnTo) {
 		this.userId = userId;
 		this.roleId = roleId;

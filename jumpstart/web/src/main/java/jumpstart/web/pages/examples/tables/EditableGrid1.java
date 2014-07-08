@@ -25,7 +25,6 @@ import jumpstart.util.StringUtil;
 import jumpstart.web.commons.FieldCopy;
 
 import org.apache.tapestry5.Field;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
@@ -76,7 +75,7 @@ public class EditableGrid1 {
 
 	// Generally useful bits and pieces
 
-	@Component(id = "personsCreate")
+	@InjectComponent("personsCreate")
 	private Form form;
 
 	@InjectComponent("firstName")

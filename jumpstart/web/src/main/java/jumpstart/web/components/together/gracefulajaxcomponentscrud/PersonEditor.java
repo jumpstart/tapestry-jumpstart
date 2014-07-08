@@ -13,8 +13,8 @@ import jumpstart.util.ExceptionUtil;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.PersistenceConstants;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Events;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
@@ -31,15 +31,13 @@ import org.apache.tapestry5.services.Request;
  * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#TO_UPDATE}(Long personId),
  * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#CANCELED_UPDATE}(Long personId),
  * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#UPDATED}(Long personId),
- * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#FAILED_UPDATE}(Long personId),
- * personId), {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#SUCCESSFUL_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#FAILED_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#TO_CONFIRM_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#CANCEL_CONFIRM_DELETE}
- * (Long personId),
- * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#SUCCESSFUL_CONFIRM_DELETE}(Long
- * personId), {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#FAILED_CONFIRM_DELETE}
- * (Long personId)
+ * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#FAILED_UPDATE}(Long personId), personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#SUCCESSFUL_DELETE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#FAILED_DELETE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#TO_CONFIRM_DELETE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#CANCEL_CONFIRM_DELETE} (Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#SUCCESSFUL_CONFIRM_DELETE}(Long personId),
+ * {@link jumpstart.web.components.examples.ajax.PersonEdit.PersonEditor#FAILED_CONFIRM_DELETE} (Long personId)
  */
 // @Events is applied to a component solely to document what events it may trigger. It is not checked at runtime.
 @Events({ PersonEditor.CANCEL_CREATE, PersonEditor.SUCCESSFUL_CREATE, PersonEditor.FAILED_CREATE,
@@ -100,17 +98,17 @@ public class PersonEditor {
 	@EJB
 	private IPersonManagerServiceLocal personManagerService;
 
-	@Component
+	@InjectComponent
 	// FIX!
 	// private CustomForm createForm;
 	private Form createForm;
 
-	@Component
+	@InjectComponent
 	// FIX!
 	// private CustomForm updateForm;
 	private Form updateForm;
 
-	@Component
+	@InjectComponent
 	private Form confirmDeleteForm;
 
 	@Inject
@@ -181,7 +179,7 @@ public class PersonEditor {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			createForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
-		
+
 		return true;
 	}
 
@@ -290,7 +288,7 @@ public class PersonEditor {
 			// Display the cause. In a real system we would try harder to get a user-friendly message.
 			updateForm.recordError(ExceptionUtil.getRootCauseMessage(e));
 		}
-		
+
 		return true;
 	}
 

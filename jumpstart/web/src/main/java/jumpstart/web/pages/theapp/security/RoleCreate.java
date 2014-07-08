@@ -7,7 +7,7 @@ import jumpstart.business.domain.security.iface.ISecurityManagerServiceLocal;
 import jumpstart.web.annotation.ProtectedPage;
 import jumpstart.web.base.theapp.SimpleBasePage;
 
-import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 
@@ -15,20 +15,20 @@ import org.apache.tapestry5.corelib.components.Form;
 public class RoleCreate extends SimpleBasePage {
 
 	// Screen fields
-	
+
 	@Property
 	private Role role;
 
 	// Generally useful bits and pieces
-	
-	@Component(id = "form")
+
+	@InjectComponent
 	private Form form;
-	
+
 	@EJB
 	ISecurityManagerServiceLocal securityManagerService;
 
 	// The code
-	
+
 	void onPrepare() {
 		// Instantiate a Role for the form data to overlay.
 		role = new Role();
@@ -53,7 +53,7 @@ public class RoleCreate extends SimpleBasePage {
 	Object onSuccess() {
 		return RoleSearch.class;
 	}
-	
+
 	void onReset() {
 	}
 

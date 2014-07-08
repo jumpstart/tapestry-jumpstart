@@ -6,8 +6,8 @@ import jumpstart.business.domain.datestuff.DatesExample;
 import jumpstart.business.domain.datestuff.iface.IDateStuffServiceLocal;
 import jumpstart.util.ExceptionUtil;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 
@@ -18,13 +18,13 @@ public class PropertyEditors {
 
 	@Property
 	private DatesExample datesExample;
-	
+
 	// Generally useful bits and pieces
 
 	@EJB
 	private IDateStuffServiceLocal dateStuffService;
 
-	@Component(id = "updateDates")
+	@InjectComponent("updateDates")
 	private BeanEditForm form;
 
 	// The code
@@ -39,10 +39,10 @@ public class PropertyEditors {
 
 	void onValidateFromUpdateDates() {
 		try {
-//			if (datesExample.getADateMidnight() == null || datesExample.getALocalDate() == null) {
-//				form.recordError("Both dates are required.");
-//				return;
-//			}
+			// if (datesExample.getADateMidnight() == null || datesExample.getALocalDate() == null) {
+			// form.recordError("Both dates are required.");
+			// return;
+			// }
 			dateStuffService.changeDatesExample(datesExample);
 		}
 		catch (Exception e) {
@@ -61,5 +61,5 @@ public class PropertyEditors {
 
 		return datesExample;
 	}
-	
+
 }

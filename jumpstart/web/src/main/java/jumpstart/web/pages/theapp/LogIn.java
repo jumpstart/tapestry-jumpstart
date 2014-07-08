@@ -13,7 +13,6 @@ import jumpstart.web.state.theapp.Visit;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.Link;
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
@@ -45,7 +44,7 @@ public class LogIn extends SimpleBasePage implements IIntermediatePage {
 	@Persist
 	private Link nextPageLink;
 
-	@Component(id = "login")
+	@InjectComponent("login")
 	private Form form;
 
 	@InjectComponent("loginId")
@@ -53,18 +52,18 @@ public class LogIn extends SimpleBasePage implements IIntermediatePage {
 
 	@Inject
 	private Logger logger;
-	
+
 	@Inject
 	private ComponentResources componentResources;
-	
+
 	@EJB
 	private ISecurityFinderServiceLocal securityFinderService;
-	
+
 	@InjectPage
 	private UserView userViewPage;
 
 	// The code
-	
+
 	@Override
 	public void setNextPageLink(Link nextPageLink) {
 		this.nextPageLink = nextPageLink;
@@ -106,9 +105,9 @@ public class LogIn extends SimpleBasePage implements IIntermediatePage {
 	}
 
 	Object onSuccess() {
-		
+
 		if (nextPageLink == null) {
-//			return Welcome.class;
+			// return Welcome.class;
 			userViewPage.set(getVisit().getMyUserId());
 			return userViewPage;
 		}
@@ -118,7 +117,7 @@ public class LogIn extends SimpleBasePage implements IIntermediatePage {
 		}
 
 	}
-	
+
 	Object onGoHome() {
 		componentResources.discardPersistentFieldChanges();
 		return Index.class;

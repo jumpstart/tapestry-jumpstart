@@ -1,7 +1,7 @@
 package jumpstart.web.pages.examples.input;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -21,7 +21,7 @@ public class MultipleSubmits1 {
 
 	// Generally useful bits and pieces
 
-	@Component
+	@InjectComponent
 	private Form search;
 
 	public enum SearchType {
