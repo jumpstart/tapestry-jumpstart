@@ -4,7 +4,6 @@
 	
 	<property name="project.dir" value="${basedir}/.."/>
 	<property name="context.path" value="jumpstart/web"/>
-	<property name="project.web.dir" value="${project.dir}/${web.dir}"/>
 
 	<property name="main.java.dir" value="src/main/java"/>
 	<property name="main.webapp.dir" value="src/main/webapp"/>
@@ -223,7 +222,7 @@
 		-->
 		<!-- For JSR-303 Bean Validation 1.0 -->
 		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4-beta-6.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-beanvalidator/5.4-beta-6/tapestry-beanvalidator-5.4-beta-6.jar" />				
-		
+
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container (eg. JBoss) or the EAR (shared with the business tier) -->
 
 		<mkdir dir="${lib.provided.dir}"/>
@@ -261,10 +260,7 @@
 		<copy todir="${lib.runtime.dir}" file="${main.tmp.dir}/kaptcha-2.3.2/kaptcha-2.3.2.jar" />
 		<delete dir="${main.tmp.dir}"/>
 		<!-- For tapestry-upload -->
-		<!--
-		<get dest="${lib.runtime.dir}/commons-io-2.0.1.jar" usetimestamp="true" src="${maven.repo.root}/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar" />
-		-->
-		<get dest="${lib.runtime.dir}/commons-io-2.3.jar" usetimestamp="true" src="${maven.repo.root}/commons-io/commons-io/2.3/commons-io-2.3.jar" />
+		<get dest="${lib.runtime.dir}/commons-io-2.4.jar" usetimestamp="true" src="${maven.repo.root}/commons-io/commons-io/2.4/commons-io-2.4.jar" />
 
 		<!-- testing jars - needed for compiling and running tests (but this release has no web tier tests) -->
 
