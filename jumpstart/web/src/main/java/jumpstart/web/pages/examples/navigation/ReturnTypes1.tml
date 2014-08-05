@@ -7,7 +7,7 @@
 	<h3>Return Types (1)</h3>
 	
 	Event handler methods control what is displayed next by what they return. <br/>
-	The following EventLinks demonstrate all the return types that Tapestry allows:
+	The following EventLinks demonstrate all of the return types that Tapestry allows:
 	<div class="eg">
 		<t:eventlink event="returnvoid">void</t:eventlink> - redisplay the same page.<br/>
 		<t:eventlink event="returnnull">null</t:eventlink> - redisplay the same page.<br/>
@@ -15,12 +15,12 @@
 		<t:eventlink event="returntrue">true</t:eventlink> - redisplay same page, aborting event bubbling (see Event Bubbling example).<br/>
 		<t:eventlink event="returnstring">String (must be a logical page name)</t:eventlink> - go to new page.<br/>
 		<t:eventlink event="returnclass">Class (must be a page class)</t:eventlink> - go to new page.<br/>
-		<t:eventlink event="returnpageinstance">page instance</t:eventlink> - go to new page, possibly configuring it first.<br/>
-		<t:eventlink event="returnhttperror">HttpError</t:eventlink> - returns an 
-			<a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a>.<br/>
-		<t:eventlink event="returnlink">Link</t:eventlink> - go to new page, with the option of setting up a context first.<br/>
+		<t:eventlink event="returnpageinstance">page instance</t:eventlink> - go to new page. The page may have been configured (by calling its methods).<br/>
+		<t:eventlink event="returnlink">Link</t:eventlink> - go to new page. The link may include a context.<br/>
 		<t:eventlink event="returnstreamresponse">StreamResponse</t:eventlink> - used by pages or components to return images, PDFs, XML, etc.<br/>
 		<t:eventlink event="returnurl">URL</t:eventlink> - go to a java.net.URL of an external page.<br/>
+		<t:eventlink event="returnhttperror">HttpError</t:eventlink> - returns an 
+			<a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a>.<br/>
 		
 		<t:if t:test="message">
 			<br/>

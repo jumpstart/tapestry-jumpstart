@@ -18,7 +18,7 @@ import org.apache.tapestry5.services.HttpError;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Response;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class ReturnTypes1 {
 
 	@Property
@@ -58,10 +58,6 @@ public class ReturnTypes1 {
 	Object onReturnPageInstance() {
 		pageInstance.set("Hello");
 		return pageInstance;
-	}
-	
-	HttpError onReturnHttpError() {
-		return new HttpError(404, "Page not found");
 	}
 
 	@Inject
@@ -104,7 +100,7 @@ public class ReturnTypes1 {
 			}
 		};
 	}
-	
+
 	Object onReturnJSONObject() {
 		JSONObject myData = new JSONObject();
 
@@ -117,4 +113,9 @@ public class ReturnTypes1 {
 	URL onReturnURL() throws MalformedURLException {
 		return new URL("http://tapestry.apache.org");
 	}
+
+	HttpError onReturnHttpError() {
+		return new HttpError(404, "Page not found");
+	}
+
 }

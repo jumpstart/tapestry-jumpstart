@@ -1,10 +1,12 @@
 package jumpstart.web.pages.examples.navigation;
 
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.Property;
 
-@Import(stylesheet="css/examples/olive.css")
+@Import(stylesheet = "css/examples/olive.css")
 public class ReturnTypesLink {
 
+	@Property
 	private String parameter;
 
 	// set() is public so that other pages can use it to set up this page.
@@ -25,7 +27,4 @@ public class ReturnTypesLink {
 		return parameter;
 	}
 
-	public String getParameter() {
-		return parameter;
-	}
 }
