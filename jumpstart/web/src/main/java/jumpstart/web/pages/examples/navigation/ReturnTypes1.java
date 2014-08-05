@@ -13,7 +13,6 @@ import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.HttpError;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Response;
@@ -99,15 +98,6 @@ public class ReturnTypes1 {
 				return inputStream;
 			}
 		};
-	}
-
-	Object onReturnJSONObject() {
-		JSONObject myData = new JSONObject();
-
-		myData.put("id", 42);
-		myData.put("name", "Arthur Dent");
-
-		return myData;
 	}
 
 	URL onReturnURL() throws MalformedURLException {
