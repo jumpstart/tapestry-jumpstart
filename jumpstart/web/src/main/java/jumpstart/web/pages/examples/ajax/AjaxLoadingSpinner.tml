@@ -29,6 +29,8 @@
 	It uses JavaScript to detect any Form or link request that involves a Zone update, 
 	then it overlays the Zone with a CSS class that darkens the area and displays an animated GIF. 
 	When the Zone update returns from the server it replaces the Zone completely, without the overlay.<br/><br/> 
+	
+	To have LESS transformed to CSS, automatically, at runtime, add tapestry-webresources and its dependencies to the runtime classpath.<br/><br/> 
 
 	You could make this available to all pages by adding it to a Layout component - see The Layout Component example.<br/><br/>
 
@@ -42,7 +44,8 @@
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
-	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>.<br/><br/> 
+	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/webresources/modules/WebResourcesModule.html">WebResourcesModule</a>.<br/><br/> 
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
