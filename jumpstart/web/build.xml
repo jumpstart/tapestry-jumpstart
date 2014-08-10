@@ -191,7 +191,7 @@
 	<target name="get-dependent-files">
 		<setproxy></setproxy>
 		<fail unless="maven.repo.root" message="*** Specify maven.repo.root in the project's build.properties."/>
-		
+
 		<!--
 		<property name="tapestry.staging" value="https://repository.apache.org/content/groups/staging"/>
 		-->
@@ -221,7 +221,7 @@
 		<get dest="${lib.compile.dir}/tapestry5-jquery-3.3.4.jar" usetimestamp="true" src="http://nexus.devlab722.net/nexus/content/repositories/releases/org/got5/tapestry5-jquery/3.3.4/tapestry5-jquery-3.3.4.jar" />
 		-->
 		<!-- For JSR-303 Bean Validation 1.0 -->
-		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4-beta-6.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-beanvalidator/5.4-beta-6/tapestry-beanvalidator-5.4-beta-6.jar" />				
+		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4-beta-6.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-beanvalidator/5.4-beta-6/tapestry-beanvalidator-5.4-beta-6.jar" />
 
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container (eg. JBoss) or the EAR (shared with the business tier) -->
 
@@ -229,6 +229,8 @@
 		<get dest="${lib.provided.dir}/javaee-api-6.0-5.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-5/javaee-api-6.0-5.jar" />
 		<get dest="${lib.provided.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
 		<get dest="${lib.provided.dir}/slf4j-api-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
+		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
+		<get dest="${lib.provided.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 
 		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
 
@@ -240,13 +242,16 @@
 		<get dest="${lib.runtime.dir}/commons-lang-2.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" />
 		<!-- For tapestry-webresources -->
 		<get dest="${lib.runtime.dir}/tapestry-webresources-5.4-beta-6.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-webresources/5.4-beta-6/tapestry-webresources-5.4-beta-6.jar" />				
-		<get dest="${lib.runtime.dir}/less4j-1.2.4.jar" usetimestamp="true" src="${maven.repo.root}/com/github/sommeri/less4j/1.2.4/less4j-1.2.4.jar" />				
+		<get dest="${lib.runtime.dir}/less4j-1.5.3.jar" usetimestamp="true" src="${maven.repo.root}/com/github/sommeri/less4j/1.5.3/less4j-1.5.3.jar" />				
 		<get dest="${lib.runtime.dir}/closure-compiler-v20130722.jar" usetimestamp="true" src="${maven.repo.root}/com/google/javascript/closure-compiler/v20130722/closure-compiler-v20130722.jar" />				
 		<get dest="${lib.runtime.dir}/rhino-1.7R4.jar" usetimestamp="true" src="${maven.repo.root}/org/mozilla/rhino/1.7R4/rhino-1.7R4.jar" />
 			<!-- For closure-compiler -->
-			<!-- Missing anything? See http://central.maven.org/maven2/com/google/javascript/closure-compiler/v20130722/closure-compiler-v20130722.pom -->
-			<get dest="${lib.runtime.dir}/args4j-2.0.16.jar" usetimestamp="true" src="${maven.repo.root}/args4j/args4j/2.0.16/args4j-2.0.16.jar" />				
-			<get dest="${lib.runtime.dir}/guava-14.0.1.jar" usetimestamp="true" src="${maven.repo.root}/com/google/guava/guava/14.0.1/guava-14.0.1.jar" />				
+			<!-- Missing anything? See http://central.maven.org/maven2/com/google/javascript/closure-compiler/v20131014/closure-compiler-v20131014.pom -->
+			<get dest="${lib.runtime.dir}/args4j-2.0.16.jar" usetimestamp="true" src="${maven.repo.root}/args4j/args4j/2.0.16/args4j-2.0.16.jar" />
+			<!-- 15.0 had a problem with Java EE 7. See https://code.google.com/p/guava-libraries/issues/detail?id=1527 .
+			<get dest="${lib.runtime.dir}/guava-15.0.jar" usetimestamp="true" src="${maven.repo.root}/com/google/guava/guava/15.0/guava-15.0.jar" />
+			-->			
+			<get dest="${lib.runtime.dir}/guava-17.0.jar" usetimestamp="true" src="${maven.repo.root}/com/google/guava/guava/17.0/guava-17.0.jar" />
 			<get dest="${lib.runtime.dir}/json-20090211.jar" usetimestamp="true" src="${maven.repo.root}/org/json/json/20090211/json-20090211.jar" />				
 			<!-- For closure-compiler and less4j -->
 			<!--
@@ -259,7 +264,7 @@
 		<unzip dest="${main.tmp.dir}/kaptcha-2.3.2" src="${main.tmp.dir}/kaptcha-2.3.2.zip" />
 		<copy todir="${lib.runtime.dir}" file="${main.tmp.dir}/kaptcha-2.3.2/kaptcha-2.3.2.jar" />
 		<delete dir="${main.tmp.dir}"/>
-		<!-- For tapestry-upload -->
+		<!-- For tapestry-upload and less4j -->
 		<get dest="${lib.runtime.dir}/commons-io-2.4.jar" usetimestamp="true" src="${maven.repo.root}/commons-io/commons-io/2.4/commons-io-2.4.jar" />
 
 		<!-- testing jars - needed for compiling and running tests (but this release has no web tier tests) -->
@@ -279,9 +284,6 @@
 		<get dest="${lib.test.dir}/jetty-ajp-6.1.26.jar" usetimestamp="true" src="${maven.repo.root}/org/mortbay/jetty/jetty-ajp/6.1.26/jetty-ajp-6.1.26.jar" />
 		<get dest="${lib.test.dir}/jetty-plus-6.1.26.jar" usetimestamp="true" src="${maven.repo.root}/org/mortbay/jetty/jetty-plus/6.1.26/jetty-plus-6.1.26.jar" />
 		-->
-		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
-		<get dest="${lib.test.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
-		
 	</target>
 
 	<target name="interpret-server-type">

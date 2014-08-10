@@ -161,6 +161,8 @@
 
 		<mkdir dir="${lib.compile.dir}" />
 		<get dest="${lib.compile.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
+		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
+		<get dest="${lib.compile.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. JBoss -->
 
@@ -183,8 +185,6 @@
 		<get dest="${lib.test.dir}/log4j-1.2.17.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.17/log4j-1.2.17.jar" />
 		<get dest="${lib.test.dir}/slf4j-api-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
 		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar" />
-		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
-		<get dest="${lib.test.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
 
 		<!-- For jndi lookup -->
 		<get dest="${lib.test.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
@@ -194,9 +194,15 @@
 		<mkdir dir="${lib.test.hibernate.dir}" />
 		<!-- For Hibernate -->
 		<get dest="${lib.test.hibernate.dir}/antlr-3.1.1.jar" usetimestamp="true" src="${maven.repo.root}/org/antlr/antlr/3.1.1/antlr-3.1.1.jar" />
+		<!--
 		<get dest="${lib.test.hibernate.dir}/hibernate-core-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar" />
+		-->
+		<get dest="${lib.test.hibernate.dir}/hibernate-core-4.2.7.SP1.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.2.7.SP1/hibernate-core-4.2.7.SP1.jar" />
+		<!--
 		<get dest="${lib.test.hibernate.dir}/hibernate-commons-annotations-4.0.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar" />
-		<get dest="${lib.test.hibernate.dir}/hibernate-entitymanager-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-entitymanager/4.1.9.Final/hibernate-entitymanager-4.1.9.Final.jar" />
+		-->
+		<get dest="${lib.test.hibernate.dir}/hibernate-commons-annotations-4.0.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.2.Final/hibernate-commons-annotations-4.0.2.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/hibernate-entitymanager-4.2.7.SP1.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-entitymanager/4.2.7.SP1/hibernate-entitymanager-4.2.7.SP1.jar" />
 		<get dest="${lib.test.hibernate.dir}/jboss-logging-3.1.1.GA.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging/3.1.1.GA/jboss-logging-3.1.1.GA.jar" />
 		<get dest="${lib.test.hibernate.dir}/jboss-logging-processor-1.0.3.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging-processor/1.0.3.Final/jboss-logging-processor-1.0.3.Final.jar" />
 	</target>
