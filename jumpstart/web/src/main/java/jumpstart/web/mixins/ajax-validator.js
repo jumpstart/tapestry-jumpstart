@@ -11,33 +11,36 @@ define(["jquery", "t5/core/zone", "t5/core/dom", "t5/core/console"], function($,
 		var $form, $focusOutOfField;
 	
 		var init = function(params) {
-			$field = $("#" + params.fieldId);
+			fieldSelector = "#" + params.fieldId;
+			$field = $(fieldSelector);
 			validatorURI = params.validatorURI;
 			
 			$form = $field.closest("form");
 	
-			$form.on("focusout", $field, function(e) {
+			$form.on("focusout", fieldSelector, function(e) {
 				$focusOutOfField = $(this);
+				console.info("A >>> $focusOutOfField = " + $focusOutOfField);
 			});
 		
-			$form.on("focusin", $field, function(e) {
+			$form.on("focusin", fieldSelector, function(e) {
 				
 				// If changing focus *within the same form* then perform validation.  
 	
 				if ($focusOutOfField === undefined) {
-					console.info("$focusOutOfField = " + $focusOutOfField);
+					console.info("B >>> $focusOutOfField = " + $focusOutOfField);
 				}
 				else {
-					console.info("$focusOutOfField.attr('id')  = " + $focusOutOfField.attr("id"));
+					console.info("C >>> $focusOutOfField.attr('id')  = " + $focusOutOfField.attr("id"));
 				}
-				console.info("$field.attr('id')            = " + $field.attr("id"));
-				console.info("$form                   = " + $form).attr("id");
-				console.info("$(this).closest('form') = " + $(this).closest("form"));
-				var z = $(this).closest("form") == $form;
+//				console.info("$field.attr('id')            = " + $field.attr("id"));
+//				console.info("$form                   = " + $form.attr("id"));
+//				console.info("$(this).closest('form') = " + $(this).closest("form"));
+				var $focusIntoForm = $(this).closest("form");
 	//			console.info("z                = " + z);
-				console.info(" ");
+//				console.info($focusOutOfField.attr('id') + ", " + $field.attr('id') + ", " + $(this).closest('form').attr('id') + ", " +  $form.attr('id') + ".");
 				
-				if ($focusOutOfField !== undefined && $focusOutOfField == $field && $(this).closest("form") == $form) {
+				if ($focusOutOfField !== undefined && $focusOutOfField.is($field) && $focusIntoForm.is($form)) {
+					console.info("!!!!!!!!!!!!!!!!");
 					validateInServerAsync();
 				}
 				
