@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Less</h3>
+	
+	<p>
+		<strong>Less</strong> is a CSS pre-processor, and Bootstrap is built on Less, so you might prefer to use Less instead of CSS.
+	</p>
+	<p>
+		Tapestry can transform Less to CSS. It will do it automatically, at runtime, if <em>tapestry-webresources</em> and its dependencies are on the runtime classpath. 
+	</p>
+	
+	<div class="eg">
+		<div class="greeting">
+			Hello, ${username}.
+		</div>
+	</div>
+
+	References: 
+	<a href="http://lesscss.org">Less</a>, 
+	<a href="http://getbootstrap.com/css/#less">Bootstrap: Using Less</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/webresources/modules/WebResourcesModule.html">WebResourcesModule</a>.<br/><br/>
+	
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/Less.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/styling/Less.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/olive.less"/>
+	</t:tabgroup>
+</body>
+</html>

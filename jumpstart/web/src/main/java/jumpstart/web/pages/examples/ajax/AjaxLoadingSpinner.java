@@ -13,7 +13,7 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.services.javascript.StylesheetLink;
 import org.apache.tapestry5.services.javascript.StylesheetOptions;
 
-@Import(stylesheet = { "css/examples/js.css", "css/examples/zone-overlay.less" })
+@Import(stylesheet = { "css/examples/js.css", "css/examples/zone-overlay.css" })
 public class AjaxLoadingSpinner {
 	static final private String[] ALL_THINGS = { "Sugar", "Spice", "All Things Nice" };
 
@@ -40,7 +40,7 @@ public class AjaxLoadingSpinner {
 	private JavaScriptSupport javaScriptSupport;
 
 	@Inject
-	@Path("css/examples/zone-overlay-ie.less")
+	@Path("css/examples/zone-overlay-ie.css")
 	private Asset ieCSS;
 
 	// The code

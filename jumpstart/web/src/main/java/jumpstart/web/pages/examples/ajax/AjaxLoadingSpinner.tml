@@ -30,10 +30,6 @@
 	then it overlays the Zone with a CSS class that darkens the area and displays an animated GIF. 
 	When the Zone update returns from the server it replaces the Zone completely, without the overlay.<br/><br/> 
 	
-	To have LESS transformed to CSS, automatically, at runtime, add tapestry-webresources and its dependencies to the runtime classpath.<br/><br/> 
-
-	You could make this available to all pages by adding it to a Layout component - see The Layout Component example.<br/><br/>
-
 	This solution has limitations which are described in the original article 
 	<a href="http://java.dzone.com/articles/adding-ajax-throbbers-zone">Adding 'Ajax Throbbers' to Zone updates</a>.<br/><br/>
 	
@@ -42,10 +38,10 @@
 	References: 
 	<a href="http://java.dzone.com/articles/adding-ajax-throbbers-zone">Adding 'Ajax Throbbers'</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
+	<a href="http://www.w3schools.com/css/css3_animations.asp">CSS3 Animations</a>
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
-	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>, 
-	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/webresources/modules/WebResourcesModule.html">WebResourcesModule</a>.<br/><br/> 
+	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>.<br/><br/> 
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
@@ -54,8 +50,8 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/ajax/AjaxLoadingSpinner.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/zone-overlay.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/zone-overlay.less"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/zone-overlay-ie.less"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/zone-overlay.css"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/zone-overlay-ie.css"/>
 	</t:tabgroup>
 </body>
 </html>

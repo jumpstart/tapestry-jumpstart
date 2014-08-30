@@ -48,6 +48,7 @@
 						<div class="group">
 							<t:pagelink page="examples/styling/BootstrapStyling">Bootstrap Styling</t:pagelink><br/>
 							<t:pagelink page="examples/styling/Stylesheets">Stylesheets</t:pagelink><br/>
+							<t:pagelink page="examples/styling/Less">Less</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/output/Output">Output</t:pagelink><br/>
