@@ -4,8 +4,8 @@ Created-By: 1.5.0_05-48 ("Apple Computer, Inc.")
 Package: jumpstart.business
 Extension-Name: jumpstart
 Specification-Title: jumpstart
-Specification-Version: 7.0 Preview 17
+Specification-Version: 7.0 Preview 18
 Specification-Vendor: JumpStart
 Implementation-Title: jumpstart.business jumpstart.util
-Implementation-Version: 7.0 Preview 17
+Implementation-Version: 7.0 Preview 18
 Implementation-Vendor: JumpStart
