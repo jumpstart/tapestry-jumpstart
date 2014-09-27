@@ -55,8 +55,7 @@
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/reusablemodal.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SimpleModal.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SimpleModal.java"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/activate-modal.js"/>
-		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/hide-modal.js"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/simple-modal.js"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.java"/>
 	</t:tabgroup>

@@ -1,11 +1,14 @@
 define(["jquery", "bootstrap/modal"], function($) {
-
-	// Hides a modal.
-
-	return function(modalId) {
+	
+	var activate = function(modalId, options) {
+		$('#' + modalId).modal(options);
+	}
+	
+	var hide = function(modalId) {
 		var $modal = $('#' + modalId);
 
 		if ($modal.length > 0) {
+			// Hide will trigger removal.
 			$modal.modal('hide');
 		}
 		else {
@@ -15,4 +18,9 @@ define(["jquery", "bootstrap/modal"], function($) {
 		}
 	}
 
-})
+	return {
+		activate : activate,
+		hide : hide
+	}
+	
+});

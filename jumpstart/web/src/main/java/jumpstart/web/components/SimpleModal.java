@@ -35,7 +35,7 @@ public class SimpleModal implements ClientElement {
 	}
 
 	void afterRender() {
-		javaScriptSupport.require("activate-modal").with(componentClientId, new JSONObject());
+		javaScriptSupport.require("simple-modal").invoke("activate").with(componentClientId, new JSONObject());
 	}
 
 	public void hide() {
@@ -45,7 +45,7 @@ public class SimpleModal implements ClientElement {
 	private JavaScriptCallback makeScriptToHideModal() {
 		return new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
-				javascriptSupport.require("hide-modal").with(componentClientId);
+				javaScriptSupport.require("simple-modal").invoke("hide").with(componentClientId);
 			}
 		};
 	}
