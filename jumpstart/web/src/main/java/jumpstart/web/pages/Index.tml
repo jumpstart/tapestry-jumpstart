@@ -298,6 +298,7 @@
 							<t:pagelink page="examples/javascript/RobustJavaScript">Robust JavaScript</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/JavaScriptMixin">JavaScript Mixin</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/CreatingMixins1" t:disabled="true">Creating Mixins: ClickOnce</t:pagelink><br/>
+							<t:pagelink page="examples/javascript/Modal" t:context="literal:1">Modal</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/ReusableModal" t:context="literal:1">Reusable Modal</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
