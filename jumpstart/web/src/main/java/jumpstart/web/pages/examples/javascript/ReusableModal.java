@@ -68,7 +68,6 @@ public class ReusableModal {
 	public void setupRender() {
 		function = Function.REVIEW;
 		populateBody();
-
 	}
 
 	void onToUpdate(Long personId) {

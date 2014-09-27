@@ -35,7 +35,7 @@
 		
 	</div>
 	
-	<p>The component is called SimpleModal, and its job is simply to show or hide a Bootstrap Modal, 
+	<p>The component is called SimpleModal. Its job is to show or hide a Bootstrap Modal, 
 		with our content inside it.</p>
 
 	References: 

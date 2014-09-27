@@ -8,6 +8,7 @@ import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.json.JSONObject;
+import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.ajax.JavaScriptCallback;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
@@ -27,6 +28,9 @@ public class SimpleModal implements ClientElement {
 	@Inject
 	private AjaxResponseRenderer ajaxResponseRenderer;
 
+	@Inject
+	private Request request;
+
 	// The code
 
 	@Override
@@ -39,7 +43,9 @@ public class SimpleModal implements ClientElement {
 	}
 
 	public void hide() {
-		ajaxResponseRenderer.addCallback(makeScriptToHideModal());
+		if (request.isXHR()) {
+			ajaxResponseRenderer.addCallback(makeScriptToHideModal());
+		}
 	}
 
 	private JavaScriptCallback makeScriptToHideModal() {
