@@ -11,7 +11,7 @@
 	<a href="http://tapestry.1045711.n5.nabble.com/is-there-a-doc-describing-Tapestry-built-in-services-tt5717518.html">Bob Harner put together</a>.<br/><br/>
 
 	You can <strong>use</strong> Tapestry services in pages, components, mixins, and other services.<br/>
-	You can modify the behaviour of Tapestry services by <strong>contributing configuration</strong> to them or <strong>overriding</strong>
+	You can modify the behaviour of Tapestry services by <strong>contributing configuration</strong> to them or by <strong>overriding</strong>
 	them, in your application's module class.
 
 	<ul>

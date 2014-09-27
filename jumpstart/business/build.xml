@@ -194,13 +194,7 @@
 		<mkdir dir="${lib.test.hibernate.dir}" />
 		<!-- For Hibernate -->
 		<get dest="${lib.test.hibernate.dir}/antlr-3.1.1.jar" usetimestamp="true" src="${maven.repo.root}/org/antlr/antlr/3.1.1/antlr-3.1.1.jar" />
-		<!--
-		<get dest="${lib.test.hibernate.dir}/hibernate-core-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar" />
-		-->
 		<get dest="${lib.test.hibernate.dir}/hibernate-core-4.2.7.SP1.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.2.7.SP1/hibernate-core-4.2.7.SP1.jar" />
-		<!--
-		<get dest="${lib.test.hibernate.dir}/hibernate-commons-annotations-4.0.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar" />
-		-->
 		<get dest="${lib.test.hibernate.dir}/hibernate-commons-annotations-4.0.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.2.Final/hibernate-commons-annotations-4.0.2.Final.jar" />
 		<get dest="${lib.test.hibernate.dir}/hibernate-entitymanager-4.2.7.SP1.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-entitymanager/4.2.7.SP1/hibernate-entitymanager-4.2.7.SP1.jar" />
 		<get dest="${lib.test.hibernate.dir}/jboss-logging-3.1.1.GA.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging/3.1.1.GA/jboss-logging-3.1.1.GA.jar" />

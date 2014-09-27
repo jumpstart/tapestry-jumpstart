@@ -17,12 +17,12 @@
 	click on the second link - the AJAX-enabled link - then only serverTime2 is refreshed.
 
 	<div class="eg">
-		<t:eventlink event="refreshPage">Refresh whole page - this EventLink is not AJAX-enabled</t:eventlink><br/>
-		<t:eventlink event="refreshZone" zone="time2Zone">Refresh only server time 2 - this EventLink is AJAX-enabled</t:eventlink><br/><br/>
+		<t:eventlink event="refreshPage">Refresh whole page</t:eventlink> - this EventLink is not AJAX-enabled<br/>
+		<t:eventlink event="refreshZone" zone="time2Zone">Refresh Server Time 2</t:eventlink> - this EventLink is AJAX-enabled<br/><br/>
 
-		serverTime1:  ${serverTime1}
+		Server Time 1:  ${serverTime1}
 		<t:zone t:id="time2Zone" id="time2Zone">
-			serverTime2:  ${serverTime2}
+			Server Time 2:  ${serverTime2}
 		</t:zone>
 	</div>
 

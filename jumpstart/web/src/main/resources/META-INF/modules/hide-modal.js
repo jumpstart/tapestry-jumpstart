@@ -15,4 +15,4 @@ define(["jquery", "bootstrap/modal"], function($) {
 		}
 	}
 
-});
+})

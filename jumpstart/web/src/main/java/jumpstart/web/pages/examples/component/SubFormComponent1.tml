@@ -16,7 +16,7 @@
 			<h4>Create Invitation</h4>
 
 			<div class="form-group">
-		 		<t:labelfor="eventDescription" class="col-sm-4" />
+		 		<t:label for="eventDescription" class="col-sm-4" />
 		 		<div class="col-sm-4">
 		 			<t:textfield t:id="eventDescription" value="invitation.eventDescription"/>
 		 		</div>
