@@ -21,7 +21,7 @@
 				<div class="form-group">
 					<t:zone t:id="carSourceZone" id="carSourceZone" style="display: inline;">
 						<t:label for="carSource"/>
-						<t:select t:id="carSource" model="carSources" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="literal:never"
+						<t:select t:id="carSource" model="carSources" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="never"
 							zone="carModelZone"/>
 					</t:zone>
 				</div>
@@ -29,7 +29,7 @@
 				<div class="form-group">
 					<t:zone t:id="carMakeZone" id="carMakeZone" style="display: inline;">
 						<t:label for="carMake"/>
-						<t:select t:id="carMake" model="carMakes" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="literal:never"
+						<t:select t:id="carMake" model="carMakes" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="never"
 							zone="carModelZone"/>
 					</t:zone>
 				</div>
@@ -37,7 +37,7 @@
 				<div class="form-group">
 					<t:zone t:id="carModelZone" id="carModelZone" style="display: inline;">
 						<t:label for="carModel"/>
-						<t:select t:id="carModel" model="carModels" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="literal:never"/>
+						<t:select t:id="carModel" model="carModels" blankOption="ALWAYS" blankLabel="Choose..." validate="required" secure="never"/>
 					</t:zone>
 				</div>
 	

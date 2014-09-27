@@ -93,7 +93,7 @@
 							Eg. <t:label for="carMake"/>:
 							<t:select t:id="carMake" model="carMakes" zone="carDisplayZone"
 								blankOption="ALWAYS" blankLabel="Choose..." validate="required"
-								secure="literal:never"/>
+								secure="never"/>
 			 				<t:zone t:id="carDisplayZone" id="carDisplayZone">
 			 					${carMake}&nbsp;
 			 				</t:zone>

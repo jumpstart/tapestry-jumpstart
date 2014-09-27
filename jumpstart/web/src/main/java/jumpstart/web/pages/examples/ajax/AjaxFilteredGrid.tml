@@ -22,17 +22,17 @@
 	
 			<div class="form-group">
 				<t:label for="firstInitial"/>: 
-				<t:select t:id="firstInitial" model="firstInitials" onchange="document.getElementById('filterSubmit').click()" secure="literal:never"/>
+				<t:select t:id="firstInitial" model="firstInitials" onchange="document.getElementById('filterSubmit').click()" secure="never"/>
 			</div>
 	
 			<div class="form-group">
 				<t:label for="lastInitial"/>: 
-				<t:select t:id="lastInitial" model="lastInitials" onchange="document.getElementById('filterSubmit').click()" secure="literal:never"/>
+				<t:select t:id="lastInitial" model="lastInitials" onchange="document.getElementById('filterSubmit').click()" secure="never"/>
 			</div>
 	
 			<div class="form-group">
 				<t:label for="region"/>: 
-				<t:select t:id="region" onchange="document.getElementById('filterSubmit').click()" secure="literal:never"/>
+				<t:select t:id="region" onchange="document.getElementById('filterSubmit').click()" secure="never"/>
 			</div>
 	
 			<div class="form-group">
