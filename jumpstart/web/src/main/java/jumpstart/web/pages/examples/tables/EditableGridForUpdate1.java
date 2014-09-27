@@ -147,7 +147,7 @@ public class EditableGridForUpdate1 {
 
 			if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
 				Field field = firstNameFieldCopyByRowNum.get(rowNum);
-				form.recordError(field, "First name cannot be " + BAD_NAME + ".");
+				form.recordError(field, "First name must not be " + BAD_NAME + ".");
 			}
 
 			if (personSubmitted.getId() == 2 && !personSubmitted.getFirstName().equals("Mary")) {

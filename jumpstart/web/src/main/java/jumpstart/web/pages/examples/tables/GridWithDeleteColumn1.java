@@ -41,7 +41,7 @@ public class GridWithDeleteColumn1 {
 	private final DateEncoder dateEncoder = new DateEncoder();
 
 	@Property
-	private final String BAD_NAME = "Mary";
+	private final String GOOD_NAME = "Mary";
 
 	// Work fields
 
@@ -145,9 +145,10 @@ public class GridWithDeleteColumn1 {
 					// Unfortunately, at this point the deleteField is from the final row of the Loop.
 					// Fortunately, we have a copy of the correct field, so we can record the error with that.
 
-					if (personSubmitted.getFirstName() != null && personSubmitted.getFirstName().equals(BAD_NAME)) {
+					if (personSubmitted.getId() == 2 && personSubmitted.getFirstName() != null
+							&& personSubmitted.getFirstName().equals(GOOD_NAME)) {
 						Field field = deleteFieldCopyByRowNum.get(rowNum);
-						form.recordError(field, "Cannot delete " + BAD_NAME + ".");
+						form.recordError(field, "Cannot delete " + GOOD_NAME + ".");
 					}
 
 					break;

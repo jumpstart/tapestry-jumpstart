@@ -113,7 +113,7 @@ public class AjaxFormsInALoop {
 		// Simulate a server-side validation error: return error if anyone's first name is BAD_NAME.
 
 		if (person.getFirstName() != null && person.getFirstName().equals(BAD_NAME)) {
-			personForm.recordError("First name cannot be " + BAD_NAME + ".");
+			personForm.recordError("First name must not be " + BAD_NAME + ".");
 		}
 
 		if (person.getId() == 2 && !person.getFirstName().equals("Mary")) {

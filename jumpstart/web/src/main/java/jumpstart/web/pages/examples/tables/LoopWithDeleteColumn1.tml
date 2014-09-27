@@ -8,7 +8,7 @@
 	
 	A table built with the Loop component, including only the Person columns we want, and adding a Delete column.<br/><br/>
 	
-	To demonstrate a server-side error, try to delete a person whose First Name is <em>${BAD_NAME}</em>.<br/>
+	To demonstrate a server-side error, try to delete a person whose First Name is <em>${GOOD_NAME}</em>.<br/>
 
 	<div class="eg">
 		<t:form t:id="deletables">

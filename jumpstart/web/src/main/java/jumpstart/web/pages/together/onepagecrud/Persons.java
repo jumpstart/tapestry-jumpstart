@@ -258,6 +258,10 @@ public class Persons {
 
 	void onValidateFromUpdateForm() {
 
+		if (editorPerson.getFirstName() != null && editorPerson.getFirstName().equals("Acme")) {
+			updateForm.recordError(firstNameField, firstNameField.getLabel() + " must not be Acme.");
+		}
+
 		if (editorPersonId == 2 && !editorPerson.getFirstName().equals("Mary")) {
 			updateForm.recordError(firstNameField, firstNameField.getLabel() + " for this person must be Mary.");
 		}

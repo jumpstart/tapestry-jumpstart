@@ -84,6 +84,10 @@ public class PersonUpdate {
 
 	void onValidateFromForm() {
 
+		if (person.getFirstName() != null && person.getFirstName().equals("Acme")) {
+			form.recordError("First name must not be Acme.");
+		}
+
 		if (personId == 2 && !person.getFirstName().equals("Mary")) {
 			form.recordError("First Name for this person must be Mary.");
 		}
