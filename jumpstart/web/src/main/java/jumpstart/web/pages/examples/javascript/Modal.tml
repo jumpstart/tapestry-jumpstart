@@ -56,6 +56,7 @@
 	<t:tabgroup>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/Modal.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/Modal.java"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/simple-modal.js"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/modal.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/together/ajaxcomponentscrud/PersonUpdate.java"/>

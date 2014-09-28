@@ -4,50 +4,48 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Tabs</h3>
+	<h3>Dynamic Tabs</h3>
 	
     <noscript class="js-required">
         ${message:javascript_required}
     </noscript>     
 
-	<p>In this example we know what tabs we need and their content. We produce them with BootStrap's Tabs.</p>
+	<p>Here we produce dynamic tabs by combining Tapestry's Loop with BootStrap's Tabs.</p>
 	
 	<div class="eg">
 	
 		<!--  The row(s) of tabs. -->
 	
 		<ul class="nav nav-tabs" t:id="tabs" t:type="any">
-			<li class="active">
-				<a href="#tab1" data-toggle="tab">Tab 1</a>
-			</li>
-			<li>
-				<a href="#tab2" data-toggle="tab">Tab 2</a>
-			</li>
+			<t:loop source="persons" value="person" index="index">
+				<li class="${tabCssClass}">
+					<a href="#tab${person.id}" data-toggle="tab">${person.firstName} ${person.lastName}</a>
+				</li>
+			</t:loop>
 		</ul>
 		
 		<!-- The contents of each tab. -->
 		
 		<div class="tab-content">
-			<div class="tab-pane active" id="tab1">
-				Tab 1 content goes here.
-			</div>
-			<div class="tab-pane" id="tab2">
-				Content of tab 2 goes here.
-			</div>
+			<t:loop source="persons" value="person" index="index">
+				<div class="tab-pane ${tabPaneCssClass}" id="tab${person.id}">
+					<t:beandisplay object="person" include="firstName,lastName,region,startDate"/>
+				</div>
+			</t:loop>
 		</div>
 		
 	</div>
 	
 	References:	
+    <a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Loop.html">Loop</a>,
 	<a href="http://getbootstrap.com/components/#nav-tabs">BootStrap Tabs</a>.<br/><br/> 
 
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabgroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/Tabs.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/Tabs.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/DynamicTabs.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/DynamicTabs.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 	</t:tabgroup>
-
 </body>
 </html>

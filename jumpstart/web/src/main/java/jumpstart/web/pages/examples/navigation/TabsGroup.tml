@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+	 We use a "strict" DTD to make IE follow the alignment rules. -->
+	 
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<body class="container">
+	<h3>Tabs Group</h3>
+	
+	<p>Creating a component to generate tabs is a bit trickier. Here is how JumpStart's <code>TabGroup</code> component does it...</p> 
+	
+	<ol>
+		<li>In beginRender(), TabGroup does not yet know what is in its body, so it pushes a <code>TabTracker</code> into the Environment.</li>
+		<li>As the body renders, each <code>Tab</code> (inside <code>SourceCodeTab</code>) records a label and markup in TabTracker instead of in the DOM.</li> 
+		<li>In afterRenderBody(...), TabGroup pops the TabTracker from the Environment</li>
+		<li>TabGroup renders the tabs and their content from TabTracker's labels and markup.</li>
+	</ol>
+	
+	<p><a href="http://tapestry-stitch.uklance.cloudbees.net/tabgroupdemo">tapestry-stitch</a> demonstrates a 
+	different technique: to avoid rendering tabs that may never be chosen, tapestry-stitch's TabGroup defers the rendering of each tab 
+	until the tab is chosen.</p>
+	
+	References:	
+	<a href="http://getbootstrap.com/components/#nav-tabs">Bootstrap Tabs</a>, 
+	<a href="http://tapestry.apache.org/component-templates.html#ComponentTemplates-The%3Ct%3Abody%3EElement">t:body</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Environment.html">Environment</a>.<br/><br/> 
+
+	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
+	
+	<t:tabgroup>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/TabsGroup.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/TabsGroup.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/TabGroup.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/TabGroup.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/TabTracker.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SourceCodeTab.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/SourceCodeTab.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/Tab.java"/>
+	</t:tabgroup>
+</body>
+</html>

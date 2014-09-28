@@ -29,7 +29,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 7.0 Preview 20</h1>
+				<h1>JumpStart 7.0 Preview 21</h1>
 				<h2>For Tapestry 5.4 Beta 22</h2>
 			</div>
 		</div>
@@ -298,13 +298,17 @@
 							<t:pagelink page="examples/javascript/RobustJavaScript">Robust JavaScript</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/JavaScriptMixin">JavaScript Mixin</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/CreatingMixins1" t:disabled="true">Creating Mixins: ClickOnce</t:pagelink><br/>
-							<t:pagelink page="examples/javascript/Modal" t:context="literal:1">Modal</t:pagelink><br/>
-							<t:pagelink page="examples/javascript/ReusableModal" t:context="literal:1">Reusable Modal</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
 						</div>
 						<div class="group">
+							<t:pagelink page="examples/javascript/Modal" t:context="literal:1">Modal</t:pagelink><br/>
+							<t:pagelink page="examples/javascript/ReusableModal" t:context="literal:1">Reusable Modal</t:pagelink><br/>
+						</div>
+						<div class="group">
 							<t:pagelink page="examples/navigation/Tabs">Tabs</t:pagelink><br/>
+							<t:pagelink page="examples/navigation/DynamicTabs">Dynamic Tabs</t:pagelink><br/>
+							<t:pagelink page="examples/navigation/TabsGroup">Tabs Group</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/javascript/FileUpload" t:disabled="true">File Upload</t:pagelink><br/>
@@ -335,9 +339,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0 Preview 20">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0 Preview 21">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0 Preview 20">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0 Preview 21">me</a>.<br/>
 		</div>
 	</td>
 	</tr>
