@@ -4,9 +4,9 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Tabs Group</h3>
+	<h3>Generating Tabs</h3>
 	
-	<p>Creating a component to generate tabs is a bit trickier. Here is how JumpStart's <code>TabGroup</code> component does it...</p> 
+	<p>Creating a component to generate tabs based on what's in its body is a bit trickier. Here is how JumpStart's <code>TabGroup</code> component does it...</p> 
 	
 	<ol>
 		<li>In beginRender(), TabGroup does not yet know what is in its body, so it pushes a <code>TabTracker</code> into the Environment.</li>
@@ -27,8 +27,8 @@
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
 	<t:tabgroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/TabsGroup.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/TabsGroup.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/GeneratingTabs.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/navigation/GeneratingTabs.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/TabGroup.tml"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/components/TabGroup.java"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/models/TabTracker.java"/>
