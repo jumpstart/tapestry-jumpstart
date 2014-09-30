@@ -245,7 +245,7 @@
 		<get dest="${lib.runtime.dir}/commons-lang-2.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" />
 		<!-- For tapestry-webresources -->
 		<get dest="${lib.runtime.dir}/tapestry-webresources-5.4-beta-22.jar" usetimestamp="true" src="${tapestry.staging}/org/apache/tapestry/tapestry-webresources/5.4-beta-22/tapestry-webresources-5.4-beta-22.jar" />				
-		<get dest="${lib.runtime.dir}/less4j-1.5.3.jar" usetimestamp="true" src="${maven.repo.root}/com/github/sommeri/less4j/1.5.3/less4j-1.5.3.jar" />				
+		<get dest="${lib.runtime.dir}/less4j-1.8.1.jar" usetimestamp="true" src="${maven.repo.root}/com/github/sommeri/less4j/1.8.1/less4j-1.8.1.jar" />				
 		<get dest="${lib.runtime.dir}/closure-compiler-v20131014.jar" usetimestamp="true" src="${maven.repo.root}/com/google/javascript/closure-compiler/v20131014/closure-compiler-v20131014.jar" />				
 		<get dest="${lib.runtime.dir}/rhino-1.7R4.jar" usetimestamp="true" src="${maven.repo.root}/org/mozilla/rhino/1.7R4/rhino-1.7R4.jar" />
 			<!-- For closure-compiler -->
