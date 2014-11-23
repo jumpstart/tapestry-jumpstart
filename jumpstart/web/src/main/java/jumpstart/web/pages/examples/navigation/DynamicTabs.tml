@@ -16,7 +16,7 @@
 	
 		<!--  The row(s) of tabs. -->
 	
-		<ul class="nav nav-tabs" t:id="tabs" t:type="any">
+		<ul t:id="tabs" t:type="any" class="nav nav-tabs">
 			<t:loop source="persons" value="person" index="index">
 				<li class="${tabCssClass}">
 					<a href="#tab${person.id}" data-toggle="tab">${person.firstName} ${person.lastName}</a>
@@ -28,7 +28,7 @@
 		
 		<div class="tab-content">
 			<t:loop source="persons" value="person" index="index">
-				<div class="tab-pane ${tabPaneCssClass}" id="tab${person.id}">
+				<div id="tab${person.id}" class="tab-pane ${tabPaneCssClass}">
 					<t:beandisplay object="person" include="firstName,lastName,region,startDate"/>
 				</div>
 			</t:loop>

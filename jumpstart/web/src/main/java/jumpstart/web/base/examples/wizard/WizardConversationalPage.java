@@ -29,10 +29,6 @@ public class WizardConversationalPage {
 		this.conversationId = conversationId;
 	}
 
-	String onPassivate() {
-		return conversationId;
-	}
-
 	Object onActivate() throws Exception {
 		if (getConversationId() == null) {
 			startConversation();
@@ -55,6 +51,10 @@ public class WizardConversationalPage {
 		return null;
 	}
 
+	String onPassivate() {
+		return conversationId;
+	}
+	
 	protected void startConversation() {
 		conversationId = conversations.startConversation(WIZARD_CONVERSATION_PREFIX);
 	}

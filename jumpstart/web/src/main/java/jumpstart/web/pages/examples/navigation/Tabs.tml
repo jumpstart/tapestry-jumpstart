@@ -16,7 +16,7 @@
 	
 		<!--  The row(s) of tabs. -->
 	
-		<ul class="nav nav-tabs" t:id="tabs" t:type="any">
+		<ul t:id="tabs" t:type="any" class="nav nav-tabs">
 			<li class="active">
 				<a href="#tab1" data-toggle="tab">Tab 1</a>
 			</li>
@@ -28,10 +28,10 @@
 		<!-- The contents of each tab. -->
 		
 		<div class="tab-content">
-			<div class="tab-pane active" id="tab1">
+			<div id="tab1" class="tab-pane active">
 				Tab 1 content goes here.
 			</div>
-			<div class="tab-pane" id="tab2">
+			<div id="tab2" class="tab-pane">
 				Content of tab 2 goes here.
 			</div>
 		</div>

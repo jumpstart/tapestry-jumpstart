@@ -20,7 +20,7 @@
 
 	<div class="tab-content">
 		<t:loop source="tabIds" value="tabId" index="tabNum">
-			<div class="tab-pane ${active}" id="${tabId}">
+			<div id="${tabId}" class="tab-pane ${active}">
 				<!-- Get the rendered markup that was put in TabTracker, above, in t:body. -->
 				<t:delegate to="tabMarkup" />
 			</div>
