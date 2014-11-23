@@ -14,7 +14,7 @@
 	
 	<div class="eg">
 		<t:zone t:id="formZone" id="formZone">
-			<t:form t:id="ajaxForm" class="form-horizontal" t:zone="^">
+			<t:form t:id="ajaxForm" class="form-horizontal" async="true">
 			
 				<div class="form-group">
 					<t:label for="firstName" class="col-sm-2"/>

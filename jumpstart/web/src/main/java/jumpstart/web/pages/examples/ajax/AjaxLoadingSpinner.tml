@@ -14,7 +14,7 @@
 
 	<div class="eg">
 		<t:form zone="thingsZone" class="form-inline">
-			<t:eventlink event="showThings" zone="thingsZone">Show things, with a delay...</t:eventlink>
+			<t:eventlink event="showThings" async="true">Show things, with a delay...</t:eventlink>
 			<t:submit t:id="WithAZone" value="Show things, with a delay..." class="btn btn-default"/>
 		</t:form>
 		
@@ -26,11 +26,13 @@
 		
 	</div>	
 	
-	It uses JavaScript to detect any Form or link request that involves a Zone update, 
-	then it overlays the Zone with a CSS class that darkens the area and displays an animated GIF. 
-	When the Zone update returns from the server it replaces the Zone completely, without the overlay.<br/><br/> 
+	It uses JavaScript to detect any Form or link request that involves a Zone refresh, 
+	then it overlays the nominated Zone with a CSS class that darkens the area and displays an animated GIF. 
+	When the Zone refresh returns from the server it replaces the Zone completely, without the overlay.<br/><br/> 
+
+	This solution will work with a Form or link that specifies the <code>zone</code> parameter and not <code>async="true"</code>.<br/><br/>
 	
-	This solution has limitations which are described in the original article 
+	This solution has additional limitations which are described in the original article 
 	<a href="http://java.dzone.com/articles/adding-ajax-throbbers-zone">Adding 'Ajax Throbbers' to Zone updates</a>.<br/><br/>
 	
 	For a mixin, have a look at the ZoneLoadingSpinner in Lenny's <a href="http://code.google.com/p/flowlogix/">FlowLogix</a>.<br/><br/>
@@ -38,10 +40,13 @@
 	References: 
 	<a href="http://java.dzone.com/articles/adding-ajax-throbbers-zone">Adding 'Ajax Throbbers'</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
-	<a href="http://www.w3schools.com/css/css3_animations.asp">CSS3 Animations</a>
+	<a href="http://www.w3schools.com/css/css3_animations.asp">CSS3 Animations</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
-	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
-	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>.<br/><br/> 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>, 
+	<a href="http://tapestry.apache.org/5.4/coffeescript/dom.html">t5/core/dom</a>, 
+	<a href="http://tapestry.apache.org/5.4/coffeescript/events.html">t5/core/events</a>, 
+	<a href="http://tapestry.apache.org/5.4/coffeescript/zone.html">t5/core/zone</a>,
+	<a href="http://www.jquery4u.com/tools/online-loading-ajax-spinner-generators/">5 Online Loading AJAX Spinner Generator Tools</a>.<br/><br/>  
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	

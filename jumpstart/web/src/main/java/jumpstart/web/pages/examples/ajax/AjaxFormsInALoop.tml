@@ -37,7 +37,7 @@
 				<t:Loop t:source="persons" t:value="person">
 					<tr t:type="zone" t:id="rowZone" id="prop:currentRowZoneId">
 						<td>
-							<t:form t:id="personForm" context="person.id" zone="^" validate="person">
+							<t:form t:id="personForm" context="person.id" async="true" validate="person">
 								<table class="inner">
 									<tbody>
 										<tr>
@@ -79,11 +79,11 @@
 											</td>
 											<td>
 												<t:if test="!editing">
-											 		<t:eventlink event="toEdit" context="person.id" zone="^" class="btn btn-default">Edit</t:eventlink>
+											 		<t:eventlink event="toEdit" context="person.id" async="true" class="btn btn-default">Edit</t:eventlink>
 												</t:if>
 												<t:if test="editing">
 											 		<t:submit t:id="save" value="Save"/>
-											 		<t:eventlink event="cancel" context="person.id" zone="^" class="btn btn-default">Cancel</t:eventlink>
+											 		<t:eventlink event="cancel" context="person.id" async="true" class="btn btn-default">Cancel</t:eventlink>
 												</t:if>
 											</td>
 										</tr>
@@ -131,6 +131,7 @@
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+ 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
 	<a href="http://tapestry.apache.org/5.4/coffeescript/zone.html">t5/core/zone</a>, 

@@ -25,16 +25,16 @@
 		
 			<td id="treeSide">
 				<t:if test="hasResults">
-					<a t:type="EventLink" t:event="clearExpansions" t:zone="treeZone" href="#">Clear Expansions</a><br/><br/>
+					<t:eventLink event="clearExpansions" async="true" href="#">Clear Expansions</t:eventLink><br/><br/>
 
 					<t:zone t:id="treeZone" id="treeZone">
-						<t:tree t:id="Tree" t:model="treeModel" t:node="treeNode" t:value="classificationNode">
+						<t:tree t:id="Tree" model="treeModel" node="treeNode" value="classificationNode">
 							<p:label>
 								<t:if test="treeNode.leaf">
-									<a t:type="EventLink" t:event="leafSelected" t:context="classificationNode.classification.id" 
-										t:zone="selectedZone" class="prop:leafClass" href="#">
+									<t:eventLink event="leafSelected" context="classificationNode.classification.id" 
+										async="true" class="prop:leafClass" href="#">
 										${treeNode.label}
-									</a>
+									</t:eventLink>
 								</t:if>
 								<t:if test="!treeNode.leaf">
 									${treeNode.label}
@@ -43,7 +43,7 @@
 						</t:tree>
 					</t:zone><br/>
 
-					<a t:type="EventLink" t:event="refresh" t:zone="treeZone" href="#">Refresh</a>
+					<t:eventLink event="refresh" async="true" href="#">Refresh</t:eventLink>
 				</t:if>
 				<t:if test="!hasResults">
 					<span style="color: red;">Database data has not been set up!</span>
@@ -84,7 +84,8 @@
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
-	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>.<br/><br/> 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+	 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>.<br/><br/> 
 
 	<a t:type="eventlink" t:event="Home" href="#">Home</a><br/><br/>
 

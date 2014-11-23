@@ -22,7 +22,7 @@
 				<tr>
 		 			<th>
 		 				In response to request from <strong>EventLink</strong> with Zone.<br/>
-		 				Eg. <t:eventlink event="updateTime1" zone="time1Zone">Update the time</t:eventlink>
+		 				Eg. <t:eventlink event="updateTime1" async="true">Update the time</t:eventlink>
 		 				<t:zone t:id="time1Zone" id="time1Zone">
 		 					${time1}
 		 				</t:zone>
@@ -40,7 +40,7 @@
 		 		<tr>
 		 			<th>
 		 				In response to request from <strong>ActionLink</strong> with Zone.<br/>
-		 				Eg. <t:actionlink t:id="updateTime2" zone="time2Zone">Update the time</t:actionlink>
+		 				Eg. <t:actionlink t:id="updateTime2" async="true">Update the time</t:actionlink>
 		 				<t:zone t:id="time2Zone" id="time2Zone">
 		 					${time2}
 		 				</t:zone>
@@ -58,7 +58,7 @@
 		 		<tr>
 		 			<th>
 		 				<t:zone t:id="formZone" id="formZone">
-			 				<t:form t:id="formWithZone" zone="^">
+			 				<t:form t:id="formWithZone" async="true">
 								In response to request from <strong>Form</strong> with Zone.<br/>
 								Eg. Name: <t:textfield t:id="name1"/><t:submit value="Show"/><br/>
 			 					${name1}&nbsp;

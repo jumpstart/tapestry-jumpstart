@@ -48,6 +48,8 @@
 			<t:errors/>
 		</t:form>
 	</div>
+	
+	<p>The Select component does not yet have an <code>async</code> parameter, so use the legacy <code>zone</code> parameter.</p>
 
 	References: 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
@@ -55,7 +57,7 @@
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>,
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
  	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
-  	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ComponentResources.html">ComponentResources</a>, 
+ 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
 	<a href="http://tapestry.apache.org/5.4/coffeescript/zone.html">t5/core/zone</a>, 

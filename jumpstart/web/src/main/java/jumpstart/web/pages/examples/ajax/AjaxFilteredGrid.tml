@@ -15,7 +15,7 @@
 	The sorting and paging links of the Grid send AJAX requests because we specified <em>t:inplace="true"</em>.
 	
 	<div class="eg">
-		<t:form t:id="filterCriteria" zone="personsZone" class="form-inline">
+		<t:form t:id="filterCriteria" async="true" class="form-inline">
 		
 			<!-- On change of a Select, we do an javascript click of an invisible submit button.
 				Note: do not use "this.form.performSubmit()" because on an AJAX Form it fails in Firefox. -->
@@ -58,6 +58,7 @@
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
  	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+ 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
 	<a href="http://tapestry.apache.org/5.4/coffeescript/zone.html">t5/core/zone</a>.<br/><br/> 

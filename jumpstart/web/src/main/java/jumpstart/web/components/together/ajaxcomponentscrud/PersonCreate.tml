@@ -8,7 +8,7 @@
 	<h1>Create</h1>
 	
 	<t:zone t:id="formZone" id="formZone">
-		<t:form t:id="form" class="form-horizontal" validate="person" zone="^">
+		<t:form t:id="form" class="form-horizontal" validate="person" async="true">
 			<t:errors globalOnly="true"/>
 			
 	 		<t:together.smallercomponentscrud.PersonEditor person="person"/>
@@ -16,7 +16,7 @@
 			<div class="form-group">
 				<div class="col-sm-4 col-sm-offset-4">
 					<t:submit value="Save" />
-					<t:eventlink event="cancel" class="btn btn-default" zone="^">Cancel</t:eventlink>
+					<t:eventlink event="cancel" class="btn btn-default" async="true">Cancel</t:eventlink>
 				</div>
 			</div>
 		</t:form>

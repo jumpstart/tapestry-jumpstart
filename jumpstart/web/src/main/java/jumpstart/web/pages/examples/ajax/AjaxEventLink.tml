@@ -18,7 +18,7 @@
 
 	<div class="eg">
 		<t:eventlink event="refreshPage">Refresh whole page</t:eventlink> - this EventLink is not AJAX-enabled<br/>
-		<t:eventlink event="refreshZone" zone="time2Zone">Refresh Server Time 2</t:eventlink> - this EventLink is AJAX-enabled<br/><br/>
+		<t:eventlink event="refreshZone" async="true">Refresh Server Time 2</t:eventlink> - this EventLink is AJAX-enabled<br/><br/>
 
 		Server Time 1:  ${serverTime1}
 		<t:zone t:id="time2Zone" id="time2Zone">
@@ -26,7 +26,8 @@
 		</t:zone>
 	</div>
 
-	We gave AJAX behaviour to the second link by specifying a <code>zone</code> parameter on it and putting a Zone component around serverTime2.<br/><br/>
+	We gave AJAX behaviour to the second link by specifying <code>async="true"</code> on it, putting a Zone component around serverTime2, 
+	and in the event handler method we ask the AjaxResponseRenderer service to render that Zone.<br/><br/>
 	
 	<strong>Without zone</strong> specified on the first EventLink, clicking it results in <strong>Get/Redirect/Get</strong>.<br/>
 	The event handler returns a "redirect" to the <em>page to render</em>.  This involves 2 round trips to the server.<br/><br/>
@@ -38,6 +39,7 @@
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>,
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 

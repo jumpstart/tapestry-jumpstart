@@ -38,10 +38,10 @@
 						</td>
 						<td>
 							<t:if test="started">
-								<t:eventlink event="stop" context="person.id" zone="^">Stop</t:eventlink>
+								<t:eventlink event="stop" context="person.id" async="true">Stop</t:eventlink>
 							</t:if>
 							<t:if test="!started">
-								<t:eventlink event="start" context="person.id" zone="^">Start</t:eventlink>
+								<t:eventlink event="start" context="person.id" async="true">Start</t:eventlink>
 							</t:if>
 						</td>
 					</tr>
@@ -56,6 +56,7 @@
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
+ 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 
 	<a href="http://tapestry.apache.org/5.4/coffeescript/zone.html">t5/core/zone</a>.<br/><br/> 

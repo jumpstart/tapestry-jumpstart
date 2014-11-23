@@ -14,7 +14,7 @@
 	and adding a bit of javascript that periodically does what the EventLink or ActionLink would do.
 
 	<div class="eg">
-		<t:eventlink t:id="refreshTimeZone" t:zone="timeZone" style="display: none;">Hidden EventLink</t:eventlink>
+		<t:eventlink t:id="refreshTimeZone" async="true" style="display: none;">Hidden EventLink</t:eventlink>
 
 		<t:zone t:id="timeZone" id="timeZone">
 			serverTime:  ${serverTime}

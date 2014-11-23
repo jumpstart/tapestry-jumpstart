@@ -14,7 +14,7 @@
 
 	<div class="eg">
 		<t:zone t:id="formZone" id="formZone">
-			<t:form t:id="ajaxForm" class="form-horizontal" t:zone="^">
+			<t:form t:id="ajaxForm" class="form-horizontal" async="true">
 				<div class="form-group">
 					<t:label for="firstName" class="col-sm-2"/>
 					<div class="col-sm-4">
@@ -50,6 +50,7 @@
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
 	<a href="http://tapestry.apache.org/ajax-and-zones.html">Ajax and Zones</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/ajax/AjaxResponseRenderer.html">AjaxResponseRenderer</a>, 
  	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/Request.html">Request</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ioc/annotations/Inject.html">@Inject</a>, 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectComponent.html">@InjectComponent</a>, 

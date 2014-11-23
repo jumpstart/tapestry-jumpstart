@@ -19,8 +19,8 @@
 			<t:together.smallercomponentscrud.PersonEditor person="person" disabled="true"/>
 	
 			<div class="buttons">
-			 	<t:eventlink event="toUpdate" context="person.id" zone="^">Update...</t:eventlink>
-				<t:eventlink event="delete" context="[person.id,person.version]" zone="^" 
+			 	<t:eventlink event="toUpdate" context="person.id" async="true">Update...</t:eventlink>
+				<t:eventlink event="delete" context="[person.id,person.version]" async="true" 
 					t:mixins="Confirm" Confirm.message="Delete ${person.firstName} ${person.lastName}?">Delete...</t:eventlink>
 			</div>
 		</t:if>
