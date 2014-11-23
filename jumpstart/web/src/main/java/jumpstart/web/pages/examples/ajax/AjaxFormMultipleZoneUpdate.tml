@@ -16,6 +16,9 @@
 		<t:zone t:id="formZone" id="formZone">
 			<t:form t:id="ajaxForm" class="form-horizontal" async="true">
 			
+				<!-- Temporarily set to false as workaround for https://issues.apache.org/jira/browse/TAP5-2391 . -->
+				<t:errors globalOnly="false"/>
+			
 				<div class="form-group">
 					<t:label for="firstName" class="col-sm-2"/>
 					<div class="col-sm-4">
@@ -50,6 +53,11 @@
 			Welcome ${name}. Your birthday is ${birthday}
 		</t:zone>
 	</div>
+
+	<p class="alert alert-info">
+		Unfortunately, we have had to work around issue 
+		<a href="https://issues.apache.org/jira/browse/TAP5-2391">TAP5-2391 Field-specific error not shown when AJAX used</a>.
+	</p>
  	
 	References: 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
