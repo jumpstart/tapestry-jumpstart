@@ -64,8 +64,8 @@ public class Edit1 {
 		if (form.isValid()) {
 			person = findPerson(personId);
 
-			// Can't handle null person in the template because we're in BeanEditForm. 
-			// BeanEditForm doesn't handle null object well, so throw exception to bypass it.
+			// We'd like to handle null person in the template, but can't because we're in BeanEditForm. 
+			// BeanEditForm doesn't handle null object well, so throw an exception to bypass it.
 
 			if (person == null) {
 				throw new Exception("Person " + personId + " does not exist.");

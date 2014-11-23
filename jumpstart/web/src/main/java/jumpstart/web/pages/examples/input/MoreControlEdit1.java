@@ -124,6 +124,8 @@ public class MoreControlEdit1 {
 			throw new IllegalStateException("Database data has not been set up!");
 		}
 
+		// Handle null person in the template (with an If component).
+
 		return person;
 	}
 }
