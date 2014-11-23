@@ -45,7 +45,8 @@
 	 
 
 	References: 
-	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>.<br/><br/>
+	<a href="http://tapestry.apache.org/forms-and-validation.html">Forms and Validation</a>, 
+	<a href="http://getbootstrap.com/components/#wells">.well</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 

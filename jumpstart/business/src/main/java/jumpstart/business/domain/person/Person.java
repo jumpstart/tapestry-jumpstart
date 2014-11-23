@@ -69,7 +69,7 @@ public class Person implements Serializable {
 		return buf.toString();
 	}
 
-	// Default constructor is required by EJB3.
+	// Default constructor is required by JPA.
 	public Person() {
 	}
 
