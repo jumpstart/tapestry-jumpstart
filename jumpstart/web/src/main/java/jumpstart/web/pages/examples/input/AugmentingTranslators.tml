@@ -105,7 +105,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/AugmentingTranslators.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/plain.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ClientTranslatorDisabler.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/client-translator-disabler.js"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/client-translator-disabler.js"/>
 	</t:tabgroup>
 </body>
 </html>

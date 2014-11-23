@@ -22,7 +22,7 @@ public class ClientTranslatorDisabler {
 	// The code
 
 	public void afterRender() {
-		javaScriptSupport.require("mixins/client-translator-disabler").with(attachedTo.getClientId());
+		javaScriptSupport.require("client-translator-disabler").with(attachedTo.getClientId());
 	}
 
 }
