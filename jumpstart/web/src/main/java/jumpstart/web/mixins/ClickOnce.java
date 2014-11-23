@@ -21,7 +21,7 @@ public class ClickOnce {
 	private JavaScriptSupport javaScriptSupport;
 
 	@InjectContainer
-	private ClientElement clientElement;
+	private ClientElement attachedTo;
 
 	// The code
 
@@ -31,7 +31,7 @@ public class ClickOnce {
 		// fully loaded.
 
 		JSONObject spec = new JSONObject();
-		spec.put("elementId", clientElement.getClientId());
+		spec.put("elementId", attachedTo.getClientId());
 		javaScriptSupport.addInitializerCall("clickOnce", spec);
 	}
 

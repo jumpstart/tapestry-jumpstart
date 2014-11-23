@@ -26,7 +26,7 @@ public class TextboxHint {
 	private JavaScriptSupport javaScriptSupport;
 
 	@InjectContainer
-	private ClientElement clientElement;
+	private ClientElement attachedTo;
 
 	// The code
 
@@ -34,7 +34,7 @@ public class TextboxHint {
 
 		// Give a "textbox hint" to the field we're being mixed into.
 
-		javaScriptSupport.require("textbox-hint").with(clientElement.getClientId(), hintText, hintColor);
+		javaScriptSupport.require("textbox-hint").with(attachedTo.getClientId(), hintText, hintColor);
 
 	}
 

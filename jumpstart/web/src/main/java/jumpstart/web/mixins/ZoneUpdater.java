@@ -60,7 +60,7 @@ public class ZoneUpdater {
 	 * The element we attach ourselves to
 	 */
 	@InjectContainer
-	private ClientElement clientElement;
+	private ClientElement attachedTo;
 
 	// The code
 
@@ -68,7 +68,7 @@ public class ZoneUpdater {
 
 		String listenerURI = componentResources.createEventLink(event, context).toAbsoluteURI(secure);
 
-		javaScriptSupport.require("mixins/zone-updater").with(clientElement.getClientId(), clientEvent, listenerURI,
+		javaScriptSupport.require("mixins/zone-updater").with(attachedTo.getClientId(), clientEvent, listenerURI,
 				zone);
 	}
 }

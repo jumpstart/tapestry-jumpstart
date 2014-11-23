@@ -14,7 +14,7 @@ public class ClientTranslatorDisabler {
 	// Generally useful bits and pieces
 
 	@InjectContainer
-	private ClientElement clientElement;
+	private ClientElement attachedTo;
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
@@ -22,7 +22,7 @@ public class ClientTranslatorDisabler {
 	// The code
 
 	public void afterRender() {
-		javaScriptSupport.require("mixins/client-translator-disabler").with(clientElement.getClientId());
+		javaScriptSupport.require("mixins/client-translator-disabler").with(attachedTo.getClientId());
 	}
 
 }
