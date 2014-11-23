@@ -9,6 +9,7 @@
 	
 	<t:zone t:id="formZone" id="formZone">
 		<t:form t:id="form" class="form-horizontal" validate="person" context="personId" async="true">
+		
 			<!-- Temporarily set to false as workaround for https://issues.apache.org/jira/browse/TAP5-2391 . -->
 			<t:errors globalOnly="false"/>
 		

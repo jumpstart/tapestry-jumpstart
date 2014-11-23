@@ -9,6 +9,7 @@ import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
@@ -37,8 +38,11 @@ public class AjaxForm {
 	@Inject
 	private Request request;
 
-	@InjectComponent
-	private Form ajaxForm;
+	@InjectComponent("ajaxForm")
+	private Form form;
+
+    @InjectComponent("firstName")
+    private TextField firstNameField;
 
 	@InjectComponent
 	private Zone formZone;
@@ -55,6 +59,16 @@ public class AjaxForm {
 			birthday = new Date(0);
 		}
 	}
+
+    void onValidateFromAjaxForm() {
+
+        // Note, this method is triggered even if server-side validation has already found error(s).
+
+        if (firstName != null && firstName.equals("Acme")) {
+        	form.recordError(firstNameField, "First Name must not be Acme.");
+        }
+
+    }
 
 	void onSuccess() {
 		if (request.isXHR()) {

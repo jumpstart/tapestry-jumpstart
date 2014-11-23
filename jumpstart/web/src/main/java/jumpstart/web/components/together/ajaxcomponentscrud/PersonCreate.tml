@@ -9,7 +9,9 @@
 	
 	<t:zone t:id="formZone" id="formZone">
 		<t:form t:id="form" class="form-horizontal" validate="person" async="true">
-			<t:errors globalOnly="true"/>
+
+			<!-- Temporarily set to false as workaround for https://issues.apache.org/jira/browse/TAP5-2391 . -->
+			<t:errors globalOnly="false"/>
 			
 	 		<t:together.smallercomponentscrud.PersonEditor person="person"/>
 	
