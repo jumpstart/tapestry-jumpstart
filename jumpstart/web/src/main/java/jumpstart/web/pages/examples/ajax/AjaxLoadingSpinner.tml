@@ -14,7 +14,7 @@
 
 	<div class="eg">
 		<t:form zone="thingsZone" class="form-inline">
-			<t:eventlink event="showThings" async="true">Show things, with a delay...</t:eventlink>
+			<t:eventlink event="showThings" zone="thingsZone">Show things, with a delay...</t:eventlink>
 			<t:submit t:id="WithAZone" value="Show things, with a delay..." class="btn btn-default"/>
 		</t:form>
 		

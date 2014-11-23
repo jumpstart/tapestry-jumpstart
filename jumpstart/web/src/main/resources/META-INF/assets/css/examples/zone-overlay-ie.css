@@ -2,5 +2,5 @@
 
 div.zone-ajax-overlay {
     background-color: silver;
-    filter: alpha(opacity = 35);
+    filter: alpha(opacity = 50);
 }
