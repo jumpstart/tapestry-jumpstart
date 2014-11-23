@@ -3,6 +3,7 @@
 package jumpstart.web.components;
 
 import java.text.Format;
+import java.util.Locale;
 
 import org.apache.tapestry5.Binding;
 import org.apache.tapestry5.BindingConstants;
@@ -25,6 +26,9 @@ import org.joda.time.format.DateTimeFormatter;
  */
 @SupportsInformalParameters
 public class JodaTimeOutput {
+	
+	// Parameters
+	
 	/**
 	 * The value to be output (before formatting). If the formatted value is blank, no output is produced.
 	 */
@@ -53,12 +57,19 @@ public class JodaTimeOutput {
 	 */
 	@Parameter("componentResources.elementName")
 	private String elementName;
+	
+	// Useful bits and pieces
 
 	@Inject
 	private ComponentDefaultProvider defaultProvider;
 
 	@Inject
 	private ComponentResources componentResources;
+	
+	@Inject
+	private Locale locale;
+	
+	// The code
 
 	Binding defaultValue() {
 		return defaultProvider.defaultBinding("value", componentResources);
@@ -121,7 +132,7 @@ public class JodaTimeOutput {
 			if (value instanceof AbstractInstant) {
 				AbstractInstant ai = ((AbstractInstant) value);
 				if (style != null) {
-					formatted = DateTimeFormat.forStyle(style).print(ai);
+					formatted = DateTimeFormat.forStyle(style).withLocale(locale).print(ai);
 				}
 				else if (formatter != null) {
 					formatted = ai.toString(formatter);
@@ -140,7 +151,7 @@ public class JodaTimeOutput {
 			else if (value instanceof AbstractPartial) {
 				AbstractPartial ap = ((AbstractPartial) value);
 				if (style != null) {
-					formatted = DateTimeFormat.forStyle(style).print(ap);
+					formatted = DateTimeFormat.forStyle(style).withLocale(locale).print(ap);
 				}
 				else if (formatter != null) {
 					formatted = ap.toString(formatter);
