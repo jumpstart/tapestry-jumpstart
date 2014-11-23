@@ -3,9 +3,6 @@
 	 We use a "strict" DTD to make IE follow the alignment rules. -->
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-<head>
-	<link rel="stylesheet" type="text/css" href="${asset:css/examples/js.css}"/>
-</head>
 <body class="container">
 	<h3>Creating Mixins: ClickOnce (1)</h3>
 
@@ -31,11 +28,6 @@
 	<strong>With the ClickOnce Mixin.</strong>  The Mixin uses JavaScript to ignore clicks after the first one.<br/> 
 	See how the mixin prevents ordering more than 1 item...<br/><br/>
 	
-	<strong>WARNING: </strong>This solution has problems. It might not work on the submit button in some versions of Internet Explorer, 
-	and it may have problems when used in a form that has validated fields and client-side validation enabled.
-	See <a href="http://tapestry.1045711.n5.nabble.com/Prevent-double-submission-w-linkSubmit-tt3291904.html">
-	http://tapestry.1045711.n5.nabble.com/Prevent-double-submission-w-linkSubmit-tt3291904.html</a> . 
-
 	<div class="eg">
 		<form t:type="form" t:id="mixinForm" t:clientValidation="blur">
 			<input t:type="submit" value="Order 1 Apple" t:mixins="clickonce"/>&nbsp;&nbsp;&nbsp;
@@ -47,11 +39,21 @@
 	Mixin location is important.  Mixins must be put in a package called <code>mixins</code> because Tapestry gives it 
 	special treatment.<br/><br/>
 	
+	<p class="alert alert-warning">
+	WARNING: This solution has limitations. It might not work on the submit button in some versions of Internet Explorer, 
+	and it may have problems when used in a form that has validated fields and client-side validation enabled.
+	See <a href="http://tapestry.1045711.n5.nabble.com/Prevent-double-submission-w-linkSubmit-tt3291904.html">
+	http://tapestry.1045711.n5.nabble.com/Prevent-double-submission-w-linkSubmit-tt3291904.html</a> . 
+	</p>
+
 	References: 
-	<a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>, 
-	<a href="http://wiki.apache.org/tapestry/Tapestry5AndJavaScriptExplained">Tapestry 5 and JavaScript Explained</a>, 
-	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
-	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/Import.html">@Import</a>, 
+	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/annotations/InjectContainer.html">@InjectContainer</a>, 
+    <a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/ClientElement.html">ClientElement</a>, 
+    <a href="http://tapestry.apache.org/component-mixins.html">Component Mixins</a>,
+    <a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
+    <a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/services/javascript/JavaScriptSupport.html">JavaScriptSupport</a>,
+    <a href="http://requirejs.org">RequireJS</a>, 
+    <a href="http://api.jquery.com">jQuery API</a>, 	
 	<a href="http://tapestry.apache.org/session-storage.html">Session Storage</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
@@ -61,7 +63,7 @@
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/javascript/CreatingMixins1.java"/>
 		<t:sourcecodetab src="/web/src/main/resources/META-INF/assets/css/examples/js.css"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.java"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/mixins/ClickOnce.js"/>
+		<t:sourcecodetab src="/web/src/main/resources/META-INF/modules/click-once.js"/>
 		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/state/examples/javascript/MyOrder.java"/>
 	</t:tabgroup>
 </body>
