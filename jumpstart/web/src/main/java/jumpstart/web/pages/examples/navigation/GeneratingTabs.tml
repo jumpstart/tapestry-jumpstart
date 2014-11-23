@@ -10,7 +10,7 @@
 	
 	<ol>
 		<li>In beginRender(), TabGroup does not yet know what is in its body, so it pushes a <code>TabTracker</code> into the Environment.</li>
-		<li>As the body renders, each <code>Tab</code> (inside <code>SourceCodeTab</code>) records a label and markup in TabTracker instead of in the DOM.</li> 
+		<li>As the body renders, each <code>Tab</code> (inside <code>SourceCodeTab</code>) records a label and markup in TabTracker <em>instead of in the DOM</em>.</li> 
 		<li>In afterRenderBody(...), TabGroup pops the TabTracker from the Environment</li>
 		<li>TabGroup renders the tabs and their content from TabTracker's labels and markup.</li>
 	</ol>
