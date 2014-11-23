@@ -20,6 +20,7 @@ public class TotalControlEdit1 {
 
 	// The activation context
 
+	@Property
 	private Long personId;
 
 	// Screen fields
@@ -62,20 +63,20 @@ public class TotalControlEdit1 {
 
 	// Form bubbles up the PREPARE_FOR_RENDER event during form render.
 
-	void onPrepareForRender() throws Exception {
+	void onPrepareForRender() {
 
 		// If fresh start, make sure there's a Person object available.
 
 		if (form.isValid()) {
 			person = findPerson(personId);
-			// Handle null person in the template.
+			// Handle null person in the template (with an If component).
 		}
 
 	}
 
 	// Form bubbles up the PREPARE_FOR_SUBMIT event during form submission.
 
-	void onPrepareForSubmit() throws Exception {
+	void onPrepareForSubmit() {
 
 		// Get objects for the form fields to overlay.
 		person = findPerson(personId);
@@ -120,17 +121,12 @@ public class TotalControlEdit1 {
 		// By doing nothing the page will be displayed afresh.
 	}
 
-	private Person findPerson(Long personId) throws Exception {
+	private Person findPerson(Long personId) {
 		// Ask business service to find Person
 		Person person = personFinderService.findPerson(personId);
 
-		if (person == null) {
-			if (personId < 4) {
-				throw new IllegalStateException("Database data has not been set up!");
-			}
-			else {
-				throw new Exception("Person " + personId + " does not exist.");
-			}
+		if (person == null && personId < 4) {
+			throw new IllegalStateException("Database data has not been set up!");
 		}
 
 		return person;

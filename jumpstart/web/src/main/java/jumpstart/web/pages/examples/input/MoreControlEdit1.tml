@@ -15,17 +15,22 @@
 			<t:errors globalOnly="true"/>
 		
 			<div class="t-beaneditor">
-				<t:beaneditor t:id="person" object="person">
-					<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
-					<p:version>
-						<t:hidden value="person.version"/>
-					</p:version>
-				</t:beaneditor>
-			
-				<div class="t-beaneditor-row">
-					<t:submit value="Save"/>&nbsp;
-					<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>&nbsp;
-				</div>
+				<t:if test="person">
+					<t:beaneditor t:id="person" object="person">
+						<!-- If optimistic locking is not needed then comment out this next bit. It works because Hidden fields are part of the submit. -->
+						<p:version>
+							<t:hidden value="person.version"/>
+						</p:version>
+					</t:beaneditor>
+				
+					<div class="t-beaneditor-row">
+						<t:submit value="Save"/>&nbsp;
+						<t:eventlink event="refresh" class="btn btn-default">Refresh</t:eventlink>&nbsp;
+					</div>
+				</t:if>
+				<t:if test="!person">
+					<div class="alert alert-danger">Person ${personId} does not exist.</div>
+				</t:if>
 			</div>
 	 	</t:form>
 	</div>

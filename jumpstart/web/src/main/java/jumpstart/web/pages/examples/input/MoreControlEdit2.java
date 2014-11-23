@@ -8,11 +8,12 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class MoreControlEdit2 {
 
 	// The activation context
 
+	@Property
 	private Long personId;
 
 	// Screen fields
@@ -50,13 +51,10 @@ public class MoreControlEdit2 {
 	void setupRender() throws Exception {
 		person = personFinderService.findPerson(personId);
 
-		if (person == null) {
-			if (personId < 4) {
-				throw new IllegalStateException("Database data has not been set up!");
-			}
-			else {
-				throw new Exception("Person " + personId + " does not exist.");
-			}
+		if (person == null && personId < 4) {
+			throw new IllegalStateException("Database data has not been set up!");
 		}
+
+		// Handle null person in the template (with an If component).
 	}
 }

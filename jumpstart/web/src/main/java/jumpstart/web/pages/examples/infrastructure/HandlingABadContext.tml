@@ -59,7 +59,8 @@
 		<li>
 			Throw an exception and catch it with <strong>your own exception reporting page</strong> as described in the Exception
 			Reporting Page example.<br /> The exception reporting page could give certain exceptions special treatment eg.
-			DoesNotExistException and NotAuthorisedException might get different treatment to unexpected exceptions.
+			you might like to treat expected exceptions, like DoesNotExistException and NotAuthorisedException, differently 
+			than unexpected exceptions.
 		</li>
 	</ol>
 

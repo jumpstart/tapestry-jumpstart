@@ -8,11 +8,12 @@ import jumpstart.business.domain.person.iface.IPersonFinderServiceLocal;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 
-@Import(stylesheet="css/examples/plain.css")
+@Import(stylesheet = "css/examples/plain.css")
 public class TotalControlEdit2 {
 
 	// The activation context
 
+	@Property
 	private Long personId;
 
 	// Screen fields
@@ -47,16 +48,13 @@ public class TotalControlEdit2 {
 
 	// setupRender() is called by tapestry at the start of rendering - it's good for things that are display only.
 
-	void setupRender() throws Exception {
+	void setupRender() {
 		person = personFinderService.findPerson(personId);
 
-		if (person == null) {
-			if (personId < 4) {
-				throw new IllegalStateException("Database data has not been set up!");
-			}
-			else {
-				throw new Exception("Person " + personId + " does not exist.");
-			}
+		if (person == null && personId < 4) {
+			throw new IllegalStateException("Database data has not been set up!");
 		}
+
+		// Handle null person in the template (with an If component).
 	}
 }

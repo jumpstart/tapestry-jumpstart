@@ -9,8 +9,13 @@
 	Here's the Person you edited, displayed here with BeanDisplay.
 	
 	<div class="eg">
-		<t:beandisplay object="person"/>
-		<t:pagelink page="examples/input/Edit1" context="person.id">Return</t:pagelink>
+		<t:if test="person">
+			<t:beandisplay object="person"/>
+			<t:pagelink page="examples/input/Edit1" context="person.id">Return</t:pagelink>
+		</t:if>
+		<t:if test="!person">
+			<div class="alert alert-danger">Person ${personId} does not exist.</div>
+		</t:if>
 	</div>
 
 	References: 
