@@ -23,7 +23,7 @@
 				Type in a country name:
 				</t:label>
 				<div class="col-sm-3">
-					<input t:id="countryName" t:type="TextField" t:mixins="autocomplete"/>
+					<t:textfield t:id="countryName" t:mixins="autocomplete"/>
 				</div>
 			</div>
 		</t:form>
