@@ -6,6 +6,11 @@
 <body class="container">
 	<h3>Editable Grid (1)</h3>
 
+    <p class="alert alert-warning">
+        Unfortunately, this example does not work in beta-26 due to a bug:  
+        <a href="https://issues.apache.org/jira/browse/TAP5-2391">TAP5-2391</a>.
+    </p>
+
 	A table built with a Form around a Grid to allow creation of up to ${LIST_SIZE} persons.
 	
 	<div class="eg">

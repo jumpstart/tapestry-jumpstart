@@ -12,17 +12,11 @@
 
 	<p>This page demonstrates how Tapestry AJAX-enables a Form if you specify the zone parameter of the Form.</p>
 
-	<p class="alert alert-info">
-		Unfortunately, we have had to work around issue 
-		<a href="https://issues.apache.org/jira/browse/TAP5-2391">TAP5-2391 Field-specific error not shown when AJAX used</a>.
-	</p>
-
 	<div class="eg">
 		<t:zone t:id="formZone" id="formZone">
 			<t:form t:id="ajaxForm" class="form-horizontal" async="true">
 
-				<!-- Temporarily set to false as workaround for https://issues.apache.org/jira/browse/TAP5-2391 . -->
-				<t:errors globalOnly="false"/>
+				<t:errors globalOnly="true"/>
 
 				<div class="form-group">
 					<t:label for="firstName" class="col-sm-2"/>

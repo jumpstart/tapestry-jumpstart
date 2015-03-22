@@ -6,6 +6,11 @@
 <body class="container">
 	<h3>Editable Grid For Update (1)</h3>
 
+    <p class="alert alert-warning">
+        Unfortunately, this example does not work in beta-26 due to a bug:  
+        <a href="https://issues.apache.org/jira/browse/TAP5-2391">TAP5-2391</a>.
+    </p>
+
 	A table built with a Form around a Grid to allow update of persons.<br/><br/>
 	
 	The key difference from the Editable Grid example is that now we are dealing with existing entities, so we give the Grid a custom ValueEncoder.<br/>

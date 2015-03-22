@@ -12,11 +12,6 @@
 
 	<p>This example is based on the <em>Smaller Components CRUD</em> example, and adds AJAX functionality with Tapestry's Zone component.</p>
 	
-	<p class="alert alert-info">
-		Unfortunately, we have had to work around issue 
-		<a href="https://issues.apache.org/jira/browse/TAP5-2391">TAP5-2391 Field-specific error not shown when AJAX used</a>.
-	</p>
-
 	<div class="eg">
 	 	<t:eventLink event="toCreate" async="true">Create...</t:eventLink><br/>
 	 	

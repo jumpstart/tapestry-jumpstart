@@ -29,7 +29,7 @@
 	See how the mixin prevents ordering more than 1 item...<br/><br/>
 	
 	<div class="eg">
-		<form t:type="form" t:id="mixinForm" t:clientValidation="blur">
+		<form t:type="form" t:id="mixinForm">
 			<input t:type="submit" value="Order 1 Apple" t:mixins="clickonce"/>&nbsp;&nbsp;&nbsp;
 			<a t:type="eventlink" t:event="orderOneOrange" t:mixins="clickonce" href="#">Order 1 Orange</a>&nbsp;&nbsp;&nbsp;
 			<a t:type="actionlink" t:id="orderOneBananaWithMixin" t:mixins="clickonce" href="#">Order 1 Banana</a>

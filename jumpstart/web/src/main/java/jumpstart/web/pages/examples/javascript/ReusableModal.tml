@@ -38,11 +38,6 @@
 	<p>The component is called SimpleModal. Its job is to show or hide a Bootstrap Modal, 
 		with our content inside it.</p>
 
-	<p class="alert alert-info">
-		Unfortunately, we have had to work around issue 
-		<a href="https://issues.apache.org/jira/browse/TAP5-2391">TAP5-2391 Field-specific error not shown when AJAX used</a>.
-	</p>
-
 	References: 
 	<a href="http://getbootstrap.com/javascript/#modals">Bootstrap Modal</a>, 
 	<a href="http://tapestry.apache.org/javascript.html">Tapestry JavaScript</a>, 
@@ -52,6 +47,7 @@
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
 	
+	The source for PersonEditor is shown in the Smaller Components CRUD example.<br/>
 	The source for IPersonFinderServiceLocal and @EJB is shown in the Session Beans and @EJB examples.<br/><br/>
 	
 	<t:tabgroup>
