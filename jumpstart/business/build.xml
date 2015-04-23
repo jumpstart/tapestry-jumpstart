@@ -162,7 +162,10 @@
 		<mkdir dir="${lib.compile.dir}" />
 		<get dest="${lib.compile.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
 		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
-		<get dest="${lib.compile.dir}/hibernate-validator-4.3.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.1.Final/hibernate-validator-4.3.1.Final.jar" />
+		<!-- Hibernate 5* is not compatible with validation-api-1.0.x. See http://stackoverflow.com/questions/14730329/jpa-2-0-exception-to-use-javax-validation-package-in-jpa-2-0 .
+		<get dest="${lib.compile.dir}/hibernate-validator-5.1.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/5.1.2.Final/hibernate-validator-5.1.2.Final.jar" />
+		-->
+		<get dest="${lib.compile.dir}/hibernate-validator-4.3.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.2.Final/hibernate-validator-4.3.2.Final.jar" />
 
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. JBoss -->
 

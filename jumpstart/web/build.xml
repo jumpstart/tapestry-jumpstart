@@ -232,10 +232,10 @@
 		<get dest="${lib.provided.dir}/joda-time-2.1.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.1/joda-time-2.1.jar" />
 		<get dest="${lib.provided.dir}/slf4j-api-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
 		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
-		<!--
-		<get dest="${lib.provided.dir}/hibernate-validator-4.3.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.2.Final/hibernate-validator-4.3.2.Final.jar" />
-		-->
+		<!-- Hibernate 5* is not compatible with validation-api-1.0.x. See http://stackoverflow.com/questions/14730329/jpa-2-0-exception-to-use-javax-validation-package-in-jpa-2-0 .
 		<get dest="${lib.provided.dir}/hibernate-validator-5.1.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/5.1.2.Final/hibernate-validator-5.1.2.Final.jar" />
+		-->
+		<get dest="${lib.provided.dir}/hibernate-validator-4.3.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.2.Final/hibernate-validator-4.3.2.Final.jar" />
 
 		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
 
