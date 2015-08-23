@@ -173,7 +173,7 @@
 		<get dest="${lib.provided.dir}/javaee-api-6.0-5.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-5/javaee-api-6.0-5.jar" />
 		<!-- TODO: modify BaseEntity so it is not dependent on Hibernate. -->
 		<get dest="${lib.provided.dir}/hibernate-core-4.1.9.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar" />
-		<get dest="${lib.provided.dir}/slf4j-api-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
+		<get dest="${lib.provided.dir}/slf4j-api-1.7.12.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar" />
 
 		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
 

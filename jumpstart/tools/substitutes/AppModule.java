@@ -79,13 +79,13 @@ public class AppModule {
 	// - RequestHandler is described in http://tapestry.apache.org/request-processing.html
 	// - Based on an entry in the Tapestry Users mailing list by martijn.list on 15 Aug 09.
 
-	public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
-			PageRenderLinkSource pageRenderLinkSource) {
-		final HashSet<String> ASSETS_WHITE_LIST = new HashSet<String>(Arrays.asList("jpg", "jpeg", "png", "gif", "js",
-				"css", "ico"));
-		configuration.add("AssetProtectionFilter", new AssetProtectionFilter(ASSETS_WHITE_LIST, pageRenderLinkSource),
-				"before:*");
-	}
+//	public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
+//			PageRenderLinkSource pageRenderLinkSource) {
+//		final HashSet<String> ASSETS_WHITE_LIST = new HashSet<String>(Arrays.asList("jpg", "jpeg", "png", "gif", "js",
+//				"css", "ico"));
+//		configuration.add("AssetProtectionFilter", new AssetProtectionFilter(ASSETS_WHITE_LIST, pageRenderLinkSource),
+//				"before:*");
+//	}
 
 	// Tell Tapestry how to detect and protect pages that require security.
 	// We do this by contributing a custom ComponentRequestFilter to Tapestry's ComponentRequestHandler service.

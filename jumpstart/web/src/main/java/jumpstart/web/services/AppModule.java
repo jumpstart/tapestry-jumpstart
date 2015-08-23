@@ -1,7 +1,5 @@
 package jumpstart.web.services;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Map;
 
 import jumpstart.business.validation.constraints.Letters;
@@ -31,9 +29,7 @@ import org.apache.tapestry5.services.BeanBlockContribution;
 import org.apache.tapestry5.services.ComponentRequestFilter;
 import org.apache.tapestry5.services.DisplayBlockContribution;
 import org.apache.tapestry5.services.EditBlockContribution;
-import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Request;
-import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.javascript.DataConstants;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.services.security.WhitelistAnalyzer;
@@ -107,19 +103,11 @@ public class AppModule {
 	// configuration.addInstance(Person.class, PersonEncoder.class);
 	// }
 
-	// Tell Tapestry which locales we support, and tell Tapestry5jQuery not to suppress Tapestry's built-in Prototype
-	// and Scriptaculous (see the JQuery example for more information).
+	// Tell Tapestry which locales we support, and tell Tapestry to use its jQuery implementation for its JavaScript.
 	// We do this by contributing configuration to Tapestry's ApplicationDefaults service.
 
 	public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration) {
 		configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en_US,en_GB,fr");
-		// We have Tapestry5jQuery installed. Tell it we don't want it to suppress Prototype and Scriptaculous.
-		// configuration.add(JQuerySymbolConstants.SUPPRESS_PROTOTYPE, "false");
-		// We don't use $j in our javascript - instead we use function scoping (see
-		// http://api.jquery.com/jQuery.noConflict/)
-		// but we need this next line to keep Tapestry happy (since Tapestry 5.3.4).
-		// configuration.add(JQuerySymbolConstants.JQUERY_ALIAS, "$j");
-
 		configuration.add(SymbolConstants.JAVASCRIPT_INFRASTRUCTURE_PROVIDER, "jquery");
 	}
 
@@ -130,13 +118,13 @@ public class AppModule {
 	// - RequestHandler is described in http://tapestry.apache.org/request-processing.html
 	// - Based on an entry in the Tapestry Users mailing list by martijn.list on 15 Aug 09.
 
-//	public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
-//			PageRenderLinkSource pageRenderLinkSource) {
-//		final HashSet<String> ASSETS_WHITE_LIST = new HashSet<String>(Arrays.asList("jpg", "jpeg", "png", "gif", "js",
-//				"css", "ico", "map", "woff"));
-//		configuration.add("AssetProtectionFilter", new AssetProtectionFilter(ASSETS_WHITE_LIST, pageRenderLinkSource),
-//				"before:*");
-//	}
+	// public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
+	// PageRenderLinkSource pageRenderLinkSource) {
+	// final HashSet<String> ASSETS_WHITE_LIST = new HashSet<String>(Arrays.asList("jpg", "jpeg", "png", "gif", "js",
+	// "css", "ico", "map", "woff"));
+	// configuration.add("AssetProtectionFilter", new AssetProtectionFilter(ASSETS_WHITE_LIST, pageRenderLinkSource),
+	// "before:*");
+	// }
 
 	// Tell Tapestry how to detect and protect pages that require security.
 	// We do this by contributing a custom ComponentRequestFilter to Tapestry's ComponentRequestHandler service.
