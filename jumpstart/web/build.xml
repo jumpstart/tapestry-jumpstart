@@ -283,8 +283,8 @@
 		<get dest="${lib.test.dir}/junit-4.11.jar" usetimestamp="true" src="${maven.repo.root}/junit/junit/4.11/junit-4.11.jar" />
 		<get dest="${lib.test.dir}/hamcrest-core-1.3.jar" usetimestamp="true" src="${maven.repo.root}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
 		<get dest="${lib.test.dir}/log4j-1.2.17.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.17/log4j-1.2.17.jar" />
-		<get dest="${lib.test.dir}/slf4j-api-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
-		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar" />
+		<get dest="${lib.test.dir}/slf4j-api-1.7.12.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar" />
+		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.12.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.12/slf4j-log4j12-1.7.12.jar" />
 		<!-- For JNDI lookup -->
 		<get dest="${lib.test.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
 		<!-- For Jetty -->
