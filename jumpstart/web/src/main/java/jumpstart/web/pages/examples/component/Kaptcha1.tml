@@ -32,10 +32,9 @@
 	<ul>
 		<li>tapestry-kaptcha-5.4.n.jar, for compile and runtime.</li>
 		<li>
-			kaptcha-2.3.jar, for runtime. You can get it from:
+			kaptcha-2.3.2.jar, for runtime. You can get it from:
 			<ul>
-				<li>https://nexus.sourcesense.com/nexus/content/repositories/public/com/google/code/kaptcha/2.3/</li>
-				<li>http://savant.inversoft.org/com/google/code/kaptcha/kaptcha/2.3/</li>
+				<li>http://kaptcha.googlecode.com/files/kaptcha-2.3.2.zip</li>
 			</ul>
 		</li>
 	</ul>

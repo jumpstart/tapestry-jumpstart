@@ -266,6 +266,9 @@
 			<!-- For less4j -->
 			<get dest="${lib.runtime.dir}/commons-beanutils-1.8.3.jar" usetimestamp="true" src="${maven.repo.root}/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar" />
 		<!-- For tapestry-kaptcha -->
+		<!-- Dubious integrity. We'll stick to the google zip file download for now.
+		<get dest="${lib.runtime.dir}/kaptcha-2.3.2.jar" usetimestamp="true" src="${maven.repo.root}/com/github/penggle/kaptcha/2.3.2/kaptcha-2.3.2.jar" />
+		-->
 		<mkdir dir="${main.tmp.dir}"/>
 		<get dest="${main.tmp.dir}/kaptcha-2.3.2.zip" usetimestamp="true" src="http://kaptcha.googlecode.com/files/kaptcha-2.3.2.zip" />
 		<unzip dest="${main.tmp.dir}/kaptcha-2.3.2" src="${main.tmp.dir}/kaptcha-2.3.2.zip" />
