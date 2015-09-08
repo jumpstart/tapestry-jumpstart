@@ -4,12 +4,12 @@
 
 define([ "jquery" ], function($) {
 	
-	alreadyClickedOnce = false;
+	var alreadyClickedOnce = false;
 
-	init = function(spec) {
+	var init = function(spec) {
 		$element = $("#" + spec.elementId);
 
-		doClickOnce = function() {
+		var doClickOnce = function() {
 			
 			if (alreadyClickedOnce) {
 				// Cancel the original click event.

@@ -1,17 +1,20 @@
 define(["jquery"], function($) {
 
-	return {
-		$submit : "",
+	var $submit;
 
-		init : function(submitId) {
-			$submit = $("#" + submitId);
-		},
-		
-		submit : function(updatedFilterFormAction) {
-			$form = $submit.closest("form");
-			$form.attr("action", updatedFilterFormAction);
-			$submit.click();
-		}
+	var init = function(submitId) {
+		$submit = $("#" + submitId);
+	};
+	
+	var submit = function(updatedFilterFormAction) {
+		$form = $submit.closest("form");
+		$form.attr("action", updatedFilterFormAction);
+		$submit.click();
+	}
+	
+	return {
+		init : init,
+		submit : submit
 	}
 
 });

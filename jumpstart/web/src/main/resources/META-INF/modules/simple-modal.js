@@ -1,10 +1,10 @@
 define(["jquery", "bootstrap/modal"], function($) {
 	
-	activate = function(modalId, options) {
+	var activate = function(modalId, options) {
 		$('#' + modalId).modal(options);
 	}
 	
-	hide = function(modalId) {
+	var hide = function(modalId) {
 		var $modal = $('#' + modalId);
 
 		if ($modal.length > 0) {

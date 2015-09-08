@@ -30,7 +30,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 7.0 Preview 30</h1>
+				<h1>JumpStart 7.0 Preview 31</h1>
 				<h2>For Tapestry 5.4 Beta 35</h2>
 			</div>
 		</div>
@@ -141,9 +141,6 @@
 							<t:pagelink page="examples/state/SharingAcrossTheApplication">Sharing Across the Application</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/navigation/WhatIsCalledAndWhen">What is Called and When</t:pagelink><br/>
-						</div>
-						<div class="group">
 							<t:pagelink page="examples/styling/LinksAndSubmits1">Styling Links and Submits</t:pagelink><br/>
 						</div>
 						<div class="group">
@@ -156,6 +153,8 @@
 					</td>
 					<td class="col">
 						<div class="group">
+							<t:pagelink page="examples/navigation/WhatIsCalledAndWhen">What is Called and When</t:pagelink><br/>
+							<br/>
 							<t:pagelink page="examples/navigation/OnActivateAndOnPassivate" t:context="literal:3">onActivate and onPassivate</t:pagelink><br/>
 							<t:pagelink page="examples/infrastructure/HandlingABadContext" t:context="literal:1">Handling a Bad Context</t:pagelink><br/>
 							<br/>
@@ -273,6 +272,25 @@
 					</td>
 					<td class="col">
 						<div class="group">
+							<t:pagelink page="examples/ajax/AjaxWhatIsCalledAndWhen">AJAX: What is Called and When</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/javascript/JavaScript">JavaScript</t:pagelink><br/>
+							<t:pagelink page="examples/javascript/ReusableJavaScript">Reusable JavaScript</t:pagelink><br/>
+							<t:pagelink page="examples/javascript/RobustJavaScript">Robust JavaScript</t:pagelink><br/>
+							<t:pagelink page="examples/javascript/JavaScriptMixin">JavaScript Mixin</t:pagelink><br/>
+							<t:pagelink page="examples/javascript/CreatingMixins1">Creating Mixins: ClickOnce</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<div class="together">Putting It All Together</div>
+							<t:pagelink page="together/ajaxcomponentscrud/Persons">AJAX Components CRUD</t:pagelink><br/>
+							<!-- 
+							<t:pagelink page="together/gracefulajaxcomponentscrud/Persons" t:disabled="true">Graceful AJAX Components CRUD</t:pagelink><br/>
+							 -->
+						</div>
+						<div class="group">
 							<t:pagelink page="examples/ajax/AjaxEventLinksInALoop">AJAX EventLinks in a Loop</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormsInALoop">AJAX Forms in a Loop</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormsInALoopWithDEH">AJAX Forms in a Loop (With DEH)</t:pagelink><br/>
@@ -289,18 +307,6 @@
 							<t:pagelink page="examples/ajax/AjaxFormLoop1" t:disabled="true">AjaxFormLoop</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormLoopWithHolders1" t:disabled="true">AjaxFormLoop With Holders</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormLoopTailored1" t:disabled="true">AjaxFormLoop Tailored</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxWhatIsCalledAndWhen">AJAX: What is Called and When</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/javascript/JavaScript">JavaScript</t:pagelink><br/>
-							<t:pagelink page="examples/javascript/ReusableJavaScript">Reusable JavaScript</t:pagelink><br/>
-							<t:pagelink page="examples/javascript/RobustJavaScript">Robust JavaScript</t:pagelink><br/>
-							<t:pagelink page="examples/javascript/JavaScriptMixin">JavaScript Mixin</t:pagelink><br/>
-							<t:pagelink page="examples/javascript/CreatingMixins1">Creating Mixins: ClickOnce</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/javascript/Modal" t:context="literal:1">Modal</t:pagelink><br/>
@@ -323,13 +329,6 @@
 							<t:pagelink page="examples/ajax/AjaxComponents1">AJAX Components</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxValidators1" t:disabled="true">AJAX Validators</t:pagelink><br/>
 						</div>
-						<div class="group">
-							<div class="together">Putting It All Together</div>
-							<t:pagelink page="together/ajaxcomponentscrud/Persons">AJAX Components CRUD</t:pagelink><br/>
-							<!-- 
-							<t:pagelink page="together/gracefulajaxcomponentscrud/Persons" t:disabled="true">Graceful AJAX Components CRUD</t:pagelink><br/>
-							 -->
-						</div>
 					</td>
 				</tr>
 			</table>
@@ -340,9 +339,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0 Preview 30">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0 Preview 31">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0 Preview 30">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0 Preview 31">me</a>.<br/>
 		</div>
 	</td>
 	</tr>
