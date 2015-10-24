@@ -154,7 +154,8 @@
 					<td class="col">
 						<div class="group">
 							<t:pagelink page="examples/navigation/WhatIsCalledAndWhen">What is Called and When</t:pagelink><br/>
-							<br/>
+						</div>
+						<div class="group">
 							<t:pagelink page="examples/navigation/OnActivateAndOnPassivate" t:context="literal:3">onActivate and onPassivate</t:pagelink><br/>
 							<t:pagelink page="examples/infrastructure/HandlingABadContext" t:context="literal:1">Handling a Bad Context</t:pagelink><br/>
 							<br/>
@@ -197,7 +198,7 @@
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/infrastructure/ProtectingPages">Protecting Pages</t:pagelink><br/>
-							<t:pagelink page="examples/infrastructure/ProtectingAssets" t:disabled="true">Protecting Assets</t:pagelink><br/>
+							<t:pagelink page="examples/infrastructure/ProtectingAssets" t:disabled="true" class="text-muted">Protecting Assets</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/state/DisplaySessionContents">Display Session Contents</t:pagelink><br/>
