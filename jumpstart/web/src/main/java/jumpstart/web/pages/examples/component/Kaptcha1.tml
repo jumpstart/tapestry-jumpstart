@@ -32,9 +32,15 @@
 	<ul>
 		<li>tapestry-kaptcha-5.4.n.jar, for compile and runtime.</li>
 		<li>
-			kaptcha-2.3.2.jar, for runtime. You can get it from:
+			kaptcha-0.0.8.jar, for runtime. You can get it from:
 			<ul>
-				<li>http://kaptcha.googlecode.com/files/kaptcha-2.3.2.zip</li>
+				<li>http://repo1.maven.org/maven2/com/github/axet/kaptcha/0.0.8/kaptcha-0.0.8.jar</li>
+			</ul>
+		</li>
+		<li>
+			filters-2.0.235.jar, for runtime. You can get it from:
+			<ul>
+				<li>http://repo1.maven.org/maven2/com/jhlabs/filters/2.0.235/filters-2.0.235.jar</li>
 			</ul>
 		</li>
 	</ul>

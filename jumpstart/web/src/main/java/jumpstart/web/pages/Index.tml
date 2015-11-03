@@ -31,7 +31,7 @@
 		<div id="titlesbar">
 			<div id="titles">
 				<h1>JumpStart 7.0 Preview 31</h1>
-				<h2>For Tapestry 5.4 Beta 35</h2>
+				<h2>For Tapestry 5.4 RC 1</h2>
 			</div>
 		</div>
 	</td>
@@ -198,7 +198,7 @@
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/infrastructure/ProtectingPages">Protecting Pages</t:pagelink><br/>
-							<t:pagelink page="examples/infrastructure/ProtectingAssets" t:disabled="true" class="text-muted">Protecting Assets</t:pagelink><br/>
+							<t:pagelink page="examples/infrastructure/ProtectingAssets">Protecting Assets</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/state/DisplaySessionContents">Display Session Contents</t:pagelink><br/>
@@ -281,8 +281,6 @@
 							<t:pagelink page="examples/javascript/RobustJavaScript">Robust JavaScript</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/JavaScriptMixin">JavaScript Mixin</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/CreatingMixins1">Creating Mixins: ClickOnce</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/javascript/JQueryDataTables" t:disabled="true">jQuery DataTables</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>
