@@ -14,7 +14,7 @@
 		<t:pagelink page="examples/ws/PersonsFind01" parameters="{'namefilter':'a'}">PersonsFind01?namefilter=a</t:pagelink><br/>
 	</div>
 	
-	For a more RESTful implementation try <a href="http://tynamo.org/tapestry-resteasy+guide">tapestry-resteasy</a>.<br/><br/>
+	For a more RESTful implementation try <a href="http://www.tynamo.org/tapestry-resteasy+guide">tapestry-resteasy</a>.<br/><br/>
 
 	References: 
 	<a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/components/PageLink.html">PageLink</a>, 
