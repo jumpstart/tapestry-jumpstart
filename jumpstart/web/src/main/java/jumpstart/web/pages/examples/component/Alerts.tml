@@ -10,7 +10,9 @@
 	You can tailor the appearance of the alerts to suit your needs with CSS.<br/>
 
 	<div class="eg">
+		Sorry, but this example is not available in this version due to <a href="https://issues.apache.org/jira/browse/TAP5-2509">TAP5-2509</a>.
 		<t:form class="form-horizontal">
+		<!-- 
 			<div class="form-group">
 				<t:label for="duration" class="col-sm-3"/>
 				<div class="col-sm-6">
@@ -69,6 +71,7 @@
 					<t:submit/> 
 				</div>
 			</div>
+		 -->
 		</t:form>
 
 		<t:alerts showDismissAll="prop:showDismissAll"/>
