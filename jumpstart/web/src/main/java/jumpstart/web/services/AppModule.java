@@ -2,11 +2,6 @@ package jumpstart.web.services;
 
 import java.util.Map;
 
-import jumpstart.business.validation.constraints.Letters;
-import jumpstart.util.JodaTimeUtil;
-import jumpstart.web.translators.MoneyTranslator;
-import jumpstart.web.translators.YesNoTranslator;
-
 import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.Translator;
@@ -35,13 +30,17 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.services.security.WhitelistAnalyzer;
 import org.apache.tapestry5.services.transform.ComponentClassTransformWorker2;
 import org.apache.tapestry5.upload.services.UploadSymbols;
-//import org.got5.tapestry5.jquery.JQuerySymbolConstants;
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 import org.slf4j.Logger;
+
+import jumpstart.business.validation.constraints.Letters;
+import jumpstart.util.JodaTimeUtil;
+import jumpstart.web.translators.MoneyTranslator;
+import jumpstart.web.translators.YesNoTranslator;
 
 /**
  * This module is automatically included as part of the Tapestry IoC Registry, it's a good place to configure and extend
@@ -110,21 +109,6 @@ public class AppModule {
 		configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en_US,en_GB,fr");
 		configuration.add(SymbolConstants.JAVASCRIPT_INFRASTRUCTURE_PROVIDER, "jquery");
 	}
-
-	// Tell Tapestry how to block access to WEB-INF/, META-INF/, and assets that are not in our assets "whitelist".
-	// We do this by contributing a custom RequestFilter to Tapestry's RequestHandler service.
-	// - This is necessary due to https://issues.apache.org/jira/browse/TAP5-815 .
-	// - RequestHandler is shown in http://tapestry.apache.org/request-processing.html#RequestProcessing-Overview .
-	// - RequestHandler is described in http://tapestry.apache.org/request-processing.html
-	// - Based on an entry in the Tapestry Users mailing list by martijn.list on 15 Aug 09.
-
-	// public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
-	// PageRenderLinkSource pageRenderLinkSource) {
-	// final HashSet<String> ASSETS_WHITE_LIST = new HashSet<String>(Arrays.asList("jpg", "jpeg", "png", "gif", "js",
-	// "css", "ico", "map", "woff"));
-	// configuration.add("AssetProtectionFilter", new AssetProtectionFilter(ASSETS_WHITE_LIST, pageRenderLinkSource),
-	// "before:*");
-	// }
 
 	// Tell Tapestry how to detect and protect pages that require security.
 	// We do this by contributing a custom ComponentRequestFilter to Tapestry's ComponentRequestHandler service.
@@ -259,8 +243,8 @@ public class AppModule {
 		configuration.add(new DisplayBlockContribution("dateTime", "infra/AppPropertyDisplayBlocks", "dateTime"));
 		configuration
 				.add(new DisplayBlockContribution("dateMidnight", "infra/AppPropertyDisplayBlocks", "dateMidnight"));
-		configuration.add(new DisplayBlockContribution("localDateTime", "infra/AppPropertyDisplayBlocks",
-				"localDateTime"));
+		configuration
+				.add(new DisplayBlockContribution("localDateTime", "infra/AppPropertyDisplayBlocks", "localDateTime"));
 		configuration.add(new DisplayBlockContribution("localDate", "infra/AppPropertyDisplayBlocks", "localDate"));
 		configuration.add(new DisplayBlockContribution("localTime", "infra/AppPropertyDisplayBlocks", "localTime"));
 

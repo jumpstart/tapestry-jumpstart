@@ -72,21 +72,6 @@ public class AppModule {
 		configuration.add(JQuerySymbolConstants.JQUERY_ALIAS, "$j");
 	}
 
-	// Tell Tapestry how to block access to WEB-INF/, META-INF/, and assets that are not in our assets "whitelist".
-	// We do this by contributing a custom RequestFilter to Tapestry's RequestHandler service.
-	// - This is necessary due to https://issues.apache.org/jira/browse/TAP5-815 .
-	// - RequestHandler is shown in http://tapestry.apache.org/request-processing.html#RequestProcessing-Overview .
-	// - RequestHandler is described in http://tapestry.apache.org/request-processing.html
-	// - Based on an entry in the Tapestry Users mailing list by martijn.list on 15 Aug 09.
-
-//	public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
-//			PageRenderLinkSource pageRenderLinkSource) {
-//		final HashSet<String> ASSETS_WHITE_LIST = new HashSet<String>(Arrays.asList("jpg", "jpeg", "png", "gif", "js",
-//				"css", "ico"));
-//		configuration.add("AssetProtectionFilter", new AssetProtectionFilter(ASSETS_WHITE_LIST, pageRenderLinkSource),
-//				"before:*");
-//	}
-
 	// Tell Tapestry how to detect and protect pages that require security.
 	// We do this by contributing a custom ComponentRequestFilter to Tapestry's ComponentRequestHandler service.
 	// - ComponentRequestHandler is shown in
