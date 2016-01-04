@@ -9,8 +9,8 @@
 <body class="container">
 	<h3>Protecting Assets</h3>
 	
-	Assets are well protected in Tapestry 5.4. The strategies we used in 5.3 and earlier, such as request filters and "whitelists", are not needed in 5.4.<br/><br/>
-	
+	Assets are well protected in Tapestry 5.4. The strategies needed in 5.3 and earlier, such as request filters and "whitelists", are not needed in 5.4.<br/><br/>
+
 	References: 
 	<a href="http://tapestry.apache.org/assets.html">Assets</a>.<br/><br/>
 	

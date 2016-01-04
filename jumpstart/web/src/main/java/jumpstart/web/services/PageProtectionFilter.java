@@ -159,9 +159,10 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 
 	public AuthCheckResult checkAuthorityToPage(String requestedPageName) throws IOException {
 
+		Component page = componentSource.getPage(requestedPageName);
+
 		// Does the page have security annotations @ProtectedPage or @RolesAllowed?
 
-		Component page = componentSource.getPage(requestedPageName);
 		boolean protectedPage = page.getClass().getAnnotation(ProtectedPage.class) != null;
 		RolesAllowed rolesAllowed = page.getClass().getAnnotation(RolesAllowed.class);
 
@@ -330,6 +331,11 @@ public class PageProtectionFilter implements ComponentRequestFilter {
 	}
 
 	private ISecurityFinderServiceLocal getSecurityFinderService() {
+
+		if (businessServicesLocator == null) {
+			businessServicesLocator = new BusinessServicesLocator(logger);
+		}
+
 		return (ISecurityFinderServiceLocal) businessServicesLocator.getService(ISecurityFinderServiceLocal.class);
 	}
 }
