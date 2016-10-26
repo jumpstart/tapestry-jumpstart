@@ -10,16 +10,16 @@ public class EasyOutput {
 	private String name;
 
 	@Property
-	private Integer age;
+	private Gender gender;
 
 	@Property
-	private Gender gender;
+	private Integer age;
 
 	void setupRender() {
 
 		name = "Jane Citizen";
-		age = 25;
 		gender = Gender.FEMALE;
+		age = 25;
 
 	}
 

@@ -9,21 +9,22 @@
 	<p>The examples so far have involved one type of request: the <em>page render request</em>. To recap:</p>
 	
 	<ul>
-		<li><strong>Page render requests</strong> target a specific page. Tapestry activates the page, 
-		renders it to HTML, and returns it to the client.</li>
+		<li><strong>Page render requests</strong> target a specific page. They come from a PageLink.<br/>
+		When the Tapestry server receives a page render request it activates the page, renders it to HTML, and returns it to the client.</li>
 	</ul>
 
 	<p>To send events - possibly containing input data - to the server, there is a second type of request: the <em>component event request</em>.</p>
 	
 	<ul>
-		<li><strong>Component event requests</strong> target a specific component on the page. Tapestry activates 
-		the page, triggers an event on the component, and the component may bubble up events for the containing page 
-		or components to react to.</li>
+		<li><strong>Component event requests</strong> target a specific component on the page. They often come from a Form or an EventLink.<br/>
+		When the Tapestry server receives a component event request it activates the page, finds the component and triggers an event on it.<br/> 
+		The component may bubble up events for the containing page or components to react to.</li>
 	</ul>
 
-	<p><strong>This is really significant:</strong> the container, ie. the page or component; that chose to render 
-	a particular component is then able to react to the events sent to that component. This is perfect! 
-	What could be better placed to interpret and understand the meaning of the component event than the component's container?</p>
+	<p><strong>This is a really significant feature of Tapestry!</strong> Component event requests go straight back to the container, 
+	meaning the page/component that chose to render the component, rather than some "action handler". This is perfect! 
+	What could be better placed to understand the context and meaning of the event than the issuing component's container? 
+	This is what truly sets apart a component framework such as Tapestry from the many action frameworks out there.</p>
 
     <p>The 2 most used components for generating <em>component event requests</em> are these:</p>
 
