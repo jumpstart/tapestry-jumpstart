@@ -1,71 +1,49 @@
 package jumpstart.util;
 
-
 import org.slf4j.Logger;
 
 public class EJBProviderUtil {
+	private static String PROPERTY_EJB_PROVIDER = "jumpstart.ejb-provider";
 
-	static public EJBProviderEnum detectEJBProvider(Logger logger) {
-		logger.info("Looking for an EJB provider...");
-		
-		try {
-			Class.forName("org.apache.tomcat.JarScanner");
-			Class.forName("org.apache.openejb.loader.Loader");
-			logger.info("...found TomCat 7 OpenEJB 4 local.");
-			return EJBProviderEnum.TOMCAT_7_OPENEJB_4_LOCAL;
-		} 
-		catch (Exception e) {
-		}
+	public static EJBProviderEnum detectEJBProvider(Logger logger) {
+		EJBProviderEnum ejbProvider = null;
+
+		String ejbProviderStr = null;
 
 		try {
-			Class.forName("org.apache.openejb.loader.Loader");
-			logger.info("...found OpenEJB 4 local.");
-			return EJBProviderEnum.OPENEJB_4_LOCAL;
+			ejbProviderStr = System.getProperty(PROPERTY_EJB_PROVIDER);
+
+			if (ejbProviderStr == null) {
+				throw new IllegalStateException("System property \"" + PROPERTY_EJB_PROVIDER
+						+ "\" not found. Please set it to one of: {" + getAllowedValuesAsStr() + "}.");
+			}
+
+			ejbProvider = EJBProviderEnum.valueOf(ejbProviderStr);
+		}
+		catch (IllegalStateException e) {
+			throw e;
+		}
+		catch (SecurityException e) {
+			throw new IllegalStateException("Failed to get system property \"" + PROPERTY_EJB_PROVIDER + "\": " + e);
 		}
 		catch (Exception e) {
+			throw new IllegalStateException("Found system property \"" + PROPERTY_EJB_PROVIDER + "\" equals \""
+					+ ejbProviderStr + "\", expected one of: {" + getAllowedValuesAsStr() + "}.");
 		}
 
-		try {
-			Class.forName("org.apache.openejb.client.Client");
-			logger.info("...found OpenEJB 4 remote.");
-			return EJBProviderEnum.OPENEJB_4_REMOTE;
-		}
-		catch (Exception e) {
-		}
-
-		try {
-			Class.forName("org.jboss.modules.Main");
-			logger.info("...found JBoss 7 local.");
-			return EJBProviderEnum.JBOSS_7_LOCAL;
-		}
-		catch (Exception e) {
-		}
-
-		try {
-			Class.forName("org.jboss.ejb.client.remoting.ClientMapping");
-			logger.info("...found JBoss 7 remote.");
-			return EJBProviderEnum.JBOSS_7_REMOTE;
-		}
-		catch (Exception e) {
-		}
-
-		try {
-			Class.forName("com.sun.enterprise.admin.cli.AsadminMain");
-			logger.info("...found GlassFish 3 local.");
-			return EJBProviderEnum.GLASSFISH_3_LOCAL;
-		}
-		catch (Exception e) {
-		}
-
-		try {
-			Class.forName("org.glassfish.appclient.client.acc.agent.ACCAgentClassLoader");
-			logger.info("...found GlassFish 3 remote.");
-			return EJBProviderEnum.GLASSFISH_3_REMOTE;
-		}
-		catch (Exception e) {
-		}
-
-		throw new IllegalStateException(
-				"Failed to detect a known EJBProvider. Tried OpenEJB, JBoss, and GlassFish.");
+		return ejbProvider;
 	}
+
+	private static String getAllowedValuesAsStr() {
+		String valuesStr = "";
+
+		EJBProviderEnum[] values = EJBProviderEnum.values();
+
+		for (EJBProviderEnum ejbProviderEnum : values) {
+			valuesStr += "\"" + ejbProviderEnum.name() + "\", ";
+		}
+
+		return valuesStr.substring(0, valuesStr.lastIndexOf(","));
+	}
+
 }

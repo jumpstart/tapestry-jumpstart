@@ -12,6 +12,8 @@
 	<property name="web.main.webapp.dir" value="${project.dir}/${web.dir}/src/main/webapp"/>
 	<property name="web.main.lib.compile.dir" value="${project.dir}/${web.dir}/src/main/lib-compile"/>
 	<property name="web.main.lib.runtime.dir" value="${project.dir}/${web.dir}/src/main/lib-runtime"/>
+	
+	<property name="tapestry.overrides.path" value="org/apache/tapestry5"/>
 
 	<property name="project.business.dir" value="${project.dir}/${business.dir}"/>
 	<property name="business.main.java.dir" value="${project.dir}/${business.dir}/src/main/java"/>
@@ -36,13 +38,12 @@
 
 		<copy todir="${war.dir}/WEB-INF/classes">
 			<!-- Exclude js because by convention it shouldn't be in here. See note below, where I get the js. -->
-			<fileset dir="${project.bin.dir}" includes="${web.package.path}/**" excludes="**/*.js" />
-			<fileset dir="${project.bin.dir}" includes="${tapestry.corelib.overrides.path}/**" excludes="**/*.js" /> 
+			<fileset dir="${project.bin.dir}" includes="${web.package.path}/**,${tapestry.overrides.path}/**" excludes="**/*.js" />
 			<fileset dir="${web.main.resources.dir}" />
 		</copy>
 
 		<!-- Pick up the js that I left out above. By convention js should be in main/resources/META-INF 
-			but I prefer to keep js that is specific to a page/component/mixin in alongside its java. -->
+			but I prefer to keep js that is specific to a page/component/mixin alongside its java. -->
 		<copy todir="${war.dir}/WEB-INF/classes/META-INF/modules">
 			<fileset dir="${project.bin.dir}/${web.package.path}" includes="**/*.js" />
 		</copy>
@@ -58,10 +59,6 @@
 
 	<target name="copy-business-to-collapsed-war" depends="mkdir">
 
-		<copy todir="${war.dir}/WEB-INF/classes">
-			<fileset dir="${business.main.resources.dir}" excludes="META-INF/MANIFEST.MF" />
-		</copy>
-
 		<copy todir="${war.dir}/WEB-INF/classes/${business.package.path}">
 			<fileset dir="${project.bin.dir}/${business.package.path}"/>
 		</copy>
@@ -74,9 +71,12 @@
 			<fileset dir="${project.bin.dir}/${util.package.path}"/>
 		</copy>
 
-		<copy tofile="${war.dir}/WEB-INF/classes/META-INF/persistence.xml" file="${business.main.resources.dir}/persistence-descriptor/${collapsed.persistence.descriptor}" />
-		<copy todir="${war.dir}/WEB-INF/classes/">
-			<fileset dir="${business.main.resources.dir}" includes="*.properties"/>
+		<copy todir="${war.dir}/WEB-INF/classes/META-INF">
+			<fileset dir="${business.main.resources.dir}/META-INF" excludes="MANIFEST.MF,beans.xml"/>
+		</copy>
+
+		<copy tofile="${war.dir}/WEB-INF/classes/META-INF/persistence.xml">
+			<fileset dir="${business.main.resources.dir}/persistence-descriptor" includes="${collapsed.persistence.descriptor}" />
 		</copy>
 
 		<copy todir="${war.dir}/WEB-INF/lib">

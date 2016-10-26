@@ -31,6 +31,7 @@
 		<delete file="${ear.file}" />
 
 		<ear destfile="${ear.file}" manifest="${resources.main.dir}/META-INF/MANIFEST.MF" appxml="${resources.main.dir}/META-INF/application.xml">
+			<zipfileset dir="${resources.main.dir}" excludes="META-INF/MANIFEST.MF,META-INF/application.xml"/>
 			<zipfileset file="${business.jar.file}" />
 			<zipfileset file="${web.war.file}" />
 			<zipfileset dir="${business.lib.compile.dir}" includes="*.jar" prefix="lib" />
@@ -38,11 +39,11 @@
 		</ear>
 	</target>
 
-	<target name="deploy-ear-to-server-jboss7">
+	<target name="deploy-ear-to-server-wildfly9">
 		<available type="dir" file="${deployment.server.dir}/deployments" property="deployment.deploy.dir.exists"/>
 		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${deployment.server.dir}/deployments."/>
 
-		<!-- There is no datasource descriptor to copy to jboss7 - datasources are added via the admin console web page. -->
+		<!-- There is no datasource descriptor to copy to wildfly9 - datasources are added via the admin console web page. -->
 
 		<copy todir="${deployment.server.dir}/deployments" file="${ear.file}"/>
 	</target>

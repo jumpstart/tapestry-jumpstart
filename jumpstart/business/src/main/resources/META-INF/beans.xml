@@ -1,0 +1,2 @@
+<!-- This empty beans.xml is needed in EAR files for CDI to work. See http://docs.oracle.com/javaee/6/tutorial/doc/gjbnz.html . -->
+<beans/>
