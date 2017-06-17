@@ -253,9 +253,6 @@
 			<get dest="${lib.runtime.dir}/guava-17.0.jar" usetimestamp="true" src="${maven.repo.root}/com/google/guava/guava/17.0/guava-17.0.jar" />
 			<get dest="${lib.runtime.dir}/json-20090211.jar" usetimestamp="true" src="${maven.repo.root}/org/json/json/20090211/json-20090211.jar" />				
 			<!-- For closure-compiler and less4j -->
-			<!--
-			<get dest="${lib.runtime.dir}/protobuf-java-2.4.1.jar" usetimestamp="true" src="${maven.repo.root}/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.jar" />
-			-->				
 			<get dest="${lib.runtime.dir}/protobuf-java-2.5.0.jar" usetimestamp="true" src="${maven.repo.root}/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar" />				
 			<!-- For less4j -->
 			<get dest="${lib.runtime.dir}/commons-beanutils-1.8.3.jar" usetimestamp="true" src="${maven.repo.root}/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar" />

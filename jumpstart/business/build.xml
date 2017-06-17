@@ -97,6 +97,7 @@
 			<fileset dir="${target.classes.dir}" />
 			<zipfileset dir="${main.resources.dir}/META-INF" prefix="META-INF" excludes="MANIFEST.MF"/>
 			<zipfileset file="${deployment.persistence.descriptor.file}" fullpath="META-INF/persistence.xml" />
+			<zipfileset dir="${main.resources.dir}" includes="*.properties" />
 		</jar>
 	</target>
 

@@ -61,9 +61,11 @@ public class BusinessServicesLocator extends JNDIObjectLocator implements IBusin
 					+ canonicalInterfaceName;
 		}
 		else if (ejbProvider == EJBProviderEnum.JBOSS_7_LOCAL) {
-			// Uses the web app name, and other bits, eg. "jumpstart/PersonService/local".
-			jndiName = "jumpstart/" + stripOffLocalOrRemote(getSimpleName(canonicalInterfaceName).substring(1))
-					+ "/local";
+			// Uses one of the ways found early in the JBoss log (logger is
+			// org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor).
+			jndiName = "java:global/jumpstart/jumpstart.jar/"
+					+ stripOffLocalOrRemote(getSimpleName(canonicalInterfaceName).substring(1)) + "!"
+					+ canonicalInterfaceName;
 		}
 		else if (ejbProvider == EJBProviderEnum.JBOSS_7_REMOTE) {
 			// Uses an odd format - similar to the EJB3.1 global name, eg.
