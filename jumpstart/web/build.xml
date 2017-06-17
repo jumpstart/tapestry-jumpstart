@@ -198,26 +198,26 @@
 		<!-- compile-time jars - needed for compiling and will be put in the package for runtime -->
 
 		<mkdir dir="${lib.compile.dir}"/>
-		<get dest="${lib.compile.dir}/tapestry-core-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-core/5.4.1/tapestry-core-5.4.1.jar" />
-		<get dest="${lib.compile.dir}/tapestry-json-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-json/5.4.1/tapestry-json-5.4.1.jar" />			
-		<get dest="${lib.compile.dir}/beanmodel-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/beanmodel/5.4.1/beanmodel-5.4.1.jar" />				
-		<get dest="${lib.compile.dir}/commons-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/commons/5.4.1/commons-5.4.1.jar" />				
-		<get dest="${lib.compile.dir}/tapestry-func-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-func/5.4.1/tapestry-func-5.4.1.jar" />				
-		<get dest="${lib.compile.dir}/plastic-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/plastic/5.4.1/plastic-5.4.1.jar" />
-		<get dest="${lib.compile.dir}/tapestry5-annotations-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry5-annotations/5.4.1/tapestry5-annotations-5.4.1.jar" />
-		<get dest="${lib.compile.dir}/tapestry-ioc-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-ioc/5.4.1/tapestry-ioc-5.4.1.jar" />
+		<get dest="${lib.compile.dir}/tapestry-core-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-core/5.4.3/tapestry-core-5.4.3.jar" />
+		<get dest="${lib.compile.dir}/tapestry-json-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-json/5.4.3/tapestry-json-5.4.3.jar" />			
+		<get dest="${lib.compile.dir}/beanmodel-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/beanmodel/5.4.3/beanmodel-5.4.3.jar" />				
+		<get dest="${lib.compile.dir}/commons-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/commons/5.4.3/commons-5.4.3.jar" />				
+		<get dest="${lib.compile.dir}/tapestry-func-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-func/5.4.3/tapestry-func-5.4.3.jar" />				
+		<get dest="${lib.compile.dir}/plastic-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/plastic/5.4.3/plastic-5.4.3.jar" />
+		<get dest="${lib.compile.dir}/tapestry5-annotations-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry5-annotations/5.4.3/tapestry5-annotations-5.4.3.jar" />
+		<get dest="${lib.compile.dir}/tapestry-ioc-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-ioc/5.4.3/tapestry-ioc-5.4.3.jar" />
 		<get dest="${lib.compile.dir}/javax.inject-1.jar" usetimestamp="true" src="${maven.repo.root}/javax/inject/javax.inject/1/javax.inject-1.jar" />
 		<!-- For tapestry-kaptcha -->
-		<get dest="${lib.compile.dir}/tapestry-kaptcha-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-kaptcha/5.4.1/tapestry-kaptcha-5.4.1.jar" />
+		<get dest="${lib.compile.dir}/tapestry-kaptcha-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-kaptcha/5.4.3/tapestry-kaptcha-5.4.3.jar" />
 		<!-- For tapestry-upload -->
-		<get dest="${lib.compile.dir}/tapestry-upload-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-upload/5.4.1/tapestry-upload-5.4.1.jar" />
+		<get dest="${lib.compile.dir}/tapestry-upload-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-upload/5.4.3/tapestry-upload-5.4.3.jar" />
 		<get dest="${lib.compile.dir}/commons-fileupload-1.3.2.jar" usetimestamp="true" src="${maven.repo.root}/commons-fileupload/commons-fileupload/1.3.2/commons-fileupload-1.3.2.jar" />
 		<!-- For tapestry5-jquery -->
 		<!--
 		<get dest="${lib.compile.dir}/tapestry5-jquery-3.3.4.jar" usetimestamp="true" src="http://nexus.devlab722.net/nexus/content/repositories/releases/org/got5/tapestry5-jquery/3.3.4/tapestry5-jquery-3.3.4.jar" />
 		-->
 		<!-- For JSR-303 Bean Validation 1.0 -->
-		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-beanvalidator/5.4.1/tapestry-beanvalidator-5.4.1.jar" />
+		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-beanvalidator/5.4.3/tapestry-beanvalidator-5.4.3.jar" />
 
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container (eg. JBoss) or the EAR (shared with the business tier) -->
 
@@ -240,10 +240,10 @@
 		<get dest="${lib.runtime.dir}/commons-configuration-1.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar" />
 		<get dest="${lib.runtime.dir}/commons-lang-2.6.jar" usetimestamp="true" src="${maven.repo.root}/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" />
 		<!-- For tapestry-webresources -->
-		<get dest="${lib.runtime.dir}/tapestry-webresources-5.4.1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-webresources/5.4.1/tapestry-webresources-5.4.1.jar" />				
+		<get dest="${lib.runtime.dir}/tapestry-webresources-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-webresources/5.4.3/tapestry-webresources-5.4.3.jar" />				
 		<get dest="${lib.runtime.dir}/less4j-1.12.0.jar" usetimestamp="true" src="${maven.repo.root}/com/github/sommeri/less4j/1.12.0/less4j-1.12.0.jar" />				
 		<get dest="${lib.runtime.dir}/closure-compiler-v20131014.jar" usetimestamp="true" src="${maven.repo.root}/com/google/javascript/closure-compiler/v20131014/closure-compiler-v20131014.jar" />				
-		<get dest="${lib.runtime.dir}/rhino-1.7.7.jar" usetimestamp="true" src="${maven.repo.root}/org/mozilla/rhino/1.7.7/rhino-1.7.7.jar" />
+		<get dest="${lib.runtime.dir}/rhino-1.7.7.1.jar" usetimestamp="true" src="${maven.repo.root}/org/mozilla/rhino/1.7.7.1/rhino-1.7.7.1.jar" />
 			<!-- For closure-compiler -->
 			<!-- Missing anything? See http://central.maven.org/maven2/com/google/javascript/closure-compiler/v20131014/closure-compiler-v20131014.pom -->
 			<get dest="${lib.runtime.dir}/args4j-2.0.16.jar" usetimestamp="true" src="${maven.repo.root}/args4j/args4j/2.0.16/args4j-2.0.16.jar" />

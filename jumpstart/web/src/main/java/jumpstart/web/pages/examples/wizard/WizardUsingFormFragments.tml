@@ -83,6 +83,7 @@
 					<!-- A script that displays the "processing" message -->
 					<script>
 							function displayProcessingMessage() {
+								// This no longer works in modern browsers - they defer the update until the submit's response is received.
 								obj = document.getElementById('processingMessage');
 								obj.style.display = ''
 								return true;

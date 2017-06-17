@@ -1,4 +1,5 @@
-set referential_integrity false;  -- hsqldb, h2
+set database referential integrity false;  -- hsqldb
+-- set referential_integrity false;  -- h2
 -- set foreign_key_checks = false;  -- mysql
 
 -- Tables used in domain "examples"
@@ -20,7 +21,8 @@ drop table if exists Building cascade;
 drop table if exists Room cascade;
 drop table if exists StringThing cascade;
 
-set referential_integrity true;  -- hsqldb, h2
+set database referential integrity true;  -- hsqldb
+-- set referential_integrity true;  -- h2
 -- set foreign_key_checks = true;  -- mysql
 
 commit;

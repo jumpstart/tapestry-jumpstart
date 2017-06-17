@@ -30,7 +30,7 @@ public class ClasspathURLConverterJBoss7 implements ClasspathURLConverter {
 				if (urlString.contains(".jar")) {
 
 					// An example URL:
-					// "vfs:/devel/jboss-as-7.1.1.Final/standalone/deployments/jumpstart.ear/jumpstart.war/WEB-INF/lib/tapestry-core-5.4.1.jar/org/apache/tapestry5/corelib/components/"
+					// "vfs:/devel/jboss-as-7.1.1.Final/standalone/deployments/jumpstart.ear/jumpstart.war/WEB-INF/lib/tapestry-core-5.4.3.jar/org/apache/tapestry5/corelib/components/"
 					// Break the URL into its WAR part, the JAR part, and the Java package part.
 
 					int warPartEnd = urlString.indexOf(".war") + 4;
