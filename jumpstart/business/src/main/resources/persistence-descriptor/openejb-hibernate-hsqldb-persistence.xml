@@ -29,7 +29,7 @@
 				value="org.apache.openejb.hibernate.TransactionManagerLookup" />
 			 -->
 			<property name="hibernate.transaction.jta.platform"
-				value="org.apache.openejb.hibernate.OpenEJBJtaPlatform" />
+				value="org.apache.openejb.hibernate.OpenEJBJtaPlatform2" />
 		</properties>
 		
 	</persistence-unit>

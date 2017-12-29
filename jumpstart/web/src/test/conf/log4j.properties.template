@@ -23,7 +23,9 @@ log4j.additivity = false
 
 # See http://tapestry.apache.org/logging.html
 
-log4j.logger.jumpstart=DEBUG
+log4j.logger.com.goxpro.xpro=DEBUG
+log4j.logger.com.goxpro.xpro.web.services.AppModule.PosturePictureLibrarian=DEBUG
+log4j.logger.com.goxpro.xpro.web.components.evaluation.posturepic=DEBUG
 
 log4j.logger.tapestry=INFO
 log4j.logger.org.apache.tapestry=INFO
@@ -34,13 +36,21 @@ log4j.logger.org.hibernate.SQL=DEBUG, C
 #log4j.logger.org.hibernate.type=TRACE, C
 log4j.additivity.org.hibernate=false
 
-log4j.logger.org.openejb=INFO
-log4j.logger.org.apache.openejb=INFO,C
-#log4j.category.OpenEJB=INFO,C
+log4j.logger.org.openejb=DEBUG
+log4j.logger.org.apache.openejb=DEBUG,C
+log4j.category.OpenEJB=DEBUG,C
 
 log4j.logger.org.mortbay.log=INFO
 
 log4j.logger.org.slf4j=INFO
+
+# Suppress all the info messages caused by services calling JndiObjectLocator.
+
+log4j.logger.Login=WARN
+log4j.logger.com.goxpro.xpro.web.daemons=WARN
+log4j.logger.com.goxpro.xpro.web.evolero.services=WARN
+log4j.logger.com.goxpro.xpro.web.recurly.services=WARN
+log4j.logger.com.goxpro.xpro.web.services.EJBAnnotationWorker=WARN
 
 ###########################################################################
 # How to log

@@ -12,9 +12,6 @@
 		For more options see http://openejb.apache.org/3.0/configuring-datasources.html .
 	 -->
 
-	<!-- For HSQLDB -->
-<!-- 
- -->
 	<Resource id="JumpStartDS" type="DataSource">
 		JdbcDriver org.hsqldb.jdbcDriver 
 		JdbcUrl jdbc:hsqldb:mem:tempdb
@@ -31,24 +28,6 @@
 		JtaManaged false
 	</Resource>
 
- 	<!-- For MySQL -->
- 	<!-- For more settings see http://dev.mysql.com/doc/refman/5.0/en/connector-j-reference-configuration-properties.html -->
-	<!-- 
-	<Resource id="JumpStartDS" type="DataSource">
-		JdbcDriver com.mysql.jdbc.Driver 
-		JdbcUrl jdbc:mysql://localhost:3306/jumpstart_dev
-		UserName jumpstart
-		Password jumpstart
-		JtaManaged true
-	</Resource>
-
-	<Resource id="JumpStartDSUnmanaged" type="DataSource">
-		JdbcDriver com.mysql.jdbc.Driver 
-		JdbcUrl jdbc:mysql://localhost:3306/jumpstart_dev
-		UserName jumpstart
-		Password jumpstart
-		JtaManaged false
-	</Resource>
-	 -->
+	<Deployments dir="/devel/tapestry-jumpstart/jumpstart/collapsed"/>
 	
 </openejb>

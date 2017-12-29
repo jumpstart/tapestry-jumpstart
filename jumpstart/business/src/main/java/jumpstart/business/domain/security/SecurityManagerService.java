@@ -29,7 +29,7 @@ public class SecurityManagerService extends BaseService implements ISecurityMana
 	 */
 	public void changeUserPassword(Long id, String currentPassword, String newPassword) throws BusinessException {
 		assertNotADemo();
-		User user = find(User.class, id);
+		User user = findStrict(User.class, id);
 		user.changePassword(currentPassword, newPassword);
 		flushToWorkAroundTOMEE_172();
 	}
@@ -39,7 +39,7 @@ public class SecurityManagerService extends BaseService implements ISecurityMana
 	 */
 	public void changeUserPassword(Long id, String newPassword) throws BusinessException {
 		assertNotADemo();
-		User user = find(User.class, id);
+		User user = findStrict(User.class, id);
 		user.setPassword(newPassword);
 	}
 
@@ -127,8 +127,8 @@ public class SecurityManagerService extends BaseService implements ISecurityMana
 			throw new IllegalArgumentException();
 		}
 
-		User user = find(User.class, userId);
-		Role role = find(Role.class, roleId);
+		User user = findStrict(User.class, userId);
+		Role role = findStrict(Role.class, roleId);
 
 		return addUserRole(user, role, userRole);
 	}

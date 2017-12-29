@@ -1,4 +1,5 @@
 /bin
+/build
 /business/src/main/lib*
 /business/src/test/lib*
 /business/target*

@@ -31,7 +31,7 @@ public class SecurityFinderService extends BaseService implements ISecurityFinde
 	// User
 
 	public User findUser(Long id) throws DoesNotExistException {
-		User obj = find(User.class, id);
+		User obj = findStrict(User.class, id);
 		return obj;
 	}
 
@@ -121,7 +121,7 @@ public class SecurityFinderService extends BaseService implements ISecurityFinde
 	// Role
 
 	public Role findRole(Long id) throws DoesNotExistException {
-		Role obj = find(Role.class, id);
+		Role obj = findStrict(Role.class, id);
 		return obj;
 	}
 
@@ -176,7 +176,7 @@ public class SecurityFinderService extends BaseService implements ISecurityFinde
 	// UserRole
 
 	public UserRole findUserRole(Long id) throws DoesNotExistException {
-		UserRole obj = find(UserRole.class, id);
+		UserRole obj = findStrict(UserRole.class, id);
 		return obj;
 	}
 

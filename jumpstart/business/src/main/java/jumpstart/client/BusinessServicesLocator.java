@@ -48,8 +48,8 @@ public class BusinessServicesLocator extends JNDIObjectLocator implements IBusin
 		// You wouldn't normally have to do all this work but JumpStart has to deal with many types of environment and
 		// EJB 3.1 still hasn't quite standardised JNDI names.
 
-		if (ejbProvider == EJBProviderEnum.OPENEJB_4_LOCAL || ejbProvider == EJBProviderEnum.TOMCAT_7_OPENEJB_4_LOCAL
-				|| ejbProvider == EJBProviderEnum.OPENEJB_4_REMOTE) {
+		if (ejbProvider == EJBProviderEnum.OPENEJB_7_LOCAL || ejbProvider == EJBProviderEnum.TOMCAT_7_OPENEJB_7_LOCAL
+				|| ejbProvider == EJBProviderEnum.OPENEJB_7_REMOTE) {
 			// Uses the implementation class name eg. "PersonServiceLocal".
 			jndiName = getSimpleName(canonicalInterfaceName).substring(1);
 		}

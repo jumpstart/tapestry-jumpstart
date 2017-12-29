@@ -55,7 +55,7 @@ public class WorkoutService extends BaseService implements IWorkoutServiceLocal,
 	}
 
 	public Building findBuilding(Long id) throws DoesNotExistException {
-		Building obj = find(Building.class, id);
+		Building obj = findStrict(Building.class, id);
 		return obj;
 	}
 
@@ -126,7 +126,7 @@ public class WorkoutService extends BaseService implements IWorkoutServiceLocal,
 	}
 
 	public Room findRoom(Long id) throws DoesNotExistException {
-		Room obj = find(Room.class, id);
+		Room obj = findStrict(Room.class, id);
 		return obj;
 	}
 
@@ -168,7 +168,7 @@ public class WorkoutService extends BaseService implements IWorkoutServiceLocal,
 	}
 
 	public Department findDepartment(Long id) throws DoesNotExistException {
-		Department obj = find(Department.class, id);
+		Department obj = findStrict(Department.class, id);
 		return obj;
 	}
 
@@ -242,7 +242,7 @@ public class WorkoutService extends BaseService implements IWorkoutServiceLocal,
 	}
 
 	public Teacher findTeacher(Long id) throws DoesNotExistException {
-		Teacher obj = find(Teacher.class, id);
+		Teacher obj = findStrict(Teacher.class, id);
 		return obj;
 	}
 
@@ -305,7 +305,7 @@ public class WorkoutService extends BaseService implements IWorkoutServiceLocal,
 	}
 
 	public Student findStudent(Long id) throws DoesNotExistException {
-		Student obj = find(Student.class, id);
+		Student obj = findStrict(Student.class, id);
 		return obj;
 	}
 
@@ -322,7 +322,7 @@ public class WorkoutService extends BaseService implements IWorkoutServiceLocal,
 	}
 
 	public StringThing findStringThing(String id) throws DoesNotExistException {
-		StringThing obj = find(StringThing.class, id);
+		StringThing obj = findStrict(StringThing.class, id);
 		return obj;
 	}
 

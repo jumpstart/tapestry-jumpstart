@@ -162,7 +162,7 @@
 		<!-- compile-time jars - needed for compiling and will be put in the package for runtime -->
 
 		<mkdir dir="${lib.compile.dir}" />
-		<get dest="${lib.compile.dir}/joda-time-2.9.4.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.9.4/joda-time-2.9.4.jar" />
+		<get dest="${lib.compile.dir}/joda-time-2.9.9.jar" usetimestamp="true" src="${maven.repo.root}/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar" />
 		<!-- For JSR-303 bean validation - we're using Hibernate's implementation. -->
 		<!-- Hibernate 5* is not compatible with validation-api-1.0.x. See http://stackoverflow.com/questions/14730329/jpa-2-0-exception-to-use-javax-validation-package-in-jpa-2-0 .
 		<get dest="${lib.compile.dir}/hibernate-validator-5.1.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/5.1.2.Final/hibernate-validator-5.1.2.Final.jar" />
@@ -172,10 +172,10 @@
 		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. JBoss -->
 
 		<mkdir dir="${lib.provided.dir}" />
-		<get dest="${lib.provided.dir}/javaee-api-6.0-5.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-5/javaee-api-6.0-5.jar" />
+		<get dest="${lib.provided.dir}/javaee-api-7.0-1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/javaee-api/7.0-1/javaee-api-7.0-1.jar" />
 		<!-- TODO: modify BaseEntity so it is not dependent on Hibernate. -->
-		<get dest="${lib.provided.dir}/hibernate-core-4.2.7.SP1.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.2.7.SP1/hibernate-core-4.2.7.SP1.jar" />
-		<get dest="${lib.provided.dir}/slf4j-api-1.7.19.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.19/slf4j-api-1.7.19.jar" />
+		<get dest="${lib.provided.dir}/hibernate-core-4.3.10.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar" />
+		<get dest="${lib.provided.dir}/slf4j-api-1.7.21.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar" />
 
 		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
 
@@ -184,12 +184,12 @@
 		<!-- testing jars - needed for compiling and running tests -->
 
 		<mkdir dir="${lib.test.dir}" />
-		<get dest="${lib.test.dir}/javaee-api-6.0-5.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/openejb/javaee-api/6.0-5/javaee-api-6.0-5.jar" />
+		<get dest="${lib.test.dir}/javaee-api-7.0-1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/javaee-api/7.0-1/javaee-api-7.0-1.jar" />
 		<get dest="${lib.test.dir}/junit-4.11.jar" usetimestamp="true" src="${maven.repo.root}/junit/junit/4.11/junit-4.11.jar" />
 		<get dest="${lib.test.dir}/hamcrest-core-1.3.jar" usetimestamp="true" src="${maven.repo.root}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
 		<get dest="${lib.test.dir}/log4j-1.2.17.jar" usetimestamp="true" src="${maven.repo.root}/log4j/log4j/1.2.17/log4j-1.2.17.jar" />
-		<get dest="${lib.test.dir}/slf4j-api-1.7.19.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.19/slf4j-api-1.7.19.jar" />
-		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.19.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.19/slf4j-log4j12-1.7.19.jar" />
+		<get dest="${lib.test.dir}/slf4j-api-1.7.21.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar" />
+		<get dest="${lib.test.dir}/slf4j-log4j12-1.7.21.jar" usetimestamp="true" src="${maven.repo.root}/org/slf4j/slf4j-log4j12/1.7.21/slf4j-log4j12-1.7.21.jar" />
 
 		<!-- For jndi lookup -->
 		<get dest="${lib.test.dir}/dom4j-1.6.1.jar" usetimestamp="true" src="${maven.repo.root}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
@@ -199,11 +199,13 @@
 		<mkdir dir="${lib.test.hibernate.dir}" />
 		<!-- For Hibernate -->
 		<get dest="${lib.test.hibernate.dir}/antlr-3.1.1.jar" usetimestamp="true" src="${maven.repo.root}/org/antlr/antlr/3.1.1/antlr-3.1.1.jar" />
-		<get dest="${lib.test.hibernate.dir}/hibernate-core-4.2.7.SP1.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.2.7.SP1/hibernate-core-4.2.7.SP1.jar" />
-		<get dest="${lib.test.hibernate.dir}/hibernate-commons-annotations-4.0.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.2.Final/hibernate-commons-annotations-4.0.2.Final.jar" />
-		<get dest="${lib.test.hibernate.dir}/hibernate-entitymanager-4.2.7.SP1.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-entitymanager/4.2.7.SP1/hibernate-entitymanager-4.2.7.SP1.jar" />
-		<get dest="${lib.test.hibernate.dir}/jboss-logging-3.1.1.GA.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging/3.1.1.GA/jboss-logging-3.1.1.GA.jar" />
+		<get dest="${lib.test.hibernate.dir}/hibernate-core-4.3.10.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/hibernate-commons-annotations-4.0.5.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/hibernate-entitymanager-4.3.10.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-entitymanager/4.3.10.Final/hibernate-entitymanager-4.3.10.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/javassist-3.18.1-GA.jar" usetimestamp="true" src="${maven.repo.root}/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar" />
+		<get dest="${lib.test.hibernate.dir}/jboss-logging-3.2.1.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging/3.2.1.Final/jboss-logging-3.2.1.Final.jar" />
 		<get dest="${lib.test.hibernate.dir}/jboss-logging-processor-1.0.3.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/logging/jboss-logging-processor/1.0.3.Final/jboss-logging-processor-1.0.3.Final.jar" />
+		<get dest="${lib.test.hibernate.dir}/jandex-1.2.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/jandex/1.2.2.Final/jandex-1.2.2.Final.jar" />
 	</target>
 	
 	<target name="set-vars-if-wildfly9" if="deployment.server.type.is.wildfly9" depends="interpret-server-type">
@@ -242,7 +244,7 @@
 		
 		<path id="classpath.tomcat7.client.lib">
 			<fileset dir="${deployment.server.dir}/lib">
-				<include name="openejb-client-4.*.jar" />
+				<include name="openejb-client-7.*.jar" />
 				<include name="hibernate-commons-annotations-4.*.jar" />
 				<include name="hibernate-core-4.*.jar" />
 				<include name="hibernate-entitymanager-4.*.jar" />

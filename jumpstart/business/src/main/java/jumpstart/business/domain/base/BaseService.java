@@ -26,10 +26,12 @@ public abstract class BaseService {
 	protected final EJBProviderEnum ejbProvider = EJBProviderUtil.detectEJBProvider(LoggerFactory
 			.getLogger(BaseService.class));
 
-	protected final boolean inOpenEJB = (ejbProvider == EJBProviderEnum.OPENEJB_4_LOCAL
-			|| ejbProvider == EJBProviderEnum.OPENEJB_4_REMOTE || ejbProvider == EJBProviderEnum.TOMCAT_7_OPENEJB_4_LOCAL);
+	protected final boolean inOpenEJB = (ejbProvider == EJBProviderEnum.OPENEJB_7_LOCAL
+			|| ejbProvider == EJBProviderEnum.OPENEJB_7_REMOTE
+			|| ejbProvider == EJBProviderEnum.TOMCAT_7_OPENEJB_7_LOCAL);
 
-	protected final boolean inJBoss = (ejbProvider == EJBProviderEnum.JBOSS_7_LOCAL || ejbProvider == EJBProviderEnum.JBOSS_7_REMOTE);
+	protected final boolean inJBoss = (ejbProvider == EJBProviderEnum.JBOSS_7_LOCAL
+			|| ejbProvider == EJBProviderEnum.JBOSS_7_REMOTE);
 
 	protected void persist(BaseEntity entity) throws BusinessException {
 		if (entity == null) {
@@ -45,7 +47,14 @@ public abstract class BaseService {
 	}
 
 	/**
-	 * Beware - the caller MUST use the result, eg. invoice = merge(invoice).
+	 * In general, avoid using merge. It is not the same as "update". Merge will always try to get the entity, and if it
+	 * does not exist then it will create it. This is usually the wrong thing to do. Additionally, we should not allow
+	 * create/update directly from detached objects. In goXpro our business tier must dictate what is created/updated,
+	 * rather than the calling tier. Instead, use find(...) or findStrict(...), then set the desired values. For more
+	 * understanding, see <a href=
+	 * "http://blog.xebia.com/jpa-implementation-patterns-saving-detached-entities">http://blog.xebia.com/jpa-implementation-patterns-saving-detached-entities</a>.
+	 * 
+	 * Beware - the caller MUST USE THE RESULT, eg. invoice = merge(invoice).
 	 * 
 	 * @param <T>
 	 * @param entity
@@ -79,14 +88,41 @@ public abstract class BaseService {
 		}
 	}
 
-	protected <T> T find(Class<T> cls, Serializable id) throws DoesNotExistException {
+	protected <T> T find(Class<T> cls, Serializable id) {
 
 		if (id == null) {
-			throw new IllegalArgumentException("find(class, id) has been given null id.  Class is " + cls.getName()
+			throw new IllegalArgumentException(
+					"find(class, id) has been given null id.  Class is " + cls.getName() + ".");
+		}
+		else if (id.equals(0)) {
+			throw new IllegalArgumentException(
+					"find(class, id) has been given zero id.  Class is " + cls.getName() + ".");
+		}
+
+		try {
+			T obj = em.find(cls, id);
+			return obj;
+		}
+		catch (IllegalArgumentException e) {
+			// Invalid id
+			throw new IllegalArgumentException(
+					"find(class, id) has been given invalid id.  Class is " + cls.getName() + ", id is \"" + id + "\".",
+					e);
+		}
+		// catch (Exception e) {
+		// // Doesn't exist
+		// return null;
+		// }
+	}
+
+	protected <T> T findStrict(Class<T> cls, Serializable id) throws DoesNotExistException {
+
+		if (id == null) {
+			throw new IllegalArgumentException("findStrict(class, id) has been given null id.  Class is " + cls.getName()
 					+ ".");
 		}
 		else if (id.equals(0)) {
-			throw new IllegalArgumentException("find(class, id) has been given zero id.  Class is " + cls.getName()
+			throw new IllegalArgumentException("findStrict(class, id) has been given zero id.  Class is " + cls.getName()
 					+ ".");
 		}
 
@@ -101,7 +137,7 @@ public abstract class BaseService {
 		}
 		catch (IllegalArgumentException e) {
 			// Invalid id
-			throw new IllegalArgumentException("find(class, id) has been given invalid id.  Class is " + cls.getName()
+			throw new IllegalArgumentException("findStrict(class, id) has been given invalid id.  Class is " + cls.getName()
 					+ ", id is \"" + id + "\".", e);
 		}
 		catch (Exception e) {
@@ -112,7 +148,7 @@ public abstract class BaseService {
 
 	/**
 	 * Calls to this method are a workaround for https://issues.apache.org/jira/browse/TOMEE-172 and
-	 * and https://issues.apache.org/jira/browse/GERONIMO-3907 .
+	 * https://issues.apache.org/jira/browse/GERONIMO-3907 .
 	 * 
 	 * @throws BusinessException
 	 */

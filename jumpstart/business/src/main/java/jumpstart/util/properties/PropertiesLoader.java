@@ -43,6 +43,9 @@ public class PropertiesLoader {
 				resourceURL = this.getClass().getResource(resourceName);
 			}
 			else {
+				// TODO - improve this message, esp. since JBoss 7 doesn't have
+				// a dir on the classpath.
+
 				throw new IllegalStateException("Failed to load properties resource \"" + resourceName
 						+ "\". It should be on the classpath.  If using JBoss, put the \"" + resourceName
 						+ "\" file in the server's conf/ directory.");

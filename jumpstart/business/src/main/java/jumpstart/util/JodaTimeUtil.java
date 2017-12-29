@@ -167,7 +167,7 @@ public class JodaTimeUtil {
 		LocalDate ld = (s == null ? null : localDateFormatter.withZone(DateTimeZone.UTC).parseDateTime(s).toLocalDate());
 		return ld;
 	}
-	
+
 	public static LocalDateTime toLocalDateTime(java.sql.Timestamp ts) {
 		// TODO - confirm this conversion always works, esp. across timezones
 		LocalDateTime ldt = (ts == null ? null : LocalDateTime.fromDateFields(ts));

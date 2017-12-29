@@ -143,7 +143,7 @@ public abstract class BaseEntity implements Serializable {
 	 * @param value
 	 * @return
 	 */
-	public <T extends Enum<T>> String getLabelForEnum(T value) {
+	public <T extends Enum<T>> String toLabelForEnum(T value) {
 		String s = MessageUtil.toText(value.getClass().getSimpleName() + "." + value.toString());
 		return s;
 	}
