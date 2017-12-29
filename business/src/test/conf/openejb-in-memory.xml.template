@@ -28,6 +28,6 @@
 		JtaManaged false
 	</Resource>
 
-	<Deployments dir="/devel/tapestry-jumpstart/jumpstart/collapsed"/>
+	<Deployments dir="/devel/tapestry-jumpstart/collapsed"/>
 	
 </openejb>

@@ -17,7 +17,7 @@
  -->
 	<Resource id="JumpStartDS" type="DataSource">
 		JdbcDriver org.hsqldb.jdbcDriver 
-		JdbcUrl jdbc:hsqldb:mem:tempdb
+		JdbcUrl jdbc:hsqldb:file:/devel/apache-openejb-7.0.3/data/hsqldb/hsqldb
 		UserName sa
 		Password
 		JtaManaged true
@@ -25,7 +25,7 @@
 
 	<Resource id="JumpStartDSUnmanaged" type="DataSource">
 		JdbcDriver org.hsqldb.jdbcDriver 
-		JdbcUrl jdbc:hsqldb:mem:tempdb
+		JdbcUrl jdbc:hsqldb:file:/devel/apache-openejb-7.0.3/data/hsqldb/hsqldb
 		UserName sa
 		Password
 		JtaManaged false
@@ -51,6 +51,6 @@
 	</Resource>
 	 -->
 	
-	<Deployments dir="/devel/tapestry-jumpstart/jumpstart/collapsed"/>
+	<Deployments dir="/devel/tapestry-jumpstart/collapsed"/>
 	
 </openejb>
