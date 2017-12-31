@@ -25,9 +25,9 @@
 	<classpathentry kind="lib" path="business/src/main/lib-provided/hibernate-core-4.3.10.Final.jar"/>
 	<classpathentry kind="lib" path="business/src/main/lib-provided/javaee-api-7.0-1.jar"/>
 	<classpathentry kind="lib" path="business/src/main/lib-provided/slf4j-api-1.7.21.jar"/>
-	<classpathentry kind="lib" path="web/src/main/lib-provided/openejb-api-7.0.3.jar"/>
-	<classpathentry kind="lib" path="web/src/main/lib-provided/openejb-core-7.0.3.jar"/>
-	<classpathentry kind="lib" path="web/src/main/lib-provided/openejb-loader-7.0.3.jar"/>
+	<classpathentry kind="lib" path="web/src/main/lib-provided/openejb-api-7.0.4.jar"/>
+	<classpathentry kind="lib" path="web/src/main/lib-provided/openejb-core-7.0.4.jar"/>
+	<classpathentry kind="lib" path="web/src/main/lib-provided/openejb-loader-7.0.4.jar"/>
 	<classpathentry kind="lib" path="web/src/test/lib-test/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="web/src/test/lib-test/jetty-http-9.2.21.v20170120.jar"/>
 	<classpathentry kind="lib" path="web/src/test/lib-test/jetty-io-9.2.21.v20170120.jar"/>

@@ -226,9 +226,9 @@
 		-->
 		<get dest="${lib.provided.dir}/hibernate-validator-4.3.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.2.Final/hibernate-validator-4.3.2.Final.jar" />
 
-		<get dest="${lib.provided.dir}/openejb-core-7.0.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/openejb-core/7.0.3/openejb-core-7.0.3.jar" />
-		<get dest="${lib.provided.dir}/openejb-loader-7.0.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/openejb-loader/7.0.3/openejb-loader-7.0.3.jar"/>
-		<get dest="${lib.provided.dir}/openejb-api-7.0.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/openejb-api/7.0.3/openejb-api-7.0.3.jar" />
+		<get dest="${lib.provided.dir}/openejb-core-7.0.4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/openejb-core/7.0.4/openejb-core-7.0.4.jar" />
+		<get dest="${lib.provided.dir}/openejb-loader-7.0.4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/openejb-loader/7.0.4/openejb-loader-7.0.4.jar"/>
+		<get dest="${lib.provided.dir}/openejb-api-7.0.4.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/openejb-api/7.0.4/openejb-api-7.0.4.jar" />
 
 		<!-- runtime jars - not needed for compiling but will be put in the package for runtime. -->
 
