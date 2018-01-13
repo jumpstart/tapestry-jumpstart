@@ -1,11 +1,10 @@
 eclipse.preferences.version=1
 encoding//business/src/test/conf-remote-glassfish/jndi.properties=UTF-8
 encoding//business/src/test/conf-remote-glassfish/log4j.properties=UTF-8
-encoding//business/src/test/conf-remote-jboss/jboss-ejb-client.properties=UTF-8
-encoding//business/src/test/conf-remote-jboss/jndi.properties=UTF-8
-encoding//business/src/test/conf-remote-jboss/log4j.properties=UTF-8
 encoding//business/src/test/conf-remote-tomcat/jndi.properties=UTF-8
 encoding//business/src/test/conf-remote-tomcat/log4j.properties=UTF-8
+encoding//business/src/test/conf-remote-wildfly/jndi.properties=UTF-8
+encoding//business/src/test/conf-remote-wildfly/log4j.properties=UTF-8
 encoding//business/src/test/conf/jndi.properties=UTF-8
 encoding//business/src/test/conf/log4j.properties=UTF-8
 encoding//business/src/test/conf/openejb-in-memory.xml=UTF-8

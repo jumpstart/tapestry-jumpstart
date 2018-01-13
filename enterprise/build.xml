@@ -39,11 +39,11 @@
 		</ear>
 	</target>
 
-	<target name="deploy-ear-to-server-wildfly9">
+	<target name="deploy-ear-to-server-wildfly11">
 		<available type="dir" file="${deployment.server.dir}/deployments" property="deployment.deploy.dir.exists"/>
 		<fail unless="deployment.deploy.dir.exists" message="*** Integration test deployment directory does not exist. Tried ${deployment.server.dir}/deployments."/>
 
-		<!-- There is no datasource descriptor to copy to wildfly9 - datasources are added via the admin console web page. -->
+		<!-- There is no datasource descriptor to copy to wildfly11 - datasources are added via the admin console web page. -->
 
 		<copy todir="${deployment.server.dir}/deployments" file="${ear.file}"/>
 	</target>

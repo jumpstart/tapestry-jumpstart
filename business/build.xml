@@ -20,7 +20,7 @@
 	<property name="lib.test.hibernate.dir" value="src/test/lib-test-hibernate" />
 	<property name="lib.openejb.provided.dir" value="src/openejb/lib-provided" />
 
-	<property name="test.conf.jboss.remote.dir" value="src/test/conf-remote-jboss" />
+	<property name="test.conf.wildfly.remote.dir" value="src/test/conf-remote-wildfly" />
 	<property name="test.conf.tomcat.remote.dir" value="src/test/conf-remote-tomcat" />
 	<property name="test.conf.glassfish.remote.dir" value="src/test/conf-remote-glassfish" />
 
@@ -110,6 +110,7 @@
 
 		<mkdir dir="test-results" />
 		<junit printsummary="yes" fork="off" timeout="10">
+			<sysproperty key="jumpstart.ejb-provider" value="${ejb.provider}"/>
 			<test name="jumpstart.business.BusinessIntegrationTestSuite" haltonfailure="yes">
 				<formatter type="plain" usefile="false" />
 			</test>
@@ -117,7 +118,7 @@
 		</junit>
 	</target>
 
-	<target name="set-classpath-integration-test-remote" depends="set-vars-if-wildfly9,set-vars-if-tomcat7,set-vars-if-glassfish3">
+	<target name="set-classpath-integration-test-remote" depends="set-vars-if-wildfly11,set-vars-if-tomcat7,set-vars-if-glassfish3">
 		<path id="classpath.integration.test.remote">
 			<pathelement location="${conf.test.remote.dir}" />
 			<pathelement location="${target.test-classes.dir}" />
@@ -169,7 +170,7 @@
 		-->
 		<get dest="${lib.compile.dir}/hibernate-validator-4.3.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/hibernate/hibernate-validator/4.3.2.Final/hibernate-validator-4.3.2.Final.jar" />
 
-		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. JBoss -->
+		<!-- provided jars - needed for compiling only - at runtime these are provided by the container eg. Wildfly -->
 
 		<mkdir dir="${lib.provided.dir}" />
 		<get dest="${lib.provided.dir}/javaee-api-7.0-1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/javaee-api/7.0-1/javaee-api-7.0-1.jar" />
@@ -208,25 +209,26 @@
 		<get dest="${lib.test.hibernate.dir}/jandex-1.2.2.Final.jar" usetimestamp="true" src="${maven.repo.root}/org/jboss/jandex/1.2.2.Final/jandex-1.2.2.Final.jar" />
 	</target>
 	
-	<target name="set-vars-if-wildfly9" if="deployment.server.type.is.wildfly9" depends="interpret-server-type">
-		<property name="conf.test.remote.dir" value="${test.conf.jboss.remote.dir}" />
+	<target name="set-vars-if-wildfly11" if="deployment.server.type.is.wildfly11" depends="interpret-server-type">
+		<property name="conf.test.remote.dir" value="${test.conf.wildfly.remote.dir}" />
+		<property name="ejb.provider" value="WILDFLY_11_REMOTE" />
 
-		<path id="classpath.wildfly9.client.lib">
+		<path id="classpath.wildfly11.client.lib">
 			<fileset dir="${deployment.server.dir}/../bin/client">
 				<include name="jboss-client.jar" />
 			</fileset>
-			<fileset dir="${deployment.server.dir}/../modules/org/hibernate/main">
-				<include name="hibernate-commons-annotations-4.*.jar" />
-				<include name="hibernate-core-4.*.jar" />
-				<include name="hibernate-entitymanager-4.*.jar" />
+			<fileset dir="${deployment.server.dir}/../modules/system/layers/base/org/hibernate/main">
+				<include name="hibernate-core-5.*.jar" />
+				<include name="hibernate-entitymanager-5.*.jar" />
+				<include name="hibernate-java8-5.*.jar" />
 			</fileset>
-			<fileset dir="${deployment.server.dir}/../modules/org/javassist/main">
+			<fileset dir="${deployment.server.dir}/../modules/system/layers/base/org/javassist/main">
 				<include name="javassist-3.*.jar" />
 			</fileset>
-			<fileset dir="${deployment.server.dir}/../modules/org/jboss/logging/main">
+			<fileset dir="${deployment.server.dir}/../modules/system/layers/base/org/jboss/logging/main">
 				<include name="jboss-logging-3.*.jar" />
 			</fileset>
-			<fileset dir="${deployment.server.dir}/../modules/com/h2database/h2/main">
+			<fileset dir="${deployment.server.dir}/../modules/system/layers/base/com/h2database/h2/main">
 				<include name="h2-1.*.jar" />
 			</fileset>
 			<!--
@@ -236,11 +238,12 @@
 			-->
 		</path>
 
-		<property name="classpath.client.lib.as.property" refid="classpath.wildfly9.client.lib"/>
+		<property name="classpath.client.lib.as.property" refid="classpath.wildfly11.client.lib"/>
 	</target>
 
 	<target name="set-vars-if-tomcat7" if="deployment.server.type.is.tomcat7" depends="interpret-server-type">
 		<property name="conf.test.remote.dir" value="${test.conf.tomcat.remote.dir}" />
+		<property name="ejb.provider" value="OPENEJB_7_REMOTE" />
 		
 		<path id="classpath.tomcat7.client.lib">
 			<fileset dir="${deployment.server.dir}/lib">
@@ -262,6 +265,7 @@
 
 	<target name="set-vars-if-glassfish3" if="deployment.server.type.is.glassfish3" depends="interpret-server-type">
 		<property name="conf.test.remote.dir" value="${test.conf.glassfish.remote.dir}" />
+		<property name="ejb.provider" value="GLASSFISH_3_REMOTE" />
 
 		<path id="classpath.glassfish3.client.lib">
 			<fileset dir="${deployment.server.dir}/../../lib">
@@ -292,17 +296,17 @@
 		
 		<condition property="deployment.server.type.valid">
 			<or>
-				<equals arg1="${deployment.server.type}" arg2="wildfly9"/>
+				<equals arg1="${deployment.server.type}" arg2="wildfly11"/>
 				<equals arg1="${deployment.server.type}" arg2="tomcat7"/>
 				<equals arg1="${deployment.server.type}" arg2="glassfish3"/>
 			</or>
 		</condition>
-		<fail unless="deployment.server.type.valid" message="*** Please specify a valid deployment.server.type. Expected tomcat7, wildfly9, or glassfish3.  Found ${deployment.server.type}." />
+		<fail unless="deployment.server.type.valid" message="*** Please specify a valid deployment.server.type. Expected tomcat7, wildfly11, or glassfish3.  Found ${deployment.server.type}." />
 		
 		<!-- Set some boolean properties based on the deployment.server.type -->
 		
-		<condition property="deployment.server.type.is.wildfly9">
-			<equals arg1="${deployment.server.type}" arg2="wildfly9"/>
+		<condition property="deployment.server.type.is.wildfly11">
+			<equals arg1="${deployment.server.type}" arg2="wildfly11"/>
 		</condition>
 		<condition property="deployment.server.type.is.tomcat7">
 			<equals arg1="${deployment.server.type}" arg2="tomcat7"/>

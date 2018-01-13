@@ -120,13 +120,14 @@ public class AppModule {
 		configuration.addInstance("PageProtectionFilter", PageProtectionFilter.class);
 	}
 
-	// Tell Tapestry how to handle JBoss 7's classpath URLs - JBoss uses a "virtual file system".
+	// Tell Tapestry how to handle WildFly 11's classpath URLs - WildFly uses a "virtual file system".
 	// We do this by overriding Tapestry's ClasspathURLConverter service.
-	// See "Running Tapestry on JBoss" in http://wiki.apache.org/tapestry/Tapestry5HowTos .
+	// See "Running Tapestry on JBoss" (sic) in http://wiki.apache.org/tapestry/Tapestry5HowTos .
 
 	@SuppressWarnings("rawtypes")
 	public static void contributeServiceOverride(MappedConfiguration<Class, Object> configuration) {
-		configuration.add(ClasspathURLConverter.class, new ClasspathURLConverterJBoss7());
+		// configuration.add(ClasspathURLConverter.class, new ClasspathURLConverterJBoss7());
+		configuration.add(ClasspathURLConverter.class, new ClasspathURLConverterWildFly11());
 	}
 
 	// Tell Tapestry how to handle @EJB in page and component classes.

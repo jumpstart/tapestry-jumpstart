@@ -109,7 +109,7 @@
 
 		<!-- Deploy the EAR (and possibly a datasource descriptor) to the chosen deployment server -->
 
-		<antcall target="deploy-ear-to-server-if-jboss"/>
+		<antcall target="deploy-ear-to-server-if-wildfly"/>
 		<antcall target="deploy-war-to-server-if-tomcat" />
 		<antcall target="deploy-ear-to-server-if-glassfish3" />
 	</target>
@@ -196,8 +196,8 @@
 		<get dest="${lib.tools.dir}/hsqldb-2.2.8.jar" usetimestamp="true" src="${maven.repo.root}/org/hsqldb/hsqldb/2.2.8/hsqldb-2.2.8.jar" />
 	</target>
 
-	<target name="deploy-ear-to-server-if-jboss" if="deployment.server.type.is.wildfly9" depends="interpret-server-type">
-		<ant dir="${enterprise.dir}" target="deploy-ear-to-server-wildfly9" />
+	<target name="deploy-ear-to-server-if-wildfly" if="deployment.server.type.is.wildfly11" depends="interpret-server-type">
+		<ant dir="${enterprise.dir}" target="deploy-ear-to-server-wildfly11" />
 	</target>
 
 	<target name="deploy-war-to-server-if-tomcat" if="deployment.server.type.is.tomcat7" depends="interpret-server-type">
@@ -214,17 +214,17 @@
 
 		<condition property="deployment.server.type.valid">
 			<or>
-				<equals arg1="${deployment.server.type}" arg2="wildfly9" />
+				<equals arg1="${deployment.server.type}" arg2="wildfly11" />
 				<equals arg1="${deployment.server.type}" arg2="tomcat7" />
 				<equals arg1="${deployment.server.type}" arg2="glassfish3" />
 			</or>
 		</condition>
-		<fail unless="deployment.server.type.valid" message="*** Please specify a valid deployment.server.type. Expected tomcat7, wildfly9, or glassfish3.  Found ${deployment.server.type}." />
+		<fail unless="deployment.server.type.valid" message="*** Please specify a valid deployment.server.type. Expected tomcat7, wildfly11, or glassfish3.  Found ${deployment.server.type}." />
 
 		<!-- Set some boolean properties based on the deployment.server.type -->
 
-		<condition property="deployment.server.type.is.wildfly9">
-			<equals arg1="${deployment.server.type}" arg2="wildfly9" />
+		<condition property="deployment.server.type.is.wildfly11">
+			<equals arg1="${deployment.server.type}" arg2="wildfly11" />
 		</condition>
 		<condition property="deployment.server.type.is.tomcat7">
 			<equals arg1="${deployment.server.type}" arg2="tomcat7" />

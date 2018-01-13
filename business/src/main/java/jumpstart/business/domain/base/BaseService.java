@@ -30,8 +30,8 @@ public abstract class BaseService {
 			|| ejbProvider == EJBProviderEnum.OPENEJB_7_REMOTE
 			|| ejbProvider == EJBProviderEnum.TOMCAT_7_OPENEJB_7_LOCAL);
 
-	protected final boolean inJBoss = (ejbProvider == EJBProviderEnum.JBOSS_7_LOCAL
-			|| ejbProvider == EJBProviderEnum.JBOSS_7_REMOTE);
+	protected final boolean inJBoss = (ejbProvider == EJBProviderEnum.WILDFLY_11_LOCAL
+			|| ejbProvider == EJBProviderEnum.WILDFLY_11_REMOTE);
 
 	protected void persist(BaseEntity entity) throws BusinessException {
 		if (entity == null) {

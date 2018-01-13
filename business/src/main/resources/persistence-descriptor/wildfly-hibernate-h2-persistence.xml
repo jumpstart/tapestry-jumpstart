@@ -16,14 +16,14 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<!-- Map to a data source registered in JNDI. -->
-		<!-- The data source and its name are set up manually through the JBoss admin console web page. -->
+		<!-- The data source and its name are set up manually through the WildFly admin console web page. -->
 
-		<jta-data-source>java:/jboss/datasources/JumpStartDS</jta-data-source>
+		<jta-data-source>java:/JumpStartDS</jta-data-source>
 
 		<!-- Vendor extensions. -->
 
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
 			<!-- Deprecated
 			<property name="hibernate.transaction.manager_lookup_class"
 				value="org.hibernate.transaction.JBossTransactionManagerLookup" />

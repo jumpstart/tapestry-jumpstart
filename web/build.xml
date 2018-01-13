@@ -214,7 +214,7 @@
 		<!-- For JSR-303 Bean Validation 1.0 -->
 		<get dest="${lib.compile.dir}/tapestry-beanvalidator-5.4.3.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tapestry/tapestry-beanvalidator/5.4.3/tapestry-beanvalidator-5.4.3.jar" />
 
-		<!-- provided jars - needed for compiling only - at runtime these are provided by the container (eg. JBoss) or the EAR (shared with the business tier) -->
+		<!-- provided jars - needed for compiling only - at runtime these are provided by the container (eg. WildFly) or the EAR (shared with the business tier) -->
 
 		<mkdir dir="${lib.provided.dir}"/>
 		<get dest="${lib.provided.dir}/javaee-api-7.0-1.jar" usetimestamp="true" src="${maven.repo.root}/org/apache/tomee/javaee-api/7.0-1/javaee-api-7.0-1.jar" />
@@ -301,17 +301,17 @@
 		
 		<condition property="deployment.server.type.valid">
 			<or>
-				<equals arg1="${deployment.server.type}" arg2="wildfly9" />
+				<equals arg1="${deployment.server.type}" arg2="wildfly11" />
 				<equals arg1="${deployment.server.type}" arg2="tomcat7"/>
 				<equals arg1="${deployment.server.type}" arg2="glassfish3"/>
 			</or>
 		</condition>
-		<fail unless="deployment.server.type.valid" message="*** Please specify a valid deployment.server.type. Expected wildfly9, tomcat7, or glassfish3.  Found ${deployment.server.type}." />
+		<fail unless="deployment.server.type.valid" message="*** Please specify a valid deployment.server.type. Expected wildfly11, tomcat7, or glassfish3.  Found ${deployment.server.type}." />
 
 		<!-- Set some boolean properties based on the deployment.server.type -->
 		
-		<condition property="deployment.server.type.is.wildfly9">
-			<equals arg1="${deployment.server.type}" arg2="wildfly9" />
+		<condition property="deployment.server.type.is.wildfly11">
+			<equals arg1="${deployment.server.type}" arg2="wildfly11" />
 		</condition>
 		<condition property="deployment.server.type.is.tomcat7">
 			<equals arg1="${deployment.server.type}" arg2="tomcat7"/>

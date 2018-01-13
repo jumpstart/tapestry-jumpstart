@@ -11,11 +11,11 @@ import javax.naming.NameNotFoundException;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 
+import org.slf4j.Logger;
+
 import jumpstart.business.commons.exception.SystemUnavailableException;
 import jumpstart.util.EJBProviderEnum;
 import jumpstart.util.EJBProviderUtil;
-
-import org.slf4j.Logger;
 
 /**
  * JNDIObjectLocator is used to centralize all JNDI lookups. It minimises the overhead of JNDI lookups by caching the
@@ -61,17 +61,17 @@ public class JNDIObjectLocator {
 			}
 			catch (NameNotFoundException e) {
 				clear();
-				throw new SystemUnavailableException("JNDI lookup failed for \"" + name
-						+ "\".  Is ejb server not started? Has the ejb.provider property been specified correctly", e);
+				throw new SystemUnavailableException(
+						"JNDI lookup failed for \"" + name
+								+ "\".  Is ejb server not started? Has the ejb.provider property been specified correctly",
+						e);
 			}
 			catch (NamingException e) {
 				clear();
-				throw new SystemUnavailableException(
-						"JNDI lookup failed for \""
-								+ name
-								+ "\".  Is ejb server not started?  If using jboss, is jbossall-client.jar missing from classpath?"
-								+ " Error looking up " + e.getRemainingName() + " because of " + e.getCause()
-								+ " while " + e.getExplanation(), e);
+				throw new SystemUnavailableException("JNDI lookup failed for \"" + name
+						+ "\".  Is ejb server not started?  If using jboss, is jbossall-client.jar missing from classpath?"
+						+ " Error looking up " + e.getRemainingName() + " because of " + e.getCause() + " while "
+						+ e.getExplanation(), e);
 			}
 		}
 		else {
@@ -96,11 +96,10 @@ public class JNDIObjectLocator {
 			}
 			catch (NamingException e) {
 				clear();
-				throw new SystemUnavailableException(
-						"Cannot get initial context."
-								+ " Is JNDI server not started?  If using jboss, is jbossall-client.jar missing from classpath?"
-								+ " Error looking up " + e.getRemainingName() + " because of " + e.getCause()
-								+ " while " + e.getExplanation(), e);
+				throw new SystemUnavailableException("Cannot get initial context."
+						+ " Is JNDI server not started?  If using wildfly, is jbossall-client.jar missing from classpath?"
+						+ " Error looking up " + e.getRemainingName() + " because of " + e.getCause() + " while "
+						+ e.getExplanation(), e);
 			}
 
 		}
