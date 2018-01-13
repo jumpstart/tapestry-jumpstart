@@ -48,7 +48,7 @@
 
 	<p>In this example we avoided depending on the activation context and activation request parameters. 
 		Deeply nested components need to be able to handle requests independently, without depending on the 
-		activation context and activation request parameters being passed down to them through layers of parameters.</p>
+		activation context and activation request parameters being passed down to them through layers of components.</p>
 		
 	<p>Instead, we used Form's and EventLink's context parameter to save the containing component's parameters, 
 		and our event handler methods receive the context and restore the parameters.</p>
