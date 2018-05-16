@@ -30,7 +30,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 7.0.1</h1>
+				<h1>JumpStart 7.0.2</h1>
 				<h2>For Tapestry 5.4.3</h2>
 			</div>
 		</div>
@@ -98,9 +98,12 @@
 							<br/>
 							<t:pagelink page="examples/input/Forms1">Forms</t:pagelink><br/>
 							<t:pagelink page="examples/input/FormsExplained1">Forms Explained</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxForm">AJAX Form</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormMultipleZoneUpdate">AJAX Form Multiple Zone Update</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/input/EventLinks">EventLinks</t:pagelink><br/>
 							<t:pagelink page="examples/input/EventLinksExplained">EventLinks Explained</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxEventLink">AJAX EventLink</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/input/AtOnEvent">@OnEvent</t:pagelink><br/>
 							<t:pagelink page="examples/navigation/MultipleMethodMatches">Multiple Method Matches</t:pagelink><br/>
@@ -154,6 +157,7 @@
 					<td class="col">
 						<div class="group">
 							<t:pagelink page="examples/navigation/WhatIsCalledAndWhen">What is Called and When</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxWhatIsCalledAndWhen">AJAX: What is Called and When</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/navigation/OnActivateAndOnPassivate" t:context="literal:3">onActivate and onPassivate</t:pagelink><br/>
@@ -174,6 +178,10 @@
 							<t:pagelink page="examples/select/TotalControlObjectSelect">Total Control Object Select</t:pagelink><br/>
 							<t:pagelink page="examples/select/IdSelect">Id Select</t:pagelink><br/>
 							<t:pagelink page="examples/select/EasyIdSelect">Easy Id Select</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/ajax/AjaxSelect1">AJAX Select</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxSelectMore1">AJAX Select More</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxSelectDependency1">AJAX Select Dependency</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<div class="together">Putting It All Together</div>
@@ -195,23 +203,16 @@
 							<t:pagelink page="examples/tables/EditableLoop1">Editable Loop</t:pagelink><br/>
 							<t:pagelink page="examples/tables/EditableLoopForUpdate1">Editable Loop For Update</t:pagelink><br/>
 							<t:pagelink page="examples/tables/LoopWithDeleteColumn1">Loop With Delete Column</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/ajax/AjaxEventLinksInALoop">AJAX EventLinks in a Loop</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormsInALoop">AJAX Forms in a Loop</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormsInALoopWithDEH">AJAX Forms in a Loop (With DEH)</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/ajax/AjaxFilteredGrid">AJAX Filtered Grid</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/infrastructure/ProtectingPages">Protecting Pages</t:pagelink><br/>
 							<t:pagelink page="examples/infrastructure/ProtectingAssets">Protecting Assets</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/state/DisplaySessionContents">Display Session Contents</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/infrastructure/Services">Services</t:pagelink><br/>
-							<t:pagelink page="core/t5dashboard">T5 Dashboard (localhost only)</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/localization/LocalizationByMessageCatalog">Localization By Message Catalog</t:pagelink><br/>
-							<t:pagelink page="examples/localization/LocalizationByTemplate">Localization By Template</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/styling/SwitchableStylesheets">Switchable Stylesheets</t:pagelink><br/>
-							<t:pagelink page="examples/styling/SkinningTheming">Skinning/Theming</t:pagelink><br/>
 						</div>
 					</td>
 					<td class="col">
@@ -231,6 +232,10 @@
 							<div class="together">Putting It All Together</div>
 							<t:pagelink page="together/componentscrud/Persons">Components CRUD</t:pagelink><br/>
 							<t:pagelink page="together/smallercomponentscrud/Persons">Smaller Components CRUD</t:pagelink><br/>
+							<t:pagelink page="together/ajaxcomponentscrud/Persons">AJAX Components CRUD</t:pagelink><br/>
+							<!-- 
+							<t:pagelink page="together/gracefulajaxcomponentscrud/Persons" t:disabled="true">Graceful AJAX Components CRUD</t:pagelink><br/>
+							 -->
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/component/SubFormComponent1">Sub-Form Component</t:pagelink><br/>
@@ -246,9 +251,6 @@
 							<t:pagelink page="examples/lang/CreatingMixins">Creating Mixins</t:pagelink><br/>
 						</div>
 						<div class="group">
-			 				<t:pagelink page="examples/jodatime/jodatime">Joda Time</t:pagelink><br/>
-			 			</div>
-						<div class="group">
 			 				<t:pagelink page="examples/lang/TypeCoercers">Type Coercers</t:pagelink><br/>
 			 				<t:pagelink page="examples/lang/PropertyEditors">Property Editors</t:pagelink><br/>
 			 			</div>
@@ -258,23 +260,17 @@
 							<t:pagelink page="examples/wizard/ConversationsList">Conversations List</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/ws/WebServices">Web Services</t:pagelink><br/>
-							<t:pagelink page="examples/ws/WebServicesMore">Web Services More</t:pagelink><br/>
-							<t:pagelink page="examples/ws/WebServicesVersioned">Web Services Versioned</t:pagelink><br/>
-						</div>
+			 				<t:pagelink page="examples/jodatime/jodatime">Joda Time</t:pagelink><br/>
+			 			</div>
 						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxEventLink">AJAX EventLink</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxForm">AJAX Form</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxFormMultipleZoneUpdate">AJAX Form Multiple Zone Update</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxSelect1">AJAX Select</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxSelectMore1">AJAX Select More</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxSelectDependency1">AJAX Select Dependency</t:pagelink><br/>
+							<t:pagelink page="examples/localization/LocalizationByMessageCatalog">Localization By Message Catalog</t:pagelink><br/>
+							<t:pagelink page="examples/localization/LocalizationByTemplate">Localization By Template</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/styling/SwitchableStylesheets">Switchable Stylesheets</t:pagelink><br/>
+							<t:pagelink page="examples/styling/SkinningTheming">Skinning/Theming</t:pagelink><br/>
 						</div>
 					</td>
 					<td class="col">
-						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxWhatIsCalledAndWhen">AJAX: What is Called and When</t:pagelink><br/>
-						</div>
 						<div class="group">
 							<t:pagelink page="examples/javascript/JavaScript">JavaScript</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/ReusableJavaScript">Reusable JavaScript</t:pagelink><br/>
@@ -283,19 +279,6 @@
 							<t:pagelink page="examples/javascript/CreatingMixins1">Creating Mixins: ClickOnce</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<div class="together">Putting It All Together</div>
-							<t:pagelink page="together/ajaxcomponentscrud/Persons">AJAX Components CRUD</t:pagelink><br/>
-							<!-- 
-							<t:pagelink page="together/gracefulajaxcomponentscrud/Persons" t:disabled="true">Graceful AJAX Components CRUD</t:pagelink><br/>
-							 -->
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxEventLinksInALoop">AJAX EventLinks in a Loop</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxFormsInALoop">AJAX Forms in a Loop</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxFormsInALoopWithDEH">AJAX Forms in a Loop (With DEH)</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/ajax/AjaxFilteredGrid">AJAX Filtered Grid</t:pagelink><br/>
-							<br/>
 							<t:pagelink page="examples/ajax/AutocompleteMixin">Autocomplete Mixin</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/ajax/TreeFromDatabaseWithZones">Tree From Database, With Zones</t:pagelink><br/> 
@@ -328,6 +311,16 @@
 							<t:pagelink page="examples/ajax/AjaxComponents1">AJAX Components</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxValidators1" t:disabled="true">AJAX Validators</t:pagelink><br/>
 						</div>
+						<div class="group">
+							<t:pagelink page="examples/ws/WebServices">Web Services</t:pagelink><br/>
+							<t:pagelink page="examples/ws/WebServicesMore">Web Services More</t:pagelink><br/>
+							<t:pagelink page="examples/ws/WebServicesVersioned">Web Services Versioned</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/state/DisplaySessionContents">Display Session Contents</t:pagelink><br/>
+							<t:pagelink page="examples/infrastructure/Services">Services</t:pagelink><br/>
+							<t:pagelink page="core/t5dashboard">T5 Dashboard (localhost only)</t:pagelink><br/>
+						</div>
 					</td>
 				</tr>
 			</table>
@@ -338,9 +331,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.1">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.2">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.1">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.2">me</a>.<br/>
 		</div>
 	</td>
 	</tr>
