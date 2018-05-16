@@ -30,7 +30,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 7.0.2</h1>
+				<h1>JumpStart 7.0.3</h1>
 				<h2>For Tapestry 5.4.3</h2>
 			</div>
 		</div>
@@ -42,6 +42,9 @@
 			<table id="topicstable">
 				<tr>
 					<td class="col">
+						<div class="category">
+							OUTPUT
+						</div>
 						<div class="group">
 							<t:pagelink page="HelloWorld">Hello, World</t:pagelink><br/>
 							<t:pagelink page="HelloWorldExplained">"Hello, World" Explained</t:pagelink><br/>
@@ -93,6 +96,9 @@
 						</div>
 					</td>
 					<td class="col">
+						<div class="category">
+							INPUT AND EVENTS
+						</div>
 						<div class="group">
 							<t:pagelink page="examples/input/InputAndEvents">Input and Events</t:pagelink><br/>
 							<br/>
@@ -149,10 +155,6 @@
 						<div class="group">
 							<t:pagelink page="examples/navigation/ReturnToPage1" t:context="literal:abc">Return to Page</t:pagelink><br/>
 						</div>
-						<div class="group">
-							<t:pagelink page="examples/state/SessionBeans">Session Beans</t:pagelink><br/>
-							<t:pagelink page="examples/state/AtEjb">@EJB</t:pagelink><br/>
-						</div>
 					</td>
 					<td class="col">
 						<div class="group">
@@ -193,12 +195,17 @@
 						<div class="group">
 							<t:pagelink page="examples/component/Kaptcha1">Kaptcha</t:pagelink><br/>
 							<t:pagelink page="examples/component/Alerts">Alerts</t:pagelink><br/>
+						</div>
+						<div class="group">
 							<t:pagelink page="examples/component/TreeBrowse">Tree Browse</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/TreeFromDatabaseWithZones">Tree From Database, With Zones</t:pagelink><br/> 
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/tables/EditableGrid1">Editable Grid</t:pagelink><br/>
 							<t:pagelink page="examples/tables/EditableGridForUpdate1">Editable Grid For Update</t:pagelink><br/>
 							<t:pagelink page="examples/tables/GridWithDeleteColumn1">Grid With Delete Column</t:pagelink><br/>
+							<br/>
+							<t:pagelink page="examples/ajax/AjaxFilteredGrid">AJAX Filtered Grid</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/tables/EditableLoop1">Editable Loop</t:pagelink><br/>
 							<t:pagelink page="examples/tables/EditableLoopForUpdate1">Editable Loop For Update</t:pagelink><br/>
@@ -208,14 +215,15 @@
 							<t:pagelink page="examples/ajax/AjaxFormsInALoop">AJAX Forms in a Loop</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/AjaxFormsInALoopWithDEH">AJAX Forms in a Loop (With DEH)</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/ajax/AjaxFilteredGrid">AJAX Filtered Grid</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/infrastructure/ProtectingPages">Protecting Pages</t:pagelink><br/>
-							<t:pagelink page="examples/infrastructure/ProtectingAssets">Protecting Assets</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormLoop1" t:disabled="true">AjaxFormLoop</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormLoopWithHolders1" t:disabled="true">AjaxFormLoop With Holders</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxFormLoopTailored1" t:disabled="true">AjaxFormLoop Tailored</t:pagelink><br/>
 						</div>
 					</td>
 					<td class="col">
+						<div class="category">
+							COMPONENTS, MIXINS, JS
+						</div>
 						<div class="group">
 							<t:pagelink page="examples/component/CreatingComponents">Creating Components</t:pagelink><br/>
 							<t:pagelink page="examples/component/ComponentAroundContent">Component Around Content</t:pagelink><br/>
@@ -243,34 +251,11 @@
 							<t:pagelink page="examples/component/SubFormAsAField1">Sub-Form As a Field</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/component/MarkupWriter">MarkupWriter</t:pagelink><br/>
-							<t:pagelink page="examples/lang/DelegateToRenderable">Delegate to Renderable</t:pagelink><br/>
-						</div>
-						<div class="group">
 							<t:pagelink page="examples/lang/Mixins">Mixins</t:pagelink><br/>
 							<t:pagelink page="examples/lang/CreatingMixins">Creating Mixins</t:pagelink><br/>
-						</div>
-						<div class="group">
-			 				<t:pagelink page="examples/lang/TypeCoercers">Type Coercers</t:pagelink><br/>
-			 				<t:pagelink page="examples/lang/PropertyEditors">Property Editors</t:pagelink><br/>
-			 			</div>
-						<div class="group">
-							<t:pagelink page="examples/wizard/WizardUsingFormFragments">Wizard Using Form Fragments</t:pagelink><br/>
-							<t:pagelink page="examples/wizard/WizardUsingPages1">Wizard Using Pages</t:pagelink><br/>
-							<t:pagelink page="examples/wizard/ConversationsList">Conversations List</t:pagelink><br/>
-						</div>
-						<div class="group">
-			 				<t:pagelink page="examples/jodatime/jodatime">Joda Time</t:pagelink><br/>
-			 			</div>
-						<div class="group">
-							<t:pagelink page="examples/localization/LocalizationByMessageCatalog">Localization By Message Catalog</t:pagelink><br/>
-							<t:pagelink page="examples/localization/LocalizationByTemplate">Localization By Template</t:pagelink><br/>
 							<br/>
-							<t:pagelink page="examples/styling/SwitchableStylesheets">Switchable Stylesheets</t:pagelink><br/>
-							<t:pagelink page="examples/styling/SkinningTheming">Skinning/Theming</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AutocompleteMixin">Autocomplete Mixin</t:pagelink><br/>
 						</div>
-					</td>
-					<td class="col">
 						<div class="group">
 							<t:pagelink page="examples/javascript/JavaScript">JavaScript</t:pagelink><br/>
 							<t:pagelink page="examples/javascript/ReusableJavaScript">Reusable JavaScript</t:pagelink><br/>
@@ -279,16 +264,27 @@
 							<t:pagelink page="examples/javascript/CreatingMixins1">Creating Mixins: ClickOnce</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/ajax/AutocompleteMixin">Autocomplete Mixin</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/ajax/TreeFromDatabaseWithZones">Tree From Database, With Zones</t:pagelink><br/> 
-							<br/>
 							<t:pagelink page="examples/ajax/ProgressiveDisplay">ProgressiveDisplay</t:pagelink><br/>
 							<t:pagelink page="examples/ajax/ProgressiveDisplayVariations">ProgressiveDisplay Variations</t:pagelink><br/>
-							<br/>
-							<t:pagelink page="examples/ajax/AjaxFormLoop1" t:disabled="true">AjaxFormLoop</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxFormLoopWithHolders1" t:disabled="true">AjaxFormLoop With Holders</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxFormLoopTailored1" t:disabled="true">AjaxFormLoop Tailored</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/ajax/AjaxLoadingSpinner">AJAX Loading Spinner</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxPeriodicUpdate">AJAX Periodic Update</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxPeriodicUpdateMixin">AJAX Periodic Update Mixin</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxOnEvent">AJAX On Event: ZoneUpdater</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxMultipleZoneUpdate">AJAX Multiple Zone Update</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxComponents1">AJAX Components</t:pagelink><br/>
+							<t:pagelink page="examples/ajax/AjaxValidators1" t:disabled="true">AJAX Validators</t:pagelink><br/>
+						</div>
+					</td>
+					<td class="col">
+						<div class="category">
+							TECHNIQUES
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/state/DisplaySessionContents">Display Session Contents</t:pagelink><br/>
+							<t:pagelink page="examples/infrastructure/Services">Services</t:pagelink><br/>
+							<t:pagelink page="core/t5dashboard">T5 Dashboard (localhost only)</t:pagelink><br/>
 						</div>
 						<div class="group">
 							<t:pagelink page="examples/javascript/Modal" t:context="literal:1">Modal</t:pagelink><br/>
@@ -303,23 +299,41 @@
 							<t:pagelink page="examples/javascript/FileUpload" t:disabled="true">File Upload</t:pagelink><br/>
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/ajax/AjaxLoadingSpinner">AJAX Loading Spinner</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxPeriodicUpdate">AJAX Periodic Update</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxPeriodicUpdateMixin">AJAX Periodic Update Mixin</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxOnEvent">AJAX On Event: ZoneUpdater</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxMultipleZoneUpdate">AJAX Multiple Zone Update</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxComponents1">AJAX Components</t:pagelink><br/>
-							<t:pagelink page="examples/ajax/AjaxValidators1" t:disabled="true">AJAX Validators</t:pagelink><br/>
+							<t:pagelink page="examples/wizard/WizardUsingFormFragments">Wizard Using Form Fragments</t:pagelink><br/>
+							<t:pagelink page="examples/wizard/WizardUsingPages1">Wizard Using Pages</t:pagelink><br/>
+							<t:pagelink page="examples/wizard/ConversationsList">Conversations List</t:pagelink><br/>
 						</div>
+						<div class="group">
+							<t:pagelink page="examples/localization/LocalizationByMessageCatalog">Localization By Message Catalog</t:pagelink><br/>
+							<t:pagelink page="examples/localization/LocalizationByTemplate">Localization By Template</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/styling/SwitchableStylesheets">Switchable Stylesheets</t:pagelink><br/>
+							<t:pagelink page="examples/styling/SkinningTheming">Skinning/Theming</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/state/SessionBeans">Session Beans</t:pagelink><br/>
+							<t:pagelink page="examples/state/AtEjb">@EJB</t:pagelink><br/>
+						</div>
+						<div class="group">
+			 				<t:pagelink page="examples/lang/TypeCoercers">Type Coercers</t:pagelink><br/>
+			 				<t:pagelink page="examples/lang/PropertyEditors">Property Editors</t:pagelink><br/>
+			 			</div>
+						<div class="group">
+							<t:pagelink page="examples/component/MarkupWriter">MarkupWriter</t:pagelink><br/>
+							<t:pagelink page="examples/lang/DelegateToRenderable">Delegate to Renderable</t:pagelink><br/>
+						</div>
+						<div class="group">
+							<t:pagelink page="examples/infrastructure/ProtectingPages">Protecting Pages</t:pagelink><br/>
+							<t:pagelink page="examples/infrastructure/ProtectingAssets">Protecting Assets</t:pagelink><br/>
+						</div>
+						<div class="group">
+			 				<t:pagelink page="examples/jodatime/jodatime">Joda Time</t:pagelink><br/>
+			 			</div>
 						<div class="group">
 							<t:pagelink page="examples/ws/WebServices">Web Services</t:pagelink><br/>
 							<t:pagelink page="examples/ws/WebServicesMore">Web Services More</t:pagelink><br/>
 							<t:pagelink page="examples/ws/WebServicesVersioned">Web Services Versioned</t:pagelink><br/>
-						</div>
-						<div class="group">
-							<t:pagelink page="examples/state/DisplaySessionContents">Display Session Contents</t:pagelink><br/>
-							<t:pagelink page="examples/infrastructure/Services">Services</t:pagelink><br/>
-							<t:pagelink page="core/t5dashboard">T5 Dashboard (localhost only)</t:pagelink><br/>
 						</div>
 					</td>
 				</tr>
@@ -331,9 +345,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.2">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.3">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.2">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.3">me</a>.<br/>
 		</div>
 	</td>
 	</tr>
