@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -22,10 +23,12 @@ public class AjaxForm {
 
 	@Property
 	@NotNull
+	@Size(max = 10)
 	private String firstName;
 
 	@Property
 	@NotNull
+	@Size(max = 10)
 	private String lastName;
 
 	@Property
@@ -41,8 +44,8 @@ public class AjaxForm {
 	@InjectComponent("ajaxForm")
 	private Form form;
 
-    @InjectComponent("firstName")
-    private TextField firstNameField;
+	@InjectComponent("firstName")
+	private TextField firstNameField;
 
 	@InjectComponent
 	private Zone formZone;
@@ -60,15 +63,15 @@ public class AjaxForm {
 		}
 	}
 
-    void onValidateFromAjaxForm() {
+	void onValidateFromAjaxForm() {
 
-        // Note, this method is triggered even if server-side validation has already found error(s).
+		// Note, this method is triggered even if server-side validation has already found error(s).
 
-        if (firstName != null && firstName.equals("Acme")) {
-        	form.recordError(firstNameField, "First Name must not be Acme.");
-        }
+		if (firstName != null && firstName.equals("Acme")) {
+			form.recordError(firstNameField, "First Name must not be Acme.");
+		}
 
-    }
+	}
 
 	void onSuccess() {
 		if (request.isXHR()) {

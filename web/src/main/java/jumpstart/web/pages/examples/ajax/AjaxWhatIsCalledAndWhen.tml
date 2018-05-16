@@ -89,7 +89,7 @@
 		 		<tr>
 		 			<th>
 		 				<t:form>
-							In response to value change in <strong>Select</strong> with Zone.<br/>
+							In response to value change in <strong>Select</strong> with Zone (see later examples).<br/>
 							Eg. <t:label for="carMake"/>:
 							<t:select t:id="carMake" model="carMakes" zone="carDisplayZone"
 								blankOption="ALWAYS" blankLabel="Choose..." validate="required"
