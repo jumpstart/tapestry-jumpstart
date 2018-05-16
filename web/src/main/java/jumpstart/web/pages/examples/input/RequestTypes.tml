@@ -4,7 +4,7 @@
 	 
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <body class="container">
-	<h3>Input and Events</h3>
+	<h3>Request Types</h3>
 	
 	<p>The examples so far have involved one type of request: the <em>page render request</em>. To recap:</p>
 	
@@ -22,9 +22,9 @@
 	</ul>
 
 	<p><strong>This is a really significant feature of Tapestry!</strong> Component event requests go straight back to the container, 
-	meaning the page/component that chose to render the component, rather than some "action handler". This is perfect! 
+	meaning the page or component that chose to render the component, rather than some "action handler". This is perfect! 
 	What could be better placed to understand the context and meaning of the event than the issuing component's container? 
-	This is what truly sets apart a component framework such as Tapestry from the many action frameworks out there.</p>
+	This is what truly sets apart a <em>component framework</em> such as Tapestry from the many <em>action frameworks</em> out there.</p>
 
     <p>The 2 most used components for generating <em>component event requests</em> are these:</p>
 
@@ -47,8 +47,8 @@
 	<t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
 
 	<t:tabgroup>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.tml"/>
-		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/InputAndEvents.java"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/RequestTypes.tml"/>
+		<t:sourcecodetab src="/web/src/main/java/jumpstart/web/pages/examples/input/RequestTypes.java"/>
 	</t:tabgroup>
 </body>
 </html>

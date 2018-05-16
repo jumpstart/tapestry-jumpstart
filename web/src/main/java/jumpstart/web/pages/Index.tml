@@ -30,7 +30,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 7.0.3</h1>
+				<h1>JumpStart 7.0.4</h1>
 				<h2>For Tapestry 5.4.3</h2>
 			</div>
 		</div>
@@ -97,10 +97,10 @@
 					</td>
 					<td class="col">
 						<div class="category">
-							INPUT AND EVENTS
+							INPUT
 						</div>
 						<div class="group">
-							<t:pagelink page="examples/input/InputAndEvents">Input and Events</t:pagelink><br/>
+							<t:pagelink page="examples/input/RequestTypes">Request Types</t:pagelink><br/>
 							<br/>
 							<t:pagelink page="examples/input/Forms1">Forms</t:pagelink><br/>
 							<t:pagelink page="examples/input/FormsExplained1">Forms Explained</t:pagelink><br/>
@@ -345,9 +345,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.3">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.4">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.3">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.4">me</a>.<br/>
 		</div>
 	</td>
 	</tr>
