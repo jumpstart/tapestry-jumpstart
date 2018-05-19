@@ -18,7 +18,7 @@
 	
 			<t:if test="isFunction('review')">
 				<t:beandisplay object="person"/>
-				<t:eventlink event="toUpdate" context="personId" zone="^">Update...</t:eventlink>
+				<t:eventlink event="toUpdate" context="personId" async="true">Update...</t:eventlink>
 			</t:if>
 			
 		</t:zone>
