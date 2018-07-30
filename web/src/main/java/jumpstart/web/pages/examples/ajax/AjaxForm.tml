@@ -10,7 +10,7 @@
 		${message:javascript_required}
 	</noscript> 	
 
-	<p>This page demonstrates how Tapestry AJAX-enables a Form if you specify the zone parameter of the Form.</p>
+	<p>This page demonstrates how Tapestry AJAX-enables a Form if you specify <code>async="true"</code>.</p>
 
 	<div class="eg">
 		<t:zone t:id="formZone" id="formZone">
