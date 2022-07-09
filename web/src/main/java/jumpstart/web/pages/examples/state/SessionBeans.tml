@@ -20,7 +20,7 @@
 	<a href="http://tapestry.apache.org/integrating-with-jpa.html">JPA Integration</a> and 
 	<a href="http://tapestry.apache.org/hibernate.html">Hibernate Integration</a>.<br/><br/>
 
-	References: <a href="http://jumpstart.doublenegative.com.au/faq.html">"Why EJB3?" in JumpStart FAQ</a>, 
+	References: <a href="https:/tapestry-jumpstart.goxpro.com/faq.html">"Why EJB3?" in JumpStart FAQ</a>, 
 	<a href="http://docs.oracle.com/javaee/7/tutorial/doc/ejb-intro001.htm#GIPMB">What is an Enterprise Bean?</a>.<br/><br/>
 	
 	<t:pagelink page="Index">Home</t:pagelink><br/><br/>
