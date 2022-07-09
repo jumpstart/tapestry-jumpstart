@@ -14,15 +14,17 @@
 	<tr>
 	<td>
 		<div id="navbar"> 
-			<a href="https:/tapestry-jumpstart.goxpro.com/home.html">What's This?</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/download.html">Download</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/installation.html">Installation</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/orientation.html">Orientation</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/tips.html">Tips</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/troubleshooting.html">Troubleshooting</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/faq.html">FAQ</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/bugs_enhancements.html">Bugs and Enhancements</a>
-			<a href="https:/tapestry-jumpstart.goxpro.com/jumpstart6/" style="font-weight: bold; color: #a0ffa0;">JumpStart 6 for Tapestry 5.3</a>
+			<a href="/home.html">What's This?</a>
+			<a href="/download.html">Download</a>
+			<a href="/installation.html">Installation</a>
+			<a href="/orientation.html">Orientation</a>
+			<a href="/tips.html">Tips</a>
+			<a href="/troubleshooting.html">Troubleshooting</a>
+			<a href="/faq.html">FAQ</a>
+			<a href="/bugs_enhancements.html">Bugs and Enhancements</a>
+			<!-- 
+			<a href="/jumpstart6/" style="font-weight: bold; color: #a0ffa0;">JumpStart 6 for Tapestry 5.3</a>
+			 -->
 		</div>
 	</td>
 	</tr>
@@ -30,7 +32,7 @@
 	<td>
 		<div id="titlesbar">
 			<div id="titles">
-				<h1>JumpStart 7.0.5</h1>
+				<h1>JumpStart 7.0.6</h1>
 				<h2>For Tapestry 5.4.3</h2>
 			</div>
 		</div>
@@ -345,9 +347,9 @@
 	<td>
 		<div id="feedback">
 			Found a bug? Please 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.5">report it</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=Bug in JumpStart 7.0.6">report it</a>.<br/>
 			Comments? Suggestions? <br/>Please send to <a href="http://tapestry5.ideascale.com/a/ideafactory.do?id=3004&amp;mode=recent&amp;discussionFilter=byids&amp;discussionID=9482">Tapestry 5 Caffe</a> or 
-			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.5">me</a>.<br/>
+			<a href="mailto:&#103;&#101;&#111;&#102;&#102;&#046;&#099;&#097;&#108;&#108;&#101;&#110;&#100;&#101;&#114;&#046;&#106;&#117;&#109;&#112;&#115;&#116;&#097;&#114;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;?subject=About JumpStart 7.0.6">me</a>.<br/>
 		</div>
 	</td>
 	</tr>
