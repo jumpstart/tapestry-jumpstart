@@ -8,7 +8,7 @@ conf-*/
 	Contains items that are used to configure the test environment.
 data/
 	Scripts and HSQLDB files for setting up initial database data. Use as described in 
-	https:/tapestry-jumpstart.goxpro.com/installation.html and https:/tapestry-jumpstart.goxpro.com/tips.html .
+	https:/tapestry-jumpstart.org/installation.html and https:/tapestry-jumpstart.org/tips.html .
 java/ 
 	Contains the test classes.  Ideally the package structure emulates the structure of business/src/main/java/.
 lib-test/
@@ -17,5 +17,5 @@ lib-test/
 	To populate or refresh this directory, run the get-dependent-files target in the project's build.xml Ant file.
 lib-test-openejb-local/
 	Contains jar files needed only during tests with OpenEJB as the container, running locally (in-line).
-	Use as described in https:/tapestry-jumpstart.goxpro.com/installation.html and https:/tapestry-jumpstart.goxpro.com/tips.html .
+	Use as described in https:/tapestry-jumpstart.org/installation.html and https:/tapestry-jumpstart.org/tips.html .
 	To populate or refresh this directory, run the get-dependent-files target in the project's build.xml Ant file.

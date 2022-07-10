@@ -101,7 +101,7 @@
 		</jar>
 	</target>
 
-	<!-- For tips on how to use the integration tests see https:/tapestry-jumpstart.goxpro.com/tips.html -->
+	<!-- For tips on how to use the integration tests see https:/tapestry-jumpstart.org/tips.html -->
 
 	<target name="integration-test" depends="set-classpath-integration-test-remote">
 		<echo message="Running integration tests of jumpstart business tier."/>

@@ -3,9 +3,9 @@ JumpStart README
 
 You are welcome to use JumpStart as the base of your own application, but no warranty is expressed or implied.
 
-Installation:	Go to https:/tapestry-jumpstart.goxpro.com/installation.html for instructions.
+Installation:	Go to https:/tapestry-jumpstart.org/installation.html for instructions.
 
-Orientation:	Go to https:/tapestry-jumpstart.goxpro.com/orientation.html for instructions.
+Orientation:	Go to https:/tapestry-jumpstart.org/orientation.html for instructions.
 
 
 DO NOT MODIFY THE "COLLAPSED" DIRECTORY
